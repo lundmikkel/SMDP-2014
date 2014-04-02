@@ -573,7 +573,7 @@
     </children>
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_ldJZEbTzEeOUudlMY6Mo_A" lineColor="4210752"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_ldJZErTzEeOUudlMY6Mo_A" fontColor="4210752" fontName="Lucida Grande" fontHeight="10"/>
-    <element xmi:type="ecore:EReference" href="Survey.ecore#//Table/options"/>
+    <element xmi:type="ecore:EReference" href="Survey.ecore#//Table/tableOptions"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ldJZE7TzEeOUudlMY6Mo_A" points="[10, -20, -38, 73]$[46, -88, -2, 5]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_6LiTsLTzEeOUudlMY6Mo_A" id="(0.6666666666666666,0.023809523809523808)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ldL1ULTzEeOUudlMY6Mo_A" id="(0.5490196078431373,0.14285714285714285)"/>

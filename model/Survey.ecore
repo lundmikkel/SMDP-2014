@@ -72,7 +72,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Table" eSuperTypes="#//Question #//Other">
     <eStructuralFeatures xsi:type="ecore:EReference" name="questions" lowerBound="1"
         upperBound="-1" eType="#//TableQuestion" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="options" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tableOptions" lowerBound="1"
         upperBound="-1" eType="#//Option" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="multiple" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
