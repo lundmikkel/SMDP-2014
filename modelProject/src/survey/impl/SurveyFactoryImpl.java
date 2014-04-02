@@ -1,0 +1,316 @@
+/**
+ */
+package survey.impl;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
+
+import org.eclipse.emf.ecore.impl.EFactoryImpl;
+
+import org.eclipse.emf.ecore.plugin.EcorePlugin;
+
+import survey.Answer;
+import survey.AnswerTemplate;
+import survey.Date;
+import survey.EClass0;
+import survey.Group;
+import survey.Multiple;
+import survey.Option;
+import survey.Scale;
+import survey.Single;
+import survey.Survey;
+import survey.SurveyFactory;
+import survey.SurveyPackage;
+import survey.Table;
+import survey.TableQuestion;
+import survey.Text;
+import survey.TextLength;
+import survey.TitleAndDescription;
+
+/**
+ * <!-- begin-user-doc -->
+ * An implementation of the model <b>Factory</b>.
+ * <!-- end-user-doc -->
+ * @generated
+ */
+public class SurveyFactoryImpl extends EFactoryImpl implements SurveyFactory {
+	/**
+	 * Creates the default factory implementation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static SurveyFactory init() {
+		try {
+			SurveyFactory theSurveyFactory = (SurveyFactory)EPackage.Registry.INSTANCE.getEFactory(SurveyPackage.eNS_URI);
+			if (theSurveyFactory != null) {
+				return theSurveyFactory;
+			}
+		}
+		catch (Exception exception) {
+			EcorePlugin.INSTANCE.log(exception);
+		}
+		return new SurveyFactoryImpl();
+	}
+
+	/**
+	 * Creates an instance of the factory.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SurveyFactoryImpl() {
+		super();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EObject create(EClass eClass) {
+		switch (eClass.getClassifierID()) {
+			case SurveyPackage.SURVEY: return createSurvey();
+			case SurveyPackage.GROUP: return createGroup();
+			case SurveyPackage.SINGLE: return createSingle();
+			case SurveyPackage.MULTIPLE: return createMultiple();
+			case SurveyPackage.TEXT: return createText();
+			case SurveyPackage.DATE: return createDate();
+			case SurveyPackage.NUMBER: return createNumber();
+			case SurveyPackage.SCALE: return createScale();
+			case SurveyPackage.TITLE_AND_DESCRIPTION: return createTitleAndDescription();
+			case SurveyPackage.ANSWER: return createAnswer();
+			case SurveyPackage.ANSWER_TEMPLATE: return createAnswerTemplate();
+			case SurveyPackage.ECLASS0: return createEClass0();
+			case SurveyPackage.TABLE: return createTable();
+			case SurveyPackage.TABLE_QUESTION: return createTableQuestion();
+			case SurveyPackage.OPTION: return createOption();
+			default:
+				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object createFromString(EDataType eDataType, String initialValue) {
+		switch (eDataType.getClassifierID()) {
+			case SurveyPackage.TEXT_LENGTH:
+				return createTextLengthFromString(eDataType, initialValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String convertToString(EDataType eDataType, Object instanceValue) {
+		switch (eDataType.getClassifierID()) {
+			case SurveyPackage.TEXT_LENGTH:
+				return convertTextLengthToString(eDataType, instanceValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Survey createSurvey() {
+		SurveyImpl survey = new SurveyImpl();
+		return survey;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Group createGroup() {
+		GroupImpl group = new GroupImpl();
+		return group;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Single createSingle() {
+		SingleImpl single = new SingleImpl();
+		return single;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Multiple createMultiple() {
+		MultipleImpl multiple = new MultipleImpl();
+		return multiple;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Text createText() {
+		TextImpl text = new TextImpl();
+		return text;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Date createDate() {
+		DateImpl date = new DateImpl();
+		return date;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public survey.Number createNumber() {
+		NumberImpl number = new NumberImpl();
+		return number;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Scale createScale() {
+		ScaleImpl scale = new ScaleImpl();
+		return scale;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TitleAndDescription createTitleAndDescription() {
+		TitleAndDescriptionImpl titleAndDescription = new TitleAndDescriptionImpl();
+		return titleAndDescription;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Answer createAnswer() {
+		AnswerImpl answer = new AnswerImpl();
+		return answer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AnswerTemplate createAnswerTemplate() {
+		AnswerTemplateImpl answerTemplate = new AnswerTemplateImpl();
+		return answerTemplate;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass0 createEClass0() {
+		EClass0Impl eClass0 = new EClass0Impl();
+		return eClass0;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Table createTable() {
+		TableImpl table = new TableImpl();
+		return table;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TableQuestion createTableQuestion() {
+		TableQuestionImpl tableQuestion = new TableQuestionImpl();
+		return tableQuestion;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Option createOption() {
+		OptionImpl option = new OptionImpl();
+		return option;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TextLength createTextLengthFromString(EDataType eDataType, String initialValue) {
+		TextLength result = TextLength.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertTextLengthToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SurveyPackage getSurveyPackage() {
+		return (SurveyPackage)getEPackage();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @deprecated
+	 * @generated
+	 */
+	@Deprecated
+	public static SurveyPackage getPackage() {
+		return SurveyPackage.eINSTANCE;
+	}
+
+} //SurveyFactoryImpl
