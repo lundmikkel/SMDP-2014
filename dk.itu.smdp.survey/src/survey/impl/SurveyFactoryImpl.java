@@ -3,18 +3,13 @@
 package survey.impl;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-
 import survey.Answer;
 import survey.AnswerTemplate;
 import survey.Date;
-import survey.EClass0;
 import survey.Group;
 import survey.Multiple;
 import survey.Option;
@@ -26,7 +21,6 @@ import survey.SurveyPackage;
 import survey.Table;
 import survey.TableQuestion;
 import survey.Text;
-import survey.TextLength;
 import survey.TitleAndDescription;
 
 /**
@@ -84,42 +78,11 @@ public class SurveyFactoryImpl extends EFactoryImpl implements SurveyFactory {
 			case SurveyPackage.TITLE_AND_DESCRIPTION: return createTitleAndDescription();
 			case SurveyPackage.ANSWER: return createAnswer();
 			case SurveyPackage.ANSWER_TEMPLATE: return createAnswerTemplate();
-			case SurveyPackage.ECLASS0: return createEClass0();
 			case SurveyPackage.TABLE: return createTable();
 			case SurveyPackage.TABLE_QUESTION: return createTableQuestion();
 			case SurveyPackage.OPTION: return createOption();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
-		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object createFromString(EDataType eDataType, String initialValue) {
-		switch (eDataType.getClassifierID()) {
-			case SurveyPackage.TEXT_LENGTH:
-				return createTextLengthFromString(eDataType, initialValue);
-			default:
-				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
-		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String convertToString(EDataType eDataType, Object instanceValue) {
-		switch (eDataType.getClassifierID()) {
-			case SurveyPackage.TEXT_LENGTH:
-				return convertTextLengthToString(eDataType, instanceValue);
-			default:
-				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
 	}
 
@@ -238,16 +201,6 @@ public class SurveyFactoryImpl extends EFactoryImpl implements SurveyFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass0 createEClass0() {
-		EClass0Impl eClass0 = new EClass0Impl();
-		return eClass0;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Table createTable() {
 		TableImpl table = new TableImpl();
 		return table;
@@ -271,26 +224,6 @@ public class SurveyFactoryImpl extends EFactoryImpl implements SurveyFactory {
 	public Option createOption() {
 		OptionImpl option = new OptionImpl();
 		return option;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public TextLength createTextLengthFromString(EDataType eDataType, String initialValue) {
-		TextLength result = TextLength.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertTextLengthToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**

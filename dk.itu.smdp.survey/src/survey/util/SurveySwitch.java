@@ -4,13 +4,10 @@ package survey.util;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.Switch;
-
 import survey.Answer;
 import survey.AnswerTemplate;
 import survey.Date;
-import survey.EClass0;
 import survey.Group;
 import survey.Item;
 import survey.Multiple;
@@ -192,12 +189,6 @@ public class SurveySwitch<T> extends Switch<T> {
 				AnswerTemplate answerTemplate = (AnswerTemplate)theEObject;
 				T result = caseAnswerTemplate(answerTemplate);
 				if (result == null) result = caseOption(answerTemplate);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case SurveyPackage.ECLASS0: {
-				EClass0 eClass0 = (EClass0)theEObject;
-				T result = caseEClass0(eClass0);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -434,21 +425,6 @@ public class SurveySwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseAnswerTemplate(AnswerTemplate object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>EClass0</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>EClass0</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseEClass0(EClass0 object) {
 		return null;
 	}
 

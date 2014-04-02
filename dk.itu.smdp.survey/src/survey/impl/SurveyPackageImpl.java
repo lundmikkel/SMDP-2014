@@ -4,16 +4,12 @@ package survey.impl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import survey.Answer;
 import survey.AnswerTemplate;
 import survey.Date;
-import survey.EClass0;
 import survey.Group;
 import survey.Item;
 import survey.Multiple;
@@ -28,7 +24,6 @@ import survey.SurveyPackage;
 import survey.Table;
 import survey.TableQuestion;
 import survey.Text;
-import survey.TextLength;
 import survey.TitleAndDescription;
 
 /**
@@ -141,13 +136,6 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass eClass0EClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass tableEClass = null;
 
 	/**
@@ -163,13 +151,6 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 	 * @generated
 	 */
 	private EClass optionEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EEnum textLengthEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -642,15 +623,6 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEClass0() {
-		return eClass0EClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getTable() {
 		return tableEClass;
 	}
@@ -707,15 +679,6 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 	 */
 	public EClass getOption() {
 		return optionEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EEnum getTextLength() {
-		return textLengthEEnum;
 	}
 
 	/**
@@ -805,8 +768,6 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 		createEReference(answerTemplateEClass, ANSWER_TEMPLATE__ANSWERS);
 		createEAttribute(answerTemplateEClass, ANSWER_TEMPLATE__ID);
 
-		eClass0EClass = createEClass(ECLASS0);
-
 		tableEClass = createEClass(TABLE);
 		createEReference(tableEClass, TABLE__QUESTIONS);
 		createEReference(tableEClass, TABLE__TABLE_OPTIONS);
@@ -816,9 +777,6 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 		createEAttribute(tableQuestionEClass, TABLE_QUESTION__TITLE);
 
 		optionEClass = createEClass(OPTION);
-
-		// Create enums
-		textLengthEEnum = createEEnum(TEXT_LENGTH);
 	}
 
 	/**
@@ -926,8 +884,6 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 		initEReference(getAnswerTemplate_Answers(), this.getAnswer(), null, "answers", null, 1, -1, AnswerTemplate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAnswerTemplate_Id(), ecorePackage.getEString(), "id", null, 1, 1, AnswerTemplate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(eClass0EClass, EClass0.class, "EClass0", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
 		initEClass(tableEClass, Table.class, "Table", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTable_Questions(), this.getTableQuestion(), null, "questions", null, 1, -1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTable_TableOptions(), this.getOption(), null, "tableOptions", null, 1, -1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -937,11 +893,6 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 		initEAttribute(getTableQuestion_Title(), ecorePackage.getEString(), "title", null, 1, 1, TableQuestion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(optionEClass, Option.class, "Option", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		// Initialize enums and add enum literals
-		initEEnum(textLengthEEnum, TextLength.class, "TextLength");
-		addEEnumLiteral(textLengthEEnum, TextLength.SHORT);
-		addEEnumLiteral(textLengthEEnum, TextLength.LONG);
 
 		// Create resource
 		createResource(eNS_URI);

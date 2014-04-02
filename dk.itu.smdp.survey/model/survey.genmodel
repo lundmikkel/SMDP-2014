@@ -6,10 +6,6 @@
     operationReflection="true" importOrganizing="true">
   <foreignModel>Survey.ecore</foreignModel>
   <genPackages prefix="Survey" disposableProviderFactory="true" ecorePackage="Survey.ecore#/">
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Survey.ecore#//TextLength">
-      <genEnumLiterals ecoreEnumLiteral="Survey.ecore#//TextLength/SHORT"/>
-      <genEnumLiterals ecoreEnumLiteral="Survey.ecore#//TextLength/LONG"/>
-    </genEnums>
     <genClasses ecoreClass="Survey.ecore#//Survey">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Survey.ecore#//Survey/items"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Survey.ecore#//Survey/templates"/>
@@ -68,7 +64,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Survey.ecore#//AnswerTemplate/answers"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//AnswerTemplate/id"/>
     </genClasses>
-    <genClasses ecoreClass="Survey.ecore#//EClass0"/>
     <genClasses ecoreClass="Survey.ecore#//Table">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Survey.ecore#//Table/questions"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Survey.ecore#//Table/tableOptions"/>

@@ -121,15 +121,6 @@ public interface SurveyFactory extends EFactory {
 	AnswerTemplate createAnswerTemplate();
 
 	/**
-	 * Returns a new object of class '<em>EClass0</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>EClass0</em>'.
-	 * @generated
-	 */
-	EClass0 createEClass0();
-
-	/**
 	 * Returns a new object of class '<em>Table</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

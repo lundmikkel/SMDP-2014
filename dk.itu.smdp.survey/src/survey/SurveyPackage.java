@@ -4,7 +4,6 @@ package survey;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -1021,7 +1020,7 @@ public interface SurveyPackage extends EPackage {
 	 * @see survey.impl.SurveyPackageImpl#getOption()
 	 * @generated
 	 */
-	int OPTION = 17;
+	int OPTION = 16;
 
 	/**
 	 * The number of structural features of the '<em>Option</em>' class.
@@ -1189,34 +1188,6 @@ public interface SurveyPackage extends EPackage {
 	int ANSWER_TEMPLATE_OPERATION_COUNT = OPTION_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link survey.impl.EClass0Impl <em>EClass0</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see survey.impl.EClass0Impl
-	 * @see survey.impl.SurveyPackageImpl#getEClass0()
-	 * @generated
-	 */
-	int ECLASS0 = 14;
-
-	/**
-	 * The number of structural features of the '<em>EClass0</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ECLASS0_FEATURE_COUNT = 0;
-
-	/**
-	 * The number of operations of the '<em>EClass0</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ECLASS0_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link survey.impl.TableImpl <em>Table</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1224,7 +1195,7 @@ public interface SurveyPackage extends EPackage {
 	 * @see survey.impl.SurveyPackageImpl#getTable()
 	 * @generated
 	 */
-	int TABLE = 15;
+	int TABLE = 14;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -1351,7 +1322,7 @@ public interface SurveyPackage extends EPackage {
 	 * @see survey.impl.SurveyPackageImpl#getTableQuestion()
 	 * @generated
 	 */
-	int TABLE_QUESTION = 16;
+	int TABLE_QUESTION = 15;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -1379,17 +1350,6 @@ public interface SurveyPackage extends EPackage {
 	 * @ordered
 	 */
 	int TABLE_QUESTION_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link survey.TextLength <em>Text Length</em>}' enum.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see survey.TextLength
-	 * @see survey.impl.SurveyPackageImpl#getTextLength()
-	 * @generated
-	 */
-	int TEXT_LENGTH = 18;
-
 
 	/**
 	 * Returns the meta object for class '{@link survey.Survey <em>Survey</em>}'.
@@ -1873,16 +1833,6 @@ public interface SurveyPackage extends EPackage {
 	EAttribute getAnswerTemplate_Id();
 
 	/**
-	 * Returns the meta object for class '{@link survey.EClass0 <em>EClass0</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>EClass0</em>'.
-	 * @see survey.EClass0
-	 * @generated
-	 */
-	EClass getEClass0();
-
-	/**
 	 * Returns the meta object for class '{@link survey.Table <em>Table</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1955,16 +1905,6 @@ public interface SurveyPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getOption();
-
-	/**
-	 * Returns the meta object for enum '{@link survey.TextLength <em>Text Length</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Text Length</em>'.
-	 * @see survey.TextLength
-	 * @generated
-	 */
-	EEnum getTextLength();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -2378,16 +2318,6 @@ public interface SurveyPackage extends EPackage {
 		EAttribute ANSWER_TEMPLATE__ID = eINSTANCE.getAnswerTemplate_Id();
 
 		/**
-		 * The meta object literal for the '{@link survey.impl.EClass0Impl <em>EClass0</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see survey.impl.EClass0Impl
-		 * @see survey.impl.SurveyPackageImpl#getEClass0()
-		 * @generated
-		 */
-		EClass ECLASS0 = eINSTANCE.getEClass0();
-
-		/**
 		 * The meta object literal for the '{@link survey.impl.TableImpl <em>Table</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2448,16 +2378,6 @@ public interface SurveyPackage extends EPackage {
 		 * @generated
 		 */
 		EClass OPTION = eINSTANCE.getOption();
-
-		/**
-		 * The meta object literal for the '{@link survey.TextLength <em>Text Length</em>}' enum.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see survey.TextLength
-		 * @see survey.impl.SurveyPackageImpl#getTextLength()
-		 * @generated
-		 */
-		EEnum TEXT_LENGTH = eINSTANCE.getTextLength();
 
 	}
 

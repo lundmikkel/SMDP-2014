@@ -4,15 +4,11 @@ package survey.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
-
 import survey.Answer;
 import survey.AnswerTemplate;
 import survey.Date;
-import survey.EClass0;
 import survey.Group;
 import survey.Item;
 import survey.Multiple;
@@ -139,10 +135,6 @@ public class SurveyAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseAnswerTemplate(AnswerTemplate object) {
 				return createAnswerTemplateAdapter();
-			}
-			@Override
-			public Adapter caseEClass0(EClass0 object) {
-				return createEClass0Adapter();
 			}
 			@Override
 			public Adapter caseTable(Table object) {
@@ -369,20 +361,6 @@ public class SurveyAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createAnswerTemplateAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link survey.EClass0 <em>EClass0</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see survey.EClass0
-	 * @generated
-	 */
-	public Adapter createEClass0Adapter() {
 		return null;
 	}
 
