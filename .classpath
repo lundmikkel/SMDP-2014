@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="dk.itu.smdp.survey.dsl.tests/src-gen"/>
+	<classpathentry kind="src" path="dk.itu.smdp.survey.dsl.ui/src"/>
+	<classpathentry kind="src" path="dk.itu.smdp.survey.dsl.ui/src-gen"/>
+	<classpathentry kind="src" path="dk.itu.smdp.survey.dsl.ui/xtend-gen"/>
+	<classpathentry kind="src" path="dk.itu.smdp.survey.dsl/src"/>
+	<classpathentry kind="src" path="dk.itu.smdp.survey.dsl/src-gen"/>
+	<classpathentry kind="src" path="dk.itu.smdp.survey.dsl/xtend-gen"/>
+	<classpathentry kind="src" path="dk.itu.smdp.survey/src"/>
+	<classpathentry kind="lib" path="dk.itu.smdp.survey.dsl/.antlr-generator-3.2.0.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="dk.itu.smdp.survey.dsl.ui/bin"/>
+</classpath>

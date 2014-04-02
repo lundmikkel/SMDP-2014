@@ -4,7 +4,6 @@ Bundle-Name: dk.itu.smdp.survey.dsl
 Bundle-Vendor: My Company
 Bundle-Version: 1.0.0.qualifier
 Bundle-SymbolicName: dk.itu.smdp.survey.dsl; singleton:=true
-Bundle-ActivationPolicy: lazy
 Require-Bundle: org.eclipse.xtext;visibility:=reexport,
  org.eclipse.xtext.xbase;resolution:=optional;visibility:=reexport,
  org.eclipse.xtext.generator;resolution:=optional,
@@ -12,6 +11,19 @@ Require-Bundle: org.eclipse.xtext;visibility:=reexport,
  org.eclipse.emf.codegen.ecore;resolution:=optional,
  org.eclipse.emf.mwe.utils;resolution:=optional,
  org.eclipse.emf.mwe2.launch;resolution:=optional,
- dk.itu.smdp.survey
-Import-Package: org.apache.log4j
+ dk.itu.smdp.survey,
+ org.eclipse.xtext.util,
+ org.antlr.runtime,
+ org.eclipse.xtext.common.types
+Import-Package: org.apache.log4j,
+ org.eclipse.xtext.xbase.lib
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Export-Package: dk.itu.smdp.survey,
+ dk.itu.smdp.survey.services,
+ dk.itu.smdp.survey.serializer,
+ dk.itu.smdp.survey.parser.antlr,
+ dk.itu.smdp.survey.parser.antlr.internal,
+ dk.itu.smdp.survey.validation,
+ dk.itu.smdp.survey.scoping,
+ dk.itu.smdp.survey.generator,
+ dk.itu.smdp.survey.formatting
