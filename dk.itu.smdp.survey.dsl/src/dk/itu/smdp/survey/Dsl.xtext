@@ -33,7 +33,9 @@ EString returns ecore::EString:
 	;
 
 AnswerTemplate returns AnswerTemplate:
-	'<template' 'id' '=' id=EString '>'
+	'<template' 
+		'id' '=' id=EString
+	'>'
 		answers+=Answer* 
 	'</template>'
 	;
