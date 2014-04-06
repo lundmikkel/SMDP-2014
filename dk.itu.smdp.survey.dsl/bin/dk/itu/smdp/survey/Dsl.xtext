@@ -6,156 +6,165 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 Survey returns Survey:
 	{Survey}
-	'Survey'
-	'{'
-		('title' title=EString)?
-		('description' description=EString)?
-		('items' '{' items+=Item ( "," items+=Item)* '}' )?
-		('templates' '{' templates+=AnswerTemplate ( "," templates+=AnswerTemplate)* '}' )?
-	'}';
+	'<survey'
+		('title' '=' title=EString)?
+		('description' '=' description=EString)?
+	'>'
+		items+=Item+
+		templates+=AnswerTemplate*
+	'</survey>'
+	;
 
 Item returns Item:
-	Group | Single | Multiple | Text | Date | Number | Scale | Table;
-
-
+	Group | Single | Multiple | Text | Date | Number | Scale | Table
+	;
 
 Question returns Question:
-	Single | Multiple | Text | Date | Number | Scale | Table;
+	Single | Multiple | Text | Date | Number | Scale | Table
+	;
 
 Option returns Option:
-	Option_Impl | Answer | AnswerTemplate;
+	Option_Impl | Answer | AnswerTemplate
+	;
 
 
 EString returns ecore::EString:
-	STRING | ID;
+	STRING | ID
+	;
 
 AnswerTemplate returns AnswerTemplate:
-	'AnswerTemplate'
-	'{'
-		'id' id=EString
-		'answers' '{' answers+=Answer ( "," answers+=Answer)* '}' 
-	'}';
+	'<template' 'id' '=' id=EString '>'
+		answers+=Answer* 
+	'</template>'
+	;
 
 Answer returns Answer:
-	'Answer'
-	'{'
-		('id' id=EString)?
-		'label' label=EString
-	'}';
+	'<a'
+		('id' '=' id=EString)?
+	'>'
+		label=EString
+	'</a>'
+	;
 
 EBoolean returns ecore::EBoolean:
-	'true' | 'false';
+	'true' | 'false'
+	;
 
 Group returns Group:
-	(required?='required')?
-	'Group'
-	'{'
-		('title' title=EString)?
-		('description' description=EString)?
-		('dependsOn' dependsOn=[Answer|EString])?
-		'questions' '{' questions+=Question ( "," questions+=Question)* '}' 
-	'}';
+	'<group'
+		('title' '=' title=EString)?
+		('description' '=' description=EString)?
+		('dependsOn' '=' dependsOn=[Answer|EString])?
+		(required?='required')?
+	'>'
+		questions+=Question+ 
+	'</group>'
+	;
 
 Single returns Single:
-	(required?='required')?
-	(other?='other')?
-	'Single'
-	'{'
-		('title' title=EString)?
-		('description' description=EString)?
-		('id' id=EString)?
-		('dependsOn' dependsOn=[Answer|EString])?
-		('template' template=[Option|EString])?
-		'options' '{' options+=Option ( "," options+=Option)* '}' 
-	'}';
+	
+	'<single'
+		('title' '=' title=EString)?
+		('description' '=' description=EString)?
+		('id' '=' id=EString)?
+		('dependsOn' '=' dependsOn=[Answer|EString])?
+		(required?='required')?
+		(other?='other')?
+	'>'
+		(template=[Option|EString])?
+		options+=Option+ 
+	'</single>'
+	;
 
 Multiple returns Multiple:
-	(required?='required')?
-	(other?='other')?
-	(showLimits?='showLimits')?
-	'Multiple'
-	'{'
-		('title' title=EString)?
-		('description' description=EString)?
-		('id' id=EString)?
-		('lower' lower=EInt)?
-		('upper' upper=EInt)?
+	'<multiple'
+		('title' '=' title=EString)?
+		('description' '=' description=EString)?
+		('id' '=' id=EString)?
+		('lower' '=' lower=EInt)?
+		('upper' '=' upper=EInt)?
 		('dependsOn' dependsOn=[Answer|EString])?
-		('template' template=[Option|EString])?
-		'options' '{' options+=Option ( "," options+=Option)* '}' 
-	'}';
+		(required?='required')?
+		(other?='other')?
+		(showLimits?='showLimits')?
+	'>'	
+		(template=[Option|EString])?
+		options+=Option+ 
+	'</multiple>'
+	;
 
 Text returns Text:
 	{Text}
-	(required?='required')?
-	(multiline?='multiline')?
-	'Text'
-	'{'
-		('title' title=EString)?
-		('description' description=EString)?
-		('id' id=EString)?
-		('dependsOn' dependsOn=[Answer|EString])?
-	'}';
+	'<text'
+		('title' '=' title=EString)?
+		('description' '=' description=EString)?
+		('id' '=' id=EString)?
+		('dependsOn' '=' dependsOn=[Answer|EString])?
+		(required?='required')?
+		(multiline?='multiline')?
+	'/>'
+	;
 
 Date returns Date:
 	{Date}
-	(required?='required')?
-	(day?='day')?
-	(month?='month')?
-	(year?='year')?
-	'Date'
-	'{'
-		('title' title=EString)?
-		('description' description=EString)?
-		('id' id=EString)?
-		('from' from=EString)?
-		('to' to=EString)?
-		('dependsOn' dependsOn=[Answer|EString])?
-	'}';
+	'<date'
+		('title' '=' title=EString)?
+		('description' '=' description=EString)?
+		('id' '=' id=EString)?
+		('from' '=' from=EString)?
+		('to' '=' to=EString)?
+		('dependsOn' '=' dependsOn=[Answer|EString])?
+		(required?='required')?
+		(day?='day')?
+		(month?='month')?
+		(year?='year')?
+	'/>'
+	;
 
 Number returns Number:
 	{Number}
-	(required?='required')?
-	(showLimits?='showLimits')?
-	'Number'
-	'{'
-		('title' title=EString)?
-		('description' description=EString)?
-		('id' id=EString)?
-		('lower' lower=EInt)?
-		('upper' upper=EInt)?
-		('dependsOn' dependsOn=[Answer|EString])?
-	'}';
+	'<number'
+		('title' '=' title=EString)?
+		('description' '=' description=EString)?
+		('id' '=' id=EString)?
+		('lower' '=' lower=EInt)?
+		('upper' '=' upper=EInt)?
+		('dependsOn' '=' dependsOn=[Answer|EString])?
+		(required?='required')?
+		(showLimits?='showLimits')?
+	'/>'
+	;
 
 Scale returns Scale:
-	(required?='required')?
-	'Scale'
-	'{'
-		('title' title=EString)?
-		('description' description=EString)?
-		('id' id=EString)?
-		'lower' lower=EInt
-		'upper' upper=EInt
-		('lowerLabel' lowerLabel=EString)?
-		('upperLabel' upperLabel=EString)?
-		('dependsOn' dependsOn=[Answer|EString])?
-	'}';
+	'<scale'
+		('title' '=' title=EString)?
+		('description' '=' description=EString)?
+		('id' '=' id=EString)?
+		'lower' '=' lower=EInt
+		'upper' '=' upper=EInt
+		('lowerLabel' '=' lowerLabel=EString)?
+		('upperLabel' '=' upperLabel=EString)?
+		('dependsOn' '=' dependsOn=[Answer|EString])?
+		(required?='required')?
+	'/>'
+	;
 
 Table returns Table:
-	(required?='required')?
-	(other?='other')?
-	(multiple?='multiple')?
-	'Table'
-	'{'
+	'<table'
 		('title' title=EString)?
 		('description' description=EString)?
 		('id' id=EString)?
 		('dependsOn' dependsOn=[Answer|EString])?
-		('template' template=[Option|EString])?
-		'options' '{' options+=Option ( "," options+=Option)* '}' 
-		'questions' '{' questions+=TableQuestion ( "," questions+=TableQuestion)* '}' 
-		'tableOptions' '{' tableOptions+=Option ( "," tableOptions+=Option)* '}' 
-	'}';
+		(required?='required')?
+		(other?='other')		
+		(multiple?='multiple')?
+	'>'	
+		(template=[Option|EString])?
+		options+=Option+ 
+		questions+=TableQuestion+ 
+		tableOptions+=Option+
+	'</table>'
+	;
 
 Option_Impl returns Option:
 	{Option}
@@ -163,10 +172,11 @@ Option_Impl returns Option:
 	;
 
 EInt returns ecore::EInt:
-	'-'? INT;
+	'-'? INT
+	;
 
 TableQuestion returns TableQuestion:
-	'TableQuestion'
-	'{'
+	'<tableQuestion'
 		'title' title=EString
-	'}';
+	'/>'
+	;

@@ -157,16 +157,16 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	/**
 	 * Constraint:
 	 *     (
-	 *         required?='required'? 
-	 *         day?='day'? 
-	 *         month?='month'? 
-	 *         year?='year'? 
 	 *         title=EString? 
 	 *         description=EString? 
 	 *         id=EString? 
 	 *         from=EString? 
 	 *         to=EString? 
-	 *         dependsOn=[Answer|EString]?
+	 *         dependsOn=[Answer|EString]? 
+	 *         required?='required'? 
+	 *         day?='day'? 
+	 *         month?='month'? 
+	 *         year?='year'?
 	 *     )
 	 */
 	protected void sequence_Date(EObject context, Date semanticObject) {
@@ -177,10 +177,10 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	/**
 	 * Constraint:
 	 *     (
-	 *         required?='required'? 
 	 *         title=EString? 
 	 *         description=EString? 
 	 *         dependsOn=[Answer|EString]? 
+	 *         required?='required'? 
 	 *         questions+=Question 
 	 *         questions+=Question*
 	 *     )
@@ -193,15 +193,15 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	/**
 	 * Constraint:
 	 *     (
-	 *         required?='required'? 
-	 *         other?='other'? 
-	 *         showLimits?='showLimits'? 
 	 *         title=EString? 
 	 *         description=EString? 
 	 *         id=EString? 
 	 *         lower=EInt? 
 	 *         upper=EInt? 
 	 *         dependsOn=[Answer|EString]? 
+	 *         required?='required'? 
+	 *         other?='other'? 
+	 *         showLimits?='showLimits'? 
 	 *         template=[Option|EString]? 
 	 *         options+=Option 
 	 *         options+=Option*
@@ -215,14 +215,14 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	/**
 	 * Constraint:
 	 *     (
-	 *         required?='required'? 
-	 *         showLimits?='showLimits'? 
 	 *         title=EString? 
 	 *         description=EString? 
 	 *         id=EString? 
 	 *         lower=EInt? 
 	 *         upper=EInt? 
-	 *         dependsOn=[Answer|EString]?
+	 *         dependsOn=[Answer|EString]? 
+	 *         required?='required'? 
+	 *         showLimits?='showLimits'?
 	 *     )
 	 */
 	protected void sequence_Number(EObject context, survey.Number semanticObject) {
@@ -242,7 +242,6 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	/**
 	 * Constraint:
 	 *     (
-	 *         required?='required'? 
 	 *         title=EString? 
 	 *         description=EString? 
 	 *         id=EString? 
@@ -250,7 +249,8 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	 *         upper=EInt 
 	 *         lowerLabel=EString? 
 	 *         upperLabel=EString? 
-	 *         dependsOn=[Answer|EString]?
+	 *         dependsOn=[Answer|EString]? 
+	 *         required?='required'?
 	 *     )
 	 */
 	protected void sequence_Scale(EObject context, Scale semanticObject) {
@@ -261,12 +261,12 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	/**
 	 * Constraint:
 	 *     (
-	 *         required?='required'? 
-	 *         other?='other'? 
 	 *         title=EString? 
 	 *         description=EString? 
 	 *         id=EString? 
 	 *         dependsOn=[Answer|EString]? 
+	 *         required?='required'? 
+	 *         other?='other'? 
 	 *         template=[Option|EString]? 
 	 *         options+=Option 
 	 *         options+=Option*
@@ -305,13 +305,13 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	/**
 	 * Constraint:
 	 *     (
-	 *         required?='required'? 
-	 *         other?='other'? 
-	 *         multiple?='multiple'? 
 	 *         title=EString? 
 	 *         description=EString? 
 	 *         id=EString? 
 	 *         dependsOn=[Answer|EString]? 
+	 *         required?='required'? 
+	 *         other?='other' 
+	 *         multiple?='multiple'? 
 	 *         template=[Option|EString]? 
 	 *         options+=Option 
 	 *         options+=Option* 
@@ -329,12 +329,12 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	/**
 	 * Constraint:
 	 *     (
-	 *         required?='required'? 
-	 *         multiline?='multiline'? 
 	 *         title=EString? 
 	 *         description=EString? 
 	 *         id=EString? 
-	 *         dependsOn=[Answer|EString]?
+	 *         dependsOn=[Answer|EString]? 
+	 *         required?='required'? 
+	 *         multiline?='multiline'?
 	 *     )
 	 */
 	protected void sequence_Text(EObject context, Text semanticObject) {
