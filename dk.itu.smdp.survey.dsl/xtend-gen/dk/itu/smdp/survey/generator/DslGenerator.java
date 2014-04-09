@@ -3,15 +3,23 @@
  */
 package dk.itu.smdp.survey.generator;
 
+import java.util.Arrays;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.IFileSystemAccess;
 import org.eclipse.xtext.generator.IGenerator;
+import org.eclipse.xtext.xbase.lib.IntegerRange;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.eclipse.xtext.xbase.lib.StringExtensions;
+import survey.Group;
 import survey.Item;
+import survey.Question;
+import survey.Scale;
 import survey.Survey;
+import survey.Text;
+import survey.TitleAndDescription;
 
 /**
  * Generates code from your model files on save.
@@ -30,20 +38,146 @@ public class DslGenerator implements IGenerator {
   
   public void genHtml(final Survey survey, final IFileSystemAccess fsa) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("<html>");
+    _builder.append("<!DOCTYPE html>");
     _builder.newLine();
-    _builder.append("\t");
+    _builder.append("<html lang=\"en\">");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("<head>");
+    _builder.newLine();
+    _builder.append("        ");
+    _builder.append("<meta charset=\"utf-8\">");
+    _builder.newLine();
+    _builder.append("        ");
+    _builder.append("<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">");
+    _builder.newLine();
+    _builder.append("        ");
+    _builder.append("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">");
+    _builder.newLine();
+    _builder.append("        ");
+    _builder.append("<title>");
+    String _title = survey.getTitle();
+    _builder.append(_title, "        ");
+    _builder.append("</title>");
+    _builder.newLineIfNotEmpty();
+    _builder.append("        ");
+    _builder.append("<!-- Bootstrap -->");
+    _builder.newLine();
+    _builder.append("        ");
+    _builder.append("<link href=\"http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css\" rel=\"stylesheet\">");
+    _builder.newLine();
+    _builder.append("        ");
+    _builder.append("<style media=\"screen\" type=\"text/css\">");
+    _builder.newLine();
+    _builder.append("            ");
+    _builder.append(".group { margin-bottom: 20px; margin-top: 50px; }");
+    _builder.newLine();
+    _builder.append("            ");
+    _builder.append("input[type=number] { text-align: right; }");
+    _builder.newLine();
+    _builder.append("            ");
+    _builder.append("h2 + p.lead { font-size: 21px; margin-bottom: 30px; margin-top: -15px; }");
+    _builder.newLine();
+    _builder.append("            ");
+    _builder.append("label.control-label { font-size: 16px; }");
+    _builder.newLine();
+    _builder.append("            ");
+    _builder.append("label .help-block { font-size: 85%; }");
+    _builder.newLine();
+    _builder.append("            ");
+    _builder.append("table.scale td { padding: 8px; text-align: center; }");
+    _builder.newLine();
+    _builder.append("            ");
+    _builder.append("table.scale .top td { padding-bottom: 0; }");
+    _builder.newLine();
+    _builder.append("            ");
+    _builder.append("table.scale .bottom { border-top: 1px solid #DDD; border-bottom: 1px solid #DDD; }");
+    _builder.newLine();
+    _builder.append("            ");
+    _builder.append("form .form-group + .form-group { padding-top: 15px; }");
+    _builder.newLine();
+    _builder.append("            ");
+    _builder.append("form hr { margin-top: 30px; }");
+    _builder.newLine();
+    _builder.append("        ");
+    _builder.append("</style>");
+    _builder.newLine();
+    _builder.append("        ");
+    _builder.append("<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->");
+    _builder.newLine();
+    _builder.append("        ");
+    _builder.append("<!-- WARNING: Respond.js doesn\'t work if you view the page via file:// -->");
+    _builder.newLine();
+    _builder.append("        ");
+    _builder.append("<!--[if lt IE 9]>");
+    _builder.newLine();
+    _builder.append("        ");
+    _builder.append("<script src=\"https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js\"></script>");
+    _builder.newLine();
+    _builder.append("        ");
+    _builder.append("<script src=\"https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js\"></script>");
+    _builder.newLine();
+    _builder.append("        ");
+    _builder.append("<![endif]-->");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("</head>");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("    ");
     _builder.append("<body>");
+    _builder.newLine();
+    _builder.append("    \t");
+    _builder.append("<div class=\"container\">");
+    _builder.newLine();
+    _builder.append("            ");
+    _builder.append("<div class=\"row\">");
+    _builder.newLine();
+    _builder.append("                ");
+    _builder.append("<div> <h1>");
+    String _title_1 = survey.getTitle();
+    _builder.append(_title_1, "                ");
+    _builder.append("</h1> <p class=\"lead\">");
+    String _description = survey.getDescription();
+    _builder.append(_description, "                ");
+    _builder.append("</p> </div>");
+    _builder.newLineIfNotEmpty();
+    _builder.append("                ");
+    _builder.append("<form role=\"form\">");
     _builder.newLine();
     {
       EList<Item> _items = survey.getItems();
       for(final Item item : _items) {
-        _builder.append("\t\t");
+        _builder.append("\t\t\t\t\t");
         String _genHtml = this.genHtml(item);
-        _builder.append(_genHtml, "		");
+        _builder.append(_genHtml, "					");
         _builder.newLineIfNotEmpty();
       }
     }
+    _builder.append("                    ");
+    _builder.append("<hr/>");
+    _builder.newLine();
+    _builder.append("                    ");
+    _builder.append("<div class=\"form-group\">");
+    _builder.newLine();
+    _builder.append("                        ");
+    _builder.append("<button type=\"submit\" class=\"btn btn-success btn-lg\">Submit</button>");
+    _builder.newLine();
+    _builder.append("                        ");
+    _builder.append("<button type=\"reset\" class=\"btn btn-danger btn-lg\">Reset</button>");
+    _builder.newLine();
+    _builder.append("                    ");
+    _builder.append("</div>");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.append("</form>");
+    _builder.newLine();
+    _builder.append("            ");
+    _builder.append("</div>");
+    _builder.newLine();
+    _builder.append("        ");
+    _builder.append("</div>");
+    _builder.newLine();
     _builder.append("\t");
     _builder.append("</body>");
     _builder.newLine();
@@ -53,17 +187,356 @@ public class DslGenerator implements IGenerator {
     fsa.generateFile("survey.html", template);
   }
   
-  public String genHtml(final Item item) {
+  protected String _genHtml(final Group group) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("<p>");
-    String _title = item.getTitle();
+    _builder.append("<div class=\"group\">");
+    _builder.newLine();
+    {
+      String _title = group.getTitle();
+      boolean _isNullOrEmpty = StringExtensions.isNullOrEmpty(_title);
+      boolean _not = (!_isNullOrEmpty);
+      if (_not) {
+        _builder.append("    ");
+        _builder.append("<h2 id=\"grid\" class=\"page-header\">");
+        String _title_1 = group.getTitle();
+        _builder.append(_title_1, "    ");
+        _builder.append("</h2>");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    {
+      String _description = group.getDescription();
+      boolean _isNullOrEmpty_1 = StringExtensions.isNullOrEmpty(_description);
+      boolean _not_1 = (!_isNullOrEmpty_1);
+      if (_not_1) {
+        _builder.append("    ");
+        _builder.append("<p class=\"lead\">");
+        String _description_1 = group.getDescription();
+        _builder.append(_description_1, "    ");
+        _builder.append("</p>");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    {
+      EList<Question> _questions = group.getQuestions();
+      for(final Question question : _questions) {
+        _builder.append("\t");
+        String _genHtml = this.genHtml(question);
+        _builder.append(_genHtml, "	");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.append("</div>");
+    _builder.newLine();
+    return _builder.toString();
+  }
+  
+  protected String _genHtml(final Text question) {
+    String _xblockexpression = null;
+    {
+      String id = "name";
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("<div class=\"form-group\">");
+      _builder.newLine();
+      _builder.append("    ");
+      _builder.append("<label for=\"");
+      _builder.append(id, "    ");
+      _builder.append("\" class=\"control-label\">");
+      _builder.newLineIfNotEmpty();
+      _builder.append("        ");
+      String _title = question.getTitle();
+      _builder.append(_title, "        ");
+      _builder.newLineIfNotEmpty();
+      _builder.append("        ");
+      CharSequence _genQuestionDesc = this.genQuestionDesc(question);
+      _builder.append(_genQuestionDesc, "        ");
+      _builder.newLineIfNotEmpty();
+      _builder.append("    ");
+      _builder.append("</label>");
+      _builder.newLine();
+      _builder.append("    ");
+      _builder.append("<div class=\"row\">");
+      _builder.newLine();
+      _builder.append("        ");
+      _builder.append("<div class=\"col-xs-4\">");
+      _builder.newLine();
+      {
+        boolean _isMultiline = question.isMultiline();
+        boolean _not = (!_isMultiline);
+        if (_not) {
+          _builder.append("\t\t\t");
+          _builder.append("<input class=\"form-control\" id=\"");
+          _builder.append(id, "			");
+          _builder.append("\" ");
+          CharSequence _genRequired = this.genRequired(question);
+          _builder.append(_genRequired, "			");
+          _builder.append(">");
+          _builder.newLineIfNotEmpty();
+        } else {
+          _builder.append("\t\t\t");
+          _builder.append("<textarea class=\"form-control\" id=\"");
+          _builder.append(id, "			");
+          _builder.append("\" ");
+          CharSequence _genRequired_1 = this.genRequired(question);
+          _builder.append(_genRequired_1, "			");
+          _builder.append(" rows=\"3\"></textarea>");
+          _builder.newLineIfNotEmpty();
+        }
+      }
+      _builder.append("        ");
+      _builder.append("</div>");
+      _builder.newLine();
+      _builder.append("    ");
+      _builder.append("</div>");
+      _builder.newLine();
+      _builder.append("</div>");
+      _builder.newLine();
+      _xblockexpression = (_builder.toString());
+    }
+    return _xblockexpression;
+  }
+  
+  protected String _genHtml(final Scale question) {
+    String _xblockexpression = null;
+    {
+      String id = "radio_1";
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("<div class=\"group\">");
+      _builder.newLine();
+      _builder.append("    ");
+      _builder.append("<div class=\"form-group\">");
+      _builder.newLine();
+      _builder.append("        ");
+      _builder.append("<label class=\"control-label\">");
+      _builder.newLine();
+      _builder.append("\t        ");
+      String _title = question.getTitle();
+      _builder.append(_title, "	        ");
+      _builder.newLineIfNotEmpty();
+      _builder.append("\t        ");
+      CharSequence _genQuestionDesc = this.genQuestionDesc(question);
+      _builder.append(_genQuestionDesc, "	        ");
+      _builder.newLineIfNotEmpty();
+      _builder.append("        ");
+      _builder.append("</label>");
+      _builder.newLine();
+      _builder.append("        ");
+      _builder.append("<table class=\"scale\">");
+      _builder.newLine();
+      _builder.append("            ");
+      _builder.append("<tr class=\"top\">");
+      _builder.newLine();
+      _builder.append("                ");
+      _builder.append("<td></td>");
+      _builder.newLine();
+      {
+        int _lower = question.getLower();
+        int _upper = question.getUpper();
+        IntegerRange _upTo = new IntegerRange(_lower, _upper);
+        boolean _hasElements = false;
+        for(final Integer i : _upTo) {
+          if (!_hasElements) {
+            _hasElements = true;
+            _builder.append("<td>", "                ");
+          } else {
+            _builder.appendImmediate("</td><td>", "                ");
+          }
+          _builder.append("                ");
+          _builder.append("<label for=\"");
+          _builder.append(id, "                ");
+          _builder.append("_");
+          _builder.append(i, "                ");
+          _builder.append("\">");
+          _builder.append(i, "                ");
+          _builder.append("</label>");
+          _builder.newLineIfNotEmpty();
+        }
+        if (_hasElements) {
+          _builder.append("</td>", "                ");
+        }
+      }
+      _builder.append("                ");
+      _builder.append("<td></td>");
+      _builder.newLine();
+      _builder.append("            ");
+      _builder.append("</tr>");
+      _builder.newLine();
+      _builder.append("            ");
+      _builder.append("<tr class=\"bottom\">");
+      _builder.newLine();
+      _builder.append("                ");
+      _builder.append("<td><label for=\"");
+      _builder.append(id, "                ");
+      _builder.append("_");
+      int _lower_1 = question.getLower();
+      _builder.append(_lower_1, "                ");
+      _builder.append("\">");
+      String _lowerLabel = question.getLowerLabel();
+      _builder.append(_lowerLabel, "                ");
+      _builder.append("</label></td>");
+      _builder.newLineIfNotEmpty();
+      _builder.append("                ");
+      _builder.newLine();
+      {
+        int _lower_2 = question.getLower();
+        int _upper_1 = question.getUpper();
+        IntegerRange _upTo_1 = new IntegerRange(_lower_2, _upper_1);
+        boolean _hasElements_1 = false;
+        for(final Integer i_1 : _upTo_1) {
+          if (!_hasElements_1) {
+            _hasElements_1 = true;
+            _builder.append("<td>", "                ");
+          } else {
+            _builder.appendImmediate("</td><td>", "                ");
+          }
+          _builder.append("                ");
+          _builder.append("<input type=\"radio\" name=\"");
+          _builder.append(id, "                ");
+          _builder.append("\" id=\"");
+          _builder.append(id, "                ");
+          _builder.append("_");
+          _builder.append(i_1, "                ");
+          _builder.append("\" value=\"");
+          _builder.append(i_1, "                ");
+          _builder.append("\" />");
+          _builder.newLineIfNotEmpty();
+        }
+        if (_hasElements_1) {
+          _builder.append("</td>", "                ");
+        }
+      }
+      _builder.append("                ");
+      _builder.append("<td><label for=\"");
+      _builder.append(id, "                ");
+      _builder.append("_");
+      int _upper_2 = question.getUpper();
+      _builder.append(_upper_2, "                ");
+      _builder.append("\">");
+      String _upperLabel = question.getUpperLabel();
+      _builder.append(_upperLabel, "                ");
+      _builder.append("</label></td>");
+      _builder.newLineIfNotEmpty();
+      _builder.append("            ");
+      _builder.append("</tr>");
+      _builder.newLine();
+      _builder.append("        ");
+      _builder.append("</table>");
+      _builder.newLine();
+      _builder.append("    ");
+      _builder.append("</div>");
+      _builder.newLine();
+      _builder.append("</div>");
+      _builder.newLine();
+      _xblockexpression = (_builder.toString());
+    }
+    return _xblockexpression;
+  }
+  
+  protected String _genHtml(final survey.Number question) {
+    String _xblockexpression = null;
+    {
+      String id = "children";
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("<div class=\"form-group\">");
+      _builder.newLine();
+      _builder.append("    ");
+      _builder.append("<label for=\"");
+      _builder.append(id, "    ");
+      _builder.append("\" class=\"control-label\">");
+      _builder.newLineIfNotEmpty();
+      _builder.append("        ");
+      String _title = question.getTitle();
+      _builder.append(_title, "        ");
+      _builder.newLineIfNotEmpty();
+      _builder.append("        ");
+      CharSequence _genQuestionDesc = this.genQuestionDesc(question);
+      _builder.append(_genQuestionDesc, "        ");
+      _builder.newLineIfNotEmpty();
+      _builder.append("    ");
+      _builder.append("</label>");
+      _builder.newLine();
+      _builder.append("    ");
+      _builder.append("<div class=\"row\">");
+      _builder.newLine();
+      _builder.append("        ");
+      _builder.append("<div class=\"col-xs-2\">");
+      _builder.newLine();
+      _builder.append("            ");
+      _builder.append("<input type=\"number\" class=\"form-control\" id=\"");
+      _builder.append(id, "            ");
+      _builder.append("\" ");
+      CharSequence _genRequired = this.genRequired(question);
+      _builder.append(_genRequired, "            ");
+      _builder.append(" min=\"0\" step=\"1\" value=\"0\">");
+      _builder.newLineIfNotEmpty();
+      _builder.append("        ");
+      _builder.append("</div>");
+      _builder.newLine();
+      _builder.append("    ");
+      _builder.append("</div>");
+      _builder.newLine();
+      _builder.append("</div>");
+      _builder.newLine();
+      _xblockexpression = (_builder.toString());
+    }
+    return _xblockexpression;
+  }
+  
+  protected String _genHtml(final Question question) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _title = question.getTitle();
     _builder.append(_title, "");
-    _builder.append("</p>");
     _builder.newLineIfNotEmpty();
     return _builder.toString();
   }
   
+  public CharSequence genQuestionDesc(final TitleAndDescription item) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      String _description = item.getDescription();
+      boolean _isNullOrEmpty = StringExtensions.isNullOrEmpty(_description);
+      boolean _not = (!_isNullOrEmpty);
+      if (_not) {
+        _builder.append("<p class=\"help-block\">");
+        String _description_1 = item.getDescription();
+        _builder.append(_description_1, "");
+        _builder.append("</p>");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    return _builder;
+  }
+  
+  public CharSequence genRequired(final Item item) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      boolean _isRequired = item.isRequired();
+      if (_isRequired) {
+        _builder.append(" required ");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
   public void genLatex(final Survey survey, final IFileSystemAccess fsa) {
     fsa.generateFile("survey.tex", "Something something");
+  }
+  
+  public String genHtml(final Item question) {
+    if (question instanceof survey.Number) {
+      return _genHtml((survey.Number)question);
+    } else if (question instanceof Scale) {
+      return _genHtml((Scale)question);
+    } else if (question instanceof Text) {
+      return _genHtml((Text)question);
+    } else if (question instanceof Group) {
+      return _genHtml((Group)question);
+    } else if (question instanceof Question) {
+      return _genHtml((Question)question);
+    } else {
+      throw new IllegalArgumentException("Unhandled parameter types: " +
+        Arrays.<Object>asList(question).toString());
+    }
   }
 }

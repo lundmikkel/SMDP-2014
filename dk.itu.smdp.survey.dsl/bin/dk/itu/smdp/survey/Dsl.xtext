@@ -67,6 +67,7 @@ Scale returns Scale:
 		& ('id' '=' id=EString)?
 		& ('lower' '=' lower=EInt)
 		& ('upper' '=' upper=EInt)
+		// TODO: Force that if one label is set, both should be
 		& ('lowerLabel' '=' lowerLabel=EString)?
 		& ('upperLabel' '=' upperLabel=EString)?
 		& ('dependsOn' '=' dependsOn=[Answer|EString])?
