@@ -3,7 +3,6 @@
 	<name>dk.itu.smdp.survey</name>
 	<comment></comment>
 	<projects>
-		<project>dk.itu.smdp.survey.dsl</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
