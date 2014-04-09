@@ -74,5 +74,5 @@
   <eClassifiers xsi:type="ecore:EClass" name="TableQuestion">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Option"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Option" abstract="true"/>
 </ecore:EPackage>

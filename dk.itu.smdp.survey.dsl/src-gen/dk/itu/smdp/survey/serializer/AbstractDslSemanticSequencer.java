@@ -19,7 +19,6 @@ import survey.AnswerTemplate;
 import survey.Date;
 import survey.Group;
 import survey.Multiple;
-import survey.Option;
 import survey.Scale;
 import survey.Single;
 import survey.Survey;
@@ -78,13 +77,6 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 				   context == grammarAccess.getNumberRule() ||
 				   context == grammarAccess.getQuestionRule()) {
 					sequence_Number(context, (survey.Number) semanticObject); 
-					return; 
-				}
-				else break;
-			case SurveyPackage.OPTION:
-				if(context == grammarAccess.getOptionRule() ||
-				   context == grammarAccess.getOption_ImplRule()) {
-					sequence_Option_Impl(context, (Option) semanticObject); 
 					return; 
 				}
 				else break;
@@ -224,15 +216,6 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	
 	/**
 	 * Constraint:
-	 *     {Option}
-	 */
-	protected void sequence_Option_Impl(EObject context, Option semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
 	 *     (
 	 *         title=EString? 
 	 *         description=EString? 
@@ -270,7 +253,7 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	
 	/**
 	 * Constraint:
-	 *     (title=EString? description=EString? (items+=Item | templates+=AnswerTemplate)*)
+	 *     ((title=EString? description=EString? (items+=Item | templates+=AnswerTemplate)*)?)
 	 */
 	protected void sequence_Survey(EObject context, Survey semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

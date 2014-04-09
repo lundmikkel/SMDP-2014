@@ -83,36 +83,36 @@ ruleSurvey returns [EObject current=null]
             grammarAccess.getSurveyAccess().getSurveyAction_0(),
             $current);
     }
-)	otherlv_1='<survey' 
+)(	otherlv_1='<survey' 
     {
-    	newLeafNode(otherlv_1, grammarAccess.getSurveyAccess().getSurveyKeyword_1());
+    	newLeafNode(otherlv_1, grammarAccess.getSurveyAccess().getSurveyKeyword_1_0());
     }
 (
 
 (
 	{ 
-	  getUnorderedGroupHelper().enter(grammarAccess.getSurveyAccess().getUnorderedGroup_2());
+	  getUnorderedGroupHelper().enter(grammarAccess.getSurveyAccess().getUnorderedGroup_1_1());
 	}
 	(
 		(
 
 			( 
-				{getUnorderedGroupHelper().canSelect(grammarAccess.getSurveyAccess().getUnorderedGroup_2(), 0)}?=>(
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getSurveyAccess().getUnorderedGroup_1_1(), 0)}?=>(
 					{ 
-	 				  getUnorderedGroupHelper().select(grammarAccess.getSurveyAccess().getUnorderedGroup_2(), 0);
+	 				  getUnorderedGroupHelper().select(grammarAccess.getSurveyAccess().getUnorderedGroup_1_1(), 0);
 	 				}
 					({true}?=>(	otherlv_3='title' 
     {
-    	newLeafNode(otherlv_3, grammarAccess.getSurveyAccess().getTitleKeyword_2_0_0());
+    	newLeafNode(otherlv_3, grammarAccess.getSurveyAccess().getTitleKeyword_1_1_0_0());
     }
 	otherlv_4='=' 
     {
-    	newLeafNode(otherlv_4, grammarAccess.getSurveyAccess().getEqualsSignKeyword_2_0_1());
+    	newLeafNode(otherlv_4, grammarAccess.getSurveyAccess().getEqualsSignKeyword_1_1_0_1());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getSurveyAccess().getTitleEStringParserRuleCall_2_0_2_0()); 
+	        newCompositeNode(grammarAccess.getSurveyAccess().getTitleEStringParserRuleCall_1_1_0_2_0()); 
 	    }
 		lv_title_5_0=ruleEString		{
 	        if ($current==null) {
@@ -129,28 +129,28 @@ ruleSurvey returns [EObject current=null]
 )
 )))
 					{ 
-	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getSurveyAccess().getUnorderedGroup_2());
+	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getSurveyAccess().getUnorderedGroup_1_1());
 	 				}
  				)
 			)  |
 
 			( 
-				{getUnorderedGroupHelper().canSelect(grammarAccess.getSurveyAccess().getUnorderedGroup_2(), 1)}?=>(
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getSurveyAccess().getUnorderedGroup_1_1(), 1)}?=>(
 					{ 
-	 				  getUnorderedGroupHelper().select(grammarAccess.getSurveyAccess().getUnorderedGroup_2(), 1);
+	 				  getUnorderedGroupHelper().select(grammarAccess.getSurveyAccess().getUnorderedGroup_1_1(), 1);
 	 				}
 					({true}?=>(	otherlv_6='description' 
     {
-    	newLeafNode(otherlv_6, grammarAccess.getSurveyAccess().getDescriptionKeyword_2_1_0());
+    	newLeafNode(otherlv_6, grammarAccess.getSurveyAccess().getDescriptionKeyword_1_1_1_0());
     }
 	otherlv_7='=' 
     {
-    	newLeafNode(otherlv_7, grammarAccess.getSurveyAccess().getEqualsSignKeyword_2_1_1());
+    	newLeafNode(otherlv_7, grammarAccess.getSurveyAccess().getEqualsSignKeyword_1_1_1_1());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getSurveyAccess().getDescriptionEStringParserRuleCall_2_1_2_0()); 
+	        newCompositeNode(grammarAccess.getSurveyAccess().getDescriptionEStringParserRuleCall_1_1_1_2_0()); 
 	    }
 		lv_description_8_0=ruleEString		{
 	        if ($current==null) {
@@ -167,7 +167,7 @@ ruleSurvey returns [EObject current=null]
 )
 )))
 					{ 
-	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getSurveyAccess().getUnorderedGroup_2());
+	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getSurveyAccess().getUnorderedGroup_1_1());
 	 				}
  				)
 			)  
@@ -176,17 +176,17 @@ ruleSurvey returns [EObject current=null]
 	)
 )
 	{ 
-	  getUnorderedGroupHelper().leave(grammarAccess.getSurveyAccess().getUnorderedGroup_2());
+	  getUnorderedGroupHelper().leave(grammarAccess.getSurveyAccess().getUnorderedGroup_1_1());
 	}
 
 )	otherlv_9='>' 
     {
-    	newLeafNode(otherlv_9, grammarAccess.getSurveyAccess().getGreaterThanSignKeyword_3());
+    	newLeafNode(otherlv_9, grammarAccess.getSurveyAccess().getGreaterThanSignKeyword_1_2());
     }
 ((
 (
 		{ 
-	        newCompositeNode(grammarAccess.getSurveyAccess().getItemsItemParserRuleCall_4_0_0()); 
+	        newCompositeNode(grammarAccess.getSurveyAccess().getItemsItemParserRuleCall_1_3_0_0()); 
 	    }
 		lv_items_10_0=ruleItem		{
 	        if ($current==null) {
@@ -205,7 +205,7 @@ ruleSurvey returns [EObject current=null]
     |(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getSurveyAccess().getTemplatesAnswerTemplateParserRuleCall_4_1_0()); 
+	        newCompositeNode(grammarAccess.getSurveyAccess().getTemplatesAnswerTemplateParserRuleCall_1_3_1_0()); 
 	    }
 		lv_templates_11_0=ruleAnswerTemplate		{
 	        if ($current==null) {
@@ -222,9 +222,9 @@ ruleSurvey returns [EObject current=null]
 )
 ))*	otherlv_12='</survey>' 
     {
-    	newLeafNode(otherlv_12, grammarAccess.getSurveyAccess().getSurveyKeyword_5());
+    	newLeafNode(otherlv_12, grammarAccess.getSurveyAccess().getSurveyKeyword_1_4());
     }
-)
+)?)
 ;
 
 
@@ -437,31 +437,21 @@ ruleOption returns [EObject current=null]
     @after { leaveRule(); }:
 (
     { 
-        newCompositeNode(grammarAccess.getOptionAccess().getOption_ImplParserRuleCall_0()); 
+        newCompositeNode(grammarAccess.getOptionAccess().getAnswerParserRuleCall_0()); 
     }
-    this_Option_Impl_0=ruleOption_Impl
+    this_Answer_0=ruleAnswer
     { 
-        $current = $this_Option_Impl_0.current; 
+        $current = $this_Answer_0.current; 
         afterParserOrEnumRuleCall();
     }
 
     |
     { 
-        newCompositeNode(grammarAccess.getOptionAccess().getAnswerParserRuleCall_1()); 
+        newCompositeNode(grammarAccess.getOptionAccess().getAnswerTemplateParserRuleCall_1()); 
     }
-    this_Answer_1=ruleAnswer
+    this_AnswerTemplate_1=ruleAnswerTemplate
     { 
-        $current = $this_Answer_1.current; 
-        afterParserOrEnumRuleCall();
-    }
-
-    |
-    { 
-        newCompositeNode(grammarAccess.getOptionAccess().getAnswerTemplateParserRuleCall_2()); 
-    }
-    this_AnswerTemplate_2=ruleAnswerTemplate
-    { 
-        $current = $this_AnswerTemplate_2.current; 
+        $current = $this_AnswerTemplate_1.current; 
         afterParserOrEnumRuleCall();
     }
 )
@@ -3401,37 +3391,6 @@ ruleTable returns [EObject current=null]
 )	otherlv_24='</table>' 
     {
     	newLeafNode(otherlv_24, grammarAccess.getTableAccess().getTableKeyword_4());
-    }
-)
-;
-
-
-
-
-
-// Entry rule entryRuleOption_Impl
-entryRuleOption_Impl returns [EObject current=null] 
-	:
-	{ newCompositeNode(grammarAccess.getOption_ImplRule()); }
-	 iv_ruleOption_Impl=ruleOption_Impl 
-	 { $current=$iv_ruleOption_Impl.current; } 
-	 EOF 
-;
-
-// Rule Option_Impl
-ruleOption_Impl returns [EObject current=null] 
-    @init { enterRule(); 
-    }
-    @after { leaveRule(); }:
-((
-    {
-        $current = forceCreateModelElement(
-            grammarAccess.getOption_ImplAccess().getOptionAction_0(),
-            $current);
-    }
-)	otherlv_1='Option' 
-    {
-    	newLeafNode(otherlv_1, grammarAccess.getOption_ImplAccess().getOptionKeyword_1());
     }
 )
 ;
