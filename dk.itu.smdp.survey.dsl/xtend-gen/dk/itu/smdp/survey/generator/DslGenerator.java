@@ -3,9 +3,15 @@
  */
 package dk.itu.smdp.survey.generator;
 
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.IFileSystemAccess;
 import org.eclipse.xtext.generator.IGenerator;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import survey.Item;
+import survey.Survey;
 
 /**
  * Generates code from your model files on save.
@@ -15,5 +21,49 @@ import org.eclipse.xtext.generator.IGenerator;
 @SuppressWarnings("all")
 public class DslGenerator implements IGenerator {
   public void doGenerate(final Resource resource, final IFileSystemAccess fsa) {
+    EList<EObject> _contents = resource.getContents();
+    EObject _head = IterableExtensions.<EObject>head(_contents);
+    Survey survey = ((Survey) _head);
+    this.genHtml(survey, fsa);
+    this.genLatex(survey, fsa);
+  }
+  
+  public void genHtml(final Survey survey, final IFileSystemAccess fsa) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("<html>");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("<body>");
+    _builder.newLine();
+    {
+      EList<Item> _items = survey.getItems();
+      for(final Item item : _items) {
+        _builder.append("\t\t");
+        String _genHtml = this.genHtml(item);
+        _builder.append(_genHtml, "		");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.append("\t");
+    _builder.append("</body>");
+    _builder.newLine();
+    _builder.append("</html>");
+    _builder.newLine();
+    String template = _builder.toString();
+    fsa.generateFile("survey.html", template);
+  }
+  
+  public String genHtml(final Item item) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("<p>");
+    String _title = item.getTitle();
+    _builder.append(_title, "");
+    _builder.append("</p>");
+    _builder.newLineIfNotEmpty();
+    return _builder.toString();
+  }
+  
+  public void genLatex(final Survey survey, final IFileSystemAccess fsa) {
+    fsa.generateFile("survey.tex", "Something something");
   }
 }

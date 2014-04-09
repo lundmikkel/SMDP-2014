@@ -6,6 +6,7 @@ package dk.itu.smdp.survey.generator
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.IGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess
+import survey.*
 
 /**
  * Generates code from your model files on save.
@@ -15,10 +16,31 @@ import org.eclipse.xtext.generator.IFileSystemAccess
 class DslGenerator implements IGenerator {
 	
 	override void doGenerate(Resource resource, IFileSystemAccess fsa) {
-//		fsa.generateFile('greetings.txt', 'People to greet: ' + 
-//			resource.allContents
-//				.filter(typeof(Greeting))
-//				.map[name]
-//				.join(', '))
+		var survey = resource.contents.head as Survey
+		
+		survey.genHtml(fsa)
+		survey.genLatex(fsa)
+	}
+	
+	def genHtml(Survey survey, IFileSystemAccess fsa) {
+		var template = '''
+		<html>
+			<body>
+				«FOR item : survey.items»
+					«item.genHtml»
+				«ENDFOR»
+			</body>
+		</html>
+		'''
+		
+		fsa.generateFile("survey.html", template)
+	}
+	
+	def String genHtml(Item item) '''
+		<p>«item.title»</p>
+	'''
+	
+	def genLatex(Survey survey, IFileSystemAccess fsa) {
+		fsa.generateFile("survey.tex", "Something something")
 	}
 }
