@@ -300,14 +300,14 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cIdEStringParserRuleCall_1_2_0 = (RuleCall)cIdAssignment_1_2.eContents().get(0);
 		private final Keyword cGreaterThanSignKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cLabelAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cLabelEStringParserRuleCall_3_0 = (RuleCall)cLabelAssignment_3.eContents().get(0);
+		private final RuleCall cLabelLabelParserRuleCall_3_0 = (RuleCall)cLabelAssignment_3.eContents().get(0);
 		private final Keyword cAKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//Answer:
-		//	"<a" ("id" "=" id=EString)? ">" label=EString "</a>";
+		//	"<a" ("id" "=" id=EString)? ">" label=Label "</a>";
 		public ParserRule getRule() { return rule; }
 
-		//"<a" ("id" "=" id=EString)? ">" label=EString "</a>"
+		//"<a" ("id" "=" id=EString)? ">" label=Label "</a>"
 		public Group getGroup() { return cGroup; }
 
 		//"<a"
@@ -331,14 +331,34 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//">"
 		public Keyword getGreaterThanSignKeyword_2() { return cGreaterThanSignKeyword_2; }
 
-		//label=EString
+		//label=Label
 		public Assignment getLabelAssignment_3() { return cLabelAssignment_3; }
 
-		//EString
-		public RuleCall getLabelEStringParserRuleCall_3_0() { return cLabelEStringParserRuleCall_3_0; }
+		//Label
+		public RuleCall getLabelLabelParserRuleCall_3_0() { return cLabelLabelParserRuleCall_3_0; }
 
 		//"</a>"
 		public Keyword getAKeyword_4() { return cAKeyword_4; }
+	}
+
+	public class LabelElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Label");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cEStringParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final RuleCall cEStringParserRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		
+		//Label returns ecore::EString:
+		//	EString EString*;
+		public ParserRule getRule() { return rule; }
+
+		//EString EString*
+		public Group getGroup() { return cGroup; }
+
+		//EString
+		public RuleCall getEStringParserRuleCall_0() { return cEStringParserRuleCall_0; }
+
+		//EString*
+		public RuleCall getEStringParserRuleCall_1() { return cEStringParserRuleCall_1; }
 	}
 
 	public class EBooleanElements extends AbstractParserRuleElementFinder {
@@ -1750,24 +1770,24 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cQKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cTitleAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cTitleEStringParserRuleCall_1_0 = (RuleCall)cTitleAssignment_1.eContents().get(0);
+		private final RuleCall cTitleLabelParserRuleCall_1_0 = (RuleCall)cTitleAssignment_1.eContents().get(0);
 		private final Keyword cQKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		
 		//TableQuestion:
-		//	"<q>" title=EString "</q>";
+		//	"<q>" title=Label "</q>";
 		public ParserRule getRule() { return rule; }
 
-		//"<q>" title=EString "</q>"
+		//"<q>" title=Label "</q>"
 		public Group getGroup() { return cGroup; }
 
 		//"<q>"
 		public Keyword getQKeyword_0() { return cQKeyword_0; }
 
-		//title=EString
+		//title=Label
 		public Assignment getTitleAssignment_1() { return cTitleAssignment_1; }
 
-		//EString
-		public RuleCall getTitleEStringParserRuleCall_1_0() { return cTitleEStringParserRuleCall_1_0; }
+		//Label
+		public RuleCall getTitleLabelParserRuleCall_1_0() { return cTitleLabelParserRuleCall_1_0; }
 
 		//"</q>"
 		public Keyword getQKeyword_2() { return cQKeyword_2; }
@@ -1781,6 +1801,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	private EStringElements pEString;
 	private AnswerTemplateElements pAnswerTemplate;
 	private AnswerElements pAnswer;
+	private LabelElements pLabel;
 	private EBooleanElements pEBoolean;
 	private GroupElements pGroup;
 	private TextElements pText;
@@ -1894,13 +1915,23 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Answer:
-	//	"<a" ("id" "=" id=EString)? ">" label=EString "</a>";
+	//	"<a" ("id" "=" id=EString)? ">" label=Label "</a>";
 	public AnswerElements getAnswerAccess() {
 		return (pAnswer != null) ? pAnswer : (pAnswer = new AnswerElements());
 	}
 	
 	public ParserRule getAnswerRule() {
 		return getAnswerAccess().getRule();
+	}
+
+	//Label returns ecore::EString:
+	//	EString EString*;
+	public LabelElements getLabelAccess() {
+		return (pLabel != null) ? pLabel : (pLabel = new LabelElements());
+	}
+	
+	public ParserRule getLabelRule() {
+		return getLabelAccess().getRule();
 	}
 
 	//EBoolean returns ecore::EBoolean:
@@ -2028,7 +2059,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//TableQuestion:
-	//	"<q>" title=EString "</q>";
+	//	"<q>" title=Label "</q>";
 	public TableQuestionElements getTableQuestionAccess() {
 		return (pTableQuestion != null) ? pTableQuestion : (pTableQuestion = new TableQuestionElements());
 	}

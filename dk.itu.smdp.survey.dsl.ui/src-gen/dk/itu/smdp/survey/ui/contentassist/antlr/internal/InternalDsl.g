@@ -252,6 +252,34 @@ finally {
 
 
 
+// Entry rule entryRuleLabel
+entryRuleLabel 
+:
+{ before(grammarAccess.getLabelRule()); }
+	 ruleLabel
+{ after(grammarAccess.getLabelRule()); } 
+	 EOF 
+;
+
+// Rule Label
+ruleLabel
+    @init {
+		int stackSize = keepStackSize();
+    }
+	:
+(
+{ before(grammarAccess.getLabelAccess().getGroup()); }
+(rule__Label__Group__0)
+{ after(grammarAccess.getLabelAccess().getGroup()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+
 
 
 // Entry rule entryRuleGroup
@@ -1662,6 +1690,67 @@ finally {
 }
 
 
+
+
+
+
+
+
+rule__Label__Group__0
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__Label__Group__0__Impl
+	rule__Label__Group__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Label__Group__0__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getLabelAccess().getEStringParserRuleCall_0()); }
+	ruleEString
+{ after(grammarAccess.getLabelAccess().getEStringParserRuleCall_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__Label__Group__1
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__Label__Group__1__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Label__Group__1__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getLabelAccess().getEStringParserRuleCall_1()); }
+(	ruleEString)*
+{ after(grammarAccess.getLabelAccess().getEStringParserRuleCall_1()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
 
 
 
@@ -9560,8 +9649,8 @@ rule__Answer__LabelAssignment_3
     }
 :
 (
-{ before(grammarAccess.getAnswerAccess().getLabelEStringParserRuleCall_3_0()); }
-	ruleEString{ after(grammarAccess.getAnswerAccess().getLabelEStringParserRuleCall_3_0()); }
+{ before(grammarAccess.getAnswerAccess().getLabelLabelParserRuleCall_3_0()); }
+	ruleLabel{ after(grammarAccess.getAnswerAccess().getLabelLabelParserRuleCall_3_0()); }
 )
 
 ;
@@ -10783,8 +10872,8 @@ rule__TableQuestion__TitleAssignment_1
     }
 :
 (
-{ before(grammarAccess.getTableQuestionAccess().getTitleEStringParserRuleCall_1_0()); }
-	ruleEString{ after(grammarAccess.getTableQuestionAccess().getTitleEStringParserRuleCall_1_0()); }
+{ before(grammarAccess.getTableQuestionAccess().getTitleLabelParserRuleCall_1_0()); }
+	ruleLabel{ after(grammarAccess.getTableQuestionAccess().getTitleLabelParserRuleCall_1_0()); }
 )
 
 ;

@@ -625,9 +625,9 @@ ruleAnswer returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getAnswerAccess().getLabelEStringParserRuleCall_3_0()); 
+	        newCompositeNode(grammarAccess.getAnswerAccess().getLabelLabelParserRuleCall_3_0()); 
 	    }
-		lv_label_5_0=ruleEString		{
+		lv_label_5_0=ruleLabel		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getAnswerRule());
 	        }
@@ -635,7 +635,7 @@ ruleAnswer returns [EObject current=null]
        			$current, 
        			"label",
         		lv_label_5_0, 
-        		"EString");
+        		"Label");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -646,6 +646,49 @@ ruleAnswer returns [EObject current=null]
     }
 )
 ;
+
+
+
+
+
+// Entry rule entryRuleLabel
+entryRuleLabel returns [String current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getLabelRule()); } 
+	 iv_ruleLabel=ruleLabel 
+	 { $current=$iv_ruleLabel.current.getText(); }  
+	 EOF 
+;
+
+// Rule Label
+ruleLabel returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(
+    { 
+        newCompositeNode(grammarAccess.getLabelAccess().getEStringParserRuleCall_0()); 
+    }
+    this_EString_0=ruleEString    {
+		$current.merge(this_EString_0);
+    }
+
+    { 
+        afterParserOrEnumRuleCall();
+    }
+(
+    { 
+        newCompositeNode(grammarAccess.getLabelAccess().getEStringParserRuleCall_1()); 
+    }
+    this_EString_1=ruleEString    {
+		$current.merge(this_EString_1);
+    }
+
+    { 
+        afterParserOrEnumRuleCall();
+    }
+)*)
+    ;
 
 
 
@@ -3367,9 +3410,9 @@ ruleTableQuestion returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getTableQuestionAccess().getTitleEStringParserRuleCall_1_0()); 
+	        newCompositeNode(grammarAccess.getTableQuestionAccess().getTitleLabelParserRuleCall_1_0()); 
 	    }
-		lv_title_1_0=ruleEString		{
+		lv_title_1_0=ruleLabel		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getTableQuestionRule());
 	        }
@@ -3377,7 +3420,7 @@ ruleTableQuestion returns [EObject current=null]
        			$current, 
        			"title",
         		lv_title_1_0, 
-        		"EString");
+        		"Label");
 	        afterParserOrEnumRuleCall();
 	    }
 

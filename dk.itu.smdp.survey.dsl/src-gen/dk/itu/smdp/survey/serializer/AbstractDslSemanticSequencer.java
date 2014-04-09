@@ -162,7 +162,7 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	
 	/**
 	 * Constraint:
-	 *     (id=EString? label=EString)
+	 *     (id=EString? label=Label)
 	 */
 	protected void sequence_Answer(EObject context, Answer semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -284,7 +284,7 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	
 	/**
 	 * Constraint:
-	 *     title=EString
+	 *     title=Label
 	 */
 	protected void sequence_TableQuestion(EObject context, TableQuestion semanticObject) {
 		if(errorAcceptor != null) {
@@ -293,7 +293,7 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getTableQuestionAccess().getTitleEStringParserRuleCall_1_0(), semanticObject.getTitle());
+		feeder.accept(grammarAccess.getTableQuestionAccess().getTitleLabelParserRuleCall_1_0(), semanticObject.getTitle());
 		feeder.finish();
 	}
 	
