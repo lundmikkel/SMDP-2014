@@ -25,7 +25,6 @@ Option returns Option:
 	Option_Impl | Answer | AnswerTemplate
 	;
 
-
 EString returns ecore::EString:
 	STRING | ID
 	;
