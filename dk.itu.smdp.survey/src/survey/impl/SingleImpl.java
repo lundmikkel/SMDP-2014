@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import survey.HasOptions;
 import survey.Option;
 import survey.Other;
 import survey.Single;
@@ -31,7 +32,6 @@ import survey.SurveyPackage;
  * <ul>
  *   <li>{@link survey.impl.SingleImpl#isOther <em>Other</em>}</li>
  *   <li>{@link survey.impl.SingleImpl#getOptions <em>Options</em>}</li>
- *   <li>{@link survey.impl.SingleImpl#getTemplate <em>Template</em>}</li>
  * </ul>
  * </p>
  *
@@ -67,16 +67,6 @@ public class SingleImpl extends QuestionImpl implements Single {
 	 * @ordered
 	 */
 	protected EList<Option> options;
-
-	/**
-	 * The cached value of the '{@link #getTemplate() <em>Template</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTemplate()
-	 * @generated
-	 * @ordered
-	 */
-	protected Option template;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -135,44 +125,6 @@ public class SingleImpl extends QuestionImpl implements Single {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Option getTemplate() {
-		if (template != null && template.eIsProxy()) {
-			InternalEObject oldTemplate = (InternalEObject)template;
-			template = (Option)eResolveProxy(oldTemplate);
-			if (template != oldTemplate) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SurveyPackage.SINGLE__TEMPLATE, oldTemplate, template));
-			}
-		}
-		return template;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Option basicGetTemplate() {
-		return template;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setTemplate(Option newTemplate) {
-		Option oldTemplate = template;
-		template = newTemplate;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SurveyPackage.SINGLE__TEMPLATE, oldTemplate, template));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -194,9 +146,6 @@ public class SingleImpl extends QuestionImpl implements Single {
 				return isOther();
 			case SurveyPackage.SINGLE__OPTIONS:
 				return getOptions();
-			case SurveyPackage.SINGLE__TEMPLATE:
-				if (resolve) return getTemplate();
-				return basicGetTemplate();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -217,9 +166,6 @@ public class SingleImpl extends QuestionImpl implements Single {
 				getOptions().clear();
 				getOptions().addAll((Collection<? extends Option>)newValue);
 				return;
-			case SurveyPackage.SINGLE__TEMPLATE:
-				setTemplate((Option)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -238,9 +184,6 @@ public class SingleImpl extends QuestionImpl implements Single {
 			case SurveyPackage.SINGLE__OPTIONS:
 				getOptions().clear();
 				return;
-			case SurveyPackage.SINGLE__TEMPLATE:
-				setTemplate((Option)null);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -257,8 +200,6 @@ public class SingleImpl extends QuestionImpl implements Single {
 				return other != OTHER_EDEFAULT;
 			case SurveyPackage.SINGLE__OPTIONS:
 				return options != null && !options.isEmpty();
-			case SurveyPackage.SINGLE__TEMPLATE:
-				return template != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -273,8 +214,12 @@ public class SingleImpl extends QuestionImpl implements Single {
 		if (baseClass == Other.class) {
 			switch (derivedFeatureID) {
 				case SurveyPackage.SINGLE__OTHER: return SurveyPackage.OTHER__OTHER;
-				case SurveyPackage.SINGLE__OPTIONS: return SurveyPackage.OTHER__OPTIONS;
-				case SurveyPackage.SINGLE__TEMPLATE: return SurveyPackage.OTHER__TEMPLATE;
+				default: return -1;
+			}
+		}
+		if (baseClass == HasOptions.class) {
+			switch (derivedFeatureID) {
+				case SurveyPackage.SINGLE__OPTIONS: return SurveyPackage.HAS_OPTIONS__OPTIONS;
 				default: return -1;
 			}
 		}
@@ -291,8 +236,12 @@ public class SingleImpl extends QuestionImpl implements Single {
 		if (baseClass == Other.class) {
 			switch (baseFeatureID) {
 				case SurveyPackage.OTHER__OTHER: return SurveyPackage.SINGLE__OTHER;
-				case SurveyPackage.OTHER__OPTIONS: return SurveyPackage.SINGLE__OPTIONS;
-				case SurveyPackage.OTHER__TEMPLATE: return SurveyPackage.SINGLE__TEMPLATE;
+				default: return -1;
+			}
+		}
+		if (baseClass == HasOptions.class) {
+			switch (baseFeatureID) {
+				case SurveyPackage.HAS_OPTIONS__OPTIONS: return SurveyPackage.SINGLE__OPTIONS;
 				default: return -1;
 			}
 		}

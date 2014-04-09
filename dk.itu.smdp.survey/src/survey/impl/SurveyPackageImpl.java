@@ -9,8 +9,10 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import survey.Answer;
 import survey.AnswerTemplate;
+import survey.AnswerTemplateRef;
 import survey.Date;
 import survey.Group;
+import survey.HasOptions;
 import survey.Item;
 import survey.Multiple;
 import survey.Option;
@@ -129,6 +131,13 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass hasOptionsEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass answerTemplateEClass = null;
 
 	/**
@@ -144,6 +153,13 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 	 * @generated
 	 */
 	private EClass tableQuestionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass answerTemplateRefEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -425,6 +441,15 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getDate_ShowLimits() {
+		return (EAttribute)dateEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getNumber() {
 		return numberEClass;
 	}
@@ -578,8 +603,8 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getOther_Options() {
-		return (EReference)otherEClass.getEStructuralFeatures().get(1);
+	public EClass getHasOptions() {
+		return hasOptionsEClass;
 	}
 
 	/**
@@ -587,8 +612,8 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getOther_Template() {
-		return (EReference)otherEClass.getEStructuralFeatures().get(2);
+	public EReference getHasOptions_Options() {
+		return (EReference)hasOptionsEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -641,17 +666,8 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTable_TableOptions() {
-		return (EReference)tableEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getTable_Multiple() {
-		return (EAttribute)tableEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)tableEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -670,6 +686,24 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 	 */
 	public EAttribute getTableQuestion_Title() {
 		return (EAttribute)tableQuestionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getAnswerTemplateRef() {
+		return answerTemplateRefEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAnswerTemplateRef_Template() {
+		return (EReference)answerTemplateRefEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -709,9 +743,17 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 		isCreated = true;
 
 		// Create classes and their features
+		titleAndDescriptionEClass = createEClass(TITLE_AND_DESCRIPTION);
+		createEAttribute(titleAndDescriptionEClass, TITLE_AND_DESCRIPTION__TITLE);
+		createEAttribute(titleAndDescriptionEClass, TITLE_AND_DESCRIPTION__DESCRIPTION);
+
 		surveyEClass = createEClass(SURVEY);
 		createEReference(surveyEClass, SURVEY__ITEMS);
 		createEReference(surveyEClass, SURVEY__TEMPLATES);
+
+		itemEClass = createEClass(ITEM);
+		createEReference(itemEClass, ITEM__DEPENDS_ON);
+		createEAttribute(itemEClass, ITEM__REQUIRED);
 
 		groupEClass = createEClass(GROUP);
 		createEReference(groupEClass, GROUP__QUESTIONS);
@@ -719,9 +761,35 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 		questionEClass = createEClass(QUESTION);
 		createEAttribute(questionEClass, QUESTION__ID);
 
-		itemEClass = createEClass(ITEM);
-		createEReference(itemEClass, ITEM__DEPENDS_ON);
-		createEAttribute(itemEClass, ITEM__REQUIRED);
+		textEClass = createEClass(TEXT);
+		createEAttribute(textEClass, TEXT__MULTILINE);
+
+		scaleEClass = createEClass(SCALE);
+		createEAttribute(scaleEClass, SCALE__LOWER);
+		createEAttribute(scaleEClass, SCALE__UPPER);
+		createEAttribute(scaleEClass, SCALE__LOWER_LABEL);
+		createEAttribute(scaleEClass, SCALE__UPPER_LABEL);
+
+		dateEClass = createEClass(DATE);
+		createEAttribute(dateEClass, DATE__DAY);
+		createEAttribute(dateEClass, DATE__MONTH);
+		createEAttribute(dateEClass, DATE__YEAR);
+		createEAttribute(dateEClass, DATE__FROM);
+		createEAttribute(dateEClass, DATE__TO);
+		createEAttribute(dateEClass, DATE__SHOW_LIMITS);
+
+		numberEClass = createEClass(NUMBER);
+		createEAttribute(numberEClass, NUMBER__LOWER);
+		createEAttribute(numberEClass, NUMBER__UPPER);
+		createEAttribute(numberEClass, NUMBER__SHOW_LIMITS);
+
+		otherEClass = createEClass(OTHER);
+		createEAttribute(otherEClass, OTHER__OTHER);
+
+		hasOptionsEClass = createEClass(HAS_OPTIONS);
+		createEReference(hasOptionsEClass, HAS_OPTIONS__OPTIONS);
+
+		optionEClass = createEClass(OPTION);
 
 		singleEClass = createEClass(SINGLE);
 
@@ -730,53 +798,23 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 		createEAttribute(multipleEClass, MULTIPLE__UPPER);
 		createEAttribute(multipleEClass, MULTIPLE__SHOW_LIMITS);
 
-		textEClass = createEClass(TEXT);
-		createEAttribute(textEClass, TEXT__MULTILINE);
-
-		dateEClass = createEClass(DATE);
-		createEAttribute(dateEClass, DATE__DAY);
-		createEAttribute(dateEClass, DATE__MONTH);
-		createEAttribute(dateEClass, DATE__YEAR);
-		createEAttribute(dateEClass, DATE__FROM);
-		createEAttribute(dateEClass, DATE__TO);
-
-		numberEClass = createEClass(NUMBER);
-		createEAttribute(numberEClass, NUMBER__LOWER);
-		createEAttribute(numberEClass, NUMBER__UPPER);
-		createEAttribute(numberEClass, NUMBER__SHOW_LIMITS);
-
-		scaleEClass = createEClass(SCALE);
-		createEAttribute(scaleEClass, SCALE__LOWER);
-		createEAttribute(scaleEClass, SCALE__UPPER);
-		createEAttribute(scaleEClass, SCALE__LOWER_LABEL);
-		createEAttribute(scaleEClass, SCALE__UPPER_LABEL);
-
-		titleAndDescriptionEClass = createEClass(TITLE_AND_DESCRIPTION);
-		createEAttribute(titleAndDescriptionEClass, TITLE_AND_DESCRIPTION__TITLE);
-		createEAttribute(titleAndDescriptionEClass, TITLE_AND_DESCRIPTION__DESCRIPTION);
-
-		answerEClass = createEClass(ANSWER);
-		createEAttribute(answerEClass, ANSWER__ID);
-		createEAttribute(answerEClass, ANSWER__LABEL);
-
-		otherEClass = createEClass(OTHER);
-		createEAttribute(otherEClass, OTHER__OTHER);
-		createEReference(otherEClass, OTHER__OPTIONS);
-		createEReference(otherEClass, OTHER__TEMPLATE);
-
-		answerTemplateEClass = createEClass(ANSWER_TEMPLATE);
-		createEReference(answerTemplateEClass, ANSWER_TEMPLATE__ANSWERS);
-		createEAttribute(answerTemplateEClass, ANSWER_TEMPLATE__ID);
-
 		tableEClass = createEClass(TABLE);
 		createEReference(tableEClass, TABLE__QUESTIONS);
-		createEReference(tableEClass, TABLE__TABLE_OPTIONS);
 		createEAttribute(tableEClass, TABLE__MULTIPLE);
 
 		tableQuestionEClass = createEClass(TABLE_QUESTION);
 		createEAttribute(tableQuestionEClass, TABLE_QUESTION__TITLE);
 
-		optionEClass = createEClass(OPTION);
+		answerTemplateRefEClass = createEClass(ANSWER_TEMPLATE_REF);
+		createEReference(answerTemplateRefEClass, ANSWER_TEMPLATE_REF__TEMPLATE);
+
+		answerEClass = createEClass(ANSWER);
+		createEAttribute(answerEClass, ANSWER__ID);
+		createEAttribute(answerEClass, ANSWER__LABEL);
+
+		answerTemplateEClass = createEClass(ANSWER_TEMPLATE);
+		createEReference(answerTemplateEClass, ANSWER_TEMPLATE__ANSWERS);
+		createEAttribute(answerTemplateEClass, ANSWER_TEMPLATE__ID);
 	}
 
 	/**
@@ -808,26 +846,37 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 
 		// Add supertypes to classes
 		surveyEClass.getESuperTypes().add(this.getTitleAndDescription());
+		itemEClass.getESuperTypes().add(this.getTitleAndDescription());
 		groupEClass.getESuperTypes().add(this.getItem());
 		questionEClass.getESuperTypes().add(this.getItem());
-		itemEClass.getESuperTypes().add(this.getTitleAndDescription());
-		singleEClass.getESuperTypes().add(this.getQuestion());
-		singleEClass.getESuperTypes().add(this.getOther());
-		multipleEClass.getESuperTypes().add(this.getQuestion());
-		multipleEClass.getESuperTypes().add(this.getOther());
 		textEClass.getESuperTypes().add(this.getQuestion());
+		scaleEClass.getESuperTypes().add(this.getQuestion());
 		dateEClass.getESuperTypes().add(this.getQuestion());
 		numberEClass.getESuperTypes().add(this.getQuestion());
-		scaleEClass.getESuperTypes().add(this.getQuestion());
-		answerEClass.getESuperTypes().add(this.getOption());
-		answerTemplateEClass.getESuperTypes().add(this.getOption());
+		singleEClass.getESuperTypes().add(this.getQuestion());
+		singleEClass.getESuperTypes().add(this.getOther());
+		singleEClass.getESuperTypes().add(this.getHasOptions());
+		multipleEClass.getESuperTypes().add(this.getQuestion());
+		multipleEClass.getESuperTypes().add(this.getOther());
+		multipleEClass.getESuperTypes().add(this.getHasOptions());
 		tableEClass.getESuperTypes().add(this.getQuestion());
 		tableEClass.getESuperTypes().add(this.getOther());
+		tableEClass.getESuperTypes().add(this.getHasOptions());
+		answerTemplateRefEClass.getESuperTypes().add(this.getOption());
+		answerEClass.getESuperTypes().add(this.getOption());
 
 		// Initialize classes, features, and operations; add parameters
+		initEClass(titleAndDescriptionEClass, TitleAndDescription.class, "TitleAndDescription", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTitleAndDescription_Title(), ecorePackage.getEString(), "title", null, 0, 1, TitleAndDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTitleAndDescription_Description(), ecorePackage.getEString(), "description", null, 0, 1, TitleAndDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(surveyEClass, Survey.class, "Survey", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSurvey_Items(), this.getItem(), null, "items", null, 0, -1, Survey.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSurvey_Templates(), this.getAnswerTemplate(), null, "templates", null, 0, -1, Survey.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(itemEClass, Item.class, "Item", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getItem_DependsOn(), this.getAnswer(), null, "dependsOn", null, 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getItem_Required(), ecorePackage.getEBoolean(), "required", null, 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(groupEClass, Group.class, "Group", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getGroup_Questions(), this.getQuestion(), null, "questions", null, 1, -1, Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -835,9 +884,35 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 		initEClass(questionEClass, Question.class, "Question", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getQuestion_Id(), ecorePackage.getEString(), "id", null, 0, 1, Question.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(itemEClass, Item.class, "Item", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getItem_DependsOn(), this.getAnswer(), null, "dependsOn", null, 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getItem_Required(), ecorePackage.getEBoolean(), "required", null, 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(textEClass, Text.class, "Text", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getText_Multiline(), ecorePackage.getEBoolean(), "multiline", null, 0, 1, Text.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(scaleEClass, Scale.class, "Scale", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getScale_Lower(), ecorePackage.getEInt(), "lower", null, 1, 1, Scale.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getScale_Upper(), ecorePackage.getEInt(), "upper", null, 1, 1, Scale.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getScale_LowerLabel(), ecorePackage.getEString(), "lowerLabel", null, 0, 1, Scale.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getScale_UpperLabel(), ecorePackage.getEString(), "upperLabel", null, 0, 1, Scale.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(dateEClass, Date.class, "Date", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDate_Day(), ecorePackage.getEBoolean(), "day", null, 0, 1, Date.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDate_Month(), ecorePackage.getEBoolean(), "month", null, 0, 1, Date.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDate_Year(), ecorePackage.getEBoolean(), "year", null, 0, 1, Date.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDate_From(), ecorePackage.getEString(), "from", null, 0, 1, Date.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDate_To(), ecorePackage.getEString(), "to", null, 0, 1, Date.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDate_ShowLimits(), ecorePackage.getEBoolean(), "showLimits", null, 0, 1, Date.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(numberEClass, survey.Number.class, "Number", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getNumber_Lower(), ecorePackage.getEInt(), "lower", null, 0, 1, survey.Number.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNumber_Upper(), ecorePackage.getEInt(), "upper", null, 0, 1, survey.Number.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNumber_ShowLimits(), ecorePackage.getEBoolean(), "showLimits", null, 0, 1, survey.Number.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(otherEClass, Other.class, "Other", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getOther_Other(), ecorePackage.getEBoolean(), "other", null, 0, 1, Other.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(hasOptionsEClass, HasOptions.class, "HasOptions", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getHasOptions_Options(), this.getOption(), null, "options", null, 1, -1, HasOptions.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(optionEClass, Option.class, "Option", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(singleEClass, Single.class, "Single", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -846,53 +921,23 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 		initEAttribute(getMultiple_Upper(), ecorePackage.getEInt(), "upper", null, 0, 1, Multiple.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMultiple_ShowLimits(), ecorePackage.getEBoolean(), "showLimits", null, 0, 1, Multiple.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(textEClass, Text.class, "Text", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getText_Multiline(), ecorePackage.getEBoolean(), "multiline", null, 0, 1, Text.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(dateEClass, Date.class, "Date", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDate_Day(), ecorePackage.getEBoolean(), "day", null, 0, 1, Date.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDate_Month(), ecorePackage.getEBoolean(), "month", null, 0, 1, Date.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDate_Year(), ecorePackage.getEBoolean(), "year", null, 0, 1, Date.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDate_From(), ecorePackage.getEString(), "from", null, 0, 1, Date.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDate_To(), ecorePackage.getEString(), "to", null, 0, 1, Date.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(numberEClass, survey.Number.class, "Number", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getNumber_Lower(), ecorePackage.getEInt(), "lower", null, 0, 1, survey.Number.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getNumber_Upper(), ecorePackage.getEInt(), "upper", null, 0, 1, survey.Number.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getNumber_ShowLimits(), ecorePackage.getEBoolean(), "showLimits", null, 0, 1, survey.Number.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(scaleEClass, Scale.class, "Scale", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getScale_Lower(), ecorePackage.getEInt(), "lower", null, 1, 1, Scale.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getScale_Upper(), ecorePackage.getEInt(), "upper", null, 1, 1, Scale.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getScale_LowerLabel(), ecorePackage.getEString(), "lowerLabel", null, 0, 1, Scale.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getScale_UpperLabel(), ecorePackage.getEString(), "upperLabel", null, 0, 1, Scale.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(titleAndDescriptionEClass, TitleAndDescription.class, "TitleAndDescription", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getTitleAndDescription_Title(), ecorePackage.getEString(), "title", null, 0, 1, TitleAndDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTitleAndDescription_Description(), ecorePackage.getEString(), "description", null, 0, 1, TitleAndDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(answerEClass, Answer.class, "Answer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getAnswer_Id(), ecorePackage.getEString(), "id", null, 0, 1, Answer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAnswer_Label(), ecorePackage.getEString(), "label", null, 1, 1, Answer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(otherEClass, Other.class, "Other", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getOther_Other(), ecorePackage.getEBoolean(), "other", null, 0, 1, Other.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getOther_Options(), this.getOption(), null, "options", null, 1, -1, Other.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getOther_Template(), this.getOption(), null, "template", null, 0, 1, Other.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(answerTemplateEClass, AnswerTemplate.class, "AnswerTemplate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAnswerTemplate_Answers(), this.getAnswer(), null, "answers", null, 1, -1, AnswerTemplate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAnswerTemplate_Id(), ecorePackage.getEString(), "id", null, 1, 1, AnswerTemplate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
 		initEClass(tableEClass, Table.class, "Table", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTable_Questions(), this.getTableQuestion(), null, "questions", null, 1, -1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTable_TableOptions(), this.getOption(), null, "tableOptions", null, 1, -1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTable_Multiple(), ecorePackage.getEBoolean(), "multiple", null, 0, 1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(tableQuestionEClass, TableQuestion.class, "TableQuestion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTableQuestion_Title(), ecorePackage.getEString(), "title", null, 1, 1, TableQuestion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(optionEClass, Option.class, "Option", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(answerTemplateRefEClass, AnswerTemplateRef.class, "AnswerTemplateRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAnswerTemplateRef_Template(), this.getAnswerTemplate(), null, "template", null, 1, 1, AnswerTemplateRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(answerEClass, Answer.class, "Answer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getAnswer_Id(), ecorePackage.getEString(), "id", null, 0, 1, Answer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAnswer_Label(), ecorePackage.getEString(), "label", null, 1, 1, Answer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(answerTemplateEClass, AnswerTemplate.class, "AnswerTemplate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAnswerTemplate_Answers(), this.getAnswer(), null, "answers", null, 1, -1, AnswerTemplate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAnswerTemplate_Id(), ecorePackage.getEString(), "id", null, 1, 1, AnswerTemplate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

@@ -8,8 +8,10 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 import survey.Answer;
 import survey.AnswerTemplate;
+import survey.AnswerTemplateRef;
 import survey.Date;
 import survey.Group;
+import survey.HasOptions;
 import survey.Item;
 import survey.Multiple;
 import survey.Option;
@@ -81,8 +83,16 @@ public class SurveyAdapterFactory extends AdapterFactoryImpl {
 	protected SurveySwitch<Adapter> modelSwitch =
 		new SurveySwitch<Adapter>() {
 			@Override
+			public Adapter caseTitleAndDescription(TitleAndDescription object) {
+				return createTitleAndDescriptionAdapter();
+			}
+			@Override
 			public Adapter caseSurvey(Survey object) {
 				return createSurveyAdapter();
+			}
+			@Override
+			public Adapter caseItem(Item object) {
+				return createItemAdapter();
 			}
 			@Override
 			public Adapter caseGroup(Group object) {
@@ -93,20 +103,12 @@ public class SurveyAdapterFactory extends AdapterFactoryImpl {
 				return createQuestionAdapter();
 			}
 			@Override
-			public Adapter caseItem(Item object) {
-				return createItemAdapter();
-			}
-			@Override
-			public Adapter caseSingle(Single object) {
-				return createSingleAdapter();
-			}
-			@Override
-			public Adapter caseMultiple(Multiple object) {
-				return createMultipleAdapter();
-			}
-			@Override
 			public Adapter caseText(Text object) {
 				return createTextAdapter();
+			}
+			@Override
+			public Adapter caseScale(Scale object) {
+				return createScaleAdapter();
 			}
 			@Override
 			public Adapter caseDate(Date object) {
@@ -117,24 +119,24 @@ public class SurveyAdapterFactory extends AdapterFactoryImpl {
 				return createNumberAdapter();
 			}
 			@Override
-			public Adapter caseScale(Scale object) {
-				return createScaleAdapter();
-			}
-			@Override
-			public Adapter caseTitleAndDescription(TitleAndDescription object) {
-				return createTitleAndDescriptionAdapter();
-			}
-			@Override
-			public Adapter caseAnswer(Answer object) {
-				return createAnswerAdapter();
-			}
-			@Override
 			public Adapter caseOther(Other object) {
 				return createOtherAdapter();
 			}
 			@Override
-			public Adapter caseAnswerTemplate(AnswerTemplate object) {
-				return createAnswerTemplateAdapter();
+			public Adapter caseHasOptions(HasOptions object) {
+				return createHasOptionsAdapter();
+			}
+			@Override
+			public Adapter caseOption(Option object) {
+				return createOptionAdapter();
+			}
+			@Override
+			public Adapter caseSingle(Single object) {
+				return createSingleAdapter();
+			}
+			@Override
+			public Adapter caseMultiple(Multiple object) {
+				return createMultipleAdapter();
 			}
 			@Override
 			public Adapter caseTable(Table object) {
@@ -145,8 +147,16 @@ public class SurveyAdapterFactory extends AdapterFactoryImpl {
 				return createTableQuestionAdapter();
 			}
 			@Override
-			public Adapter caseOption(Option object) {
-				return createOptionAdapter();
+			public Adapter caseAnswerTemplateRef(AnswerTemplateRef object) {
+				return createAnswerTemplateRefAdapter();
+			}
+			@Override
+			public Adapter caseAnswer(Answer object) {
+				return createAnswerAdapter();
+			}
+			@Override
+			public Adapter caseAnswerTemplate(AnswerTemplate object) {
+				return createAnswerTemplateAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -351,6 +361,20 @@ public class SurveyAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link survey.HasOptions <em>Has Options</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see survey.HasOptions
+	 * @generated
+	 */
+	public Adapter createHasOptionsAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link survey.AnswerTemplate <em>Answer Template</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -389,6 +413,20 @@ public class SurveyAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTableQuestionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link survey.AnswerTemplateRef <em>Answer Template Ref</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see survey.AnswerTemplateRef
+	 * @generated
+	 */
+	public Adapter createAnswerTemplateRefAdapter() {
 		return null;
 	}
 
