@@ -19,7 +19,6 @@ import survey.AnswerTemplate;
 import survey.Date;
 import survey.Group;
 import survey.Multiple;
-import survey.Option;
 import survey.Scale;
 import survey.Single;
 import survey.Survey;
@@ -81,13 +80,6 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 					return; 
 				}
 				else break;
-			case SurveyPackage.OPTION:
-				if(context == grammarAccess.getOptionRule() ||
-				   context == grammarAccess.getOption_ImplRule()) {
-					sequence_Option_Impl(context, (Option) semanticObject); 
-					return; 
-				}
-				else break;
 			case SurveyPackage.SCALE:
 				if(context == grammarAccess.getItemRule() ||
 				   context == grammarAccess.getQuestionRule() ||
@@ -128,7 +120,15 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 				if(context == grammarAccess.getItemRule() ||
 				   context == grammarAccess.getQuestionRule() ||
 				   context == grammarAccess.getTextRule()) {
-					sequence_Text(context, (Text) semanticObject); 
+					sequence_Multiline_Singleline_Text(context, (Text) semanticObject); 
+					return; 
+				}
+				else if(context == grammarAccess.getMultilineRule()) {
+					sequence_Multiline(context, (Text) semanticObject); 
+					return; 
+				}
+				else if(context == grammarAccess.getSinglelineRule()) {
+					sequence_Singleline(context, (Text) semanticObject); 
 					return; 
 				}
 				else break;
@@ -138,7 +138,7 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	
 	/**
 	 * Constraint:
-	 *     (id=EString answers+=Answer answers+=Answer*)
+	 *     (id=EString answers+=Answer+)
 	 */
 	protected void sequence_AnswerTemplate(EObject context, AnswerTemplate semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -157,16 +157,16 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	/**
 	 * Constraint:
 	 *     (
-	 *         required?='required'? 
-	 *         day?='day'? 
-	 *         month?='month'? 
-	 *         year?='year'? 
 	 *         title=EString? 
 	 *         description=EString? 
 	 *         id=EString? 
+	 *         day?='day'? 
+	 *         month?='month'? 
+	 *         year?='year'? 
 	 *         from=EString? 
 	 *         to=EString? 
-	 *         dependsOn=[Answer|EString]?
+	 *         dependsOn=[Answer|EString]? 
+	 *         required?='required'?
 	 *     )
 	 */
 	protected void sequence_Date(EObject context, Date semanticObject) {
@@ -176,14 +176,7 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	
 	/**
 	 * Constraint:
-	 *     (
-	 *         required?='required'? 
-	 *         title=EString? 
-	 *         description=EString? 
-	 *         dependsOn=[Answer|EString]? 
-	 *         questions+=Question 
-	 *         questions+=Question*
-	 *     )
+	 *     (title=EString? description=EString? dependsOn=[Answer|EString]? required?='required'? questions+=Question+)
 	 */
 	protected void sequence_Group(EObject context, Group semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -193,18 +186,59 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	/**
 	 * Constraint:
 	 *     (
+	 *         (
+	 *             title=EString? 
+	 *             description=EString? 
+	 *             id=EString? 
+	 *             dependsOn=[Answer|EString]? 
+	 *             required?='required'? 
+	 *             multiline?='multiline'?
+	 *         ) | 
+	 *         (
+	 *             title=EString? 
+	 *             description=EString? 
+	 *             id=EString? 
+	 *             dependsOn=[Answer|EString]? 
+	 *             required?='required'? 
+	 *             multiline?='multiline'?
+	 *         )
+	 *     )
+	 */
+	protected void sequence_Multiline_Singleline_Text(EObject context, Text semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (
+	 *         title=EString? 
+	 *         description=EString? 
+	 *         id=EString? 
+	 *         dependsOn=[Answer|EString]? 
 	 *         required?='required'? 
-	 *         other?='other'? 
-	 *         showLimits?='showLimits'? 
+	 *         multiline?='multiline'?
+	 *     )
+	 */
+	protected void sequence_Multiline(EObject context, Text semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (
 	 *         title=EString? 
 	 *         description=EString? 
 	 *         id=EString? 
 	 *         lower=EInt? 
 	 *         upper=EInt? 
 	 *         dependsOn=[Answer|EString]? 
+	 *         required?='required'? 
+	 *         other?='other'? 
+	 *         showLimits?='showLimits'? 
 	 *         template=[Option|EString]? 
-	 *         options+=Option 
-	 *         options+=Option*
+	 *         options+=Option+
 	 *     )
 	 */
 	protected void sequence_Multiple(EObject context, Multiple semanticObject) {
@@ -215,14 +249,14 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	/**
 	 * Constraint:
 	 *     (
-	 *         required?='required'? 
-	 *         showLimits?='showLimits'? 
 	 *         title=EString? 
 	 *         description=EString? 
 	 *         id=EString? 
 	 *         lower=EInt? 
 	 *         upper=EInt? 
-	 *         dependsOn=[Answer|EString]?
+	 *         dependsOn=[Answer|EString]? 
+	 *         required?='required'? 
+	 *         showLimits?='showLimits'?
 	 *     )
 	 */
 	protected void sequence_Number(EObject context, survey.Number semanticObject) {
@@ -232,17 +266,7 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	
 	/**
 	 * Constraint:
-	 *     {Option}
-	 */
-	protected void sequence_Option_Impl(EObject context, Option semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
 	 *     (
-	 *         required?='required'? 
 	 *         title=EString? 
 	 *         description=EString? 
 	 *         id=EString? 
@@ -250,7 +274,8 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	 *         upper=EInt 
 	 *         lowerLabel=EString? 
 	 *         upperLabel=EString? 
-	 *         dependsOn=[Answer|EString]?
+	 *         dependsOn=[Answer|EString]? 
+	 *         required?='required'?
 	 *     )
 	 */
 	protected void sequence_Scale(EObject context, Scale semanticObject) {
@@ -261,15 +286,13 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	/**
 	 * Constraint:
 	 *     (
-	 *         required?='required'? 
-	 *         other?='other'? 
 	 *         title=EString? 
 	 *         description=EString? 
 	 *         id=EString? 
 	 *         dependsOn=[Answer|EString]? 
-	 *         template=[Option|EString]? 
-	 *         options+=Option 
-	 *         options+=Option*
+	 *         required?='required'? 
+	 *         other?='other'? 
+	 *         (template=[Option|EString] | options+=Option)+
 	 *     )
 	 */
 	protected void sequence_Single(EObject context, Single semanticObject) {
@@ -279,7 +302,23 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	
 	/**
 	 * Constraint:
-	 *     (title=EString? description=EString? (items+=Item items+=Item*)? (templates+=AnswerTemplate templates+=AnswerTemplate*)?)
+	 *     (
+	 *         title=EString? 
+	 *         description=EString? 
+	 *         id=EString? 
+	 *         dependsOn=[Answer|EString]? 
+	 *         required?='required'? 
+	 *         multiline?='multiline'?
+	 *     )
+	 */
+	protected void sequence_Singleline(EObject context, Text semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     ((title=EString? description=EString? (templates+=AnswerTemplate | items+=Item)*)?)
 	 */
 	protected void sequence_Survey(EObject context, Survey semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -297,7 +336,7 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getTableQuestionAccess().getTitleEStringParserRuleCall_3_0(), semanticObject.getTitle());
+		feeder.accept(grammarAccess.getTableQuestionAccess().getTitleEStringParserRuleCall_1_0(), semanticObject.getTitle());
 		feeder.finish();
 	}
 	
@@ -305,39 +344,18 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	/**
 	 * Constraint:
 	 *     (
-	 *         required?='required'? 
-	 *         other?='other'? 
-	 *         multiple?='multiple'? 
 	 *         title=EString? 
 	 *         description=EString? 
 	 *         id=EString? 
 	 *         dependsOn=[Answer|EString]? 
 	 *         template=[Option|EString]? 
-	 *         options+=Option 
-	 *         options+=Option* 
-	 *         questions+=TableQuestion 
-	 *         questions+=TableQuestion* 
-	 *         tableOptions+=Option 
-	 *         tableOptions+=Option*
+	 *         required?='required'? 
+	 *         other?='other'? 
+	 *         multiple?='multiple'? 
+	 *         (options+=Option | questions+=TableQuestion | tableOptions+=Option)+
 	 *     )
 	 */
 	protected void sequence_Table(EObject context, Table semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (
-	 *         required?='required'? 
-	 *         multiline?='multiline'? 
-	 *         title=EString? 
-	 *         description=EString? 
-	 *         id=EString? 
-	 *         dependsOn=[Answer|EString]?
-	 *     )
-	 */
-	protected void sequence_Text(EObject context, Text semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 }
