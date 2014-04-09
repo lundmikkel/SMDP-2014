@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -35,7 +36,7 @@ import survey.SurveyPackage;
  *
  * @generated
  */
-public class AnswerTemplateImpl extends OptionImpl implements AnswerTemplate {
+public class AnswerTemplateImpl extends MinimalEObjectImpl.Container implements AnswerTemplate {
 	/**
 	 * The cached value of the '{@link #getAnswers() <em>Answers</em>}' containment reference list.
 	 * <!-- begin-user-doc -->

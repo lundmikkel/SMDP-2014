@@ -9,10 +9,11 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import survey.Answer;
 import survey.AnswerTemplate;
+import survey.AnswerTemplateRef;
 import survey.Date;
 import survey.Group;
+import survey.HasOptions;
 import survey.Multiple;
-import survey.Option;
 import survey.Scale;
 import survey.Single;
 import survey.Survey;
@@ -67,20 +68,21 @@ public class SurveyFactoryImpl extends EFactoryImpl implements SurveyFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
+			case SurveyPackage.TITLE_AND_DESCRIPTION: return createTitleAndDescription();
 			case SurveyPackage.SURVEY: return createSurvey();
 			case SurveyPackage.GROUP: return createGroup();
-			case SurveyPackage.SINGLE: return createSingle();
-			case SurveyPackage.MULTIPLE: return createMultiple();
 			case SurveyPackage.TEXT: return createText();
+			case SurveyPackage.SCALE: return createScale();
 			case SurveyPackage.DATE: return createDate();
 			case SurveyPackage.NUMBER: return createNumber();
-			case SurveyPackage.SCALE: return createScale();
-			case SurveyPackage.TITLE_AND_DESCRIPTION: return createTitleAndDescription();
-			case SurveyPackage.ANSWER: return createAnswer();
-			case SurveyPackage.ANSWER_TEMPLATE: return createAnswerTemplate();
+			case SurveyPackage.HAS_OPTIONS: return createHasOptions();
+			case SurveyPackage.SINGLE: return createSingle();
+			case SurveyPackage.MULTIPLE: return createMultiple();
 			case SurveyPackage.TABLE: return createTable();
 			case SurveyPackage.TABLE_QUESTION: return createTableQuestion();
-			case SurveyPackage.OPTION: return createOption();
+			case SurveyPackage.ANSWER_TEMPLATE_REF: return createAnswerTemplateRef();
+			case SurveyPackage.ANSWER: return createAnswer();
+			case SurveyPackage.ANSWER_TEMPLATE: return createAnswerTemplate();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -161,6 +163,16 @@ public class SurveyFactoryImpl extends EFactoryImpl implements SurveyFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public HasOptions createHasOptions() {
+		HasOptionsImpl hasOptions = new HasOptionsImpl();
+		return hasOptions;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Scale createScale() {
 		ScaleImpl scale = new ScaleImpl();
 		return scale;
@@ -221,9 +233,9 @@ public class SurveyFactoryImpl extends EFactoryImpl implements SurveyFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Option createOption() {
-		OptionImpl option = new OptionImpl();
-		return option;
+	public AnswerTemplateRef createAnswerTemplateRef() {
+		AnswerTemplateRefImpl answerTemplateRef = new AnswerTemplateRefImpl();
+		return answerTemplateRef;
 	}
 
 	/**

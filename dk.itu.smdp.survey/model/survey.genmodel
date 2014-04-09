@@ -6,9 +6,17 @@
     operationReflection="true" importOrganizing="true">
   <foreignModel>Survey.ecore</foreignModel>
   <genPackages prefix="Survey" disposableProviderFactory="true" ecorePackage="Survey.ecore#/">
+    <genClasses ecoreClass="Survey.ecore#//TitleAndDescription">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//TitleAndDescription/title"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//TitleAndDescription/description"/>
+    </genClasses>
     <genClasses ecoreClass="Survey.ecore#//Survey">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Survey.ecore#//Survey/items"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Survey.ecore#//Survey/templates"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="Survey.ecore#//Item">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Survey.ecore#//Item/dependsOn"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Item/required"/>
     </genClasses>
     <genClasses ecoreClass="Survey.ecore#//Group">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Survey.ecore#//Group/questions"/>
@@ -16,30 +24,8 @@
     <genClasses image="false" ecoreClass="Survey.ecore#//Question">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Question/id"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="Survey.ecore#//Item">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Survey.ecore#//Item/dependsOn"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Item/required"/>
-    </genClasses>
-    <genClasses ecoreClass="Survey.ecore#//Single"/>
-    <genClasses ecoreClass="Survey.ecore#//Multiple">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Multiple/lower"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Multiple/upper"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Multiple/showLimits"/>
-    </genClasses>
     <genClasses ecoreClass="Survey.ecore#//Text">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Text/multiline"/>
-    </genClasses>
-    <genClasses ecoreClass="Survey.ecore#//Date">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Date/day"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Date/month"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Date/year"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Date/from"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Date/to"/>
-    </genClasses>
-    <genClasses ecoreClass="Survey.ecore#//Number">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Number/lower"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Number/upper"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Number/showLimits"/>
     </genClasses>
     <genClasses ecoreClass="Survey.ecore#//Scale">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Scale/lower"/>
@@ -47,31 +33,49 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Scale/lowerLabel"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Scale/upperLabel"/>
     </genClasses>
-    <genClasses ecoreClass="Survey.ecore#//TitleAndDescription">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//TitleAndDescription/title"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//TitleAndDescription/description"/>
+    <genClasses ecoreClass="Survey.ecore#//Date">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Date/day"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Date/month"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Date/year"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Date/from"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Date/to"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Date/showLimits"/>
     </genClasses>
-    <genClasses ecoreClass="Survey.ecore#//Answer">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Answer/id"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Answer/label"/>
+    <genClasses ecoreClass="Survey.ecore#//Number">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Number/lower"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Number/upper"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Number/showLimits"/>
     </genClasses>
     <genClasses image="false" ecoreClass="Survey.ecore#//Other">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Other/other"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Survey.ecore#//Other/options"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Survey.ecore#//Other/template"/>
     </genClasses>
-    <genClasses ecoreClass="Survey.ecore#//AnswerTemplate">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Survey.ecore#//AnswerTemplate/answers"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//AnswerTemplate/id"/>
+    <genClasses ecoreClass="Survey.ecore#//HasOptions">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Survey.ecore#//HasOptions/options"/>
+    </genClasses>
+    <genClasses ecoreClass="Survey.ecore#//Option"/>
+    <genClasses ecoreClass="Survey.ecore#//Single"/>
+    <genClasses ecoreClass="Survey.ecore#//Multiple">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Multiple/lower"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Multiple/upper"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Multiple/showLimits"/>
     </genClasses>
     <genClasses ecoreClass="Survey.ecore#//Table">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Survey.ecore#//Table/questions"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Survey.ecore#//Table/tableOptions"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Table/multiple"/>
     </genClasses>
     <genClasses ecoreClass="Survey.ecore#//TableQuestion">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//TableQuestion/title"/>
     </genClasses>
-    <genClasses ecoreClass="Survey.ecore#//Option"/>
+    <genClasses ecoreClass="Survey.ecore#//AnswerTemplateRef">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Survey.ecore#//AnswerTemplateRef/template"/>
+    </genClasses>
+    <genClasses ecoreClass="Survey.ecore#//Answer">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Answer/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Answer/label"/>
+    </genClasses>
+    <genClasses ecoreClass="Survey.ecore#//AnswerTemplate">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Survey.ecore#//AnswerTemplate/answers"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//AnswerTemplate/id"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

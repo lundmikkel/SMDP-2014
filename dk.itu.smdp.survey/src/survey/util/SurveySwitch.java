@@ -7,8 +7,10 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 import survey.Answer;
 import survey.AnswerTemplate;
+import survey.AnswerTemplateRef;
 import survey.Date;
 import survey.Group;
+import survey.HasOptions;
 import survey.Item;
 import survey.Multiple;
 import survey.Option;
@@ -80,10 +82,23 @@ public class SurveySwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
+			case SurveyPackage.TITLE_AND_DESCRIPTION: {
+				TitleAndDescription titleAndDescription = (TitleAndDescription)theEObject;
+				T result = caseTitleAndDescription(titleAndDescription);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case SurveyPackage.SURVEY: {
 				Survey survey = (Survey)theEObject;
 				T result = caseSurvey(survey);
 				if (result == null) result = caseTitleAndDescription(survey);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SurveyPackage.ITEM: {
+				Item item = (Item)theEObject;
+				T result = caseItem(item);
+				if (result == null) result = caseTitleAndDescription(item);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -103,39 +118,21 @@ public class SurveySwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case SurveyPackage.ITEM: {
-				Item item = (Item)theEObject;
-				T result = caseItem(item);
-				if (result == null) result = caseTitleAndDescription(item);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case SurveyPackage.SINGLE: {
-				Single single = (Single)theEObject;
-				T result = caseSingle(single);
-				if (result == null) result = caseQuestion(single);
-				if (result == null) result = caseOther(single);
-				if (result == null) result = caseItem(single);
-				if (result == null) result = caseTitleAndDescription(single);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case SurveyPackage.MULTIPLE: {
-				Multiple multiple = (Multiple)theEObject;
-				T result = caseMultiple(multiple);
-				if (result == null) result = caseQuestion(multiple);
-				if (result == null) result = caseOther(multiple);
-				if (result == null) result = caseItem(multiple);
-				if (result == null) result = caseTitleAndDescription(multiple);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case SurveyPackage.TEXT: {
 				Text text = (Text)theEObject;
 				T result = caseText(text);
 				if (result == null) result = caseQuestion(text);
 				if (result == null) result = caseItem(text);
 				if (result == null) result = caseTitleAndDescription(text);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SurveyPackage.SCALE: {
+				Scale scale = (Scale)theEObject;
+				T result = caseScale(scale);
+				if (result == null) result = caseQuestion(scale);
+				if (result == null) result = caseItem(scale);
+				if (result == null) result = caseTitleAndDescription(scale);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -157,38 +154,43 @@ public class SurveySwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case SurveyPackage.SCALE: {
-				Scale scale = (Scale)theEObject;
-				T result = caseScale(scale);
-				if (result == null) result = caseQuestion(scale);
-				if (result == null) result = caseItem(scale);
-				if (result == null) result = caseTitleAndDescription(scale);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case SurveyPackage.TITLE_AND_DESCRIPTION: {
-				TitleAndDescription titleAndDescription = (TitleAndDescription)theEObject;
-				T result = caseTitleAndDescription(titleAndDescription);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case SurveyPackage.ANSWER: {
-				Answer answer = (Answer)theEObject;
-				T result = caseAnswer(answer);
-				if (result == null) result = caseOption(answer);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case SurveyPackage.OTHER: {
 				Other other = (Other)theEObject;
 				T result = caseOther(other);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case SurveyPackage.ANSWER_TEMPLATE: {
-				AnswerTemplate answerTemplate = (AnswerTemplate)theEObject;
-				T result = caseAnswerTemplate(answerTemplate);
-				if (result == null) result = caseOption(answerTemplate);
+			case SurveyPackage.HAS_OPTIONS: {
+				HasOptions hasOptions = (HasOptions)theEObject;
+				T result = caseHasOptions(hasOptions);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SurveyPackage.OPTION: {
+				Option option = (Option)theEObject;
+				T result = caseOption(option);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SurveyPackage.SINGLE: {
+				Single single = (Single)theEObject;
+				T result = caseSingle(single);
+				if (result == null) result = caseQuestion(single);
+				if (result == null) result = caseOther(single);
+				if (result == null) result = caseHasOptions(single);
+				if (result == null) result = caseItem(single);
+				if (result == null) result = caseTitleAndDescription(single);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SurveyPackage.MULTIPLE: {
+				Multiple multiple = (Multiple)theEObject;
+				T result = caseMultiple(multiple);
+				if (result == null) result = caseQuestion(multiple);
+				if (result == null) result = caseOther(multiple);
+				if (result == null) result = caseHasOptions(multiple);
+				if (result == null) result = caseItem(multiple);
+				if (result == null) result = caseTitleAndDescription(multiple);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -197,6 +199,7 @@ public class SurveySwitch<T> extends Switch<T> {
 				T result = caseTable(table);
 				if (result == null) result = caseQuestion(table);
 				if (result == null) result = caseOther(table);
+				if (result == null) result = caseHasOptions(table);
 				if (result == null) result = caseItem(table);
 				if (result == null) result = caseTitleAndDescription(table);
 				if (result == null) result = defaultCase(theEObject);
@@ -208,9 +211,23 @@ public class SurveySwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case SurveyPackage.OPTION: {
-				Option option = (Option)theEObject;
-				T result = caseOption(option);
+			case SurveyPackage.ANSWER_TEMPLATE_REF: {
+				AnswerTemplateRef answerTemplateRef = (AnswerTemplateRef)theEObject;
+				T result = caseAnswerTemplateRef(answerTemplateRef);
+				if (result == null) result = caseOption(answerTemplateRef);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SurveyPackage.ANSWER: {
+				Answer answer = (Answer)theEObject;
+				T result = caseAnswer(answer);
+				if (result == null) result = caseOption(answer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SurveyPackage.ANSWER_TEMPLATE: {
+				AnswerTemplate answerTemplate = (AnswerTemplate)theEObject;
+				T result = caseAnswerTemplate(answerTemplate);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -414,6 +431,21 @@ public class SurveySwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Has Options</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Has Options</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseHasOptions(HasOptions object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Answer Template</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -455,6 +487,21 @@ public class SurveySwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseTableQuestion(TableQuestion object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Answer Template Ref</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Answer Template Ref</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAnswerTemplateRef(AnswerTemplateRef object) {
 		return null;
 	}
 
