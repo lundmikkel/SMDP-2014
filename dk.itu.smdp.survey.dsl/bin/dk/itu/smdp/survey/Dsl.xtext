@@ -36,9 +36,6 @@ Answer returns Answer:
 Label returns ecore::EString:
 	EString (EString)*;
 
-EBoolean returns ecore::EBoolean:
-	'true' | 'false';
-
 Group returns Group:
 	'<group'
 		(('title' '=' title=EString)?
@@ -52,17 +49,17 @@ Group returns Group:
 Text returns Text:
 	{Text}
 	'<text'
-		(('title' '=' title=EString)?
+		(('title' '=' title=EString)
 		& ('description' '=' description=EString)?
 		& ('id' '=' id=EString)?
 		& ('dependsOn' '=' dependsOn=[Answer|EString])?
 		& (required?='required')?
-		& (multiline?='multiline')?)
+		& ('singleline' | 'single' | (multiline?=('multi' | 'multiline')))?)
 	'/>';
 
 Scale returns Scale:
 	'<scale'
-		(('title' '=' title=EString)?
+		(('title' '=' title=EString)
 		& ('description' '=' description=EString)?
 		& ('id' '=' id=EString)?
 		& ('lower' '=' lower=EInt)
@@ -77,7 +74,7 @@ Scale returns Scale:
 Date returns Date:
 	{Date}
 	'<date'
-		(('title' '=' title=EString)?
+		(('title' '=' title=EString)
 		& ('description' '=' description=EString)?
 		& ('id' '=' id=EString)?
 		& ('from' '=' from=EString)?
@@ -93,7 +90,7 @@ Date returns Date:
 Number returns Number:
 	{Number}
 	'<number'
-		(('title' '=' title=EString)?
+		(('title' '=' title=EString)
 		& ('description' '=' description=EString)?
 		& ('id' '=' id=EString)?
 		& ('lower' '=' lower=EInt)?
@@ -105,7 +102,7 @@ Number returns Number:
 
 Single returns Single:
 	'<single'
-		(('title' '=' title=EString)?
+		(('title' '=' title=EString)
 		& ('description' '=' description=EString)?
 		& ('id' '=' id=EString)?
 		& ('dependsOn' '=' dependsOn=[Answer|EString])?
@@ -117,7 +114,7 @@ Single returns Single:
 
 Multiple returns Multiple:
 	'<multiple'
-		(('title' '=' title=EString)?
+		(('title' '=' title=EString)
 		& ('description' '=' description=EString)?
 		& ('id' '=' id=EString)?
 		& ('lower' '=' lower=EInt)?

@@ -694,8 +694,6 @@ ruleLabel returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
 
 
 
-
-
 // Entry rule entryRuleGroup
 entryRuleGroup returns [EObject current=null] 
 	:
@@ -1115,38 +1113,64 @@ ruleText returns [EObject current=null]
 					{ 
 	 				  getUnorderedGroupHelper().select(grammarAccess.getTextAccess().getUnorderedGroup_2(), 5);
 	 				}
-					({true}?=>(
-(
-		lv_multiline_16_0=	'multiline' 
+					({true}?=>(	otherlv_16='singleline' 
     {
-        newLeafNode(lv_multiline_16_0, grammarAccess.getTextAccess().getMultilineMultilineKeyword_2_5_0());
+    	newLeafNode(otherlv_16, grammarAccess.getTextAccess().getSinglelineKeyword_2_5_0());
+    }
+
+    |	otherlv_17='single' 
+    {
+    	newLeafNode(otherlv_17, grammarAccess.getTextAccess().getSingleKeyword_2_5_1());
+    }
+
+    |(
+(
+(
+		lv_multiline_18_1=	'multi' 
+    {
+        newLeafNode(lv_multiline_18_1, grammarAccess.getTextAccess().getMultilineMultiKeyword_2_5_2_0_0());
     }
  
 	    {
 	        if ($current==null) {
 	            $current = createModelElement(grammarAccess.getTextRule());
 	        }
-       		setWithLastConsumed($current, "multiline", true, "multiline");
+       		setWithLastConsumed($current, "multiline", true, null);
+	    }
+
+    |		lv_multiline_18_2=	'multiline' 
+    {
+        newLeafNode(lv_multiline_18_2, grammarAccess.getTextAccess().getMultilineMultilineKeyword_2_5_2_0_1());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getTextRule());
+	        }
+       		setWithLastConsumed($current, "multiline", true, null);
 	    }
 
 )
-))
+
+)
+)))
 					{ 
 	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getTextAccess().getUnorderedGroup_2());
 	 				}
  				)
 			)  
 
-		)*	
+		)+
+	  	{getUnorderedGroupHelper().canLeave(grammarAccess.getTextAccess().getUnorderedGroup_2())}?	
 	)
 )
 	{ 
 	  getUnorderedGroupHelper().leave(grammarAccess.getTextAccess().getUnorderedGroup_2());
 	}
 
-)	otherlv_17='/>' 
+)	otherlv_19='/>' 
     {
-    	newLeafNode(otherlv_17, grammarAccess.getTextAccess().getSolidusGreaterThanSignKeyword_3());
+    	newLeafNode(otherlv_19, grammarAccess.getTextAccess().getSolidusGreaterThanSignKeyword_3());
     }
 )
 ;
@@ -1922,7 +1946,8 @@ ruleDate returns [EObject current=null]
  				)
 			)  
 
-		)*	
+		)+
+	  	{getUnorderedGroupHelper().canLeave(grammarAccess.getDateAccess().getUnorderedGroup_2())}?	
 	)
 )
 	{ 
@@ -2252,7 +2277,8 @@ ruleNumber returns [EObject current=null]
  				)
 			)  
 
-		)*	
+		)+
+	  	{getUnorderedGroupHelper().canLeave(grammarAccess.getNumberAccess().getUnorderedGroup_2())}?	
 	)
 )
 	{ 
@@ -2500,7 +2526,8 @@ ruleSingle returns [EObject current=null]
  				)
 			)  
 
-		)*	
+		)+
+	  	{getUnorderedGroupHelper().canLeave(grammarAccess.getSingleAccess().getUnorderedGroup_1())}?	
 	)
 )
 	{ 
@@ -2869,7 +2896,8 @@ ruleMultiple returns [EObject current=null]
  				)
 			)  
 
-		)*	
+		)+
+	  	{getUnorderedGroupHelper().canLeave(grammarAccess.getMultipleAccess().getUnorderedGroup_1())}?	
 	)
 )
 	{ 

@@ -168,6 +168,44 @@ class DslGenerator implements IGenerator {
 		'''
 	}
 	
+	/*def dispatch String genHtml(Single question) {
+		var id = 'question'
+		question.options.get(0);
+		
+		'''
+<div class="form-group">
+    <label class="control-label">
+    	«question.title»
+    	«question.genQuestionDesc»
+    </label>
+    <div>
+    	«FOR i : 0..question.options.size BEFORE '<div class="radio"><label>' SEPARATOR '</label></div><div class="radio"><label>' AFTER '</label></div>' »
+        <input type="radio" name="«id»" id="«id»_«i»" value="«i»" />
+        «(question.options.get(i) as Option).»	
+        «ENDFOR»
+        <div class="radio">
+            <label>
+                <input type="radio" name="«id»" id="«id»_«i»" value="male" />
+                Male
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="radio_1" id="radio_sex_2" value="female" />
+                Female
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="radio_1" id="radio_sex_2" value="option3" />
+                <input class="form-control input-sm" id="name">
+            </label>
+        </div>
+    </div>
+</div>
+		'''
+	}*/
+	
 	def dispatch String genHtml(Question question) '''
 		«question.title»
 	'''

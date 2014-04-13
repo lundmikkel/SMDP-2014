@@ -16,6 +16,8 @@ import survey.Group
  * see http://www.eclipse.org/Xtext/documentation.html#validation
  */
 class DslValidator extends AbstractDslValidator {
+	
+	// TODO: lower/upper in Multiple must be between 0 and the number of answers 
 
 	public static val DUPLICATE_NAME = 'duplicateName'
 

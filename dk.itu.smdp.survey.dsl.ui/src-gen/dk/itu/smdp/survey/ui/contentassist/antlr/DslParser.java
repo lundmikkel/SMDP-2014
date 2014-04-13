@@ -42,7 +42,8 @@ public class DslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getQuestionAccess().getAlternatives(), "rule__Question__Alternatives");
 					put(grammarAccess.getOptionAccess().getAlternatives(), "rule__Option__Alternatives");
 					put(grammarAccess.getEStringAccess().getAlternatives(), "rule__EString__Alternatives");
-					put(grammarAccess.getEBooleanAccess().getAlternatives(), "rule__EBoolean__Alternatives");
+					put(grammarAccess.getTextAccess().getAlternatives_2_5(), "rule__Text__Alternatives_2_5");
+					put(grammarAccess.getTextAccess().getMultilineAlternatives_2_5_2_0(), "rule__Text__MultilineAlternatives_2_5_2_0");
 					put(grammarAccess.getTableAccess().getAlternatives_4(), "rule__Table__Alternatives_4");
 					put(grammarAccess.getSurveyAccess().getGroup(), "rule__Survey__Group__0");
 					put(grammarAccess.getSurveyAccess().getGroup_1(), "rule__Survey__Group_1__0");
@@ -122,7 +123,7 @@ public class DslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getTextAccess().getIdAssignment_2_2_2(), "rule__Text__IdAssignment_2_2_2");
 					put(grammarAccess.getTextAccess().getDependsOnAssignment_2_3_2(), "rule__Text__DependsOnAssignment_2_3_2");
 					put(grammarAccess.getTextAccess().getRequiredAssignment_2_4(), "rule__Text__RequiredAssignment_2_4");
-					put(grammarAccess.getTextAccess().getMultilineAssignment_2_5(), "rule__Text__MultilineAssignment_2_5");
+					put(grammarAccess.getTextAccess().getMultilineAssignment_2_5_2(), "rule__Text__MultilineAssignment_2_5_2");
 					put(grammarAccess.getScaleAccess().getTitleAssignment_1_0_2(), "rule__Scale__TitleAssignment_1_0_2");
 					put(grammarAccess.getScaleAccess().getDescriptionAssignment_1_1_2(), "rule__Scale__DescriptionAssignment_1_1_2");
 					put(grammarAccess.getScaleAccess().getIdAssignment_1_2_2(), "rule__Scale__IdAssignment_1_2_2");

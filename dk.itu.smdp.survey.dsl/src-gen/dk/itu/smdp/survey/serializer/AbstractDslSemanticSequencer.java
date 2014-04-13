@@ -172,7 +172,7 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	/**
 	 * Constraint:
 	 *     (
-	 *         title=EString? 
+	 *         title=EString 
 	 *         description=EString? 
 	 *         id=EString? 
 	 *         from=EString? 
@@ -202,7 +202,7 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	/**
 	 * Constraint:
 	 *     (
-	 *         title=EString? 
+	 *         title=EString 
 	 *         description=EString? 
 	 *         id=EString? 
 	 *         lower=EInt? 
@@ -222,7 +222,7 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	/**
 	 * Constraint:
 	 *     (
-	 *         title=EString? 
+	 *         title=EString 
 	 *         description=EString? 
 	 *         id=EString? 
 	 *         lower=EInt? 
@@ -240,7 +240,7 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	/**
 	 * Constraint:
 	 *     (
-	 *         title=EString? 
+	 *         title=EString 
 	 *         description=EString? 
 	 *         id=EString? 
 	 *         lower=EInt 
@@ -259,7 +259,7 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	/**
 	 * Constraint:
 	 *     (
-	 *         title=EString? 
+	 *         title=EString 
 	 *         description=EString? 
 	 *         id=EString? 
 	 *         dependsOn=[Answer|EString]? 
@@ -321,12 +321,12 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	/**
 	 * Constraint:
 	 *     (
-	 *         title=EString? 
+	 *         title=EString 
 	 *         description=EString? 
 	 *         id=EString? 
 	 *         dependsOn=[Answer|EString]? 
 	 *         required?='required'? 
-	 *         multiline?='multiline'?
+	 *         (multiline?='multi' | multiline?='multiline')?
 	 *     )
 	 */
 	protected void sequence_Text(EObject context, Text semanticObject) {
