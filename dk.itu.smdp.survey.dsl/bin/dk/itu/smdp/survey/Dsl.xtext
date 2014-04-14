@@ -25,7 +25,7 @@ EString returns ecore::EString:
 
 AnswerTemplate returns AnswerTemplate:
 	'<template' 'id' '=' id=EString '>'
-		(answers+=Answer)+ 
+		(answers+=Answer)+
 	'</template>';
 
 Answer returns Answer:
@@ -136,7 +136,7 @@ Table returns Table:
 		& ('id' '=' id=EString)?
 		& ('dependsOn' '=' dependsOn=[Answer|EString])?
 		& (required?='required')?
-		& (other?='other')		
+		& (other?='other')?		
 		& (multiple?='multiple')?)
 	'>'	
 		// TODO: check if mixed order is allowed

@@ -9181,8 +9181,7 @@ rule__Table__UnorderedGroup_1
     }
 :
 	rule__Table__UnorderedGroup_1__0
-	
-	{getUnorderedGroupHelper().canLeave(grammarAccess.getTableAccess().getUnorderedGroup_1())}?
+	?
 	
 ;
 finally {

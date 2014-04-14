@@ -3166,8 +3166,7 @@ ruleTable returns [EObject current=null]
  				)
 			)  
 
-		)+
-	  	{getUnorderedGroupHelper().canLeave(grammarAccess.getTableAccess().getUnorderedGroup_1())}?	
+		)*	
 	)
 )
 	{ 

@@ -306,7 +306,7 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	 *         id=EString? 
 	 *         dependsOn=[Answer|EString]? 
 	 *         required?='required'? 
-	 *         other?='other' 
+	 *         other?='other'? 
 	 *         multiple?='multiple'? 
 	 *         options+=Option+ 
 	 *         questions+=TableQuestion+ 

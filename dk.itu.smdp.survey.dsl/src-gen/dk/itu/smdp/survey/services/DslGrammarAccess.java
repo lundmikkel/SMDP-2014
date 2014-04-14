@@ -1571,12 +1571,12 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Table:
 		//	"<table" (("title" "=" title=EString)? & ("description" "=" description=EString)? & ("id" "=" id=EString)? &
-		//	("dependsOn" "=" dependsOn=[Answer|EString])? & required?="required"? & other?="other" & multiple?="multiple"?) ">" // TODO: check if mixed order is allowed
+		//	("dependsOn" "=" dependsOn=[Answer|EString])? & required?="required"? & other?="other"? & multiple?="multiple"?) ">" // TODO: check if mixed order is allowed
 		//	(options+=Option+ & questions+=TableQuestion+) (options+=Option | questions+=TableQuestion)* "</table>";
 		public ParserRule getRule() { return rule; }
 
 		//"<table" (("title" "=" title=EString)? & ("description" "=" description=EString)? & ("id" "=" id=EString)? &
-		//("dependsOn" "=" dependsOn=[Answer|EString])? & required?="required"? & other?="other" & multiple?="multiple"?) ">" // TODO: check if mixed order is allowed
+		//("dependsOn" "=" dependsOn=[Answer|EString])? & required?="required"? & other?="other"? & multiple?="multiple"?) ">" // TODO: check if mixed order is allowed
 		//(options+=Option+ & questions+=TableQuestion+) (options+=Option | questions+=TableQuestion)* "</table>"
 		public Group getGroup() { return cGroup; }
 
@@ -1584,7 +1584,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getTableKeyword_0() { return cTableKeyword_0; }
 
 		//("title" "=" title=EString)? & ("description" "=" description=EString)? & ("id" "=" id=EString)? & ("dependsOn" "="
-		//dependsOn=[Answer|EString])? & required?="required"? & other?="other" & multiple?="multiple"?
+		//dependsOn=[Answer|EString])? & required?="required"? & other?="other"? & multiple?="multiple"?
 		public UnorderedGroup getUnorderedGroup_1() { return cUnorderedGroup_1; }
 
 		//("title" "=" title=EString)?
@@ -1656,7 +1656,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//"required"
 		public Keyword getRequiredRequiredKeyword_1_4_0() { return cRequiredRequiredKeyword_1_4_0; }
 
-		//other?="other"
+		//other?="other"?
 		public Assignment getOtherAssignment_1_5() { return cOtherAssignment_1_5; }
 
 		//"other"
@@ -2028,7 +2028,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 
 	//Table:
 	//	"<table" (("title" "=" title=EString)? & ("description" "=" description=EString)? & ("id" "=" id=EString)? &
-	//	("dependsOn" "=" dependsOn=[Answer|EString])? & required?="required"? & other?="other" & multiple?="multiple"?) ">" // TODO: check if mixed order is allowed
+	//	("dependsOn" "=" dependsOn=[Answer|EString])? & required?="required"? & other?="other"? & multiple?="multiple"?) ">" // TODO: check if mixed order is allowed
 	//	(options+=Option+ & questions+=TableQuestion+) (options+=Option | questions+=TableQuestion)* "</table>";
 	public TableElements getTableAccess() {
 		return (pTable != null) ? pTable : (pTable = new TableElements());
