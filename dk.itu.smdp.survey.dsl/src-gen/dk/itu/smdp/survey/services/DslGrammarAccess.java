@@ -248,17 +248,17 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cIdKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Keyword cEqualsSignKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cIdAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cIdSTRINGTerminalRuleCall_3_0 = (RuleCall)cIdAssignment_3.eContents().get(0);
+		private final RuleCall cIdIDTerminalRuleCall_3_0 = (RuleCall)cIdAssignment_3.eContents().get(0);
 		private final Keyword cGreaterThanSignKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		private final Assignment cAnswersAssignment_5 = (Assignment)cGroup.eContents().get(5);
 		private final RuleCall cAnswersAnswerParserRuleCall_5_0 = (RuleCall)cAnswersAssignment_5.eContents().get(0);
 		private final Keyword cTemplateKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//AnswerTemplate:
-		//	"<template" "id" "=" id=STRING ">" answers+=Answer+ "</template>";
+		//	"<template" "id" "=" id=ID ">" answers+=Answer+ "</template>";
 		public ParserRule getRule() { return rule; }
 
-		//"<template" "id" "=" id=STRING ">" answers+=Answer+ "</template>"
+		//"<template" "id" "=" id=ID ">" answers+=Answer+ "</template>"
 		public Group getGroup() { return cGroup; }
 
 		//"<template"
@@ -270,11 +270,11 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//"="
 		public Keyword getEqualsSignKeyword_2() { return cEqualsSignKeyword_2; }
 
-		//id=STRING
+		//id=ID
 		public Assignment getIdAssignment_3() { return cIdAssignment_3; }
 
-		//STRING
-		public RuleCall getIdSTRINGTerminalRuleCall_3_0() { return cIdSTRINGTerminalRuleCall_3_0; }
+		//ID
+		public RuleCall getIdIDTerminalRuleCall_3_0() { return cIdIDTerminalRuleCall_3_0; }
 
 		//">"
 		public Keyword getGreaterThanSignKeyword_4() { return cGreaterThanSignKeyword_4; }
@@ -287,6 +287,46 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 
 		//"</template>"
 		public Keyword getTemplateKeyword_6() { return cTemplateKeyword_6; }
+	}
+
+	public class AnswerTemplateRefElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "AnswerTemplateRef");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cTemplaterefKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cIdKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cEqualsSignKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cTemplateAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final CrossReference cTemplateAnswerTemplateCrossReference_3_0 = (CrossReference)cTemplateAssignment_3.eContents().get(0);
+		private final RuleCall cTemplateAnswerTemplateIDTerminalRuleCall_3_0_1 = (RuleCall)cTemplateAnswerTemplateCrossReference_3_0.eContents().get(1);
+		private final Keyword cSolidusGreaterThanSignKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		
+		//AnswerTemplateRef:
+		//	"<templateref" "id" "=" template=[AnswerTemplate] "/>";
+		public ParserRule getRule() { return rule; }
+
+		//"<templateref" "id" "=" template=[AnswerTemplate] "/>"
+		public Group getGroup() { return cGroup; }
+
+		//"<templateref"
+		public Keyword getTemplaterefKeyword_0() { return cTemplaterefKeyword_0; }
+
+		//"id"
+		public Keyword getIdKeyword_1() { return cIdKeyword_1; }
+
+		//"="
+		public Keyword getEqualsSignKeyword_2() { return cEqualsSignKeyword_2; }
+
+		//template=[AnswerTemplate]
+		public Assignment getTemplateAssignment_3() { return cTemplateAssignment_3; }
+
+		//[AnswerTemplate]
+		public CrossReference getTemplateAnswerTemplateCrossReference_3_0() { return cTemplateAnswerTemplateCrossReference_3_0; }
+
+		//ID
+		public RuleCall getTemplateAnswerTemplateIDTerminalRuleCall_3_0_1() { return cTemplateAnswerTemplateIDTerminalRuleCall_3_0_1; }
+
+		//"/>"
+		public Keyword getSolidusGreaterThanSignKeyword_4() { return cSolidusGreaterThanSignKeyword_4; }
 	}
 
 	public class AnswerElements extends AbstractParserRuleElementFinder {
@@ -1728,46 +1768,6 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getINTTerminalRuleCall_1() { return cINTTerminalRuleCall_1; }
 	}
 
-	public class AnswerTemplateRefElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "AnswerTemplateRef");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cTemplateKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cIdKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cEqualsSignKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cTemplateAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final CrossReference cTemplateAnswerTemplateCrossReference_3_0 = (CrossReference)cTemplateAssignment_3.eContents().get(0);
-		private final RuleCall cTemplateAnswerTemplateIDTerminalRuleCall_3_0_1 = (RuleCall)cTemplateAnswerTemplateCrossReference_3_0.eContents().get(1);
-		private final Keyword cSolidusGreaterThanSignKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		
-		//AnswerTemplateRef:
-		//	"<template" "id" "=" template=[AnswerTemplate] "/>";
-		public ParserRule getRule() { return rule; }
-
-		//"<template" "id" "=" template=[AnswerTemplate] "/>"
-		public Group getGroup() { return cGroup; }
-
-		//"<template"
-		public Keyword getTemplateKeyword_0() { return cTemplateKeyword_0; }
-
-		//"id"
-		public Keyword getIdKeyword_1() { return cIdKeyword_1; }
-
-		//"="
-		public Keyword getEqualsSignKeyword_2() { return cEqualsSignKeyword_2; }
-
-		//template=[AnswerTemplate]
-		public Assignment getTemplateAssignment_3() { return cTemplateAssignment_3; }
-
-		//[AnswerTemplate]
-		public CrossReference getTemplateAnswerTemplateCrossReference_3_0() { return cTemplateAnswerTemplateCrossReference_3_0; }
-
-		//ID
-		public RuleCall getTemplateAnswerTemplateIDTerminalRuleCall_3_0_1() { return cTemplateAnswerTemplateIDTerminalRuleCall_3_0_1; }
-
-		//"/>"
-		public Keyword getSolidusGreaterThanSignKeyword_4() { return cSolidusGreaterThanSignKeyword_4; }
-	}
-
 	public class TableQuestionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "TableQuestion");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -1803,6 +1803,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	private OptionElements pOption;
 	private EStringElements pEString;
 	private AnswerTemplateElements pAnswerTemplate;
+	private AnswerTemplateRefElements pAnswerTemplateRef;
 	private AnswerElements pAnswer;
 	private LabelElements pLabel;
 	private GroupElements pGroup;
@@ -1814,7 +1815,6 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	private MultipleElements pMultiple;
 	private TableElements pTable;
 	private EIntElements pEInt;
-	private AnswerTemplateRefElements pAnswerTemplateRef;
 	private TableQuestionElements pTableQuestion;
 	
 	private final Grammar grammar;
@@ -1907,13 +1907,23 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//AnswerTemplate:
-	//	"<template" "id" "=" id=STRING ">" answers+=Answer+ "</template>";
+	//	"<template" "id" "=" id=ID ">" answers+=Answer+ "</template>";
 	public AnswerTemplateElements getAnswerTemplateAccess() {
 		return (pAnswerTemplate != null) ? pAnswerTemplate : (pAnswerTemplate = new AnswerTemplateElements());
 	}
 	
 	public ParserRule getAnswerTemplateRule() {
 		return getAnswerTemplateAccess().getRule();
+	}
+
+	//AnswerTemplateRef:
+	//	"<templateref" "id" "=" template=[AnswerTemplate] "/>";
+	public AnswerTemplateRefElements getAnswerTemplateRefAccess() {
+		return (pAnswerTemplateRef != null) ? pAnswerTemplateRef : (pAnswerTemplateRef = new AnswerTemplateRefElements());
+	}
+	
+	public ParserRule getAnswerTemplateRefRule() {
+		return getAnswerTemplateRefAccess().getRule();
 	}
 
 	//Answer:
@@ -2039,16 +2049,6 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getEIntRule() {
 		return getEIntAccess().getRule();
-	}
-
-	//AnswerTemplateRef:
-	//	"<template" "id" "=" template=[AnswerTemplate] "/>";
-	public AnswerTemplateRefElements getAnswerTemplateRefAccess() {
-		return (pAnswerTemplateRef != null) ? pAnswerTemplateRef : (pAnswerTemplateRef = new AnswerTemplateRefElements());
-	}
-	
-	public ParserRule getAnswerTemplateRefRule() {
-		return getAnswerTemplateRefAccess().getRule();
 	}
 
 	//TableQuestion:

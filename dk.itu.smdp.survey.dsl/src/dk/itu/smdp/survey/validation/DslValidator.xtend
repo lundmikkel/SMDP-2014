@@ -92,7 +92,7 @@ class DslValidator extends AbstractDslValidator {
 	def checkThatTemplateIDsAreUnique(Survey survey) {
 		var templateMap = new HashMap<String, AnswerTemplate>
 		
-		for (AnswerTemplate template : survey.templates) {
+		/*for (AnswerTemplate template : survey.templates) {
 			if (template.id.nullOrEmpty) {
 				error(
 					'Templates must have IDs',
@@ -125,6 +125,6 @@ class DslValidator extends AbstractDslValidator {
 					}
 				}
 			}
-		}
+		}*/
 	}
 }

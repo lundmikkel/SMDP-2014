@@ -28,6 +28,9 @@ AnswerTemplate returns AnswerTemplate:
 		(answers+=Answer)+ 
 	'</template>';
 
+AnswerTemplateRef returns AnswerTemplateRef:
+	'<template' 'id' '=' template=[AnswerTemplate|STRING] '/>';
+
 Answer returns Answer:
 	'<a' ('id' '=' id=STRING)? '>'
 		label=Label
@@ -38,10 +41,10 @@ Label returns ecore::EString:
 
 Group returns Group:
 	'<group'
-		(('title' '=' title=STRING)?
+		( ('title' '=' title=STRING)?
 		& ('description' '=' description=STRING)?
 		& ('dependsOn' '=' dependsOn=[Answer|EString])?
-		& (required?='required')?)
+		& (required?='required')? )
 	'>'
 		(questions+=Question)+ 
 	'</group>';
@@ -49,17 +52,17 @@ Group returns Group:
 Text returns Text:
 	{Text}
 	'<text'
-		(('title' '=' title=STRING)
+		( ('title' '=' title=STRING)
 		& ('description' '=' description=STRING)?
 		& ('id' '=' id=STRING)?
 		& ('dependsOn' '=' dependsOn=[Answer|EString])?
 		& (required?='required')?
-		& ('singleline' | 'single' | (multiline?=('multi' | 'multiline')))?)
+		& ('singleline' | 'single' | (multiline?=('multi' | 'multiline')))? )
 	'/>';
 
 Scale returns Scale:
 	'<scale'
-		(('title' '=' title=STRING)
+		( ('title' '=' title=STRING)
 		& ('description' '=' description=STRING)?
 		& ('id' '=' id=STRING)?
 		& ('lower' '=' lower=EInt)
@@ -68,13 +71,13 @@ Scale returns Scale:
 		& ('lowerLabel' '=' lowerLabel=EString)?
 		& ('upperLabel' '=' upperLabel=EString)?
 		& ('dependsOn' '=' dependsOn=[Answer|EString])?
-		& (required?='required')?)
+		& (required?='required')? )
 	'/>';
 
 Date returns Date:
 	{Date}
 	'<date'
-		(('title' '=' title=STRING)
+		( ('title' '=' title=STRING)
 		& ('description' '=' description=STRING)?
 		& ('id' '=' id=STRING)?
 		& ('from' '=' from=EString)?
@@ -84,37 +87,37 @@ Date returns Date:
 		& (required?='required')?
 		& (day?='day')?
 		& (month?='month')?
-		& (year?='year')?)
+		& (year?='year')? )
 	'/>';
 
 Number returns Number:
 	{Number}
 	'<number'
-		(('title' '=' title=STRING)
+		( ('title' '=' title=STRING)
 		& ('description' '=' description=STRING)?
 		& ('id' '=' id=STRING)?
 		& ('lower' '=' lower=EInt)?
 		& ('upper' '=' upper=EInt)?
 		& ('dependsOn' '=' dependsOn=[Answer|EString])?
 		& (required?='required')?
-		& (showLimits?='showLimits')?)
+		& (showLimits?='showLimits')? )
 	'/>';
 
 Single returns Single:
 	'<single'
-		(('title' '=' title=STRING)
+		( ('title' '=' title=STRING)
 		& ('description' '=' description=STRING)?
 		& ('id' '=' id=STRING)?
 		& ('dependsOn' '=' dependsOn=[Answer|EString])?
 		& (required?='required')?
-		& (other?='other')?)
+		& (other?='other')? )
 	'>'
 		(options+=Option)+
 	'</single>';
 
 Multiple returns Multiple:
 	'<multiple'
-		(('title' '=' title=STRING)
+		( ('title' '=' title=STRING)
 		& ('description' '=' description=STRING)?
 		& ('id' '=' id=STRING)?
 		& ('lower' '=' lower=INT)?
@@ -122,20 +125,20 @@ Multiple returns Multiple:
 		& ('dependsOn' dependsOn=[Answer|EString])?
 		& (required?='required')?
 		& (other?='other')?
-		& (showLimits?='showLimits')?)
+		& (showLimits?='showLimits')? )
 	'>'	
 		(options+=Option)+ 
 	'</multiple>';
 
 Table returns Table:
 	'<table'
-		(('title' '=' title=STRING)?
+		( ('title' '=' title=STRING)?
 		& ('description' '=' description=STRING)?
 		& ('id' '=' id=STRING)?
 		& ('dependsOn' '=' dependsOn=[Answer|EString])?
 		& (required?='required')?
 		& (other?='other')		
-		& (multiple?='multiple')?)
+		& (multiple?='multiple')? )
 	'>'	
 		// TODO: check if mixed order is allowed
 		((options+=Option)+ & (questions+=TableQuestion)+)
@@ -144,9 +147,6 @@ Table returns Table:
 
 EInt returns ecore::EInt:
 	'-'? INT;
-
-AnswerTemplateRef returns AnswerTemplateRef:
-	'<template' 'id' '=' template=[AnswerTemplate|EString] '/>';
 
 TableQuestion returns TableQuestion:
 	'<q>' title=Label '</q>';

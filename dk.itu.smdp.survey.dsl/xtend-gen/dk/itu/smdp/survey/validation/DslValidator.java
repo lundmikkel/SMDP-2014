@@ -98,39 +98,5 @@ public class DslValidator extends AbstractDslValidator {
   public void checkThatTemplateIDsAreUnique(final Survey survey) {
     HashMap<String,AnswerTemplate> _hashMap = new HashMap<String, AnswerTemplate>();
     HashMap<String,AnswerTemplate> templateMap = _hashMap;
-    EList<AnswerTemplate> _templates = survey.getTemplates();
-    for (final AnswerTemplate template : _templates) {
-      String _id = template.getId();
-      boolean _isNullOrEmpty = StringExtensions.isNullOrEmpty(_id);
-      if (_isNullOrEmpty) {
-        this.error(
-          "Templates must have IDs", template, 
-          Literals.ANSWER_TEMPLATE__ID, 
-          DslValidator.DUPLICATE_NAME);
-      } else {
-        String _id_1 = template.getId();
-        boolean _isNullOrEmpty_1 = StringExtensions.isNullOrEmpty(_id_1);
-        boolean _not = (!_isNullOrEmpty_1);
-        if (_not) {
-          String _id_2 = template.getId();
-          boolean _containsKey = templateMap.containsKey(_id_2);
-          if (_containsKey) {
-            this.error(
-              "Template IDs must be unique", template, 
-              Literals.ANSWER_TEMPLATE__ID, 
-              DslValidator.DUPLICATE_NAME);
-            String _id_3 = template.getId();
-            AnswerTemplate _get = templateMap.get(_id_3);
-            this.error(
-              "Template IDs must be unique", _get, 
-              Literals.ANSWER_TEMPLATE__ID, 
-              DslValidator.DUPLICATE_NAME);
-          } else {
-            String _id_4 = template.getId();
-            templateMap.put(_id_4, template);
-          }
-        }
-      }
-    }
   }
 }
