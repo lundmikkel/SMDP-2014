@@ -3397,10 +3397,12 @@ ruleAnswerTemplateRef returns [EObject current=null]
 	            $current = createModelElement(grammarAccess.getAnswerTemplateRefRule());
 	        }
         }
-	otherlv_3=RULE_ID
-	{
-		newLeafNode(otherlv_3, grammarAccess.getAnswerTemplateRefAccess().getTemplateAnswerTemplateCrossReference_3_0()); 
-	}
+		{ 
+	        newCompositeNode(grammarAccess.getAnswerTemplateRefAccess().getTemplateAnswerTemplateCrossReference_3_0()); 
+	    }
+		ruleEString		{ 
+	        afterParserOrEnumRuleCall();
+	    }
 
 )
 )	otherlv_4='/>' 

@@ -10907,8 +10907,8 @@ rule__AnswerTemplateRef__TemplateAssignment_3
 (
 { before(grammarAccess.getAnswerTemplateRefAccess().getTemplateAnswerTemplateCrossReference_3_0()); }
 (
-{ before(grammarAccess.getAnswerTemplateRefAccess().getTemplateAnswerTemplateIDTerminalRuleCall_3_0_1()); }
-	RULE_ID{ after(grammarAccess.getAnswerTemplateRefAccess().getTemplateAnswerTemplateIDTerminalRuleCall_3_0_1()); }
+{ before(grammarAccess.getAnswerTemplateRefAccess().getTemplateAnswerTemplateEStringParserRuleCall_3_0_1()); }
+	ruleEString{ after(grammarAccess.getAnswerTemplateRefAccess().getTemplateAnswerTemplateEStringParserRuleCall_3_0_1()); }
 )
 { after(grammarAccess.getAnswerTemplateRefAccess().getTemplateAnswerTemplateCrossReference_3_0()); }
 )

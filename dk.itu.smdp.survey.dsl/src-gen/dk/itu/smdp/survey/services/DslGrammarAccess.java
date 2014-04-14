@@ -1574,12 +1574,12 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Table:
 		//	"<table" (("title" "=" title=STRING)? & ("description" "=" description=STRING)? & ("id" "=" id=STRING)? & ("dependsOn"
-		//	"=" dependsOn=[Answer|EString])? & required?="required"? & other?="other" & multiple?="multiple"?) ">" // TODO: check if mixed order is allowed
+		//	"=" dependsOn=[Answer|EString])? & required?="required"? & other?="other"? & multiple?="multiple"?) ">" // TODO: check if mixed order is allowed
 		//	(options+=Option+ & questions+=TableQuestion+) (options+=Option | questions+=TableQuestion)* "</table>";
 		public ParserRule getRule() { return rule; }
 
 		//"<table" (("title" "=" title=STRING)? & ("description" "=" description=STRING)? & ("id" "=" id=STRING)? & ("dependsOn"
-		//"=" dependsOn=[Answer|EString])? & required?="required"? & other?="other" & multiple?="multiple"?) ">" // TODO: check if mixed order is allowed
+		//"=" dependsOn=[Answer|EString])? & required?="required"? & other?="other"? & multiple?="multiple"?) ">" // TODO: check if mixed order is allowed
 		//(options+=Option+ & questions+=TableQuestion+) (options+=Option | questions+=TableQuestion)* "</table>"
 		public Group getGroup() { return cGroup; }
 
@@ -1587,7 +1587,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getTableKeyword_0() { return cTableKeyword_0; }
 
 		//("title" "=" title=STRING)? & ("description" "=" description=STRING)? & ("id" "=" id=STRING)? & ("dependsOn" "="
-		//dependsOn=[Answer|EString])? & required?="required"? & other?="other" & multiple?="multiple"?
+		//dependsOn=[Answer|EString])? & required?="required"? & other?="other"? & multiple?="multiple"?
 		public UnorderedGroup getUnorderedGroup_1() { return cUnorderedGroup_1; }
 
 		//("title" "=" title=STRING)?
@@ -1659,7 +1659,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//"required"
 		public Keyword getRequiredRequiredKeyword_1_4_0() { return cRequiredRequiredKeyword_1_4_0; }
 
-		//other?="other"
+		//other?="other"?
 		public Assignment getOtherAssignment_1_5() { return cOtherAssignment_1_5; }
 
 		//"other"
@@ -1736,14 +1736,14 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cEqualsSignKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cTemplateAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final CrossReference cTemplateAnswerTemplateCrossReference_3_0 = (CrossReference)cTemplateAssignment_3.eContents().get(0);
-		private final RuleCall cTemplateAnswerTemplateIDTerminalRuleCall_3_0_1 = (RuleCall)cTemplateAnswerTemplateCrossReference_3_0.eContents().get(1);
+		private final RuleCall cTemplateAnswerTemplateEStringParserRuleCall_3_0_1 = (RuleCall)cTemplateAnswerTemplateCrossReference_3_0.eContents().get(1);
 		private final Keyword cSolidusGreaterThanSignKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//AnswerTemplateRef:
-		//	"<template" "id" "=" template=[AnswerTemplate] "/>";
+		//	"<template" "id" "=" template=[AnswerTemplate|EString] "/>";
 		public ParserRule getRule() { return rule; }
 
-		//"<template" "id" "=" template=[AnswerTemplate] "/>"
+		//"<template" "id" "=" template=[AnswerTemplate|EString] "/>"
 		public Group getGroup() { return cGroup; }
 
 		//"<template"
@@ -1755,14 +1755,14 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//"="
 		public Keyword getEqualsSignKeyword_2() { return cEqualsSignKeyword_2; }
 
-		//template=[AnswerTemplate]
+		//template=[AnswerTemplate|EString]
 		public Assignment getTemplateAssignment_3() { return cTemplateAssignment_3; }
 
-		//[AnswerTemplate]
+		//[AnswerTemplate|EString]
 		public CrossReference getTemplateAnswerTemplateCrossReference_3_0() { return cTemplateAnswerTemplateCrossReference_3_0; }
 
-		//ID
-		public RuleCall getTemplateAnswerTemplateIDTerminalRuleCall_3_0_1() { return cTemplateAnswerTemplateIDTerminalRuleCall_3_0_1; }
+		//EString
+		public RuleCall getTemplateAnswerTemplateEStringParserRuleCall_3_0_1() { return cTemplateAnswerTemplateEStringParserRuleCall_3_0_1; }
 
 		//"/>"
 		public Keyword getSolidusGreaterThanSignKeyword_4() { return cSolidusGreaterThanSignKeyword_4; }
@@ -2021,7 +2021,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 
 	//Table:
 	//	"<table" (("title" "=" title=STRING)? & ("description" "=" description=STRING)? & ("id" "=" id=STRING)? & ("dependsOn"
-	//	"=" dependsOn=[Answer|EString])? & required?="required"? & other?="other" & multiple?="multiple"?) ">" // TODO: check if mixed order is allowed
+	//	"=" dependsOn=[Answer|EString])? & required?="required"? & other?="other"? & multiple?="multiple"?) ">" // TODO: check if mixed order is allowed
 	//	(options+=Option+ & questions+=TableQuestion+) (options+=Option | questions+=TableQuestion)* "</table>";
 	public TableElements getTableAccess() {
 		return (pTable != null) ? pTable : (pTable = new TableElements());
@@ -2042,7 +2042,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//AnswerTemplateRef:
-	//	"<template" "id" "=" template=[AnswerTemplate] "/>";
+	//	"<template" "id" "=" template=[AnswerTemplate|EString] "/>";
 	public AnswerTemplateRefElements getAnswerTemplateRefAccess() {
 		return (pAnswerTemplateRef != null) ? pAnswerTemplateRef : (pAnswerTemplateRef = new AnswerTemplateRefElements());
 	}
