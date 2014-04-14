@@ -9,7 +9,8 @@ import java.util.HashMap;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtext.validation.Check;
 import org.eclipse.xtext.xbase.lib.InputOutput;
-import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.eclipse.xtext.xbase.lib.StringExtensions;
+import survey.AnswerTemplate;
 import survey.Group;
 import survey.Item;
 import survey.Question;
@@ -25,74 +26,108 @@ import survey.SurveyPackage.Literals;
 public class DslValidator extends AbstractDslValidator {
   public final static String DUPLICATE_NAME = "duplicateName";
   
+  public final static String MISSING_NAME = "missingName";
+  
   @Check
   public void checkThatQuestionIDsAreUnique(final Survey survey) {
     HashMap<String,Question> _hashMap = new HashMap<String, Question>();
     HashMap<String,Question> questionMap = _hashMap;
+    InputOutput.<String>println("---------------");
     EList<Item> _items = survey.getItems();
-    Iterable<Question> questionList = Iterables.<Question>filter(_items, Question.class);
-    for (final Question question : questionList) {
-      {
-        String _id = question.getId();
-        String _plus = ("Explicit Question ID:" + _id);
-        InputOutput.<String>println(_plus);
+    Iterable<Question> _filter = Iterables.<Question>filter(_items, Question.class);
+    for (final Question question : _filter) {
+      String _id = question.getId();
+      boolean _isNullOrEmpty = StringExtensions.isNullOrEmpty(_id);
+      boolean _not = (!_isNullOrEmpty);
+      if (_not) {
         String _id_1 = question.getId();
-        boolean _isEmpty = _id_1.isEmpty();
-        boolean _not = (!_isEmpty);
-        if (_not) {
-          String _id_2 = question.getId();
-          boolean _containsKey = questionMap.containsKey(_id_2);
-          if (_containsKey) {
-            this.error(
-              "Question IDs must be unique", question, 
-              Literals.QUESTION__ID, 
-              DslValidator.DUPLICATE_NAME);
-          } else {
-            String _id_3 = question.getId();
-            questionMap.put(_id_3, question);
-          }
+        InputOutput.<String>println(_id_1);
+        String _id_2 = question.getId();
+        boolean _containsKey = questionMap.containsKey(_id_2);
+        if (_containsKey) {
+          this.error(
+            "Question IDs must be unique", question, 
+            Literals.QUESTION__ID, 
+            DslValidator.DUPLICATE_NAME);
+          String _id_3 = question.getId();
+          Question _get = questionMap.get(_id_3);
+          this.error(
+            "Question IDs must be unique", _get, 
+            Literals.QUESTION__ID, 
+            DslValidator.DUPLICATE_NAME);
+        } else {
+          String _id_4 = question.getId();
+          questionMap.put(_id_4, question);
         }
       }
     }
     EList<Item> _items_1 = survey.getItems();
-    Iterable<Group> _filter = Iterables.<Group>filter(_items_1, Group.class);
-    for (final Group group : _filter) {
-      {
-        EList<Item> _items_2 = survey.getItems();
-        Iterable<Group> _filter_1 = Iterables.<Group>filter(_items_2, Group.class);
-        int _size = IterableExtensions.size(_filter_1);
-        String _plus = ("Number of groups: " + Integer.valueOf(_size));
-        InputOutput.<String>println(_plus);
-        EList<Question> _questions = group.getQuestions();
-        boolean _isEmpty = _questions.isEmpty();
-        boolean _not = (!_isEmpty);
+    Iterable<Group> _filter_1 = Iterables.<Group>filter(_items_1, Group.class);
+    for (final Group group : _filter_1) {
+      EList<Question> _questions = group.getQuestions();
+      for (final Question question_1 : _questions) {
+        String _id_5 = question_1.getId();
+        boolean _isNullOrEmpty_1 = StringExtensions.isNullOrEmpty(_id_5);
+        boolean _not_1 = (!_isNullOrEmpty_1);
+        if (_not_1) {
+          String _id_6 = question_1.getId();
+          InputOutput.<String>println(_id_6);
+          String _id_7 = question_1.getId();
+          boolean _containsKey_1 = questionMap.containsKey(_id_7);
+          if (_containsKey_1) {
+            this.error(
+              "Question IDs must be unique", question_1, 
+              Literals.QUESTION__ID, 
+              DslValidator.DUPLICATE_NAME);
+            String _id_8 = question_1.getId();
+            Question _get_1 = questionMap.get(_id_8);
+            this.error(
+              "Question IDs must be unique", _get_1, 
+              Literals.QUESTION__ID, 
+              DslValidator.DUPLICATE_NAME);
+          } else {
+            String _id_9 = question_1.getId();
+            questionMap.put(_id_9, question_1);
+          }
+        }
+      }
+    }
+  }
+  
+  @Check
+  public void checkThatTemplateIDsAreUnique(final Survey survey) {
+    HashMap<String,AnswerTemplate> _hashMap = new HashMap<String, AnswerTemplate>();
+    HashMap<String,AnswerTemplate> templateMap = _hashMap;
+    EList<AnswerTemplate> _templates = survey.getTemplates();
+    for (final AnswerTemplate template : _templates) {
+      String _id = template.getId();
+      boolean _isNullOrEmpty = StringExtensions.isNullOrEmpty(_id);
+      if (_isNullOrEmpty) {
+        this.error(
+          "Templates must have IDs", template, 
+          Literals.ANSWER_TEMPLATE__ID, 
+          DslValidator.DUPLICATE_NAME);
+      } else {
+        String _id_1 = template.getId();
+        boolean _isNullOrEmpty_1 = StringExtensions.isNullOrEmpty(_id_1);
+        boolean _not = (!_isNullOrEmpty_1);
         if (_not) {
-          EList<Question> _questions_1 = group.getQuestions();
-          for (final Question groupQuestion : _questions_1) {
-            {
-              String _title = group.getTitle();
-              String _plus_1 = ("Group title: " + _title);
-              String _plus_2 = (_plus_1 + " Group Question ID:");
-              String _id = groupQuestion.getId();
-              String _plus_3 = (_plus_2 + _id);
-              InputOutput.<String>println(_plus_3);
-              String _id_1 = groupQuestion.getId();
-              boolean _isEmpty_1 = _id_1.isEmpty();
-              boolean _not_1 = (!_isEmpty_1);
-              if (_not_1) {
-                String _id_2 = groupQuestion.getId();
-                boolean _containsKey = questionMap.containsKey(_id_2);
-                if (_containsKey) {
-                  this.error(
-                    "Question IDs must be unique", groupQuestion, 
-                    Literals.QUESTION__ID, 
-                    DslValidator.DUPLICATE_NAME);
-                } else {
-                  String _id_3 = groupQuestion.getId();
-                  questionMap.put(_id_3, groupQuestion);
-                }
-              }
-            }
+          String _id_2 = template.getId();
+          boolean _containsKey = templateMap.containsKey(_id_2);
+          if (_containsKey) {
+            this.error(
+              "Template IDs must be unique", template, 
+              Literals.ANSWER_TEMPLATE__ID, 
+              DslValidator.DUPLICATE_NAME);
+            String _id_3 = template.getId();
+            AnswerTemplate _get = templateMap.get(_id_3);
+            this.error(
+              "Template IDs must be unique", _get, 
+              Literals.ANSWER_TEMPLATE__ID, 
+              DslValidator.DUPLICATE_NAME);
+          } else {
+            String _id_4 = template.getId();
+            templateMap.put(_id_4, template);
           }
         }
       }

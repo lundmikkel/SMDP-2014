@@ -9,6 +9,7 @@ import org.eclipse.xtext.validation.Check
 import survey.Question
 import survey.SurveyPackage
 import survey.Group
+import survey.AnswerTemplate
 
 /**
  * Custom validation rules. 
@@ -20,18 +21,20 @@ class DslValidator extends AbstractDslValidator {
 	// TODO: lower/upper in Multiple must be between 0 and the number of answers 
 
 	public static val DUPLICATE_NAME = 'duplicateName'
+	public static val MISSING_NAME = 'missingName'
 
 	@Check
 	def checkThatQuestionIDsAreUnique(Survey survey) {
 		var questionMap = new HashMap<String, Question>
-		var questionList = survey.items.filter(typeof(Question))
-
-		//		for (Group g : survey.items.filter(typeof(Group)) ) {
-		//			questionList = questionList + g.questions
-		//		}
-		for (Question question : questionList) {
-			println("Explicit Question ID:" + question.id)
-			if (!question.id.empty) {
+		
+		println("---------------")
+		
+		for (Question question : survey.items.filter(typeof(Question))) {
+			// Only iterate questions with an id
+			if (!question.id.nullOrEmpty) {
+				println(question.id)
+				
+				// Check if the id already exists
 				if (questionMap.containsKey(question.id)) {
 					error(
 						'Question IDs must be unique',
@@ -39,27 +42,86 @@ class DslValidator extends AbstractDslValidator {
 						SurveyPackage.Literals.QUESTION__ID,
 						DUPLICATE_NAME
 					)
-				} else {
+					error(
+						'Question IDs must be unique',
+						questionMap.get(question.id),
+						SurveyPackage.Literals.QUESTION__ID,
+						DUPLICATE_NAME
+					)
+				}
+				// Add it to the list
+				else {
 					questionMap.put(question.id, question)
 				}
 			}
 		}
+		
+		
 		for (Group group : survey.items.filter(typeof(Group))) {
-			println("Number of groups: " + survey.items.filter(typeof(Group)).size)
-			if (!group.questions.empty) {
-				for (Question groupQuestion : group.questions) {
-					println("Group title: " + group.title + " Group Question ID:" + groupQuestion.id)
-					if (!groupQuestion.id.empty) {
-						if (questionMap.containsKey(groupQuestion.id)) {
-							error(
-								'Question IDs must be unique',
-								groupQuestion,
-								SurveyPackage.Literals.QUESTION__ID,
-								DUPLICATE_NAME
-							)
-						} else {
-							questionMap.put(groupQuestion.id, groupQuestion)
-						}
+			// Iterate the group's questions
+			for (Question question : group.questions) {
+				// Only iterate questions with an id
+				if (!question.id.nullOrEmpty) {
+					println(question.id)
+					
+					// Check if the id already exists
+					if (questionMap.containsKey(question.id)) {
+						error(
+							'Question IDs must be unique',
+							question,
+							SurveyPackage.Literals.QUESTION__ID,
+							DUPLICATE_NAME
+						)
+						error(
+							'Question IDs must be unique',
+							questionMap.get(question.id),
+							SurveyPackage.Literals.QUESTION__ID,
+							DUPLICATE_NAME
+						)
+					}
+					// Add it to the list
+					else {
+						questionMap.put(question.id, question)
+					}
+				}
+			}
+		}
+	}
+
+	@Check
+	def checkThatTemplateIDsAreUnique(Survey survey) {
+		var templateMap = new HashMap<String, AnswerTemplate>
+		
+		for (AnswerTemplate template : survey.templates) {
+			if (template.id.nullOrEmpty) {
+				error(
+					'Templates must have IDs',
+					template,
+					SurveyPackage.Literals.ANSWER_TEMPLATE__ID,
+					DUPLICATE_NAME
+				)
+			}
+			else {
+				// Only iterate questions with an id
+				if (!template.id.nullOrEmpty) {
+					// Check if the id already exists
+					if (templateMap.containsKey(template.id)) {
+						error(
+							'Template IDs must be unique',
+							template,
+							SurveyPackage.Literals.ANSWER_TEMPLATE__ID,
+							DUPLICATE_NAME
+						)
+						error(
+							'Template IDs must be unique',
+							templateMap.get(template.id),
+							SurveyPackage.Literals.ANSWER_TEMPLATE__ID,
+							DUPLICATE_NAME
+						)
+					}
+					// Add it to the list
+					else {
+						templateMap.put(template.id, template)
 					}
 				}
 			}

@@ -26599,28 +26599,24 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Survey__TitleAssignment_1_1_0_2"
-    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9601:1: rule__Survey__TitleAssignment_1_1_0_2 : ( ruleEString ) ;
+    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9601:1: rule__Survey__TitleAssignment_1_1_0_2 : ( RULE_STRING ) ;
     public final void rule__Survey__TitleAssignment_1_1_0_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9605:1: ( ( ruleEString ) )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9606:1: ( ruleEString )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9605:1: ( ( RULE_STRING ) )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9606:1: ( RULE_STRING )
             {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9606:1: ( ruleEString )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9607:1: ruleEString
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9606:1: ( RULE_STRING )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9607:1: RULE_STRING
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getSurveyAccess().getTitleEStringParserRuleCall_1_1_0_2_0()); 
+               before(grammarAccess.getSurveyAccess().getTitleSTRINGTerminalRuleCall_1_1_0_2_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_rule__Survey__TitleAssignment_1_1_0_222625);
-            ruleEString();
-
-            state._fsp--;
-            if (state.failed) return ;
+            match(input,RULE_STRING,FollowSets000.FOLLOW_RULE_STRING_in_rule__Survey__TitleAssignment_1_1_0_222625); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getSurveyAccess().getTitleEStringParserRuleCall_1_1_0_2_0()); 
+               after(grammarAccess.getSurveyAccess().getTitleSTRINGTerminalRuleCall_1_1_0_2_0()); 
             }
 
             }
@@ -26644,28 +26640,24 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Survey__DescriptionAssignment_1_1_1_2"
-    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9616:1: rule__Survey__DescriptionAssignment_1_1_1_2 : ( ruleEString ) ;
+    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9616:1: rule__Survey__DescriptionAssignment_1_1_1_2 : ( RULE_STRING ) ;
     public final void rule__Survey__DescriptionAssignment_1_1_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9620:1: ( ( ruleEString ) )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9621:1: ( ruleEString )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9620:1: ( ( RULE_STRING ) )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9621:1: ( RULE_STRING )
             {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9621:1: ( ruleEString )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9622:1: ruleEString
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9621:1: ( RULE_STRING )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9622:1: RULE_STRING
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getSurveyAccess().getDescriptionEStringParserRuleCall_1_1_1_2_0()); 
+               before(grammarAccess.getSurveyAccess().getDescriptionSTRINGTerminalRuleCall_1_1_1_2_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_rule__Survey__DescriptionAssignment_1_1_1_222656);
-            ruleEString();
-
-            state._fsp--;
-            if (state.failed) return ;
+            match(input,RULE_STRING,FollowSets000.FOLLOW_RULE_STRING_in_rule__Survey__DescriptionAssignment_1_1_1_222656); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getSurveyAccess().getDescriptionEStringParserRuleCall_1_1_1_2_0()); 
+               after(grammarAccess.getSurveyAccess().getDescriptionSTRINGTerminalRuleCall_1_1_1_2_0()); 
             }
 
             }
@@ -26779,28 +26771,24 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AnswerTemplate__IdAssignment_3"
-    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9661:1: rule__AnswerTemplate__IdAssignment_3 : ( ruleEString ) ;
+    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9661:1: rule__AnswerTemplate__IdAssignment_3 : ( RULE_STRING ) ;
     public final void rule__AnswerTemplate__IdAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9665:1: ( ( ruleEString ) )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9666:1: ( ruleEString )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9665:1: ( ( RULE_STRING ) )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9666:1: ( RULE_STRING )
             {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9666:1: ( ruleEString )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9667:1: ruleEString
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9666:1: ( RULE_STRING )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9667:1: RULE_STRING
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getAnswerTemplateAccess().getIdEStringParserRuleCall_3_0()); 
+               before(grammarAccess.getAnswerTemplateAccess().getIdSTRINGTerminalRuleCall_3_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_rule__AnswerTemplate__IdAssignment_322749);
-            ruleEString();
-
-            state._fsp--;
-            if (state.failed) return ;
+            match(input,RULE_STRING,FollowSets000.FOLLOW_RULE_STRING_in_rule__AnswerTemplate__IdAssignment_322749); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getAnswerTemplateAccess().getIdEStringParserRuleCall_3_0()); 
+               after(grammarAccess.getAnswerTemplateAccess().getIdSTRINGTerminalRuleCall_3_0()); 
             }
 
             }
@@ -26869,28 +26857,24 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Answer__IdAssignment_1_2"
-    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9691:1: rule__Answer__IdAssignment_1_2 : ( ruleEString ) ;
+    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9691:1: rule__Answer__IdAssignment_1_2 : ( RULE_STRING ) ;
     public final void rule__Answer__IdAssignment_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9695:1: ( ( ruleEString ) )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9696:1: ( ruleEString )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9695:1: ( ( RULE_STRING ) )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9696:1: ( RULE_STRING )
             {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9696:1: ( ruleEString )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9697:1: ruleEString
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9696:1: ( RULE_STRING )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9697:1: RULE_STRING
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getAnswerAccess().getIdEStringParserRuleCall_1_2_0()); 
+               before(grammarAccess.getAnswerAccess().getIdSTRINGTerminalRuleCall_1_2_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_rule__Answer__IdAssignment_1_222811);
-            ruleEString();
-
-            state._fsp--;
-            if (state.failed) return ;
+            match(input,RULE_STRING,FollowSets000.FOLLOW_RULE_STRING_in_rule__Answer__IdAssignment_1_222811); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getAnswerAccess().getIdEStringParserRuleCall_1_2_0()); 
+               after(grammarAccess.getAnswerAccess().getIdSTRINGTerminalRuleCall_1_2_0()); 
             }
 
             }
@@ -26959,28 +26943,24 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Group__TitleAssignment_1_0_2"
-    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9721:1: rule__Group__TitleAssignment_1_0_2 : ( ruleEString ) ;
+    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9721:1: rule__Group__TitleAssignment_1_0_2 : ( RULE_STRING ) ;
     public final void rule__Group__TitleAssignment_1_0_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9725:1: ( ( ruleEString ) )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9726:1: ( ruleEString )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9725:1: ( ( RULE_STRING ) )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9726:1: ( RULE_STRING )
             {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9726:1: ( ruleEString )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9727:1: ruleEString
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9726:1: ( RULE_STRING )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9727:1: RULE_STRING
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getGroupAccess().getTitleEStringParserRuleCall_1_0_2_0()); 
+               before(grammarAccess.getGroupAccess().getTitleSTRINGTerminalRuleCall_1_0_2_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_rule__Group__TitleAssignment_1_0_222873);
-            ruleEString();
-
-            state._fsp--;
-            if (state.failed) return ;
+            match(input,RULE_STRING,FollowSets000.FOLLOW_RULE_STRING_in_rule__Group__TitleAssignment_1_0_222873); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getGroupAccess().getTitleEStringParserRuleCall_1_0_2_0()); 
+               after(grammarAccess.getGroupAccess().getTitleSTRINGTerminalRuleCall_1_0_2_0()); 
             }
 
             }
@@ -27004,28 +26984,24 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Group__DescriptionAssignment_1_1_2"
-    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9736:1: rule__Group__DescriptionAssignment_1_1_2 : ( ruleEString ) ;
+    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9736:1: rule__Group__DescriptionAssignment_1_1_2 : ( RULE_STRING ) ;
     public final void rule__Group__DescriptionAssignment_1_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9740:1: ( ( ruleEString ) )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9741:1: ( ruleEString )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9740:1: ( ( RULE_STRING ) )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9741:1: ( RULE_STRING )
             {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9741:1: ( ruleEString )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9742:1: ruleEString
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9741:1: ( RULE_STRING )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9742:1: RULE_STRING
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getGroupAccess().getDescriptionEStringParserRuleCall_1_1_2_0()); 
+               before(grammarAccess.getGroupAccess().getDescriptionSTRINGTerminalRuleCall_1_1_2_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_rule__Group__DescriptionAssignment_1_1_222904);
-            ruleEString();
-
-            state._fsp--;
-            if (state.failed) return ;
+            match(input,RULE_STRING,FollowSets000.FOLLOW_RULE_STRING_in_rule__Group__DescriptionAssignment_1_1_222904); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getGroupAccess().getDescriptionEStringParserRuleCall_1_1_2_0()); 
+               after(grammarAccess.getGroupAccess().getDescriptionSTRINGTerminalRuleCall_1_1_2_0()); 
             }
 
             }
@@ -27204,28 +27180,24 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Text__TitleAssignment_2_0_2"
-    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9808:1: rule__Text__TitleAssignment_2_0_2 : ( ruleEString ) ;
+    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9808:1: rule__Text__TitleAssignment_2_0_2 : ( RULE_STRING ) ;
     public final void rule__Text__TitleAssignment_2_0_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9812:1: ( ( ruleEString ) )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9813:1: ( ruleEString )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9812:1: ( ( RULE_STRING ) )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9813:1: ( RULE_STRING )
             {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9813:1: ( ruleEString )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9814:1: ruleEString
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9813:1: ( RULE_STRING )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9814:1: RULE_STRING
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getTextAccess().getTitleEStringParserRuleCall_2_0_2_0()); 
+               before(grammarAccess.getTextAccess().getTitleSTRINGTerminalRuleCall_2_0_2_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_rule__Text__TitleAssignment_2_0_223049);
-            ruleEString();
-
-            state._fsp--;
-            if (state.failed) return ;
+            match(input,RULE_STRING,FollowSets000.FOLLOW_RULE_STRING_in_rule__Text__TitleAssignment_2_0_223049); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getTextAccess().getTitleEStringParserRuleCall_2_0_2_0()); 
+               after(grammarAccess.getTextAccess().getTitleSTRINGTerminalRuleCall_2_0_2_0()); 
             }
 
             }
@@ -27249,28 +27221,24 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Text__DescriptionAssignment_2_1_2"
-    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9823:1: rule__Text__DescriptionAssignment_2_1_2 : ( ruleEString ) ;
+    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9823:1: rule__Text__DescriptionAssignment_2_1_2 : ( RULE_STRING ) ;
     public final void rule__Text__DescriptionAssignment_2_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9827:1: ( ( ruleEString ) )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9828:1: ( ruleEString )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9827:1: ( ( RULE_STRING ) )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9828:1: ( RULE_STRING )
             {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9828:1: ( ruleEString )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9829:1: ruleEString
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9828:1: ( RULE_STRING )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9829:1: RULE_STRING
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getTextAccess().getDescriptionEStringParserRuleCall_2_1_2_0()); 
+               before(grammarAccess.getTextAccess().getDescriptionSTRINGTerminalRuleCall_2_1_2_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_rule__Text__DescriptionAssignment_2_1_223080);
-            ruleEString();
-
-            state._fsp--;
-            if (state.failed) return ;
+            match(input,RULE_STRING,FollowSets000.FOLLOW_RULE_STRING_in_rule__Text__DescriptionAssignment_2_1_223080); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getTextAccess().getDescriptionEStringParserRuleCall_2_1_2_0()); 
+               after(grammarAccess.getTextAccess().getDescriptionSTRINGTerminalRuleCall_2_1_2_0()); 
             }
 
             }
@@ -27294,28 +27262,24 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Text__IdAssignment_2_2_2"
-    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9838:1: rule__Text__IdAssignment_2_2_2 : ( ruleEString ) ;
+    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9838:1: rule__Text__IdAssignment_2_2_2 : ( RULE_STRING ) ;
     public final void rule__Text__IdAssignment_2_2_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9842:1: ( ( ruleEString ) )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9843:1: ( ruleEString )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9842:1: ( ( RULE_STRING ) )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9843:1: ( RULE_STRING )
             {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9843:1: ( ruleEString )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9844:1: ruleEString
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9843:1: ( RULE_STRING )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9844:1: RULE_STRING
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getTextAccess().getIdEStringParserRuleCall_2_2_2_0()); 
+               before(grammarAccess.getTextAccess().getIdSTRINGTerminalRuleCall_2_2_2_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_rule__Text__IdAssignment_2_2_223111);
-            ruleEString();
-
-            state._fsp--;
-            if (state.failed) return ;
+            match(input,RULE_STRING,FollowSets000.FOLLOW_RULE_STRING_in_rule__Text__IdAssignment_2_2_223111); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getTextAccess().getIdEStringParserRuleCall_2_2_2_0()); 
+               after(grammarAccess.getTextAccess().getIdSTRINGTerminalRuleCall_2_2_2_0()); 
             }
 
             }
@@ -27500,28 +27464,24 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Scale__TitleAssignment_1_0_2"
-    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9911:1: rule__Scale__TitleAssignment_1_0_2 : ( ruleEString ) ;
+    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9911:1: rule__Scale__TitleAssignment_1_0_2 : ( RULE_STRING ) ;
     public final void rule__Scale__TitleAssignment_1_0_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9915:1: ( ( ruleEString ) )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9916:1: ( ruleEString )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9915:1: ( ( RULE_STRING ) )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9916:1: ( RULE_STRING )
             {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9916:1: ( ruleEString )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9917:1: ruleEString
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9916:1: ( RULE_STRING )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9917:1: RULE_STRING
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getScaleAccess().getTitleEStringParserRuleCall_1_0_2_0()); 
+               before(grammarAccess.getScaleAccess().getTitleSTRINGTerminalRuleCall_1_0_2_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_rule__Scale__TitleAssignment_1_0_223258);
-            ruleEString();
-
-            state._fsp--;
-            if (state.failed) return ;
+            match(input,RULE_STRING,FollowSets000.FOLLOW_RULE_STRING_in_rule__Scale__TitleAssignment_1_0_223258); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getScaleAccess().getTitleEStringParserRuleCall_1_0_2_0()); 
+               after(grammarAccess.getScaleAccess().getTitleSTRINGTerminalRuleCall_1_0_2_0()); 
             }
 
             }
@@ -27545,28 +27505,24 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Scale__DescriptionAssignment_1_1_2"
-    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9926:1: rule__Scale__DescriptionAssignment_1_1_2 : ( ruleEString ) ;
+    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9926:1: rule__Scale__DescriptionAssignment_1_1_2 : ( RULE_STRING ) ;
     public final void rule__Scale__DescriptionAssignment_1_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9930:1: ( ( ruleEString ) )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9931:1: ( ruleEString )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9930:1: ( ( RULE_STRING ) )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9931:1: ( RULE_STRING )
             {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9931:1: ( ruleEString )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9932:1: ruleEString
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9931:1: ( RULE_STRING )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9932:1: RULE_STRING
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getScaleAccess().getDescriptionEStringParserRuleCall_1_1_2_0()); 
+               before(grammarAccess.getScaleAccess().getDescriptionSTRINGTerminalRuleCall_1_1_2_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_rule__Scale__DescriptionAssignment_1_1_223289);
-            ruleEString();
-
-            state._fsp--;
-            if (state.failed) return ;
+            match(input,RULE_STRING,FollowSets000.FOLLOW_RULE_STRING_in_rule__Scale__DescriptionAssignment_1_1_223289); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getScaleAccess().getDescriptionEStringParserRuleCall_1_1_2_0()); 
+               after(grammarAccess.getScaleAccess().getDescriptionSTRINGTerminalRuleCall_1_1_2_0()); 
             }
 
             }
@@ -27590,28 +27546,24 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Scale__IdAssignment_1_2_2"
-    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9941:1: rule__Scale__IdAssignment_1_2_2 : ( ruleEString ) ;
+    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9941:1: rule__Scale__IdAssignment_1_2_2 : ( RULE_STRING ) ;
     public final void rule__Scale__IdAssignment_1_2_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9945:1: ( ( ruleEString ) )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9946:1: ( ruleEString )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9945:1: ( ( RULE_STRING ) )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9946:1: ( RULE_STRING )
             {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9946:1: ( ruleEString )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9947:1: ruleEString
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9946:1: ( RULE_STRING )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9947:1: RULE_STRING
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getScaleAccess().getIdEStringParserRuleCall_1_2_2_0()); 
+               before(grammarAccess.getScaleAccess().getIdSTRINGTerminalRuleCall_1_2_2_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_rule__Scale__IdAssignment_1_2_223320);
-            ruleEString();
-
-            state._fsp--;
-            if (state.failed) return ;
+            match(input,RULE_STRING,FollowSets000.FOLLOW_RULE_STRING_in_rule__Scale__IdAssignment_1_2_223320); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getScaleAccess().getIdEStringParserRuleCall_1_2_2_0()); 
+               after(grammarAccess.getScaleAccess().getIdSTRINGTerminalRuleCall_1_2_2_0()); 
             }
 
             }
@@ -27925,28 +27877,24 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Date__TitleAssignment_2_0_2"
-    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10058:1: rule__Date__TitleAssignment_2_0_2 : ( ruleEString ) ;
+    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10058:1: rule__Date__TitleAssignment_2_0_2 : ( RULE_STRING ) ;
     public final void rule__Date__TitleAssignment_2_0_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10062:1: ( ( ruleEString ) )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10063:1: ( ruleEString )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10062:1: ( ( RULE_STRING ) )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10063:1: ( RULE_STRING )
             {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10063:1: ( ruleEString )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10064:1: ruleEString
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10063:1: ( RULE_STRING )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10064:1: RULE_STRING
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDateAccess().getTitleEStringParserRuleCall_2_0_2_0()); 
+               before(grammarAccess.getDateAccess().getTitleSTRINGTerminalRuleCall_2_0_2_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_rule__Date__TitleAssignment_2_0_223558);
-            ruleEString();
-
-            state._fsp--;
-            if (state.failed) return ;
+            match(input,RULE_STRING,FollowSets000.FOLLOW_RULE_STRING_in_rule__Date__TitleAssignment_2_0_223558); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDateAccess().getTitleEStringParserRuleCall_2_0_2_0()); 
+               after(grammarAccess.getDateAccess().getTitleSTRINGTerminalRuleCall_2_0_2_0()); 
             }
 
             }
@@ -27970,28 +27918,24 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Date__DescriptionAssignment_2_1_2"
-    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10073:1: rule__Date__DescriptionAssignment_2_1_2 : ( ruleEString ) ;
+    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10073:1: rule__Date__DescriptionAssignment_2_1_2 : ( RULE_STRING ) ;
     public final void rule__Date__DescriptionAssignment_2_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10077:1: ( ( ruleEString ) )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10078:1: ( ruleEString )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10077:1: ( ( RULE_STRING ) )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10078:1: ( RULE_STRING )
             {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10078:1: ( ruleEString )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10079:1: ruleEString
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10078:1: ( RULE_STRING )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10079:1: RULE_STRING
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDateAccess().getDescriptionEStringParserRuleCall_2_1_2_0()); 
+               before(grammarAccess.getDateAccess().getDescriptionSTRINGTerminalRuleCall_2_1_2_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_rule__Date__DescriptionAssignment_2_1_223589);
-            ruleEString();
-
-            state._fsp--;
-            if (state.failed) return ;
+            match(input,RULE_STRING,FollowSets000.FOLLOW_RULE_STRING_in_rule__Date__DescriptionAssignment_2_1_223589); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDateAccess().getDescriptionEStringParserRuleCall_2_1_2_0()); 
+               after(grammarAccess.getDateAccess().getDescriptionSTRINGTerminalRuleCall_2_1_2_0()); 
             }
 
             }
@@ -28015,28 +27959,24 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Date__IdAssignment_2_2_2"
-    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10088:1: rule__Date__IdAssignment_2_2_2 : ( ruleEString ) ;
+    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10088:1: rule__Date__IdAssignment_2_2_2 : ( RULE_STRING ) ;
     public final void rule__Date__IdAssignment_2_2_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10092:1: ( ( ruleEString ) )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10093:1: ( ruleEString )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10092:1: ( ( RULE_STRING ) )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10093:1: ( RULE_STRING )
             {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10093:1: ( ruleEString )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10094:1: ruleEString
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10093:1: ( RULE_STRING )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10094:1: RULE_STRING
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getDateAccess().getIdEStringParserRuleCall_2_2_2_0()); 
+               before(grammarAccess.getDateAccess().getIdSTRINGTerminalRuleCall_2_2_2_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_rule__Date__IdAssignment_2_2_223620);
-            ruleEString();
-
-            state._fsp--;
-            if (state.failed) return ;
+            match(input,RULE_STRING,FollowSets000.FOLLOW_RULE_STRING_in_rule__Date__IdAssignment_2_2_223620); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getDateAccess().getIdEStringParserRuleCall_2_2_2_0()); 
+               after(grammarAccess.getDateAccess().getIdSTRINGTerminalRuleCall_2_2_2_0()); 
             }
 
             }
@@ -28472,28 +28412,24 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Number__TitleAssignment_2_0_2"
-    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10267:1: rule__Number__TitleAssignment_2_0_2 : ( ruleEString ) ;
+    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10267:1: rule__Number__TitleAssignment_2_0_2 : ( RULE_STRING ) ;
     public final void rule__Number__TitleAssignment_2_0_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10271:1: ( ( ruleEString ) )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10272:1: ( ruleEString )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10271:1: ( ( RULE_STRING ) )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10272:1: ( RULE_STRING )
             {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10272:1: ( ruleEString )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10273:1: ruleEString
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10272:1: ( RULE_STRING )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10273:1: RULE_STRING
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getNumberAccess().getTitleEStringParserRuleCall_2_0_2_0()); 
+               before(grammarAccess.getNumberAccess().getTitleSTRINGTerminalRuleCall_2_0_2_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_rule__Number__TitleAssignment_2_0_223972);
-            ruleEString();
-
-            state._fsp--;
-            if (state.failed) return ;
+            match(input,RULE_STRING,FollowSets000.FOLLOW_RULE_STRING_in_rule__Number__TitleAssignment_2_0_223972); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getNumberAccess().getTitleEStringParserRuleCall_2_0_2_0()); 
+               after(grammarAccess.getNumberAccess().getTitleSTRINGTerminalRuleCall_2_0_2_0()); 
             }
 
             }
@@ -28517,28 +28453,24 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Number__DescriptionAssignment_2_1_2"
-    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10282:1: rule__Number__DescriptionAssignment_2_1_2 : ( ruleEString ) ;
+    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10282:1: rule__Number__DescriptionAssignment_2_1_2 : ( RULE_STRING ) ;
     public final void rule__Number__DescriptionAssignment_2_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10286:1: ( ( ruleEString ) )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10287:1: ( ruleEString )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10286:1: ( ( RULE_STRING ) )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10287:1: ( RULE_STRING )
             {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10287:1: ( ruleEString )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10288:1: ruleEString
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10287:1: ( RULE_STRING )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10288:1: RULE_STRING
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getNumberAccess().getDescriptionEStringParserRuleCall_2_1_2_0()); 
+               before(grammarAccess.getNumberAccess().getDescriptionSTRINGTerminalRuleCall_2_1_2_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_rule__Number__DescriptionAssignment_2_1_224003);
-            ruleEString();
-
-            state._fsp--;
-            if (state.failed) return ;
+            match(input,RULE_STRING,FollowSets000.FOLLOW_RULE_STRING_in_rule__Number__DescriptionAssignment_2_1_224003); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getNumberAccess().getDescriptionEStringParserRuleCall_2_1_2_0()); 
+               after(grammarAccess.getNumberAccess().getDescriptionSTRINGTerminalRuleCall_2_1_2_0()); 
             }
 
             }
@@ -28562,28 +28494,24 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Number__IdAssignment_2_2_2"
-    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10297:1: rule__Number__IdAssignment_2_2_2 : ( ruleEString ) ;
+    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10297:1: rule__Number__IdAssignment_2_2_2 : ( RULE_STRING ) ;
     public final void rule__Number__IdAssignment_2_2_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10301:1: ( ( ruleEString ) )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10302:1: ( ruleEString )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10301:1: ( ( RULE_STRING ) )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10302:1: ( RULE_STRING )
             {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10302:1: ( ruleEString )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10303:1: ruleEString
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10302:1: ( RULE_STRING )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10303:1: RULE_STRING
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getNumberAccess().getIdEStringParserRuleCall_2_2_2_0()); 
+               before(grammarAccess.getNumberAccess().getIdSTRINGTerminalRuleCall_2_2_2_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_rule__Number__IdAssignment_2_2_224034);
-            ruleEString();
-
-            state._fsp--;
-            if (state.failed) return ;
+            match(input,RULE_STRING,FollowSets000.FOLLOW_RULE_STRING_in_rule__Number__IdAssignment_2_2_224034); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getNumberAccess().getIdEStringParserRuleCall_2_2_2_0()); 
+               after(grammarAccess.getNumberAccess().getIdSTRINGTerminalRuleCall_2_2_2_0()); 
             }
 
             }
@@ -28860,28 +28788,24 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Single__TitleAssignment_1_0_2"
-    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10407:1: rule__Single__TitleAssignment_1_0_2 : ( ruleEString ) ;
+    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10407:1: rule__Single__TitleAssignment_1_0_2 : ( RULE_STRING ) ;
     public final void rule__Single__TitleAssignment_1_0_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10411:1: ( ( ruleEString ) )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10412:1: ( ruleEString )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10411:1: ( ( RULE_STRING ) )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10412:1: ( RULE_STRING )
             {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10412:1: ( ruleEString )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10413:1: ruleEString
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10412:1: ( RULE_STRING )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10413:1: RULE_STRING
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getSingleAccess().getTitleEStringParserRuleCall_1_0_2_0()); 
+               before(grammarAccess.getSingleAccess().getTitleSTRINGTerminalRuleCall_1_0_2_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_rule__Single__TitleAssignment_1_0_224254);
-            ruleEString();
-
-            state._fsp--;
-            if (state.failed) return ;
+            match(input,RULE_STRING,FollowSets000.FOLLOW_RULE_STRING_in_rule__Single__TitleAssignment_1_0_224254); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getSingleAccess().getTitleEStringParserRuleCall_1_0_2_0()); 
+               after(grammarAccess.getSingleAccess().getTitleSTRINGTerminalRuleCall_1_0_2_0()); 
             }
 
             }
@@ -28905,28 +28829,24 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Single__DescriptionAssignment_1_1_2"
-    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10422:1: rule__Single__DescriptionAssignment_1_1_2 : ( ruleEString ) ;
+    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10422:1: rule__Single__DescriptionAssignment_1_1_2 : ( RULE_STRING ) ;
     public final void rule__Single__DescriptionAssignment_1_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10426:1: ( ( ruleEString ) )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10427:1: ( ruleEString )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10426:1: ( ( RULE_STRING ) )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10427:1: ( RULE_STRING )
             {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10427:1: ( ruleEString )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10428:1: ruleEString
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10427:1: ( RULE_STRING )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10428:1: RULE_STRING
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getSingleAccess().getDescriptionEStringParserRuleCall_1_1_2_0()); 
+               before(grammarAccess.getSingleAccess().getDescriptionSTRINGTerminalRuleCall_1_1_2_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_rule__Single__DescriptionAssignment_1_1_224285);
-            ruleEString();
-
-            state._fsp--;
-            if (state.failed) return ;
+            match(input,RULE_STRING,FollowSets000.FOLLOW_RULE_STRING_in_rule__Single__DescriptionAssignment_1_1_224285); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getSingleAccess().getDescriptionEStringParserRuleCall_1_1_2_0()); 
+               after(grammarAccess.getSingleAccess().getDescriptionSTRINGTerminalRuleCall_1_1_2_0()); 
             }
 
             }
@@ -28950,28 +28870,24 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Single__IdAssignment_1_2_2"
-    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10437:1: rule__Single__IdAssignment_1_2_2 : ( ruleEString ) ;
+    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10437:1: rule__Single__IdAssignment_1_2_2 : ( RULE_STRING ) ;
     public final void rule__Single__IdAssignment_1_2_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10441:1: ( ( ruleEString ) )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10442:1: ( ruleEString )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10441:1: ( ( RULE_STRING ) )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10442:1: ( RULE_STRING )
             {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10442:1: ( ruleEString )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10443:1: ruleEString
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10442:1: ( RULE_STRING )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10443:1: RULE_STRING
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getSingleAccess().getIdEStringParserRuleCall_1_2_2_0()); 
+               before(grammarAccess.getSingleAccess().getIdSTRINGTerminalRuleCall_1_2_2_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_rule__Single__IdAssignment_1_2_224316);
-            ruleEString();
-
-            state._fsp--;
-            if (state.failed) return ;
+            match(input,RULE_STRING,FollowSets000.FOLLOW_RULE_STRING_in_rule__Single__IdAssignment_1_2_224316); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getSingleAccess().getIdEStringParserRuleCall_1_2_2_0()); 
+               after(grammarAccess.getSingleAccess().getIdSTRINGTerminalRuleCall_1_2_2_0()); 
             }
 
             }
@@ -29203,28 +29119,24 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Multiple__TitleAssignment_1_0_2"
-    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10532:1: rule__Multiple__TitleAssignment_1_0_2 : ( ruleEString ) ;
+    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10532:1: rule__Multiple__TitleAssignment_1_0_2 : ( RULE_STRING ) ;
     public final void rule__Multiple__TitleAssignment_1_0_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10536:1: ( ( ruleEString ) )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10537:1: ( ruleEString )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10536:1: ( ( RULE_STRING ) )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10537:1: ( RULE_STRING )
             {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10537:1: ( ruleEString )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10538:1: ruleEString
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10537:1: ( RULE_STRING )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10538:1: RULE_STRING
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getMultipleAccess().getTitleEStringParserRuleCall_1_0_2_0()); 
+               before(grammarAccess.getMultipleAccess().getTitleSTRINGTerminalRuleCall_1_0_2_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_rule__Multiple__TitleAssignment_1_0_224505);
-            ruleEString();
-
-            state._fsp--;
-            if (state.failed) return ;
+            match(input,RULE_STRING,FollowSets000.FOLLOW_RULE_STRING_in_rule__Multiple__TitleAssignment_1_0_224505); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getMultipleAccess().getTitleEStringParserRuleCall_1_0_2_0()); 
+               after(grammarAccess.getMultipleAccess().getTitleSTRINGTerminalRuleCall_1_0_2_0()); 
             }
 
             }
@@ -29248,28 +29160,24 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Multiple__DescriptionAssignment_1_1_2"
-    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10547:1: rule__Multiple__DescriptionAssignment_1_1_2 : ( ruleEString ) ;
+    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10547:1: rule__Multiple__DescriptionAssignment_1_1_2 : ( RULE_STRING ) ;
     public final void rule__Multiple__DescriptionAssignment_1_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10551:1: ( ( ruleEString ) )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10552:1: ( ruleEString )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10551:1: ( ( RULE_STRING ) )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10552:1: ( RULE_STRING )
             {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10552:1: ( ruleEString )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10553:1: ruleEString
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10552:1: ( RULE_STRING )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10553:1: RULE_STRING
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getMultipleAccess().getDescriptionEStringParserRuleCall_1_1_2_0()); 
+               before(grammarAccess.getMultipleAccess().getDescriptionSTRINGTerminalRuleCall_1_1_2_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_rule__Multiple__DescriptionAssignment_1_1_224536);
-            ruleEString();
-
-            state._fsp--;
-            if (state.failed) return ;
+            match(input,RULE_STRING,FollowSets000.FOLLOW_RULE_STRING_in_rule__Multiple__DescriptionAssignment_1_1_224536); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getMultipleAccess().getDescriptionEStringParserRuleCall_1_1_2_0()); 
+               after(grammarAccess.getMultipleAccess().getDescriptionSTRINGTerminalRuleCall_1_1_2_0()); 
             }
 
             }
@@ -29293,28 +29201,24 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Multiple__IdAssignment_1_2_2"
-    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10562:1: rule__Multiple__IdAssignment_1_2_2 : ( ruleEString ) ;
+    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10562:1: rule__Multiple__IdAssignment_1_2_2 : ( RULE_STRING ) ;
     public final void rule__Multiple__IdAssignment_1_2_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10566:1: ( ( ruleEString ) )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10567:1: ( ruleEString )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10566:1: ( ( RULE_STRING ) )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10567:1: ( RULE_STRING )
             {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10567:1: ( ruleEString )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10568:1: ruleEString
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10567:1: ( RULE_STRING )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10568:1: RULE_STRING
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getMultipleAccess().getIdEStringParserRuleCall_1_2_2_0()); 
+               before(grammarAccess.getMultipleAccess().getIdSTRINGTerminalRuleCall_1_2_2_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_rule__Multiple__IdAssignment_1_2_224567);
-            ruleEString();
-
-            state._fsp--;
-            if (state.failed) return ;
+            match(input,RULE_STRING,FollowSets000.FOLLOW_RULE_STRING_in_rule__Multiple__IdAssignment_1_2_224567); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getMultipleAccess().getIdEStringParserRuleCall_1_2_2_0()); 
+               after(grammarAccess.getMultipleAccess().getIdSTRINGTerminalRuleCall_1_2_2_0()); 
             }
 
             }
@@ -29338,28 +29242,24 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Multiple__LowerAssignment_1_3_2"
-    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10577:1: rule__Multiple__LowerAssignment_1_3_2 : ( ruleEInt ) ;
+    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10577:1: rule__Multiple__LowerAssignment_1_3_2 : ( RULE_INT ) ;
     public final void rule__Multiple__LowerAssignment_1_3_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10581:1: ( ( ruleEInt ) )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10582:1: ( ruleEInt )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10581:1: ( ( RULE_INT ) )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10582:1: ( RULE_INT )
             {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10582:1: ( ruleEInt )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10583:1: ruleEInt
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10582:1: ( RULE_INT )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10583:1: RULE_INT
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getMultipleAccess().getLowerEIntParserRuleCall_1_3_2_0()); 
+               before(grammarAccess.getMultipleAccess().getLowerINTTerminalRuleCall_1_3_2_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleEInt_in_rule__Multiple__LowerAssignment_1_3_224598);
-            ruleEInt();
-
-            state._fsp--;
-            if (state.failed) return ;
+            match(input,RULE_INT,FollowSets000.FOLLOW_RULE_INT_in_rule__Multiple__LowerAssignment_1_3_224598); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getMultipleAccess().getLowerEIntParserRuleCall_1_3_2_0()); 
+               after(grammarAccess.getMultipleAccess().getLowerINTTerminalRuleCall_1_3_2_0()); 
             }
 
             }
@@ -29383,28 +29283,24 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Multiple__UpperAssignment_1_4_2"
-    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10592:1: rule__Multiple__UpperAssignment_1_4_2 : ( ruleEInt ) ;
+    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10592:1: rule__Multiple__UpperAssignment_1_4_2 : ( RULE_INT ) ;
     public final void rule__Multiple__UpperAssignment_1_4_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10596:1: ( ( ruleEInt ) )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10597:1: ( ruleEInt )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10596:1: ( ( RULE_INT ) )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10597:1: ( RULE_INT )
             {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10597:1: ( ruleEInt )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10598:1: ruleEInt
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10597:1: ( RULE_INT )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10598:1: RULE_INT
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getMultipleAccess().getUpperEIntParserRuleCall_1_4_2_0()); 
+               before(grammarAccess.getMultipleAccess().getUpperINTTerminalRuleCall_1_4_2_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleEInt_in_rule__Multiple__UpperAssignment_1_4_224629);
-            ruleEInt();
-
-            state._fsp--;
-            if (state.failed) return ;
+            match(input,RULE_INT,FollowSets000.FOLLOW_RULE_INT_in_rule__Multiple__UpperAssignment_1_4_224629); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getMultipleAccess().getUpperEIntParserRuleCall_1_4_2_0()); 
+               after(grammarAccess.getMultipleAccess().getUpperINTTerminalRuleCall_1_4_2_0()); 
             }
 
             }
@@ -29689,28 +29585,24 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Table__TitleAssignment_1_0_2"
-    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10710:1: rule__Table__TitleAssignment_1_0_2 : ( ruleEString ) ;
+    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10710:1: rule__Table__TitleAssignment_1_0_2 : ( RULE_STRING ) ;
     public final void rule__Table__TitleAssignment_1_0_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10714:1: ( ( ruleEString ) )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10715:1: ( ruleEString )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10714:1: ( ( RULE_STRING ) )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10715:1: ( RULE_STRING )
             {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10715:1: ( ruleEString )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10716:1: ruleEString
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10715:1: ( RULE_STRING )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10716:1: RULE_STRING
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getTableAccess().getTitleEStringParserRuleCall_1_0_2_0()); 
+               before(grammarAccess.getTableAccess().getTitleSTRINGTerminalRuleCall_1_0_2_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_rule__Table__TitleAssignment_1_0_224862);
-            ruleEString();
-
-            state._fsp--;
-            if (state.failed) return ;
+            match(input,RULE_STRING,FollowSets000.FOLLOW_RULE_STRING_in_rule__Table__TitleAssignment_1_0_224862); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getTableAccess().getTitleEStringParserRuleCall_1_0_2_0()); 
+               after(grammarAccess.getTableAccess().getTitleSTRINGTerminalRuleCall_1_0_2_0()); 
             }
 
             }
@@ -29734,28 +29626,24 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Table__DescriptionAssignment_1_1_2"
-    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10725:1: rule__Table__DescriptionAssignment_1_1_2 : ( ruleEString ) ;
+    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10725:1: rule__Table__DescriptionAssignment_1_1_2 : ( RULE_STRING ) ;
     public final void rule__Table__DescriptionAssignment_1_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10729:1: ( ( ruleEString ) )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10730:1: ( ruleEString )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10729:1: ( ( RULE_STRING ) )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10730:1: ( RULE_STRING )
             {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10730:1: ( ruleEString )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10731:1: ruleEString
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10730:1: ( RULE_STRING )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10731:1: RULE_STRING
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getTableAccess().getDescriptionEStringParserRuleCall_1_1_2_0()); 
+               before(grammarAccess.getTableAccess().getDescriptionSTRINGTerminalRuleCall_1_1_2_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_rule__Table__DescriptionAssignment_1_1_224893);
-            ruleEString();
-
-            state._fsp--;
-            if (state.failed) return ;
+            match(input,RULE_STRING,FollowSets000.FOLLOW_RULE_STRING_in_rule__Table__DescriptionAssignment_1_1_224893); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getTableAccess().getDescriptionEStringParserRuleCall_1_1_2_0()); 
+               after(grammarAccess.getTableAccess().getDescriptionSTRINGTerminalRuleCall_1_1_2_0()); 
             }
 
             }
@@ -29779,28 +29667,24 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Table__IdAssignment_1_2_2"
-    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10740:1: rule__Table__IdAssignment_1_2_2 : ( ruleEString ) ;
+    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10740:1: rule__Table__IdAssignment_1_2_2 : ( RULE_STRING ) ;
     public final void rule__Table__IdAssignment_1_2_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10744:1: ( ( ruleEString ) )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10745:1: ( ruleEString )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10744:1: ( ( RULE_STRING ) )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10745:1: ( RULE_STRING )
             {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10745:1: ( ruleEString )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10746:1: ruleEString
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10745:1: ( RULE_STRING )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10746:1: RULE_STRING
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getTableAccess().getIdEStringParserRuleCall_1_2_2_0()); 
+               before(grammarAccess.getTableAccess().getIdSTRINGTerminalRuleCall_1_2_2_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_rule__Table__IdAssignment_1_2_224924);
-            ruleEString();
-
-            state._fsp--;
-            if (state.failed) return ;
+            match(input,RULE_STRING,FollowSets000.FOLLOW_RULE_STRING_in_rule__Table__IdAssignment_1_2_224924); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getTableAccess().getIdEStringParserRuleCall_1_2_2_0()); 
+               after(grammarAccess.getTableAccess().getIdSTRINGTerminalRuleCall_1_2_2_0()); 
             }
 
             }
@@ -30220,34 +30104,30 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AnswerTemplateRef__TemplateAssignment_3"
-    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10903:1: rule__AnswerTemplateRef__TemplateAssignment_3 : ( ( ruleEString ) ) ;
+    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10903:1: rule__AnswerTemplateRef__TemplateAssignment_3 : ( ( RULE_ID ) ) ;
     public final void rule__AnswerTemplateRef__TemplateAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10907:1: ( ( ( ruleEString ) ) )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10908:1: ( ( ruleEString ) )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10907:1: ( ( ( RULE_ID ) ) )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10908:1: ( ( RULE_ID ) )
             {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10908:1: ( ( ruleEString ) )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10909:1: ( ruleEString )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10908:1: ( ( RULE_ID ) )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10909:1: ( RULE_ID )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAnswerTemplateRefAccess().getTemplateAnswerTemplateCrossReference_3_0()); 
             }
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10910:1: ( ruleEString )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10911:1: ruleEString
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10910:1: ( RULE_ID )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10911:1: RULE_ID
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getAnswerTemplateRefAccess().getTemplateAnswerTemplateEStringParserRuleCall_3_0_1()); 
+               before(grammarAccess.getAnswerTemplateRefAccess().getTemplateAnswerTemplateIDTerminalRuleCall_3_0_1()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_rule__AnswerTemplateRef__TemplateAssignment_325254);
-            ruleEString();
-
-            state._fsp--;
-            if (state.failed) return ;
+            match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_rule__AnswerTemplateRef__TemplateAssignment_325254); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getAnswerTemplateRefAccess().getTemplateAnswerTemplateEStringParserRuleCall_3_0_1()); 
+               after(grammarAccess.getAnswerTemplateRefAccess().getTemplateAnswerTemplateIDTerminalRuleCall_3_0_1()); 
             }
 
             }
@@ -34130,17 +34010,17 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
         }
     }
     static final String DFA83_eotS =
-        "\24\uffff";
+        "\22\uffff";
     static final String DFA83_eofS =
-        "\24\uffff";
+        "\22\uffff";
     static final String DFA83_minS =
-        "\1\25\1\26\1\20\1\uffff\2\23\5\4\2\36\2\20\2\4\2\0\1\uffff";
+        "\1\25\1\26\1\20\1\uffff\2\23\1\4\1\5\3\4\1\36\1\20\2\4\2\0\1\uffff";
     static final String DFA83_maxS =
-        "\1\57\2\26\1\uffff\2\23\3\5\2\31\2\36\2\20\2\31\2\0\1\uffff";
+        "\1\57\2\26\1\uffff\2\23\2\5\1\4\2\31\1\36\1\20\2\31\2\0\1\uffff";
     static final String DFA83_acceptS =
-        "\3\uffff\1\2\17\uffff\1\1";
+        "\3\uffff\1\2\15\uffff\1\1";
     static final String DFA83_specialS =
-        "\21\uffff\1\0\1\1\1\uffff}>";
+        "\17\uffff\1\0\1\1\1\uffff}>";
     static final String[] DFA83_transitionS = {
             "\1\1\2\uffff\1\2\24\uffff\1\3\1\uffff\1\3",
             "\1\4",
@@ -34149,16 +34029,14 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
             "\1\7",
             "\1\10",
             "\1\11\1\12",
-            "\1\13\1\14",
-            "\1\15\1\16",
-            "\1\17\1\20\23\uffff\1\21",
-            "\1\17\1\20\23\uffff\1\21",
-            "\1\22",
-            "\1\22",
+            "\1\13",
+            "\1\14",
+            "\1\15\1\16\23\uffff\1\17",
+            "\1\15\1\16\23\uffff\1\17",
+            "\1\20",
             "\1\6",
-            "\1\6",
-            "\1\17\1\20\23\uffff\1\21",
-            "\1\17\1\20\23\uffff\1\21",
+            "\1\15\1\16\23\uffff\1\17",
+            "\1\15\1\16\23\uffff\1\17",
             "\1\uffff",
             "\1\uffff",
             ""
@@ -34201,33 +34079,33 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA83_17 = input.LA(1);
+                        int LA83_15 = input.LA(1);
 
                          
-                        int index83_17 = input.index();
+                        int index83_15 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred1_InternalDsl()) ) {s = 19;}
+                        if ( (synpred1_InternalDsl()) ) {s = 17;}
 
                         else if ( (true) ) {s = 3;}
 
                          
-                        input.seek(index83_17);
+                        input.seek(index83_15);
                         if ( s>=0 ) return s;
                         break;
                     case 1 : 
-                        int LA83_18 = input.LA(1);
+                        int LA83_16 = input.LA(1);
 
                          
-                        int index83_18 = input.index();
+                        int index83_16 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred1_InternalDsl()) ) {s = 19;}
+                        if ( (synpred1_InternalDsl()) ) {s = 17;}
 
                         else if ( (true) ) {s = 3;}
 
                          
-                        input.seek(index83_18);
+                        input.seek(index83_16);
                         if ( s>=0 ) return s;
                         break;
             }
@@ -34322,19 +34200,19 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
         }
     }
     static final String DFA86_eotS =
-        "\32\uffff";
+        "\30\uffff";
     static final String DFA86_eofS =
-        "\32\uffff";
+        "\30\uffff";
     static final String DFA86_minS =
-        "\1\25\1\26\1\20\1\4\1\uffff\2\23\11\4\1\0\2\36\2\20\2\4\1\0\1\uffff"+
-        "\1\0";
+        "\1\25\1\26\1\20\1\4\1\uffff\2\23\3\4\1\5\5\4\1\0\1\36\1\20\2\4\1"+
+        "\0\1\uffff\1\0";
     static final String DFA86_maxS =
-        "\1\57\2\26\1\5\1\uffff\2\23\1\5\2\60\2\5\2\31\2\60\1\0\2\36\2\20"+
-        "\2\31\1\0\1\uffff\1\0";
+        "\1\57\2\26\1\5\1\uffff\2\23\1\5\2\60\1\5\1\4\2\31\2\60\1\0\1\36"+
+        "\1\20\2\31\1\0\1\uffff\1\0";
     static final String DFA86_acceptS =
-        "\4\uffff\1\2\23\uffff\1\1\1\uffff";
+        "\4\uffff\1\2\21\uffff\1\1\1\uffff";
     static final String DFA86_specialS =
-        "\20\uffff\1\0\6\uffff\1\2\1\uffff\1\1}>";
+        "\20\uffff\1\1\4\uffff\1\2\1\uffff\1\0}>";
     static final String[] DFA86_transitionS = {
             "\1\1\2\uffff\1\2\24\uffff\1\4\1\uffff\1\3",
             "\1\5",
@@ -34346,19 +34224,17 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
             "\1\14\1\15",
             "\1\16\1\17\52\uffff\1\20",
             "\1\16\1\17\52\uffff\1\20",
-            "\1\21\1\22",
-            "\1\23\1\24",
-            "\1\25\1\26\23\uffff\1\27",
-            "\1\25\1\26\23\uffff\1\27",
+            "\1\21",
+            "\1\22",
+            "\1\23\1\24\23\uffff\1\25",
+            "\1\23\1\24\23\uffff\1\25",
             "\1\16\1\17\52\uffff\1\20",
             "\1\16\1\17\52\uffff\1\20",
             "\1\uffff",
-            "\1\31",
-            "\1\31",
+            "\1\27",
             "\1\7",
-            "\1\7",
-            "\1\25\1\26\23\uffff\1\27",
-            "\1\25\1\26\23\uffff\1\27",
+            "\1\23\1\24\23\uffff\1\25",
+            "\1\23\1\24\23\uffff\1\25",
             "\1\uffff",
             "",
             "\1\uffff"
@@ -34401,13 +34277,28 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
         	int _s = s;
             switch ( s ) {
                     case 0 : 
+                        int LA86_23 = input.LA(1);
+
+                         
+                        int index86_23 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( getUnorderedGroupHelper().canSelect(grammarAccess.getTableAccess().getUnorderedGroup_3(), 0) ) {s = 22;}
+
+                        else if ( getUnorderedGroupHelper().canLeave(grammarAccess.getTableAccess().getUnorderedGroup_3()) ) {s = 4;}
+
+                         
+                        input.seek(index86_23);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 1 : 
                         int LA86_16 = input.LA(1);
 
                          
                         int index86_16 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( getUnorderedGroupHelper().canSelect(grammarAccess.getTableAccess().getUnorderedGroup_3(), 1) ) {s = 24;}
+                        if ( getUnorderedGroupHelper().canSelect(grammarAccess.getTableAccess().getUnorderedGroup_3(), 1) ) {s = 22;}
 
                         else if ( getUnorderedGroupHelper().canLeave(grammarAccess.getTableAccess().getUnorderedGroup_3()) ) {s = 4;}
 
@@ -34415,34 +34306,19 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
                         input.seek(index86_16);
                         if ( s>=0 ) return s;
                         break;
-                    case 1 : 
-                        int LA86_25 = input.LA(1);
-
-                         
-                        int index86_25 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( getUnorderedGroupHelper().canSelect(grammarAccess.getTableAccess().getUnorderedGroup_3(), 0) ) {s = 24;}
-
-                        else if ( getUnorderedGroupHelper().canLeave(grammarAccess.getTableAccess().getUnorderedGroup_3()) ) {s = 4;}
-
-                         
-                        input.seek(index86_25);
-                        if ( s>=0 ) return s;
-                        break;
                     case 2 : 
-                        int LA86_23 = input.LA(1);
+                        int LA86_21 = input.LA(1);
 
                          
-                        int index86_23 = input.index();
+                        int index86_21 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( getUnorderedGroupHelper().canSelect(grammarAccess.getTableAccess().getUnorderedGroup_3(), 0) ) {s = 24;}
+                        if ( getUnorderedGroupHelper().canSelect(grammarAccess.getTableAccess().getUnorderedGroup_3(), 0) ) {s = 22;}
 
                         else if ( getUnorderedGroupHelper().canLeave(grammarAccess.getTableAccess().getUnorderedGroup_3()) ) {s = 4;}
 
                          
-                        input.seek(index86_23);
+                        input.seek(index86_21);
                         if ( s>=0 ) return s;
                         break;
             }
@@ -34563,7 +34439,7 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
         public static final BitSet FOLLOW_rule__Survey__Group_1_1_0__0__Impl_in_rule__Survey__Group_1_1_0__02258 = new BitSet(new long[]{0x0000000000080000L});
         public static final BitSet FOLLOW_rule__Survey__Group_1_1_0__1_in_rule__Survey__Group_1_1_0__02261 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_18_in_rule__Survey__Group_1_1_0__0__Impl2289 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Survey__Group_1_1_0__1__Impl_in_rule__Survey__Group_1_1_0__12320 = new BitSet(new long[]{0x0000000000000030L});
+        public static final BitSet FOLLOW_rule__Survey__Group_1_1_0__1__Impl_in_rule__Survey__Group_1_1_0__12320 = new BitSet(new long[]{0x0000000000000010L});
         public static final BitSet FOLLOW_rule__Survey__Group_1_1_0__2_in_rule__Survey__Group_1_1_0__12323 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_19_in_rule__Survey__Group_1_1_0__1__Impl2351 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__Survey__Group_1_1_0__2__Impl_in_rule__Survey__Group_1_1_0__22382 = new BitSet(new long[]{0x0000000000000002L});
@@ -34571,7 +34447,7 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
         public static final BitSet FOLLOW_rule__Survey__Group_1_1_1__0__Impl_in_rule__Survey__Group_1_1_1__02445 = new BitSet(new long[]{0x0000000000080000L});
         public static final BitSet FOLLOW_rule__Survey__Group_1_1_1__1_in_rule__Survey__Group_1_1_1__02448 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_20_in_rule__Survey__Group_1_1_1__0__Impl2476 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Survey__Group_1_1_1__1__Impl_in_rule__Survey__Group_1_1_1__12507 = new BitSet(new long[]{0x0000000000000030L});
+        public static final BitSet FOLLOW_rule__Survey__Group_1_1_1__1__Impl_in_rule__Survey__Group_1_1_1__12507 = new BitSet(new long[]{0x0000000000000010L});
         public static final BitSet FOLLOW_rule__Survey__Group_1_1_1__2_in_rule__Survey__Group_1_1_1__12510 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_19_in_rule__Survey__Group_1_1_1__1__Impl2538 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__Survey__Group_1_1_1__2__Impl_in_rule__Survey__Group_1_1_1__22569 = new BitSet(new long[]{0x0000000000000002L});
@@ -34582,7 +34458,7 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
         public static final BitSet FOLLOW_rule__AnswerTemplate__Group__1__Impl_in_rule__AnswerTemplate__Group__12694 = new BitSet(new long[]{0x0000000000080000L});
         public static final BitSet FOLLOW_rule__AnswerTemplate__Group__2_in_rule__AnswerTemplate__Group__12697 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_22_in_rule__AnswerTemplate__Group__1__Impl2725 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__AnswerTemplate__Group__2__Impl_in_rule__AnswerTemplate__Group__22756 = new BitSet(new long[]{0x0000000000000030L});
+        public static final BitSet FOLLOW_rule__AnswerTemplate__Group__2__Impl_in_rule__AnswerTemplate__Group__22756 = new BitSet(new long[]{0x0000000000000010L});
         public static final BitSet FOLLOW_rule__AnswerTemplate__Group__3_in_rule__AnswerTemplate__Group__22759 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_19_in_rule__AnswerTemplate__Group__2__Impl2787 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__AnswerTemplate__Group__3__Impl_in_rule__AnswerTemplate__Group__32818 = new BitSet(new long[]{0x0000000000010000L});
@@ -34614,7 +34490,7 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
         public static final BitSet FOLLOW_rule__Answer__Group_1__0__Impl_in_rule__Answer__Group_1__03404 = new BitSet(new long[]{0x0000000000080000L});
         public static final BitSet FOLLOW_rule__Answer__Group_1__1_in_rule__Answer__Group_1__03407 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_22_in_rule__Answer__Group_1__0__Impl3435 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Answer__Group_1__1__Impl_in_rule__Answer__Group_1__13466 = new BitSet(new long[]{0x0000000000000030L});
+        public static final BitSet FOLLOW_rule__Answer__Group_1__1__Impl_in_rule__Answer__Group_1__13466 = new BitSet(new long[]{0x0000000000000010L});
         public static final BitSet FOLLOW_rule__Answer__Group_1__2_in_rule__Answer__Group_1__13469 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_19_in_rule__Answer__Group_1__1__Impl3497 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__Answer__Group_1__2__Impl_in_rule__Answer__Group_1__23528 = new BitSet(new long[]{0x0000000000000002L});
@@ -34642,7 +34518,7 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
         public static final BitSet FOLLOW_rule__Group__Group_1_0__0__Impl_in_rule__Group__Group_1_0__04043 = new BitSet(new long[]{0x0000000000080000L});
         public static final BitSet FOLLOW_rule__Group__Group_1_0__1_in_rule__Group__Group_1_0__04046 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_18_in_rule__Group__Group_1_0__0__Impl4074 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Group__Group_1_0__1__Impl_in_rule__Group__Group_1_0__14105 = new BitSet(new long[]{0x0000000000000030L});
+        public static final BitSet FOLLOW_rule__Group__Group_1_0__1__Impl_in_rule__Group__Group_1_0__14105 = new BitSet(new long[]{0x0000000000000010L});
         public static final BitSet FOLLOW_rule__Group__Group_1_0__2_in_rule__Group__Group_1_0__14108 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_19_in_rule__Group__Group_1_0__1__Impl4136 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__Group__Group_1_0__2__Impl_in_rule__Group__Group_1_0__24167 = new BitSet(new long[]{0x0000000000000002L});
@@ -34650,7 +34526,7 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
         public static final BitSet FOLLOW_rule__Group__Group_1_1__0__Impl_in_rule__Group__Group_1_1__04230 = new BitSet(new long[]{0x0000000000080000L});
         public static final BitSet FOLLOW_rule__Group__Group_1_1__1_in_rule__Group__Group_1_1__04233 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_20_in_rule__Group__Group_1_1__0__Impl4261 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Group__Group_1_1__1__Impl_in_rule__Group__Group_1_1__14292 = new BitSet(new long[]{0x0000000000000030L});
+        public static final BitSet FOLLOW_rule__Group__Group_1_1__1__Impl_in_rule__Group__Group_1_1__14292 = new BitSet(new long[]{0x0000000000000010L});
         public static final BitSet FOLLOW_rule__Group__Group_1_1__2_in_rule__Group__Group_1_1__14295 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_19_in_rule__Group__Group_1_1__1__Impl4323 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__Group__Group_1_1__2__Impl_in_rule__Group__Group_1_1__24354 = new BitSet(new long[]{0x0000000000000002L});
@@ -34676,7 +34552,7 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
         public static final BitSet FOLLOW_rule__Text__Group_2_0__0__Impl_in_rule__Text__Group_2_0__04854 = new BitSet(new long[]{0x0000000000080000L});
         public static final BitSet FOLLOW_rule__Text__Group_2_0__1_in_rule__Text__Group_2_0__04857 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_18_in_rule__Text__Group_2_0__0__Impl4885 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Text__Group_2_0__1__Impl_in_rule__Text__Group_2_0__14916 = new BitSet(new long[]{0x0000000000000030L});
+        public static final BitSet FOLLOW_rule__Text__Group_2_0__1__Impl_in_rule__Text__Group_2_0__14916 = new BitSet(new long[]{0x0000000000000010L});
         public static final BitSet FOLLOW_rule__Text__Group_2_0__2_in_rule__Text__Group_2_0__14919 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_19_in_rule__Text__Group_2_0__1__Impl4947 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__Text__Group_2_0__2__Impl_in_rule__Text__Group_2_0__24978 = new BitSet(new long[]{0x0000000000000002L});
@@ -34684,7 +34560,7 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
         public static final BitSet FOLLOW_rule__Text__Group_2_1__0__Impl_in_rule__Text__Group_2_1__05041 = new BitSet(new long[]{0x0000000000080000L});
         public static final BitSet FOLLOW_rule__Text__Group_2_1__1_in_rule__Text__Group_2_1__05044 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_20_in_rule__Text__Group_2_1__0__Impl5072 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Text__Group_2_1__1__Impl_in_rule__Text__Group_2_1__15103 = new BitSet(new long[]{0x0000000000000030L});
+        public static final BitSet FOLLOW_rule__Text__Group_2_1__1__Impl_in_rule__Text__Group_2_1__15103 = new BitSet(new long[]{0x0000000000000010L});
         public static final BitSet FOLLOW_rule__Text__Group_2_1__2_in_rule__Text__Group_2_1__15106 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_19_in_rule__Text__Group_2_1__1__Impl5134 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__Text__Group_2_1__2__Impl_in_rule__Text__Group_2_1__25165 = new BitSet(new long[]{0x0000000000000002L});
@@ -34692,7 +34568,7 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
         public static final BitSet FOLLOW_rule__Text__Group_2_2__0__Impl_in_rule__Text__Group_2_2__05228 = new BitSet(new long[]{0x0000000000080000L});
         public static final BitSet FOLLOW_rule__Text__Group_2_2__1_in_rule__Text__Group_2_2__05231 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_22_in_rule__Text__Group_2_2__0__Impl5259 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Text__Group_2_2__1__Impl_in_rule__Text__Group_2_2__15290 = new BitSet(new long[]{0x0000000000000030L});
+        public static final BitSet FOLLOW_rule__Text__Group_2_2__1__Impl_in_rule__Text__Group_2_2__15290 = new BitSet(new long[]{0x0000000000000010L});
         public static final BitSet FOLLOW_rule__Text__Group_2_2__2_in_rule__Text__Group_2_2__15293 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_19_in_rule__Text__Group_2_2__1__Impl5321 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__Text__Group_2_2__2__Impl_in_rule__Text__Group_2_2__25352 = new BitSet(new long[]{0x0000000000000002L});
@@ -34716,7 +34592,7 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
         public static final BitSet FOLLOW_rule__Scale__Group_1_0__0__Impl_in_rule__Scale__Group_1_0__05789 = new BitSet(new long[]{0x0000000000080000L});
         public static final BitSet FOLLOW_rule__Scale__Group_1_0__1_in_rule__Scale__Group_1_0__05792 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_18_in_rule__Scale__Group_1_0__0__Impl5820 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Scale__Group_1_0__1__Impl_in_rule__Scale__Group_1_0__15851 = new BitSet(new long[]{0x0000000000000030L});
+        public static final BitSet FOLLOW_rule__Scale__Group_1_0__1__Impl_in_rule__Scale__Group_1_0__15851 = new BitSet(new long[]{0x0000000000000010L});
         public static final BitSet FOLLOW_rule__Scale__Group_1_0__2_in_rule__Scale__Group_1_0__15854 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_19_in_rule__Scale__Group_1_0__1__Impl5882 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__Scale__Group_1_0__2__Impl_in_rule__Scale__Group_1_0__25913 = new BitSet(new long[]{0x0000000000000002L});
@@ -34724,7 +34600,7 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
         public static final BitSet FOLLOW_rule__Scale__Group_1_1__0__Impl_in_rule__Scale__Group_1_1__05976 = new BitSet(new long[]{0x0000000000080000L});
         public static final BitSet FOLLOW_rule__Scale__Group_1_1__1_in_rule__Scale__Group_1_1__05979 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_20_in_rule__Scale__Group_1_1__0__Impl6007 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Scale__Group_1_1__1__Impl_in_rule__Scale__Group_1_1__16038 = new BitSet(new long[]{0x0000000000000030L});
+        public static final BitSet FOLLOW_rule__Scale__Group_1_1__1__Impl_in_rule__Scale__Group_1_1__16038 = new BitSet(new long[]{0x0000000000000010L});
         public static final BitSet FOLLOW_rule__Scale__Group_1_1__2_in_rule__Scale__Group_1_1__16041 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_19_in_rule__Scale__Group_1_1__1__Impl6069 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__Scale__Group_1_1__2__Impl_in_rule__Scale__Group_1_1__26100 = new BitSet(new long[]{0x0000000000000002L});
@@ -34732,7 +34608,7 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
         public static final BitSet FOLLOW_rule__Scale__Group_1_2__0__Impl_in_rule__Scale__Group_1_2__06163 = new BitSet(new long[]{0x0000000000080000L});
         public static final BitSet FOLLOW_rule__Scale__Group_1_2__1_in_rule__Scale__Group_1_2__06166 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_22_in_rule__Scale__Group_1_2__0__Impl6194 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Scale__Group_1_2__1__Impl_in_rule__Scale__Group_1_2__16225 = new BitSet(new long[]{0x0000000000000030L});
+        public static final BitSet FOLLOW_rule__Scale__Group_1_2__1__Impl_in_rule__Scale__Group_1_2__16225 = new BitSet(new long[]{0x0000000000000010L});
         public static final BitSet FOLLOW_rule__Scale__Group_1_2__2_in_rule__Scale__Group_1_2__16228 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_19_in_rule__Scale__Group_1_2__1__Impl6256 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__Scale__Group_1_2__2__Impl_in_rule__Scale__Group_1_2__26287 = new BitSet(new long[]{0x0000000000000002L});
@@ -34790,7 +34666,7 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
         public static final BitSet FOLLOW_rule__Date__Group_2_0__0__Impl_in_rule__Date__Group_2_0__07535 = new BitSet(new long[]{0x0000000000080000L});
         public static final BitSet FOLLOW_rule__Date__Group_2_0__1_in_rule__Date__Group_2_0__07538 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_18_in_rule__Date__Group_2_0__0__Impl7566 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Date__Group_2_0__1__Impl_in_rule__Date__Group_2_0__17597 = new BitSet(new long[]{0x0000000000000030L});
+        public static final BitSet FOLLOW_rule__Date__Group_2_0__1__Impl_in_rule__Date__Group_2_0__17597 = new BitSet(new long[]{0x0000000000000010L});
         public static final BitSet FOLLOW_rule__Date__Group_2_0__2_in_rule__Date__Group_2_0__17600 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_19_in_rule__Date__Group_2_0__1__Impl7628 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__Date__Group_2_0__2__Impl_in_rule__Date__Group_2_0__27659 = new BitSet(new long[]{0x0000000000000002L});
@@ -34798,7 +34674,7 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
         public static final BitSet FOLLOW_rule__Date__Group_2_1__0__Impl_in_rule__Date__Group_2_1__07722 = new BitSet(new long[]{0x0000000000080000L});
         public static final BitSet FOLLOW_rule__Date__Group_2_1__1_in_rule__Date__Group_2_1__07725 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_20_in_rule__Date__Group_2_1__0__Impl7753 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Date__Group_2_1__1__Impl_in_rule__Date__Group_2_1__17784 = new BitSet(new long[]{0x0000000000000030L});
+        public static final BitSet FOLLOW_rule__Date__Group_2_1__1__Impl_in_rule__Date__Group_2_1__17784 = new BitSet(new long[]{0x0000000000000010L});
         public static final BitSet FOLLOW_rule__Date__Group_2_1__2_in_rule__Date__Group_2_1__17787 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_19_in_rule__Date__Group_2_1__1__Impl7815 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__Date__Group_2_1__2__Impl_in_rule__Date__Group_2_1__27846 = new BitSet(new long[]{0x0000000000000002L});
@@ -34806,7 +34682,7 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
         public static final BitSet FOLLOW_rule__Date__Group_2_2__0__Impl_in_rule__Date__Group_2_2__07909 = new BitSet(new long[]{0x0000000000080000L});
         public static final BitSet FOLLOW_rule__Date__Group_2_2__1_in_rule__Date__Group_2_2__07912 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_22_in_rule__Date__Group_2_2__0__Impl7940 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Date__Group_2_2__1__Impl_in_rule__Date__Group_2_2__17971 = new BitSet(new long[]{0x0000000000000030L});
+        public static final BitSet FOLLOW_rule__Date__Group_2_2__1__Impl_in_rule__Date__Group_2_2__17971 = new BitSet(new long[]{0x0000000000000010L});
         public static final BitSet FOLLOW_rule__Date__Group_2_2__2_in_rule__Date__Group_2_2__17974 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_19_in_rule__Date__Group_2_2__1__Impl8002 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__Date__Group_2_2__2__Impl_in_rule__Date__Group_2_2__28033 = new BitSet(new long[]{0x0000000000000002L});
@@ -34848,7 +34724,7 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
         public static final BitSet FOLLOW_rule__Number__Group_2_0__0__Impl_in_rule__Number__Group_2_0__08907 = new BitSet(new long[]{0x0000000000080000L});
         public static final BitSet FOLLOW_rule__Number__Group_2_0__1_in_rule__Number__Group_2_0__08910 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_18_in_rule__Number__Group_2_0__0__Impl8938 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Number__Group_2_0__1__Impl_in_rule__Number__Group_2_0__18969 = new BitSet(new long[]{0x0000000000000030L});
+        public static final BitSet FOLLOW_rule__Number__Group_2_0__1__Impl_in_rule__Number__Group_2_0__18969 = new BitSet(new long[]{0x0000000000000010L});
         public static final BitSet FOLLOW_rule__Number__Group_2_0__2_in_rule__Number__Group_2_0__18972 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_19_in_rule__Number__Group_2_0__1__Impl9000 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__Number__Group_2_0__2__Impl_in_rule__Number__Group_2_0__29031 = new BitSet(new long[]{0x0000000000000002L});
@@ -34856,7 +34732,7 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
         public static final BitSet FOLLOW_rule__Number__Group_2_1__0__Impl_in_rule__Number__Group_2_1__09094 = new BitSet(new long[]{0x0000000000080000L});
         public static final BitSet FOLLOW_rule__Number__Group_2_1__1_in_rule__Number__Group_2_1__09097 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_20_in_rule__Number__Group_2_1__0__Impl9125 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Number__Group_2_1__1__Impl_in_rule__Number__Group_2_1__19156 = new BitSet(new long[]{0x0000000000000030L});
+        public static final BitSet FOLLOW_rule__Number__Group_2_1__1__Impl_in_rule__Number__Group_2_1__19156 = new BitSet(new long[]{0x0000000000000010L});
         public static final BitSet FOLLOW_rule__Number__Group_2_1__2_in_rule__Number__Group_2_1__19159 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_19_in_rule__Number__Group_2_1__1__Impl9187 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__Number__Group_2_1__2__Impl_in_rule__Number__Group_2_1__29218 = new BitSet(new long[]{0x0000000000000002L});
@@ -34864,7 +34740,7 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
         public static final BitSet FOLLOW_rule__Number__Group_2_2__0__Impl_in_rule__Number__Group_2_2__09281 = new BitSet(new long[]{0x0000000000080000L});
         public static final BitSet FOLLOW_rule__Number__Group_2_2__1_in_rule__Number__Group_2_2__09284 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_22_in_rule__Number__Group_2_2__0__Impl9312 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Number__Group_2_2__1__Impl_in_rule__Number__Group_2_2__19343 = new BitSet(new long[]{0x0000000000000030L});
+        public static final BitSet FOLLOW_rule__Number__Group_2_2__1__Impl_in_rule__Number__Group_2_2__19343 = new BitSet(new long[]{0x0000000000000010L});
         public static final BitSet FOLLOW_rule__Number__Group_2_2__2_in_rule__Number__Group_2_2__19346 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_19_in_rule__Number__Group_2_2__1__Impl9374 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__Number__Group_2_2__2__Impl_in_rule__Number__Group_2_2__29405 = new BitSet(new long[]{0x0000000000000002L});
@@ -34911,7 +34787,7 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
         public static final BitSet FOLLOW_rule__Single__Group_1_0__0__Impl_in_rule__Single__Group_1_0__010359 = new BitSet(new long[]{0x0000000000080000L});
         public static final BitSet FOLLOW_rule__Single__Group_1_0__1_in_rule__Single__Group_1_0__010362 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_18_in_rule__Single__Group_1_0__0__Impl10390 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Single__Group_1_0__1__Impl_in_rule__Single__Group_1_0__110421 = new BitSet(new long[]{0x0000000000000030L});
+        public static final BitSet FOLLOW_rule__Single__Group_1_0__1__Impl_in_rule__Single__Group_1_0__110421 = new BitSet(new long[]{0x0000000000000010L});
         public static final BitSet FOLLOW_rule__Single__Group_1_0__2_in_rule__Single__Group_1_0__110424 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_19_in_rule__Single__Group_1_0__1__Impl10452 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__Single__Group_1_0__2__Impl_in_rule__Single__Group_1_0__210483 = new BitSet(new long[]{0x0000000000000002L});
@@ -34919,7 +34795,7 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
         public static final BitSet FOLLOW_rule__Single__Group_1_1__0__Impl_in_rule__Single__Group_1_1__010546 = new BitSet(new long[]{0x0000000000080000L});
         public static final BitSet FOLLOW_rule__Single__Group_1_1__1_in_rule__Single__Group_1_1__010549 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_20_in_rule__Single__Group_1_1__0__Impl10577 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Single__Group_1_1__1__Impl_in_rule__Single__Group_1_1__110608 = new BitSet(new long[]{0x0000000000000030L});
+        public static final BitSet FOLLOW_rule__Single__Group_1_1__1__Impl_in_rule__Single__Group_1_1__110608 = new BitSet(new long[]{0x0000000000000010L});
         public static final BitSet FOLLOW_rule__Single__Group_1_1__2_in_rule__Single__Group_1_1__110611 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_19_in_rule__Single__Group_1_1__1__Impl10639 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__Single__Group_1_1__2__Impl_in_rule__Single__Group_1_1__210670 = new BitSet(new long[]{0x0000000000000002L});
@@ -34927,7 +34803,7 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
         public static final BitSet FOLLOW_rule__Single__Group_1_2__0__Impl_in_rule__Single__Group_1_2__010733 = new BitSet(new long[]{0x0000000000080000L});
         public static final BitSet FOLLOW_rule__Single__Group_1_2__1_in_rule__Single__Group_1_2__010736 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_22_in_rule__Single__Group_1_2__0__Impl10764 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Single__Group_1_2__1__Impl_in_rule__Single__Group_1_2__110795 = new BitSet(new long[]{0x0000000000000030L});
+        public static final BitSet FOLLOW_rule__Single__Group_1_2__1__Impl_in_rule__Single__Group_1_2__110795 = new BitSet(new long[]{0x0000000000000010L});
         public static final BitSet FOLLOW_rule__Single__Group_1_2__2_in_rule__Single__Group_1_2__110798 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_19_in_rule__Single__Group_1_2__1__Impl10826 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__Single__Group_1_2__2__Impl_in_rule__Single__Group_1_2__210857 = new BitSet(new long[]{0x0000000000000002L});
@@ -34958,7 +34834,7 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
         public static final BitSet FOLLOW_rule__Multiple__Group_1_0__0__Impl_in_rule__Multiple__Group_1_0__011437 = new BitSet(new long[]{0x0000000000080000L});
         public static final BitSet FOLLOW_rule__Multiple__Group_1_0__1_in_rule__Multiple__Group_1_0__011440 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_18_in_rule__Multiple__Group_1_0__0__Impl11468 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Multiple__Group_1_0__1__Impl_in_rule__Multiple__Group_1_0__111499 = new BitSet(new long[]{0x0000000000000030L});
+        public static final BitSet FOLLOW_rule__Multiple__Group_1_0__1__Impl_in_rule__Multiple__Group_1_0__111499 = new BitSet(new long[]{0x0000000000000010L});
         public static final BitSet FOLLOW_rule__Multiple__Group_1_0__2_in_rule__Multiple__Group_1_0__111502 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_19_in_rule__Multiple__Group_1_0__1__Impl11530 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__Multiple__Group_1_0__2__Impl_in_rule__Multiple__Group_1_0__211561 = new BitSet(new long[]{0x0000000000000002L});
@@ -34966,7 +34842,7 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
         public static final BitSet FOLLOW_rule__Multiple__Group_1_1__0__Impl_in_rule__Multiple__Group_1_1__011624 = new BitSet(new long[]{0x0000000000080000L});
         public static final BitSet FOLLOW_rule__Multiple__Group_1_1__1_in_rule__Multiple__Group_1_1__011627 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_20_in_rule__Multiple__Group_1_1__0__Impl11655 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Multiple__Group_1_1__1__Impl_in_rule__Multiple__Group_1_1__111686 = new BitSet(new long[]{0x0000000000000030L});
+        public static final BitSet FOLLOW_rule__Multiple__Group_1_1__1__Impl_in_rule__Multiple__Group_1_1__111686 = new BitSet(new long[]{0x0000000000000010L});
         public static final BitSet FOLLOW_rule__Multiple__Group_1_1__2_in_rule__Multiple__Group_1_1__111689 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_19_in_rule__Multiple__Group_1_1__1__Impl11717 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__Multiple__Group_1_1__2__Impl_in_rule__Multiple__Group_1_1__211748 = new BitSet(new long[]{0x0000000000000002L});
@@ -34974,7 +34850,7 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
         public static final BitSet FOLLOW_rule__Multiple__Group_1_2__0__Impl_in_rule__Multiple__Group_1_2__011811 = new BitSet(new long[]{0x0000000000080000L});
         public static final BitSet FOLLOW_rule__Multiple__Group_1_2__1_in_rule__Multiple__Group_1_2__011814 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_22_in_rule__Multiple__Group_1_2__0__Impl11842 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Multiple__Group_1_2__1__Impl_in_rule__Multiple__Group_1_2__111873 = new BitSet(new long[]{0x0000000000000030L});
+        public static final BitSet FOLLOW_rule__Multiple__Group_1_2__1__Impl_in_rule__Multiple__Group_1_2__111873 = new BitSet(new long[]{0x0000000000000010L});
         public static final BitSet FOLLOW_rule__Multiple__Group_1_2__2_in_rule__Multiple__Group_1_2__111876 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_19_in_rule__Multiple__Group_1_2__1__Impl11904 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__Multiple__Group_1_2__2__Impl_in_rule__Multiple__Group_1_2__211935 = new BitSet(new long[]{0x0000000000000002L});
@@ -34982,7 +34858,7 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
         public static final BitSet FOLLOW_rule__Multiple__Group_1_3__0__Impl_in_rule__Multiple__Group_1_3__011998 = new BitSet(new long[]{0x0000000000080000L});
         public static final BitSet FOLLOW_rule__Multiple__Group_1_3__1_in_rule__Multiple__Group_1_3__012001 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_32_in_rule__Multiple__Group_1_3__0__Impl12029 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Multiple__Group_1_3__1__Impl_in_rule__Multiple__Group_1_3__112060 = new BitSet(new long[]{0x0000400000000040L});
+        public static final BitSet FOLLOW_rule__Multiple__Group_1_3__1__Impl_in_rule__Multiple__Group_1_3__112060 = new BitSet(new long[]{0x0000000000000040L});
         public static final BitSet FOLLOW_rule__Multiple__Group_1_3__2_in_rule__Multiple__Group_1_3__112063 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_19_in_rule__Multiple__Group_1_3__1__Impl12091 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__Multiple__Group_1_3__2__Impl_in_rule__Multiple__Group_1_3__212122 = new BitSet(new long[]{0x0000000000000002L});
@@ -34990,7 +34866,7 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
         public static final BitSet FOLLOW_rule__Multiple__Group_1_4__0__Impl_in_rule__Multiple__Group_1_4__012185 = new BitSet(new long[]{0x0000000000080000L});
         public static final BitSet FOLLOW_rule__Multiple__Group_1_4__1_in_rule__Multiple__Group_1_4__012188 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_33_in_rule__Multiple__Group_1_4__0__Impl12216 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Multiple__Group_1_4__1__Impl_in_rule__Multiple__Group_1_4__112247 = new BitSet(new long[]{0x0000400000000040L});
+        public static final BitSet FOLLOW_rule__Multiple__Group_1_4__1__Impl_in_rule__Multiple__Group_1_4__112247 = new BitSet(new long[]{0x0000000000000040L});
         public static final BitSet FOLLOW_rule__Multiple__Group_1_4__2_in_rule__Multiple__Group_1_4__112250 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_19_in_rule__Multiple__Group_1_4__1__Impl12278 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__Multiple__Group_1_4__2__Impl_in_rule__Multiple__Group_1_4__212309 = new BitSet(new long[]{0x0000000000000002L});
@@ -35020,7 +34896,7 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
         public static final BitSet FOLLOW_rule__Table__Group_1_0__0__Impl_in_rule__Table__Group_1_0__012871 = new BitSet(new long[]{0x0000000000080000L});
         public static final BitSet FOLLOW_rule__Table__Group_1_0__1_in_rule__Table__Group_1_0__012874 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_18_in_rule__Table__Group_1_0__0__Impl12902 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Table__Group_1_0__1__Impl_in_rule__Table__Group_1_0__112933 = new BitSet(new long[]{0x0000000000000030L});
+        public static final BitSet FOLLOW_rule__Table__Group_1_0__1__Impl_in_rule__Table__Group_1_0__112933 = new BitSet(new long[]{0x0000000000000010L});
         public static final BitSet FOLLOW_rule__Table__Group_1_0__2_in_rule__Table__Group_1_0__112936 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_19_in_rule__Table__Group_1_0__1__Impl12964 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__Table__Group_1_0__2__Impl_in_rule__Table__Group_1_0__212995 = new BitSet(new long[]{0x0000000000000002L});
@@ -35028,7 +34904,7 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
         public static final BitSet FOLLOW_rule__Table__Group_1_1__0__Impl_in_rule__Table__Group_1_1__013058 = new BitSet(new long[]{0x0000000000080000L});
         public static final BitSet FOLLOW_rule__Table__Group_1_1__1_in_rule__Table__Group_1_1__013061 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_20_in_rule__Table__Group_1_1__0__Impl13089 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Table__Group_1_1__1__Impl_in_rule__Table__Group_1_1__113120 = new BitSet(new long[]{0x0000000000000030L});
+        public static final BitSet FOLLOW_rule__Table__Group_1_1__1__Impl_in_rule__Table__Group_1_1__113120 = new BitSet(new long[]{0x0000000000000010L});
         public static final BitSet FOLLOW_rule__Table__Group_1_1__2_in_rule__Table__Group_1_1__113123 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_19_in_rule__Table__Group_1_1__1__Impl13151 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__Table__Group_1_1__2__Impl_in_rule__Table__Group_1_1__213182 = new BitSet(new long[]{0x0000000000000002L});
@@ -35036,7 +34912,7 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
         public static final BitSet FOLLOW_rule__Table__Group_1_2__0__Impl_in_rule__Table__Group_1_2__013245 = new BitSet(new long[]{0x0000000000080000L});
         public static final BitSet FOLLOW_rule__Table__Group_1_2__1_in_rule__Table__Group_1_2__013248 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_22_in_rule__Table__Group_1_2__0__Impl13276 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Table__Group_1_2__1__Impl_in_rule__Table__Group_1_2__113307 = new BitSet(new long[]{0x0000000000000030L});
+        public static final BitSet FOLLOW_rule__Table__Group_1_2__1__Impl_in_rule__Table__Group_1_2__113307 = new BitSet(new long[]{0x0000000000000010L});
         public static final BitSet FOLLOW_rule__Table__Group_1_2__2_in_rule__Table__Group_1_2__113310 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_19_in_rule__Table__Group_1_2__1__Impl13338 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__Table__Group_1_2__2__Impl_in_rule__Table__Group_1_2__213369 = new BitSet(new long[]{0x0000000000000002L});
@@ -35060,7 +34936,7 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
         public static final BitSet FOLLOW_rule__AnswerTemplateRef__Group__1__Impl_in_rule__AnswerTemplateRef__Group__113806 = new BitSet(new long[]{0x0000000000080000L});
         public static final BitSet FOLLOW_rule__AnswerTemplateRef__Group__2_in_rule__AnswerTemplateRef__Group__113809 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_22_in_rule__AnswerTemplateRef__Group__1__Impl13837 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__AnswerTemplateRef__Group__2__Impl_in_rule__AnswerTemplateRef__Group__213868 = new BitSet(new long[]{0x0000000000000030L});
+        public static final BitSet FOLLOW_rule__AnswerTemplateRef__Group__2__Impl_in_rule__AnswerTemplateRef__Group__213868 = new BitSet(new long[]{0x0000000000000020L});
         public static final BitSet FOLLOW_rule__AnswerTemplateRef__Group__3_in_rule__AnswerTemplateRef__Group__213871 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_19_in_rule__AnswerTemplateRef__Group__2__Impl13899 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__AnswerTemplateRef__Group__3__Impl_in_rule__AnswerTemplateRef__Group__313930 = new BitSet(new long[]{0x0000000040000000L});
@@ -35270,37 +35146,37 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
         public static final BitSet FOLLOW_rule__Table__UnorderedGroup_3__Impl_in_rule__Table__UnorderedGroup_3__022565 = new BitSet(new long[]{0x0000800001200002L});
         public static final BitSet FOLLOW_rule__Table__UnorderedGroup_3__1_in_rule__Table__UnorderedGroup_3__022568 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__Table__UnorderedGroup_3__Impl_in_rule__Table__UnorderedGroup_3__122593 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_rule__Survey__TitleAssignment_1_1_0_222625 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_rule__Survey__DescriptionAssignment_1_1_1_222656 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_STRING_in_rule__Survey__TitleAssignment_1_1_0_222625 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_STRING_in_rule__Survey__DescriptionAssignment_1_1_1_222656 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleItem_in_rule__Survey__ItemsAssignment_1_3_022687 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleAnswerTemplate_in_rule__Survey__TemplatesAssignment_1_3_122718 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_rule__AnswerTemplate__IdAssignment_322749 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_STRING_in_rule__AnswerTemplate__IdAssignment_322749 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleAnswer_in_rule__AnswerTemplate__AnswersAssignment_522780 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_rule__Answer__IdAssignment_1_222811 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_STRING_in_rule__Answer__IdAssignment_1_222811 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleLabel_in_rule__Answer__LabelAssignment_322842 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_rule__Group__TitleAssignment_1_0_222873 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_rule__Group__DescriptionAssignment_1_1_222904 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_STRING_in_rule__Group__TitleAssignment_1_0_222873 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_STRING_in_rule__Group__DescriptionAssignment_1_1_222904 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleEString_in_rule__Group__DependsOnAssignment_1_2_222939 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_49_in_rule__Group__RequiredAssignment_1_322979 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleQuestion_in_rule__Group__QuestionsAssignment_323018 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_rule__Text__TitleAssignment_2_0_223049 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_rule__Text__DescriptionAssignment_2_1_223080 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_rule__Text__IdAssignment_2_2_223111 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_STRING_in_rule__Text__TitleAssignment_2_0_223049 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_STRING_in_rule__Text__DescriptionAssignment_2_1_223080 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_STRING_in_rule__Text__IdAssignment_2_2_223111 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleEString_in_rule__Text__DependsOnAssignment_2_3_223146 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_49_in_rule__Text__RequiredAssignment_2_423186 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__Text__MultilineAlternatives_2_5_2_0_in_rule__Text__MultilineAssignment_2_5_223225 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_rule__Scale__TitleAssignment_1_0_223258 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_rule__Scale__DescriptionAssignment_1_1_223289 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_rule__Scale__IdAssignment_1_2_223320 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_STRING_in_rule__Scale__TitleAssignment_1_0_223258 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_STRING_in_rule__Scale__DescriptionAssignment_1_1_223289 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_STRING_in_rule__Scale__IdAssignment_1_2_223320 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleEInt_in_rule__Scale__LowerAssignment_1_3_223351 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleEInt_in_rule__Scale__UpperAssignment_1_4_223382 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleEString_in_rule__Scale__LowerLabelAssignment_1_5_223413 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleEString_in_rule__Scale__UpperLabelAssignment_1_6_223444 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleEString_in_rule__Scale__DependsOnAssignment_1_7_223479 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_49_in_rule__Scale__RequiredAssignment_1_823519 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_rule__Date__TitleAssignment_2_0_223558 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_rule__Date__DescriptionAssignment_2_1_223589 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_rule__Date__IdAssignment_2_2_223620 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_STRING_in_rule__Date__TitleAssignment_2_0_223558 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_STRING_in_rule__Date__DescriptionAssignment_2_1_223589 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_STRING_in_rule__Date__IdAssignment_2_2_223620 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleEString_in_rule__Date__FromAssignment_2_3_223651 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleEString_in_rule__Date__ToAssignment_2_4_223682 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleEString_in_rule__Date__DependsOnAssignment_2_5_223717 = new BitSet(new long[]{0x0000000000000002L});
@@ -35309,34 +35185,34 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
         public static final BitSet FOLLOW_51_in_rule__Date__DayAssignment_2_823845 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_52_in_rule__Date__MonthAssignment_2_923889 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_53_in_rule__Date__YearAssignment_2_1023933 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_rule__Number__TitleAssignment_2_0_223972 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_rule__Number__DescriptionAssignment_2_1_224003 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_rule__Number__IdAssignment_2_2_224034 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_STRING_in_rule__Number__TitleAssignment_2_0_223972 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_STRING_in_rule__Number__DescriptionAssignment_2_1_224003 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_STRING_in_rule__Number__IdAssignment_2_2_224034 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleEInt_in_rule__Number__LowerAssignment_2_3_224065 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleEInt_in_rule__Number__UpperAssignment_2_4_224096 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleEString_in_rule__Number__DependsOnAssignment_2_5_224131 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_49_in_rule__Number__RequiredAssignment_2_624171 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_50_in_rule__Number__ShowLimitsAssignment_2_724215 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_rule__Single__TitleAssignment_1_0_224254 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_rule__Single__DescriptionAssignment_1_1_224285 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_rule__Single__IdAssignment_1_2_224316 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_STRING_in_rule__Single__TitleAssignment_1_0_224254 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_STRING_in_rule__Single__DescriptionAssignment_1_1_224285 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_STRING_in_rule__Single__IdAssignment_1_2_224316 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleEString_in_rule__Single__DependsOnAssignment_1_3_224351 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_49_in_rule__Single__RequiredAssignment_1_424391 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_54_in_rule__Single__OtherAssignment_1_524435 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleOption_in_rule__Single__OptionsAssignment_324474 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_rule__Multiple__TitleAssignment_1_0_224505 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_rule__Multiple__DescriptionAssignment_1_1_224536 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_rule__Multiple__IdAssignment_1_2_224567 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEInt_in_rule__Multiple__LowerAssignment_1_3_224598 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEInt_in_rule__Multiple__UpperAssignment_1_4_224629 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_STRING_in_rule__Multiple__TitleAssignment_1_0_224505 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_STRING_in_rule__Multiple__DescriptionAssignment_1_1_224536 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_STRING_in_rule__Multiple__IdAssignment_1_2_224567 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_INT_in_rule__Multiple__LowerAssignment_1_3_224598 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_INT_in_rule__Multiple__UpperAssignment_1_4_224629 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleEString_in_rule__Multiple__DependsOnAssignment_1_5_124664 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_49_in_rule__Multiple__RequiredAssignment_1_624704 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_54_in_rule__Multiple__OtherAssignment_1_724748 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_50_in_rule__Multiple__ShowLimitsAssignment_1_824792 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleOption_in_rule__Multiple__OptionsAssignment_324831 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_rule__Table__TitleAssignment_1_0_224862 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_rule__Table__DescriptionAssignment_1_1_224893 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_rule__Table__IdAssignment_1_2_224924 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_STRING_in_rule__Table__TitleAssignment_1_0_224862 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_STRING_in_rule__Table__DescriptionAssignment_1_1_224893 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_STRING_in_rule__Table__IdAssignment_1_2_224924 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleEString_in_rule__Table__DependsOnAssignment_1_3_224959 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_49_in_rule__Table__RequiredAssignment_1_424999 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_54_in_rule__Table__OtherAssignment_1_525043 = new BitSet(new long[]{0x0000000000000002L});
@@ -35345,7 +35221,7 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
         public static final BitSet FOLLOW_ruleTableQuestion_in_rule__Table__QuestionsAssignment_3_125157 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleOption_in_rule__Table__OptionsAssignment_4_025188 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleTableQuestion_in_rule__Table__QuestionsAssignment_4_125219 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_rule__AnswerTemplateRef__TemplateAssignment_325254 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_ID_in_rule__AnswerTemplateRef__TemplateAssignment_325254 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleLabel_in_rule__TableQuestion__TitleAssignment_125289 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__Table__OptionsAssignment_3_0_in_synpred1_InternalDsl22353 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__Table__QuestionsAssignment_3_1_in_synpred2_InternalDsl22496 = new BitSet(new long[]{0x0000000000000002L});
