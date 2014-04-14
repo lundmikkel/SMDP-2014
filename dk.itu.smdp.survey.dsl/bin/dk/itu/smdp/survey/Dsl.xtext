@@ -7,7 +7,7 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 Survey returns Survey:
 	{Survey}
-	('<survey' (('title' '=' title=EString)? & ('description' '=' description=EString)?) '>'
+	('<survey' (('title' '=' title=STRING)? & ('description' '=' description=STRING)?) '>'
 		(items+=Item | templates+=AnswerTemplate)*
 	'</survey>')?;
 
@@ -24,25 +24,23 @@ EString returns ecore::EString:
 	STRING | ID;
 
 AnswerTemplate returns AnswerTemplate:
-	'<template' 'id' '=' id=EString '>'
+
+	'<template' 'id' '=' id=STRING '>'
 		(answers+=Answer)+
 	'</template>';
 
 Answer returns Answer:
-	'<a' ('id' '=' id=EString)? '>'
+	'<a' ('id' '=' id=STRING)? '>'
 		label=Label
 	'</a>';
 	
 Label returns ecore::EString:
 	EString (EString)*;
 
-EBoolean returns ecore::EBoolean:
-	'true' | 'false';
-
 Group returns Group:
 	'<group'
-		(('title' '=' title=EString)?
-		& ('description' '=' description=EString)?
+		(('title' '=' title=STRING)?
+		& ('description' '=' description=STRING)?
 		& ('dependsOn' '=' dependsOn=[Answer|EString])?
 		& (required?='required')?)
 	'>'
@@ -52,21 +50,22 @@ Group returns Group:
 Text returns Text:
 	{Text}
 	'<text'
-		(('title' '=' title=EString)?
-		& ('description' '=' description=EString)?
-		& ('id' '=' id=EString)?
+		(('title' '=' title=STRING)
+		& ('description' '=' description=STRING)?
+		& ('id' '=' id=STRING)?
 		& ('dependsOn' '=' dependsOn=[Answer|EString])?
 		& (required?='required')?
-		& (multiline?='multiline')?)
+		& ('singleline' | 'single' | (multiline?=('multi' | 'multiline')))?)
 	'/>';
 
 Scale returns Scale:
 	'<scale'
-		(('title' '=' title=EString)?
-		& ('description' '=' description=EString)?
-		& ('id' '=' id=EString)?
+		(('title' '=' title=STRING)
+		& ('description' '=' description=STRING)?
+		& ('id' '=' id=STRING)?
 		& ('lower' '=' lower=EInt)
 		& ('upper' '=' upper=EInt)
+		// TODO: Force that if one label is set, both should be
 		& ('lowerLabel' '=' lowerLabel=EString)?
 		& ('upperLabel' '=' upperLabel=EString)?
 		& ('dependsOn' '=' dependsOn=[Answer|EString])?
@@ -76,9 +75,9 @@ Scale returns Scale:
 Date returns Date:
 	{Date}
 	'<date'
-		(('title' '=' title=EString)?
-		& ('description' '=' description=EString)?
-		& ('id' '=' id=EString)?
+		(('title' '=' title=STRING)
+		& ('description' '=' description=STRING)?
+		& ('id' '=' id=STRING)?
 		& ('from' '=' from=EString)?
 		& ('to' '=' to=EString)?
 		& ('dependsOn' '=' dependsOn=[Answer|EString])?
@@ -92,9 +91,9 @@ Date returns Date:
 Number returns Number:
 	{Number}
 	'<number'
-		(('title' '=' title=EString)?
-		& ('description' '=' description=EString)?
-		& ('id' '=' id=EString)?
+		(('title' '=' title=STRING)
+		& ('description' '=' description=STRING)?
+		& ('id' '=' id=STRING)?
 		& ('lower' '=' lower=EInt)?
 		& ('upper' '=' upper=EInt)?
 		& ('dependsOn' '=' dependsOn=[Answer|EString])?
@@ -104,9 +103,9 @@ Number returns Number:
 
 Single returns Single:
 	'<single'
-		(('title' '=' title=EString)?
-		& ('description' '=' description=EString)?
-		& ('id' '=' id=EString)?
+		(('title' '=' title=STRING)
+		& ('description' '=' description=STRING)?
+		& ('id' '=' id=STRING)?
 		& ('dependsOn' '=' dependsOn=[Answer|EString])?
 		& (required?='required')?
 		& (other?='other')?)
@@ -116,11 +115,11 @@ Single returns Single:
 
 Multiple returns Multiple:
 	'<multiple'
-		(('title' '=' title=EString)?
-		& ('description' '=' description=EString)?
-		& ('id' '=' id=EString)?
-		& ('lower' '=' lower=EInt)?
-		& ('upper' '=' upper=EInt)?
+		(('title' '=' title=STRING)
+		& ('description' '=' description=STRING)?
+		& ('id' '=' id=STRING)?
+		& ('lower' '=' lower=INT)?
+		& ('upper' '=' upper=INT)?
 		& ('dependsOn' dependsOn=[Answer|EString])?
 		& (required?='required')?
 		& (other?='other')?
@@ -131,9 +130,9 @@ Multiple returns Multiple:
 
 Table returns Table:
 	'<table'
-		(('title' '=' title=EString)?
-		& ('description' '=' description=EString)?
-		& ('id' '=' id=EString)?
+		(('title' '=' title=STRING)?
+		& ('description' '=' description=STRING)?
+		& ('id' '=' id=STRING)?
 		& ('dependsOn' '=' dependsOn=[Answer|EString])?
 		& (required?='required')?
 		& (other?='other')?		

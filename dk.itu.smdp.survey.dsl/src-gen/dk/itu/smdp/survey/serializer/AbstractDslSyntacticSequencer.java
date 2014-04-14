@@ -8,6 +8,7 @@ import org.eclipse.xtext.IGrammarAccess;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
+import org.eclipse.xtext.serializer.analysis.GrammarAlias.AlternativeAlias;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.GroupAlias;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
@@ -19,11 +20,13 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 
 	protected DslGrammarAccess grammarAccess;
 	protected AbstractElementAlias match_Survey___SurveyKeyword_1_0_GreaterThanSignKeyword_1_2_SurveyKeyword_1_4__q;
+	protected AbstractElementAlias match_Text___SingleKeyword_2_5_1_or_SinglelineKeyword_2_5_0__a;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (DslGrammarAccess) access;
 		match_Survey___SurveyKeyword_1_0_GreaterThanSignKeyword_1_2_SurveyKeyword_1_4__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getSurveyAccess().getSurveyKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getSurveyAccess().getGreaterThanSignKeyword_1_2()), new TokenAlias(false, false, grammarAccess.getSurveyAccess().getSurveyKeyword_1_4()));
+		match_Text___SingleKeyword_2_5_1_or_SinglelineKeyword_2_5_0__a = new AlternativeAlias(true, true, new TokenAlias(false, false, grammarAccess.getTextAccess().getSingleKeyword_2_5_1()), new TokenAlias(false, false, grammarAccess.getTextAccess().getSinglelineKeyword_2_5_0()));
 	}
 	
 	@Override
@@ -40,6 +43,8 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
 			if(match_Survey___SurveyKeyword_1_0_GreaterThanSignKeyword_1_2_SurveyKeyword_1_4__q.equals(syntax))
 				emit_Survey___SurveyKeyword_1_0_GreaterThanSignKeyword_1_2_SurveyKeyword_1_4__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_Text___SingleKeyword_2_5_1_or_SinglelineKeyword_2_5_0__a.equals(syntax))
+				emit_Text___SingleKeyword_2_5_1_or_SinglelineKeyword_2_5_0__a(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
@@ -49,6 +54,14 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	 *     ('<survey' '>' '</survey>')?
 	 */
 	protected void emit_Survey___SurveyKeyword_1_0_GreaterThanSignKeyword_1_2_SurveyKeyword_1_4__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
+	 *     ('singleline' | 'single')*
+	 */
+	protected void emit_Text___SingleKeyword_2_5_1_or_SinglelineKeyword_2_5_0__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

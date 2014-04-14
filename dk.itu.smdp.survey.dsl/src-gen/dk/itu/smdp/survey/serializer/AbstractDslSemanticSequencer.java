@@ -137,7 +137,7 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	
 	/**
 	 * Constraint:
-	 *     template=[AnswerTemplate|EString]
+	 *     template=[AnswerTemplate|ID]
 	 */
 	protected void sequence_AnswerTemplateRef(EObject context, AnswerTemplateRef semanticObject) {
 		if(errorAcceptor != null) {
@@ -146,14 +146,14 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getAnswerTemplateRefAccess().getTemplateAnswerTemplateEStringParserRuleCall_3_0_1(), semanticObject.getTemplate());
+		feeder.accept(grammarAccess.getAnswerTemplateRefAccess().getTemplateAnswerTemplateIDTerminalRuleCall_3_0_1(), semanticObject.getTemplate());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     (id=EString answers+=Answer+)
+	 *     (id=STRING answers+=Answer+)
 	 */
 	protected void sequence_AnswerTemplate(EObject context, AnswerTemplate semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -162,7 +162,7 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	
 	/**
 	 * Constraint:
-	 *     (id=EString? label=Label)
+	 *     (id=STRING? label=Label)
 	 */
 	protected void sequence_Answer(EObject context, Answer semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -172,9 +172,9 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	/**
 	 * Constraint:
 	 *     (
-	 *         title=EString? 
-	 *         description=EString? 
-	 *         id=EString? 
+	 *         title=STRING 
+	 *         description=STRING? 
+	 *         id=STRING? 
 	 *         from=EString? 
 	 *         to=EString? 
 	 *         dependsOn=[Answer|EString]? 
@@ -192,7 +192,7 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	
 	/**
 	 * Constraint:
-	 *     (title=EString? description=EString? dependsOn=[Answer|EString]? required?='required'? questions+=Question+)
+	 *     (title=STRING? description=STRING? dependsOn=[Answer|EString]? required?='required'? questions+=Question+)
 	 */
 	protected void sequence_Group(EObject context, Group semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -202,11 +202,11 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	/**
 	 * Constraint:
 	 *     (
-	 *         title=EString? 
-	 *         description=EString? 
-	 *         id=EString? 
-	 *         lower=EInt? 
-	 *         upper=EInt? 
+	 *         title=STRING 
+	 *         description=STRING? 
+	 *         id=STRING? 
+	 *         lower=INT? 
+	 *         upper=INT? 
 	 *         dependsOn=[Answer|EString]? 
 	 *         required?='required'? 
 	 *         other?='other'? 
@@ -222,9 +222,9 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	/**
 	 * Constraint:
 	 *     (
-	 *         title=EString? 
-	 *         description=EString? 
-	 *         id=EString? 
+	 *         title=STRING 
+	 *         description=STRING? 
+	 *         id=STRING? 
 	 *         lower=EInt? 
 	 *         upper=EInt? 
 	 *         dependsOn=[Answer|EString]? 
@@ -240,9 +240,9 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	/**
 	 * Constraint:
 	 *     (
-	 *         title=EString? 
-	 *         description=EString? 
-	 *         id=EString? 
+	 *         title=STRING 
+	 *         description=STRING? 
+	 *         id=STRING? 
 	 *         lower=EInt 
 	 *         upper=EInt 
 	 *         lowerLabel=EString? 
@@ -259,9 +259,9 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	/**
 	 * Constraint:
 	 *     (
-	 *         title=EString? 
-	 *         description=EString? 
-	 *         id=EString? 
+	 *         title=STRING 
+	 *         description=STRING? 
+	 *         id=STRING? 
 	 *         dependsOn=[Answer|EString]? 
 	 *         required?='required'? 
 	 *         other?='other'? 
@@ -275,7 +275,7 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	
 	/**
 	 * Constraint:
-	 *     ((title=EString? description=EString? (items+=Item | templates+=AnswerTemplate)*)?)
+	 *     ((title=STRING? description=STRING? (items+=Item | templates+=AnswerTemplate)*)?)
 	 */
 	protected void sequence_Survey(EObject context, Survey semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -301,9 +301,9 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	/**
 	 * Constraint:
 	 *     (
-	 *         title=EString? 
-	 *         description=EString? 
-	 *         id=EString? 
+	 *         title=STRING? 
+	 *         description=STRING? 
+	 *         id=STRING? 
 	 *         dependsOn=[Answer|EString]? 
 	 *         required?='required'? 
 	 *         other?='other'? 
@@ -321,12 +321,12 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	/**
 	 * Constraint:
 	 *     (
-	 *         title=EString? 
-	 *         description=EString? 
-	 *         id=EString? 
+	 *         title=STRING 
+	 *         description=STRING? 
+	 *         id=STRING? 
 	 *         dependsOn=[Answer|EString]? 
 	 *         required?='required'? 
-	 *         multiline?='multiline'?
+	 *         (multiline?='multi' | multiline?='multiline')?
 	 *     )
 	 */
 	protected void sequence_Text(EObject context, Text semanticObject) {
