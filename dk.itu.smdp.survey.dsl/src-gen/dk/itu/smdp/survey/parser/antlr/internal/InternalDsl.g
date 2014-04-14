@@ -525,9 +525,9 @@ ruleAnswerTemplate returns [EObject current=null]
     }
 (
 (
-		lv_id_3_0=RULE_ID
+		lv_id_3_0=RULE_STRING
 		{
-			newLeafNode(lv_id_3_0, grammarAccess.getAnswerTemplateAccess().getIdIDTerminalRuleCall_3_0()); 
+			newLeafNode(lv_id_3_0, grammarAccess.getAnswerTemplateAccess().getIdSTRINGTerminalRuleCall_3_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -537,7 +537,7 @@ ruleAnswerTemplate returns [EObject current=null]
        			$current, 
        			"id",
         		lv_id_3_0, 
-        		"ID");
+        		"STRING");
 	    }
 
 )
@@ -566,56 +566,6 @@ ruleAnswerTemplate returns [EObject current=null]
 )+	otherlv_6='</template>' 
     {
     	newLeafNode(otherlv_6, grammarAccess.getAnswerTemplateAccess().getTemplateKeyword_6());
-    }
-)
-;
-
-
-
-
-
-// Entry rule entryRuleAnswerTemplateRef
-entryRuleAnswerTemplateRef returns [EObject current=null] 
-	:
-	{ newCompositeNode(grammarAccess.getAnswerTemplateRefRule()); }
-	 iv_ruleAnswerTemplateRef=ruleAnswerTemplateRef 
-	 { $current=$iv_ruleAnswerTemplateRef.current; } 
-	 EOF 
-;
-
-// Rule AnswerTemplateRef
-ruleAnswerTemplateRef returns [EObject current=null] 
-    @init { enterRule(); 
-    }
-    @after { leaveRule(); }:
-(	otherlv_0='<templateref' 
-    {
-    	newLeafNode(otherlv_0, grammarAccess.getAnswerTemplateRefAccess().getTemplaterefKeyword_0());
-    }
-	otherlv_1='id' 
-    {
-    	newLeafNode(otherlv_1, grammarAccess.getAnswerTemplateRefAccess().getIdKeyword_1());
-    }
-	otherlv_2='=' 
-    {
-    	newLeafNode(otherlv_2, grammarAccess.getAnswerTemplateRefAccess().getEqualsSignKeyword_2());
-    }
-(
-(
-		{
-			if ($current==null) {
-	            $current = createModelElement(grammarAccess.getAnswerTemplateRefRule());
-	        }
-        }
-	otherlv_3=RULE_ID
-	{
-		newLeafNode(otherlv_3, grammarAccess.getAnswerTemplateRefAccess().getTemplateAnswerTemplateCrossReference_3_0()); 
-	}
-
-)
-)	otherlv_4='/>' 
-    {
-    	newLeafNode(otherlv_4, grammarAccess.getAnswerTemplateRefAccess().getSolidusGreaterThanSignKeyword_4());
     }
 )
 ;
@@ -3244,8 +3194,7 @@ ruleTable returns [EObject current=null]
  				)
 			)  
 
-		)+
-	  	{getUnorderedGroupHelper().canLeave(grammarAccess.getTableAccess().getUnorderedGroup_1())}?	
+		)*	
 	)
 )
 	{ 
@@ -3410,6 +3359,58 @@ ruleEInt returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
     }
 )
     ;
+
+
+
+
+
+// Entry rule entryRuleAnswerTemplateRef
+entryRuleAnswerTemplateRef returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getAnswerTemplateRefRule()); }
+	 iv_ruleAnswerTemplateRef=ruleAnswerTemplateRef 
+	 { $current=$iv_ruleAnswerTemplateRef.current; } 
+	 EOF 
+;
+
+// Rule AnswerTemplateRef
+ruleAnswerTemplateRef returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(	otherlv_0='<template' 
+    {
+    	newLeafNode(otherlv_0, grammarAccess.getAnswerTemplateRefAccess().getTemplateKeyword_0());
+    }
+	otherlv_1='id' 
+    {
+    	newLeafNode(otherlv_1, grammarAccess.getAnswerTemplateRefAccess().getIdKeyword_1());
+    }
+	otherlv_2='=' 
+    {
+    	newLeafNode(otherlv_2, grammarAccess.getAnswerTemplateRefAccess().getEqualsSignKeyword_2());
+    }
+(
+(
+		{
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getAnswerTemplateRefRule());
+	        }
+        }
+		{ 
+	        newCompositeNode(grammarAccess.getAnswerTemplateRefAccess().getTemplateAnswerTemplateCrossReference_3_0()); 
+	    }
+		ruleEString		{ 
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)	otherlv_4='/>' 
+    {
+    	newLeafNode(otherlv_4, grammarAccess.getAnswerTemplateRefAccess().getSolidusGreaterThanSignKeyword_4());
+    }
+)
+;
 
 
 

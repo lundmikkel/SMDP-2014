@@ -137,7 +137,7 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	
 	/**
 	 * Constraint:
-	 *     template=[AnswerTemplate|ID]
+	 *     template=[AnswerTemplate|EString]
 	 */
 	protected void sequence_AnswerTemplateRef(EObject context, AnswerTemplateRef semanticObject) {
 		if(errorAcceptor != null) {
@@ -146,7 +146,7 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getAnswerTemplateRefAccess().getTemplateAnswerTemplateIDTerminalRuleCall_3_0_1(), semanticObject.getTemplate());
+		feeder.accept(grammarAccess.getAnswerTemplateRefAccess().getTemplateAnswerTemplateEStringParserRuleCall_3_0_1(), semanticObject.getTemplate());
 		feeder.finish();
 	}
 	
@@ -306,7 +306,7 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	 *         id=STRING? 
 	 *         dependsOn=[Answer|EString]? 
 	 *         required?='required'? 
-	 *         other?='other' 
+	 *         other?='other'? 
 	 *         multiple?='multiple'? 
 	 *         options+=Option+ 
 	 *         questions+=TableQuestion+ 

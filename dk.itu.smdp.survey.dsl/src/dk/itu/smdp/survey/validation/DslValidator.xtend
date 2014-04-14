@@ -9,6 +9,10 @@ import org.eclipse.xtext.validation.Check
 import survey.Question
 import survey.SurveyPackage
 import survey.Group
+import survey.Answer
+import survey.Multiple
+import survey.Single
+import survey.Table
 import survey.AnswerTemplate
 
 /**
@@ -17,70 +21,132 @@ import survey.AnswerTemplate
  * see http://www.eclipse.org/Xtext/documentation.html#validation
  */
 class DslValidator extends AbstractDslValidator {
-	
-	// TODO: lower/upper in Multiple must be between 0 and the number of answers 
 
 	public static val DUPLICATE_NAME = 'duplicateName'
-	public static val MISSING_NAME = 'missingName'
 
+/*
+ * Check that the groups have unique titles
+ */
+	@Check
+	def checkThatGroupTitlesAreUnique(Survey survey) {
+		var groupMap = new HashMap<String, Group>
+		for (Group group : survey.items.filter(typeof(Group))) {
+			if (!group.title.empty) {
+				if (groupMap.containsKey(group.title)) {
+					error(
+						'Groups must have unique titles',
+						group,
+						SurveyPackage.Literals.TITLE_AND_DESCRIPTION__TITLE,
+						DUPLICATE_NAME
+					)
+				} else {
+					groupMap.put(group.title, group)
+				}
+			}
+		}
+	}
+
+/*
+ * Check that questions, not in a group, have a unique ID
+ */
 	@Check
 	def checkThatQuestionIDsAreUnique(Survey survey) {
 		var questionMap = new HashMap<String, Question>
-		
-		println("---------------")
-		
 		for (Question question : survey.items.filter(typeof(Question))) {
-			// Only iterate questions with an id
-			if (!question.id.nullOrEmpty) {
-				println(question.id)
-				
-				// Check if the id already exists
+			if (!question.id.empty) {
 				if (questionMap.containsKey(question.id)) {
 					error(
-						'Question IDs must be unique',
+						'Questions must have unique IDs',
 						question,
 						SurveyPackage.Literals.QUESTION__ID,
 						DUPLICATE_NAME
 					)
-					error(
-						'Question IDs must be unique',
-						questionMap.get(question.id),
-						SurveyPackage.Literals.QUESTION__ID,
-						DUPLICATE_NAME
-					)
-				}
-				// Add it to the list
-				else {
+				} else {
 					questionMap.put(question.id, question)
 				}
 			}
 		}
-		
-		
+	}
+
+/*
+ * Check that answers in questions outside of a group have unique IDs
+ */
+	@Check
+	def checkThatAnswerIDsAreUnique(Survey survey) {
+		for (Question question : survey.items.filter(typeof(Question))) {
+			var answerMap = new HashMap<String, Answer>
+			if (question instanceof Single) {
+				var s = question as Single
+				for (Answer answer : s.options.filter(typeof(Answer))) {
+					if (!answer.id.empty) {
+						if (answerMap.containsKey(answer.id)) {
+							error(
+								'Answers within a Single must have unique IDs',
+								answer,
+								SurveyPackage.Literals.ANSWER__ID,
+								DUPLICATE_NAME
+							)
+						} else {
+							answerMap.put(answer.id, answer)
+						}
+					}
+				}
+			} else if (question instanceof Multiple) {
+				var m = question as Multiple
+				for (Answer answer : m.options.filter(typeof(Answer))) {
+					if (!answer.id.empty) {
+						if (answerMap.containsKey(answer.id)) {
+							error(
+								'Answers within a Multiple must have unique IDs',
+								answer,
+								SurveyPackage.Literals.ANSWER__ID,
+								DUPLICATE_NAME
+							)
+						} else {
+							answerMap.put(answer.id, answer)
+						}
+					}
+				}
+			}
+			if (question instanceof Table) {
+				var t = question as Table
+				for (Answer answer : t.options.filter(typeof(Answer))) {
+					if (!answer.id.empty) {
+						if (answerMap.containsKey(answer.id)) {
+							error(
+								'Answers within a Table must have unique IDs',
+								answer,
+								SurveyPackage.Literals.ANSWER__ID,
+								DUPLICATE_NAME
+							)
+						} else {
+							answerMap.put(answer.id, answer)
+						}
+					}
+				}
+			}
+		}
+	}
+
+/*
+ * Check that the questions in each group have unique IDs
+ */
+	@Check
+	def checkThatQuestionIDsInGroupsAreUnique(Survey survey) {
+		var questionMap = new HashMap<String, Question>
+
 		for (Group group : survey.items.filter(typeof(Group))) {
-			// Iterate the group's questions
 			for (Question question : group.questions) {
-				// Only iterate questions with an id
-				if (!question.id.nullOrEmpty) {
-					println(question.id)
-					
-					// Check if the id already exists
+
+				if (!question.id.empty) {
 					if (questionMap.containsKey(question.id)) {
 						error(
-							'Question IDs must be unique',
+							'Questions within a group must have unique IDs',
 							question,
 							SurveyPackage.Literals.QUESTION__ID,
 							DUPLICATE_NAME
 						)
-						error(
-							'Question IDs must be unique',
-							questionMap.get(question.id),
-							SurveyPackage.Literals.QUESTION__ID,
-							DUPLICATE_NAME
-						)
-					}
-					// Add it to the list
-					else {
+					} else {
 						questionMap.put(question.id, question)
 					}
 				}
@@ -88,43 +154,113 @@ class DslValidator extends AbstractDslValidator {
 		}
 	}
 
+/*
+ * Check that the answers in each question (of type Single, Multiple or Table) in each group have unique IDs
+ */
 	@Check
-	def checkThatTemplateIDsAreUnique(Survey survey) {
-		var templateMap = new HashMap<String, AnswerTemplate>
-		
-		/*for (AnswerTemplate template : survey.templates) {
-			if (template.id.nullOrEmpty) {
-				error(
-					'Templates must have IDs',
-					template,
-					SurveyPackage.Literals.ANSWER_TEMPLATE__ID,
-					DUPLICATE_NAME
-				)
-			}
-			else {
-				// Only iterate questions with an id
-				if (!template.id.nullOrEmpty) {
-					// Check if the id already exists
-					if (templateMap.containsKey(template.id)) {
-						error(
-							'Template IDs must be unique',
-							template,
-							SurveyPackage.Literals.ANSWER_TEMPLATE__ID,
-							DUPLICATE_NAME
-						)
-						error(
-							'Template IDs must be unique',
-							templateMap.get(template.id),
-							SurveyPackage.Literals.ANSWER_TEMPLATE__ID,
-							DUPLICATE_NAME
-						)
+	def checkThatAnswerIDsInGroupsAreUnique(Survey survey) {
+		for (Group group : survey.items.filter(typeof(Group))) {
+			for (Question question : group.questions) {
+				var answerMap = new HashMap<String, Answer>
+				if (question instanceof Single) {
+					var s = question as Single
+					for (Answer answer : s.options.filter(typeof(Answer))) {
+						if (!answer.id.empty) {
+							if (answerMap.containsKey(answer.id)) {
+								error(
+									'Answers within a Single must have unique IDs',
+									answer,
+									SurveyPackage.Literals.ANSWER__ID,
+									DUPLICATE_NAME
+								)
+							} else {
+								answerMap.put(answer.id, answer)
+							}
+						}
 					}
-					// Add it to the list
-					else {
-						templateMap.put(template.id, template)
+				}
+				if (question instanceof Multiple) {
+					var m = question as Multiple
+					for (Answer answer : m.options.filter(typeof(Answer))) {
+						if (!answer.id.empty) {
+							if (answerMap.containsKey(answer.id)) {
+								error(
+									'Answers within a Multiple must have unique IDs',
+									answer,
+									SurveyPackage.Literals.ANSWER__ID,
+									DUPLICATE_NAME
+								)
+							} else {
+								answerMap.put(answer.id, answer)
+							}
+						}
+					}
+				}
+				if (question instanceof Table) {
+					var t = question as Table
+					for (Answer answer : t.options.filter(typeof(Answer))) {
+						if (!answer.id.empty) {
+							if (answerMap.containsKey(answer.id)) {
+								error(
+									'Answers within a Table must have unique IDs',
+									answer,
+									SurveyPackage.Literals.ANSWER__ID,
+									DUPLICATE_NAME
+								)
+							} else {
+								answerMap.put(answer.id, answer)
+							}
+						}
 					}
 				}
 			}
-		}*/
+		}
+	}
+
+/*
+ * Check that the AnswerTemplates have unique IDs
+ */
+	@Check
+	def checkThatAnswerTemplateIDsAreUnique(Survey survey) {
+		var answerTemplateMap = new HashMap<String, AnswerTemplate>
+
+		for (AnswerTemplate answerTemplate : survey.templates) {
+			if (!answerTemplate.id.empty) {
+				if (answerTemplateMap.containsKey(answerTemplate.id)) {
+					error(
+						'AnswerTemplates must have unique IDs',
+						answerTemplate,
+						SurveyPackage.Literals.ANSWER_TEMPLATE__ID,
+						DUPLICATE_NAME
+					)
+				} else {
+					answerTemplateMap.put(answerTemplate.id, answerTemplate)
+				}
+			}
+		}
+	}
+
+/*
+ * Check that the ID of answers in AnswerTemplates have unique IDs
+ */
+	@Check
+	def checkThatIDsOfAnswersInAnswerTemplatesAreUnique(Survey survey) {
+		var answerMap = new HashMap<String, Answer>
+
+		for (AnswerTemplate answerTemplate : survey.templates) {
+			for (Answer answer : answerTemplate.answers)
+				if (!answer.id.empty) {
+					if (answerMap.containsKey(answer.id)) {
+						error(
+							'Answers within AnswerTemplates must have unique IDs',
+							answerTemplate,
+							SurveyPackage.Literals.ANSWER__ID,
+							DUPLICATE_NAME
+						)
+					} else {
+						answerMap.put(answer.id, answer)
+					}
+				}
+		}
 	}
 }
