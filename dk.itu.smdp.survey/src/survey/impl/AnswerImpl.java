@@ -18,7 +18,7 @@ import survey.SurveyPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link survey.impl.AnswerImpl#getId <em>Id</em>}</li>
+ *   <li>{@link survey.impl.AnswerImpl#getName <em>Name</em>}</li>
  *   <li>{@link survey.impl.AnswerImpl#getLabel <em>Label</em>}</li>
  * </ul>
  * </p>
@@ -27,24 +27,24 @@ import survey.SurveyPackage;
  */
 public class AnswerImpl extends OptionImpl implements Answer {
 	/**
-	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getId()
+	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String ID_EDEFAULT = null;
+	protected static final String NAME_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getId()
+	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-	protected String id = ID_EDEFAULT;
+	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getLabel() <em>Label</em>}' attribute.
@@ -90,8 +90,8 @@ public class AnswerImpl extends OptionImpl implements Answer {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getId() {
-		return id;
+	public String getName() {
+		return name;
 	}
 
 	/**
@@ -99,11 +99,11 @@ public class AnswerImpl extends OptionImpl implements Answer {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setId(String newId) {
-		String oldId = id;
-		id = newId;
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SurveyPackage.ANSWER__ID, oldId, id));
+			eNotify(new ENotificationImpl(this, Notification.SET, SurveyPackage.ANSWER__NAME, oldName, name));
 	}
 
 	/**
@@ -135,8 +135,8 @@ public class AnswerImpl extends OptionImpl implements Answer {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case SurveyPackage.ANSWER__ID:
-				return getId();
+			case SurveyPackage.ANSWER__NAME:
+				return getName();
 			case SurveyPackage.ANSWER__LABEL:
 				return getLabel();
 		}
@@ -151,8 +151,8 @@ public class AnswerImpl extends OptionImpl implements Answer {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case SurveyPackage.ANSWER__ID:
-				setId((String)newValue);
+			case SurveyPackage.ANSWER__NAME:
+				setName((String)newValue);
 				return;
 			case SurveyPackage.ANSWER__LABEL:
 				setLabel((String)newValue);
@@ -169,8 +169,8 @@ public class AnswerImpl extends OptionImpl implements Answer {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case SurveyPackage.ANSWER__ID:
-				setId(ID_EDEFAULT);
+			case SurveyPackage.ANSWER__NAME:
+				setName(NAME_EDEFAULT);
 				return;
 			case SurveyPackage.ANSWER__LABEL:
 				setLabel(LABEL_EDEFAULT);
@@ -187,8 +187,8 @@ public class AnswerImpl extends OptionImpl implements Answer {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case SurveyPackage.ANSWER__ID:
-				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
+			case SurveyPackage.ANSWER__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case SurveyPackage.ANSWER__LABEL:
 				return LABEL_EDEFAULT == null ? label != null : !LABEL_EDEFAULT.equals(label);
 		}
@@ -205,8 +205,8 @@ public class AnswerImpl extends OptionImpl implements Answer {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (id: ");
-		result.append(id);
+		result.append(" (name: ");
+		result.append(name);
 		result.append(", label: ");
 		result.append(label);
 		result.append(')');

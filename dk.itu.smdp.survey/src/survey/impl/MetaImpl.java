@@ -19,7 +19,7 @@ import survey.SurveyPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link survey.impl.MetaImpl#getId <em>Id</em>}</li>
+ *   <li>{@link survey.impl.MetaImpl#getName <em>Name</em>}</li>
  *   <li>{@link survey.impl.MetaImpl#getTitle <em>Title</em>}</li>
  *   <li>{@link survey.impl.MetaImpl#getDescription <em>Description</em>}</li>
  * </ul>
@@ -29,24 +29,24 @@ import survey.SurveyPackage;
  */
 public abstract class MetaImpl extends MinimalEObjectImpl.Container implements Meta {
 	/**
-	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getId()
+	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String ID_EDEFAULT = null;
+	protected static final String NAME_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getId()
+	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-	protected String id = ID_EDEFAULT;
+	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getTitle() <em>Title</em>}' attribute.
@@ -112,8 +112,8 @@ public abstract class MetaImpl extends MinimalEObjectImpl.Container implements M
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getId() {
-		return id;
+	public String getName() {
+		return name;
 	}
 
 	/**
@@ -121,11 +121,11 @@ public abstract class MetaImpl extends MinimalEObjectImpl.Container implements M
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setId(String newId) {
-		String oldId = id;
-		id = newId;
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SurveyPackage.META__ID, oldId, id));
+			eNotify(new ENotificationImpl(this, Notification.SET, SurveyPackage.META__NAME, oldName, name));
 	}
 
 	/**
@@ -178,8 +178,8 @@ public abstract class MetaImpl extends MinimalEObjectImpl.Container implements M
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case SurveyPackage.META__ID:
-				return getId();
+			case SurveyPackage.META__NAME:
+				return getName();
 			case SurveyPackage.META__TITLE:
 				return getTitle();
 			case SurveyPackage.META__DESCRIPTION:
@@ -196,8 +196,8 @@ public abstract class MetaImpl extends MinimalEObjectImpl.Container implements M
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case SurveyPackage.META__ID:
-				setId((String)newValue);
+			case SurveyPackage.META__NAME:
+				setName((String)newValue);
 				return;
 			case SurveyPackage.META__TITLE:
 				setTitle((String)newValue);
@@ -217,8 +217,8 @@ public abstract class MetaImpl extends MinimalEObjectImpl.Container implements M
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case SurveyPackage.META__ID:
-				setId(ID_EDEFAULT);
+			case SurveyPackage.META__NAME:
+				setName(NAME_EDEFAULT);
 				return;
 			case SurveyPackage.META__TITLE:
 				setTitle(TITLE_EDEFAULT);
@@ -238,8 +238,8 @@ public abstract class MetaImpl extends MinimalEObjectImpl.Container implements M
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case SurveyPackage.META__ID:
-				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
+			case SurveyPackage.META__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case SurveyPackage.META__TITLE:
 				return TITLE_EDEFAULT == null ? title != null : !TITLE_EDEFAULT.equals(title);
 			case SurveyPackage.META__DESCRIPTION:
@@ -258,8 +258,8 @@ public abstract class MetaImpl extends MinimalEObjectImpl.Container implements M
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (id: ");
-		result.append(id);
+		result.append(" (name: ");
+		result.append(name);
 		result.append(", title: ");
 		result.append(title);
 		result.append(", description: ");

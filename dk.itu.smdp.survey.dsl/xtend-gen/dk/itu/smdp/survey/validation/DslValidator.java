@@ -62,26 +62,26 @@ public class DslValidator extends AbstractDslValidator {
    * Check that questions, not in a group, have a unique ID
    */
   @Check
-  public void checkThatQuestionIDsAreUnique(final Survey survey) {
+  public void checkThatQuestionNamesAreUnique(final Survey survey) {
     HashMap<String,Question> _hashMap = new HashMap<String, Question>();
     HashMap<String,Question> questionMap = _hashMap;
     EList<Item> _items = survey.getItems();
     Iterable<Question> _filter = Iterables.<Question>filter(_items, Question.class);
     for (final Question question : _filter) {
-      String _id = question.getId();
-      boolean _isEmpty = _id.isEmpty();
+      String _name = question.getName();
+      boolean _isEmpty = _name.isEmpty();
       boolean _not = (!_isEmpty);
       if (_not) {
-        String _id_1 = question.getId();
-        boolean _containsKey = questionMap.containsKey(_id_1);
+        String _name_1 = question.getName();
+        boolean _containsKey = questionMap.containsKey(_name_1);
         if (_containsKey) {
           this.error(
             "Questions must have unique IDs", question, 
-            Literals.META__ID, 
+            Literals.META__NAME, 
             DslValidator.DUPLICATE_NAME);
         } else {
-          String _id_2 = question.getId();
-          questionMap.put(_id_2, question);
+          String _name_2 = question.getName();
+          questionMap.put(_name_2, question);
         }
       }
     }
@@ -91,7 +91,7 @@ public class DslValidator extends AbstractDslValidator {
    * Check that answers in questions outside of a group have unique IDs
    */
   @Check
-  public void checkThatAnswerIDsAreUnique(final Survey survey) {
+  public void checkThatAnswerNamesAreUnique(final Survey survey) {
     EList<Item> _items = survey.getItems();
     Iterable<Question> _filter = Iterables.<Question>filter(_items, Question.class);
     for (final Question question : _filter) {
@@ -103,20 +103,20 @@ public class DslValidator extends AbstractDslValidator {
           EList<Option> _options = s.getOptions();
           Iterable<Answer> _filter_1 = Iterables.<Answer>filter(_options, Answer.class);
           for (final Answer answer : _filter_1) {
-            String _id = answer.getId();
-            boolean _isEmpty = _id.isEmpty();
+            String _name = answer.getName();
+            boolean _isEmpty = _name.isEmpty();
             boolean _not = (!_isEmpty);
             if (_not) {
-              String _id_1 = answer.getId();
-              boolean _containsKey = answerMap.containsKey(_id_1);
+              String _name_1 = answer.getName();
+              boolean _containsKey = answerMap.containsKey(_name_1);
               if (_containsKey) {
                 this.error(
                   "Answers within a Single must have unique IDs", answer, 
-                  Literals.ANSWER__ID, 
+                  Literals.ANSWER__NAME, 
                   DslValidator.DUPLICATE_NAME);
               } else {
-                String _id_2 = answer.getId();
-                answerMap.put(_id_2, answer);
+                String _name_2 = answer.getName();
+                answerMap.put(_name_2, answer);
               }
             }
           }
@@ -126,20 +126,20 @@ public class DslValidator extends AbstractDslValidator {
             EList<Option> _options_1 = m.getOptions();
             Iterable<Answer> _filter_2 = Iterables.<Answer>filter(_options_1, Answer.class);
             for (final Answer answer_1 : _filter_2) {
-              String _id_3 = answer_1.getId();
-              boolean _isEmpty_1 = _id_3.isEmpty();
+              String _name_3 = answer_1.getName();
+              boolean _isEmpty_1 = _name_3.isEmpty();
               boolean _not_1 = (!_isEmpty_1);
               if (_not_1) {
-                String _id_4 = answer_1.getId();
-                boolean _containsKey_1 = answerMap.containsKey(_id_4);
+                String _name_4 = answer_1.getName();
+                boolean _containsKey_1 = answerMap.containsKey(_name_4);
                 if (_containsKey_1) {
                   this.error(
                     "Answers within a Multiple must have unique IDs", answer_1, 
-                    Literals.ANSWER__ID, 
+                    Literals.ANSWER__NAME, 
                     DslValidator.DUPLICATE_NAME);
                 } else {
-                  String _id_5 = answer_1.getId();
-                  answerMap.put(_id_5, answer_1);
+                  String _name_5 = answer_1.getName();
+                  answerMap.put(_name_5, answer_1);
                 }
               }
             }
@@ -150,20 +150,20 @@ public class DslValidator extends AbstractDslValidator {
           EList<Option> _options_2 = t.getOptions();
           Iterable<Answer> _filter_3 = Iterables.<Answer>filter(_options_2, Answer.class);
           for (final Answer answer_2 : _filter_3) {
-            String _id_6 = answer_2.getId();
-            boolean _isEmpty_2 = _id_6.isEmpty();
+            String _name_6 = answer_2.getName();
+            boolean _isEmpty_2 = _name_6.isEmpty();
             boolean _not_2 = (!_isEmpty_2);
             if (_not_2) {
-              String _id_7 = answer_2.getId();
-              boolean _containsKey_2 = answerMap.containsKey(_id_7);
+              String _name_7 = answer_2.getName();
+              boolean _containsKey_2 = answerMap.containsKey(_name_7);
               if (_containsKey_2) {
                 this.error(
                   "Answers within a Table must have unique IDs", answer_2, 
-                  Literals.ANSWER__ID, 
+                  Literals.ANSWER__NAME, 
                   DslValidator.DUPLICATE_NAME);
               } else {
-                String _id_8 = answer_2.getId();
-                answerMap.put(_id_8, answer_2);
+                String _name_8 = answer_2.getName();
+                answerMap.put(_name_8, answer_2);
               }
             }
           }
@@ -176,7 +176,7 @@ public class DslValidator extends AbstractDslValidator {
    * Check that the questions in each group have unique IDs
    */
   @Check
-  public void checkThatQuestionIDsInGroupsAreUnique(final Survey survey) {
+  public void checkThatQuestionNamesInGroupsAreUnique(final Survey survey) {
     HashMap<String,Question> _hashMap = new HashMap<String, Question>();
     HashMap<String,Question> questionMap = _hashMap;
     EList<Item> _items = survey.getItems();
@@ -184,20 +184,20 @@ public class DslValidator extends AbstractDslValidator {
     for (final Group group : _filter) {
       EList<Question> _questions = group.getQuestions();
       for (final Question question : _questions) {
-        String _id = question.getId();
-        boolean _isEmpty = _id.isEmpty();
+        String _name = question.getName();
+        boolean _isEmpty = _name.isEmpty();
         boolean _not = (!_isEmpty);
         if (_not) {
-          String _id_1 = question.getId();
-          boolean _containsKey = questionMap.containsKey(_id_1);
+          String _name_1 = question.getName();
+          boolean _containsKey = questionMap.containsKey(_name_1);
           if (_containsKey) {
             this.error(
               "Questions within a group must have unique IDs", question, 
-              Literals.META__ID, 
+              Literals.META__NAME, 
               DslValidator.DUPLICATE_NAME);
           } else {
-            String _id_2 = question.getId();
-            questionMap.put(_id_2, question);
+            String _name_2 = question.getName();
+            questionMap.put(_name_2, question);
           }
         }
       }
@@ -208,7 +208,7 @@ public class DslValidator extends AbstractDslValidator {
    * Check that the answers in each question (of type Single, Multiple or Table) in each group have unique IDs
    */
   @Check
-  public void checkThatAnswerIDsInGroupsAreUnique(final Survey survey) {
+  public void checkThatAnswerNamesInGroupsAreUnique(final Survey survey) {
     EList<Item> _items = survey.getItems();
     Iterable<Group> _filter = Iterables.<Group>filter(_items, Group.class);
     for (final Group group : _filter) {
@@ -222,20 +222,20 @@ public class DslValidator extends AbstractDslValidator {
             EList<Option> _options = s.getOptions();
             Iterable<Answer> _filter_1 = Iterables.<Answer>filter(_options, Answer.class);
             for (final Answer answer : _filter_1) {
-              String _id = answer.getId();
-              boolean _isEmpty = _id.isEmpty();
+              String _name = answer.getName();
+              boolean _isEmpty = _name.isEmpty();
               boolean _not = (!_isEmpty);
               if (_not) {
-                String _id_1 = answer.getId();
-                boolean _containsKey = answerMap.containsKey(_id_1);
+                String _name_1 = answer.getName();
+                boolean _containsKey = answerMap.containsKey(_name_1);
                 if (_containsKey) {
                   this.error(
                     "Answers within a Single must have unique IDs", answer, 
-                    Literals.ANSWER__ID, 
+                    Literals.ANSWER__NAME, 
                     DslValidator.DUPLICATE_NAME);
                 } else {
-                  String _id_2 = answer.getId();
-                  answerMap.put(_id_2, answer);
+                  String _name_2 = answer.getName();
+                  answerMap.put(_name_2, answer);
                 }
               }
             }
@@ -245,20 +245,20 @@ public class DslValidator extends AbstractDslValidator {
             EList<Option> _options_1 = m.getOptions();
             Iterable<Answer> _filter_2 = Iterables.<Answer>filter(_options_1, Answer.class);
             for (final Answer answer_1 : _filter_2) {
-              String _id_3 = answer_1.getId();
-              boolean _isEmpty_1 = _id_3.isEmpty();
+              String _name_3 = answer_1.getName();
+              boolean _isEmpty_1 = _name_3.isEmpty();
               boolean _not_1 = (!_isEmpty_1);
               if (_not_1) {
-                String _id_4 = answer_1.getId();
-                boolean _containsKey_1 = answerMap.containsKey(_id_4);
+                String _name_4 = answer_1.getName();
+                boolean _containsKey_1 = answerMap.containsKey(_name_4);
                 if (_containsKey_1) {
                   this.error(
                     "Answers within a Multiple must have unique IDs", answer_1, 
-                    Literals.ANSWER__ID, 
+                    Literals.ANSWER__NAME, 
                     DslValidator.DUPLICATE_NAME);
                 } else {
-                  String _id_5 = answer_1.getId();
-                  answerMap.put(_id_5, answer_1);
+                  String _name_5 = answer_1.getName();
+                  answerMap.put(_name_5, answer_1);
                 }
               }
             }
@@ -268,20 +268,20 @@ public class DslValidator extends AbstractDslValidator {
             EList<Option> _options_2 = t.getOptions();
             Iterable<Answer> _filter_3 = Iterables.<Answer>filter(_options_2, Answer.class);
             for (final Answer answer_2 : _filter_3) {
-              String _id_6 = answer_2.getId();
-              boolean _isEmpty_2 = _id_6.isEmpty();
+              String _name_6 = answer_2.getName();
+              boolean _isEmpty_2 = _name_6.isEmpty();
               boolean _not_2 = (!_isEmpty_2);
               if (_not_2) {
-                String _id_7 = answer_2.getId();
-                boolean _containsKey_2 = answerMap.containsKey(_id_7);
+                String _name_7 = answer_2.getName();
+                boolean _containsKey_2 = answerMap.containsKey(_name_7);
                 if (_containsKey_2) {
                   this.error(
                     "Answers within a Table must have unique IDs", answer_2, 
-                    Literals.ANSWER__ID, 
+                    Literals.ANSWER__NAME, 
                     DslValidator.DUPLICATE_NAME);
                 } else {
-                  String _id_8 = answer_2.getId();
-                  answerMap.put(_id_8, answer_2);
+                  String _name_8 = answer_2.getName();
+                  answerMap.put(_name_8, answer_2);
                 }
               }
             }
@@ -295,25 +295,25 @@ public class DslValidator extends AbstractDslValidator {
    * Check that the AnswerTemplates have unique IDs
    */
   @Check
-  public void checkThatAnswerTemplateIDsAreUnique(final Survey survey) {
+  public void checkThatAnswerTemplateNamesAreUnique(final Survey survey) {
     HashMap<String,AnswerTemplate> _hashMap = new HashMap<String, AnswerTemplate>();
     HashMap<String,AnswerTemplate> answerTemplateMap = _hashMap;
     EList<AnswerTemplate> _templates = survey.getTemplates();
     for (final AnswerTemplate answerTemplate : _templates) {
-      String _id = answerTemplate.getId();
-      boolean _isEmpty = _id.isEmpty();
+      String _name = answerTemplate.getName();
+      boolean _isEmpty = _name.isEmpty();
       boolean _not = (!_isEmpty);
       if (_not) {
-        String _id_1 = answerTemplate.getId();
-        boolean _containsKey = answerTemplateMap.containsKey(_id_1);
+        String _name_1 = answerTemplate.getName();
+        boolean _containsKey = answerTemplateMap.containsKey(_name_1);
         if (_containsKey) {
           this.error(
             "AnswerTemplates must have unique IDs", answerTemplate, 
-            Literals.ANSWER_TEMPLATE__ID, 
+            Literals.ANSWER_TEMPLATE__NAME, 
             DslValidator.DUPLICATE_NAME);
         } else {
-          String _id_2 = answerTemplate.getId();
-          answerTemplateMap.put(_id_2, answerTemplate);
+          String _name_2 = answerTemplate.getName();
+          answerTemplateMap.put(_name_2, answerTemplate);
         }
       }
     }
@@ -323,27 +323,27 @@ public class DslValidator extends AbstractDslValidator {
    * Check that the ID of answers in AnswerTemplates have unique IDs
    */
   @Check
-  public void checkThatIDsOfAnswersInAnswerTemplatesAreUnique(final Survey survey) {
+  public void checkThatNamesOfAnswersInAnswerTemplatesAreUnique(final Survey survey) {
     HashMap<String,Answer> _hashMap = new HashMap<String, Answer>();
     HashMap<String,Answer> answerMap = _hashMap;
     EList<AnswerTemplate> _templates = survey.getTemplates();
     for (final AnswerTemplate answerTemplate : _templates) {
       EList<Answer> _answers = answerTemplate.getAnswers();
       for (final Answer answer : _answers) {
-        String _id = answer.getId();
-        boolean _isEmpty = _id.isEmpty();
+        String _name = answer.getName();
+        boolean _isEmpty = _name.isEmpty();
         boolean _not = (!_isEmpty);
         if (_not) {
-          String _id_1 = answer.getId();
-          boolean _containsKey = answerMap.containsKey(_id_1);
+          String _name_1 = answer.getName();
+          boolean _containsKey = answerMap.containsKey(_name_1);
           if (_containsKey) {
             this.error(
               "Answers within AnswerTemplates must have unique IDs", answerTemplate, 
-              Literals.ANSWER__ID, 
+              Literals.ANSWER__NAME, 
               DslValidator.DUPLICATE_NAME);
           } else {
-            String _id_2 = answer.getId();
-            answerMap.put(_id_2, answer);
+            String _name_2 = answer.getName();
+            answerMap.put(_name_2, answer);
           }
         }
       }

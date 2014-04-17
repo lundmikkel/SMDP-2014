@@ -247,18 +247,18 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cTemplateKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Keyword cIdKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Keyword cEqualsSignKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cIdAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cIdSTRINGTerminalRuleCall_3_0 = (RuleCall)cIdAssignment_3.eContents().get(0);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cNameIDTerminalRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
 		private final Keyword cGreaterThanSignKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		private final Assignment cAnswersAssignment_5 = (Assignment)cGroup.eContents().get(5);
 		private final RuleCall cAnswersAnswerParserRuleCall_5_0 = (RuleCall)cAnswersAssignment_5.eContents().get(0);
 		private final Keyword cTemplateKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//AnswerTemplate:
-		//	"<template" "id" "=" id=STRING ">" answers+=Answer+ "</template>";
+		//	"<template" "id" "=" name=ID ">" answers+=Answer+ "</template>";
 		public ParserRule getRule() { return rule; }
 
-		//"<template" "id" "=" id=STRING ">" answers+=Answer+ "</template>"
+		//"<template" "id" "=" name=ID ">" answers+=Answer+ "</template>"
 		public Group getGroup() { return cGroup; }
 
 		//"<template"
@@ -270,11 +270,11 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//"="
 		public Keyword getEqualsSignKeyword_2() { return cEqualsSignKeyword_2; }
 
-		//id=STRING
-		public Assignment getIdAssignment_3() { return cIdAssignment_3; }
+		//name=ID
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
 
-		//STRING
-		public RuleCall getIdSTRINGTerminalRuleCall_3_0() { return cIdSTRINGTerminalRuleCall_3_0; }
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_3_0() { return cNameIDTerminalRuleCall_3_0; }
 
 		//">"
 		public Keyword getGreaterThanSignKeyword_4() { return cGreaterThanSignKeyword_4; }
@@ -296,24 +296,24 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
 		private final Keyword cIdKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
 		private final Keyword cEqualsSignKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
-		private final Assignment cIdAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final RuleCall cIdSTRINGTerminalRuleCall_1_2_0 = (RuleCall)cIdAssignment_1_2.eContents().get(0);
+		private final Assignment cNameAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
+		private final RuleCall cNameIDTerminalRuleCall_1_2_0 = (RuleCall)cNameAssignment_1_2.eContents().get(0);
 		private final Keyword cGreaterThanSignKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cLabelAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cLabelLabelParserRuleCall_3_0 = (RuleCall)cLabelAssignment_3.eContents().get(0);
 		private final Keyword cAKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//Answer:
-		//	"<a" ("id" "=" id=STRING)? ">" label=Label "</a>";
+		//	"<a" ("id" "=" name=ID)? ">" label=Label "</a>";
 		public ParserRule getRule() { return rule; }
 
-		//"<a" ("id" "=" id=STRING)? ">" label=Label "</a>"
+		//"<a" ("id" "=" name=ID)? ">" label=Label "</a>"
 		public Group getGroup() { return cGroup; }
 
 		//"<a"
 		public Keyword getAKeyword_0() { return cAKeyword_0; }
 
-		//("id" "=" id=STRING)?
+		//("id" "=" name=ID)?
 		public Group getGroup_1() { return cGroup_1; }
 
 		//"id"
@@ -322,11 +322,11 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//"="
 		public Keyword getEqualsSignKeyword_1_1() { return cEqualsSignKeyword_1_1; }
 
-		//id=STRING
-		public Assignment getIdAssignment_1_2() { return cIdAssignment_1_2; }
+		//name=ID
+		public Assignment getNameAssignment_1_2() { return cNameAssignment_1_2; }
 
-		//STRING
-		public RuleCall getIdSTRINGTerminalRuleCall_1_2_0() { return cIdSTRINGTerminalRuleCall_1_2_0; }
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_2_0() { return cNameIDTerminalRuleCall_1_2_0; }
 
 		//">"
 		public Keyword getGreaterThanSignKeyword_2() { return cGreaterThanSignKeyword_2; }
@@ -491,8 +491,8 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_2_2 = (Group)cUnorderedGroup_2.eContents().get(2);
 		private final Keyword cIdKeyword_2_2_0 = (Keyword)cGroup_2_2.eContents().get(0);
 		private final Keyword cEqualsSignKeyword_2_2_1 = (Keyword)cGroup_2_2.eContents().get(1);
-		private final Assignment cIdAssignment_2_2_2 = (Assignment)cGroup_2_2.eContents().get(2);
-		private final RuleCall cIdSTRINGTerminalRuleCall_2_2_2_0 = (RuleCall)cIdAssignment_2_2_2.eContents().get(0);
+		private final Assignment cNameAssignment_2_2_2 = (Assignment)cGroup_2_2.eContents().get(2);
+		private final RuleCall cNameIDTerminalRuleCall_2_2_2_0 = (RuleCall)cNameAssignment_2_2_2.eContents().get(0);
 		private final Group cGroup_2_3 = (Group)cUnorderedGroup_2.eContents().get(3);
 		private final Keyword cDependsOnKeyword_2_3_0 = (Keyword)cGroup_2_3.eContents().get(0);
 		private final Keyword cEqualsSignKeyword_2_3_1 = (Keyword)cGroup_2_3.eContents().get(1);
@@ -511,14 +511,14 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cSolidusGreaterThanSignKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//Text:
-		//	{Text} "<text" ("title" "=" title=STRING & ("description" "=" description=STRING)? & ("id" "=" id=STRING)? &
+		//	{Text} "<text" ("title" "=" title=STRING & ("description" "=" description=STRING)? & ("id" "=" name=ID)? &
 		//	("dependsOn" "=" dependsOn=[Answer|EString])? & required?="required"? & ("singleline" | "single" | multiline?=("multi"
 		//	| "multiline"))?) "/>";
 		public ParserRule getRule() { return rule; }
 
-		//{Text} "<text" ("title" "=" title=STRING & ("description" "=" description=STRING)? & ("id" "=" id=STRING)? &
-		//("dependsOn" "=" dependsOn=[Answer|EString])? & required?="required"? & ("singleline" | "single" | multiline?=("multi"
-		//| "multiline"))?) "/>"
+		//{Text} "<text" ("title" "=" title=STRING & ("description" "=" description=STRING)? & ("id" "=" name=ID)? & ("dependsOn"
+		//"=" dependsOn=[Answer|EString])? & required?="required"? & ("singleline" | "single" | multiline?=("multi" |
+		//"multiline"))?) "/>"
 		public Group getGroup() { return cGroup; }
 
 		//{Text}
@@ -527,7 +527,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//"<text"
 		public Keyword getTextKeyword_1() { return cTextKeyword_1; }
 
-		//"title" "=" title=STRING & ("description" "=" description=STRING)? & ("id" "=" id=STRING)? & ("dependsOn" "="
+		//"title" "=" title=STRING & ("description" "=" description=STRING)? & ("id" "=" name=ID)? & ("dependsOn" "="
 		//dependsOn=[Answer|EString])? & required?="required"? & ("singleline" | "single" | multiline?=("multi" | "multiline"))?
 		public UnorderedGroup getUnorderedGroup_2() { return cUnorderedGroup_2; }
 
@@ -561,7 +561,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//STRING
 		public RuleCall getDescriptionSTRINGTerminalRuleCall_2_1_2_0() { return cDescriptionSTRINGTerminalRuleCall_2_1_2_0; }
 
-		//("id" "=" id=STRING)?
+		//("id" "=" name=ID)?
 		public Group getGroup_2_2() { return cGroup_2_2; }
 
 		//"id"
@@ -570,11 +570,11 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//"="
 		public Keyword getEqualsSignKeyword_2_2_1() { return cEqualsSignKeyword_2_2_1; }
 
-		//id=STRING
-		public Assignment getIdAssignment_2_2_2() { return cIdAssignment_2_2_2; }
+		//name=ID
+		public Assignment getNameAssignment_2_2_2() { return cNameAssignment_2_2_2; }
 
-		//STRING
-		public RuleCall getIdSTRINGTerminalRuleCall_2_2_2_0() { return cIdSTRINGTerminalRuleCall_2_2_2_0; }
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_2_2_2_0() { return cNameIDTerminalRuleCall_2_2_2_0; }
 
 		//("dependsOn" "=" dependsOn=[Answer|EString])?
 		public Group getGroup_2_3() { return cGroup_2_3; }
@@ -643,8 +643,8 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_1_2 = (Group)cUnorderedGroup_1.eContents().get(2);
 		private final Keyword cIdKeyword_1_2_0 = (Keyword)cGroup_1_2.eContents().get(0);
 		private final Keyword cEqualsSignKeyword_1_2_1 = (Keyword)cGroup_1_2.eContents().get(1);
-		private final Assignment cIdAssignment_1_2_2 = (Assignment)cGroup_1_2.eContents().get(2);
-		private final RuleCall cIdSTRINGTerminalRuleCall_1_2_2_0 = (RuleCall)cIdAssignment_1_2_2.eContents().get(0);
+		private final Assignment cNameAssignment_1_2_2 = (Assignment)cGroup_1_2.eContents().get(2);
+		private final RuleCall cNameIDTerminalRuleCall_1_2_2_0 = (RuleCall)cNameAssignment_1_2_2.eContents().get(0);
 		private final Group cGroup_1_3 = (Group)cUnorderedGroup_1.eContents().get(3);
 		private final Keyword cLowerKeyword_1_3_0 = (Keyword)cGroup_1_3.eContents().get(0);
 		private final Keyword cEqualsSignKeyword_1_3_1 = (Keyword)cGroup_1_3.eContents().get(1);
@@ -677,13 +677,13 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Scale:
 		//	"<scale" ("title" "=" title=STRING // TODO: Force that if one label is set, both should be
-		//	& ("description" "=" description=STRING)? & ("id" "=" id=STRING)? & "lower" "=" lower=EInt & "upper" "=" upper=EInt &
+		//	& ("description" "=" description=STRING)? & ("id" "=" name=ID)? & "lower" "=" lower=EInt & "upper" "=" upper=EInt &
 		//	("lowerLabel" "=" lowerLabel=EString)? & ("upperLabel" "=" upperLabel=EString)? & ("dependsOn" "="
 		//	dependsOn=[Answer|EString])? & required?="required"?) "/>";
 		public ParserRule getRule() { return rule; }
 
 		//"<scale" ("title" "=" title=STRING // TODO: Force that if one label is set, both should be
-		//& ("description" "=" description=STRING)? & ("id" "=" id=STRING)? & "lower" "=" lower=EInt & "upper" "=" upper=EInt &
+		//& ("description" "=" description=STRING)? & ("id" "=" name=ID)? & "lower" "=" lower=EInt & "upper" "=" upper=EInt &
 		//("lowerLabel" "=" lowerLabel=EString)? & ("upperLabel" "=" upperLabel=EString)? & ("dependsOn" "="
 		//dependsOn=[Answer|EString])? & required?="required"?) "/>"
 		public Group getGroup() { return cGroup; }
@@ -692,7 +692,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getScaleKeyword_0() { return cScaleKeyword_0; }
 
 		//"title" "=" title=STRING // TODO: Force that if one label is set, both should be
-		//& ("description" "=" description=STRING)? & ("id" "=" id=STRING)? & "lower" "=" lower=EInt & "upper" "=" upper=EInt &
+		//& ("description" "=" description=STRING)? & ("id" "=" name=ID)? & "lower" "=" lower=EInt & "upper" "=" upper=EInt &
 		//("lowerLabel" "=" lowerLabel=EString)? & ("upperLabel" "=" upperLabel=EString)? & ("dependsOn" "="
 		//dependsOn=[Answer|EString])? & required?="required"?
 		public UnorderedGroup getUnorderedGroup_1() { return cUnorderedGroup_1; }
@@ -727,7 +727,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//STRING
 		public RuleCall getDescriptionSTRINGTerminalRuleCall_1_1_2_0() { return cDescriptionSTRINGTerminalRuleCall_1_1_2_0; }
 
-		//("id" "=" id=STRING)?
+		//("id" "=" name=ID)?
 		public Group getGroup_1_2() { return cGroup_1_2; }
 
 		//"id"
@@ -736,11 +736,11 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//"="
 		public Keyword getEqualsSignKeyword_1_2_1() { return cEqualsSignKeyword_1_2_1; }
 
-		//id=STRING
-		public Assignment getIdAssignment_1_2_2() { return cIdAssignment_1_2_2; }
+		//name=ID
+		public Assignment getNameAssignment_1_2_2() { return cNameAssignment_1_2_2; }
 
-		//STRING
-		public RuleCall getIdSTRINGTerminalRuleCall_1_2_2_0() { return cIdSTRINGTerminalRuleCall_1_2_2_0; }
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_2_2_0() { return cNameIDTerminalRuleCall_1_2_2_0; }
 
 		//"lower" "=" lower=EInt
 		public Group getGroup_1_3() { return cGroup_1_3; }
@@ -849,8 +849,8 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_2_2 = (Group)cUnorderedGroup_2.eContents().get(2);
 		private final Keyword cIdKeyword_2_2_0 = (Keyword)cGroup_2_2.eContents().get(0);
 		private final Keyword cEqualsSignKeyword_2_2_1 = (Keyword)cGroup_2_2.eContents().get(1);
-		private final Assignment cIdAssignment_2_2_2 = (Assignment)cGroup_2_2.eContents().get(2);
-		private final RuleCall cIdSTRINGTerminalRuleCall_2_2_2_0 = (RuleCall)cIdAssignment_2_2_2.eContents().get(0);
+		private final Assignment cNameAssignment_2_2_2 = (Assignment)cGroup_2_2.eContents().get(2);
+		private final RuleCall cNameIDTerminalRuleCall_2_2_2_0 = (RuleCall)cNameAssignment_2_2_2.eContents().get(0);
 		private final Group cGroup_2_3 = (Group)cUnorderedGroup_2.eContents().get(3);
 		private final Keyword cFromKeyword_2_3_0 = (Keyword)cGroup_2_3.eContents().get(0);
 		private final Keyword cEqualsSignKeyword_2_3_1 = (Keyword)cGroup_2_3.eContents().get(1);
@@ -880,12 +880,12 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cSolidusGreaterThanSignKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//Date:
-		//	{Date} "<date" ("title" "=" title=STRING & ("description" "=" description=STRING)? & ("id" "=" id=STRING)? & ("from"
-		//	"=" from=EString)? & ("to" "=" to=EString)? & ("dependsOn" "=" dependsOn=[Answer|EString])? &
-		//	showLimits?="showLimits"? & required?="required"? & day?="day"? & month?="month"? & year?="year"?) "/>";
+		//	{Date} "<date" ("title" "=" title=STRING & ("description" "=" description=STRING)? & ("id" "=" name=ID)? & ("from" "="
+		//	from=EString)? & ("to" "=" to=EString)? & ("dependsOn" "=" dependsOn=[Answer|EString])? & showLimits?="showLimits"? &
+		//	required?="required"? & day?="day"? & month?="month"? & year?="year"?) "/>";
 		public ParserRule getRule() { return rule; }
 
-		//{Date} "<date" ("title" "=" title=STRING & ("description" "=" description=STRING)? & ("id" "=" id=STRING)? & ("from" "="
+		//{Date} "<date" ("title" "=" title=STRING & ("description" "=" description=STRING)? & ("id" "=" name=ID)? & ("from" "="
 		//from=EString)? & ("to" "=" to=EString)? & ("dependsOn" "=" dependsOn=[Answer|EString])? & showLimits?="showLimits"? &
 		//required?="required"? & day?="day"? & month?="month"? & year?="year"?) "/>"
 		public Group getGroup() { return cGroup; }
@@ -896,8 +896,8 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//"<date"
 		public Keyword getDateKeyword_1() { return cDateKeyword_1; }
 
-		//"title" "=" title=STRING & ("description" "=" description=STRING)? & ("id" "=" id=STRING)? & ("from" "=" from=EString)?
-		//& ("to" "=" to=EString)? & ("dependsOn" "=" dependsOn=[Answer|EString])? & showLimits?="showLimits"? &
+		//"title" "=" title=STRING & ("description" "=" description=STRING)? & ("id" "=" name=ID)? & ("from" "=" from=EString)? &
+		//("to" "=" to=EString)? & ("dependsOn" "=" dependsOn=[Answer|EString])? & showLimits?="showLimits"? &
 		//required?="required"? & day?="day"? & month?="month"? & year?="year"?
 		public UnorderedGroup getUnorderedGroup_2() { return cUnorderedGroup_2; }
 
@@ -931,7 +931,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//STRING
 		public RuleCall getDescriptionSTRINGTerminalRuleCall_2_1_2_0() { return cDescriptionSTRINGTerminalRuleCall_2_1_2_0; }
 
-		//("id" "=" id=STRING)?
+		//("id" "=" name=ID)?
 		public Group getGroup_2_2() { return cGroup_2_2; }
 
 		//"id"
@@ -940,11 +940,11 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//"="
 		public Keyword getEqualsSignKeyword_2_2_1() { return cEqualsSignKeyword_2_2_1; }
 
-		//id=STRING
-		public Assignment getIdAssignment_2_2_2() { return cIdAssignment_2_2_2; }
+		//name=ID
+		public Assignment getNameAssignment_2_2_2() { return cNameAssignment_2_2_2; }
 
-		//STRING
-		public RuleCall getIdSTRINGTerminalRuleCall_2_2_2_0() { return cIdSTRINGTerminalRuleCall_2_2_2_0; }
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_2_2_2_0() { return cNameIDTerminalRuleCall_2_2_2_0; }
 
 		//("from" "=" from=EString)?
 		public Group getGroup_2_3() { return cGroup_2_3; }
@@ -1047,8 +1047,8 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_2_2 = (Group)cUnorderedGroup_2.eContents().get(2);
 		private final Keyword cIdKeyword_2_2_0 = (Keyword)cGroup_2_2.eContents().get(0);
 		private final Keyword cEqualsSignKeyword_2_2_1 = (Keyword)cGroup_2_2.eContents().get(1);
-		private final Assignment cIdAssignment_2_2_2 = (Assignment)cGroup_2_2.eContents().get(2);
-		private final RuleCall cIdSTRINGTerminalRuleCall_2_2_2_0 = (RuleCall)cIdAssignment_2_2_2.eContents().get(0);
+		private final Assignment cNameAssignment_2_2_2 = (Assignment)cGroup_2_2.eContents().get(2);
+		private final RuleCall cNameIDTerminalRuleCall_2_2_2_0 = (RuleCall)cNameAssignment_2_2_2.eContents().get(0);
 		private final Group cGroup_2_3 = (Group)cUnorderedGroup_2.eContents().get(3);
 		private final Keyword cLowerKeyword_2_3_0 = (Keyword)cGroup_2_3.eContents().get(0);
 		private final Keyword cEqualsSignKeyword_2_3_1 = (Keyword)cGroup_2_3.eContents().get(1);
@@ -1072,14 +1072,14 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cSolidusGreaterThanSignKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//Number:
-		//	{Number} "<number" ("title" "=" title=STRING & ("description" "=" description=STRING)? & ("id" "=" id=STRING)? &
+		//	{Number} "<number" ("title" "=" title=STRING & ("description" "=" description=STRING)? & ("id" "=" name=ID)? &
 		//	("lower" "=" lower=EInt)? & ("upper" "=" upper=EInt)? & ("dependsOn" "=" dependsOn=[Answer|EString])? &
 		//	required?="required"? & showLimits?="showLimits"?) "/>";
 		public ParserRule getRule() { return rule; }
 
-		//{Number} "<number" ("title" "=" title=STRING & ("description" "=" description=STRING)? & ("id" "=" id=STRING)? &
-		//("lower" "=" lower=EInt)? & ("upper" "=" upper=EInt)? & ("dependsOn" "=" dependsOn=[Answer|EString])? &
-		//required?="required"? & showLimits?="showLimits"?) "/>"
+		//{Number} "<number" ("title" "=" title=STRING & ("description" "=" description=STRING)? & ("id" "=" name=ID)? & ("lower"
+		//"=" lower=EInt)? & ("upper" "=" upper=EInt)? & ("dependsOn" "=" dependsOn=[Answer|EString])? & required?="required"? &
+		//showLimits?="showLimits"?) "/>"
 		public Group getGroup() { return cGroup; }
 
 		//{Number}
@@ -1088,7 +1088,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//"<number"
 		public Keyword getNumberKeyword_1() { return cNumberKeyword_1; }
 
-		//"title" "=" title=STRING & ("description" "=" description=STRING)? & ("id" "=" id=STRING)? & ("lower" "=" lower=EInt)? &
+		//"title" "=" title=STRING & ("description" "=" description=STRING)? & ("id" "=" name=ID)? & ("lower" "=" lower=EInt)? &
 		//("upper" "=" upper=EInt)? & ("dependsOn" "=" dependsOn=[Answer|EString])? & required?="required"? &
 		//showLimits?="showLimits"?
 		public UnorderedGroup getUnorderedGroup_2() { return cUnorderedGroup_2; }
@@ -1123,7 +1123,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//STRING
 		public RuleCall getDescriptionSTRINGTerminalRuleCall_2_1_2_0() { return cDescriptionSTRINGTerminalRuleCall_2_1_2_0; }
 
-		//("id" "=" id=STRING)?
+		//("id" "=" name=ID)?
 		public Group getGroup_2_2() { return cGroup_2_2; }
 
 		//"id"
@@ -1132,11 +1132,11 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//"="
 		public Keyword getEqualsSignKeyword_2_2_1() { return cEqualsSignKeyword_2_2_1; }
 
-		//id=STRING
-		public Assignment getIdAssignment_2_2_2() { return cIdAssignment_2_2_2; }
+		//name=ID
+		public Assignment getNameAssignment_2_2_2() { return cNameAssignment_2_2_2; }
 
-		//STRING
-		public RuleCall getIdSTRINGTerminalRuleCall_2_2_2_0() { return cIdSTRINGTerminalRuleCall_2_2_2_0; }
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_2_2_2_0() { return cNameIDTerminalRuleCall_2_2_2_0; }
 
 		//("lower" "=" lower=EInt)?
 		public Group getGroup_2_3() { return cGroup_2_3; }
@@ -1220,8 +1220,8 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_1_2 = (Group)cUnorderedGroup_1.eContents().get(2);
 		private final Keyword cIdKeyword_1_2_0 = (Keyword)cGroup_1_2.eContents().get(0);
 		private final Keyword cEqualsSignKeyword_1_2_1 = (Keyword)cGroup_1_2.eContents().get(1);
-		private final Assignment cIdAssignment_1_2_2 = (Assignment)cGroup_1_2.eContents().get(2);
-		private final RuleCall cIdSTRINGTerminalRuleCall_1_2_2_0 = (RuleCall)cIdAssignment_1_2_2.eContents().get(0);
+		private final Assignment cNameAssignment_1_2_2 = (Assignment)cGroup_1_2.eContents().get(2);
+		private final RuleCall cNameIDTerminalRuleCall_1_2_2_0 = (RuleCall)cNameAssignment_1_2_2.eContents().get(0);
 		private final Group cGroup_1_3 = (Group)cUnorderedGroup_1.eContents().get(3);
 		private final Keyword cDependsOnKeyword_1_3_0 = (Keyword)cGroup_1_3.eContents().get(0);
 		private final Keyword cEqualsSignKeyword_1_3_1 = (Keyword)cGroup_1_3.eContents().get(1);
@@ -1238,18 +1238,18 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cSingleKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//Single:
-		//	"<single" ("title" "=" title=STRING & ("description" "=" description=STRING)? & ("id" "=" id=STRING)? & ("dependsOn"
-		//	"=" dependsOn=[Answer|EString])? & required?="required"? & other?="other"?) ">" options+=Option+ "</single>";
+		//	"<single" ("title" "=" title=STRING & ("description" "=" description=STRING)? & ("id" "=" name=ID)? & ("dependsOn" "="
+		//	dependsOn=[Answer|EString])? & required?="required"? & other?="other"?) ">" options+=Option+ "</single>";
 		public ParserRule getRule() { return rule; }
 
-		//"<single" ("title" "=" title=STRING & ("description" "=" description=STRING)? & ("id" "=" id=STRING)? & ("dependsOn" "="
+		//"<single" ("title" "=" title=STRING & ("description" "=" description=STRING)? & ("id" "=" name=ID)? & ("dependsOn" "="
 		//dependsOn=[Answer|EString])? & required?="required"? & other?="other"?) ">" options+=Option+ "</single>"
 		public Group getGroup() { return cGroup; }
 
 		//"<single"
 		public Keyword getSingleKeyword_0() { return cSingleKeyword_0; }
 
-		//"title" "=" title=STRING & ("description" "=" description=STRING)? & ("id" "=" id=STRING)? & ("dependsOn" "="
+		//"title" "=" title=STRING & ("description" "=" description=STRING)? & ("id" "=" name=ID)? & ("dependsOn" "="
 		//dependsOn=[Answer|EString])? & required?="required"? & other?="other"?
 		public UnorderedGroup getUnorderedGroup_1() { return cUnorderedGroup_1; }
 
@@ -1283,7 +1283,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//STRING
 		public RuleCall getDescriptionSTRINGTerminalRuleCall_1_1_2_0() { return cDescriptionSTRINGTerminalRuleCall_1_1_2_0; }
 
-		//("id" "=" id=STRING)?
+		//("id" "=" name=ID)?
 		public Group getGroup_1_2() { return cGroup_1_2; }
 
 		//"id"
@@ -1292,11 +1292,11 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//"="
 		public Keyword getEqualsSignKeyword_1_2_1() { return cEqualsSignKeyword_1_2_1; }
 
-		//id=STRING
-		public Assignment getIdAssignment_1_2_2() { return cIdAssignment_1_2_2; }
+		//name=ID
+		public Assignment getNameAssignment_1_2_2() { return cNameAssignment_1_2_2; }
 
-		//STRING
-		public RuleCall getIdSTRINGTerminalRuleCall_1_2_2_0() { return cIdSTRINGTerminalRuleCall_1_2_2_0; }
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_2_2_0() { return cNameIDTerminalRuleCall_1_2_2_0; }
 
 		//("dependsOn" "=" dependsOn=[Answer|EString])?
 		public Group getGroup_1_3() { return cGroup_1_3; }
@@ -1359,8 +1359,8 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_1_2 = (Group)cUnorderedGroup_1.eContents().get(2);
 		private final Keyword cIdKeyword_1_2_0 = (Keyword)cGroup_1_2.eContents().get(0);
 		private final Keyword cEqualsSignKeyword_1_2_1 = (Keyword)cGroup_1_2.eContents().get(1);
-		private final Assignment cIdAssignment_1_2_2 = (Assignment)cGroup_1_2.eContents().get(2);
-		private final RuleCall cIdSTRINGTerminalRuleCall_1_2_2_0 = (RuleCall)cIdAssignment_1_2_2.eContents().get(0);
+		private final Assignment cNameAssignment_1_2_2 = (Assignment)cGroup_1_2.eContents().get(2);
+		private final RuleCall cNameIDTerminalRuleCall_1_2_2_0 = (RuleCall)cNameAssignment_1_2_2.eContents().get(0);
 		private final Group cGroup_1_3 = (Group)cUnorderedGroup_1.eContents().get(3);
 		private final Keyword cLowerKeyword_1_3_0 = (Keyword)cGroup_1_3.eContents().get(0);
 		private final Keyword cEqualsSignKeyword_1_3_1 = (Keyword)cGroup_1_3.eContents().get(1);
@@ -1388,12 +1388,12 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cMultipleKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//Multiple:
-		//	"<multiple" ("title" "=" title=STRING & ("description" "=" description=STRING)? & ("id" "=" id=STRING)? & ("lower" "="
+		//	"<multiple" ("title" "=" title=STRING & ("description" "=" description=STRING)? & ("id" "=" name=ID)? & ("lower" "="
 		//	lower=INT)? & ("upper" "=" upper=INT)? & ("dependsOn" dependsOn=[Answer|EString])? & required?="required"? &
 		//	other?="other"? & showLimits?="showLimits"?) ">" options+=Option+ "</multiple>";
 		public ParserRule getRule() { return rule; }
 
-		//"<multiple" ("title" "=" title=STRING & ("description" "=" description=STRING)? & ("id" "=" id=STRING)? & ("lower" "="
+		//"<multiple" ("title" "=" title=STRING & ("description" "=" description=STRING)? & ("id" "=" name=ID)? & ("lower" "="
 		//lower=INT)? & ("upper" "=" upper=INT)? & ("dependsOn" dependsOn=[Answer|EString])? & required?="required"? &
 		//other?="other"? & showLimits?="showLimits"?) ">" options+=Option+ "</multiple>"
 		public Group getGroup() { return cGroup; }
@@ -1401,7 +1401,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//"<multiple"
 		public Keyword getMultipleKeyword_0() { return cMultipleKeyword_0; }
 
-		//"title" "=" title=STRING & ("description" "=" description=STRING)? & ("id" "=" id=STRING)? & ("lower" "=" lower=INT)? &
+		//"title" "=" title=STRING & ("description" "=" description=STRING)? & ("id" "=" name=ID)? & ("lower" "=" lower=INT)? &
 		//("upper" "=" upper=INT)? & ("dependsOn" dependsOn=[Answer|EString])? & required?="required"? & other?="other"? &
 		//showLimits?="showLimits"?
 		public UnorderedGroup getUnorderedGroup_1() { return cUnorderedGroup_1; }
@@ -1436,7 +1436,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//STRING
 		public RuleCall getDescriptionSTRINGTerminalRuleCall_1_1_2_0() { return cDescriptionSTRINGTerminalRuleCall_1_1_2_0; }
 
-		//("id" "=" id=STRING)?
+		//("id" "=" name=ID)?
 		public Group getGroup_1_2() { return cGroup_1_2; }
 
 		//"id"
@@ -1445,11 +1445,11 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//"="
 		public Keyword getEqualsSignKeyword_1_2_1() { return cEqualsSignKeyword_1_2_1; }
 
-		//id=STRING
-		public Assignment getIdAssignment_1_2_2() { return cIdAssignment_1_2_2; }
+		//name=ID
+		public Assignment getNameAssignment_1_2_2() { return cNameAssignment_1_2_2; }
 
-		//STRING
-		public RuleCall getIdSTRINGTerminalRuleCall_1_2_2_0() { return cIdSTRINGTerminalRuleCall_1_2_2_0; }
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_2_2_0() { return cNameIDTerminalRuleCall_1_2_2_0; }
 
 		//("lower" "=" lower=INT)?
 		public Group getGroup_1_3() { return cGroup_1_3; }
@@ -1545,8 +1545,8 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_1_2 = (Group)cUnorderedGroup_1.eContents().get(2);
 		private final Keyword cIdKeyword_1_2_0 = (Keyword)cGroup_1_2.eContents().get(0);
 		private final Keyword cEqualsSignKeyword_1_2_1 = (Keyword)cGroup_1_2.eContents().get(1);
-		private final Assignment cIdAssignment_1_2_2 = (Assignment)cGroup_1_2.eContents().get(2);
-		private final RuleCall cIdSTRINGTerminalRuleCall_1_2_2_0 = (RuleCall)cIdAssignment_1_2_2.eContents().get(0);
+		private final Assignment cNameAssignment_1_2_2 = (Assignment)cGroup_1_2.eContents().get(2);
+		private final RuleCall cNameIDTerminalRuleCall_1_2_2_0 = (RuleCall)cNameAssignment_1_2_2.eContents().get(0);
 		private final Group cGroup_1_3 = (Group)cUnorderedGroup_1.eContents().get(3);
 		private final Keyword cDependsOnKeyword_1_3_0 = (Keyword)cGroup_1_3.eContents().get(0);
 		private final Keyword cEqualsSignKeyword_1_3_1 = (Keyword)cGroup_1_3.eContents().get(1);
@@ -1573,20 +1573,20 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cTableKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//Table:
-		//	"<table" (("title" "=" title=STRING)? & ("description" "=" description=STRING)? & ("id" "=" id=STRING)? & ("dependsOn"
+		//	"<table" (("title" "=" title=STRING)? & ("description" "=" description=STRING)? & ("id" "=" name=ID)? & ("dependsOn"
 		//	"=" dependsOn=[Answer|EString])? & required?="required"? & other?="other"? & multiple?="multiple"?) ">" // TODO: check if mixed order is allowed
 		//	(options+=Option+ & questions+=TableQuestion+) (options+=Option | questions+=TableQuestion)* "</table>";
 		public ParserRule getRule() { return rule; }
 
-		//"<table" (("title" "=" title=STRING)? & ("description" "=" description=STRING)? & ("id" "=" id=STRING)? & ("dependsOn"
-		//"=" dependsOn=[Answer|EString])? & required?="required"? & other?="other"? & multiple?="multiple"?) ">" // TODO: check if mixed order is allowed
+		//"<table" (("title" "=" title=STRING)? & ("description" "=" description=STRING)? & ("id" "=" name=ID)? & ("dependsOn" "="
+		//dependsOn=[Answer|EString])? & required?="required"? & other?="other"? & multiple?="multiple"?) ">" // TODO: check if mixed order is allowed
 		//(options+=Option+ & questions+=TableQuestion+) (options+=Option | questions+=TableQuestion)* "</table>"
 		public Group getGroup() { return cGroup; }
 
 		//"<table"
 		public Keyword getTableKeyword_0() { return cTableKeyword_0; }
 
-		//("title" "=" title=STRING)? & ("description" "=" description=STRING)? & ("id" "=" id=STRING)? & ("dependsOn" "="
+		//("title" "=" title=STRING)? & ("description" "=" description=STRING)? & ("id" "=" name=ID)? & ("dependsOn" "="
 		//dependsOn=[Answer|EString])? & required?="required"? & other?="other"? & multiple?="multiple"?
 		public UnorderedGroup getUnorderedGroup_1() { return cUnorderedGroup_1; }
 
@@ -1620,7 +1620,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//STRING
 		public RuleCall getDescriptionSTRINGTerminalRuleCall_1_1_2_0() { return cDescriptionSTRINGTerminalRuleCall_1_1_2_0; }
 
-		//("id" "=" id=STRING)?
+		//("id" "=" name=ID)?
 		public Group getGroup_1_2() { return cGroup_1_2; }
 
 		//"id"
@@ -1629,11 +1629,11 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//"="
 		public Keyword getEqualsSignKeyword_1_2_1() { return cEqualsSignKeyword_1_2_1; }
 
-		//id=STRING
-		public Assignment getIdAssignment_1_2_2() { return cIdAssignment_1_2_2; }
+		//name=ID
+		public Assignment getNameAssignment_1_2_2() { return cNameAssignment_1_2_2; }
 
-		//STRING
-		public RuleCall getIdSTRINGTerminalRuleCall_1_2_2_0() { return cIdSTRINGTerminalRuleCall_1_2_2_0; }
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_2_2_0() { return cNameIDTerminalRuleCall_1_2_2_0; }
 
 		//("dependsOn" "=" dependsOn=[Answer|EString])?
 		public Group getGroup_1_3() { return cGroup_1_3; }
@@ -1907,7 +1907,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//AnswerTemplate:
-	//	"<template" "id" "=" id=STRING ">" answers+=Answer+ "</template>";
+	//	"<template" "id" "=" name=ID ">" answers+=Answer+ "</template>";
 	public AnswerTemplateElements getAnswerTemplateAccess() {
 		return (pAnswerTemplate != null) ? pAnswerTemplate : (pAnswerTemplate = new AnswerTemplateElements());
 	}
@@ -1917,7 +1917,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Answer:
-	//	"<a" ("id" "=" id=STRING)? ">" label=Label "</a>";
+	//	"<a" ("id" "=" name=ID)? ">" label=Label "</a>";
 	public AnswerElements getAnswerAccess() {
 		return (pAnswer != null) ? pAnswer : (pAnswer = new AnswerElements());
 	}
@@ -1948,7 +1948,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Text:
-	//	{Text} "<text" ("title" "=" title=STRING & ("description" "=" description=STRING)? & ("id" "=" id=STRING)? &
+	//	{Text} "<text" ("title" "=" title=STRING & ("description" "=" description=STRING)? & ("id" "=" name=ID)? &
 	//	("dependsOn" "=" dependsOn=[Answer|EString])? & required?="required"? & ("singleline" | "single" | multiline?=("multi"
 	//	| "multiline"))?) "/>";
 	public TextElements getTextAccess() {
@@ -1961,7 +1961,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 
 	//Scale:
 	//	"<scale" ("title" "=" title=STRING // TODO: Force that if one label is set, both should be
-	//	& ("description" "=" description=STRING)? & ("id" "=" id=STRING)? & "lower" "=" lower=EInt & "upper" "=" upper=EInt &
+	//	& ("description" "=" description=STRING)? & ("id" "=" name=ID)? & "lower" "=" lower=EInt & "upper" "=" upper=EInt &
 	//	("lowerLabel" "=" lowerLabel=EString)? & ("upperLabel" "=" upperLabel=EString)? & ("dependsOn" "="
 	//	dependsOn=[Answer|EString])? & required?="required"?) "/>";
 	public ScaleElements getScaleAccess() {
@@ -1973,9 +1973,9 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Date:
-	//	{Date} "<date" ("title" "=" title=STRING & ("description" "=" description=STRING)? & ("id" "=" id=STRING)? & ("from"
-	//	"=" from=EString)? & ("to" "=" to=EString)? & ("dependsOn" "=" dependsOn=[Answer|EString])? &
-	//	showLimits?="showLimits"? & required?="required"? & day?="day"? & month?="month"? & year?="year"?) "/>";
+	//	{Date} "<date" ("title" "=" title=STRING & ("description" "=" description=STRING)? & ("id" "=" name=ID)? & ("from" "="
+	//	from=EString)? & ("to" "=" to=EString)? & ("dependsOn" "=" dependsOn=[Answer|EString])? & showLimits?="showLimits"? &
+	//	required?="required"? & day?="day"? & month?="month"? & year?="year"?) "/>";
 	public DateElements getDateAccess() {
 		return (pDate != null) ? pDate : (pDate = new DateElements());
 	}
@@ -1985,7 +1985,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Number:
-	//	{Number} "<number" ("title" "=" title=STRING & ("description" "=" description=STRING)? & ("id" "=" id=STRING)? &
+	//	{Number} "<number" ("title" "=" title=STRING & ("description" "=" description=STRING)? & ("id" "=" name=ID)? &
 	//	("lower" "=" lower=EInt)? & ("upper" "=" upper=EInt)? & ("dependsOn" "=" dependsOn=[Answer|EString])? &
 	//	required?="required"? & showLimits?="showLimits"?) "/>";
 	public NumberElements getNumberAccess() {
@@ -1997,8 +1997,8 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Single:
-	//	"<single" ("title" "=" title=STRING & ("description" "=" description=STRING)? & ("id" "=" id=STRING)? & ("dependsOn"
-	//	"=" dependsOn=[Answer|EString])? & required?="required"? & other?="other"?) ">" options+=Option+ "</single>";
+	//	"<single" ("title" "=" title=STRING & ("description" "=" description=STRING)? & ("id" "=" name=ID)? & ("dependsOn" "="
+	//	dependsOn=[Answer|EString])? & required?="required"? & other?="other"?) ">" options+=Option+ "</single>";
 	public SingleElements getSingleAccess() {
 		return (pSingle != null) ? pSingle : (pSingle = new SingleElements());
 	}
@@ -2008,7 +2008,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Multiple:
-	//	"<multiple" ("title" "=" title=STRING & ("description" "=" description=STRING)? & ("id" "=" id=STRING)? & ("lower" "="
+	//	"<multiple" ("title" "=" title=STRING & ("description" "=" description=STRING)? & ("id" "=" name=ID)? & ("lower" "="
 	//	lower=INT)? & ("upper" "=" upper=INT)? & ("dependsOn" dependsOn=[Answer|EString])? & required?="required"? &
 	//	other?="other"? & showLimits?="showLimits"?) ">" options+=Option+ "</multiple>";
 	public MultipleElements getMultipleAccess() {
@@ -2020,7 +2020,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Table:
-	//	"<table" (("title" "=" title=STRING)? & ("description" "=" description=STRING)? & ("id" "=" id=STRING)? & ("dependsOn"
+	//	"<table" (("title" "=" title=STRING)? & ("description" "=" description=STRING)? & ("id" "=" name=ID)? & ("dependsOn"
 	//	"=" dependsOn=[Answer|EString])? & required?="required"? & other?="other"? & multiple?="multiple"?) ">" // TODO: check if mixed order is allowed
 	//	(options+=Option+ & questions+=TableQuestion+) (options+=Option | questions+=TableQuestion)* "</table>";
 	public TableElements getTableAccess() {

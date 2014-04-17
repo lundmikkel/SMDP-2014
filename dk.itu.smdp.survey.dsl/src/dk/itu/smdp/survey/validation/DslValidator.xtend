@@ -50,19 +50,19 @@ class DslValidator extends AbstractDslValidator {
  * Check that questions, not in a group, have a unique ID
  */
 	@Check
-	def checkThatQuestionIDsAreUnique(Survey survey) {
+	def checkThatQuestionNamesAreUnique(Survey survey) {
 		var questionMap = new HashMap<String, Question>
 		for (Question question : survey.items.filter(typeof(Question))) {
-			if (!question.id.empty) {
-				if (questionMap.containsKey(question.id)) {
+			if (!question.name.empty) {
+				if (questionMap.containsKey(question.name)) {
 					error(
 						'Questions must have unique IDs',
 						question,
-						SurveyPackage.Literals.META__ID,
+						SurveyPackage.Literals.META__NAME,
 						DUPLICATE_NAME
 					)
 				} else {
-					questionMap.put(question.id, question)
+					questionMap.put(question.name, question)
 				}
 			}
 		}
@@ -72,38 +72,38 @@ class DslValidator extends AbstractDslValidator {
  * Check that answers in questions outside of a group have unique IDs
  */
 	@Check
-	def checkThatAnswerIDsAreUnique(Survey survey) {
+	def checkThatAnswerNamesAreUnique(Survey survey) {
 		for (Question question : survey.items.filter(typeof(Question))) {
 			var answerMap = new HashMap<String, Answer>
 			if (question instanceof Single) {
 				var s = question as Single
 				for (Answer answer : s.options.filter(typeof(Answer))) {
-					if (!answer.id.empty) {
-						if (answerMap.containsKey(answer.id)) {
+					if (!answer.name.empty) {
+						if (answerMap.containsKey(answer.name)) {
 							error(
 								'Answers within a Single must have unique IDs',
 								answer,
-								SurveyPackage.Literals.ANSWER__ID,
+								SurveyPackage.Literals.ANSWER__NAME,
 								DUPLICATE_NAME
 							)
 						} else {
-							answerMap.put(answer.id, answer)
+							answerMap.put(answer.name, answer)
 						}
 					}
 				}
 			} else if (question instanceof Multiple) {
 				var m = question as Multiple
 				for (Answer answer : m.options.filter(typeof(Answer))) {
-					if (!answer.id.empty) {
-						if (answerMap.containsKey(answer.id)) {
+					if (!answer.name.empty) {
+						if (answerMap.containsKey(answer.name)) {
 							error(
 								'Answers within a Multiple must have unique IDs',
 								answer,
-								SurveyPackage.Literals.ANSWER__ID,
+								SurveyPackage.Literals.ANSWER__NAME,
 								DUPLICATE_NAME
 							)
 						} else {
-							answerMap.put(answer.id, answer)
+							answerMap.put(answer.name, answer)
 						}
 					}
 				}
@@ -111,16 +111,16 @@ class DslValidator extends AbstractDslValidator {
 			if (question instanceof Table) {
 				var t = question as Table
 				for (Answer answer : t.options.filter(typeof(Answer))) {
-					if (!answer.id.empty) {
-						if (answerMap.containsKey(answer.id)) {
+					if (!answer.name.empty) {
+						if (answerMap.containsKey(answer.name)) {
 							error(
 								'Answers within a Table must have unique IDs',
 								answer,
-								SurveyPackage.Literals.ANSWER__ID,
+								SurveyPackage.Literals.ANSWER__NAME,
 								DUPLICATE_NAME
 							)
 						} else {
-							answerMap.put(answer.id, answer)
+							answerMap.put(answer.name, answer)
 						}
 					}
 				}
@@ -132,22 +132,22 @@ class DslValidator extends AbstractDslValidator {
  * Check that the questions in each group have unique IDs
  */
 	@Check
-	def checkThatQuestionIDsInGroupsAreUnique(Survey survey) {
+	def checkThatQuestionNamesInGroupsAreUnique(Survey survey) {
 		var questionMap = new HashMap<String, Question>
 
 		for (Group group : survey.items.filter(typeof(Group))) {
 			for (Question question : group.questions) {
 
-				if (!question.id.empty) {
-					if (questionMap.containsKey(question.id)) {
+				if (!question.name.empty) {
+					if (questionMap.containsKey(question.name)) {
 						error(
 							'Questions within a group must have unique IDs',
 							question,
-							SurveyPackage.Literals.META__ID,
+							SurveyPackage.Literals.META__NAME,
 							DUPLICATE_NAME
 						)
 					} else {
-						questionMap.put(question.id, question)
+						questionMap.put(question.name, question)
 					}
 				}
 			}
@@ -158,23 +158,23 @@ class DslValidator extends AbstractDslValidator {
  * Check that the answers in each question (of type Single, Multiple or Table) in each group have unique IDs
  */
 	@Check
-	def checkThatAnswerIDsInGroupsAreUnique(Survey survey) {
+	def checkThatAnswerNamesInGroupsAreUnique(Survey survey) {
 		for (Group group : survey.items.filter(typeof(Group))) {
 			for (Question question : group.questions) {
 				var answerMap = new HashMap<String, Answer>
 				if (question instanceof Single) {
 					var s = question as Single
 					for (Answer answer : s.options.filter(typeof(Answer))) {
-						if (!answer.id.empty) {
-							if (answerMap.containsKey(answer.id)) {
+						if (!answer.name.empty) {
+							if (answerMap.containsKey(answer.name)) {
 								error(
 									'Answers within a Single must have unique IDs',
 									answer,
-									SurveyPackage.Literals.ANSWER__ID,
+									SurveyPackage.Literals.ANSWER__NAME,
 									DUPLICATE_NAME
 								)
 							} else {
-								answerMap.put(answer.id, answer)
+								answerMap.put(answer.name, answer)
 							}
 						}
 					}
@@ -182,16 +182,16 @@ class DslValidator extends AbstractDslValidator {
 				if (question instanceof Multiple) {
 					var m = question as Multiple
 					for (Answer answer : m.options.filter(typeof(Answer))) {
-						if (!answer.id.empty) {
-							if (answerMap.containsKey(answer.id)) {
+						if (!answer.name.empty) {
+							if (answerMap.containsKey(answer.name)) {
 								error(
 									'Answers within a Multiple must have unique IDs',
 									answer,
-									SurveyPackage.Literals.ANSWER__ID,
+									SurveyPackage.Literals.ANSWER__NAME,
 									DUPLICATE_NAME
 								)
 							} else {
-								answerMap.put(answer.id, answer)
+								answerMap.put(answer.name, answer)
 							}
 						}
 					}
@@ -199,16 +199,16 @@ class DslValidator extends AbstractDslValidator {
 				if (question instanceof Table) {
 					var t = question as Table
 					for (Answer answer : t.options.filter(typeof(Answer))) {
-						if (!answer.id.empty) {
-							if (answerMap.containsKey(answer.id)) {
+						if (!answer.name.empty) {
+							if (answerMap.containsKey(answer.name)) {
 								error(
 									'Answers within a Table must have unique IDs',
 									answer,
-									SurveyPackage.Literals.ANSWER__ID,
+									SurveyPackage.Literals.ANSWER__NAME,
 									DUPLICATE_NAME
 								)
 							} else {
-								answerMap.put(answer.id, answer)
+								answerMap.put(answer.name, answer)
 							}
 						}
 					}
@@ -221,20 +221,20 @@ class DslValidator extends AbstractDslValidator {
  * Check that the AnswerTemplates have unique IDs
  */
 	@Check
-	def checkThatAnswerTemplateIDsAreUnique(Survey survey) {
+	def checkThatAnswerTemplateNamesAreUnique(Survey survey) {
 		var answerTemplateMap = new HashMap<String, AnswerTemplate>
 
 		for (AnswerTemplate answerTemplate : survey.templates) {
-			if (!answerTemplate.id.empty) {
-				if (answerTemplateMap.containsKey(answerTemplate.id)) {
+			if (!answerTemplate.name.empty) {
+				if (answerTemplateMap.containsKey(answerTemplate.name)) {
 					error(
 						'AnswerTemplates must have unique IDs',
 						answerTemplate,
-						SurveyPackage.Literals.ANSWER_TEMPLATE__ID,
+						SurveyPackage.Literals.ANSWER_TEMPLATE__NAME,
 						DUPLICATE_NAME
 					)
 				} else {
-					answerTemplateMap.put(answerTemplate.id, answerTemplate)
+					answerTemplateMap.put(answerTemplate.name, answerTemplate)
 				}
 			}
 		}
@@ -244,21 +244,21 @@ class DslValidator extends AbstractDslValidator {
  * Check that the ID of answers in AnswerTemplates have unique IDs
  */
 	@Check
-	def checkThatIDsOfAnswersInAnswerTemplatesAreUnique(Survey survey) {
+	def checkThatNamesOfAnswersInAnswerTemplatesAreUnique(Survey survey) {
 		var answerMap = new HashMap<String, Answer>
 
 		for (AnswerTemplate answerTemplate : survey.templates) {
 			for (Answer answer : answerTemplate.answers)
-				if (!answer.id.empty) {
-					if (answerMap.containsKey(answer.id)) {
+				if (!answer.name.empty) {
+					if (answerMap.containsKey(answer.name)) {
 						error(
 							'Answers within AnswerTemplates must have unique IDs',
 							answerTemplate,
-							SurveyPackage.Literals.ANSWER__ID,
+							SurveyPackage.Literals.ANSWER__NAME,
 							DUPLICATE_NAME
 						)
 					} else {
-						answerMap.put(answer.id, answer)
+						answerMap.put(answer.name, answer)
 					}
 				}
 		}

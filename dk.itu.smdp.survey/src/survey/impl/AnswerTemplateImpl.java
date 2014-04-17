@@ -30,7 +30,7 @@ import survey.SurveyPackage;
  * The following features are implemented:
  * <ul>
  *   <li>{@link survey.impl.AnswerTemplateImpl#getAnswers <em>Answers</em>}</li>
- *   <li>{@link survey.impl.AnswerTemplateImpl#getId <em>Id</em>}</li>
+ *   <li>{@link survey.impl.AnswerTemplateImpl#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -48,24 +48,24 @@ public class AnswerTemplateImpl extends MinimalEObjectImpl.Container implements 
 	protected EList<Answer> answers;
 
 	/**
-	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getId()
+	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String ID_EDEFAULT = null;
+	protected static final String NAME_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getId()
+	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-	protected String id = ID_EDEFAULT;
+	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -103,8 +103,8 @@ public class AnswerTemplateImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getId() {
-		return id;
+	public String getName() {
+		return name;
 	}
 
 	/**
@@ -112,11 +112,11 @@ public class AnswerTemplateImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setId(String newId) {
-		String oldId = id;
-		id = newId;
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SurveyPackage.ANSWER_TEMPLATE__ID, oldId, id));
+			eNotify(new ENotificationImpl(this, Notification.SET, SurveyPackage.ANSWER_TEMPLATE__NAME, oldName, name));
 	}
 
 	/**
@@ -143,8 +143,8 @@ public class AnswerTemplateImpl extends MinimalEObjectImpl.Container implements 
 		switch (featureID) {
 			case SurveyPackage.ANSWER_TEMPLATE__ANSWERS:
 				return getAnswers();
-			case SurveyPackage.ANSWER_TEMPLATE__ID:
-				return getId();
+			case SurveyPackage.ANSWER_TEMPLATE__NAME:
+				return getName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -162,8 +162,8 @@ public class AnswerTemplateImpl extends MinimalEObjectImpl.Container implements 
 				getAnswers().clear();
 				getAnswers().addAll((Collection<? extends Answer>)newValue);
 				return;
-			case SurveyPackage.ANSWER_TEMPLATE__ID:
-				setId((String)newValue);
+			case SurveyPackage.ANSWER_TEMPLATE__NAME:
+				setName((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -180,8 +180,8 @@ public class AnswerTemplateImpl extends MinimalEObjectImpl.Container implements 
 			case SurveyPackage.ANSWER_TEMPLATE__ANSWERS:
 				getAnswers().clear();
 				return;
-			case SurveyPackage.ANSWER_TEMPLATE__ID:
-				setId(ID_EDEFAULT);
+			case SurveyPackage.ANSWER_TEMPLATE__NAME:
+				setName(NAME_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -197,8 +197,8 @@ public class AnswerTemplateImpl extends MinimalEObjectImpl.Container implements 
 		switch (featureID) {
 			case SurveyPackage.ANSWER_TEMPLATE__ANSWERS:
 				return answers != null && !answers.isEmpty();
-			case SurveyPackage.ANSWER_TEMPLATE__ID:
-				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
+			case SurveyPackage.ANSWER_TEMPLATE__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -213,8 +213,8 @@ public class AnswerTemplateImpl extends MinimalEObjectImpl.Container implements 
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (id: ");
-		result.append(id);
+		result.append(" (name: ");
+		result.append(name);
 		result.append(')');
 		return result.toString();
 	}

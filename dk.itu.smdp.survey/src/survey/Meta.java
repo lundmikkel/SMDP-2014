@@ -12,7 +12,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link survey.Meta#getId <em>Id</em>}</li>
+ *   <li>{@link survey.Meta#getName <em>Name</em>}</li>
  *   <li>{@link survey.Meta#getTitle <em>Title</em>}</li>
  *   <li>{@link survey.Meta#getDescription <em>Description</em>}</li>
  * </ul>
@@ -24,30 +24,30 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Meta extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Id</b></em>' attribute.
+	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Id</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Id</em>' attribute.
-	 * @see #setId(String)
-	 * @see survey.SurveyPackage#getMeta_Id()
+	 * @return the value of the '<em>Name</em>' attribute.
+	 * @see #setName(String)
+	 * @see survey.SurveyPackage#getMeta_Name()
 	 * @model
 	 * @generated
 	 */
-	String getId();
+	String getName();
 
 	/**
-	 * Sets the value of the '{@link survey.Meta#getId <em>Id</em>}' attribute.
+	 * Sets the value of the '{@link survey.Meta#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Id</em>' attribute.
-	 * @see #getId()
+	 * @param value the new value of the '<em>Name</em>' attribute.
+	 * @see #getName()
 	 * @generated
 	 */
-	void setId(String value);
+	void setName(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Title</b></em>' attribute.

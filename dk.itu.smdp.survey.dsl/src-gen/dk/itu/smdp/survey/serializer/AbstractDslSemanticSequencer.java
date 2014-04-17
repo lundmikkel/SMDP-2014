@@ -153,7 +153,7 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	
 	/**
 	 * Constraint:
-	 *     (id=STRING answers+=Answer+)
+	 *     (name=ID answers+=Answer+)
 	 */
 	protected void sequence_AnswerTemplate(EObject context, AnswerTemplate semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -162,7 +162,7 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	
 	/**
 	 * Constraint:
-	 *     (id=STRING? label=Label)
+	 *     (name=ID? label=Label)
 	 */
 	protected void sequence_Answer(EObject context, Answer semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -174,7 +174,7 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	 *     (
 	 *         title=STRING 
 	 *         description=STRING? 
-	 *         id=STRING? 
+	 *         name=ID? 
 	 *         from=EString? 
 	 *         to=EString? 
 	 *         dependsOn=[Answer|EString]? 
@@ -204,7 +204,7 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	 *     (
 	 *         title=STRING 
 	 *         description=STRING? 
-	 *         id=STRING? 
+	 *         name=ID? 
 	 *         lower=INT? 
 	 *         upper=INT? 
 	 *         dependsOn=[Answer|EString]? 
@@ -224,7 +224,7 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	 *     (
 	 *         title=STRING 
 	 *         description=STRING? 
-	 *         id=STRING? 
+	 *         name=ID? 
 	 *         lower=EInt? 
 	 *         upper=EInt? 
 	 *         dependsOn=[Answer|EString]? 
@@ -242,7 +242,7 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	 *     (
 	 *         title=STRING 
 	 *         description=STRING? 
-	 *         id=STRING? 
+	 *         name=ID? 
 	 *         lower=EInt 
 	 *         upper=EInt 
 	 *         lowerLabel=EString? 
@@ -261,7 +261,7 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	 *     (
 	 *         title=STRING 
 	 *         description=STRING? 
-	 *         id=STRING? 
+	 *         name=ID? 
 	 *         dependsOn=[Answer|EString]? 
 	 *         required?='required'? 
 	 *         other?='other'? 
@@ -303,7 +303,7 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	 *     (
 	 *         title=STRING? 
 	 *         description=STRING? 
-	 *         id=STRING? 
+	 *         name=ID? 
 	 *         dependsOn=[Answer|EString]? 
 	 *         required?='required'? 
 	 *         other?='other'? 
@@ -323,7 +323,7 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	 *     (
 	 *         title=STRING 
 	 *         description=STRING? 
-	 *         id=STRING? 
+	 *         name=ID? 
 	 *         dependsOn=[Answer|EString]? 
 	 *         required?='required'? 
 	 *         (multiline?='multi' | multiline?='multiline')?
