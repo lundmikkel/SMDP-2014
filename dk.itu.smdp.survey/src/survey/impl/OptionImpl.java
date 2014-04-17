@@ -18,7 +18,7 @@ import survey.SurveyPackage;
  *
  * @generated
  */
-public class OptionImpl extends MinimalEObjectImpl.Container implements Option {
+public abstract class OptionImpl extends MinimalEObjectImpl.Container implements Option {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

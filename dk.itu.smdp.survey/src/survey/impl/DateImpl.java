@@ -23,6 +23,7 @@ import survey.SurveyPackage;
  *   <li>{@link survey.impl.DateImpl#isYear <em>Year</em>}</li>
  *   <li>{@link survey.impl.DateImpl#getFrom <em>From</em>}</li>
  *   <li>{@link survey.impl.DateImpl#getTo <em>To</em>}</li>
+ *   <li>{@link survey.impl.DateImpl#isShowLimits <em>Show Limits</em>}</li>
  * </ul>
  * </p>
  *
@@ -128,6 +129,26 @@ public class DateImpl extends QuestionImpl implements Date {
 	 * @ordered
 	 */
 	protected String to = TO_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isShowLimits() <em>Show Limits</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isShowLimits()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean SHOW_LIMITS_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isShowLimits() <em>Show Limits</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isShowLimits()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean showLimits = SHOW_LIMITS_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -258,6 +279,27 @@ public class DateImpl extends QuestionImpl implements Date {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isShowLimits() {
+		return showLimits;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setShowLimits(boolean newShowLimits) {
+		boolean oldShowLimits = showLimits;
+		showLimits = newShowLimits;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SurveyPackage.DATE__SHOW_LIMITS, oldShowLimits, showLimits));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -271,6 +313,8 @@ public class DateImpl extends QuestionImpl implements Date {
 				return getFrom();
 			case SurveyPackage.DATE__TO:
 				return getTo();
+			case SurveyPackage.DATE__SHOW_LIMITS:
+				return isShowLimits();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -297,6 +341,9 @@ public class DateImpl extends QuestionImpl implements Date {
 				return;
 			case SurveyPackage.DATE__TO:
 				setTo((String)newValue);
+				return;
+			case SurveyPackage.DATE__SHOW_LIMITS:
+				setShowLimits((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -325,6 +372,9 @@ public class DateImpl extends QuestionImpl implements Date {
 			case SurveyPackage.DATE__TO:
 				setTo(TO_EDEFAULT);
 				return;
+			case SurveyPackage.DATE__SHOW_LIMITS:
+				setShowLimits(SHOW_LIMITS_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -347,6 +397,8 @@ public class DateImpl extends QuestionImpl implements Date {
 				return FROM_EDEFAULT == null ? from != null : !FROM_EDEFAULT.equals(from);
 			case SurveyPackage.DATE__TO:
 				return TO_EDEFAULT == null ? to != null : !TO_EDEFAULT.equals(to);
+			case SurveyPackage.DATE__SHOW_LIMITS:
+				return showLimits != SHOW_LIMITS_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -371,6 +423,8 @@ public class DateImpl extends QuestionImpl implements Date {
 		result.append(from);
 		result.append(", to: ");
 		result.append(to);
+		result.append(", showLimits: ");
+		result.append(showLimits);
 		result.append(')');
 		return result.toString();
 	}

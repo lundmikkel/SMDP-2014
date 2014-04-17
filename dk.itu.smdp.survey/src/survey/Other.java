@@ -2,8 +2,6 @@
  */
 package survey;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -15,8 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link survey.Other#isOther <em>Other</em>}</li>
- *   <li>{@link survey.Other#getOptions <em>Options</em>}</li>
- *   <li>{@link survey.Other#getTemplate <em>Template</em>}</li>
+ *   <li>{@link survey.Other#getOtherLabel <em>Other Label</em>}</li>
  * </ul>
  * </p>
  *
@@ -52,45 +49,29 @@ public interface Other extends EObject {
 	void setOther(boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Options</b></em>' containment reference list.
-	 * The list contents are of type {@link survey.Option}.
+	 * Returns the value of the '<em><b>Other Label</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Options</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Other Label</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Options</em>' containment reference list.
-	 * @see survey.SurveyPackage#getOther_Options()
-	 * @model containment="true" required="true"
-	 * @generated
-	 */
-	EList<Option> getOptions();
-
-	/**
-	 * Returns the value of the '<em><b>Template</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Template</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Template</em>' reference.
-	 * @see #setTemplate(Option)
-	 * @see survey.SurveyPackage#getOther_Template()
+	 * @return the value of the '<em>Other Label</em>' attribute.
+	 * @see #setOtherLabel(String)
+	 * @see survey.SurveyPackage#getOther_OtherLabel()
 	 * @model
 	 * @generated
 	 */
-	Option getTemplate();
+	String getOtherLabel();
 
 	/**
-	 * Sets the value of the '{@link survey.Other#getTemplate <em>Template</em>}' reference.
+	 * Sets the value of the '{@link survey.Other#getOtherLabel <em>Other Label</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Template</em>' reference.
-	 * @see #getTemplate()
+	 * @param value the new value of the '<em>Other Label</em>' attribute.
+	 * @see #getOtherLabel()
 	 * @generated
 	 */
-	void setTemplate(Option value);
+	void setOtherLabel(String value);
 
 } // Other

@@ -94,15 +94,6 @@ public interface SurveyFactory extends EFactory {
 	Scale createScale();
 
 	/**
-	 * Returns a new object of class '<em>Title And Description</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Title And Description</em>'.
-	 * @generated
-	 */
-	TitleAndDescription createTitleAndDescription();
-
-	/**
 	 * Returns a new object of class '<em>Answer</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -139,13 +130,13 @@ public interface SurveyFactory extends EFactory {
 	TableQuestion createTableQuestion();
 
 	/**
-	 * Returns a new object of class '<em>Option</em>'.
+	 * Returns a new object of class '<em>Answer Template Ref</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Option</em>'.
+	 * @return a new object of class '<em>Answer Template Ref</em>'.
 	 * @generated
 	 */
-	Option createOption();
+	AnswerTemplateRef createAnswerTemplateRef();
 
 	/**
 	 * Returns the package supported by this factory.

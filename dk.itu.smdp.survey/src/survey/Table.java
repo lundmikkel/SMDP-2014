@@ -13,7 +13,6 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  *   <li>{@link survey.Table#getQuestions <em>Questions</em>}</li>
- *   <li>{@link survey.Table#getTableOptions <em>Table Options</em>}</li>
  *   <li>{@link survey.Table#isMultiple <em>Multiple</em>}</li>
  * </ul>
  * </p>
@@ -22,7 +21,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Table extends Question, Other {
+public interface Table extends Question, Other, HasOptions {
 	/**
 	 * Returns the value of the '<em><b>Questions</b></em>' containment reference list.
 	 * The list contents are of type {@link survey.TableQuestion}.
@@ -38,22 +37,6 @@ public interface Table extends Question, Other {
 	 * @generated
 	 */
 	EList<TableQuestion> getQuestions();
-
-	/**
-	 * Returns the value of the '<em><b>Table Options</b></em>' containment reference list.
-	 * The list contents are of type {@link survey.Option}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Table Options</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Table Options</em>' containment reference list.
-	 * @see survey.SurveyPackage#getTable_TableOptions()
-	 * @model containment="true" required="true"
-	 * @generated
-	 */
-	EList<Option> getTableOptions();
 
 	/**
 	 * Returns the value of the '<em><b>Multiple</b></em>' attribute.

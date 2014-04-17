@@ -16,6 +16,7 @@ package survey;
  *   <li>{@link survey.Date#isYear <em>Year</em>}</li>
  *   <li>{@link survey.Date#getFrom <em>From</em>}</li>
  *   <li>{@link survey.Date#getTo <em>To</em>}</li>
+ *   <li>{@link survey.Date#isShowLimits <em>Show Limits</em>}</li>
  * </ul>
  * </p>
  *
@@ -153,5 +154,31 @@ public interface Date extends Question {
 	 * @generated
 	 */
 	void setTo(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Show Limits</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Show Limits</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Show Limits</em>' attribute.
+	 * @see #setShowLimits(boolean)
+	 * @see survey.SurveyPackage#getDate_ShowLimits()
+	 * @model
+	 * @generated
+	 */
+	boolean isShowLimits();
+
+	/**
+	 * Sets the value of the '{@link survey.Date#isShowLimits <em>Show Limits</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Show Limits</em>' attribute.
+	 * @see #isShowLimits()
+	 * @generated
+	 */
+	void setShowLimits(boolean value);
 
 } // Date

@@ -22,151 +22,140 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Survey");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cSurveyAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cSurveyKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cTitleKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Keyword cEqualsSignKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
-		private final Assignment cTitleAssignment_2_2 = (Assignment)cGroup_2.eContents().get(2);
-		private final RuleCall cTitleEStringParserRuleCall_2_2_0 = (RuleCall)cTitleAssignment_2_2.eContents().get(0);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cDescriptionKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Keyword cEqualsSignKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
-		private final Assignment cDescriptionAssignment_3_2 = (Assignment)cGroup_3.eContents().get(2);
-		private final RuleCall cDescriptionEStringParserRuleCall_3_2_0 = (RuleCall)cDescriptionAssignment_3_2.eContents().get(0);
-		private final Keyword cGreaterThanSignKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
-		private final Assignment cItemsAssignment_5_0 = (Assignment)cGroup_5.eContents().get(0);
-		private final RuleCall cItemsItemParserRuleCall_5_0_0 = (RuleCall)cItemsAssignment_5_0.eContents().get(0);
-		private final Assignment cItemsAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
-		private final RuleCall cItemsItemParserRuleCall_5_1_0 = (RuleCall)cItemsAssignment_5_1.eContents().get(0);
-		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
-		private final Assignment cTemplatesAssignment_6_0 = (Assignment)cGroup_6.eContents().get(0);
-		private final RuleCall cTemplatesAnswerTemplateParserRuleCall_6_0_0 = (RuleCall)cTemplatesAssignment_6_0.eContents().get(0);
-		private final Assignment cTemplatesAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cTemplatesAnswerTemplateParserRuleCall_6_1_0 = (RuleCall)cTemplatesAssignment_6_1.eContents().get(0);
-		private final Keyword cSurveyKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Keyword cSurveyKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final UnorderedGroup cUnorderedGroup_1_1 = (UnorderedGroup)cGroup_1.eContents().get(1);
+		private final Group cGroup_1_1_0 = (Group)cUnorderedGroup_1_1.eContents().get(0);
+		private final Keyword cTitleKeyword_1_1_0_0 = (Keyword)cGroup_1_1_0.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_1_1_0_1 = (Keyword)cGroup_1_1_0.eContents().get(1);
+		private final Assignment cTitleAssignment_1_1_0_2 = (Assignment)cGroup_1_1_0.eContents().get(2);
+		private final RuleCall cTitleSTRINGTerminalRuleCall_1_1_0_2_0 = (RuleCall)cTitleAssignment_1_1_0_2.eContents().get(0);
+		private final Group cGroup_1_1_1 = (Group)cUnorderedGroup_1_1.eContents().get(1);
+		private final Keyword cDescriptionKeyword_1_1_1_0 = (Keyword)cGroup_1_1_1.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_1_1_1_1 = (Keyword)cGroup_1_1_1.eContents().get(1);
+		private final Assignment cDescriptionAssignment_1_1_1_2 = (Assignment)cGroup_1_1_1.eContents().get(2);
+		private final RuleCall cDescriptionSTRINGTerminalRuleCall_1_1_1_2_0 = (RuleCall)cDescriptionAssignment_1_1_1_2.eContents().get(0);
+		private final Keyword cGreaterThanSignKeyword_1_2 = (Keyword)cGroup_1.eContents().get(2);
+		private final Alternatives cAlternatives_1_3 = (Alternatives)cGroup_1.eContents().get(3);
+		private final Assignment cItemsAssignment_1_3_0 = (Assignment)cAlternatives_1_3.eContents().get(0);
+		private final RuleCall cItemsItemParserRuleCall_1_3_0_0 = (RuleCall)cItemsAssignment_1_3_0.eContents().get(0);
+		private final Assignment cTemplatesAssignment_1_3_1 = (Assignment)cAlternatives_1_3.eContents().get(1);
+		private final RuleCall cTemplatesAnswerTemplateParserRuleCall_1_3_1_0 = (RuleCall)cTemplatesAssignment_1_3_1.eContents().get(0);
+		private final Keyword cSurveyKeyword_1_4 = (Keyword)cGroup_1.eContents().get(4);
 		
 		//Survey:
-		//	{Survey} "<survey" ("title" "=" title=EString)? ("description" "=" description=EString)? ">" (items+=Item
-		//	items+=Item*)? (templates+=AnswerTemplate templates+=AnswerTemplate*)? "</survey>";
+		//	{Survey} ("<survey" (("title" "=" title=STRING)? & ("description" "=" description=STRING)?) ">" (items+=Item |
+		//	templates+=AnswerTemplate)* "</survey>")?;
 		public ParserRule getRule() { return rule; }
 
-		//{Survey} "<survey" ("title" "=" title=EString)? ("description" "=" description=EString)? ">" (items+=Item items+=Item*)?
-		//(templates+=AnswerTemplate templates+=AnswerTemplate*)? "</survey>"
+		//{Survey} ("<survey" (("title" "=" title=STRING)? & ("description" "=" description=STRING)?) ">" (items+=Item |
+		//templates+=AnswerTemplate)* "</survey>")?
 		public Group getGroup() { return cGroup; }
 
 		//{Survey}
 		public Action getSurveyAction_0() { return cSurveyAction_0; }
 
-		//"<survey"
-		public Keyword getSurveyKeyword_1() { return cSurveyKeyword_1; }
+		//("<survey" (("title" "=" title=STRING)? & ("description" "=" description=STRING)?) ">" (items+=Item |
+		//templates+=AnswerTemplate)* "</survey>")?
+		public Group getGroup_1() { return cGroup_1; }
 
-		//("title" "=" title=EString)?
-		public Group getGroup_2() { return cGroup_2; }
+		//"<survey"
+		public Keyword getSurveyKeyword_1_0() { return cSurveyKeyword_1_0; }
+
+		//("title" "=" title=STRING)? & ("description" "=" description=STRING)?
+		public UnorderedGroup getUnorderedGroup_1_1() { return cUnorderedGroup_1_1; }
+
+		//("title" "=" title=STRING)?
+		public Group getGroup_1_1_0() { return cGroup_1_1_0; }
 
 		//"title"
-		public Keyword getTitleKeyword_2_0() { return cTitleKeyword_2_0; }
+		public Keyword getTitleKeyword_1_1_0_0() { return cTitleKeyword_1_1_0_0; }
 
 		//"="
-		public Keyword getEqualsSignKeyword_2_1() { return cEqualsSignKeyword_2_1; }
+		public Keyword getEqualsSignKeyword_1_1_0_1() { return cEqualsSignKeyword_1_1_0_1; }
 
-		//title=EString
-		public Assignment getTitleAssignment_2_2() { return cTitleAssignment_2_2; }
+		//title=STRING
+		public Assignment getTitleAssignment_1_1_0_2() { return cTitleAssignment_1_1_0_2; }
 
-		//EString
-		public RuleCall getTitleEStringParserRuleCall_2_2_0() { return cTitleEStringParserRuleCall_2_2_0; }
+		//STRING
+		public RuleCall getTitleSTRINGTerminalRuleCall_1_1_0_2_0() { return cTitleSTRINGTerminalRuleCall_1_1_0_2_0; }
 
-		//("description" "=" description=EString)?
-		public Group getGroup_3() { return cGroup_3; }
+		//("description" "=" description=STRING)?
+		public Group getGroup_1_1_1() { return cGroup_1_1_1; }
 
 		//"description"
-		public Keyword getDescriptionKeyword_3_0() { return cDescriptionKeyword_3_0; }
+		public Keyword getDescriptionKeyword_1_1_1_0() { return cDescriptionKeyword_1_1_1_0; }
 
 		//"="
-		public Keyword getEqualsSignKeyword_3_1() { return cEqualsSignKeyword_3_1; }
+		public Keyword getEqualsSignKeyword_1_1_1_1() { return cEqualsSignKeyword_1_1_1_1; }
 
-		//description=EString
-		public Assignment getDescriptionAssignment_3_2() { return cDescriptionAssignment_3_2; }
+		//description=STRING
+		public Assignment getDescriptionAssignment_1_1_1_2() { return cDescriptionAssignment_1_1_1_2; }
 
-		//EString
-		public RuleCall getDescriptionEStringParserRuleCall_3_2_0() { return cDescriptionEStringParserRuleCall_3_2_0; }
+		//STRING
+		public RuleCall getDescriptionSTRINGTerminalRuleCall_1_1_1_2_0() { return cDescriptionSTRINGTerminalRuleCall_1_1_1_2_0; }
 
 		//">"
-		public Keyword getGreaterThanSignKeyword_4() { return cGreaterThanSignKeyword_4; }
+		public Keyword getGreaterThanSignKeyword_1_2() { return cGreaterThanSignKeyword_1_2; }
 
-		//(items+=Item items+=Item*)?
-		public Group getGroup_5() { return cGroup_5; }
+		//(items+=Item | templates+=AnswerTemplate)*
+		public Alternatives getAlternatives_1_3() { return cAlternatives_1_3; }
 
 		//items+=Item
-		public Assignment getItemsAssignment_5_0() { return cItemsAssignment_5_0; }
+		public Assignment getItemsAssignment_1_3_0() { return cItemsAssignment_1_3_0; }
 
 		//Item
-		public RuleCall getItemsItemParserRuleCall_5_0_0() { return cItemsItemParserRuleCall_5_0_0; }
-
-		//items+=Item*
-		public Assignment getItemsAssignment_5_1() { return cItemsAssignment_5_1; }
-
-		//Item
-		public RuleCall getItemsItemParserRuleCall_5_1_0() { return cItemsItemParserRuleCall_5_1_0; }
-
-		//(templates+=AnswerTemplate templates+=AnswerTemplate*)?
-		public Group getGroup_6() { return cGroup_6; }
+		public RuleCall getItemsItemParserRuleCall_1_3_0_0() { return cItemsItemParserRuleCall_1_3_0_0; }
 
 		//templates+=AnswerTemplate
-		public Assignment getTemplatesAssignment_6_0() { return cTemplatesAssignment_6_0; }
+		public Assignment getTemplatesAssignment_1_3_1() { return cTemplatesAssignment_1_3_1; }
 
 		//AnswerTemplate
-		public RuleCall getTemplatesAnswerTemplateParserRuleCall_6_0_0() { return cTemplatesAnswerTemplateParserRuleCall_6_0_0; }
-
-		//templates+=AnswerTemplate*
-		public Assignment getTemplatesAssignment_6_1() { return cTemplatesAssignment_6_1; }
-
-		//AnswerTemplate
-		public RuleCall getTemplatesAnswerTemplateParserRuleCall_6_1_0() { return cTemplatesAnswerTemplateParserRuleCall_6_1_0; }
+		public RuleCall getTemplatesAnswerTemplateParserRuleCall_1_3_1_0() { return cTemplatesAnswerTemplateParserRuleCall_1_3_1_0; }
 
 		//"</survey>"
-		public Keyword getSurveyKeyword_7() { return cSurveyKeyword_7; }
+		public Keyword getSurveyKeyword_1_4() { return cSurveyKeyword_1_4; }
 	}
 
 	public class ItemElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Item");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cGroupParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cSingleParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cMultipleParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cTextParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
-		private final RuleCall cDateParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
-		private final RuleCall cNumberParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
-		private final RuleCall cScaleParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
+		private final RuleCall cTextParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cScaleParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cDateParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cNumberParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cSingleParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
+		private final RuleCall cMultipleParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
 		private final RuleCall cTableParserRuleCall_7 = (RuleCall)cAlternatives.eContents().get(7);
 		
 		//Item:
-		//	Group | Single | Multiple | Text | Date | Number | Scale | Table;
+		//	Group | Text | Scale | Date | Number | Single | Multiple | Table;
 		public ParserRule getRule() { return rule; }
 
-		//Group | Single | Multiple | Text | Date | Number | Scale | Table
+		//Group | Text | Scale | Date | Number | Single | Multiple | Table
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//Group
 		public RuleCall getGroupParserRuleCall_0() { return cGroupParserRuleCall_0; }
 
-		//Single
-		public RuleCall getSingleParserRuleCall_1() { return cSingleParserRuleCall_1; }
-
-		//Multiple
-		public RuleCall getMultipleParserRuleCall_2() { return cMultipleParserRuleCall_2; }
-
 		//Text
-		public RuleCall getTextParserRuleCall_3() { return cTextParserRuleCall_3; }
-
-		//Date
-		public RuleCall getDateParserRuleCall_4() { return cDateParserRuleCall_4; }
-
-		//Number
-		public RuleCall getNumberParserRuleCall_5() { return cNumberParserRuleCall_5; }
+		public RuleCall getTextParserRuleCall_1() { return cTextParserRuleCall_1; }
 
 		//Scale
-		public RuleCall getScaleParserRuleCall_6() { return cScaleParserRuleCall_6; }
+		public RuleCall getScaleParserRuleCall_2() { return cScaleParserRuleCall_2; }
+
+		//Date
+		public RuleCall getDateParserRuleCall_3() { return cDateParserRuleCall_3; }
+
+		//Number
+		public RuleCall getNumberParserRuleCall_4() { return cNumberParserRuleCall_4; }
+
+		//Single
+		public RuleCall getSingleParserRuleCall_5() { return cSingleParserRuleCall_5; }
+
+		//Multiple
+		public RuleCall getMultipleParserRuleCall_6() { return cMultipleParserRuleCall_6; }
 
 		//Table
 		public RuleCall getTableParserRuleCall_7() { return cTableParserRuleCall_7; }
@@ -175,38 +164,38 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	public class QuestionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Question");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cSingleParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cMultipleParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cTextParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cDateParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
-		private final RuleCall cNumberParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
-		private final RuleCall cScaleParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
+		private final RuleCall cTextParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cScaleParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cDateParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cNumberParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cSingleParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cMultipleParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
 		private final RuleCall cTableParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
 		
 		//Question:
-		//	Single | Multiple | Text | Date | Number | Scale | Table;
+		//	Text | Scale | Date | Number | Single | Multiple | Table;
 		public ParserRule getRule() { return rule; }
 
-		//Single | Multiple | Text | Date | Number | Scale | Table
+		//Text | Scale | Date | Number | Single | Multiple | Table
 		public Alternatives getAlternatives() { return cAlternatives; }
 
-		//Single
-		public RuleCall getSingleParserRuleCall_0() { return cSingleParserRuleCall_0; }
-
-		//Multiple
-		public RuleCall getMultipleParserRuleCall_1() { return cMultipleParserRuleCall_1; }
-
 		//Text
-		public RuleCall getTextParserRuleCall_2() { return cTextParserRuleCall_2; }
-
-		//Date
-		public RuleCall getDateParserRuleCall_3() { return cDateParserRuleCall_3; }
-
-		//Number
-		public RuleCall getNumberParserRuleCall_4() { return cNumberParserRuleCall_4; }
+		public RuleCall getTextParserRuleCall_0() { return cTextParserRuleCall_0; }
 
 		//Scale
-		public RuleCall getScaleParserRuleCall_5() { return cScaleParserRuleCall_5; }
+		public RuleCall getScaleParserRuleCall_1() { return cScaleParserRuleCall_1; }
+
+		//Date
+		public RuleCall getDateParserRuleCall_2() { return cDateParserRuleCall_2; }
+
+		//Number
+		public RuleCall getNumberParserRuleCall_3() { return cNumberParserRuleCall_3; }
+
+		//Single
+		public RuleCall getSingleParserRuleCall_4() { return cSingleParserRuleCall_4; }
+
+		//Multiple
+		public RuleCall getMultipleParserRuleCall_5() { return cMultipleParserRuleCall_5; }
 
 		//Table
 		public RuleCall getTableParserRuleCall_6() { return cTableParserRuleCall_6; }
@@ -215,25 +204,21 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	public class OptionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Option");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cOption_ImplParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cAnswerTemplateRefParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cAnswerParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cAnswerTemplateParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		
 		//Option:
-		//	Option_Impl | Answer | AnswerTemplate;
+		//	AnswerTemplateRef | Answer;
 		public ParserRule getRule() { return rule; }
 
-		//Option_Impl | Answer | AnswerTemplate
+		//AnswerTemplateRef | Answer
 		public Alternatives getAlternatives() { return cAlternatives; }
 
-		//Option_Impl
-		public RuleCall getOption_ImplParserRuleCall_0() { return cOption_ImplParserRuleCall_0; }
+		//AnswerTemplateRef
+		public RuleCall getAnswerTemplateRefParserRuleCall_0() { return cAnswerTemplateRefParserRuleCall_0; }
 
 		//Answer
 		public RuleCall getAnswerParserRuleCall_1() { return cAnswerParserRuleCall_1; }
-
-		//AnswerTemplate
-		public RuleCall getAnswerTemplateParserRuleCall_2() { return cAnswerTemplateParserRuleCall_2; }
 	}
 
 	public class EStringElements extends AbstractParserRuleElementFinder {
@@ -263,19 +248,17 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cIdKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Keyword cEqualsSignKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cIdAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cIdEStringParserRuleCall_3_0 = (RuleCall)cIdAssignment_3.eContents().get(0);
+		private final RuleCall cIdSTRINGTerminalRuleCall_3_0 = (RuleCall)cIdAssignment_3.eContents().get(0);
 		private final Keyword cGreaterThanSignKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		private final Assignment cAnswersAssignment_5 = (Assignment)cGroup.eContents().get(5);
 		private final RuleCall cAnswersAnswerParserRuleCall_5_0 = (RuleCall)cAnswersAssignment_5.eContents().get(0);
-		private final Assignment cAnswersAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cAnswersAnswerParserRuleCall_6_0 = (RuleCall)cAnswersAssignment_6.eContents().get(0);
-		private final Keyword cTemplateKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Keyword cTemplateKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//AnswerTemplate:
-		//	"<template" "id" "=" id=EString ">" answers+=Answer answers+=Answer* "</template>";
+		//	"<template" "id" "=" id=STRING ">" answers+=Answer+ "</template>";
 		public ParserRule getRule() { return rule; }
 
-		//"<template" "id" "=" id=EString ">" answers+=Answer answers+=Answer* "</template>"
+		//"<template" "id" "=" id=STRING ">" answers+=Answer+ "</template>"
 		public Group getGroup() { return cGroup; }
 
 		//"<template"
@@ -287,29 +270,23 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//"="
 		public Keyword getEqualsSignKeyword_2() { return cEqualsSignKeyword_2; }
 
-		//id=EString
+		//id=STRING
 		public Assignment getIdAssignment_3() { return cIdAssignment_3; }
 
-		//EString
-		public RuleCall getIdEStringParserRuleCall_3_0() { return cIdEStringParserRuleCall_3_0; }
+		//STRING
+		public RuleCall getIdSTRINGTerminalRuleCall_3_0() { return cIdSTRINGTerminalRuleCall_3_0; }
 
 		//">"
 		public Keyword getGreaterThanSignKeyword_4() { return cGreaterThanSignKeyword_4; }
 
-		//answers+=Answer
+		//answers+=Answer+
 		public Assignment getAnswersAssignment_5() { return cAnswersAssignment_5; }
 
 		//Answer
 		public RuleCall getAnswersAnswerParserRuleCall_5_0() { return cAnswersAnswerParserRuleCall_5_0; }
 
-		//answers+=Answer*
-		public Assignment getAnswersAssignment_6() { return cAnswersAssignment_6; }
-
-		//Answer
-		public RuleCall getAnswersAnswerParserRuleCall_6_0() { return cAnswersAnswerParserRuleCall_6_0; }
-
 		//"</template>"
-		public Keyword getTemplateKeyword_7() { return cTemplateKeyword_7; }
+		public Keyword getTemplateKeyword_6() { return cTemplateKeyword_6; }
 	}
 
 	public class AnswerElements extends AbstractParserRuleElementFinder {
@@ -320,23 +297,23 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cIdKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
 		private final Keyword cEqualsSignKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
 		private final Assignment cIdAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final RuleCall cIdEStringParserRuleCall_1_2_0 = (RuleCall)cIdAssignment_1_2.eContents().get(0);
+		private final RuleCall cIdSTRINGTerminalRuleCall_1_2_0 = (RuleCall)cIdAssignment_1_2.eContents().get(0);
 		private final Keyword cGreaterThanSignKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cLabelAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cLabelEStringParserRuleCall_3_0 = (RuleCall)cLabelAssignment_3.eContents().get(0);
+		private final RuleCall cLabelLabelParserRuleCall_3_0 = (RuleCall)cLabelAssignment_3.eContents().get(0);
 		private final Keyword cAKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//Answer:
-		//	"<a" ("id" "=" id=EString)? ">" label=EString "</a>";
+		//	"<a" ("id" "=" id=STRING)? ">" label=Label "</a>";
 		public ParserRule getRule() { return rule; }
 
-		//"<a" ("id" "=" id=EString)? ">" label=EString "</a>"
+		//"<a" ("id" "=" id=STRING)? ">" label=Label "</a>"
 		public Group getGroup() { return cGroup; }
 
 		//"<a"
 		public Keyword getAKeyword_0() { return cAKeyword_0; }
 
-		//("id" "=" id=EString)?
+		//("id" "=" id=STRING)?
 		public Group getGroup_1() { return cGroup_1; }
 
 		//"id"
@@ -345,525 +322,154 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//"="
 		public Keyword getEqualsSignKeyword_1_1() { return cEqualsSignKeyword_1_1; }
 
-		//id=EString
+		//id=STRING
 		public Assignment getIdAssignment_1_2() { return cIdAssignment_1_2; }
 
-		//EString
-		public RuleCall getIdEStringParserRuleCall_1_2_0() { return cIdEStringParserRuleCall_1_2_0; }
+		//STRING
+		public RuleCall getIdSTRINGTerminalRuleCall_1_2_0() { return cIdSTRINGTerminalRuleCall_1_2_0; }
 
 		//">"
 		public Keyword getGreaterThanSignKeyword_2() { return cGreaterThanSignKeyword_2; }
 
-		//label=EString
+		//label=Label
 		public Assignment getLabelAssignment_3() { return cLabelAssignment_3; }
 
-		//EString
-		public RuleCall getLabelEStringParserRuleCall_3_0() { return cLabelEStringParserRuleCall_3_0; }
+		//Label
+		public RuleCall getLabelLabelParserRuleCall_3_0() { return cLabelLabelParserRuleCall_3_0; }
 
 		//"</a>"
 		public Keyword getAKeyword_4() { return cAKeyword_4; }
 	}
 
-	public class EBooleanElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "EBoolean");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Keyword cTrueKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
-		private final Keyword cFalseKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
+	public class LabelElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Label");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cEStringParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final RuleCall cEStringParserRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
 		
-		//EBoolean returns ecore::EBoolean:
-		//	"true" | "false";
+		//Label returns ecore::EString:
+		//	EString EString*;
 		public ParserRule getRule() { return rule; }
 
-		//"true" | "false"
-		public Alternatives getAlternatives() { return cAlternatives; }
+		//EString EString*
+		public Group getGroup() { return cGroup; }
 
-		//"true"
-		public Keyword getTrueKeyword_0() { return cTrueKeyword_0; }
+		//EString
+		public RuleCall getEStringParserRuleCall_0() { return cEStringParserRuleCall_0; }
 
-		//"false"
-		public Keyword getFalseKeyword_1() { return cFalseKeyword_1; }
+		//EString*
+		public RuleCall getEStringParserRuleCall_1() { return cEStringParserRuleCall_1; }
 	}
 
 	public class GroupElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Group");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cGroupKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Keyword cTitleKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final Keyword cEqualsSignKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
-		private final Assignment cTitleAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final RuleCall cTitleEStringParserRuleCall_1_2_0 = (RuleCall)cTitleAssignment_1_2.eContents().get(0);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cDescriptionKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Keyword cEqualsSignKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
-		private final Assignment cDescriptionAssignment_2_2 = (Assignment)cGroup_2.eContents().get(2);
-		private final RuleCall cDescriptionEStringParserRuleCall_2_2_0 = (RuleCall)cDescriptionAssignment_2_2.eContents().get(0);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cDependsOnKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Keyword cEqualsSignKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
-		private final Assignment cDependsOnAssignment_3_2 = (Assignment)cGroup_3.eContents().get(2);
-		private final CrossReference cDependsOnAnswerCrossReference_3_2_0 = (CrossReference)cDependsOnAssignment_3_2.eContents().get(0);
-		private final RuleCall cDependsOnAnswerEStringParserRuleCall_3_2_0_1 = (RuleCall)cDependsOnAnswerCrossReference_3_2_0.eContents().get(1);
-		private final Assignment cRequiredAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final Keyword cRequiredRequiredKeyword_4_0 = (Keyword)cRequiredAssignment_4.eContents().get(0);
-		private final Keyword cGreaterThanSignKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final Assignment cQuestionsAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cQuestionsQuestionParserRuleCall_6_0 = (RuleCall)cQuestionsAssignment_6.eContents().get(0);
-		private final Assignment cQuestionsAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final RuleCall cQuestionsQuestionParserRuleCall_7_0 = (RuleCall)cQuestionsAssignment_7.eContents().get(0);
-		private final Keyword cGroupKeyword_8 = (Keyword)cGroup.eContents().get(8);
+		private final UnorderedGroup cUnorderedGroup_1 = (UnorderedGroup)cGroup.eContents().get(1);
+		private final Group cGroup_1_0 = (Group)cUnorderedGroup_1.eContents().get(0);
+		private final Keyword cTitleKeyword_1_0_0 = (Keyword)cGroup_1_0.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_1_0_1 = (Keyword)cGroup_1_0.eContents().get(1);
+		private final Assignment cTitleAssignment_1_0_2 = (Assignment)cGroup_1_0.eContents().get(2);
+		private final RuleCall cTitleSTRINGTerminalRuleCall_1_0_2_0 = (RuleCall)cTitleAssignment_1_0_2.eContents().get(0);
+		private final Group cGroup_1_1 = (Group)cUnorderedGroup_1.eContents().get(1);
+		private final Keyword cDescriptionKeyword_1_1_0 = (Keyword)cGroup_1_1.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_1_1_1 = (Keyword)cGroup_1_1.eContents().get(1);
+		private final Assignment cDescriptionAssignment_1_1_2 = (Assignment)cGroup_1_1.eContents().get(2);
+		private final RuleCall cDescriptionSTRINGTerminalRuleCall_1_1_2_0 = (RuleCall)cDescriptionAssignment_1_1_2.eContents().get(0);
+		private final Group cGroup_1_2 = (Group)cUnorderedGroup_1.eContents().get(2);
+		private final Keyword cDependsOnKeyword_1_2_0 = (Keyword)cGroup_1_2.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_1_2_1 = (Keyword)cGroup_1_2.eContents().get(1);
+		private final Assignment cDependsOnAssignment_1_2_2 = (Assignment)cGroup_1_2.eContents().get(2);
+		private final CrossReference cDependsOnAnswerCrossReference_1_2_2_0 = (CrossReference)cDependsOnAssignment_1_2_2.eContents().get(0);
+		private final RuleCall cDependsOnAnswerEStringParserRuleCall_1_2_2_0_1 = (RuleCall)cDependsOnAnswerCrossReference_1_2_2_0.eContents().get(1);
+		private final Assignment cRequiredAssignment_1_3 = (Assignment)cUnorderedGroup_1.eContents().get(3);
+		private final Keyword cRequiredRequiredKeyword_1_3_0 = (Keyword)cRequiredAssignment_1_3.eContents().get(0);
+		private final Keyword cGreaterThanSignKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cQuestionsAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cQuestionsQuestionParserRuleCall_3_0 = (RuleCall)cQuestionsAssignment_3.eContents().get(0);
+		private final Keyword cGroupKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//Group:
-		//	"<group" ("title" "=" title=EString)? ("description" "=" description=EString)? ("dependsOn" "="
-		//	dependsOn=[Answer|EString])? required?="required"? ">" questions+=Question questions+=Question* "</group>";
+		//	"<group" (("title" "=" title=STRING)? & ("description" "=" description=STRING)? & ("dependsOn" "="
+		//	dependsOn=[Answer|EString])? & required?="required"?) ">" questions+=Question+ "</group>";
 		public ParserRule getRule() { return rule; }
 
-		//"<group" ("title" "=" title=EString)? ("description" "=" description=EString)? ("dependsOn" "="
-		//dependsOn=[Answer|EString])? required?="required"? ">" questions+=Question questions+=Question* "</group>"
+		//"<group" (("title" "=" title=STRING)? & ("description" "=" description=STRING)? & ("dependsOn" "="
+		//dependsOn=[Answer|EString])? & required?="required"?) ">" questions+=Question+ "</group>"
 		public Group getGroup() { return cGroup; }
 
 		//"<group"
 		public Keyword getGroupKeyword_0() { return cGroupKeyword_0; }
 
-		//("title" "=" title=EString)?
-		public Group getGroup_1() { return cGroup_1; }
+		//("title" "=" title=STRING)? & ("description" "=" description=STRING)? & ("dependsOn" "=" dependsOn=[Answer|EString])? &
+		//required?="required"?
+		public UnorderedGroup getUnorderedGroup_1() { return cUnorderedGroup_1; }
+
+		//("title" "=" title=STRING)?
+		public Group getGroup_1_0() { return cGroup_1_0; }
 
 		//"title"
-		public Keyword getTitleKeyword_1_0() { return cTitleKeyword_1_0; }
+		public Keyword getTitleKeyword_1_0_0() { return cTitleKeyword_1_0_0; }
 
 		//"="
-		public Keyword getEqualsSignKeyword_1_1() { return cEqualsSignKeyword_1_1; }
+		public Keyword getEqualsSignKeyword_1_0_1() { return cEqualsSignKeyword_1_0_1; }
 
-		//title=EString
-		public Assignment getTitleAssignment_1_2() { return cTitleAssignment_1_2; }
+		//title=STRING
+		public Assignment getTitleAssignment_1_0_2() { return cTitleAssignment_1_0_2; }
 
-		//EString
-		public RuleCall getTitleEStringParserRuleCall_1_2_0() { return cTitleEStringParserRuleCall_1_2_0; }
+		//STRING
+		public RuleCall getTitleSTRINGTerminalRuleCall_1_0_2_0() { return cTitleSTRINGTerminalRuleCall_1_0_2_0; }
 
-		//("description" "=" description=EString)?
-		public Group getGroup_2() { return cGroup_2; }
+		//("description" "=" description=STRING)?
+		public Group getGroup_1_1() { return cGroup_1_1; }
 
 		//"description"
-		public Keyword getDescriptionKeyword_2_0() { return cDescriptionKeyword_2_0; }
+		public Keyword getDescriptionKeyword_1_1_0() { return cDescriptionKeyword_1_1_0; }
 
 		//"="
-		public Keyword getEqualsSignKeyword_2_1() { return cEqualsSignKeyword_2_1; }
+		public Keyword getEqualsSignKeyword_1_1_1() { return cEqualsSignKeyword_1_1_1; }
 
-		//description=EString
-		public Assignment getDescriptionAssignment_2_2() { return cDescriptionAssignment_2_2; }
+		//description=STRING
+		public Assignment getDescriptionAssignment_1_1_2() { return cDescriptionAssignment_1_1_2; }
 
-		//EString
-		public RuleCall getDescriptionEStringParserRuleCall_2_2_0() { return cDescriptionEStringParserRuleCall_2_2_0; }
+		//STRING
+		public RuleCall getDescriptionSTRINGTerminalRuleCall_1_1_2_0() { return cDescriptionSTRINGTerminalRuleCall_1_1_2_0; }
 
 		//("dependsOn" "=" dependsOn=[Answer|EString])?
-		public Group getGroup_3() { return cGroup_3; }
+		public Group getGroup_1_2() { return cGroup_1_2; }
 
 		//"dependsOn"
-		public Keyword getDependsOnKeyword_3_0() { return cDependsOnKeyword_3_0; }
+		public Keyword getDependsOnKeyword_1_2_0() { return cDependsOnKeyword_1_2_0; }
 
 		//"="
-		public Keyword getEqualsSignKeyword_3_1() { return cEqualsSignKeyword_3_1; }
+		public Keyword getEqualsSignKeyword_1_2_1() { return cEqualsSignKeyword_1_2_1; }
 
 		//dependsOn=[Answer|EString]
-		public Assignment getDependsOnAssignment_3_2() { return cDependsOnAssignment_3_2; }
+		public Assignment getDependsOnAssignment_1_2_2() { return cDependsOnAssignment_1_2_2; }
 
 		//[Answer|EString]
-		public CrossReference getDependsOnAnswerCrossReference_3_2_0() { return cDependsOnAnswerCrossReference_3_2_0; }
+		public CrossReference getDependsOnAnswerCrossReference_1_2_2_0() { return cDependsOnAnswerCrossReference_1_2_2_0; }
 
 		//EString
-		public RuleCall getDependsOnAnswerEStringParserRuleCall_3_2_0_1() { return cDependsOnAnswerEStringParserRuleCall_3_2_0_1; }
+		public RuleCall getDependsOnAnswerEStringParserRuleCall_1_2_2_0_1() { return cDependsOnAnswerEStringParserRuleCall_1_2_2_0_1; }
 
 		//required?="required"?
-		public Assignment getRequiredAssignment_4() { return cRequiredAssignment_4; }
+		public Assignment getRequiredAssignment_1_3() { return cRequiredAssignment_1_3; }
 
 		//"required"
-		public Keyword getRequiredRequiredKeyword_4_0() { return cRequiredRequiredKeyword_4_0; }
+		public Keyword getRequiredRequiredKeyword_1_3_0() { return cRequiredRequiredKeyword_1_3_0; }
 
 		//">"
-		public Keyword getGreaterThanSignKeyword_5() { return cGreaterThanSignKeyword_5; }
+		public Keyword getGreaterThanSignKeyword_2() { return cGreaterThanSignKeyword_2; }
 
-		//questions+=Question
-		public Assignment getQuestionsAssignment_6() { return cQuestionsAssignment_6; }
-
-		//Question
-		public RuleCall getQuestionsQuestionParserRuleCall_6_0() { return cQuestionsQuestionParserRuleCall_6_0; }
-
-		//questions+=Question*
-		public Assignment getQuestionsAssignment_7() { return cQuestionsAssignment_7; }
+		//questions+=Question+
+		public Assignment getQuestionsAssignment_3() { return cQuestionsAssignment_3; }
 
 		//Question
-		public RuleCall getQuestionsQuestionParserRuleCall_7_0() { return cQuestionsQuestionParserRuleCall_7_0; }
+		public RuleCall getQuestionsQuestionParserRuleCall_3_0() { return cQuestionsQuestionParserRuleCall_3_0; }
 
 		//"</group>"
-		public Keyword getGroupKeyword_8() { return cGroupKeyword_8; }
-	}
-
-	public class SingleElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Single");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cSingleKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Keyword cTitleKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final Keyword cEqualsSignKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
-		private final Assignment cTitleAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final RuleCall cTitleEStringParserRuleCall_1_2_0 = (RuleCall)cTitleAssignment_1_2.eContents().get(0);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cDescriptionKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Keyword cEqualsSignKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
-		private final Assignment cDescriptionAssignment_2_2 = (Assignment)cGroup_2.eContents().get(2);
-		private final RuleCall cDescriptionEStringParserRuleCall_2_2_0 = (RuleCall)cDescriptionAssignment_2_2.eContents().get(0);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cIdKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Keyword cEqualsSignKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
-		private final Assignment cIdAssignment_3_2 = (Assignment)cGroup_3.eContents().get(2);
-		private final RuleCall cIdEStringParserRuleCall_3_2_0 = (RuleCall)cIdAssignment_3_2.eContents().get(0);
-		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cDependsOnKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Keyword cEqualsSignKeyword_4_1 = (Keyword)cGroup_4.eContents().get(1);
-		private final Assignment cDependsOnAssignment_4_2 = (Assignment)cGroup_4.eContents().get(2);
-		private final CrossReference cDependsOnAnswerCrossReference_4_2_0 = (CrossReference)cDependsOnAssignment_4_2.eContents().get(0);
-		private final RuleCall cDependsOnAnswerEStringParserRuleCall_4_2_0_1 = (RuleCall)cDependsOnAnswerCrossReference_4_2_0.eContents().get(1);
-		private final Assignment cRequiredAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final Keyword cRequiredRequiredKeyword_5_0 = (Keyword)cRequiredAssignment_5.eContents().get(0);
-		private final Assignment cOtherAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final Keyword cOtherOtherKeyword_6_0 = (Keyword)cOtherAssignment_6.eContents().get(0);
-		private final Keyword cGreaterThanSignKeyword_7 = (Keyword)cGroup.eContents().get(7);
-		private final Assignment cTemplateAssignment_8 = (Assignment)cGroup.eContents().get(8);
-		private final CrossReference cTemplateOptionCrossReference_8_0 = (CrossReference)cTemplateAssignment_8.eContents().get(0);
-		private final RuleCall cTemplateOptionEStringParserRuleCall_8_0_1 = (RuleCall)cTemplateOptionCrossReference_8_0.eContents().get(1);
-		private final Assignment cOptionsAssignment_9 = (Assignment)cGroup.eContents().get(9);
-		private final RuleCall cOptionsOptionParserRuleCall_9_0 = (RuleCall)cOptionsAssignment_9.eContents().get(0);
-		private final Assignment cOptionsAssignment_10 = (Assignment)cGroup.eContents().get(10);
-		private final RuleCall cOptionsOptionParserRuleCall_10_0 = (RuleCall)cOptionsAssignment_10.eContents().get(0);
-		private final Keyword cSingleKeyword_11 = (Keyword)cGroup.eContents().get(11);
-		
-		//Single:
-		//	"<single" ("title" "=" title=EString)? ("description" "=" description=EString)? ("id" "=" id=EString)? ("dependsOn"
-		//	"=" dependsOn=[Answer|EString])? required?="required"? other?="other"? ">" template=[Option|EString]? options+=Option
-		//	options+=Option* "</single>";
-		public ParserRule getRule() { return rule; }
-
-		//"<single" ("title" "=" title=EString)? ("description" "=" description=EString)? ("id" "=" id=EString)? ("dependsOn" "="
-		//dependsOn=[Answer|EString])? required?="required"? other?="other"? ">" template=[Option|EString]? options+=Option
-		//options+=Option* "</single>"
-		public Group getGroup() { return cGroup; }
-
-		//"<single"
-		public Keyword getSingleKeyword_0() { return cSingleKeyword_0; }
-
-		//("title" "=" title=EString)?
-		public Group getGroup_1() { return cGroup_1; }
-
-		//"title"
-		public Keyword getTitleKeyword_1_0() { return cTitleKeyword_1_0; }
-
-		//"="
-		public Keyword getEqualsSignKeyword_1_1() { return cEqualsSignKeyword_1_1; }
-
-		//title=EString
-		public Assignment getTitleAssignment_1_2() { return cTitleAssignment_1_2; }
-
-		//EString
-		public RuleCall getTitleEStringParserRuleCall_1_2_0() { return cTitleEStringParserRuleCall_1_2_0; }
-
-		//("description" "=" description=EString)?
-		public Group getGroup_2() { return cGroup_2; }
-
-		//"description"
-		public Keyword getDescriptionKeyword_2_0() { return cDescriptionKeyword_2_0; }
-
-		//"="
-		public Keyword getEqualsSignKeyword_2_1() { return cEqualsSignKeyword_2_1; }
-
-		//description=EString
-		public Assignment getDescriptionAssignment_2_2() { return cDescriptionAssignment_2_2; }
-
-		//EString
-		public RuleCall getDescriptionEStringParserRuleCall_2_2_0() { return cDescriptionEStringParserRuleCall_2_2_0; }
-
-		//("id" "=" id=EString)?
-		public Group getGroup_3() { return cGroup_3; }
-
-		//"id"
-		public Keyword getIdKeyword_3_0() { return cIdKeyword_3_0; }
-
-		//"="
-		public Keyword getEqualsSignKeyword_3_1() { return cEqualsSignKeyword_3_1; }
-
-		//id=EString
-		public Assignment getIdAssignment_3_2() { return cIdAssignment_3_2; }
-
-		//EString
-		public RuleCall getIdEStringParserRuleCall_3_2_0() { return cIdEStringParserRuleCall_3_2_0; }
-
-		//("dependsOn" "=" dependsOn=[Answer|EString])?
-		public Group getGroup_4() { return cGroup_4; }
-
-		//"dependsOn"
-		public Keyword getDependsOnKeyword_4_0() { return cDependsOnKeyword_4_0; }
-
-		//"="
-		public Keyword getEqualsSignKeyword_4_1() { return cEqualsSignKeyword_4_1; }
-
-		//dependsOn=[Answer|EString]
-		public Assignment getDependsOnAssignment_4_2() { return cDependsOnAssignment_4_2; }
-
-		//[Answer|EString]
-		public CrossReference getDependsOnAnswerCrossReference_4_2_0() { return cDependsOnAnswerCrossReference_4_2_0; }
-
-		//EString
-		public RuleCall getDependsOnAnswerEStringParserRuleCall_4_2_0_1() { return cDependsOnAnswerEStringParserRuleCall_4_2_0_1; }
-
-		//required?="required"?
-		public Assignment getRequiredAssignment_5() { return cRequiredAssignment_5; }
-
-		//"required"
-		public Keyword getRequiredRequiredKeyword_5_0() { return cRequiredRequiredKeyword_5_0; }
-
-		//other?="other"?
-		public Assignment getOtherAssignment_6() { return cOtherAssignment_6; }
-
-		//"other"
-		public Keyword getOtherOtherKeyword_6_0() { return cOtherOtherKeyword_6_0; }
-
-		//">"
-		public Keyword getGreaterThanSignKeyword_7() { return cGreaterThanSignKeyword_7; }
-
-		//template=[Option|EString]?
-		public Assignment getTemplateAssignment_8() { return cTemplateAssignment_8; }
-
-		//[Option|EString]
-		public CrossReference getTemplateOptionCrossReference_8_0() { return cTemplateOptionCrossReference_8_0; }
-
-		//EString
-		public RuleCall getTemplateOptionEStringParserRuleCall_8_0_1() { return cTemplateOptionEStringParserRuleCall_8_0_1; }
-
-		//options+=Option
-		public Assignment getOptionsAssignment_9() { return cOptionsAssignment_9; }
-
-		//Option
-		public RuleCall getOptionsOptionParserRuleCall_9_0() { return cOptionsOptionParserRuleCall_9_0; }
-
-		//options+=Option*
-		public Assignment getOptionsAssignment_10() { return cOptionsAssignment_10; }
-
-		//Option
-		public RuleCall getOptionsOptionParserRuleCall_10_0() { return cOptionsOptionParserRuleCall_10_0; }
-
-		//"</single>"
-		public Keyword getSingleKeyword_11() { return cSingleKeyword_11; }
-	}
-
-	public class MultipleElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Multiple");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cMultipleKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Keyword cTitleKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final Keyword cEqualsSignKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
-		private final Assignment cTitleAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final RuleCall cTitleEStringParserRuleCall_1_2_0 = (RuleCall)cTitleAssignment_1_2.eContents().get(0);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cDescriptionKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Keyword cEqualsSignKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
-		private final Assignment cDescriptionAssignment_2_2 = (Assignment)cGroup_2.eContents().get(2);
-		private final RuleCall cDescriptionEStringParserRuleCall_2_2_0 = (RuleCall)cDescriptionAssignment_2_2.eContents().get(0);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cIdKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Keyword cEqualsSignKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
-		private final Assignment cIdAssignment_3_2 = (Assignment)cGroup_3.eContents().get(2);
-		private final RuleCall cIdEStringParserRuleCall_3_2_0 = (RuleCall)cIdAssignment_3_2.eContents().get(0);
-		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cLowerKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Keyword cEqualsSignKeyword_4_1 = (Keyword)cGroup_4.eContents().get(1);
-		private final Assignment cLowerAssignment_4_2 = (Assignment)cGroup_4.eContents().get(2);
-		private final RuleCall cLowerEIntParserRuleCall_4_2_0 = (RuleCall)cLowerAssignment_4_2.eContents().get(0);
-		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
-		private final Keyword cUpperKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
-		private final Keyword cEqualsSignKeyword_5_1 = (Keyword)cGroup_5.eContents().get(1);
-		private final Assignment cUpperAssignment_5_2 = (Assignment)cGroup_5.eContents().get(2);
-		private final RuleCall cUpperEIntParserRuleCall_5_2_0 = (RuleCall)cUpperAssignment_5_2.eContents().get(0);
-		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
-		private final Keyword cDependsOnKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
-		private final Assignment cDependsOnAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final CrossReference cDependsOnAnswerCrossReference_6_1_0 = (CrossReference)cDependsOnAssignment_6_1.eContents().get(0);
-		private final RuleCall cDependsOnAnswerEStringParserRuleCall_6_1_0_1 = (RuleCall)cDependsOnAnswerCrossReference_6_1_0.eContents().get(1);
-		private final Assignment cRequiredAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final Keyword cRequiredRequiredKeyword_7_0 = (Keyword)cRequiredAssignment_7.eContents().get(0);
-		private final Assignment cOtherAssignment_8 = (Assignment)cGroup.eContents().get(8);
-		private final Keyword cOtherOtherKeyword_8_0 = (Keyword)cOtherAssignment_8.eContents().get(0);
-		private final Assignment cShowLimitsAssignment_9 = (Assignment)cGroup.eContents().get(9);
-		private final Keyword cShowLimitsShowLimitsKeyword_9_0 = (Keyword)cShowLimitsAssignment_9.eContents().get(0);
-		private final Keyword cGreaterThanSignKeyword_10 = (Keyword)cGroup.eContents().get(10);
-		private final Assignment cTemplateAssignment_11 = (Assignment)cGroup.eContents().get(11);
-		private final CrossReference cTemplateOptionCrossReference_11_0 = (CrossReference)cTemplateAssignment_11.eContents().get(0);
-		private final RuleCall cTemplateOptionEStringParserRuleCall_11_0_1 = (RuleCall)cTemplateOptionCrossReference_11_0.eContents().get(1);
-		private final Assignment cOptionsAssignment_12 = (Assignment)cGroup.eContents().get(12);
-		private final RuleCall cOptionsOptionParserRuleCall_12_0 = (RuleCall)cOptionsAssignment_12.eContents().get(0);
-		private final Group cGroup_13 = (Group)cGroup.eContents().get(13);
-		private final Keyword cCommaKeyword_13_0 = (Keyword)cGroup_13.eContents().get(0);
-		private final Assignment cOptionsAssignment_13_1 = (Assignment)cGroup_13.eContents().get(1);
-		private final RuleCall cOptionsOptionParserRuleCall_13_1_0 = (RuleCall)cOptionsAssignment_13_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_14 = (Keyword)cGroup.eContents().get(14);
-		private final Keyword cMultipleKeyword_15 = (Keyword)cGroup.eContents().get(15);
-		
-		//Multiple:
-		//	"<multiple" ("title" "=" title=EString)? ("description" "=" description=EString)? ("id" "=" id=EString)? ("lower" "="
-		//	lower=EInt)? ("upper" "=" upper=EInt)? ("dependsOn" dependsOn=[Answer|EString])? required?="required"? other?="other"?
-		//	showLimits?="showLimits"? ">" template=[Option|EString]? options+=Option ("," options+=Option)* "}" "</multiple>";
-		public ParserRule getRule() { return rule; }
-
-		//"<multiple" ("title" "=" title=EString)? ("description" "=" description=EString)? ("id" "=" id=EString)? ("lower" "="
-		//lower=EInt)? ("upper" "=" upper=EInt)? ("dependsOn" dependsOn=[Answer|EString])? required?="required"? other?="other"?
-		//showLimits?="showLimits"? ">" template=[Option|EString]? options+=Option ("," options+=Option)* "}" "</multiple>"
-		public Group getGroup() { return cGroup; }
-
-		//"<multiple"
-		public Keyword getMultipleKeyword_0() { return cMultipleKeyword_0; }
-
-		//("title" "=" title=EString)?
-		public Group getGroup_1() { return cGroup_1; }
-
-		//"title"
-		public Keyword getTitleKeyword_1_0() { return cTitleKeyword_1_0; }
-
-		//"="
-		public Keyword getEqualsSignKeyword_1_1() { return cEqualsSignKeyword_1_1; }
-
-		//title=EString
-		public Assignment getTitleAssignment_1_2() { return cTitleAssignment_1_2; }
-
-		//EString
-		public RuleCall getTitleEStringParserRuleCall_1_2_0() { return cTitleEStringParserRuleCall_1_2_0; }
-
-		//("description" "=" description=EString)?
-		public Group getGroup_2() { return cGroup_2; }
-
-		//"description"
-		public Keyword getDescriptionKeyword_2_0() { return cDescriptionKeyword_2_0; }
-
-		//"="
-		public Keyword getEqualsSignKeyword_2_1() { return cEqualsSignKeyword_2_1; }
-
-		//description=EString
-		public Assignment getDescriptionAssignment_2_2() { return cDescriptionAssignment_2_2; }
-
-		//EString
-		public RuleCall getDescriptionEStringParserRuleCall_2_2_0() { return cDescriptionEStringParserRuleCall_2_2_0; }
-
-		//("id" "=" id=EString)?
-		public Group getGroup_3() { return cGroup_3; }
-
-		//"id"
-		public Keyword getIdKeyword_3_0() { return cIdKeyword_3_0; }
-
-		//"="
-		public Keyword getEqualsSignKeyword_3_1() { return cEqualsSignKeyword_3_1; }
-
-		//id=EString
-		public Assignment getIdAssignment_3_2() { return cIdAssignment_3_2; }
-
-		//EString
-		public RuleCall getIdEStringParserRuleCall_3_2_0() { return cIdEStringParserRuleCall_3_2_0; }
-
-		//("lower" "=" lower=EInt)?
-		public Group getGroup_4() { return cGroup_4; }
-
-		//"lower"
-		public Keyword getLowerKeyword_4_0() { return cLowerKeyword_4_0; }
-
-		//"="
-		public Keyword getEqualsSignKeyword_4_1() { return cEqualsSignKeyword_4_1; }
-
-		//lower=EInt
-		public Assignment getLowerAssignment_4_2() { return cLowerAssignment_4_2; }
-
-		//EInt
-		public RuleCall getLowerEIntParserRuleCall_4_2_0() { return cLowerEIntParserRuleCall_4_2_0; }
-
-		//("upper" "=" upper=EInt)?
-		public Group getGroup_5() { return cGroup_5; }
-
-		//"upper"
-		public Keyword getUpperKeyword_5_0() { return cUpperKeyword_5_0; }
-
-		//"="
-		public Keyword getEqualsSignKeyword_5_1() { return cEqualsSignKeyword_5_1; }
-
-		//upper=EInt
-		public Assignment getUpperAssignment_5_2() { return cUpperAssignment_5_2; }
-
-		//EInt
-		public RuleCall getUpperEIntParserRuleCall_5_2_0() { return cUpperEIntParserRuleCall_5_2_0; }
-
-		//("dependsOn" dependsOn=[Answer|EString])?
-		public Group getGroup_6() { return cGroup_6; }
-
-		//"dependsOn"
-		public Keyword getDependsOnKeyword_6_0() { return cDependsOnKeyword_6_0; }
-
-		//dependsOn=[Answer|EString]
-		public Assignment getDependsOnAssignment_6_1() { return cDependsOnAssignment_6_1; }
-
-		//[Answer|EString]
-		public CrossReference getDependsOnAnswerCrossReference_6_1_0() { return cDependsOnAnswerCrossReference_6_1_0; }
-
-		//EString
-		public RuleCall getDependsOnAnswerEStringParserRuleCall_6_1_0_1() { return cDependsOnAnswerEStringParserRuleCall_6_1_0_1; }
-
-		//required?="required"?
-		public Assignment getRequiredAssignment_7() { return cRequiredAssignment_7; }
-
-		//"required"
-		public Keyword getRequiredRequiredKeyword_7_0() { return cRequiredRequiredKeyword_7_0; }
-
-		//other?="other"?
-		public Assignment getOtherAssignment_8() { return cOtherAssignment_8; }
-
-		//"other"
-		public Keyword getOtherOtherKeyword_8_0() { return cOtherOtherKeyword_8_0; }
-
-		//showLimits?="showLimits"?
-		public Assignment getShowLimitsAssignment_9() { return cShowLimitsAssignment_9; }
-
-		//"showLimits"
-		public Keyword getShowLimitsShowLimitsKeyword_9_0() { return cShowLimitsShowLimitsKeyword_9_0; }
-
-		//">"
-		public Keyword getGreaterThanSignKeyword_10() { return cGreaterThanSignKeyword_10; }
-
-		//template=[Option|EString]?
-		public Assignment getTemplateAssignment_11() { return cTemplateAssignment_11; }
-
-		//[Option|EString]
-		public CrossReference getTemplateOptionCrossReference_11_0() { return cTemplateOptionCrossReference_11_0; }
-
-		//EString
-		public RuleCall getTemplateOptionEStringParserRuleCall_11_0_1() { return cTemplateOptionEStringParserRuleCall_11_0_1; }
-
-		//options+=Option
-		public Assignment getOptionsAssignment_12() { return cOptionsAssignment_12; }
-
-		//Option
-		public RuleCall getOptionsOptionParserRuleCall_12_0() { return cOptionsOptionParserRuleCall_12_0; }
-
-		//("," options+=Option)*
-		public Group getGroup_13() { return cGroup_13; }
-
-		//","
-		public Keyword getCommaKeyword_13_0() { return cCommaKeyword_13_0; }
-
-		//options+=Option
-		public Assignment getOptionsAssignment_13_1() { return cOptionsAssignment_13_1; }
-
-		//Option
-		public RuleCall getOptionsOptionParserRuleCall_13_1_0() { return cOptionsOptionParserRuleCall_13_1_0; }
-
-		//"}"
-		public Keyword getRightCurlyBracketKeyword_14() { return cRightCurlyBracketKeyword_14; }
-
-		//"</multiple>"
-		public Keyword getMultipleKeyword_15() { return cMultipleKeyword_15; }
+		public Keyword getGroupKeyword_4() { return cGroupKeyword_4; }
 	}
 
 	public class TextElements extends AbstractParserRuleElementFinder {
@@ -871,40 +477,48 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cTextAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cTextKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cTitleKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Keyword cEqualsSignKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
-		private final Assignment cTitleAssignment_2_2 = (Assignment)cGroup_2.eContents().get(2);
-		private final RuleCall cTitleEStringParserRuleCall_2_2_0 = (RuleCall)cTitleAssignment_2_2.eContents().get(0);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cDescriptionKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Keyword cEqualsSignKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
-		private final Assignment cDescriptionAssignment_3_2 = (Assignment)cGroup_3.eContents().get(2);
-		private final RuleCall cDescriptionEStringParserRuleCall_3_2_0 = (RuleCall)cDescriptionAssignment_3_2.eContents().get(0);
-		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cIdKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Keyword cEqualsSignKeyword_4_1 = (Keyword)cGroup_4.eContents().get(1);
-		private final Assignment cIdAssignment_4_2 = (Assignment)cGroup_4.eContents().get(2);
-		private final RuleCall cIdEStringParserRuleCall_4_2_0 = (RuleCall)cIdAssignment_4_2.eContents().get(0);
-		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
-		private final Keyword cDependsOnKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
-		private final Keyword cEqualsSignKeyword_5_1 = (Keyword)cGroup_5.eContents().get(1);
-		private final Assignment cDependsOnAssignment_5_2 = (Assignment)cGroup_5.eContents().get(2);
-		private final CrossReference cDependsOnAnswerCrossReference_5_2_0 = (CrossReference)cDependsOnAssignment_5_2.eContents().get(0);
-		private final RuleCall cDependsOnAnswerEStringParserRuleCall_5_2_0_1 = (RuleCall)cDependsOnAnswerCrossReference_5_2_0.eContents().get(1);
-		private final Assignment cRequiredAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final Keyword cRequiredRequiredKeyword_6_0 = (Keyword)cRequiredAssignment_6.eContents().get(0);
-		private final Assignment cMultilineAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final Keyword cMultilineMultilineKeyword_7_0 = (Keyword)cMultilineAssignment_7.eContents().get(0);
-		private final Keyword cSolidusGreaterThanSignKeyword_8 = (Keyword)cGroup.eContents().get(8);
+		private final UnorderedGroup cUnorderedGroup_2 = (UnorderedGroup)cGroup.eContents().get(2);
+		private final Group cGroup_2_0 = (Group)cUnorderedGroup_2.eContents().get(0);
+		private final Keyword cTitleKeyword_2_0_0 = (Keyword)cGroup_2_0.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_2_0_1 = (Keyword)cGroup_2_0.eContents().get(1);
+		private final Assignment cTitleAssignment_2_0_2 = (Assignment)cGroup_2_0.eContents().get(2);
+		private final RuleCall cTitleSTRINGTerminalRuleCall_2_0_2_0 = (RuleCall)cTitleAssignment_2_0_2.eContents().get(0);
+		private final Group cGroup_2_1 = (Group)cUnorderedGroup_2.eContents().get(1);
+		private final Keyword cDescriptionKeyword_2_1_0 = (Keyword)cGroup_2_1.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_2_1_1 = (Keyword)cGroup_2_1.eContents().get(1);
+		private final Assignment cDescriptionAssignment_2_1_2 = (Assignment)cGroup_2_1.eContents().get(2);
+		private final RuleCall cDescriptionSTRINGTerminalRuleCall_2_1_2_0 = (RuleCall)cDescriptionAssignment_2_1_2.eContents().get(0);
+		private final Group cGroup_2_2 = (Group)cUnorderedGroup_2.eContents().get(2);
+		private final Keyword cIdKeyword_2_2_0 = (Keyword)cGroup_2_2.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_2_2_1 = (Keyword)cGroup_2_2.eContents().get(1);
+		private final Assignment cIdAssignment_2_2_2 = (Assignment)cGroup_2_2.eContents().get(2);
+		private final RuleCall cIdSTRINGTerminalRuleCall_2_2_2_0 = (RuleCall)cIdAssignment_2_2_2.eContents().get(0);
+		private final Group cGroup_2_3 = (Group)cUnorderedGroup_2.eContents().get(3);
+		private final Keyword cDependsOnKeyword_2_3_0 = (Keyword)cGroup_2_3.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_2_3_1 = (Keyword)cGroup_2_3.eContents().get(1);
+		private final Assignment cDependsOnAssignment_2_3_2 = (Assignment)cGroup_2_3.eContents().get(2);
+		private final CrossReference cDependsOnAnswerCrossReference_2_3_2_0 = (CrossReference)cDependsOnAssignment_2_3_2.eContents().get(0);
+		private final RuleCall cDependsOnAnswerEStringParserRuleCall_2_3_2_0_1 = (RuleCall)cDependsOnAnswerCrossReference_2_3_2_0.eContents().get(1);
+		private final Assignment cRequiredAssignment_2_4 = (Assignment)cUnorderedGroup_2.eContents().get(4);
+		private final Keyword cRequiredRequiredKeyword_2_4_0 = (Keyword)cRequiredAssignment_2_4.eContents().get(0);
+		private final Alternatives cAlternatives_2_5 = (Alternatives)cUnorderedGroup_2.eContents().get(5);
+		private final Keyword cSinglelineKeyword_2_5_0 = (Keyword)cAlternatives_2_5.eContents().get(0);
+		private final Keyword cSingleKeyword_2_5_1 = (Keyword)cAlternatives_2_5.eContents().get(1);
+		private final Assignment cMultilineAssignment_2_5_2 = (Assignment)cAlternatives_2_5.eContents().get(2);
+		private final Alternatives cMultilineAlternatives_2_5_2_0 = (Alternatives)cMultilineAssignment_2_5_2.eContents().get(0);
+		private final Keyword cMultilineMultiKeyword_2_5_2_0_0 = (Keyword)cMultilineAlternatives_2_5_2_0.eContents().get(0);
+		private final Keyword cMultilineMultilineKeyword_2_5_2_0_1 = (Keyword)cMultilineAlternatives_2_5_2_0.eContents().get(1);
+		private final Keyword cSolidusGreaterThanSignKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//Text:
-		//	{Text} "<text" ("title" "=" title=EString)? ("description" "=" description=EString)? ("id" "=" id=EString)?
-		//	("dependsOn" "=" dependsOn=[Answer|EString])? required?="required"? multiline?="multiline"? "/>";
+		//	{Text} "<text" ("title" "=" title=STRING & ("description" "=" description=STRING)? & ("id" "=" id=STRING)? &
+		//	("dependsOn" "=" dependsOn=[Answer|EString])? & required?="required"? & ("singleline" | "single" | multiline?=("multi"
+		//	| "multiline"))?) "/>";
 		public ParserRule getRule() { return rule; }
 
-		//{Text} "<text" ("title" "=" title=EString)? ("description" "=" description=EString)? ("id" "=" id=EString)? ("dependsOn"
-		//"=" dependsOn=[Answer|EString])? required?="required"? multiline?="multiline"? "/>"
+		//{Text} "<text" ("title" "=" title=STRING & ("description" "=" description=STRING)? & ("id" "=" id=STRING)? &
+		//("dependsOn" "=" dependsOn=[Answer|EString])? & required?="required"? & ("singleline" | "single" | multiline?=("multi"
+		//| "multiline"))?) "/>"
 		public Group getGroup() { return cGroup; }
 
 		//{Text}
@@ -913,83 +527,307 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//"<text"
 		public Keyword getTextKeyword_1() { return cTextKeyword_1; }
 
-		//("title" "=" title=EString)?
-		public Group getGroup_2() { return cGroup_2; }
+		//"title" "=" title=STRING & ("description" "=" description=STRING)? & ("id" "=" id=STRING)? & ("dependsOn" "="
+		//dependsOn=[Answer|EString])? & required?="required"? & ("singleline" | "single" | multiline?=("multi" | "multiline"))?
+		public UnorderedGroup getUnorderedGroup_2() { return cUnorderedGroup_2; }
+
+		//"title" "=" title=STRING
+		public Group getGroup_2_0() { return cGroup_2_0; }
 
 		//"title"
-		public Keyword getTitleKeyword_2_0() { return cTitleKeyword_2_0; }
+		public Keyword getTitleKeyword_2_0_0() { return cTitleKeyword_2_0_0; }
 
 		//"="
-		public Keyword getEqualsSignKeyword_2_1() { return cEqualsSignKeyword_2_1; }
+		public Keyword getEqualsSignKeyword_2_0_1() { return cEqualsSignKeyword_2_0_1; }
 
-		//title=EString
-		public Assignment getTitleAssignment_2_2() { return cTitleAssignment_2_2; }
+		//title=STRING
+		public Assignment getTitleAssignment_2_0_2() { return cTitleAssignment_2_0_2; }
 
-		//EString
-		public RuleCall getTitleEStringParserRuleCall_2_2_0() { return cTitleEStringParserRuleCall_2_2_0; }
+		//STRING
+		public RuleCall getTitleSTRINGTerminalRuleCall_2_0_2_0() { return cTitleSTRINGTerminalRuleCall_2_0_2_0; }
 
-		//("description" "=" description=EString)?
-		public Group getGroup_3() { return cGroup_3; }
+		//("description" "=" description=STRING)?
+		public Group getGroup_2_1() { return cGroup_2_1; }
 
 		//"description"
-		public Keyword getDescriptionKeyword_3_0() { return cDescriptionKeyword_3_0; }
+		public Keyword getDescriptionKeyword_2_1_0() { return cDescriptionKeyword_2_1_0; }
 
 		//"="
-		public Keyword getEqualsSignKeyword_3_1() { return cEqualsSignKeyword_3_1; }
+		public Keyword getEqualsSignKeyword_2_1_1() { return cEqualsSignKeyword_2_1_1; }
 
-		//description=EString
-		public Assignment getDescriptionAssignment_3_2() { return cDescriptionAssignment_3_2; }
+		//description=STRING
+		public Assignment getDescriptionAssignment_2_1_2() { return cDescriptionAssignment_2_1_2; }
 
-		//EString
-		public RuleCall getDescriptionEStringParserRuleCall_3_2_0() { return cDescriptionEStringParserRuleCall_3_2_0; }
+		//STRING
+		public RuleCall getDescriptionSTRINGTerminalRuleCall_2_1_2_0() { return cDescriptionSTRINGTerminalRuleCall_2_1_2_0; }
 
-		//("id" "=" id=EString)?
-		public Group getGroup_4() { return cGroup_4; }
+		//("id" "=" id=STRING)?
+		public Group getGroup_2_2() { return cGroup_2_2; }
 
 		//"id"
-		public Keyword getIdKeyword_4_0() { return cIdKeyword_4_0; }
+		public Keyword getIdKeyword_2_2_0() { return cIdKeyword_2_2_0; }
 
 		//"="
-		public Keyword getEqualsSignKeyword_4_1() { return cEqualsSignKeyword_4_1; }
+		public Keyword getEqualsSignKeyword_2_2_1() { return cEqualsSignKeyword_2_2_1; }
 
-		//id=EString
-		public Assignment getIdAssignment_4_2() { return cIdAssignment_4_2; }
+		//id=STRING
+		public Assignment getIdAssignment_2_2_2() { return cIdAssignment_2_2_2; }
 
-		//EString
-		public RuleCall getIdEStringParserRuleCall_4_2_0() { return cIdEStringParserRuleCall_4_2_0; }
+		//STRING
+		public RuleCall getIdSTRINGTerminalRuleCall_2_2_2_0() { return cIdSTRINGTerminalRuleCall_2_2_2_0; }
 
 		//("dependsOn" "=" dependsOn=[Answer|EString])?
-		public Group getGroup_5() { return cGroup_5; }
+		public Group getGroup_2_3() { return cGroup_2_3; }
 
 		//"dependsOn"
-		public Keyword getDependsOnKeyword_5_0() { return cDependsOnKeyword_5_0; }
+		public Keyword getDependsOnKeyword_2_3_0() { return cDependsOnKeyword_2_3_0; }
 
 		//"="
-		public Keyword getEqualsSignKeyword_5_1() { return cEqualsSignKeyword_5_1; }
+		public Keyword getEqualsSignKeyword_2_3_1() { return cEqualsSignKeyword_2_3_1; }
 
 		//dependsOn=[Answer|EString]
-		public Assignment getDependsOnAssignment_5_2() { return cDependsOnAssignment_5_2; }
+		public Assignment getDependsOnAssignment_2_3_2() { return cDependsOnAssignment_2_3_2; }
 
 		//[Answer|EString]
-		public CrossReference getDependsOnAnswerCrossReference_5_2_0() { return cDependsOnAnswerCrossReference_5_2_0; }
+		public CrossReference getDependsOnAnswerCrossReference_2_3_2_0() { return cDependsOnAnswerCrossReference_2_3_2_0; }
 
 		//EString
-		public RuleCall getDependsOnAnswerEStringParserRuleCall_5_2_0_1() { return cDependsOnAnswerEStringParserRuleCall_5_2_0_1; }
+		public RuleCall getDependsOnAnswerEStringParserRuleCall_2_3_2_0_1() { return cDependsOnAnswerEStringParserRuleCall_2_3_2_0_1; }
 
 		//required?="required"?
-		public Assignment getRequiredAssignment_6() { return cRequiredAssignment_6; }
+		public Assignment getRequiredAssignment_2_4() { return cRequiredAssignment_2_4; }
 
 		//"required"
-		public Keyword getRequiredRequiredKeyword_6_0() { return cRequiredRequiredKeyword_6_0; }
+		public Keyword getRequiredRequiredKeyword_2_4_0() { return cRequiredRequiredKeyword_2_4_0; }
 
-		//multiline?="multiline"?
-		public Assignment getMultilineAssignment_7() { return cMultilineAssignment_7; }
+		//("singleline" | "single" | multiline?=("multi" | "multiline"))?
+		public Alternatives getAlternatives_2_5() { return cAlternatives_2_5; }
+
+		//"singleline"
+		public Keyword getSinglelineKeyword_2_5_0() { return cSinglelineKeyword_2_5_0; }
+
+		//"single"
+		public Keyword getSingleKeyword_2_5_1() { return cSingleKeyword_2_5_1; }
+
+		//multiline?=("multi" | "multiline")
+		public Assignment getMultilineAssignment_2_5_2() { return cMultilineAssignment_2_5_2; }
+
+		//"multi" | "multiline"
+		public Alternatives getMultilineAlternatives_2_5_2_0() { return cMultilineAlternatives_2_5_2_0; }
+
+		//"multi"
+		public Keyword getMultilineMultiKeyword_2_5_2_0_0() { return cMultilineMultiKeyword_2_5_2_0_0; }
 
 		//"multiline"
-		public Keyword getMultilineMultilineKeyword_7_0() { return cMultilineMultilineKeyword_7_0; }
+		public Keyword getMultilineMultilineKeyword_2_5_2_0_1() { return cMultilineMultilineKeyword_2_5_2_0_1; }
 
 		//"/>"
-		public Keyword getSolidusGreaterThanSignKeyword_8() { return cSolidusGreaterThanSignKeyword_8; }
+		public Keyword getSolidusGreaterThanSignKeyword_3() { return cSolidusGreaterThanSignKeyword_3; }
+	}
+
+	public class ScaleElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Scale");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cScaleKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final UnorderedGroup cUnorderedGroup_1 = (UnorderedGroup)cGroup.eContents().get(1);
+		private final Group cGroup_1_0 = (Group)cUnorderedGroup_1.eContents().get(0);
+		private final Keyword cTitleKeyword_1_0_0 = (Keyword)cGroup_1_0.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_1_0_1 = (Keyword)cGroup_1_0.eContents().get(1);
+		private final Assignment cTitleAssignment_1_0_2 = (Assignment)cGroup_1_0.eContents().get(2);
+		private final RuleCall cTitleSTRINGTerminalRuleCall_1_0_2_0 = (RuleCall)cTitleAssignment_1_0_2.eContents().get(0);
+		private final Group cGroup_1_1 = (Group)cUnorderedGroup_1.eContents().get(1);
+		private final Keyword cDescriptionKeyword_1_1_0 = (Keyword)cGroup_1_1.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_1_1_1 = (Keyword)cGroup_1_1.eContents().get(1);
+		private final Assignment cDescriptionAssignment_1_1_2 = (Assignment)cGroup_1_1.eContents().get(2);
+		private final RuleCall cDescriptionSTRINGTerminalRuleCall_1_1_2_0 = (RuleCall)cDescriptionAssignment_1_1_2.eContents().get(0);
+		private final Group cGroup_1_2 = (Group)cUnorderedGroup_1.eContents().get(2);
+		private final Keyword cIdKeyword_1_2_0 = (Keyword)cGroup_1_2.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_1_2_1 = (Keyword)cGroup_1_2.eContents().get(1);
+		private final Assignment cIdAssignment_1_2_2 = (Assignment)cGroup_1_2.eContents().get(2);
+		private final RuleCall cIdSTRINGTerminalRuleCall_1_2_2_0 = (RuleCall)cIdAssignment_1_2_2.eContents().get(0);
+		private final Group cGroup_1_3 = (Group)cUnorderedGroup_1.eContents().get(3);
+		private final Keyword cLowerKeyword_1_3_0 = (Keyword)cGroup_1_3.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_1_3_1 = (Keyword)cGroup_1_3.eContents().get(1);
+		private final Assignment cLowerAssignment_1_3_2 = (Assignment)cGroup_1_3.eContents().get(2);
+		private final RuleCall cLowerEIntParserRuleCall_1_3_2_0 = (RuleCall)cLowerAssignment_1_3_2.eContents().get(0);
+		private final Group cGroup_1_4 = (Group)cUnorderedGroup_1.eContents().get(4);
+		private final Keyword cUpperKeyword_1_4_0 = (Keyword)cGroup_1_4.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_1_4_1 = (Keyword)cGroup_1_4.eContents().get(1);
+		private final Assignment cUpperAssignment_1_4_2 = (Assignment)cGroup_1_4.eContents().get(2);
+		private final RuleCall cUpperEIntParserRuleCall_1_4_2_0 = (RuleCall)cUpperAssignment_1_4_2.eContents().get(0);
+		private final Group cGroup_1_5 = (Group)cUnorderedGroup_1.eContents().get(5);
+		private final Keyword cLowerLabelKeyword_1_5_0 = (Keyword)cGroup_1_5.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_1_5_1 = (Keyword)cGroup_1_5.eContents().get(1);
+		private final Assignment cLowerLabelAssignment_1_5_2 = (Assignment)cGroup_1_5.eContents().get(2);
+		private final RuleCall cLowerLabelEStringParserRuleCall_1_5_2_0 = (RuleCall)cLowerLabelAssignment_1_5_2.eContents().get(0);
+		private final Group cGroup_1_6 = (Group)cUnorderedGroup_1.eContents().get(6);
+		private final Keyword cUpperLabelKeyword_1_6_0 = (Keyword)cGroup_1_6.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_1_6_1 = (Keyword)cGroup_1_6.eContents().get(1);
+		private final Assignment cUpperLabelAssignment_1_6_2 = (Assignment)cGroup_1_6.eContents().get(2);
+		private final RuleCall cUpperLabelEStringParserRuleCall_1_6_2_0 = (RuleCall)cUpperLabelAssignment_1_6_2.eContents().get(0);
+		private final Group cGroup_1_7 = (Group)cUnorderedGroup_1.eContents().get(7);
+		private final Keyword cDependsOnKeyword_1_7_0 = (Keyword)cGroup_1_7.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_1_7_1 = (Keyword)cGroup_1_7.eContents().get(1);
+		private final Assignment cDependsOnAssignment_1_7_2 = (Assignment)cGroup_1_7.eContents().get(2);
+		private final CrossReference cDependsOnAnswerCrossReference_1_7_2_0 = (CrossReference)cDependsOnAssignment_1_7_2.eContents().get(0);
+		private final RuleCall cDependsOnAnswerEStringParserRuleCall_1_7_2_0_1 = (RuleCall)cDependsOnAnswerCrossReference_1_7_2_0.eContents().get(1);
+		private final Assignment cRequiredAssignment_1_8 = (Assignment)cUnorderedGroup_1.eContents().get(8);
+		private final Keyword cRequiredRequiredKeyword_1_8_0 = (Keyword)cRequiredAssignment_1_8.eContents().get(0);
+		private final Keyword cSolidusGreaterThanSignKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		
+		//Scale:
+		//	"<scale" ("title" "=" title=STRING // TODO: Force that if one label is set, both should be
+		//	& ("description" "=" description=STRING)? & ("id" "=" id=STRING)? & "lower" "=" lower=EInt & "upper" "=" upper=EInt &
+		//	("lowerLabel" "=" lowerLabel=EString)? & ("upperLabel" "=" upperLabel=EString)? & ("dependsOn" "="
+		//	dependsOn=[Answer|EString])? & required?="required"?) "/>";
+		public ParserRule getRule() { return rule; }
+
+		//"<scale" ("title" "=" title=STRING // TODO: Force that if one label is set, both should be
+		//& ("description" "=" description=STRING)? & ("id" "=" id=STRING)? & "lower" "=" lower=EInt & "upper" "=" upper=EInt &
+		//("lowerLabel" "=" lowerLabel=EString)? & ("upperLabel" "=" upperLabel=EString)? & ("dependsOn" "="
+		//dependsOn=[Answer|EString])? & required?="required"?) "/>"
+		public Group getGroup() { return cGroup; }
+
+		//"<scale"
+		public Keyword getScaleKeyword_0() { return cScaleKeyword_0; }
+
+		//"title" "=" title=STRING // TODO: Force that if one label is set, both should be
+		//& ("description" "=" description=STRING)? & ("id" "=" id=STRING)? & "lower" "=" lower=EInt & "upper" "=" upper=EInt &
+		//("lowerLabel" "=" lowerLabel=EString)? & ("upperLabel" "=" upperLabel=EString)? & ("dependsOn" "="
+		//dependsOn=[Answer|EString])? & required?="required"?
+		public UnorderedGroup getUnorderedGroup_1() { return cUnorderedGroup_1; }
+
+		//"title" "=" title=STRING
+		public Group getGroup_1_0() { return cGroup_1_0; }
+
+		//"title"
+		public Keyword getTitleKeyword_1_0_0() { return cTitleKeyword_1_0_0; }
+
+		//"="
+		public Keyword getEqualsSignKeyword_1_0_1() { return cEqualsSignKeyword_1_0_1; }
+
+		//title=STRING
+		public Assignment getTitleAssignment_1_0_2() { return cTitleAssignment_1_0_2; }
+
+		//STRING
+		public RuleCall getTitleSTRINGTerminalRuleCall_1_0_2_0() { return cTitleSTRINGTerminalRuleCall_1_0_2_0; }
+
+		//("description" "=" description=STRING)?
+		public Group getGroup_1_1() { return cGroup_1_1; }
+
+		//"description"
+		public Keyword getDescriptionKeyword_1_1_0() { return cDescriptionKeyword_1_1_0; }
+
+		//"="
+		public Keyword getEqualsSignKeyword_1_1_1() { return cEqualsSignKeyword_1_1_1; }
+
+		//description=STRING
+		public Assignment getDescriptionAssignment_1_1_2() { return cDescriptionAssignment_1_1_2; }
+
+		//STRING
+		public RuleCall getDescriptionSTRINGTerminalRuleCall_1_1_2_0() { return cDescriptionSTRINGTerminalRuleCall_1_1_2_0; }
+
+		//("id" "=" id=STRING)?
+		public Group getGroup_1_2() { return cGroup_1_2; }
+
+		//"id"
+		public Keyword getIdKeyword_1_2_0() { return cIdKeyword_1_2_0; }
+
+		//"="
+		public Keyword getEqualsSignKeyword_1_2_1() { return cEqualsSignKeyword_1_2_1; }
+
+		//id=STRING
+		public Assignment getIdAssignment_1_2_2() { return cIdAssignment_1_2_2; }
+
+		//STRING
+		public RuleCall getIdSTRINGTerminalRuleCall_1_2_2_0() { return cIdSTRINGTerminalRuleCall_1_2_2_0; }
+
+		//"lower" "=" lower=EInt
+		public Group getGroup_1_3() { return cGroup_1_3; }
+
+		//"lower"
+		public Keyword getLowerKeyword_1_3_0() { return cLowerKeyword_1_3_0; }
+
+		//"="
+		public Keyword getEqualsSignKeyword_1_3_1() { return cEqualsSignKeyword_1_3_1; }
+
+		//lower=EInt
+		public Assignment getLowerAssignment_1_3_2() { return cLowerAssignment_1_3_2; }
+
+		//EInt
+		public RuleCall getLowerEIntParserRuleCall_1_3_2_0() { return cLowerEIntParserRuleCall_1_3_2_0; }
+
+		//"upper" "=" upper=EInt
+		public Group getGroup_1_4() { return cGroup_1_4; }
+
+		//"upper"
+		public Keyword getUpperKeyword_1_4_0() { return cUpperKeyword_1_4_0; }
+
+		//"="
+		public Keyword getEqualsSignKeyword_1_4_1() { return cEqualsSignKeyword_1_4_1; }
+
+		//upper=EInt
+		public Assignment getUpperAssignment_1_4_2() { return cUpperAssignment_1_4_2; }
+
+		//EInt
+		public RuleCall getUpperEIntParserRuleCall_1_4_2_0() { return cUpperEIntParserRuleCall_1_4_2_0; }
+
+		//("lowerLabel" "=" lowerLabel=EString)?
+		public Group getGroup_1_5() { return cGroup_1_5; }
+
+		//"lowerLabel"
+		public Keyword getLowerLabelKeyword_1_5_0() { return cLowerLabelKeyword_1_5_0; }
+
+		//"="
+		public Keyword getEqualsSignKeyword_1_5_1() { return cEqualsSignKeyword_1_5_1; }
+
+		//lowerLabel=EString
+		public Assignment getLowerLabelAssignment_1_5_2() { return cLowerLabelAssignment_1_5_2; }
+
+		//EString
+		public RuleCall getLowerLabelEStringParserRuleCall_1_5_2_0() { return cLowerLabelEStringParserRuleCall_1_5_2_0; }
+
+		//("upperLabel" "=" upperLabel=EString)?
+		public Group getGroup_1_6() { return cGroup_1_6; }
+
+		//"upperLabel"
+		public Keyword getUpperLabelKeyword_1_6_0() { return cUpperLabelKeyword_1_6_0; }
+
+		//"="
+		public Keyword getEqualsSignKeyword_1_6_1() { return cEqualsSignKeyword_1_6_1; }
+
+		//upperLabel=EString
+		public Assignment getUpperLabelAssignment_1_6_2() { return cUpperLabelAssignment_1_6_2; }
+
+		//EString
+		public RuleCall getUpperLabelEStringParserRuleCall_1_6_2_0() { return cUpperLabelEStringParserRuleCall_1_6_2_0; }
+
+		//("dependsOn" "=" dependsOn=[Answer|EString])?
+		public Group getGroup_1_7() { return cGroup_1_7; }
+
+		//"dependsOn"
+		public Keyword getDependsOnKeyword_1_7_0() { return cDependsOnKeyword_1_7_0; }
+
+		//"="
+		public Keyword getEqualsSignKeyword_1_7_1() { return cEqualsSignKeyword_1_7_1; }
+
+		//dependsOn=[Answer|EString]
+		public Assignment getDependsOnAssignment_1_7_2() { return cDependsOnAssignment_1_7_2; }
+
+		//[Answer|EString]
+		public CrossReference getDependsOnAnswerCrossReference_1_7_2_0() { return cDependsOnAnswerCrossReference_1_7_2_0; }
+
+		//EString
+		public RuleCall getDependsOnAnswerEStringParserRuleCall_1_7_2_0_1() { return cDependsOnAnswerEStringParserRuleCall_1_7_2_0_1; }
+
+		//required?="required"?
+		public Assignment getRequiredAssignment_1_8() { return cRequiredAssignment_1_8; }
+
+		//"required"
+		public Keyword getRequiredRequiredKeyword_1_8_0() { return cRequiredRequiredKeyword_1_8_0; }
+
+		//"/>"
+		public Keyword getSolidusGreaterThanSignKeyword_2() { return cSolidusGreaterThanSignKeyword_2; }
 	}
 
 	public class DateElements extends AbstractParserRuleElementFinder {
@@ -997,56 +835,59 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cDateAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cDateKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cTitleKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Keyword cEqualsSignKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
-		private final Assignment cTitleAssignment_2_2 = (Assignment)cGroup_2.eContents().get(2);
-		private final RuleCall cTitleEStringParserRuleCall_2_2_0 = (RuleCall)cTitleAssignment_2_2.eContents().get(0);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cDescriptionKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Keyword cEqualsSignKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
-		private final Assignment cDescriptionAssignment_3_2 = (Assignment)cGroup_3.eContents().get(2);
-		private final RuleCall cDescriptionEStringParserRuleCall_3_2_0 = (RuleCall)cDescriptionAssignment_3_2.eContents().get(0);
-		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cIdKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Keyword cEqualsSignKeyword_4_1 = (Keyword)cGroup_4.eContents().get(1);
-		private final Assignment cIdAssignment_4_2 = (Assignment)cGroup_4.eContents().get(2);
-		private final RuleCall cIdEStringParserRuleCall_4_2_0 = (RuleCall)cIdAssignment_4_2.eContents().get(0);
-		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
-		private final Keyword cFromKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
-		private final Keyword cEqualsSignKeyword_5_1 = (Keyword)cGroup_5.eContents().get(1);
-		private final Assignment cFromAssignment_5_2 = (Assignment)cGroup_5.eContents().get(2);
-		private final RuleCall cFromEStringParserRuleCall_5_2_0 = (RuleCall)cFromAssignment_5_2.eContents().get(0);
-		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
-		private final Keyword cToKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
-		private final Keyword cEqualsSignKeyword_6_1 = (Keyword)cGroup_6.eContents().get(1);
-		private final Assignment cToAssignment_6_2 = (Assignment)cGroup_6.eContents().get(2);
-		private final RuleCall cToEStringParserRuleCall_6_2_0 = (RuleCall)cToAssignment_6_2.eContents().get(0);
-		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
-		private final Keyword cDependsOnKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
-		private final Keyword cEqualsSignKeyword_7_1 = (Keyword)cGroup_7.eContents().get(1);
-		private final Assignment cDependsOnAssignment_7_2 = (Assignment)cGroup_7.eContents().get(2);
-		private final CrossReference cDependsOnAnswerCrossReference_7_2_0 = (CrossReference)cDependsOnAssignment_7_2.eContents().get(0);
-		private final RuleCall cDependsOnAnswerEStringParserRuleCall_7_2_0_1 = (RuleCall)cDependsOnAnswerCrossReference_7_2_0.eContents().get(1);
-		private final Assignment cRequiredAssignment_8 = (Assignment)cGroup.eContents().get(8);
-		private final Keyword cRequiredRequiredKeyword_8_0 = (Keyword)cRequiredAssignment_8.eContents().get(0);
-		private final Assignment cDayAssignment_9 = (Assignment)cGroup.eContents().get(9);
-		private final Keyword cDayDayKeyword_9_0 = (Keyword)cDayAssignment_9.eContents().get(0);
-		private final Assignment cMonthAssignment_10 = (Assignment)cGroup.eContents().get(10);
-		private final Keyword cMonthMonthKeyword_10_0 = (Keyword)cMonthAssignment_10.eContents().get(0);
-		private final Assignment cYearAssignment_11 = (Assignment)cGroup.eContents().get(11);
-		private final Keyword cYearYearKeyword_11_0 = (Keyword)cYearAssignment_11.eContents().get(0);
-		private final Keyword cSolidusGreaterThanSignKeyword_12 = (Keyword)cGroup.eContents().get(12);
+		private final UnorderedGroup cUnorderedGroup_2 = (UnorderedGroup)cGroup.eContents().get(2);
+		private final Group cGroup_2_0 = (Group)cUnorderedGroup_2.eContents().get(0);
+		private final Keyword cTitleKeyword_2_0_0 = (Keyword)cGroup_2_0.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_2_0_1 = (Keyword)cGroup_2_0.eContents().get(1);
+		private final Assignment cTitleAssignment_2_0_2 = (Assignment)cGroup_2_0.eContents().get(2);
+		private final RuleCall cTitleSTRINGTerminalRuleCall_2_0_2_0 = (RuleCall)cTitleAssignment_2_0_2.eContents().get(0);
+		private final Group cGroup_2_1 = (Group)cUnorderedGroup_2.eContents().get(1);
+		private final Keyword cDescriptionKeyword_2_1_0 = (Keyword)cGroup_2_1.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_2_1_1 = (Keyword)cGroup_2_1.eContents().get(1);
+		private final Assignment cDescriptionAssignment_2_1_2 = (Assignment)cGroup_2_1.eContents().get(2);
+		private final RuleCall cDescriptionSTRINGTerminalRuleCall_2_1_2_0 = (RuleCall)cDescriptionAssignment_2_1_2.eContents().get(0);
+		private final Group cGroup_2_2 = (Group)cUnorderedGroup_2.eContents().get(2);
+		private final Keyword cIdKeyword_2_2_0 = (Keyword)cGroup_2_2.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_2_2_1 = (Keyword)cGroup_2_2.eContents().get(1);
+		private final Assignment cIdAssignment_2_2_2 = (Assignment)cGroup_2_2.eContents().get(2);
+		private final RuleCall cIdSTRINGTerminalRuleCall_2_2_2_0 = (RuleCall)cIdAssignment_2_2_2.eContents().get(0);
+		private final Group cGroup_2_3 = (Group)cUnorderedGroup_2.eContents().get(3);
+		private final Keyword cFromKeyword_2_3_0 = (Keyword)cGroup_2_3.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_2_3_1 = (Keyword)cGroup_2_3.eContents().get(1);
+		private final Assignment cFromAssignment_2_3_2 = (Assignment)cGroup_2_3.eContents().get(2);
+		private final RuleCall cFromEStringParserRuleCall_2_3_2_0 = (RuleCall)cFromAssignment_2_3_2.eContents().get(0);
+		private final Group cGroup_2_4 = (Group)cUnorderedGroup_2.eContents().get(4);
+		private final Keyword cToKeyword_2_4_0 = (Keyword)cGroup_2_4.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_2_4_1 = (Keyword)cGroup_2_4.eContents().get(1);
+		private final Assignment cToAssignment_2_4_2 = (Assignment)cGroup_2_4.eContents().get(2);
+		private final RuleCall cToEStringParserRuleCall_2_4_2_0 = (RuleCall)cToAssignment_2_4_2.eContents().get(0);
+		private final Group cGroup_2_5 = (Group)cUnorderedGroup_2.eContents().get(5);
+		private final Keyword cDependsOnKeyword_2_5_0 = (Keyword)cGroup_2_5.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_2_5_1 = (Keyword)cGroup_2_5.eContents().get(1);
+		private final Assignment cDependsOnAssignment_2_5_2 = (Assignment)cGroup_2_5.eContents().get(2);
+		private final CrossReference cDependsOnAnswerCrossReference_2_5_2_0 = (CrossReference)cDependsOnAssignment_2_5_2.eContents().get(0);
+		private final RuleCall cDependsOnAnswerEStringParserRuleCall_2_5_2_0_1 = (RuleCall)cDependsOnAnswerCrossReference_2_5_2_0.eContents().get(1);
+		private final Assignment cShowLimitsAssignment_2_6 = (Assignment)cUnorderedGroup_2.eContents().get(6);
+		private final Keyword cShowLimitsShowLimitsKeyword_2_6_0 = (Keyword)cShowLimitsAssignment_2_6.eContents().get(0);
+		private final Assignment cRequiredAssignment_2_7 = (Assignment)cUnorderedGroup_2.eContents().get(7);
+		private final Keyword cRequiredRequiredKeyword_2_7_0 = (Keyword)cRequiredAssignment_2_7.eContents().get(0);
+		private final Assignment cDayAssignment_2_8 = (Assignment)cUnorderedGroup_2.eContents().get(8);
+		private final Keyword cDayDayKeyword_2_8_0 = (Keyword)cDayAssignment_2_8.eContents().get(0);
+		private final Assignment cMonthAssignment_2_9 = (Assignment)cUnorderedGroup_2.eContents().get(9);
+		private final Keyword cMonthMonthKeyword_2_9_0 = (Keyword)cMonthAssignment_2_9.eContents().get(0);
+		private final Assignment cYearAssignment_2_10 = (Assignment)cUnorderedGroup_2.eContents().get(10);
+		private final Keyword cYearYearKeyword_2_10_0 = (Keyword)cYearAssignment_2_10.eContents().get(0);
+		private final Keyword cSolidusGreaterThanSignKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//Date:
-		//	{Date} "<date" ("title" "=" title=EString)? ("description" "=" description=EString)? ("id" "=" id=EString)? ("from"
-		//	"=" from=EString)? ("to" "=" to=EString)? ("dependsOn" "=" dependsOn=[Answer|EString])? required?="required"?
-		//	day?="day"? month?="month"? year?="year"? "/>";
+		//	{Date} "<date" ("title" "=" title=STRING & ("description" "=" description=STRING)? & ("id" "=" id=STRING)? & ("from"
+		//	"=" from=EString)? & ("to" "=" to=EString)? & ("dependsOn" "=" dependsOn=[Answer|EString])? &
+		//	showLimits?="showLimits"? & required?="required"? & day?="day"? & month?="month"? & year?="year"?) "/>";
 		public ParserRule getRule() { return rule; }
 
-		//{Date} "<date" ("title" "=" title=EString)? ("description" "=" description=EString)? ("id" "=" id=EString)? ("from" "="
-		//from=EString)? ("to" "=" to=EString)? ("dependsOn" "=" dependsOn=[Answer|EString])? required?="required"? day?="day"?
-		//month?="month"? year?="year"? "/>"
+		//{Date} "<date" ("title" "=" title=STRING & ("description" "=" description=STRING)? & ("id" "=" id=STRING)? & ("from" "="
+		//from=EString)? & ("to" "=" to=EString)? & ("dependsOn" "=" dependsOn=[Answer|EString])? & showLimits?="showLimits"? &
+		//required?="required"? & day?="day"? & month?="month"? & year?="year"?) "/>"
 		public Group getGroup() { return cGroup; }
 
 		//{Date}
@@ -1055,125 +896,136 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//"<date"
 		public Keyword getDateKeyword_1() { return cDateKeyword_1; }
 
-		//("title" "=" title=EString)?
-		public Group getGroup_2() { return cGroup_2; }
+		//"title" "=" title=STRING & ("description" "=" description=STRING)? & ("id" "=" id=STRING)? & ("from" "=" from=EString)?
+		//& ("to" "=" to=EString)? & ("dependsOn" "=" dependsOn=[Answer|EString])? & showLimits?="showLimits"? &
+		//required?="required"? & day?="day"? & month?="month"? & year?="year"?
+		public UnorderedGroup getUnorderedGroup_2() { return cUnorderedGroup_2; }
+
+		//"title" "=" title=STRING
+		public Group getGroup_2_0() { return cGroup_2_0; }
 
 		//"title"
-		public Keyword getTitleKeyword_2_0() { return cTitleKeyword_2_0; }
+		public Keyword getTitleKeyword_2_0_0() { return cTitleKeyword_2_0_0; }
 
 		//"="
-		public Keyword getEqualsSignKeyword_2_1() { return cEqualsSignKeyword_2_1; }
+		public Keyword getEqualsSignKeyword_2_0_1() { return cEqualsSignKeyword_2_0_1; }
 
-		//title=EString
-		public Assignment getTitleAssignment_2_2() { return cTitleAssignment_2_2; }
+		//title=STRING
+		public Assignment getTitleAssignment_2_0_2() { return cTitleAssignment_2_0_2; }
 
-		//EString
-		public RuleCall getTitleEStringParserRuleCall_2_2_0() { return cTitleEStringParserRuleCall_2_2_0; }
+		//STRING
+		public RuleCall getTitleSTRINGTerminalRuleCall_2_0_2_0() { return cTitleSTRINGTerminalRuleCall_2_0_2_0; }
 
-		//("description" "=" description=EString)?
-		public Group getGroup_3() { return cGroup_3; }
+		//("description" "=" description=STRING)?
+		public Group getGroup_2_1() { return cGroup_2_1; }
 
 		//"description"
-		public Keyword getDescriptionKeyword_3_0() { return cDescriptionKeyword_3_0; }
+		public Keyword getDescriptionKeyword_2_1_0() { return cDescriptionKeyword_2_1_0; }
 
 		//"="
-		public Keyword getEqualsSignKeyword_3_1() { return cEqualsSignKeyword_3_1; }
+		public Keyword getEqualsSignKeyword_2_1_1() { return cEqualsSignKeyword_2_1_1; }
 
-		//description=EString
-		public Assignment getDescriptionAssignment_3_2() { return cDescriptionAssignment_3_2; }
+		//description=STRING
+		public Assignment getDescriptionAssignment_2_1_2() { return cDescriptionAssignment_2_1_2; }
 
-		//EString
-		public RuleCall getDescriptionEStringParserRuleCall_3_2_0() { return cDescriptionEStringParserRuleCall_3_2_0; }
+		//STRING
+		public RuleCall getDescriptionSTRINGTerminalRuleCall_2_1_2_0() { return cDescriptionSTRINGTerminalRuleCall_2_1_2_0; }
 
-		//("id" "=" id=EString)?
-		public Group getGroup_4() { return cGroup_4; }
+		//("id" "=" id=STRING)?
+		public Group getGroup_2_2() { return cGroup_2_2; }
 
 		//"id"
-		public Keyword getIdKeyword_4_0() { return cIdKeyword_4_0; }
+		public Keyword getIdKeyword_2_2_0() { return cIdKeyword_2_2_0; }
 
 		//"="
-		public Keyword getEqualsSignKeyword_4_1() { return cEqualsSignKeyword_4_1; }
+		public Keyword getEqualsSignKeyword_2_2_1() { return cEqualsSignKeyword_2_2_1; }
 
-		//id=EString
-		public Assignment getIdAssignment_4_2() { return cIdAssignment_4_2; }
+		//id=STRING
+		public Assignment getIdAssignment_2_2_2() { return cIdAssignment_2_2_2; }
 
-		//EString
-		public RuleCall getIdEStringParserRuleCall_4_2_0() { return cIdEStringParserRuleCall_4_2_0; }
+		//STRING
+		public RuleCall getIdSTRINGTerminalRuleCall_2_2_2_0() { return cIdSTRINGTerminalRuleCall_2_2_2_0; }
 
 		//("from" "=" from=EString)?
-		public Group getGroup_5() { return cGroup_5; }
+		public Group getGroup_2_3() { return cGroup_2_3; }
 
 		//"from"
-		public Keyword getFromKeyword_5_0() { return cFromKeyword_5_0; }
+		public Keyword getFromKeyword_2_3_0() { return cFromKeyword_2_3_0; }
 
 		//"="
-		public Keyword getEqualsSignKeyword_5_1() { return cEqualsSignKeyword_5_1; }
+		public Keyword getEqualsSignKeyword_2_3_1() { return cEqualsSignKeyword_2_3_1; }
 
 		//from=EString
-		public Assignment getFromAssignment_5_2() { return cFromAssignment_5_2; }
+		public Assignment getFromAssignment_2_3_2() { return cFromAssignment_2_3_2; }
 
 		//EString
-		public RuleCall getFromEStringParserRuleCall_5_2_0() { return cFromEStringParserRuleCall_5_2_0; }
+		public RuleCall getFromEStringParserRuleCall_2_3_2_0() { return cFromEStringParserRuleCall_2_3_2_0; }
 
 		//("to" "=" to=EString)?
-		public Group getGroup_6() { return cGroup_6; }
+		public Group getGroup_2_4() { return cGroup_2_4; }
 
 		//"to"
-		public Keyword getToKeyword_6_0() { return cToKeyword_6_0; }
+		public Keyword getToKeyword_2_4_0() { return cToKeyword_2_4_0; }
 
 		//"="
-		public Keyword getEqualsSignKeyword_6_1() { return cEqualsSignKeyword_6_1; }
+		public Keyword getEqualsSignKeyword_2_4_1() { return cEqualsSignKeyword_2_4_1; }
 
 		//to=EString
-		public Assignment getToAssignment_6_2() { return cToAssignment_6_2; }
+		public Assignment getToAssignment_2_4_2() { return cToAssignment_2_4_2; }
 
 		//EString
-		public RuleCall getToEStringParserRuleCall_6_2_0() { return cToEStringParserRuleCall_6_2_0; }
+		public RuleCall getToEStringParserRuleCall_2_4_2_0() { return cToEStringParserRuleCall_2_4_2_0; }
 
 		//("dependsOn" "=" dependsOn=[Answer|EString])?
-		public Group getGroup_7() { return cGroup_7; }
+		public Group getGroup_2_5() { return cGroup_2_5; }
 
 		//"dependsOn"
-		public Keyword getDependsOnKeyword_7_0() { return cDependsOnKeyword_7_0; }
+		public Keyword getDependsOnKeyword_2_5_0() { return cDependsOnKeyword_2_5_0; }
 
 		//"="
-		public Keyword getEqualsSignKeyword_7_1() { return cEqualsSignKeyword_7_1; }
+		public Keyword getEqualsSignKeyword_2_5_1() { return cEqualsSignKeyword_2_5_1; }
 
 		//dependsOn=[Answer|EString]
-		public Assignment getDependsOnAssignment_7_2() { return cDependsOnAssignment_7_2; }
+		public Assignment getDependsOnAssignment_2_5_2() { return cDependsOnAssignment_2_5_2; }
 
 		//[Answer|EString]
-		public CrossReference getDependsOnAnswerCrossReference_7_2_0() { return cDependsOnAnswerCrossReference_7_2_0; }
+		public CrossReference getDependsOnAnswerCrossReference_2_5_2_0() { return cDependsOnAnswerCrossReference_2_5_2_0; }
 
 		//EString
-		public RuleCall getDependsOnAnswerEStringParserRuleCall_7_2_0_1() { return cDependsOnAnswerEStringParserRuleCall_7_2_0_1; }
+		public RuleCall getDependsOnAnswerEStringParserRuleCall_2_5_2_0_1() { return cDependsOnAnswerEStringParserRuleCall_2_5_2_0_1; }
+
+		//showLimits?="showLimits"?
+		public Assignment getShowLimitsAssignment_2_6() { return cShowLimitsAssignment_2_6; }
+
+		//"showLimits"
+		public Keyword getShowLimitsShowLimitsKeyword_2_6_0() { return cShowLimitsShowLimitsKeyword_2_6_0; }
 
 		//required?="required"?
-		public Assignment getRequiredAssignment_8() { return cRequiredAssignment_8; }
+		public Assignment getRequiredAssignment_2_7() { return cRequiredAssignment_2_7; }
 
 		//"required"
-		public Keyword getRequiredRequiredKeyword_8_0() { return cRequiredRequiredKeyword_8_0; }
+		public Keyword getRequiredRequiredKeyword_2_7_0() { return cRequiredRequiredKeyword_2_7_0; }
 
 		//day?="day"?
-		public Assignment getDayAssignment_9() { return cDayAssignment_9; }
+		public Assignment getDayAssignment_2_8() { return cDayAssignment_2_8; }
 
 		//"day"
-		public Keyword getDayDayKeyword_9_0() { return cDayDayKeyword_9_0; }
+		public Keyword getDayDayKeyword_2_8_0() { return cDayDayKeyword_2_8_0; }
 
 		//month?="month"?
-		public Assignment getMonthAssignment_10() { return cMonthAssignment_10; }
+		public Assignment getMonthAssignment_2_9() { return cMonthAssignment_2_9; }
 
 		//"month"
-		public Keyword getMonthMonthKeyword_10_0() { return cMonthMonthKeyword_10_0; }
+		public Keyword getMonthMonthKeyword_2_9_0() { return cMonthMonthKeyword_2_9_0; }
 
 		//year?="year"?
-		public Assignment getYearAssignment_11() { return cYearAssignment_11; }
+		public Assignment getYearAssignment_2_10() { return cYearAssignment_2_10; }
 
 		//"year"
-		public Keyword getYearYearKeyword_11_0() { return cYearYearKeyword_11_0; }
+		public Keyword getYearYearKeyword_2_10_0() { return cYearYearKeyword_2_10_0; }
 
 		//"/>"
-		public Keyword getSolidusGreaterThanSignKeyword_12() { return cSolidusGreaterThanSignKeyword_12; }
+		public Keyword getSolidusGreaterThanSignKeyword_3() { return cSolidusGreaterThanSignKeyword_3; }
 	}
 
 	public class NumberElements extends AbstractParserRuleElementFinder {
@@ -1181,52 +1033,53 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cNumberAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cNumberKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cTitleKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Keyword cEqualsSignKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
-		private final Assignment cTitleAssignment_2_2 = (Assignment)cGroup_2.eContents().get(2);
-		private final RuleCall cTitleEStringParserRuleCall_2_2_0 = (RuleCall)cTitleAssignment_2_2.eContents().get(0);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cDescriptionKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Keyword cEqualsSignKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
-		private final Assignment cDescriptionAssignment_3_2 = (Assignment)cGroup_3.eContents().get(2);
-		private final RuleCall cDescriptionEStringParserRuleCall_3_2_0 = (RuleCall)cDescriptionAssignment_3_2.eContents().get(0);
-		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cIdKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Keyword cEqualsSignKeyword_4_1 = (Keyword)cGroup_4.eContents().get(1);
-		private final Assignment cIdAssignment_4_2 = (Assignment)cGroup_4.eContents().get(2);
-		private final RuleCall cIdEStringParserRuleCall_4_2_0 = (RuleCall)cIdAssignment_4_2.eContents().get(0);
-		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
-		private final Keyword cLowerKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
-		private final Keyword cEqualsSignKeyword_5_1 = (Keyword)cGroup_5.eContents().get(1);
-		private final Assignment cLowerAssignment_5_2 = (Assignment)cGroup_5.eContents().get(2);
-		private final RuleCall cLowerEIntParserRuleCall_5_2_0 = (RuleCall)cLowerAssignment_5_2.eContents().get(0);
-		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
-		private final Keyword cUpperKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
-		private final Keyword cEqualsSignKeyword_6_1 = (Keyword)cGroup_6.eContents().get(1);
-		private final Assignment cUpperAssignment_6_2 = (Assignment)cGroup_6.eContents().get(2);
-		private final RuleCall cUpperEIntParserRuleCall_6_2_0 = (RuleCall)cUpperAssignment_6_2.eContents().get(0);
-		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
-		private final Keyword cDependsOnKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
-		private final Keyword cEqualsSignKeyword_7_1 = (Keyword)cGroup_7.eContents().get(1);
-		private final Assignment cDependsOnAssignment_7_2 = (Assignment)cGroup_7.eContents().get(2);
-		private final CrossReference cDependsOnAnswerCrossReference_7_2_0 = (CrossReference)cDependsOnAssignment_7_2.eContents().get(0);
-		private final RuleCall cDependsOnAnswerEStringParserRuleCall_7_2_0_1 = (RuleCall)cDependsOnAnswerCrossReference_7_2_0.eContents().get(1);
-		private final Assignment cRequiredAssignment_8 = (Assignment)cGroup.eContents().get(8);
-		private final Keyword cRequiredRequiredKeyword_8_0 = (Keyword)cRequiredAssignment_8.eContents().get(0);
-		private final Assignment cShowLimitsAssignment_9 = (Assignment)cGroup.eContents().get(9);
-		private final Keyword cShowLimitsShowLimitsKeyword_9_0 = (Keyword)cShowLimitsAssignment_9.eContents().get(0);
-		private final Keyword cSolidusGreaterThanSignKeyword_10 = (Keyword)cGroup.eContents().get(10);
+		private final UnorderedGroup cUnorderedGroup_2 = (UnorderedGroup)cGroup.eContents().get(2);
+		private final Group cGroup_2_0 = (Group)cUnorderedGroup_2.eContents().get(0);
+		private final Keyword cTitleKeyword_2_0_0 = (Keyword)cGroup_2_0.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_2_0_1 = (Keyword)cGroup_2_0.eContents().get(1);
+		private final Assignment cTitleAssignment_2_0_2 = (Assignment)cGroup_2_0.eContents().get(2);
+		private final RuleCall cTitleSTRINGTerminalRuleCall_2_0_2_0 = (RuleCall)cTitleAssignment_2_0_2.eContents().get(0);
+		private final Group cGroup_2_1 = (Group)cUnorderedGroup_2.eContents().get(1);
+		private final Keyword cDescriptionKeyword_2_1_0 = (Keyword)cGroup_2_1.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_2_1_1 = (Keyword)cGroup_2_1.eContents().get(1);
+		private final Assignment cDescriptionAssignment_2_1_2 = (Assignment)cGroup_2_1.eContents().get(2);
+		private final RuleCall cDescriptionSTRINGTerminalRuleCall_2_1_2_0 = (RuleCall)cDescriptionAssignment_2_1_2.eContents().get(0);
+		private final Group cGroup_2_2 = (Group)cUnorderedGroup_2.eContents().get(2);
+		private final Keyword cIdKeyword_2_2_0 = (Keyword)cGroup_2_2.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_2_2_1 = (Keyword)cGroup_2_2.eContents().get(1);
+		private final Assignment cIdAssignment_2_2_2 = (Assignment)cGroup_2_2.eContents().get(2);
+		private final RuleCall cIdSTRINGTerminalRuleCall_2_2_2_0 = (RuleCall)cIdAssignment_2_2_2.eContents().get(0);
+		private final Group cGroup_2_3 = (Group)cUnorderedGroup_2.eContents().get(3);
+		private final Keyword cLowerKeyword_2_3_0 = (Keyword)cGroup_2_3.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_2_3_1 = (Keyword)cGroup_2_3.eContents().get(1);
+		private final Assignment cLowerAssignment_2_3_2 = (Assignment)cGroup_2_3.eContents().get(2);
+		private final RuleCall cLowerEIntParserRuleCall_2_3_2_0 = (RuleCall)cLowerAssignment_2_3_2.eContents().get(0);
+		private final Group cGroup_2_4 = (Group)cUnorderedGroup_2.eContents().get(4);
+		private final Keyword cUpperKeyword_2_4_0 = (Keyword)cGroup_2_4.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_2_4_1 = (Keyword)cGroup_2_4.eContents().get(1);
+		private final Assignment cUpperAssignment_2_4_2 = (Assignment)cGroup_2_4.eContents().get(2);
+		private final RuleCall cUpperEIntParserRuleCall_2_4_2_0 = (RuleCall)cUpperAssignment_2_4_2.eContents().get(0);
+		private final Group cGroup_2_5 = (Group)cUnorderedGroup_2.eContents().get(5);
+		private final Keyword cDependsOnKeyword_2_5_0 = (Keyword)cGroup_2_5.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_2_5_1 = (Keyword)cGroup_2_5.eContents().get(1);
+		private final Assignment cDependsOnAssignment_2_5_2 = (Assignment)cGroup_2_5.eContents().get(2);
+		private final CrossReference cDependsOnAnswerCrossReference_2_5_2_0 = (CrossReference)cDependsOnAssignment_2_5_2.eContents().get(0);
+		private final RuleCall cDependsOnAnswerEStringParserRuleCall_2_5_2_0_1 = (RuleCall)cDependsOnAnswerCrossReference_2_5_2_0.eContents().get(1);
+		private final Assignment cRequiredAssignment_2_6 = (Assignment)cUnorderedGroup_2.eContents().get(6);
+		private final Keyword cRequiredRequiredKeyword_2_6_0 = (Keyword)cRequiredAssignment_2_6.eContents().get(0);
+		private final Assignment cShowLimitsAssignment_2_7 = (Assignment)cUnorderedGroup_2.eContents().get(7);
+		private final Keyword cShowLimitsShowLimitsKeyword_2_7_0 = (Keyword)cShowLimitsAssignment_2_7.eContents().get(0);
+		private final Keyword cSolidusGreaterThanSignKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//Number:
-		//	{Number} "<number" ("title" "=" title=EString)? ("description" "=" description=EString)? ("id" "=" id=EString)?
-		//	("lower" "=" lower=EInt)? ("upper" "=" upper=EInt)? ("dependsOn" "=" dependsOn=[Answer|EString])?
-		//	required?="required"? showLimits?="showLimits"? "/>";
+		//	{Number} "<number" ("title" "=" title=STRING & ("description" "=" description=STRING)? & ("id" "=" id=STRING)? &
+		//	("lower" "=" lower=EInt)? & ("upper" "=" upper=EInt)? & ("dependsOn" "=" dependsOn=[Answer|EString])? &
+		//	required?="required"? & showLimits?="showLimits"?) "/>";
 		public ParserRule getRule() { return rule; }
 
-		//{Number} "<number" ("title" "=" title=EString)? ("description" "=" description=EString)? ("id" "=" id=EString)? ("lower"
-		//"=" lower=EInt)? ("upper" "=" upper=EInt)? ("dependsOn" "=" dependsOn=[Answer|EString])? required?="required"?
-		//showLimits?="showLimits"? "/>"
+		//{Number} "<number" ("title" "=" title=STRING & ("description" "=" description=STRING)? & ("id" "=" id=STRING)? &
+		//("lower" "=" lower=EInt)? & ("upper" "=" upper=EInt)? & ("dependsOn" "=" dependsOn=[Answer|EString])? &
+		//required?="required"? & showLimits?="showLimits"?) "/>"
 		public Group getGroup() { return cGroup; }
 
 		//{Number}
@@ -1235,503 +1088,624 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//"<number"
 		public Keyword getNumberKeyword_1() { return cNumberKeyword_1; }
 
-		//("title" "=" title=EString)?
-		public Group getGroup_2() { return cGroup_2; }
+		//"title" "=" title=STRING & ("description" "=" description=STRING)? & ("id" "=" id=STRING)? & ("lower" "=" lower=EInt)? &
+		//("upper" "=" upper=EInt)? & ("dependsOn" "=" dependsOn=[Answer|EString])? & required?="required"? &
+		//showLimits?="showLimits"?
+		public UnorderedGroup getUnorderedGroup_2() { return cUnorderedGroup_2; }
+
+		//"title" "=" title=STRING
+		public Group getGroup_2_0() { return cGroup_2_0; }
 
 		//"title"
-		public Keyword getTitleKeyword_2_0() { return cTitleKeyword_2_0; }
+		public Keyword getTitleKeyword_2_0_0() { return cTitleKeyword_2_0_0; }
 
 		//"="
-		public Keyword getEqualsSignKeyword_2_1() { return cEqualsSignKeyword_2_1; }
+		public Keyword getEqualsSignKeyword_2_0_1() { return cEqualsSignKeyword_2_0_1; }
 
-		//title=EString
-		public Assignment getTitleAssignment_2_2() { return cTitleAssignment_2_2; }
+		//title=STRING
+		public Assignment getTitleAssignment_2_0_2() { return cTitleAssignment_2_0_2; }
 
-		//EString
-		public RuleCall getTitleEStringParserRuleCall_2_2_0() { return cTitleEStringParserRuleCall_2_2_0; }
+		//STRING
+		public RuleCall getTitleSTRINGTerminalRuleCall_2_0_2_0() { return cTitleSTRINGTerminalRuleCall_2_0_2_0; }
 
-		//("description" "=" description=EString)?
-		public Group getGroup_3() { return cGroup_3; }
+		//("description" "=" description=STRING)?
+		public Group getGroup_2_1() { return cGroup_2_1; }
 
 		//"description"
-		public Keyword getDescriptionKeyword_3_0() { return cDescriptionKeyword_3_0; }
+		public Keyword getDescriptionKeyword_2_1_0() { return cDescriptionKeyword_2_1_0; }
 
 		//"="
-		public Keyword getEqualsSignKeyword_3_1() { return cEqualsSignKeyword_3_1; }
+		public Keyword getEqualsSignKeyword_2_1_1() { return cEqualsSignKeyword_2_1_1; }
 
-		//description=EString
-		public Assignment getDescriptionAssignment_3_2() { return cDescriptionAssignment_3_2; }
+		//description=STRING
+		public Assignment getDescriptionAssignment_2_1_2() { return cDescriptionAssignment_2_1_2; }
 
-		//EString
-		public RuleCall getDescriptionEStringParserRuleCall_3_2_0() { return cDescriptionEStringParserRuleCall_3_2_0; }
+		//STRING
+		public RuleCall getDescriptionSTRINGTerminalRuleCall_2_1_2_0() { return cDescriptionSTRINGTerminalRuleCall_2_1_2_0; }
 
-		//("id" "=" id=EString)?
-		public Group getGroup_4() { return cGroup_4; }
+		//("id" "=" id=STRING)?
+		public Group getGroup_2_2() { return cGroup_2_2; }
 
 		//"id"
-		public Keyword getIdKeyword_4_0() { return cIdKeyword_4_0; }
+		public Keyword getIdKeyword_2_2_0() { return cIdKeyword_2_2_0; }
 
 		//"="
-		public Keyword getEqualsSignKeyword_4_1() { return cEqualsSignKeyword_4_1; }
+		public Keyword getEqualsSignKeyword_2_2_1() { return cEqualsSignKeyword_2_2_1; }
 
-		//id=EString
-		public Assignment getIdAssignment_4_2() { return cIdAssignment_4_2; }
+		//id=STRING
+		public Assignment getIdAssignment_2_2_2() { return cIdAssignment_2_2_2; }
 
-		//EString
-		public RuleCall getIdEStringParserRuleCall_4_2_0() { return cIdEStringParserRuleCall_4_2_0; }
+		//STRING
+		public RuleCall getIdSTRINGTerminalRuleCall_2_2_2_0() { return cIdSTRINGTerminalRuleCall_2_2_2_0; }
 
 		//("lower" "=" lower=EInt)?
-		public Group getGroup_5() { return cGroup_5; }
+		public Group getGroup_2_3() { return cGroup_2_3; }
 
 		//"lower"
-		public Keyword getLowerKeyword_5_0() { return cLowerKeyword_5_0; }
+		public Keyword getLowerKeyword_2_3_0() { return cLowerKeyword_2_3_0; }
 
 		//"="
-		public Keyword getEqualsSignKeyword_5_1() { return cEqualsSignKeyword_5_1; }
+		public Keyword getEqualsSignKeyword_2_3_1() { return cEqualsSignKeyword_2_3_1; }
 
 		//lower=EInt
-		public Assignment getLowerAssignment_5_2() { return cLowerAssignment_5_2; }
+		public Assignment getLowerAssignment_2_3_2() { return cLowerAssignment_2_3_2; }
 
 		//EInt
-		public RuleCall getLowerEIntParserRuleCall_5_2_0() { return cLowerEIntParserRuleCall_5_2_0; }
+		public RuleCall getLowerEIntParserRuleCall_2_3_2_0() { return cLowerEIntParserRuleCall_2_3_2_0; }
 
 		//("upper" "=" upper=EInt)?
-		public Group getGroup_6() { return cGroup_6; }
+		public Group getGroup_2_4() { return cGroup_2_4; }
 
 		//"upper"
-		public Keyword getUpperKeyword_6_0() { return cUpperKeyword_6_0; }
+		public Keyword getUpperKeyword_2_4_0() { return cUpperKeyword_2_4_0; }
 
 		//"="
-		public Keyword getEqualsSignKeyword_6_1() { return cEqualsSignKeyword_6_1; }
+		public Keyword getEqualsSignKeyword_2_4_1() { return cEqualsSignKeyword_2_4_1; }
 
 		//upper=EInt
-		public Assignment getUpperAssignment_6_2() { return cUpperAssignment_6_2; }
+		public Assignment getUpperAssignment_2_4_2() { return cUpperAssignment_2_4_2; }
 
 		//EInt
-		public RuleCall getUpperEIntParserRuleCall_6_2_0() { return cUpperEIntParserRuleCall_6_2_0; }
+		public RuleCall getUpperEIntParserRuleCall_2_4_2_0() { return cUpperEIntParserRuleCall_2_4_2_0; }
 
 		//("dependsOn" "=" dependsOn=[Answer|EString])?
-		public Group getGroup_7() { return cGroup_7; }
+		public Group getGroup_2_5() { return cGroup_2_5; }
 
 		//"dependsOn"
-		public Keyword getDependsOnKeyword_7_0() { return cDependsOnKeyword_7_0; }
+		public Keyword getDependsOnKeyword_2_5_0() { return cDependsOnKeyword_2_5_0; }
 
 		//"="
-		public Keyword getEqualsSignKeyword_7_1() { return cEqualsSignKeyword_7_1; }
+		public Keyword getEqualsSignKeyword_2_5_1() { return cEqualsSignKeyword_2_5_1; }
 
 		//dependsOn=[Answer|EString]
-		public Assignment getDependsOnAssignment_7_2() { return cDependsOnAssignment_7_2; }
+		public Assignment getDependsOnAssignment_2_5_2() { return cDependsOnAssignment_2_5_2; }
 
 		//[Answer|EString]
-		public CrossReference getDependsOnAnswerCrossReference_7_2_0() { return cDependsOnAnswerCrossReference_7_2_0; }
+		public CrossReference getDependsOnAnswerCrossReference_2_5_2_0() { return cDependsOnAnswerCrossReference_2_5_2_0; }
 
 		//EString
-		public RuleCall getDependsOnAnswerEStringParserRuleCall_7_2_0_1() { return cDependsOnAnswerEStringParserRuleCall_7_2_0_1; }
+		public RuleCall getDependsOnAnswerEStringParserRuleCall_2_5_2_0_1() { return cDependsOnAnswerEStringParserRuleCall_2_5_2_0_1; }
 
 		//required?="required"?
-		public Assignment getRequiredAssignment_8() { return cRequiredAssignment_8; }
+		public Assignment getRequiredAssignment_2_6() { return cRequiredAssignment_2_6; }
 
 		//"required"
-		public Keyword getRequiredRequiredKeyword_8_0() { return cRequiredRequiredKeyword_8_0; }
+		public Keyword getRequiredRequiredKeyword_2_6_0() { return cRequiredRequiredKeyword_2_6_0; }
 
 		//showLimits?="showLimits"?
-		public Assignment getShowLimitsAssignment_9() { return cShowLimitsAssignment_9; }
+		public Assignment getShowLimitsAssignment_2_7() { return cShowLimitsAssignment_2_7; }
 
 		//"showLimits"
-		public Keyword getShowLimitsShowLimitsKeyword_9_0() { return cShowLimitsShowLimitsKeyword_9_0; }
+		public Keyword getShowLimitsShowLimitsKeyword_2_7_0() { return cShowLimitsShowLimitsKeyword_2_7_0; }
 
 		//"/>"
-		public Keyword getSolidusGreaterThanSignKeyword_10() { return cSolidusGreaterThanSignKeyword_10; }
+		public Keyword getSolidusGreaterThanSignKeyword_3() { return cSolidusGreaterThanSignKeyword_3; }
 	}
 
-	public class ScaleElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Scale");
+	public class SingleElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Single");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cScaleKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Keyword cTitleKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final Keyword cEqualsSignKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
-		private final Assignment cTitleAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final RuleCall cTitleEStringParserRuleCall_1_2_0 = (RuleCall)cTitleAssignment_1_2.eContents().get(0);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cDescriptionKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Keyword cEqualsSignKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
-		private final Assignment cDescriptionAssignment_2_2 = (Assignment)cGroup_2.eContents().get(2);
-		private final RuleCall cDescriptionEStringParserRuleCall_2_2_0 = (RuleCall)cDescriptionAssignment_2_2.eContents().get(0);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cIdKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Keyword cEqualsSignKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
-		private final Assignment cIdAssignment_3_2 = (Assignment)cGroup_3.eContents().get(2);
-		private final RuleCall cIdEStringParserRuleCall_3_2_0 = (RuleCall)cIdAssignment_3_2.eContents().get(0);
-		private final Keyword cLowerKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Keyword cEqualsSignKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final Assignment cLowerAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cLowerEIntParserRuleCall_6_0 = (RuleCall)cLowerAssignment_6.eContents().get(0);
-		private final Keyword cUpperKeyword_7 = (Keyword)cGroup.eContents().get(7);
-		private final Keyword cEqualsSignKeyword_8 = (Keyword)cGroup.eContents().get(8);
-		private final Assignment cUpperAssignment_9 = (Assignment)cGroup.eContents().get(9);
-		private final RuleCall cUpperEIntParserRuleCall_9_0 = (RuleCall)cUpperAssignment_9.eContents().get(0);
-		private final Group cGroup_10 = (Group)cGroup.eContents().get(10);
-		private final Keyword cLowerLabelKeyword_10_0 = (Keyword)cGroup_10.eContents().get(0);
-		private final Keyword cEqualsSignKeyword_10_1 = (Keyword)cGroup_10.eContents().get(1);
-		private final Assignment cLowerLabelAssignment_10_2 = (Assignment)cGroup_10.eContents().get(2);
-		private final RuleCall cLowerLabelEStringParserRuleCall_10_2_0 = (RuleCall)cLowerLabelAssignment_10_2.eContents().get(0);
-		private final Group cGroup_11 = (Group)cGroup.eContents().get(11);
-		private final Keyword cUpperLabelKeyword_11_0 = (Keyword)cGroup_11.eContents().get(0);
-		private final Keyword cEqualsSignKeyword_11_1 = (Keyword)cGroup_11.eContents().get(1);
-		private final Assignment cUpperLabelAssignment_11_2 = (Assignment)cGroup_11.eContents().get(2);
-		private final RuleCall cUpperLabelEStringParserRuleCall_11_2_0 = (RuleCall)cUpperLabelAssignment_11_2.eContents().get(0);
-		private final Group cGroup_12 = (Group)cGroup.eContents().get(12);
-		private final Keyword cDependsOnKeyword_12_0 = (Keyword)cGroup_12.eContents().get(0);
-		private final Keyword cEqualsSignKeyword_12_1 = (Keyword)cGroup_12.eContents().get(1);
-		private final Assignment cDependsOnAssignment_12_2 = (Assignment)cGroup_12.eContents().get(2);
-		private final CrossReference cDependsOnAnswerCrossReference_12_2_0 = (CrossReference)cDependsOnAssignment_12_2.eContents().get(0);
-		private final RuleCall cDependsOnAnswerEStringParserRuleCall_12_2_0_1 = (RuleCall)cDependsOnAnswerCrossReference_12_2_0.eContents().get(1);
-		private final Assignment cRequiredAssignment_13 = (Assignment)cGroup.eContents().get(13);
-		private final Keyword cRequiredRequiredKeyword_13_0 = (Keyword)cRequiredAssignment_13.eContents().get(0);
-		private final Keyword cSolidusGreaterThanSignKeyword_14 = (Keyword)cGroup.eContents().get(14);
+		private final Keyword cSingleKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final UnorderedGroup cUnorderedGroup_1 = (UnorderedGroup)cGroup.eContents().get(1);
+		private final Group cGroup_1_0 = (Group)cUnorderedGroup_1.eContents().get(0);
+		private final Keyword cTitleKeyword_1_0_0 = (Keyword)cGroup_1_0.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_1_0_1 = (Keyword)cGroup_1_0.eContents().get(1);
+		private final Assignment cTitleAssignment_1_0_2 = (Assignment)cGroup_1_0.eContents().get(2);
+		private final RuleCall cTitleSTRINGTerminalRuleCall_1_0_2_0 = (RuleCall)cTitleAssignment_1_0_2.eContents().get(0);
+		private final Group cGroup_1_1 = (Group)cUnorderedGroup_1.eContents().get(1);
+		private final Keyword cDescriptionKeyword_1_1_0 = (Keyword)cGroup_1_1.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_1_1_1 = (Keyword)cGroup_1_1.eContents().get(1);
+		private final Assignment cDescriptionAssignment_1_1_2 = (Assignment)cGroup_1_1.eContents().get(2);
+		private final RuleCall cDescriptionSTRINGTerminalRuleCall_1_1_2_0 = (RuleCall)cDescriptionAssignment_1_1_2.eContents().get(0);
+		private final Group cGroup_1_2 = (Group)cUnorderedGroup_1.eContents().get(2);
+		private final Keyword cIdKeyword_1_2_0 = (Keyword)cGroup_1_2.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_1_2_1 = (Keyword)cGroup_1_2.eContents().get(1);
+		private final Assignment cIdAssignment_1_2_2 = (Assignment)cGroup_1_2.eContents().get(2);
+		private final RuleCall cIdSTRINGTerminalRuleCall_1_2_2_0 = (RuleCall)cIdAssignment_1_2_2.eContents().get(0);
+		private final Group cGroup_1_3 = (Group)cUnorderedGroup_1.eContents().get(3);
+		private final Keyword cDependsOnKeyword_1_3_0 = (Keyword)cGroup_1_3.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_1_3_1 = (Keyword)cGroup_1_3.eContents().get(1);
+		private final Assignment cDependsOnAssignment_1_3_2 = (Assignment)cGroup_1_3.eContents().get(2);
+		private final CrossReference cDependsOnAnswerCrossReference_1_3_2_0 = (CrossReference)cDependsOnAssignment_1_3_2.eContents().get(0);
+		private final RuleCall cDependsOnAnswerEStringParserRuleCall_1_3_2_0_1 = (RuleCall)cDependsOnAnswerCrossReference_1_3_2_0.eContents().get(1);
+		private final Assignment cRequiredAssignment_1_4 = (Assignment)cUnorderedGroup_1.eContents().get(4);
+		private final Keyword cRequiredRequiredKeyword_1_4_0 = (Keyword)cRequiredAssignment_1_4.eContents().get(0);
+		private final Assignment cOtherAssignment_1_5 = (Assignment)cUnorderedGroup_1.eContents().get(5);
+		private final Keyword cOtherOtherKeyword_1_5_0 = (Keyword)cOtherAssignment_1_5.eContents().get(0);
+		private final Keyword cGreaterThanSignKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cOptionsAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cOptionsOptionParserRuleCall_3_0 = (RuleCall)cOptionsAssignment_3.eContents().get(0);
+		private final Keyword cSingleKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
-		//Scale:
-		//	"<scale" ("title" "=" title=EString)? ("description" "=" description=EString)? ("id" "=" id=EString)? "lower" "="
-		//	lower=EInt "upper" "=" upper=EInt ("lowerLabel" "=" lowerLabel=EString)? ("upperLabel" "=" upperLabel=EString)?
-		//	("dependsOn" "=" dependsOn=[Answer|EString])? required?="required"? "/>";
+		//Single:
+		//	"<single" ("title" "=" title=STRING & ("description" "=" description=STRING)? & ("id" "=" id=STRING)? & ("dependsOn"
+		//	"=" dependsOn=[Answer|EString])? & required?="required"? & other?="other"?) ">" options+=Option+ "</single>";
 		public ParserRule getRule() { return rule; }
 
-		//"<scale" ("title" "=" title=EString)? ("description" "=" description=EString)? ("id" "=" id=EString)? "lower" "="
-		//lower=EInt "upper" "=" upper=EInt ("lowerLabel" "=" lowerLabel=EString)? ("upperLabel" "=" upperLabel=EString)?
-		//("dependsOn" "=" dependsOn=[Answer|EString])? required?="required"? "/>"
+		//"<single" ("title" "=" title=STRING & ("description" "=" description=STRING)? & ("id" "=" id=STRING)? & ("dependsOn" "="
+		//dependsOn=[Answer|EString])? & required?="required"? & other?="other"?) ">" options+=Option+ "</single>"
 		public Group getGroup() { return cGroup; }
 
-		//"<scale"
-		public Keyword getScaleKeyword_0() { return cScaleKeyword_0; }
+		//"<single"
+		public Keyword getSingleKeyword_0() { return cSingleKeyword_0; }
 
-		//("title" "=" title=EString)?
-		public Group getGroup_1() { return cGroup_1; }
+		//"title" "=" title=STRING & ("description" "=" description=STRING)? & ("id" "=" id=STRING)? & ("dependsOn" "="
+		//dependsOn=[Answer|EString])? & required?="required"? & other?="other"?
+		public UnorderedGroup getUnorderedGroup_1() { return cUnorderedGroup_1; }
+
+		//"title" "=" title=STRING
+		public Group getGroup_1_0() { return cGroup_1_0; }
 
 		//"title"
-		public Keyword getTitleKeyword_1_0() { return cTitleKeyword_1_0; }
+		public Keyword getTitleKeyword_1_0_0() { return cTitleKeyword_1_0_0; }
 
 		//"="
-		public Keyword getEqualsSignKeyword_1_1() { return cEqualsSignKeyword_1_1; }
+		public Keyword getEqualsSignKeyword_1_0_1() { return cEqualsSignKeyword_1_0_1; }
 
-		//title=EString
-		public Assignment getTitleAssignment_1_2() { return cTitleAssignment_1_2; }
+		//title=STRING
+		public Assignment getTitleAssignment_1_0_2() { return cTitleAssignment_1_0_2; }
 
-		//EString
-		public RuleCall getTitleEStringParserRuleCall_1_2_0() { return cTitleEStringParserRuleCall_1_2_0; }
+		//STRING
+		public RuleCall getTitleSTRINGTerminalRuleCall_1_0_2_0() { return cTitleSTRINGTerminalRuleCall_1_0_2_0; }
 
-		//("description" "=" description=EString)?
-		public Group getGroup_2() { return cGroup_2; }
+		//("description" "=" description=STRING)?
+		public Group getGroup_1_1() { return cGroup_1_1; }
 
 		//"description"
-		public Keyword getDescriptionKeyword_2_0() { return cDescriptionKeyword_2_0; }
+		public Keyword getDescriptionKeyword_1_1_0() { return cDescriptionKeyword_1_1_0; }
 
 		//"="
-		public Keyword getEqualsSignKeyword_2_1() { return cEqualsSignKeyword_2_1; }
+		public Keyword getEqualsSignKeyword_1_1_1() { return cEqualsSignKeyword_1_1_1; }
 
-		//description=EString
-		public Assignment getDescriptionAssignment_2_2() { return cDescriptionAssignment_2_2; }
+		//description=STRING
+		public Assignment getDescriptionAssignment_1_1_2() { return cDescriptionAssignment_1_1_2; }
 
-		//EString
-		public RuleCall getDescriptionEStringParserRuleCall_2_2_0() { return cDescriptionEStringParserRuleCall_2_2_0; }
+		//STRING
+		public RuleCall getDescriptionSTRINGTerminalRuleCall_1_1_2_0() { return cDescriptionSTRINGTerminalRuleCall_1_1_2_0; }
 
-		//("id" "=" id=EString)?
-		public Group getGroup_3() { return cGroup_3; }
+		//("id" "=" id=STRING)?
+		public Group getGroup_1_2() { return cGroup_1_2; }
 
 		//"id"
-		public Keyword getIdKeyword_3_0() { return cIdKeyword_3_0; }
+		public Keyword getIdKeyword_1_2_0() { return cIdKeyword_1_2_0; }
 
 		//"="
-		public Keyword getEqualsSignKeyword_3_1() { return cEqualsSignKeyword_3_1; }
+		public Keyword getEqualsSignKeyword_1_2_1() { return cEqualsSignKeyword_1_2_1; }
 
-		//id=EString
-		public Assignment getIdAssignment_3_2() { return cIdAssignment_3_2; }
+		//id=STRING
+		public Assignment getIdAssignment_1_2_2() { return cIdAssignment_1_2_2; }
 
-		//EString
-		public RuleCall getIdEStringParserRuleCall_3_2_0() { return cIdEStringParserRuleCall_3_2_0; }
-
-		//"lower"
-		public Keyword getLowerKeyword_4() { return cLowerKeyword_4; }
-
-		//"="
-		public Keyword getEqualsSignKeyword_5() { return cEqualsSignKeyword_5; }
-
-		//lower=EInt
-		public Assignment getLowerAssignment_6() { return cLowerAssignment_6; }
-
-		//EInt
-		public RuleCall getLowerEIntParserRuleCall_6_0() { return cLowerEIntParserRuleCall_6_0; }
-
-		//"upper"
-		public Keyword getUpperKeyword_7() { return cUpperKeyword_7; }
-
-		//"="
-		public Keyword getEqualsSignKeyword_8() { return cEqualsSignKeyword_8; }
-
-		//upper=EInt
-		public Assignment getUpperAssignment_9() { return cUpperAssignment_9; }
-
-		//EInt
-		public RuleCall getUpperEIntParserRuleCall_9_0() { return cUpperEIntParserRuleCall_9_0; }
-
-		//("lowerLabel" "=" lowerLabel=EString)?
-		public Group getGroup_10() { return cGroup_10; }
-
-		//"lowerLabel"
-		public Keyword getLowerLabelKeyword_10_0() { return cLowerLabelKeyword_10_0; }
-
-		//"="
-		public Keyword getEqualsSignKeyword_10_1() { return cEqualsSignKeyword_10_1; }
-
-		//lowerLabel=EString
-		public Assignment getLowerLabelAssignment_10_2() { return cLowerLabelAssignment_10_2; }
-
-		//EString
-		public RuleCall getLowerLabelEStringParserRuleCall_10_2_0() { return cLowerLabelEStringParserRuleCall_10_2_0; }
-
-		//("upperLabel" "=" upperLabel=EString)?
-		public Group getGroup_11() { return cGroup_11; }
-
-		//"upperLabel"
-		public Keyword getUpperLabelKeyword_11_0() { return cUpperLabelKeyword_11_0; }
-
-		//"="
-		public Keyword getEqualsSignKeyword_11_1() { return cEqualsSignKeyword_11_1; }
-
-		//upperLabel=EString
-		public Assignment getUpperLabelAssignment_11_2() { return cUpperLabelAssignment_11_2; }
-
-		//EString
-		public RuleCall getUpperLabelEStringParserRuleCall_11_2_0() { return cUpperLabelEStringParserRuleCall_11_2_0; }
+		//STRING
+		public RuleCall getIdSTRINGTerminalRuleCall_1_2_2_0() { return cIdSTRINGTerminalRuleCall_1_2_2_0; }
 
 		//("dependsOn" "=" dependsOn=[Answer|EString])?
-		public Group getGroup_12() { return cGroup_12; }
+		public Group getGroup_1_3() { return cGroup_1_3; }
 
 		//"dependsOn"
-		public Keyword getDependsOnKeyword_12_0() { return cDependsOnKeyword_12_0; }
+		public Keyword getDependsOnKeyword_1_3_0() { return cDependsOnKeyword_1_3_0; }
 
 		//"="
-		public Keyword getEqualsSignKeyword_12_1() { return cEqualsSignKeyword_12_1; }
+		public Keyword getEqualsSignKeyword_1_3_1() { return cEqualsSignKeyword_1_3_1; }
 
 		//dependsOn=[Answer|EString]
-		public Assignment getDependsOnAssignment_12_2() { return cDependsOnAssignment_12_2; }
+		public Assignment getDependsOnAssignment_1_3_2() { return cDependsOnAssignment_1_3_2; }
 
 		//[Answer|EString]
-		public CrossReference getDependsOnAnswerCrossReference_12_2_0() { return cDependsOnAnswerCrossReference_12_2_0; }
+		public CrossReference getDependsOnAnswerCrossReference_1_3_2_0() { return cDependsOnAnswerCrossReference_1_3_2_0; }
 
 		//EString
-		public RuleCall getDependsOnAnswerEStringParserRuleCall_12_2_0_1() { return cDependsOnAnswerEStringParserRuleCall_12_2_0_1; }
+		public RuleCall getDependsOnAnswerEStringParserRuleCall_1_3_2_0_1() { return cDependsOnAnswerEStringParserRuleCall_1_3_2_0_1; }
 
 		//required?="required"?
-		public Assignment getRequiredAssignment_13() { return cRequiredAssignment_13; }
+		public Assignment getRequiredAssignment_1_4() { return cRequiredAssignment_1_4; }
 
 		//"required"
-		public Keyword getRequiredRequiredKeyword_13_0() { return cRequiredRequiredKeyword_13_0; }
+		public Keyword getRequiredRequiredKeyword_1_4_0() { return cRequiredRequiredKeyword_1_4_0; }
 
-		//"/>"
-		public Keyword getSolidusGreaterThanSignKeyword_14() { return cSolidusGreaterThanSignKeyword_14; }
+		//other?="other"?
+		public Assignment getOtherAssignment_1_5() { return cOtherAssignment_1_5; }
+
+		//"other"
+		public Keyword getOtherOtherKeyword_1_5_0() { return cOtherOtherKeyword_1_5_0; }
+
+		//">"
+		public Keyword getGreaterThanSignKeyword_2() { return cGreaterThanSignKeyword_2; }
+
+		//options+=Option+
+		public Assignment getOptionsAssignment_3() { return cOptionsAssignment_3; }
+
+		//Option
+		public RuleCall getOptionsOptionParserRuleCall_3_0() { return cOptionsOptionParserRuleCall_3_0; }
+
+		//"</single>"
+		public Keyword getSingleKeyword_4() { return cSingleKeyword_4; }
+	}
+
+	public class MultipleElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Multiple");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cMultipleKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final UnorderedGroup cUnorderedGroup_1 = (UnorderedGroup)cGroup.eContents().get(1);
+		private final Group cGroup_1_0 = (Group)cUnorderedGroup_1.eContents().get(0);
+		private final Keyword cTitleKeyword_1_0_0 = (Keyword)cGroup_1_0.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_1_0_1 = (Keyword)cGroup_1_0.eContents().get(1);
+		private final Assignment cTitleAssignment_1_0_2 = (Assignment)cGroup_1_0.eContents().get(2);
+		private final RuleCall cTitleSTRINGTerminalRuleCall_1_0_2_0 = (RuleCall)cTitleAssignment_1_0_2.eContents().get(0);
+		private final Group cGroup_1_1 = (Group)cUnorderedGroup_1.eContents().get(1);
+		private final Keyword cDescriptionKeyword_1_1_0 = (Keyword)cGroup_1_1.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_1_1_1 = (Keyword)cGroup_1_1.eContents().get(1);
+		private final Assignment cDescriptionAssignment_1_1_2 = (Assignment)cGroup_1_1.eContents().get(2);
+		private final RuleCall cDescriptionSTRINGTerminalRuleCall_1_1_2_0 = (RuleCall)cDescriptionAssignment_1_1_2.eContents().get(0);
+		private final Group cGroup_1_2 = (Group)cUnorderedGroup_1.eContents().get(2);
+		private final Keyword cIdKeyword_1_2_0 = (Keyword)cGroup_1_2.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_1_2_1 = (Keyword)cGroup_1_2.eContents().get(1);
+		private final Assignment cIdAssignment_1_2_2 = (Assignment)cGroup_1_2.eContents().get(2);
+		private final RuleCall cIdSTRINGTerminalRuleCall_1_2_2_0 = (RuleCall)cIdAssignment_1_2_2.eContents().get(0);
+		private final Group cGroup_1_3 = (Group)cUnorderedGroup_1.eContents().get(3);
+		private final Keyword cLowerKeyword_1_3_0 = (Keyword)cGroup_1_3.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_1_3_1 = (Keyword)cGroup_1_3.eContents().get(1);
+		private final Assignment cLowerAssignment_1_3_2 = (Assignment)cGroup_1_3.eContents().get(2);
+		private final RuleCall cLowerINTTerminalRuleCall_1_3_2_0 = (RuleCall)cLowerAssignment_1_3_2.eContents().get(0);
+		private final Group cGroup_1_4 = (Group)cUnorderedGroup_1.eContents().get(4);
+		private final Keyword cUpperKeyword_1_4_0 = (Keyword)cGroup_1_4.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_1_4_1 = (Keyword)cGroup_1_4.eContents().get(1);
+		private final Assignment cUpperAssignment_1_4_2 = (Assignment)cGroup_1_4.eContents().get(2);
+		private final RuleCall cUpperINTTerminalRuleCall_1_4_2_0 = (RuleCall)cUpperAssignment_1_4_2.eContents().get(0);
+		private final Group cGroup_1_5 = (Group)cUnorderedGroup_1.eContents().get(5);
+		private final Keyword cDependsOnKeyword_1_5_0 = (Keyword)cGroup_1_5.eContents().get(0);
+		private final Assignment cDependsOnAssignment_1_5_1 = (Assignment)cGroup_1_5.eContents().get(1);
+		private final CrossReference cDependsOnAnswerCrossReference_1_5_1_0 = (CrossReference)cDependsOnAssignment_1_5_1.eContents().get(0);
+		private final RuleCall cDependsOnAnswerEStringParserRuleCall_1_5_1_0_1 = (RuleCall)cDependsOnAnswerCrossReference_1_5_1_0.eContents().get(1);
+		private final Assignment cRequiredAssignment_1_6 = (Assignment)cUnorderedGroup_1.eContents().get(6);
+		private final Keyword cRequiredRequiredKeyword_1_6_0 = (Keyword)cRequiredAssignment_1_6.eContents().get(0);
+		private final Assignment cOtherAssignment_1_7 = (Assignment)cUnorderedGroup_1.eContents().get(7);
+		private final Keyword cOtherOtherKeyword_1_7_0 = (Keyword)cOtherAssignment_1_7.eContents().get(0);
+		private final Assignment cShowLimitsAssignment_1_8 = (Assignment)cUnorderedGroup_1.eContents().get(8);
+		private final Keyword cShowLimitsShowLimitsKeyword_1_8_0 = (Keyword)cShowLimitsAssignment_1_8.eContents().get(0);
+		private final Keyword cGreaterThanSignKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cOptionsAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cOptionsOptionParserRuleCall_3_0 = (RuleCall)cOptionsAssignment_3.eContents().get(0);
+		private final Keyword cMultipleKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		
+		//Multiple:
+		//	"<multiple" ("title" "=" title=STRING & ("description" "=" description=STRING)? & ("id" "=" id=STRING)? & ("lower" "="
+		//	lower=INT)? & ("upper" "=" upper=INT)? & ("dependsOn" dependsOn=[Answer|EString])? & required?="required"? &
+		//	other?="other"? & showLimits?="showLimits"?) ">" options+=Option+ "</multiple>";
+		public ParserRule getRule() { return rule; }
+
+		//"<multiple" ("title" "=" title=STRING & ("description" "=" description=STRING)? & ("id" "=" id=STRING)? & ("lower" "="
+		//lower=INT)? & ("upper" "=" upper=INT)? & ("dependsOn" dependsOn=[Answer|EString])? & required?="required"? &
+		//other?="other"? & showLimits?="showLimits"?) ">" options+=Option+ "</multiple>"
+		public Group getGroup() { return cGroup; }
+
+		//"<multiple"
+		public Keyword getMultipleKeyword_0() { return cMultipleKeyword_0; }
+
+		//"title" "=" title=STRING & ("description" "=" description=STRING)? & ("id" "=" id=STRING)? & ("lower" "=" lower=INT)? &
+		//("upper" "=" upper=INT)? & ("dependsOn" dependsOn=[Answer|EString])? & required?="required"? & other?="other"? &
+		//showLimits?="showLimits"?
+		public UnorderedGroup getUnorderedGroup_1() { return cUnorderedGroup_1; }
+
+		//"title" "=" title=STRING
+		public Group getGroup_1_0() { return cGroup_1_0; }
+
+		//"title"
+		public Keyword getTitleKeyword_1_0_0() { return cTitleKeyword_1_0_0; }
+
+		//"="
+		public Keyword getEqualsSignKeyword_1_0_1() { return cEqualsSignKeyword_1_0_1; }
+
+		//title=STRING
+		public Assignment getTitleAssignment_1_0_2() { return cTitleAssignment_1_0_2; }
+
+		//STRING
+		public RuleCall getTitleSTRINGTerminalRuleCall_1_0_2_0() { return cTitleSTRINGTerminalRuleCall_1_0_2_0; }
+
+		//("description" "=" description=STRING)?
+		public Group getGroup_1_1() { return cGroup_1_1; }
+
+		//"description"
+		public Keyword getDescriptionKeyword_1_1_0() { return cDescriptionKeyword_1_1_0; }
+
+		//"="
+		public Keyword getEqualsSignKeyword_1_1_1() { return cEqualsSignKeyword_1_1_1; }
+
+		//description=STRING
+		public Assignment getDescriptionAssignment_1_1_2() { return cDescriptionAssignment_1_1_2; }
+
+		//STRING
+		public RuleCall getDescriptionSTRINGTerminalRuleCall_1_1_2_0() { return cDescriptionSTRINGTerminalRuleCall_1_1_2_0; }
+
+		//("id" "=" id=STRING)?
+		public Group getGroup_1_2() { return cGroup_1_2; }
+
+		//"id"
+		public Keyword getIdKeyword_1_2_0() { return cIdKeyword_1_2_0; }
+
+		//"="
+		public Keyword getEqualsSignKeyword_1_2_1() { return cEqualsSignKeyword_1_2_1; }
+
+		//id=STRING
+		public Assignment getIdAssignment_1_2_2() { return cIdAssignment_1_2_2; }
+
+		//STRING
+		public RuleCall getIdSTRINGTerminalRuleCall_1_2_2_0() { return cIdSTRINGTerminalRuleCall_1_2_2_0; }
+
+		//("lower" "=" lower=INT)?
+		public Group getGroup_1_3() { return cGroup_1_3; }
+
+		//"lower"
+		public Keyword getLowerKeyword_1_3_0() { return cLowerKeyword_1_3_0; }
+
+		//"="
+		public Keyword getEqualsSignKeyword_1_3_1() { return cEqualsSignKeyword_1_3_1; }
+
+		//lower=INT
+		public Assignment getLowerAssignment_1_3_2() { return cLowerAssignment_1_3_2; }
+
+		//INT
+		public RuleCall getLowerINTTerminalRuleCall_1_3_2_0() { return cLowerINTTerminalRuleCall_1_3_2_0; }
+
+		//("upper" "=" upper=INT)?
+		public Group getGroup_1_4() { return cGroup_1_4; }
+
+		//"upper"
+		public Keyword getUpperKeyword_1_4_0() { return cUpperKeyword_1_4_0; }
+
+		//"="
+		public Keyword getEqualsSignKeyword_1_4_1() { return cEqualsSignKeyword_1_4_1; }
+
+		//upper=INT
+		public Assignment getUpperAssignment_1_4_2() { return cUpperAssignment_1_4_2; }
+
+		//INT
+		public RuleCall getUpperINTTerminalRuleCall_1_4_2_0() { return cUpperINTTerminalRuleCall_1_4_2_0; }
+
+		//("dependsOn" dependsOn=[Answer|EString])?
+		public Group getGroup_1_5() { return cGroup_1_5; }
+
+		//"dependsOn"
+		public Keyword getDependsOnKeyword_1_5_0() { return cDependsOnKeyword_1_5_0; }
+
+		//dependsOn=[Answer|EString]
+		public Assignment getDependsOnAssignment_1_5_1() { return cDependsOnAssignment_1_5_1; }
+
+		//[Answer|EString]
+		public CrossReference getDependsOnAnswerCrossReference_1_5_1_0() { return cDependsOnAnswerCrossReference_1_5_1_0; }
+
+		//EString
+		public RuleCall getDependsOnAnswerEStringParserRuleCall_1_5_1_0_1() { return cDependsOnAnswerEStringParserRuleCall_1_5_1_0_1; }
+
+		//required?="required"?
+		public Assignment getRequiredAssignment_1_6() { return cRequiredAssignment_1_6; }
+
+		//"required"
+		public Keyword getRequiredRequiredKeyword_1_6_0() { return cRequiredRequiredKeyword_1_6_0; }
+
+		//other?="other"?
+		public Assignment getOtherAssignment_1_7() { return cOtherAssignment_1_7; }
+
+		//"other"
+		public Keyword getOtherOtherKeyword_1_7_0() { return cOtherOtherKeyword_1_7_0; }
+
+		//showLimits?="showLimits"?
+		public Assignment getShowLimitsAssignment_1_8() { return cShowLimitsAssignment_1_8; }
+
+		//"showLimits"
+		public Keyword getShowLimitsShowLimitsKeyword_1_8_0() { return cShowLimitsShowLimitsKeyword_1_8_0; }
+
+		//">"
+		public Keyword getGreaterThanSignKeyword_2() { return cGreaterThanSignKeyword_2; }
+
+		//options+=Option+
+		public Assignment getOptionsAssignment_3() { return cOptionsAssignment_3; }
+
+		//Option
+		public RuleCall getOptionsOptionParserRuleCall_3_0() { return cOptionsOptionParserRuleCall_3_0; }
+
+		//"</multiple>"
+		public Keyword getMultipleKeyword_4() { return cMultipleKeyword_4; }
 	}
 
 	public class TableElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Table");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cTableKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Keyword cTitleKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final Assignment cTitleAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final RuleCall cTitleEStringParserRuleCall_1_1_0 = (RuleCall)cTitleAssignment_1_1.eContents().get(0);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cDescriptionKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cDescriptionAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cDescriptionEStringParserRuleCall_2_1_0 = (RuleCall)cDescriptionAssignment_2_1.eContents().get(0);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cIdKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cIdAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cIdEStringParserRuleCall_3_1_0 = (RuleCall)cIdAssignment_3_1.eContents().get(0);
-		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cDependsOnKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Assignment cDependsOnAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final CrossReference cDependsOnAnswerCrossReference_4_1_0 = (CrossReference)cDependsOnAssignment_4_1.eContents().get(0);
-		private final RuleCall cDependsOnAnswerEStringParserRuleCall_4_1_0_1 = (RuleCall)cDependsOnAnswerCrossReference_4_1_0.eContents().get(1);
-		private final Assignment cRequiredAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final Keyword cRequiredRequiredKeyword_5_0 = (Keyword)cRequiredAssignment_5.eContents().get(0);
-		private final Assignment cOtherAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final Keyword cOtherOtherKeyword_6_0 = (Keyword)cOtherAssignment_6.eContents().get(0);
-		private final Assignment cMultipleAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final Keyword cMultipleMultipleKeyword_7_0 = (Keyword)cMultipleAssignment_7.eContents().get(0);
-		private final Keyword cGreaterThanSignKeyword_8 = (Keyword)cGroup.eContents().get(8);
-		private final Assignment cTemplateAssignment_9 = (Assignment)cGroup.eContents().get(9);
-		private final CrossReference cTemplateOptionCrossReference_9_0 = (CrossReference)cTemplateAssignment_9.eContents().get(0);
-		private final RuleCall cTemplateOptionEStringParserRuleCall_9_0_1 = (RuleCall)cTemplateOptionCrossReference_9_0.eContents().get(1);
-		private final Assignment cOptionsAssignment_10 = (Assignment)cGroup.eContents().get(10);
-		private final RuleCall cOptionsOptionParserRuleCall_10_0 = (RuleCall)cOptionsAssignment_10.eContents().get(0);
-		private final Assignment cOptionsAssignment_11 = (Assignment)cGroup.eContents().get(11);
-		private final RuleCall cOptionsOptionParserRuleCall_11_0 = (RuleCall)cOptionsAssignment_11.eContents().get(0);
-		private final Assignment cQuestionsAssignment_12 = (Assignment)cGroup.eContents().get(12);
-		private final RuleCall cQuestionsTableQuestionParserRuleCall_12_0 = (RuleCall)cQuestionsAssignment_12.eContents().get(0);
-		private final Assignment cQuestionsAssignment_13 = (Assignment)cGroup.eContents().get(13);
-		private final RuleCall cQuestionsTableQuestionParserRuleCall_13_0 = (RuleCall)cQuestionsAssignment_13.eContents().get(0);
-		private final Assignment cTableOptionsAssignment_14 = (Assignment)cGroup.eContents().get(14);
-		private final RuleCall cTableOptionsOptionParserRuleCall_14_0 = (RuleCall)cTableOptionsAssignment_14.eContents().get(0);
-		private final Assignment cTableOptionsAssignment_15 = (Assignment)cGroup.eContents().get(15);
-		private final RuleCall cTableOptionsOptionParserRuleCall_15_0 = (RuleCall)cTableOptionsAssignment_15.eContents().get(0);
-		private final Keyword cTableKeyword_16 = (Keyword)cGroup.eContents().get(16);
+		private final UnorderedGroup cUnorderedGroup_1 = (UnorderedGroup)cGroup.eContents().get(1);
+		private final Group cGroup_1_0 = (Group)cUnorderedGroup_1.eContents().get(0);
+		private final Keyword cTitleKeyword_1_0_0 = (Keyword)cGroup_1_0.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_1_0_1 = (Keyword)cGroup_1_0.eContents().get(1);
+		private final Assignment cTitleAssignment_1_0_2 = (Assignment)cGroup_1_0.eContents().get(2);
+		private final RuleCall cTitleSTRINGTerminalRuleCall_1_0_2_0 = (RuleCall)cTitleAssignment_1_0_2.eContents().get(0);
+		private final Group cGroup_1_1 = (Group)cUnorderedGroup_1.eContents().get(1);
+		private final Keyword cDescriptionKeyword_1_1_0 = (Keyword)cGroup_1_1.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_1_1_1 = (Keyword)cGroup_1_1.eContents().get(1);
+		private final Assignment cDescriptionAssignment_1_1_2 = (Assignment)cGroup_1_1.eContents().get(2);
+		private final RuleCall cDescriptionSTRINGTerminalRuleCall_1_1_2_0 = (RuleCall)cDescriptionAssignment_1_1_2.eContents().get(0);
+		private final Group cGroup_1_2 = (Group)cUnorderedGroup_1.eContents().get(2);
+		private final Keyword cIdKeyword_1_2_0 = (Keyword)cGroup_1_2.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_1_2_1 = (Keyword)cGroup_1_2.eContents().get(1);
+		private final Assignment cIdAssignment_1_2_2 = (Assignment)cGroup_1_2.eContents().get(2);
+		private final RuleCall cIdSTRINGTerminalRuleCall_1_2_2_0 = (RuleCall)cIdAssignment_1_2_2.eContents().get(0);
+		private final Group cGroup_1_3 = (Group)cUnorderedGroup_1.eContents().get(3);
+		private final Keyword cDependsOnKeyword_1_3_0 = (Keyword)cGroup_1_3.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_1_3_1 = (Keyword)cGroup_1_3.eContents().get(1);
+		private final Assignment cDependsOnAssignment_1_3_2 = (Assignment)cGroup_1_3.eContents().get(2);
+		private final CrossReference cDependsOnAnswerCrossReference_1_3_2_0 = (CrossReference)cDependsOnAssignment_1_3_2.eContents().get(0);
+		private final RuleCall cDependsOnAnswerEStringParserRuleCall_1_3_2_0_1 = (RuleCall)cDependsOnAnswerCrossReference_1_3_2_0.eContents().get(1);
+		private final Assignment cRequiredAssignment_1_4 = (Assignment)cUnorderedGroup_1.eContents().get(4);
+		private final Keyword cRequiredRequiredKeyword_1_4_0 = (Keyword)cRequiredAssignment_1_4.eContents().get(0);
+		private final Assignment cOtherAssignment_1_5 = (Assignment)cUnorderedGroup_1.eContents().get(5);
+		private final Keyword cOtherOtherKeyword_1_5_0 = (Keyword)cOtherAssignment_1_5.eContents().get(0);
+		private final Assignment cMultipleAssignment_1_6 = (Assignment)cUnorderedGroup_1.eContents().get(6);
+		private final Keyword cMultipleMultipleKeyword_1_6_0 = (Keyword)cMultipleAssignment_1_6.eContents().get(0);
+		private final Keyword cGreaterThanSignKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final UnorderedGroup cUnorderedGroup_3 = (UnorderedGroup)cGroup.eContents().get(3);
+		private final Assignment cOptionsAssignment_3_0 = (Assignment)cUnorderedGroup_3.eContents().get(0);
+		private final RuleCall cOptionsOptionParserRuleCall_3_0_0 = (RuleCall)cOptionsAssignment_3_0.eContents().get(0);
+		private final Assignment cQuestionsAssignment_3_1 = (Assignment)cUnorderedGroup_3.eContents().get(1);
+		private final RuleCall cQuestionsTableQuestionParserRuleCall_3_1_0 = (RuleCall)cQuestionsAssignment_3_1.eContents().get(0);
+		private final Alternatives cAlternatives_4 = (Alternatives)cGroup.eContents().get(4);
+		private final Assignment cOptionsAssignment_4_0 = (Assignment)cAlternatives_4.eContents().get(0);
+		private final RuleCall cOptionsOptionParserRuleCall_4_0_0 = (RuleCall)cOptionsAssignment_4_0.eContents().get(0);
+		private final Assignment cQuestionsAssignment_4_1 = (Assignment)cAlternatives_4.eContents().get(1);
+		private final RuleCall cQuestionsTableQuestionParserRuleCall_4_1_0 = (RuleCall)cQuestionsAssignment_4_1.eContents().get(0);
+		private final Keyword cTableKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//Table:
-		//	"<table" ("title" title=EString)? ("description" description=EString)? ("id" id=EString)? ("dependsOn"
-		//	dependsOn=[Answer|EString])? required?="required"? other?="other" multiple?="multiple"? ">" template=[Option|EString]?
-		//	options+=Option options+=Option* questions+=TableQuestion questions+=TableQuestion* tableOptions+=Option
-		//	tableOptions+=Option* "</table>";
+		//	"<table" (("title" "=" title=STRING)? & ("description" "=" description=STRING)? & ("id" "=" id=STRING)? & ("dependsOn"
+		//	"=" dependsOn=[Answer|EString])? & required?="required"? & other?="other"? & multiple?="multiple"?) ">" // TODO: check if mixed order is allowed
+		//	(options+=Option+ & questions+=TableQuestion+) (options+=Option | questions+=TableQuestion)* "</table>";
 		public ParserRule getRule() { return rule; }
 
-		//"<table" ("title" title=EString)? ("description" description=EString)? ("id" id=EString)? ("dependsOn"
-		//dependsOn=[Answer|EString])? required?="required"? other?="other" multiple?="multiple"? ">" template=[Option|EString]?
-		//options+=Option options+=Option* questions+=TableQuestion questions+=TableQuestion* tableOptions+=Option
-		//tableOptions+=Option* "</table>"
+		//"<table" (("title" "=" title=STRING)? & ("description" "=" description=STRING)? & ("id" "=" id=STRING)? & ("dependsOn"
+		//"=" dependsOn=[Answer|EString])? & required?="required"? & other?="other"? & multiple?="multiple"?) ">" // TODO: check if mixed order is allowed
+		//(options+=Option+ & questions+=TableQuestion+) (options+=Option | questions+=TableQuestion)* "</table>"
 		public Group getGroup() { return cGroup; }
 
 		//"<table"
 		public Keyword getTableKeyword_0() { return cTableKeyword_0; }
 
-		//("title" title=EString)?
-		public Group getGroup_1() { return cGroup_1; }
+		//("title" "=" title=STRING)? & ("description" "=" description=STRING)? & ("id" "=" id=STRING)? & ("dependsOn" "="
+		//dependsOn=[Answer|EString])? & required?="required"? & other?="other"? & multiple?="multiple"?
+		public UnorderedGroup getUnorderedGroup_1() { return cUnorderedGroup_1; }
+
+		//("title" "=" title=STRING)?
+		public Group getGroup_1_0() { return cGroup_1_0; }
 
 		//"title"
-		public Keyword getTitleKeyword_1_0() { return cTitleKeyword_1_0; }
+		public Keyword getTitleKeyword_1_0_0() { return cTitleKeyword_1_0_0; }
 
-		//title=EString
-		public Assignment getTitleAssignment_1_1() { return cTitleAssignment_1_1; }
+		//"="
+		public Keyword getEqualsSignKeyword_1_0_1() { return cEqualsSignKeyword_1_0_1; }
 
-		//EString
-		public RuleCall getTitleEStringParserRuleCall_1_1_0() { return cTitleEStringParserRuleCall_1_1_0; }
+		//title=STRING
+		public Assignment getTitleAssignment_1_0_2() { return cTitleAssignment_1_0_2; }
 
-		//("description" description=EString)?
-		public Group getGroup_2() { return cGroup_2; }
+		//STRING
+		public RuleCall getTitleSTRINGTerminalRuleCall_1_0_2_0() { return cTitleSTRINGTerminalRuleCall_1_0_2_0; }
+
+		//("description" "=" description=STRING)?
+		public Group getGroup_1_1() { return cGroup_1_1; }
 
 		//"description"
-		public Keyword getDescriptionKeyword_2_0() { return cDescriptionKeyword_2_0; }
+		public Keyword getDescriptionKeyword_1_1_0() { return cDescriptionKeyword_1_1_0; }
 
-		//description=EString
-		public Assignment getDescriptionAssignment_2_1() { return cDescriptionAssignment_2_1; }
+		//"="
+		public Keyword getEqualsSignKeyword_1_1_1() { return cEqualsSignKeyword_1_1_1; }
 
-		//EString
-		public RuleCall getDescriptionEStringParserRuleCall_2_1_0() { return cDescriptionEStringParserRuleCall_2_1_0; }
+		//description=STRING
+		public Assignment getDescriptionAssignment_1_1_2() { return cDescriptionAssignment_1_1_2; }
 
-		//("id" id=EString)?
-		public Group getGroup_3() { return cGroup_3; }
+		//STRING
+		public RuleCall getDescriptionSTRINGTerminalRuleCall_1_1_2_0() { return cDescriptionSTRINGTerminalRuleCall_1_1_2_0; }
+
+		//("id" "=" id=STRING)?
+		public Group getGroup_1_2() { return cGroup_1_2; }
 
 		//"id"
-		public Keyword getIdKeyword_3_0() { return cIdKeyword_3_0; }
+		public Keyword getIdKeyword_1_2_0() { return cIdKeyword_1_2_0; }
 
-		//id=EString
-		public Assignment getIdAssignment_3_1() { return cIdAssignment_3_1; }
+		//"="
+		public Keyword getEqualsSignKeyword_1_2_1() { return cEqualsSignKeyword_1_2_1; }
 
-		//EString
-		public RuleCall getIdEStringParserRuleCall_3_1_0() { return cIdEStringParserRuleCall_3_1_0; }
+		//id=STRING
+		public Assignment getIdAssignment_1_2_2() { return cIdAssignment_1_2_2; }
 
-		//("dependsOn" dependsOn=[Answer|EString])?
-		public Group getGroup_4() { return cGroup_4; }
+		//STRING
+		public RuleCall getIdSTRINGTerminalRuleCall_1_2_2_0() { return cIdSTRINGTerminalRuleCall_1_2_2_0; }
+
+		//("dependsOn" "=" dependsOn=[Answer|EString])?
+		public Group getGroup_1_3() { return cGroup_1_3; }
 
 		//"dependsOn"
-		public Keyword getDependsOnKeyword_4_0() { return cDependsOnKeyword_4_0; }
+		public Keyword getDependsOnKeyword_1_3_0() { return cDependsOnKeyword_1_3_0; }
+
+		//"="
+		public Keyword getEqualsSignKeyword_1_3_1() { return cEqualsSignKeyword_1_3_1; }
 
 		//dependsOn=[Answer|EString]
-		public Assignment getDependsOnAssignment_4_1() { return cDependsOnAssignment_4_1; }
+		public Assignment getDependsOnAssignment_1_3_2() { return cDependsOnAssignment_1_3_2; }
 
 		//[Answer|EString]
-		public CrossReference getDependsOnAnswerCrossReference_4_1_0() { return cDependsOnAnswerCrossReference_4_1_0; }
+		public CrossReference getDependsOnAnswerCrossReference_1_3_2_0() { return cDependsOnAnswerCrossReference_1_3_2_0; }
 
 		//EString
-		public RuleCall getDependsOnAnswerEStringParserRuleCall_4_1_0_1() { return cDependsOnAnswerEStringParserRuleCall_4_1_0_1; }
+		public RuleCall getDependsOnAnswerEStringParserRuleCall_1_3_2_0_1() { return cDependsOnAnswerEStringParserRuleCall_1_3_2_0_1; }
 
 		//required?="required"?
-		public Assignment getRequiredAssignment_5() { return cRequiredAssignment_5; }
+		public Assignment getRequiredAssignment_1_4() { return cRequiredAssignment_1_4; }
 
 		//"required"
-		public Keyword getRequiredRequiredKeyword_5_0() { return cRequiredRequiredKeyword_5_0; }
+		public Keyword getRequiredRequiredKeyword_1_4_0() { return cRequiredRequiredKeyword_1_4_0; }
 
-		//other?="other"
-		public Assignment getOtherAssignment_6() { return cOtherAssignment_6; }
+		//other?="other"?
+		public Assignment getOtherAssignment_1_5() { return cOtherAssignment_1_5; }
 
 		//"other"
-		public Keyword getOtherOtherKeyword_6_0() { return cOtherOtherKeyword_6_0; }
+		public Keyword getOtherOtherKeyword_1_5_0() { return cOtherOtherKeyword_1_5_0; }
 
 		//multiple?="multiple"?
-		public Assignment getMultipleAssignment_7() { return cMultipleAssignment_7; }
+		public Assignment getMultipleAssignment_1_6() { return cMultipleAssignment_1_6; }
 
 		//"multiple"
-		public Keyword getMultipleMultipleKeyword_7_0() { return cMultipleMultipleKeyword_7_0; }
+		public Keyword getMultipleMultipleKeyword_1_6_0() { return cMultipleMultipleKeyword_1_6_0; }
 
 		//">"
-		public Keyword getGreaterThanSignKeyword_8() { return cGreaterThanSignKeyword_8; }
+		public Keyword getGreaterThanSignKeyword_2() { return cGreaterThanSignKeyword_2; }
 
-		//template=[Option|EString]?
-		public Assignment getTemplateAssignment_9() { return cTemplateAssignment_9; }
+		//options+=Option+ & questions+=TableQuestion+
+		public UnorderedGroup getUnorderedGroup_3() { return cUnorderedGroup_3; }
 
-		//[Option|EString]
-		public CrossReference getTemplateOptionCrossReference_9_0() { return cTemplateOptionCrossReference_9_0; }
+		//options+=Option+
+		public Assignment getOptionsAssignment_3_0() { return cOptionsAssignment_3_0; }
 
-		//EString
-		public RuleCall getTemplateOptionEStringParserRuleCall_9_0_1() { return cTemplateOptionEStringParserRuleCall_9_0_1; }
+		//Option
+		public RuleCall getOptionsOptionParserRuleCall_3_0_0() { return cOptionsOptionParserRuleCall_3_0_0; }
+
+		//questions+=TableQuestion+
+		public Assignment getQuestionsAssignment_3_1() { return cQuestionsAssignment_3_1; }
+
+		//TableQuestion
+		public RuleCall getQuestionsTableQuestionParserRuleCall_3_1_0() { return cQuestionsTableQuestionParserRuleCall_3_1_0; }
+
+		//(options+=Option | questions+=TableQuestion)*
+		public Alternatives getAlternatives_4() { return cAlternatives_4; }
 
 		//options+=Option
-		public Assignment getOptionsAssignment_10() { return cOptionsAssignment_10; }
+		public Assignment getOptionsAssignment_4_0() { return cOptionsAssignment_4_0; }
 
 		//Option
-		public RuleCall getOptionsOptionParserRuleCall_10_0() { return cOptionsOptionParserRuleCall_10_0; }
-
-		//options+=Option*
-		public Assignment getOptionsAssignment_11() { return cOptionsAssignment_11; }
-
-		//Option
-		public RuleCall getOptionsOptionParserRuleCall_11_0() { return cOptionsOptionParserRuleCall_11_0; }
+		public RuleCall getOptionsOptionParserRuleCall_4_0_0() { return cOptionsOptionParserRuleCall_4_0_0; }
 
 		//questions+=TableQuestion
-		public Assignment getQuestionsAssignment_12() { return cQuestionsAssignment_12; }
+		public Assignment getQuestionsAssignment_4_1() { return cQuestionsAssignment_4_1; }
 
 		//TableQuestion
-		public RuleCall getQuestionsTableQuestionParserRuleCall_12_0() { return cQuestionsTableQuestionParserRuleCall_12_0; }
-
-		//questions+=TableQuestion*
-		public Assignment getQuestionsAssignment_13() { return cQuestionsAssignment_13; }
-
-		//TableQuestion
-		public RuleCall getQuestionsTableQuestionParserRuleCall_13_0() { return cQuestionsTableQuestionParserRuleCall_13_0; }
-
-		//tableOptions+=Option
-		public Assignment getTableOptionsAssignment_14() { return cTableOptionsAssignment_14; }
-
-		//Option
-		public RuleCall getTableOptionsOptionParserRuleCall_14_0() { return cTableOptionsOptionParserRuleCall_14_0; }
-
-		//tableOptions+=Option*
-		public Assignment getTableOptionsAssignment_15() { return cTableOptionsAssignment_15; }
-
-		//Option
-		public RuleCall getTableOptionsOptionParserRuleCall_15_0() { return cTableOptionsOptionParserRuleCall_15_0; }
+		public RuleCall getQuestionsTableQuestionParserRuleCall_4_1_0() { return cQuestionsTableQuestionParserRuleCall_4_1_0; }
 
 		//"</table>"
-		public Keyword getTableKeyword_16() { return cTableKeyword_16; }
-	}
-
-	public class Option_ImplElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Option_Impl");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cOptionAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cOptionKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		
-		//Option_Impl returns Option:
-		//	{Option} "Option";
-		public ParserRule getRule() { return rule; }
-
-		//{Option} "Option"
-		public Group getGroup() { return cGroup; }
-
-		//{Option}
-		public Action getOptionAction_0() { return cOptionAction_0; }
-
-		//"Option"
-		public Keyword getOptionKeyword_1() { return cOptionKeyword_1; }
+		public Keyword getTableKeyword_5() { return cTableKeyword_5; }
 	}
 
 	public class EIntElements extends AbstractParserRuleElementFinder {
@@ -1754,40 +1728,72 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getINTTerminalRuleCall_1() { return cINTTerminalRuleCall_1; }
 	}
 
+	public class AnswerTemplateRefElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "AnswerTemplateRef");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cTemplateKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cIdKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cEqualsSignKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cTemplateAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final CrossReference cTemplateAnswerTemplateCrossReference_3_0 = (CrossReference)cTemplateAssignment_3.eContents().get(0);
+		private final RuleCall cTemplateAnswerTemplateEStringParserRuleCall_3_0_1 = (RuleCall)cTemplateAnswerTemplateCrossReference_3_0.eContents().get(1);
+		private final Keyword cSolidusGreaterThanSignKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		
+		//AnswerTemplateRef:
+		//	"<template" "id" "=" template=[AnswerTemplate|EString] "/>";
+		public ParserRule getRule() { return rule; }
+
+		//"<template" "id" "=" template=[AnswerTemplate|EString] "/>"
+		public Group getGroup() { return cGroup; }
+
+		//"<template"
+		public Keyword getTemplateKeyword_0() { return cTemplateKeyword_0; }
+
+		//"id"
+		public Keyword getIdKeyword_1() { return cIdKeyword_1; }
+
+		//"="
+		public Keyword getEqualsSignKeyword_2() { return cEqualsSignKeyword_2; }
+
+		//template=[AnswerTemplate|EString]
+		public Assignment getTemplateAssignment_3() { return cTemplateAssignment_3; }
+
+		//[AnswerTemplate|EString]
+		public CrossReference getTemplateAnswerTemplateCrossReference_3_0() { return cTemplateAnswerTemplateCrossReference_3_0; }
+
+		//EString
+		public RuleCall getTemplateAnswerTemplateEStringParserRuleCall_3_0_1() { return cTemplateAnswerTemplateEStringParserRuleCall_3_0_1; }
+
+		//"/>"
+		public Keyword getSolidusGreaterThanSignKeyword_4() { return cSolidusGreaterThanSignKeyword_4; }
+	}
+
 	public class TableQuestionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "TableQuestion");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cTableQuestionKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cTitleKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cTitleAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cTitleEStringParserRuleCall_3_0 = (RuleCall)cTitleAssignment_3.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Keyword cQKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cTitleAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cTitleLabelParserRuleCall_1_0 = (RuleCall)cTitleAssignment_1.eContents().get(0);
+		private final Keyword cQKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		
 		//TableQuestion:
-		//	"TableQuestion" "{" "title" title=EString "}";
+		//	"<q>" title=Label "</q>";
 		public ParserRule getRule() { return rule; }
 
-		//"TableQuestion" "{" "title" title=EString "}"
+		//"<q>" title=Label "</q>"
 		public Group getGroup() { return cGroup; }
 
-		//"TableQuestion"
-		public Keyword getTableQuestionKeyword_0() { return cTableQuestionKeyword_0; }
+		//"<q>"
+		public Keyword getQKeyword_0() { return cQKeyword_0; }
 
-		//"{"
-		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
+		//title=Label
+		public Assignment getTitleAssignment_1() { return cTitleAssignment_1; }
 
-		//"title"
-		public Keyword getTitleKeyword_2() { return cTitleKeyword_2; }
+		//Label
+		public RuleCall getTitleLabelParserRuleCall_1_0() { return cTitleLabelParserRuleCall_1_0; }
 
-		//title=EString
-		public Assignment getTitleAssignment_3() { return cTitleAssignment_3; }
-
-		//EString
-		public RuleCall getTitleEStringParserRuleCall_3_0() { return cTitleEStringParserRuleCall_3_0; }
-
-		//"}"
-		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+		//"</q>"
+		public Keyword getQKeyword_2() { return cQKeyword_2; }
 	}
 	
 	
@@ -1798,17 +1804,17 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	private EStringElements pEString;
 	private AnswerTemplateElements pAnswerTemplate;
 	private AnswerElements pAnswer;
-	private EBooleanElements pEBoolean;
+	private LabelElements pLabel;
 	private GroupElements pGroup;
-	private SingleElements pSingle;
-	private MultipleElements pMultiple;
 	private TextElements pText;
+	private ScaleElements pScale;
 	private DateElements pDate;
 	private NumberElements pNumber;
-	private ScaleElements pScale;
+	private SingleElements pSingle;
+	private MultipleElements pMultiple;
 	private TableElements pTable;
-	private Option_ImplElements pOption_Impl;
 	private EIntElements pEInt;
+	private AnswerTemplateRefElements pAnswerTemplateRef;
 	private TableQuestionElements pTableQuestion;
 	
 	private final Grammar grammar;
@@ -1850,8 +1856,8 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//Survey:
-	//	{Survey} "<survey" ("title" "=" title=EString)? ("description" "=" description=EString)? ">" (items+=Item
-	//	items+=Item*)? (templates+=AnswerTemplate templates+=AnswerTemplate*)? "</survey>";
+	//	{Survey} ("<survey" (("title" "=" title=STRING)? & ("description" "=" description=STRING)?) ">" (items+=Item |
+	//	templates+=AnswerTemplate)* "</survey>")?;
 	public SurveyElements getSurveyAccess() {
 		return (pSurvey != null) ? pSurvey : (pSurvey = new SurveyElements());
 	}
@@ -1861,7 +1867,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Item:
-	//	Group | Single | Multiple | Text | Date | Number | Scale | Table;
+	//	Group | Text | Scale | Date | Number | Single | Multiple | Table;
 	public ItemElements getItemAccess() {
 		return (pItem != null) ? pItem : (pItem = new ItemElements());
 	}
@@ -1871,7 +1877,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Question:
-	//	Single | Multiple | Text | Date | Number | Scale | Table;
+	//	Text | Scale | Date | Number | Single | Multiple | Table;
 	public QuestionElements getQuestionAccess() {
 		return (pQuestion != null) ? pQuestion : (pQuestion = new QuestionElements());
 	}
@@ -1881,7 +1887,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Option:
-	//	Option_Impl | Answer | AnswerTemplate;
+	//	AnswerTemplateRef | Answer;
 	public OptionElements getOptionAccess() {
 		return (pOption != null) ? pOption : (pOption = new OptionElements());
 	}
@@ -1901,7 +1907,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//AnswerTemplate:
-	//	"<template" "id" "=" id=EString ">" answers+=Answer answers+=Answer* "</template>";
+	//	"<template" "id" "=" id=STRING ">" answers+=Answer+ "</template>";
 	public AnswerTemplateElements getAnswerTemplateAccess() {
 		return (pAnswerTemplate != null) ? pAnswerTemplate : (pAnswerTemplate = new AnswerTemplateElements());
 	}
@@ -1911,7 +1917,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Answer:
-	//	"<a" ("id" "=" id=EString)? ">" label=EString "</a>";
+	//	"<a" ("id" "=" id=STRING)? ">" label=Label "</a>";
 	public AnswerElements getAnswerAccess() {
 		return (pAnswer != null) ? pAnswer : (pAnswer = new AnswerElements());
 	}
@@ -1920,19 +1926,19 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		return getAnswerAccess().getRule();
 	}
 
-	//EBoolean returns ecore::EBoolean:
-	//	"true" | "false";
-	public EBooleanElements getEBooleanAccess() {
-		return (pEBoolean != null) ? pEBoolean : (pEBoolean = new EBooleanElements());
+	//Label returns ecore::EString:
+	//	EString EString*;
+	public LabelElements getLabelAccess() {
+		return (pLabel != null) ? pLabel : (pLabel = new LabelElements());
 	}
 	
-	public ParserRule getEBooleanRule() {
-		return getEBooleanAccess().getRule();
+	public ParserRule getLabelRule() {
+		return getLabelAccess().getRule();
 	}
 
 	//Group:
-	//	"<group" ("title" "=" title=EString)? ("description" "=" description=EString)? ("dependsOn" "="
-	//	dependsOn=[Answer|EString])? required?="required"? ">" questions+=Question questions+=Question* "</group>";
+	//	"<group" (("title" "=" title=STRING)? & ("description" "=" description=STRING)? & ("dependsOn" "="
+	//	dependsOn=[Answer|EString])? & required?="required"?) ">" questions+=Question+ "</group>";
 	public GroupElements getGroupAccess() {
 		return (pGroup != null) ? pGroup : (pGroup = new GroupElements());
 	}
@@ -1941,33 +1947,10 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		return getGroupAccess().getRule();
 	}
 
-	//Single:
-	//	"<single" ("title" "=" title=EString)? ("description" "=" description=EString)? ("id" "=" id=EString)? ("dependsOn"
-	//	"=" dependsOn=[Answer|EString])? required?="required"? other?="other"? ">" template=[Option|EString]? options+=Option
-	//	options+=Option* "</single>";
-	public SingleElements getSingleAccess() {
-		return (pSingle != null) ? pSingle : (pSingle = new SingleElements());
-	}
-	
-	public ParserRule getSingleRule() {
-		return getSingleAccess().getRule();
-	}
-
-	//Multiple:
-	//	"<multiple" ("title" "=" title=EString)? ("description" "=" description=EString)? ("id" "=" id=EString)? ("lower" "="
-	//	lower=EInt)? ("upper" "=" upper=EInt)? ("dependsOn" dependsOn=[Answer|EString])? required?="required"? other?="other"?
-	//	showLimits?="showLimits"? ">" template=[Option|EString]? options+=Option ("," options+=Option)* "}" "</multiple>";
-	public MultipleElements getMultipleAccess() {
-		return (pMultiple != null) ? pMultiple : (pMultiple = new MultipleElements());
-	}
-	
-	public ParserRule getMultipleRule() {
-		return getMultipleAccess().getRule();
-	}
-
 	//Text:
-	//	{Text} "<text" ("title" "=" title=EString)? ("description" "=" description=EString)? ("id" "=" id=EString)?
-	//	("dependsOn" "=" dependsOn=[Answer|EString])? required?="required"? multiline?="multiline"? "/>";
+	//	{Text} "<text" ("title" "=" title=STRING & ("description" "=" description=STRING)? & ("id" "=" id=STRING)? &
+	//	("dependsOn" "=" dependsOn=[Answer|EString])? & required?="required"? & ("singleline" | "single" | multiline?=("multi"
+	//	| "multiline"))?) "/>";
 	public TextElements getTextAccess() {
 		return (pText != null) ? pText : (pText = new TextElements());
 	}
@@ -1976,10 +1959,23 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		return getTextAccess().getRule();
 	}
 
+	//Scale:
+	//	"<scale" ("title" "=" title=STRING // TODO: Force that if one label is set, both should be
+	//	& ("description" "=" description=STRING)? & ("id" "=" id=STRING)? & "lower" "=" lower=EInt & "upper" "=" upper=EInt &
+	//	("lowerLabel" "=" lowerLabel=EString)? & ("upperLabel" "=" upperLabel=EString)? & ("dependsOn" "="
+	//	dependsOn=[Answer|EString])? & required?="required"?) "/>";
+	public ScaleElements getScaleAccess() {
+		return (pScale != null) ? pScale : (pScale = new ScaleElements());
+	}
+	
+	public ParserRule getScaleRule() {
+		return getScaleAccess().getRule();
+	}
+
 	//Date:
-	//	{Date} "<date" ("title" "=" title=EString)? ("description" "=" description=EString)? ("id" "=" id=EString)? ("from"
-	//	"=" from=EString)? ("to" "=" to=EString)? ("dependsOn" "=" dependsOn=[Answer|EString])? required?="required"?
-	//	day?="day"? month?="month"? year?="year"? "/>";
+	//	{Date} "<date" ("title" "=" title=STRING & ("description" "=" description=STRING)? & ("id" "=" id=STRING)? & ("from"
+	//	"=" from=EString)? & ("to" "=" to=EString)? & ("dependsOn" "=" dependsOn=[Answer|EString])? &
+	//	showLimits?="showLimits"? & required?="required"? & day?="day"? & month?="month"? & year?="year"?) "/>";
 	public DateElements getDateAccess() {
 		return (pDate != null) ? pDate : (pDate = new DateElements());
 	}
@@ -1989,9 +1985,9 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Number:
-	//	{Number} "<number" ("title" "=" title=EString)? ("description" "=" description=EString)? ("id" "=" id=EString)?
-	//	("lower" "=" lower=EInt)? ("upper" "=" upper=EInt)? ("dependsOn" "=" dependsOn=[Answer|EString])?
-	//	required?="required"? showLimits?="showLimits"? "/>";
+	//	{Number} "<number" ("title" "=" title=STRING & ("description" "=" description=STRING)? & ("id" "=" id=STRING)? &
+	//	("lower" "=" lower=EInt)? & ("upper" "=" upper=EInt)? & ("dependsOn" "=" dependsOn=[Answer|EString])? &
+	//	required?="required"? & showLimits?="showLimits"?) "/>";
 	public NumberElements getNumberAccess() {
 		return (pNumber != null) ? pNumber : (pNumber = new NumberElements());
 	}
@@ -2000,39 +1996,39 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		return getNumberAccess().getRule();
 	}
 
-	//Scale:
-	//	"<scale" ("title" "=" title=EString)? ("description" "=" description=EString)? ("id" "=" id=EString)? "lower" "="
-	//	lower=EInt "upper" "=" upper=EInt ("lowerLabel" "=" lowerLabel=EString)? ("upperLabel" "=" upperLabel=EString)?
-	//	("dependsOn" "=" dependsOn=[Answer|EString])? required?="required"? "/>";
-	public ScaleElements getScaleAccess() {
-		return (pScale != null) ? pScale : (pScale = new ScaleElements());
+	//Single:
+	//	"<single" ("title" "=" title=STRING & ("description" "=" description=STRING)? & ("id" "=" id=STRING)? & ("dependsOn"
+	//	"=" dependsOn=[Answer|EString])? & required?="required"? & other?="other"?) ">" options+=Option+ "</single>";
+	public SingleElements getSingleAccess() {
+		return (pSingle != null) ? pSingle : (pSingle = new SingleElements());
 	}
 	
-	public ParserRule getScaleRule() {
-		return getScaleAccess().getRule();
+	public ParserRule getSingleRule() {
+		return getSingleAccess().getRule();
+	}
+
+	//Multiple:
+	//	"<multiple" ("title" "=" title=STRING & ("description" "=" description=STRING)? & ("id" "=" id=STRING)? & ("lower" "="
+	//	lower=INT)? & ("upper" "=" upper=INT)? & ("dependsOn" dependsOn=[Answer|EString])? & required?="required"? &
+	//	other?="other"? & showLimits?="showLimits"?) ">" options+=Option+ "</multiple>";
+	public MultipleElements getMultipleAccess() {
+		return (pMultiple != null) ? pMultiple : (pMultiple = new MultipleElements());
+	}
+	
+	public ParserRule getMultipleRule() {
+		return getMultipleAccess().getRule();
 	}
 
 	//Table:
-	//	"<table" ("title" title=EString)? ("description" description=EString)? ("id" id=EString)? ("dependsOn"
-	//	dependsOn=[Answer|EString])? required?="required"? other?="other" multiple?="multiple"? ">" template=[Option|EString]?
-	//	options+=Option options+=Option* questions+=TableQuestion questions+=TableQuestion* tableOptions+=Option
-	//	tableOptions+=Option* "</table>";
+	//	"<table" (("title" "=" title=STRING)? & ("description" "=" description=STRING)? & ("id" "=" id=STRING)? & ("dependsOn"
+	//	"=" dependsOn=[Answer|EString])? & required?="required"? & other?="other"? & multiple?="multiple"?) ">" // TODO: check if mixed order is allowed
+	//	(options+=Option+ & questions+=TableQuestion+) (options+=Option | questions+=TableQuestion)* "</table>";
 	public TableElements getTableAccess() {
 		return (pTable != null) ? pTable : (pTable = new TableElements());
 	}
 	
 	public ParserRule getTableRule() {
 		return getTableAccess().getRule();
-	}
-
-	//Option_Impl returns Option:
-	//	{Option} "Option";
-	public Option_ImplElements getOption_ImplAccess() {
-		return (pOption_Impl != null) ? pOption_Impl : (pOption_Impl = new Option_ImplElements());
-	}
-	
-	public ParserRule getOption_ImplRule() {
-		return getOption_ImplAccess().getRule();
 	}
 
 	//EInt returns ecore::EInt:
@@ -2045,8 +2041,18 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		return getEIntAccess().getRule();
 	}
 
+	//AnswerTemplateRef:
+	//	"<template" "id" "=" template=[AnswerTemplate|EString] "/>";
+	public AnswerTemplateRefElements getAnswerTemplateRefAccess() {
+		return (pAnswerTemplateRef != null) ? pAnswerTemplateRef : (pAnswerTemplateRef = new AnswerTemplateRefElements());
+	}
+	
+	public ParserRule getAnswerTemplateRefRule() {
+		return getAnswerTemplateRefAccess().getRule();
+	}
+
 	//TableQuestion:
-	//	"TableQuestion" "{" "title" title=EString "}";
+	//	"<q>" title=Label "</q>";
 	public TableQuestionElements getTableQuestionAccess() {
 		return (pTableQuestion != null) ? pTableQuestion : (pTableQuestion = new TableQuestionElements());
 	}

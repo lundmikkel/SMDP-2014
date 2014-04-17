@@ -9,24 +9,45 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import survey.Meta;
 import survey.SurveyPackage;
-import survey.TitleAndDescription;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Title And Description</b></em>'.
+ * An implementation of the model object '<em><b>Meta</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link survey.impl.TitleAndDescriptionImpl#getTitle <em>Title</em>}</li>
- *   <li>{@link survey.impl.TitleAndDescriptionImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link survey.impl.MetaImpl#getId <em>Id</em>}</li>
+ *   <li>{@link survey.impl.MetaImpl#getTitle <em>Title</em>}</li>
+ *   <li>{@link survey.impl.MetaImpl#getDescription <em>Description</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class TitleAndDescriptionImpl extends MinimalEObjectImpl.Container implements TitleAndDescription {
+public abstract class MetaImpl extends MinimalEObjectImpl.Container implements Meta {
+	/**
+	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getId()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ID_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getId()
+	 * @generated
+	 * @ordered
+	 */
+	protected String id = ID_EDEFAULT;
+
 	/**
 	 * The default value of the '{@link #getTitle() <em>Title</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -72,7 +93,7 @@ public class TitleAndDescriptionImpl extends MinimalEObjectImpl.Container implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected TitleAndDescriptionImpl() {
+	protected MetaImpl() {
 		super();
 	}
 
@@ -83,7 +104,28 @@ public class TitleAndDescriptionImpl extends MinimalEObjectImpl.Container implem
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return SurveyPackage.Literals.TITLE_AND_DESCRIPTION;
+		return SurveyPackage.Literals.META;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getId() {
+		return id;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setId(String newId) {
+		String oldId = id;
+		id = newId;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SurveyPackage.META__ID, oldId, id));
 	}
 
 	/**
@@ -104,7 +146,7 @@ public class TitleAndDescriptionImpl extends MinimalEObjectImpl.Container implem
 		String oldTitle = title;
 		title = newTitle;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SurveyPackage.TITLE_AND_DESCRIPTION__TITLE, oldTitle, title));
+			eNotify(new ENotificationImpl(this, Notification.SET, SurveyPackage.META__TITLE, oldTitle, title));
 	}
 
 	/**
@@ -125,7 +167,7 @@ public class TitleAndDescriptionImpl extends MinimalEObjectImpl.Container implem
 		String oldDescription = description;
 		description = newDescription;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SurveyPackage.TITLE_AND_DESCRIPTION__DESCRIPTION, oldDescription, description));
+			eNotify(new ENotificationImpl(this, Notification.SET, SurveyPackage.META__DESCRIPTION, oldDescription, description));
 	}
 
 	/**
@@ -136,9 +178,11 @@ public class TitleAndDescriptionImpl extends MinimalEObjectImpl.Container implem
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case SurveyPackage.TITLE_AND_DESCRIPTION__TITLE:
+			case SurveyPackage.META__ID:
+				return getId();
+			case SurveyPackage.META__TITLE:
 				return getTitle();
-			case SurveyPackage.TITLE_AND_DESCRIPTION__DESCRIPTION:
+			case SurveyPackage.META__DESCRIPTION:
 				return getDescription();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -152,10 +196,13 @@ public class TitleAndDescriptionImpl extends MinimalEObjectImpl.Container implem
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case SurveyPackage.TITLE_AND_DESCRIPTION__TITLE:
+			case SurveyPackage.META__ID:
+				setId((String)newValue);
+				return;
+			case SurveyPackage.META__TITLE:
 				setTitle((String)newValue);
 				return;
-			case SurveyPackage.TITLE_AND_DESCRIPTION__DESCRIPTION:
+			case SurveyPackage.META__DESCRIPTION:
 				setDescription((String)newValue);
 				return;
 		}
@@ -170,10 +217,13 @@ public class TitleAndDescriptionImpl extends MinimalEObjectImpl.Container implem
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case SurveyPackage.TITLE_AND_DESCRIPTION__TITLE:
+			case SurveyPackage.META__ID:
+				setId(ID_EDEFAULT);
+				return;
+			case SurveyPackage.META__TITLE:
 				setTitle(TITLE_EDEFAULT);
 				return;
-			case SurveyPackage.TITLE_AND_DESCRIPTION__DESCRIPTION:
+			case SurveyPackage.META__DESCRIPTION:
 				setDescription(DESCRIPTION_EDEFAULT);
 				return;
 		}
@@ -188,9 +238,11 @@ public class TitleAndDescriptionImpl extends MinimalEObjectImpl.Container implem
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case SurveyPackage.TITLE_AND_DESCRIPTION__TITLE:
+			case SurveyPackage.META__ID:
+				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
+			case SurveyPackage.META__TITLE:
 				return TITLE_EDEFAULT == null ? title != null : !TITLE_EDEFAULT.equals(title);
-			case SurveyPackage.TITLE_AND_DESCRIPTION__DESCRIPTION:
+			case SurveyPackage.META__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
 		}
 		return super.eIsSet(featureID);
@@ -206,7 +258,9 @@ public class TitleAndDescriptionImpl extends MinimalEObjectImpl.Container implem
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (title: ");
+		result.append(" (id: ");
+		result.append(id);
+		result.append(", title: ");
 		result.append(title);
 		result.append(", description: ");
 		result.append(description);
@@ -214,4 +268,4 @@ public class TitleAndDescriptionImpl extends MinimalEObjectImpl.Container implem
 		return result.toString();
 	}
 
-} //TitleAndDescriptionImpl
+} //MetaImpl

@@ -21,7 +21,7 @@ package survey;
  * @model
  * @generated
  */
-public interface Multiple extends Question, Other {
+public interface Multiple extends Question, Other, HasOptions {
 	/**
 	 * Returns the value of the '<em><b>Lower</b></em>' attribute.
 	 * <!-- begin-user-doc -->

@@ -6,22 +6,49 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Title And Description</b></em>'.
+ * A representation of the model object '<em><b>Meta</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link survey.TitleAndDescription#getTitle <em>Title</em>}</li>
- *   <li>{@link survey.TitleAndDescription#getDescription <em>Description</em>}</li>
+ *   <li>{@link survey.Meta#getId <em>Id</em>}</li>
+ *   <li>{@link survey.Meta#getTitle <em>Title</em>}</li>
+ *   <li>{@link survey.Meta#getDescription <em>Description</em>}</li>
  * </ul>
  * </p>
  *
- * @see survey.SurveyPackage#getTitleAndDescription()
- * @model
+ * @see survey.SurveyPackage#getMeta()
+ * @model abstract="true"
  * @generated
  */
-public interface TitleAndDescription extends EObject {
+public interface Meta extends EObject {
+	/**
+	 * Returns the value of the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Id</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Id</em>' attribute.
+	 * @see #setId(String)
+	 * @see survey.SurveyPackage#getMeta_Id()
+	 * @model
+	 * @generated
+	 */
+	String getId();
+
+	/**
+	 * Sets the value of the '{@link survey.Meta#getId <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Id</em>' attribute.
+	 * @see #getId()
+	 * @generated
+	 */
+	void setId(String value);
+
 	/**
 	 * Returns the value of the '<em><b>Title</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -32,14 +59,14 @@ public interface TitleAndDescription extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Title</em>' attribute.
 	 * @see #setTitle(String)
-	 * @see survey.SurveyPackage#getTitleAndDescription_Title()
+	 * @see survey.SurveyPackage#getMeta_Title()
 	 * @model
 	 * @generated
 	 */
 	String getTitle();
 
 	/**
-	 * Sets the value of the '{@link survey.TitleAndDescription#getTitle <em>Title</em>}' attribute.
+	 * Sets the value of the '{@link survey.Meta#getTitle <em>Title</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Title</em>' attribute.
@@ -58,14 +85,14 @@ public interface TitleAndDescription extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Description</em>' attribute.
 	 * @see #setDescription(String)
-	 * @see survey.SurveyPackage#getTitleAndDescription_Description()
+	 * @see survey.SurveyPackage#getMeta_Description()
 	 * @model
 	 * @generated
 	 */
 	String getDescription();
 
 	/**
-	 * Sets the value of the '{@link survey.TitleAndDescription#getDescription <em>Description</em>}' attribute.
+	 * Sets the value of the '{@link survey.Meta#getDescription <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Description</em>' attribute.
@@ -74,4 +101,4 @@ public interface TitleAndDescription extends EObject {
 	 */
 	void setDescription(String value);
 
-} // TitleAndDescription
+} // Meta

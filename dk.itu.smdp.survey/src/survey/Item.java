@@ -20,7 +20,7 @@ package survey;
  * @model abstract="true"
  * @generated
  */
-public interface Item extends TitleAndDescription {
+public interface Item extends Meta {
 	/**
 	 * Returns the value of the '<em><b>Depends On</b></em>' reference.
 	 * <!-- begin-user-doc -->

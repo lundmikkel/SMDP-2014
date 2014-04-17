@@ -8,9 +8,12 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 import survey.Answer;
 import survey.AnswerTemplate;
+import survey.AnswerTemplateRef;
 import survey.Date;
 import survey.Group;
+import survey.HasOptions;
 import survey.Item;
+import survey.Meta;
 import survey.Multiple;
 import survey.Option;
 import survey.Other;
@@ -22,7 +25,6 @@ import survey.SurveyPackage;
 import survey.Table;
 import survey.TableQuestion;
 import survey.Text;
-import survey.TitleAndDescription;
 
 /**
  * <!-- begin-user-doc -->
@@ -81,8 +83,16 @@ public class SurveyAdapterFactory extends AdapterFactoryImpl {
 	protected SurveySwitch<Adapter> modelSwitch =
 		new SurveySwitch<Adapter>() {
 			@Override
+			public Adapter caseMeta(Meta object) {
+				return createMetaAdapter();
+			}
+			@Override
 			public Adapter caseSurvey(Survey object) {
 				return createSurveyAdapter();
+			}
+			@Override
+			public Adapter caseItem(Item object) {
+				return createItemAdapter();
 			}
 			@Override
 			public Adapter caseGroup(Group object) {
@@ -93,20 +103,12 @@ public class SurveyAdapterFactory extends AdapterFactoryImpl {
 				return createQuestionAdapter();
 			}
 			@Override
-			public Adapter caseItem(Item object) {
-				return createItemAdapter();
-			}
-			@Override
-			public Adapter caseSingle(Single object) {
-				return createSingleAdapter();
-			}
-			@Override
-			public Adapter caseMultiple(Multiple object) {
-				return createMultipleAdapter();
-			}
-			@Override
 			public Adapter caseText(Text object) {
 				return createTextAdapter();
+			}
+			@Override
+			public Adapter caseScale(Scale object) {
+				return createScaleAdapter();
 			}
 			@Override
 			public Adapter caseDate(Date object) {
@@ -117,24 +119,24 @@ public class SurveyAdapterFactory extends AdapterFactoryImpl {
 				return createNumberAdapter();
 			}
 			@Override
-			public Adapter caseScale(Scale object) {
-				return createScaleAdapter();
-			}
-			@Override
-			public Adapter caseTitleAndDescription(TitleAndDescription object) {
-				return createTitleAndDescriptionAdapter();
-			}
-			@Override
-			public Adapter caseAnswer(Answer object) {
-				return createAnswerAdapter();
-			}
-			@Override
 			public Adapter caseOther(Other object) {
 				return createOtherAdapter();
 			}
 			@Override
-			public Adapter caseAnswerTemplate(AnswerTemplate object) {
-				return createAnswerTemplateAdapter();
+			public Adapter caseHasOptions(HasOptions object) {
+				return createHasOptionsAdapter();
+			}
+			@Override
+			public Adapter caseOption(Option object) {
+				return createOptionAdapter();
+			}
+			@Override
+			public Adapter caseSingle(Single object) {
+				return createSingleAdapter();
+			}
+			@Override
+			public Adapter caseMultiple(Multiple object) {
+				return createMultipleAdapter();
 			}
 			@Override
 			public Adapter caseTable(Table object) {
@@ -145,8 +147,16 @@ public class SurveyAdapterFactory extends AdapterFactoryImpl {
 				return createTableQuestionAdapter();
 			}
 			@Override
-			public Adapter caseOption(Option object) {
-				return createOptionAdapter();
+			public Adapter caseAnswerTemplateRef(AnswerTemplateRef object) {
+				return createAnswerTemplateRefAdapter();
+			}
+			@Override
+			public Adapter caseAnswer(Answer object) {
+				return createAnswerAdapter();
+			}
+			@Override
+			public Adapter caseAnswerTemplate(AnswerTemplate object) {
+				return createAnswerTemplateAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -167,6 +177,20 @@ public class SurveyAdapterFactory extends AdapterFactoryImpl {
 		return modelSwitch.doSwitch((EObject)target);
 	}
 
+
+	/**
+	 * Creates a new adapter for an object of class '{@link survey.Meta <em>Meta</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see survey.Meta
+	 * @generated
+	 */
+	public Adapter createMetaAdapter() {
+		return null;
+	}
 
 	/**
 	 * Creates a new adapter for an object of class '{@link survey.Survey <em>Survey</em>}'.
@@ -309,20 +333,6 @@ public class SurveyAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link survey.TitleAndDescription <em>Title And Description</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see survey.TitleAndDescription
-	 * @generated
-	 */
-	public Adapter createTitleAndDescriptionAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link survey.Answer <em>Answer</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -347,6 +357,20 @@ public class SurveyAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createOtherAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link survey.HasOptions <em>Has Options</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see survey.HasOptions
+	 * @generated
+	 */
+	public Adapter createHasOptionsAdapter() {
 		return null;
 	}
 
@@ -389,6 +413,20 @@ public class SurveyAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTableQuestionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link survey.AnswerTemplateRef <em>Answer Template Ref</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see survey.AnswerTemplateRef
+	 * @generated
+	 */
+	public Adapter createAnswerTemplateRefAdapter() {
 		return null;
 	}
 

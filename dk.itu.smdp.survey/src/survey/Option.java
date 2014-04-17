@@ -11,7 +11,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  *
  * @see survey.SurveyPackage#getOption()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface Option extends EObject {
