@@ -27,7 +27,7 @@ import survey.SurveyPackage;
  *
  * @generated
  */
-public abstract class ItemImpl extends TitleAndDescriptionImpl implements Item {
+public abstract class ItemImpl extends MetaImpl implements Item {
 	/**
 	 * The cached value of the '{@link #getDependsOn() <em>Depends On</em>}' reference.
 	 * <!-- begin-user-doc -->

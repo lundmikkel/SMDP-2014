@@ -17,6 +17,7 @@ import survey.SurveyPackage;
  * The following features are implemented:
  * <ul>
  *   <li>{@link survey.impl.OtherImpl#isOther <em>Other</em>}</li>
+ *   <li>{@link survey.impl.OtherImpl#getOtherLabel <em>Other Label</em>}</li>
  * </ul>
  * </p>
  *
@@ -42,6 +43,26 @@ public abstract class OtherImpl extends MinimalEObjectImpl.Container implements 
 	 * @ordered
 	 */
 	protected boolean other = OTHER_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getOtherLabel() <em>Other Label</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOtherLabel()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String OTHER_LABEL_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getOtherLabel() <em>Other Label</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOtherLabel()
+	 * @generated
+	 * @ordered
+	 */
+	protected String otherLabel = OTHER_LABEL_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -88,11 +109,34 @@ public abstract class OtherImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getOtherLabel() {
+		return otherLabel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOtherLabel(String newOtherLabel) {
+		String oldOtherLabel = otherLabel;
+		otherLabel = newOtherLabel;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SurveyPackage.OTHER__OTHER_LABEL, oldOtherLabel, otherLabel));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case SurveyPackage.OTHER__OTHER:
 				return isOther();
+			case SurveyPackage.OTHER__OTHER_LABEL:
+				return getOtherLabel();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -109,6 +153,9 @@ public abstract class OtherImpl extends MinimalEObjectImpl.Container implements 
 			case SurveyPackage.OTHER__OTHER:
 				setOther((Boolean)newValue);
 				return;
+			case SurveyPackage.OTHER__OTHER_LABEL:
+				setOtherLabel((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -124,6 +171,9 @@ public abstract class OtherImpl extends MinimalEObjectImpl.Container implements 
 			case SurveyPackage.OTHER__OTHER:
 				setOther(OTHER_EDEFAULT);
 				return;
+			case SurveyPackage.OTHER__OTHER_LABEL:
+				setOtherLabel(OTHER_LABEL_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -138,6 +188,8 @@ public abstract class OtherImpl extends MinimalEObjectImpl.Container implements 
 		switch (featureID) {
 			case SurveyPackage.OTHER__OTHER:
 				return other != OTHER_EDEFAULT;
+			case SurveyPackage.OTHER__OTHER_LABEL:
+				return OTHER_LABEL_EDEFAULT == null ? otherLabel != null : !OTHER_LABEL_EDEFAULT.equals(otherLabel);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -154,6 +206,8 @@ public abstract class OtherImpl extends MinimalEObjectImpl.Container implements 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (other: ");
 		result.append(other);
+		result.append(", otherLabel: ");
+		result.append(otherLabel);
 		result.append(')');
 		return result.toString();
 	}

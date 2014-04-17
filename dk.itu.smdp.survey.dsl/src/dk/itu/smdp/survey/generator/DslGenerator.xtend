@@ -210,7 +210,7 @@ class DslGenerator implements IGenerator {
 		«question.title»
 	'''
 	
-	def genQuestionDesc(TitleAndDescription item) '''
+	def genQuestionDesc(Meta item) '''
 	«IF !item.description.nullOrEmpty»
 	<p class="help-block">«item.description»</p>
 	«ENDIF»

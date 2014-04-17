@@ -6,9 +6,10 @@
     operationReflection="true" importOrganizing="true">
   <foreignModel>Survey.ecore</foreignModel>
   <genPackages prefix="Survey" disposableProviderFactory="true" ecorePackage="Survey.ecore#/">
-    <genClasses ecoreClass="Survey.ecore#//TitleAndDescription">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//TitleAndDescription/title"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//TitleAndDescription/description"/>
+    <genClasses image="false" ecoreClass="Survey.ecore#//Meta">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Meta/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Meta/title"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Meta/description"/>
     </genClasses>
     <genClasses ecoreClass="Survey.ecore#//Survey">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Survey.ecore#//Survey/items"/>
@@ -21,9 +22,7 @@
     <genClasses ecoreClass="Survey.ecore#//Group">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Survey.ecore#//Group/questions"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="Survey.ecore#//Question">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Question/id"/>
-    </genClasses>
+    <genClasses image="false" ecoreClass="Survey.ecore#//Question"/>
     <genClasses ecoreClass="Survey.ecore#//Text">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Text/multiline"/>
     </genClasses>
@@ -48,6 +47,7 @@
     </genClasses>
     <genClasses image="false" ecoreClass="Survey.ecore#//Other">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Other/other"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Other/otherLabel"/>
     </genClasses>
     <genClasses ecoreClass="Survey.ecore#//HasOptions">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Survey.ecore#//HasOptions/options"/>

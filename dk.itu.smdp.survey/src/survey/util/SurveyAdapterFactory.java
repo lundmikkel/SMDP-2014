@@ -13,6 +13,7 @@ import survey.Date;
 import survey.Group;
 import survey.HasOptions;
 import survey.Item;
+import survey.Meta;
 import survey.Multiple;
 import survey.Option;
 import survey.Other;
@@ -24,7 +25,6 @@ import survey.SurveyPackage;
 import survey.Table;
 import survey.TableQuestion;
 import survey.Text;
-import survey.TitleAndDescription;
 
 /**
  * <!-- begin-user-doc -->
@@ -83,8 +83,8 @@ public class SurveyAdapterFactory extends AdapterFactoryImpl {
 	protected SurveySwitch<Adapter> modelSwitch =
 		new SurveySwitch<Adapter>() {
 			@Override
-			public Adapter caseTitleAndDescription(TitleAndDescription object) {
-				return createTitleAndDescriptionAdapter();
+			public Adapter caseMeta(Meta object) {
+				return createMetaAdapter();
 			}
 			@Override
 			public Adapter caseSurvey(Survey object) {
@@ -177,6 +177,20 @@ public class SurveyAdapterFactory extends AdapterFactoryImpl {
 		return modelSwitch.doSwitch((EObject)target);
 	}
 
+
+	/**
+	 * Creates a new adapter for an object of class '{@link survey.Meta <em>Meta</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see survey.Meta
+	 * @generated
+	 */
+	public Adapter createMetaAdapter() {
+		return null;
+	}
 
 	/**
 	 * Creates a new adapter for an object of class '{@link survey.Survey <em>Survey</em>}'.
@@ -315,20 +329,6 @@ public class SurveyAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createScaleAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link survey.TitleAndDescription <em>Title And Description</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see survey.TitleAndDescription
-	 * @generated
-	 */
-	public Adapter createTitleAndDescriptionAdapter() {
 		return null;
 	}
 

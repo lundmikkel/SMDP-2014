@@ -19,7 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  *
  * @see survey.SurveyPackage#getHasOptions()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface HasOptions extends EObject {

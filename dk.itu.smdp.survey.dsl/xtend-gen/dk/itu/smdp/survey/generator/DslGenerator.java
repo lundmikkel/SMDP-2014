@@ -15,11 +15,11 @@ import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.StringExtensions;
 import survey.Group;
 import survey.Item;
+import survey.Meta;
 import survey.Question;
 import survey.Scale;
 import survey.Survey;
 import survey.Text;
-import survey.TitleAndDescription;
 
 /**
  * Generates code from your model files on save.
@@ -529,7 +529,7 @@ public class DslGenerator implements IGenerator {
     return _builder.toString();
   }
   
-  public CharSequence genQuestionDesc(final TitleAndDescription item) {
+  public CharSequence genQuestionDesc(final Meta item) {
     StringConcatenation _builder = new StringConcatenation();
     {
       String _description = item.getDescription();

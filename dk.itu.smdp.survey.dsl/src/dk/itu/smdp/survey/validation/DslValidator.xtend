@@ -36,7 +36,7 @@ class DslValidator extends AbstractDslValidator {
 					error(
 						'Groups must have unique titles',
 						group,
-						SurveyPackage.Literals.TITLE_AND_DESCRIPTION__TITLE,
+						SurveyPackage.Literals.META__TITLE,
 						DUPLICATE_NAME
 					)
 				} else {
@@ -58,7 +58,7 @@ class DslValidator extends AbstractDslValidator {
 					error(
 						'Questions must have unique IDs',
 						question,
-						SurveyPackage.Literals.QUESTION__ID,
+						SurveyPackage.Literals.META__ID,
 						DUPLICATE_NAME
 					)
 				} else {
@@ -143,7 +143,7 @@ class DslValidator extends AbstractDslValidator {
 						error(
 							'Questions within a group must have unique IDs',
 							question,
-							SurveyPackage.Literals.QUESTION__ID,
+							SurveyPackage.Literals.META__ID,
 							DUPLICATE_NAME
 						)
 					} else {

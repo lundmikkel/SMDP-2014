@@ -57,14 +57,23 @@ public interface SurveyPackage extends EPackage {
 	SurveyPackage eINSTANCE = survey.impl.SurveyPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link survey.impl.TitleAndDescriptionImpl <em>Title And Description</em>}' class.
+	 * The meta object id for the '{@link survey.impl.MetaImpl <em>Meta</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see survey.impl.TitleAndDescriptionImpl
-	 * @see survey.impl.SurveyPackageImpl#getTitleAndDescription()
+	 * @see survey.impl.MetaImpl
+	 * @see survey.impl.SurveyPackageImpl#getMeta()
 	 * @generated
 	 */
-	int TITLE_AND_DESCRIPTION = 0;
+	int META = 0;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int META__ID = 0;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -73,7 +82,7 @@ public interface SurveyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TITLE_AND_DESCRIPTION__TITLE = 0;
+	int META__TITLE = 1;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -82,25 +91,25 @@ public interface SurveyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TITLE_AND_DESCRIPTION__DESCRIPTION = 1;
+	int META__DESCRIPTION = 2;
 
 	/**
-	 * The number of structural features of the '<em>Title And Description</em>' class.
+	 * The number of structural features of the '<em>Meta</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TITLE_AND_DESCRIPTION_FEATURE_COUNT = 2;
+	int META_FEATURE_COUNT = 3;
 
 	/**
-	 * The number of operations of the '<em>Title And Description</em>' class.
+	 * The number of operations of the '<em>Meta</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TITLE_AND_DESCRIPTION_OPERATION_COUNT = 0;
+	int META_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link survey.impl.SurveyImpl <em>Survey</em>}' class.
@@ -113,13 +122,22 @@ public interface SurveyPackage extends EPackage {
 	int SURVEY = 1;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SURVEY__ID = META__ID;
+
+	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SURVEY__TITLE = TITLE_AND_DESCRIPTION__TITLE;
+	int SURVEY__TITLE = META__TITLE;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -128,7 +146,7 @@ public interface SurveyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SURVEY__DESCRIPTION = TITLE_AND_DESCRIPTION__DESCRIPTION;
+	int SURVEY__DESCRIPTION = META__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Items</b></em>' containment reference list.
@@ -137,7 +155,7 @@ public interface SurveyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SURVEY__ITEMS = TITLE_AND_DESCRIPTION_FEATURE_COUNT + 0;
+	int SURVEY__ITEMS = META_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Templates</b></em>' containment reference list.
@@ -146,7 +164,7 @@ public interface SurveyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SURVEY__TEMPLATES = TITLE_AND_DESCRIPTION_FEATURE_COUNT + 1;
+	int SURVEY__TEMPLATES = META_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Survey</em>' class.
@@ -155,7 +173,7 @@ public interface SurveyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SURVEY_FEATURE_COUNT = TITLE_AND_DESCRIPTION_FEATURE_COUNT + 2;
+	int SURVEY_FEATURE_COUNT = META_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Survey</em>' class.
@@ -164,7 +182,7 @@ public interface SurveyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SURVEY_OPERATION_COUNT = TITLE_AND_DESCRIPTION_OPERATION_COUNT + 0;
+	int SURVEY_OPERATION_COUNT = META_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link survey.impl.ItemImpl <em>Item</em>}' class.
@@ -177,13 +195,22 @@ public interface SurveyPackage extends EPackage {
 	int ITEM = 2;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ITEM__ID = META__ID;
+
+	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ITEM__TITLE = TITLE_AND_DESCRIPTION__TITLE;
+	int ITEM__TITLE = META__TITLE;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -192,7 +219,7 @@ public interface SurveyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ITEM__DESCRIPTION = TITLE_AND_DESCRIPTION__DESCRIPTION;
+	int ITEM__DESCRIPTION = META__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Depends On</b></em>' reference.
@@ -201,7 +228,7 @@ public interface SurveyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ITEM__DEPENDS_ON = TITLE_AND_DESCRIPTION_FEATURE_COUNT + 0;
+	int ITEM__DEPENDS_ON = META_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Required</b></em>' attribute.
@@ -210,7 +237,7 @@ public interface SurveyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ITEM__REQUIRED = TITLE_AND_DESCRIPTION_FEATURE_COUNT + 1;
+	int ITEM__REQUIRED = META_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Item</em>' class.
@@ -219,7 +246,7 @@ public interface SurveyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ITEM_FEATURE_COUNT = TITLE_AND_DESCRIPTION_FEATURE_COUNT + 2;
+	int ITEM_FEATURE_COUNT = META_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Item</em>' class.
@@ -228,7 +255,7 @@ public interface SurveyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ITEM_OPERATION_COUNT = TITLE_AND_DESCRIPTION_OPERATION_COUNT + 0;
+	int ITEM_OPERATION_COUNT = META_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link survey.impl.GroupImpl <em>Group</em>}' class.
@@ -239,6 +266,15 @@ public interface SurveyPackage extends EPackage {
 	 * @generated
 	 */
 	int GROUP = 3;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GROUP__ID = ITEM__ID;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -314,6 +350,15 @@ public interface SurveyPackage extends EPackage {
 	int QUESTION = 4;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUESTION__ID = ITEM__ID;
+
+	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -350,22 +395,13 @@ public interface SurveyPackage extends EPackage {
 	int QUESTION__REQUIRED = ITEM__REQUIRED;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int QUESTION__ID = ITEM_FEATURE_COUNT + 0;
-
-	/**
 	 * The number of structural features of the '<em>Question</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int QUESTION_FEATURE_COUNT = ITEM_FEATURE_COUNT + 1;
+	int QUESTION_FEATURE_COUNT = ITEM_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Question</em>' class.
@@ -407,6 +443,15 @@ public interface SurveyPackage extends EPackage {
 	int TEXT = 5;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT__ID = QUESTION__ID;
+
+	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -441,15 +486,6 @@ public interface SurveyPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT__REQUIRED = QUESTION__REQUIRED;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT__ID = QUESTION__ID;
 
 	/**
 	 * The feature id for the '<em><b>Multiline</b></em>' attribute.
@@ -509,6 +545,15 @@ public interface SurveyPackage extends EPackage {
 	int SCALE = 6;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCALE__ID = QUESTION__ID;
+
+	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -543,15 +588,6 @@ public interface SurveyPackage extends EPackage {
 	 * @ordered
 	 */
 	int SCALE__REQUIRED = QUESTION__REQUIRED;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCALE__ID = QUESTION__ID;
 
 	/**
 	 * The feature id for the '<em><b>Lower</b></em>' attribute.
@@ -608,6 +644,15 @@ public interface SurveyPackage extends EPackage {
 	int SCALE_OPERATION_COUNT = QUESTION_OPERATION_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE__ID = QUESTION__ID;
+
+	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -642,15 +687,6 @@ public interface SurveyPackage extends EPackage {
 	 * @ordered
 	 */
 	int DATE__REQUIRED = QUESTION__REQUIRED;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATE__ID = QUESTION__ID;
 
 	/**
 	 * The feature id for the '<em><b>Day</b></em>' attribute.
@@ -725,6 +761,15 @@ public interface SurveyPackage extends EPackage {
 	int DATE_OPERATION_COUNT = QUESTION_OPERATION_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER__ID = QUESTION__ID;
+
+	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -759,15 +804,6 @@ public interface SurveyPackage extends EPackage {
 	 * @ordered
 	 */
 	int NUMBER__REQUIRED = QUESTION__REQUIRED;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NUMBER__ID = QUESTION__ID;
 
 	/**
 	 * The feature id for the '<em><b>Lower</b></em>' attribute.
@@ -854,13 +890,22 @@ public interface SurveyPackage extends EPackage {
 	int OTHER__OTHER = 0;
 
 	/**
+	 * The feature id for the '<em><b>Other Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OTHER__OTHER_LABEL = 1;
+
+	/**
 	 * The number of structural features of the '<em>Other</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OTHER_FEATURE_COUNT = 1;
+	int OTHER_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Other</em>' class.
@@ -927,6 +972,15 @@ public interface SurveyPackage extends EPackage {
 	int OPTION_OPERATION_COUNT = 0;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE__ID = QUESTION__ID;
+
+	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -963,15 +1017,6 @@ public interface SurveyPackage extends EPackage {
 	int SINGLE__REQUIRED = QUESTION__REQUIRED;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE__ID = QUESTION__ID;
-
-	/**
 	 * The feature id for the '<em><b>Other</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -981,13 +1026,22 @@ public interface SurveyPackage extends EPackage {
 	int SINGLE__OTHER = QUESTION_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Other Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE__OTHER_LABEL = QUESTION_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Options</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SINGLE__OPTIONS = QUESTION_FEATURE_COUNT + 1;
+	int SINGLE__OPTIONS = QUESTION_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Single</em>' class.
@@ -996,7 +1050,7 @@ public interface SurveyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SINGLE_FEATURE_COUNT = QUESTION_FEATURE_COUNT + 2;
+	int SINGLE_FEATURE_COUNT = QUESTION_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Single</em>' class.
@@ -1006,6 +1060,15 @@ public interface SurveyPackage extends EPackage {
 	 * @ordered
 	 */
 	int SINGLE_OPERATION_COUNT = QUESTION_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTIPLE__ID = QUESTION__ID;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -1044,15 +1107,6 @@ public interface SurveyPackage extends EPackage {
 	int MULTIPLE__REQUIRED = QUESTION__REQUIRED;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MULTIPLE__ID = QUESTION__ID;
-
-	/**
 	 * The feature id for the '<em><b>Other</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1062,13 +1116,22 @@ public interface SurveyPackage extends EPackage {
 	int MULTIPLE__OTHER = QUESTION_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Other Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTIPLE__OTHER_LABEL = QUESTION_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Options</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MULTIPLE__OPTIONS = QUESTION_FEATURE_COUNT + 1;
+	int MULTIPLE__OPTIONS = QUESTION_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Lower</b></em>' attribute.
@@ -1077,7 +1140,7 @@ public interface SurveyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULTIPLE__LOWER = QUESTION_FEATURE_COUNT + 2;
+	int MULTIPLE__LOWER = QUESTION_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Upper</b></em>' attribute.
@@ -1086,7 +1149,7 @@ public interface SurveyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULTIPLE__UPPER = QUESTION_FEATURE_COUNT + 3;
+	int MULTIPLE__UPPER = QUESTION_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Show Limits</b></em>' attribute.
@@ -1095,7 +1158,7 @@ public interface SurveyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULTIPLE__SHOW_LIMITS = QUESTION_FEATURE_COUNT + 4;
+	int MULTIPLE__SHOW_LIMITS = QUESTION_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Multiple</em>' class.
@@ -1104,7 +1167,7 @@ public interface SurveyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULTIPLE_FEATURE_COUNT = QUESTION_FEATURE_COUNT + 5;
+	int MULTIPLE_FEATURE_COUNT = QUESTION_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of operations of the '<em>Multiple</em>' class.
@@ -1134,6 +1197,15 @@ public interface SurveyPackage extends EPackage {
 	 * @generated
 	 */
 	int TABLE = 14;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__ID = QUESTION__ID;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -1172,15 +1244,6 @@ public interface SurveyPackage extends EPackage {
 	int TABLE__REQUIRED = QUESTION__REQUIRED;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE__ID = QUESTION__ID;
-
-	/**
 	 * The feature id for the '<em><b>Other</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1190,13 +1253,22 @@ public interface SurveyPackage extends EPackage {
 	int TABLE__OTHER = QUESTION_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Other Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__OTHER_LABEL = QUESTION_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Options</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE__OPTIONS = QUESTION_FEATURE_COUNT + 1;
+	int TABLE__OPTIONS = QUESTION_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Questions</b></em>' containment reference list.
@@ -1205,7 +1277,7 @@ public interface SurveyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE__QUESTIONS = QUESTION_FEATURE_COUNT + 2;
+	int TABLE__QUESTIONS = QUESTION_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Multiple</b></em>' attribute.
@@ -1214,7 +1286,7 @@ public interface SurveyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE__MULTIPLE = QUESTION_FEATURE_COUNT + 3;
+	int TABLE__MULTIPLE = QUESTION_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Table</em>' class.
@@ -1223,7 +1295,7 @@ public interface SurveyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_FEATURE_COUNT = QUESTION_FEATURE_COUNT + 4;
+	int TABLE_FEATURE_COUNT = QUESTION_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of operations of the '<em>Table</em>' class.
@@ -1381,6 +1453,49 @@ public interface SurveyPackage extends EPackage {
 	int ANSWER_TEMPLATE_OPERATION_COUNT = 0;
 
 	/**
+	 * Returns the meta object for class '{@link survey.Meta <em>Meta</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Meta</em>'.
+	 * @see survey.Meta
+	 * @generated
+	 */
+	EClass getMeta();
+
+	/**
+	 * Returns the meta object for the attribute '{@link survey.Meta#getId <em>Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Id</em>'.
+	 * @see survey.Meta#getId()
+	 * @see #getMeta()
+	 * @generated
+	 */
+	EAttribute getMeta_Id();
+
+	/**
+	 * Returns the meta object for the attribute '{@link survey.Meta#getTitle <em>Title</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Title</em>'.
+	 * @see survey.Meta#getTitle()
+	 * @see #getMeta()
+	 * @generated
+	 */
+	EAttribute getMeta_Title();
+
+	/**
+	 * Returns the meta object for the attribute '{@link survey.Meta#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see survey.Meta#getDescription()
+	 * @see #getMeta()
+	 * @generated
+	 */
+	EAttribute getMeta_Description();
+
+	/**
 	 * Returns the meta object for class '{@link survey.Survey <em>Survey</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1442,17 +1557,6 @@ public interface SurveyPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getQuestion();
-
-	/**
-	 * Returns the meta object for the attribute '{@link survey.Question#getId <em>Id</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Id</em>'.
-	 * @see survey.Question#getId()
-	 * @see #getQuestion()
-	 * @generated
-	 */
-	EAttribute getQuestion_Id();
 
 	/**
 	 * Returns the meta object for class '{@link survey.Item <em>Item</em>}'.
@@ -1734,38 +1838,6 @@ public interface SurveyPackage extends EPackage {
 	EAttribute getScale_UpperLabel();
 
 	/**
-	 * Returns the meta object for class '{@link survey.TitleAndDescription <em>Title And Description</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Title And Description</em>'.
-	 * @see survey.TitleAndDescription
-	 * @generated
-	 */
-	EClass getTitleAndDescription();
-
-	/**
-	 * Returns the meta object for the attribute '{@link survey.TitleAndDescription#getTitle <em>Title</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Title</em>'.
-	 * @see survey.TitleAndDescription#getTitle()
-	 * @see #getTitleAndDescription()
-	 * @generated
-	 */
-	EAttribute getTitleAndDescription_Title();
-
-	/**
-	 * Returns the meta object for the attribute '{@link survey.TitleAndDescription#getDescription <em>Description</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Description</em>'.
-	 * @see survey.TitleAndDescription#getDescription()
-	 * @see #getTitleAndDescription()
-	 * @generated
-	 */
-	EAttribute getTitleAndDescription_Description();
-
-	/**
 	 * Returns the meta object for class '{@link survey.Answer <em>Answer</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1817,6 +1889,17 @@ public interface SurveyPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getOther_Other();
+
+	/**
+	 * Returns the meta object for the attribute '{@link survey.Other#getOtherLabel <em>Other Label</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Other Label</em>'.
+	 * @see survey.Other#getOtherLabel()
+	 * @see #getOther()
+	 * @generated
+	 */
+	EAttribute getOther_OtherLabel();
 
 	/**
 	 * Returns the meta object for class '{@link survey.HasOptions <em>Has Options</em>}'.
@@ -1979,6 +2062,40 @@ public interface SurveyPackage extends EPackage {
 	 */
 	interface Literals {
 		/**
+		 * The meta object literal for the '{@link survey.impl.MetaImpl <em>Meta</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see survey.impl.MetaImpl
+		 * @see survey.impl.SurveyPackageImpl#getMeta()
+		 * @generated
+		 */
+		EClass META = eINSTANCE.getMeta();
+
+		/**
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute META__ID = eINSTANCE.getMeta_Id();
+
+		/**
+		 * The meta object literal for the '<em><b>Title</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute META__TITLE = eINSTANCE.getMeta_Title();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute META__DESCRIPTION = eINSTANCE.getMeta_Description();
+
+		/**
 		 * The meta object literal for the '{@link survey.impl.SurveyImpl <em>Survey</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2031,14 +2148,6 @@ public interface SurveyPackage extends EPackage {
 		 * @generated
 		 */
 		EClass QUESTION = eINSTANCE.getQuestion();
-
-		/**
-		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute QUESTION__ID = eINSTANCE.getQuestion_Id();
 
 		/**
 		 * The meta object literal for the '{@link survey.impl.ItemImpl <em>Item</em>}' class.
@@ -2263,32 +2372,6 @@ public interface SurveyPackage extends EPackage {
 		EAttribute SCALE__UPPER_LABEL = eINSTANCE.getScale_UpperLabel();
 
 		/**
-		 * The meta object literal for the '{@link survey.impl.TitleAndDescriptionImpl <em>Title And Description</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see survey.impl.TitleAndDescriptionImpl
-		 * @see survey.impl.SurveyPackageImpl#getTitleAndDescription()
-		 * @generated
-		 */
-		EClass TITLE_AND_DESCRIPTION = eINSTANCE.getTitleAndDescription();
-
-		/**
-		 * The meta object literal for the '<em><b>Title</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TITLE_AND_DESCRIPTION__TITLE = eINSTANCE.getTitleAndDescription_Title();
-
-		/**
-		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TITLE_AND_DESCRIPTION__DESCRIPTION = eINSTANCE.getTitleAndDescription_Description();
-
-		/**
 		 * The meta object literal for the '{@link survey.impl.AnswerImpl <em>Answer</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2331,6 +2414,14 @@ public interface SurveyPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute OTHER__OTHER = eINSTANCE.getOther_Other();
+
+		/**
+		 * The meta object literal for the '<em><b>Other Label</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OTHER__OTHER_LABEL = eINSTANCE.getOther_OtherLabel();
 
 		/**
 		 * The meta object literal for the '{@link survey.impl.HasOptionsImpl <em>Has Options</em>}' class.

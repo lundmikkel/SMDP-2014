@@ -21,7 +21,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Survey extends TitleAndDescription {
+public interface Survey extends Meta {
 	/**
 	 * Returns the value of the '<em><b>Items</b></em>' containment reference list.
 	 * The list contents are of type {@link survey.Item}.

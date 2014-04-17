@@ -33,7 +33,7 @@ import survey.SurveyPackage;
  *
  * @generated
  */
-public class HasOptionsImpl extends MinimalEObjectImpl.Container implements HasOptions {
+public abstract class HasOptionsImpl extends MinimalEObjectImpl.Container implements HasOptions {
 	/**
 	 * The cached value of the '{@link #getOptions() <em>Options</em>}' containment reference list.
 	 * <!-- begin-user-doc -->

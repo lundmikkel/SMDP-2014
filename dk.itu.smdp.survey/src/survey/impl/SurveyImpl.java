@@ -33,7 +33,7 @@ import survey.SurveyPackage;
  *
  * @generated
  */
-public class SurveyImpl extends TitleAndDescriptionImpl implements Survey {
+public class SurveyImpl extends MetaImpl implements Survey {
 	/**
 	 * The cached value of the '{@link #getItems() <em>Items</em>}' containment reference list.
 	 * <!-- begin-user-doc -->

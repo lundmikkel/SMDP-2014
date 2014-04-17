@@ -85,15 +85,6 @@ public interface SurveyFactory extends EFactory {
 	Number createNumber();
 
 	/**
-	 * Returns a new object of class '<em>Has Options</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Has Options</em>'.
-	 * @generated
-	 */
-	HasOptions createHasOptions();
-
-	/**
 	 * Returns a new object of class '<em>Scale</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -101,15 +92,6 @@ public interface SurveyFactory extends EFactory {
 	 * @generated
 	 */
 	Scale createScale();
-
-	/**
-	 * Returns a new object of class '<em>Title And Description</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Title And Description</em>'.
-	 * @generated
-	 */
-	TitleAndDescription createTitleAndDescription();
 
 	/**
 	 * Returns a new object of class '<em>Answer</em>'.

@@ -12,6 +12,7 @@ import survey.Date;
 import survey.Group;
 import survey.HasOptions;
 import survey.Item;
+import survey.Meta;
 import survey.Multiple;
 import survey.Option;
 import survey.Other;
@@ -23,7 +24,6 @@ import survey.SurveyPackage;
 import survey.Table;
 import survey.TableQuestion;
 import survey.Text;
-import survey.TitleAndDescription;
 
 /**
  * <!-- begin-user-doc -->
@@ -82,23 +82,23 @@ public class SurveySwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case SurveyPackage.TITLE_AND_DESCRIPTION: {
-				TitleAndDescription titleAndDescription = (TitleAndDescription)theEObject;
-				T result = caseTitleAndDescription(titleAndDescription);
+			case SurveyPackage.META: {
+				Meta meta = (Meta)theEObject;
+				T result = caseMeta(meta);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case SurveyPackage.SURVEY: {
 				Survey survey = (Survey)theEObject;
 				T result = caseSurvey(survey);
-				if (result == null) result = caseTitleAndDescription(survey);
+				if (result == null) result = caseMeta(survey);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case SurveyPackage.ITEM: {
 				Item item = (Item)theEObject;
 				T result = caseItem(item);
-				if (result == null) result = caseTitleAndDescription(item);
+				if (result == null) result = caseMeta(item);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -106,7 +106,7 @@ public class SurveySwitch<T> extends Switch<T> {
 				Group group = (Group)theEObject;
 				T result = caseGroup(group);
 				if (result == null) result = caseItem(group);
-				if (result == null) result = caseTitleAndDescription(group);
+				if (result == null) result = caseMeta(group);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -114,7 +114,7 @@ public class SurveySwitch<T> extends Switch<T> {
 				Question question = (Question)theEObject;
 				T result = caseQuestion(question);
 				if (result == null) result = caseItem(question);
-				if (result == null) result = caseTitleAndDescription(question);
+				if (result == null) result = caseMeta(question);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -123,7 +123,7 @@ public class SurveySwitch<T> extends Switch<T> {
 				T result = caseText(text);
 				if (result == null) result = caseQuestion(text);
 				if (result == null) result = caseItem(text);
-				if (result == null) result = caseTitleAndDescription(text);
+				if (result == null) result = caseMeta(text);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -132,7 +132,7 @@ public class SurveySwitch<T> extends Switch<T> {
 				T result = caseScale(scale);
 				if (result == null) result = caseQuestion(scale);
 				if (result == null) result = caseItem(scale);
-				if (result == null) result = caseTitleAndDescription(scale);
+				if (result == null) result = caseMeta(scale);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -141,7 +141,7 @@ public class SurveySwitch<T> extends Switch<T> {
 				T result = caseDate(date);
 				if (result == null) result = caseQuestion(date);
 				if (result == null) result = caseItem(date);
-				if (result == null) result = caseTitleAndDescription(date);
+				if (result == null) result = caseMeta(date);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -150,7 +150,7 @@ public class SurveySwitch<T> extends Switch<T> {
 				T result = caseNumber(number);
 				if (result == null) result = caseQuestion(number);
 				if (result == null) result = caseItem(number);
-				if (result == null) result = caseTitleAndDescription(number);
+				if (result == null) result = caseMeta(number);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -179,7 +179,7 @@ public class SurveySwitch<T> extends Switch<T> {
 				if (result == null) result = caseOther(single);
 				if (result == null) result = caseHasOptions(single);
 				if (result == null) result = caseItem(single);
-				if (result == null) result = caseTitleAndDescription(single);
+				if (result == null) result = caseMeta(single);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -190,7 +190,7 @@ public class SurveySwitch<T> extends Switch<T> {
 				if (result == null) result = caseOther(multiple);
 				if (result == null) result = caseHasOptions(multiple);
 				if (result == null) result = caseItem(multiple);
-				if (result == null) result = caseTitleAndDescription(multiple);
+				if (result == null) result = caseMeta(multiple);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -201,7 +201,7 @@ public class SurveySwitch<T> extends Switch<T> {
 				if (result == null) result = caseOther(table);
 				if (result == null) result = caseHasOptions(table);
 				if (result == null) result = caseItem(table);
-				if (result == null) result = caseTitleAndDescription(table);
+				if (result == null) result = caseMeta(table);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -233,6 +233,21 @@ public class SurveySwitch<T> extends Switch<T> {
 			}
 			default: return defaultCase(theEObject);
 		}
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Meta</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Meta</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMeta(Meta object) {
+		return null;
 	}
 
 	/**
@@ -382,21 +397,6 @@ public class SurveySwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseScale(Scale object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Title And Description</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Title And Description</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseTitleAndDescription(TitleAndDescription object) {
 		return null;
 	}
 

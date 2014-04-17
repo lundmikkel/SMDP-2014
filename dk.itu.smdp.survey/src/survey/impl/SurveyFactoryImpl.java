@@ -12,7 +12,6 @@ import survey.AnswerTemplate;
 import survey.AnswerTemplateRef;
 import survey.Date;
 import survey.Group;
-import survey.HasOptions;
 import survey.Multiple;
 import survey.Scale;
 import survey.Single;
@@ -22,7 +21,6 @@ import survey.SurveyPackage;
 import survey.Table;
 import survey.TableQuestion;
 import survey.Text;
-import survey.TitleAndDescription;
 
 /**
  * <!-- begin-user-doc -->
@@ -68,14 +66,12 @@ public class SurveyFactoryImpl extends EFactoryImpl implements SurveyFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case SurveyPackage.TITLE_AND_DESCRIPTION: return createTitleAndDescription();
 			case SurveyPackage.SURVEY: return createSurvey();
 			case SurveyPackage.GROUP: return createGroup();
 			case SurveyPackage.TEXT: return createText();
 			case SurveyPackage.SCALE: return createScale();
 			case SurveyPackage.DATE: return createDate();
 			case SurveyPackage.NUMBER: return createNumber();
-			case SurveyPackage.HAS_OPTIONS: return createHasOptions();
 			case SurveyPackage.SINGLE: return createSingle();
 			case SurveyPackage.MULTIPLE: return createMultiple();
 			case SurveyPackage.TABLE: return createTable();
@@ -163,29 +159,9 @@ public class SurveyFactoryImpl extends EFactoryImpl implements SurveyFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public HasOptions createHasOptions() {
-		HasOptionsImpl hasOptions = new HasOptionsImpl();
-		return hasOptions;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Scale createScale() {
 		ScaleImpl scale = new ScaleImpl();
 		return scale;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public TitleAndDescription createTitleAndDescription() {
-		TitleAndDescriptionImpl titleAndDescription = new TitleAndDescriptionImpl();
-		return titleAndDescription;
 	}
 
 	/**

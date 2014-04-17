@@ -32,6 +32,7 @@ import survey.TableQuestion;
  * The following features are implemented:
  * <ul>
  *   <li>{@link survey.impl.TableImpl#isOther <em>Other</em>}</li>
+ *   <li>{@link survey.impl.TableImpl#getOtherLabel <em>Other Label</em>}</li>
  *   <li>{@link survey.impl.TableImpl#getOptions <em>Options</em>}</li>
  *   <li>{@link survey.impl.TableImpl#getQuestions <em>Questions</em>}</li>
  *   <li>{@link survey.impl.TableImpl#isMultiple <em>Multiple</em>}</li>
@@ -60,6 +61,26 @@ public class TableImpl extends QuestionImpl implements Table {
 	 * @ordered
 	 */
 	protected boolean other = OTHER_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getOtherLabel() <em>Other Label</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOtherLabel()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String OTHER_LABEL_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getOtherLabel() <em>Other Label</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOtherLabel()
+	 * @generated
+	 * @ordered
+	 */
+	protected String otherLabel = OTHER_LABEL_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getOptions() <em>Options</em>}' containment reference list.
@@ -146,6 +167,27 @@ public class TableImpl extends QuestionImpl implements Table {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getOtherLabel() {
+		return otherLabel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOtherLabel(String newOtherLabel) {
+		String oldOtherLabel = otherLabel;
+		otherLabel = newOtherLabel;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SurveyPackage.TABLE__OTHER_LABEL, oldOtherLabel, otherLabel));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<Option> getOptions() {
 		if (options == null) {
 			options = new EObjectContainmentEList<Option>(Option.class, this, SurveyPackage.TABLE__OPTIONS);
@@ -212,6 +254,8 @@ public class TableImpl extends QuestionImpl implements Table {
 		switch (featureID) {
 			case SurveyPackage.TABLE__OTHER:
 				return isOther();
+			case SurveyPackage.TABLE__OTHER_LABEL:
+				return getOtherLabel();
 			case SurveyPackage.TABLE__OPTIONS:
 				return getOptions();
 			case SurveyPackage.TABLE__QUESTIONS:
@@ -233,6 +277,9 @@ public class TableImpl extends QuestionImpl implements Table {
 		switch (featureID) {
 			case SurveyPackage.TABLE__OTHER:
 				setOther((Boolean)newValue);
+				return;
+			case SurveyPackage.TABLE__OTHER_LABEL:
+				setOtherLabel((String)newValue);
 				return;
 			case SurveyPackage.TABLE__OPTIONS:
 				getOptions().clear();
@@ -260,6 +307,9 @@ public class TableImpl extends QuestionImpl implements Table {
 			case SurveyPackage.TABLE__OTHER:
 				setOther(OTHER_EDEFAULT);
 				return;
+			case SurveyPackage.TABLE__OTHER_LABEL:
+				setOtherLabel(OTHER_LABEL_EDEFAULT);
+				return;
 			case SurveyPackage.TABLE__OPTIONS:
 				getOptions().clear();
 				return;
@@ -283,6 +333,8 @@ public class TableImpl extends QuestionImpl implements Table {
 		switch (featureID) {
 			case SurveyPackage.TABLE__OTHER:
 				return other != OTHER_EDEFAULT;
+			case SurveyPackage.TABLE__OTHER_LABEL:
+				return OTHER_LABEL_EDEFAULT == null ? otherLabel != null : !OTHER_LABEL_EDEFAULT.equals(otherLabel);
 			case SurveyPackage.TABLE__OPTIONS:
 				return options != null && !options.isEmpty();
 			case SurveyPackage.TABLE__QUESTIONS:
@@ -303,6 +355,7 @@ public class TableImpl extends QuestionImpl implements Table {
 		if (baseClass == Other.class) {
 			switch (derivedFeatureID) {
 				case SurveyPackage.TABLE__OTHER: return SurveyPackage.OTHER__OTHER;
+				case SurveyPackage.TABLE__OTHER_LABEL: return SurveyPackage.OTHER__OTHER_LABEL;
 				default: return -1;
 			}
 		}
@@ -325,6 +378,7 @@ public class TableImpl extends QuestionImpl implements Table {
 		if (baseClass == Other.class) {
 			switch (baseFeatureID) {
 				case SurveyPackage.OTHER__OTHER: return SurveyPackage.TABLE__OTHER;
+				case SurveyPackage.OTHER__OTHER_LABEL: return SurveyPackage.TABLE__OTHER_LABEL;
 				default: return -1;
 			}
 		}
@@ -349,6 +403,8 @@ public class TableImpl extends QuestionImpl implements Table {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (other: ");
 		result.append(other);
+		result.append(", otherLabel: ");
+		result.append(otherLabel);
 		result.append(", multiple: ");
 		result.append(multiple);
 		result.append(')');

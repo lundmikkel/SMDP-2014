@@ -48,7 +48,7 @@ public class DslValidator extends AbstractDslValidator {
         if (_containsKey) {
           this.error(
             "Groups must have unique titles", group, 
-            Literals.TITLE_AND_DESCRIPTION__TITLE, 
+            Literals.META__TITLE, 
             DslValidator.DUPLICATE_NAME);
         } else {
           String _title_2 = group.getTitle();
@@ -77,7 +77,7 @@ public class DslValidator extends AbstractDslValidator {
         if (_containsKey) {
           this.error(
             "Questions must have unique IDs", question, 
-            Literals.QUESTION__ID, 
+            Literals.META__ID, 
             DslValidator.DUPLICATE_NAME);
         } else {
           String _id_2 = question.getId();
@@ -193,7 +193,7 @@ public class DslValidator extends AbstractDslValidator {
           if (_containsKey) {
             this.error(
               "Questions within a group must have unique IDs", question, 
-              Literals.QUESTION__ID, 
+              Literals.META__ID, 
               DslValidator.DUPLICATE_NAME);
           } else {
             String _id_2 = question.getId();
