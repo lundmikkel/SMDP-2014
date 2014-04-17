@@ -1809,11 +1809,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	private TerminalRule tQUOTED_ID;
 	private TerminalRule tFQN;
 	private TerminalRule tID;
-	private TerminalRule tINT;
-	private TerminalRule tSTRING;
 	private TerminalRule tML_COMMENT;
-	private TerminalRule tSL_COMMENT;
-	private TerminalRule tWS;
 	
 	private final Grammar grammar;
 
@@ -2073,35 +2069,35 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		return (tID != null) ? tID : (tID = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "ID"));
 	} 
 
-	//terminal INT returns ecore::EInt:
-	//	"0".."9"+;
-	public TerminalRule getINTRule() {
-		return (tINT != null) ? tINT : (tINT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "INT"));
-	} 
-
-	//terminal STRING:
-	//	"\"" ("\\" ("b" | "t" | "n" | "f" | "r" | "u" | "\"" | "\'" | "\\") | !("\\" | "\""))* "\"" | "\'" ("\\" ("b" | "t" |
-	//	"n" | "f" | "r" | "u" | "\"" | "\'" | "\\") | !("\\" | "\'"))* "\'";
-	public TerminalRule getSTRINGRule() {
-		return (tSTRING != null) ? tSTRING : (tSTRING = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "STRING"));
-	} 
-
 	//terminal ML_COMMENT:
 	//	"<!--"->"-->";
 	public TerminalRule getML_COMMENTRule() {
 		return (tML_COMMENT != null) ? tML_COMMENT : (tML_COMMENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "ML_COMMENT"));
 	} 
 
+	//terminal INT returns ecore::EInt:
+	//	"0".."9"+;
+	public TerminalRule getINTRule() {
+		return gaTerminals.getINTRule();
+	} 
+
+	//terminal STRING:
+	//	"\"" ("\\" ("b" | "t" | "n" | "f" | "r" | "u" | "\"" | "\'" | "\\") | !("\\" | "\""))* "\"" | "\'" ("\\" ("b" | "t" |
+	//	"n" | "f" | "r" | "u" | "\"" | "\'" | "\\") | !("\\" | "\'"))* "\'";
+	public TerminalRule getSTRINGRule() {
+		return gaTerminals.getSTRINGRule();
+	} 
+
 	//terminal SL_COMMENT:
 	//	"//" !("\n" | "\r")* ("\r"? "\n")?;
 	public TerminalRule getSL_COMMENTRule() {
-		return (tSL_COMMENT != null) ? tSL_COMMENT : (tSL_COMMENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "SL_COMMENT"));
+		return gaTerminals.getSL_COMMENTRule();
 	} 
 
 	//terminal WS:
 	//	(" " | "\t" | "\r" | "\n")+;
 	public TerminalRule getWSRule() {
-		return (tWS != null) ? tWS : (tWS = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "WS"));
+		return gaTerminals.getWSRule();
 	} 
 
 	//terminal ANY_OTHER:
