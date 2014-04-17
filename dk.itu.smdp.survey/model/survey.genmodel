@@ -7,7 +7,7 @@
   <foreignModel>Survey.ecore</foreignModel>
   <genPackages prefix="Survey" disposableProviderFactory="true" ecorePackage="Survey.ecore#/">
     <genClasses image="false" ecoreClass="Survey.ecore#//Meta">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Meta/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Meta/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Meta/title"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Meta/description"/>
     </genClasses>
@@ -70,12 +70,12 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Survey.ecore#//AnswerTemplateRef/template"/>
     </genClasses>
     <genClasses ecoreClass="Survey.ecore#//Answer">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Answer/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Answer/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Answer/label"/>
     </genClasses>
     <genClasses ecoreClass="Survey.ecore#//AnswerTemplate">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Survey.ecore#//AnswerTemplate/answers"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//AnswerTemplate/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//AnswerTemplate/name"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

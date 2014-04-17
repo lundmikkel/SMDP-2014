@@ -67,13 +67,13 @@ public interface SurveyPackage extends EPackage {
 	int META = 0;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int META__ID = 0;
+	int META__NAME = 0;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -122,13 +122,13 @@ public interface SurveyPackage extends EPackage {
 	int SURVEY = 1;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SURVEY__ID = META__ID;
+	int SURVEY__NAME = META__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -195,13 +195,13 @@ public interface SurveyPackage extends EPackage {
 	int ITEM = 2;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ITEM__ID = META__ID;
+	int ITEM__NAME = META__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -268,13 +268,13 @@ public interface SurveyPackage extends EPackage {
 	int GROUP = 3;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GROUP__ID = ITEM__ID;
+	int GROUP__NAME = ITEM__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -350,13 +350,13 @@ public interface SurveyPackage extends EPackage {
 	int QUESTION = 4;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int QUESTION__ID = ITEM__ID;
+	int QUESTION__NAME = ITEM__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -443,13 +443,13 @@ public interface SurveyPackage extends EPackage {
 	int TEXT = 5;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT__ID = QUESTION__ID;
+	int TEXT__NAME = QUESTION__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -545,13 +545,13 @@ public interface SurveyPackage extends EPackage {
 	int SCALE = 6;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCALE__ID = QUESTION__ID;
+	int SCALE__NAME = QUESTION__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -644,13 +644,13 @@ public interface SurveyPackage extends EPackage {
 	int SCALE_OPERATION_COUNT = QUESTION_OPERATION_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATE__ID = QUESTION__ID;
+	int DATE__NAME = QUESTION__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -761,13 +761,13 @@ public interface SurveyPackage extends EPackage {
 	int DATE_OPERATION_COUNT = QUESTION_OPERATION_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER__ID = QUESTION__ID;
+	int NUMBER__NAME = QUESTION__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -972,13 +972,13 @@ public interface SurveyPackage extends EPackage {
 	int OPTION_OPERATION_COUNT = 0;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SINGLE__ID = QUESTION__ID;
+	int SINGLE__NAME = QUESTION__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -1062,13 +1062,13 @@ public interface SurveyPackage extends EPackage {
 	int SINGLE_OPERATION_COUNT = QUESTION_OPERATION_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MULTIPLE__ID = QUESTION__ID;
+	int MULTIPLE__NAME = QUESTION__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -1199,13 +1199,13 @@ public interface SurveyPackage extends EPackage {
 	int TABLE = 14;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE__ID = QUESTION__ID;
+	int TABLE__NAME = QUESTION__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -1381,13 +1381,13 @@ public interface SurveyPackage extends EPackage {
 	int ANSWER_TEMPLATE_REF_OPERATION_COUNT = OPTION_OPERATION_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ANSWER__ID = OPTION_FEATURE_COUNT + 0;
+	int ANSWER__NAME = OPTION_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
@@ -1426,13 +1426,13 @@ public interface SurveyPackage extends EPackage {
 	int ANSWER_TEMPLATE__ANSWERS = 0;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ANSWER_TEMPLATE__ID = 1;
+	int ANSWER_TEMPLATE__NAME = 1;
 
 	/**
 	 * The number of structural features of the '<em>Answer Template</em>' class.
@@ -1463,15 +1463,15 @@ public interface SurveyPackage extends EPackage {
 	EClass getMeta();
 
 	/**
-	 * Returns the meta object for the attribute '{@link survey.Meta#getId <em>Id</em>}'.
+	 * Returns the meta object for the attribute '{@link survey.Meta#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Id</em>'.
-	 * @see survey.Meta#getId()
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see survey.Meta#getName()
 	 * @see #getMeta()
 	 * @generated
 	 */
-	EAttribute getMeta_Id();
+	EAttribute getMeta_Name();
 
 	/**
 	 * Returns the meta object for the attribute '{@link survey.Meta#getTitle <em>Title</em>}'.
@@ -1848,15 +1848,15 @@ public interface SurveyPackage extends EPackage {
 	EClass getAnswer();
 
 	/**
-	 * Returns the meta object for the attribute '{@link survey.Answer#getId <em>Id</em>}'.
+	 * Returns the meta object for the attribute '{@link survey.Answer#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Id</em>'.
-	 * @see survey.Answer#getId()
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see survey.Answer#getName()
 	 * @see #getAnswer()
 	 * @generated
 	 */
-	EAttribute getAnswer_Id();
+	EAttribute getAnswer_Name();
 
 	/**
 	 * Returns the meta object for the attribute '{@link survey.Answer#getLabel <em>Label</em>}'.
@@ -1944,15 +1944,15 @@ public interface SurveyPackage extends EPackage {
 	EReference getAnswerTemplate_Answers();
 
 	/**
-	 * Returns the meta object for the attribute '{@link survey.AnswerTemplate#getId <em>Id</em>}'.
+	 * Returns the meta object for the attribute '{@link survey.AnswerTemplate#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Id</em>'.
-	 * @see survey.AnswerTemplate#getId()
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see survey.AnswerTemplate#getName()
 	 * @see #getAnswerTemplate()
 	 * @generated
 	 */
-	EAttribute getAnswerTemplate_Id();
+	EAttribute getAnswerTemplate_Name();
 
 	/**
 	 * Returns the meta object for class '{@link survey.Table <em>Table</em>}'.
@@ -2072,12 +2072,12 @@ public interface SurveyPackage extends EPackage {
 		EClass META = eINSTANCE.getMeta();
 
 		/**
-		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute META__ID = eINSTANCE.getMeta_Id();
+		EAttribute META__NAME = eINSTANCE.getMeta_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Title</b></em>' attribute feature.
@@ -2382,12 +2382,12 @@ public interface SurveyPackage extends EPackage {
 		EClass ANSWER = eINSTANCE.getAnswer();
 
 		/**
-		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute ANSWER__ID = eINSTANCE.getAnswer_Id();
+		EAttribute ANSWER__NAME = eINSTANCE.getAnswer_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Label</b></em>' attribute feature.
@@ -2460,12 +2460,12 @@ public interface SurveyPackage extends EPackage {
 		EReference ANSWER_TEMPLATE__ANSWERS = eINSTANCE.getAnswerTemplate_Answers();
 
 		/**
-		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute ANSWER_TEMPLATE__ID = eINSTANCE.getAnswerTemplate_Id();
+		EAttribute ANSWER_TEMPLATE__NAME = eINSTANCE.getAnswerTemplate_Name();
 
 		/**
 		 * The meta object literal for the '{@link survey.impl.TableImpl <em>Table</em>}' class.

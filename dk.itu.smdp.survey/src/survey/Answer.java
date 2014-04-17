@@ -11,7 +11,7 @@ package survey;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link survey.Answer#getId <em>Id</em>}</li>
+ *   <li>{@link survey.Answer#getName <em>Name</em>}</li>
  *   <li>{@link survey.Answer#getLabel <em>Label</em>}</li>
  * </ul>
  * </p>
@@ -22,30 +22,30 @@ package survey;
  */
 public interface Answer extends Option {
 	/**
-	 * Returns the value of the '<em><b>Id</b></em>' attribute.
+	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Id</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Id</em>' attribute.
-	 * @see #setId(String)
-	 * @see survey.SurveyPackage#getAnswer_Id()
+	 * @return the value of the '<em>Name</em>' attribute.
+	 * @see #setName(String)
+	 * @see survey.SurveyPackage#getAnswer_Name()
 	 * @model
 	 * @generated
 	 */
-	String getId();
+	String getName();
 
 	/**
-	 * Sets the value of the '{@link survey.Answer#getId <em>Id</em>}' attribute.
+	 * Sets the value of the '{@link survey.Answer#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Id</em>' attribute.
-	 * @see #getId()
+	 * @param value the new value of the '<em>Name</em>' attribute.
+	 * @see #getName()
 	 * @generated
 	 */
-	void setId(String value);
+	void setName(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Label</b></em>' attribute.

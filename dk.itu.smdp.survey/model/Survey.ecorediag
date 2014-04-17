@@ -236,7 +236,7 @@
     <children xmi:type="notation:Node" xmi:id="_SE_Xc6oEEeOq5bg1AprPlQ" type="4001"/>
     <children xmi:type="notation:Node" xmi:id="_SE_-gKoEEeOq5bg1AprPlQ" type="5001">
       <children xmi:type="notation:Node" xmi:id="_Bo0GILULEeOUudlMY6Mo_A" type="2001">
-        <element xmi:type="ecore:EAttribute" href="Survey.ecore#//Meta/id"/>
+        <element xmi:type="ecore:EAttribute" href="Survey.ecore#//Meta/name"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_Bo0GIbULEeOUudlMY6Mo_A"/>
       </children>
       <children xmi:type="notation:Node" xmi:id="_cg388KoDEeOq5bg1AprPlQ" type="2001">
@@ -266,7 +266,7 @@
     <children xmi:type="notation:Node" xmi:id="_9edGY6oFEeOq5bg1AprPlQ" type="4001"/>
     <children xmi:type="notation:Node" xmi:id="_9edtcKoFEeOq5bg1AprPlQ" type="5001">
       <children xmi:type="notation:Node" xmi:id="_GF-V0KoGEeOq5bg1AprPlQ" type="2001">
-        <element xmi:type="ecore:EAttribute" href="Survey.ecore#//Answer/id"/>
+        <element xmi:type="ecore:EAttribute" href="Survey.ecore#//Answer/name"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_GF-V0aoGEeOq5bg1AprPlQ"/>
       </children>
       <children xmi:type="notation:Node" xmi:id="_-XAfAKoFEeOq5bg1AprPlQ" type="2001">
@@ -316,7 +316,7 @@
     <children xmi:type="notation:Node" xmi:id="_qPXBULTnEeOUudlMY6Mo_A" type="4001"/>
     <children xmi:type="notation:Node" xmi:id="_qPXoYLTnEeOUudlMY6Mo_A" type="5001">
       <children xmi:type="notation:Node" xmi:id="_1EJMALUHEeOUudlMY6Mo_A" type="2001">
-        <element xmi:type="ecore:EAttribute" href="Survey.ecore#//AnswerTemplate/id"/>
+        <element xmi:type="ecore:EAttribute" href="Survey.ecore#//AnswerTemplate/name"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_1EJMAbUHEeOUudlMY6Mo_A"/>
       </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_qPXoYbTnEeOUudlMY6Mo_A"/>

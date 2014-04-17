@@ -243,7 +243,7 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getMeta_Id() {
+	public EAttribute getMeta_Name() {
 		return (EAttribute)metaEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -567,7 +567,7 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAnswer_Id() {
+	public EAttribute getAnswer_Name() {
 		return (EAttribute)answerEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -648,7 +648,7 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAnswerTemplate_Id() {
+	public EAttribute getAnswerTemplate_Name() {
 		return (EAttribute)answerTemplateEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -753,7 +753,7 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 
 		// Create classes and their features
 		metaEClass = createEClass(META);
-		createEAttribute(metaEClass, META__ID);
+		createEAttribute(metaEClass, META__NAME);
 		createEAttribute(metaEClass, META__TITLE);
 		createEAttribute(metaEClass, META__DESCRIPTION);
 
@@ -819,12 +819,12 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 		createEReference(answerTemplateRefEClass, ANSWER_TEMPLATE_REF__TEMPLATE);
 
 		answerEClass = createEClass(ANSWER);
-		createEAttribute(answerEClass, ANSWER__ID);
+		createEAttribute(answerEClass, ANSWER__NAME);
 		createEAttribute(answerEClass, ANSWER__LABEL);
 
 		answerTemplateEClass = createEClass(ANSWER_TEMPLATE);
 		createEReference(answerTemplateEClass, ANSWER_TEMPLATE__ANSWERS);
-		createEAttribute(answerTemplateEClass, ANSWER_TEMPLATE__ID);
+		createEAttribute(answerTemplateEClass, ANSWER_TEMPLATE__NAME);
 	}
 
 	/**
@@ -877,7 +877,7 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(metaEClass, Meta.class, "Meta", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getMeta_Id(), ecorePackage.getEString(), "id", null, 0, 1, Meta.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMeta_Name(), ecorePackage.getEString(), "name", null, 0, 1, Meta.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMeta_Title(), ecorePackage.getEString(), "title", null, 0, 1, Meta.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMeta_Description(), ecorePackage.getEString(), "description", null, 0, 1, Meta.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -943,12 +943,12 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 		initEReference(getAnswerTemplateRef_Template(), this.getAnswerTemplate(), null, "template", null, 1, 1, AnswerTemplateRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(answerEClass, Answer.class, "Answer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getAnswer_Id(), ecorePackage.getEString(), "id", null, 0, 1, Answer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAnswer_Name(), ecorePackage.getEString(), "name", null, 0, 1, Answer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAnswer_Label(), ecorePackage.getEString(), "label", null, 1, 1, Answer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(answerTemplateEClass, AnswerTemplate.class, "AnswerTemplate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAnswerTemplate_Answers(), this.getAnswer(), null, "answers", null, 1, -1, AnswerTemplate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAnswerTemplate_Id(), ecorePackage.getEString(), "id", null, 1, 1, AnswerTemplate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAnswerTemplate_Name(), ecorePackage.getEString(), "name", null, 1, 1, AnswerTemplate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);
