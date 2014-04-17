@@ -15,6 +15,7 @@ import survey.Item;
 import survey.Multiple;
 import survey.Option;
 import survey.Question;
+import survey.Scale;
 import survey.Single;
 import survey.Survey;
 import survey.SurveyPackage.Literals;
@@ -28,6 +29,10 @@ import survey.Table;
 @SuppressWarnings("all")
 public class DslValidator extends AbstractDslValidator {
   public final static String DUPLICATE_NAME = "duplicateName";
+  
+  public final static String INVALID_VALUE = "invalidValue";
+  
+  public final static String INVALID_DATE = "invalidDate";
   
   /**
    * Check that the groups have unique titles
@@ -320,7 +325,7 @@ public class DslValidator extends AbstractDslValidator {
   }
   
   /**
-   * Check that the ID of answers in AnswerTemplates have unique IDs
+   * Check that the ID of answers in an AnswerTemplate have unique IDs
    */
   @Check
   public void checkThatIDsOfAnswersInAnswerTemplatesAreUnique(final Survey survey) {
@@ -338,13 +343,82 @@ public class DslValidator extends AbstractDslValidator {
           boolean _containsKey = answerMap.containsKey(_id_1);
           if (_containsKey) {
             this.error(
-              "Answers within AnswerTemplates must have unique IDs", answerTemplate, 
+              "Answers within AnswerTemplates must have unique IDs", answer, 
               Literals.ANSWER__ID, 
               DslValidator.DUPLICATE_NAME);
           } else {
             String _id_2 = answer.getId();
             answerMap.put(_id_2, answer);
           }
+        }
+      }
+    }
+  }
+  
+  /**
+   * Check that the upper value in a scale question is larger than the lower value
+   */
+  @Check
+  public void checkThatLowerIsLargerThanUpperScale(final Survey survey) {
+    EList<Item> _items = survey.getItems();
+    Iterable<Question> _filter = Iterables.<Question>filter(_items, Question.class);
+    for (final Question question : _filter) {
+      if ((question instanceof Scale)) {
+        Scale scale = ((Scale) question);
+        int _lower = scale.getLower();
+        int _upper = scale.getUpper();
+        boolean _greaterThan = (_lower > _upper);
+        if (_greaterThan) {
+          this.error(
+            "Scale upper value must be larger than lower value", scale, 
+            Literals.SCALE__UPPER, 
+            DslValidator.INVALID_VALUE);
+        }
+      }
+    }
+  }
+  
+  /**
+   * Check that the upper value in a number question is larger than the lower value
+   */
+  @Check
+  public void checkThatLowerIsLargerThanUpperNumber(final Survey survey) {
+    EList<Item> _items = survey.getItems();
+    Iterable<Question> _filter = Iterables.<Question>filter(_items, Question.class);
+    for (final Question question : _filter) {
+      if ((question instanceof survey.Number)) {
+        survey.Number number = ((survey.Number) question);
+        int _lower = number.getLower();
+        int _upper = number.getUpper();
+        boolean _greaterThan = (_lower > _upper);
+        if (_greaterThan) {
+          this.error(
+            "Number upper value must be larger than lower value", number, 
+            Literals.NUMBER__UPPER, 
+            DslValidator.INVALID_VALUE);
+        }
+      }
+    }
+  }
+  
+  /**
+   * Check that the upper value in a multiple question is larger than the lower value
+   */
+  @Check
+  public void checkThatLowerIsLargerThanUpperMultiple(final Survey survey) {
+    EList<Item> _items = survey.getItems();
+    Iterable<Question> _filter = Iterables.<Question>filter(_items, Question.class);
+    for (final Question question : _filter) {
+      if ((question instanceof Multiple)) {
+        Multiple multiple = ((Multiple) question);
+        int _lower = multiple.getLower();
+        int _upper = multiple.getUpper();
+        boolean _greaterThan = (_lower > _upper);
+        if (_greaterThan) {
+          this.error(
+            "Multiple upper value must be larger than lower value", multiple, 
+            Literals.MULTIPLE__UPPER, 
+            DslValidator.INVALID_VALUE);
         }
       }
     }

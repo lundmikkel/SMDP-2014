@@ -14,6 +14,8 @@ import survey.Multiple
 import survey.Single
 import survey.Table
 import survey.AnswerTemplate
+import survey.Scale
+import survey.Number
 
 /**
  * Custom validation rules. 
@@ -23,8 +25,10 @@ import survey.AnswerTemplate
 class DslValidator extends AbstractDslValidator {
 
 	public static val DUPLICATE_NAME = 'duplicateName'
+	public static val INVALID_VALUE = 'invalidValue'
+	public static val INVALID_DATE = 'invalidDate'
 
-/*
+	/*
  * Check that the groups have unique titles
  */
 	@Check
@@ -46,7 +50,7 @@ class DslValidator extends AbstractDslValidator {
 		}
 	}
 
-/*
+	/*
  * Check that questions, not in a group, have a unique ID
  */
 	@Check
@@ -68,7 +72,7 @@ class DslValidator extends AbstractDslValidator {
 		}
 	}
 
-/*
+	/*
  * Check that answers in questions outside of a group have unique IDs
  */
 	@Check
@@ -128,7 +132,7 @@ class DslValidator extends AbstractDslValidator {
 		}
 	}
 
-/*
+	/*
  * Check that the questions in each group have unique IDs
  */
 	@Check
@@ -154,7 +158,7 @@ class DslValidator extends AbstractDslValidator {
 		}
 	}
 
-/*
+	/*
  * Check that the answers in each question (of type Single, Multiple or Table) in each group have unique IDs
  */
 	@Check
@@ -217,7 +221,7 @@ class DslValidator extends AbstractDslValidator {
 		}
 	}
 
-/*
+	/*
  * Check that the AnswerTemplates have unique IDs
  */
 	@Check
@@ -240,20 +244,20 @@ class DslValidator extends AbstractDslValidator {
 		}
 	}
 
-/*
- * Check that the ID of answers in AnswerTemplates have unique IDs
+	/*
+ * Check that the ID of answers in an AnswerTemplate have unique IDs
  */
 	@Check
 	def checkThatIDsOfAnswersInAnswerTemplatesAreUnique(Survey survey) {
 		var answerMap = new HashMap<String, Answer>
 
 		for (AnswerTemplate answerTemplate : survey.templates) {
-			for (Answer answer : answerTemplate.answers)
+			for (Answer answer : answerTemplate.answers) {
 				if (!answer.id.empty) {
 					if (answerMap.containsKey(answer.id)) {
 						error(
 							'Answers within AnswerTemplates must have unique IDs',
-							answerTemplate,
+							answer,
 							SurveyPackage.Literals.ANSWER__ID,
 							DUPLICATE_NAME
 						)
@@ -261,6 +265,67 @@ class DslValidator extends AbstractDslValidator {
 						answerMap.put(answer.id, answer)
 					}
 				}
+			}
+		}
+	}
+
+	/*
+ * Check that the upper value in a scale question is larger than the lower value 
+ */
+	@Check
+	def checkThatLowerIsLargerThanUpperScale(Survey survey) {
+		for (Question question : survey.items.filter(typeof(Question))) {
+			if (question instanceof Scale) {
+				var scale = question as Scale
+				if (scale.lower > scale.upper) {
+					error(
+						'Scale upper value must be larger than lower value',
+						scale,
+						SurveyPackage.Literals.SCALE__UPPER,
+						INVALID_VALUE
+					)
+				}
+			}
+		}
+	}
+
+	/*
+ * Check that the upper value in a number question is larger than the lower value 
+ */
+	@Check
+	def checkThatLowerIsLargerThanUpperNumber(Survey survey) {
+		for (Question question : survey.items.filter(typeof(Question))) {
+			if (question instanceof Number) {
+				var number = question as Number
+				if (number.lower > number.upper) {
+					error(
+						'Number upper value must be larger than lower value',
+						number,
+						SurveyPackage.Literals.NUMBER__UPPER,
+						INVALID_VALUE
+					)
+				}
+			}
+		}
+	}
+
+	/*
+ * Check that the upper value in a multiple question is larger than the lower value 
+ */
+	@Check
+	def checkThatLowerIsLargerThanUpperMultiple(Survey survey) {
+		for (Question question : survey.items.filter(typeof(Question))) {
+			if (question instanceof Multiple) {
+				var multiple = question as Multiple
+				if (multiple.lower > multiple.upper) {
+					error(
+						'Multiple upper value must be larger than lower value',
+						multiple,
+						SurveyPackage.Literals.MULTIPLE__UPPER,
+						INVALID_VALUE
+					)
+				}
+			}
 		}
 	}
 }
