@@ -59,7 +59,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ('singleline' | 'single')*
+	 *     ('single' | 'singleline')*
 	 */
 	protected void emit_Text___SingleKeyword_2_5_1_or_SinglelineKeyword_2_5_0__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);

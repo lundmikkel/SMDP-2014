@@ -41,7 +41,7 @@ public class DslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getItemAccess().getAlternatives(), "rule__Item__Alternatives");
 					put(grammarAccess.getQuestionAccess().getAlternatives(), "rule__Question__Alternatives");
 					put(grammarAccess.getOptionAccess().getAlternatives(), "rule__Option__Alternatives");
-					put(grammarAccess.getEStringAccess().getAlternatives(), "rule__EString__Alternatives");
+					put(grammarAccess.getQuotedStringAccess().getAlternatives(), "rule__QuotedString__Alternatives");
 					put(grammarAccess.getTextAccess().getAlternatives_2_5(), "rule__Text__Alternatives_2_5");
 					put(grammarAccess.getTextAccess().getMultilineAlternatives_2_5_2_0(), "rule__Text__MultilineAlternatives_2_5_2_0");
 					put(grammarAccess.getTableAccess().getAlternatives_4(), "rule__Table__Alternatives_4");
@@ -52,7 +52,6 @@ public class DslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getAnswerTemplateAccess().getGroup(), "rule__AnswerTemplate__Group__0");
 					put(grammarAccess.getAnswerAccess().getGroup(), "rule__Answer__Group__0");
 					put(grammarAccess.getAnswerAccess().getGroup_1(), "rule__Answer__Group_1__0");
-					put(grammarAccess.getLabelAccess().getGroup(), "rule__Label__Group__0");
 					put(grammarAccess.getGroupAccess().getGroup(), "rule__Group__Group__0");
 					put(grammarAccess.getGroupAccess().getGroup_1_0(), "rule__Group__Group_1_0__0");
 					put(grammarAccess.getGroupAccess().getGroup_1_1(), "rule__Group__Group_1_1__0");
@@ -211,7 +210,7 @@ public class DslParser extends AbstractContentAssistParser {
 	
 	@Override
 	protected String[] getInitialHiddenTokens() {
-		return new String[] { "RULE_WS", "RULE_ML_COMMENT", "RULE_SL_COMMENT" };
+		return new String[] { "RULE_WS", "RULE_ML_COMMENT" };
 	}
 	
 	public DslGrammarAccess getGrammarAccess() {
