@@ -1562,12 +1562,12 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//Table:
 		//	"<table" (("title" "=" title=QuotedString)? & ("description" "=" description=QuotedString)? & ("id" "="
 		//	name=QUOTED_ID)? & ("dependsOn" "=" dependsOn=[Answer|FQN])? & required?="required"? & other?="other"? &
-		//	multiple?="multiple"?) ">" // TODO: check if mixed order is allowed
-		//	(options+=Option+ & questions+=TableQuestion+) (options+=Option | questions+=TableQuestion)* "</table>";
+		//	multiple?="multiple"?) ">" (options+=Option+ & questions+=TableQuestion+) (options+=Option |
+		//	questions+=TableQuestion)* "</table>";
 		public ParserRule getRule() { return rule; }
 
 		//"<table" (("title" "=" title=QuotedString)? & ("description" "=" description=QuotedString)? & ("id" "=" name=QUOTED_ID)?
-		//& ("dependsOn" "=" dependsOn=[Answer|FQN])? & required?="required"? & other?="other"? & multiple?="multiple"?) ">" // TODO: check if mixed order is allowed
+		//& ("dependsOn" "=" dependsOn=[Answer|FQN])? & required?="required"? & other?="other"? & multiple?="multiple"?) ">"
 		//(options+=Option+ & questions+=TableQuestion+) (options+=Option | questions+=TableQuestion)* "</table>"
 		public Group getGroup() { return cGroup; }
 
@@ -2013,8 +2013,8 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	//Table:
 	//	"<table" (("title" "=" title=QuotedString)? & ("description" "=" description=QuotedString)? & ("id" "="
 	//	name=QUOTED_ID)? & ("dependsOn" "=" dependsOn=[Answer|FQN])? & required?="required"? & other?="other"? &
-	//	multiple?="multiple"?) ">" // TODO: check if mixed order is allowed
-	//	(options+=Option+ & questions+=TableQuestion+) (options+=Option | questions+=TableQuestion)* "</table>";
+	//	multiple?="multiple"?) ">" (options+=Option+ & questions+=TableQuestion+) (options+=Option |
+	//	questions+=TableQuestion)* "</table>";
 	public TableElements getTableAccess() {
 		return (pTable != null) ? pTable : (pTable = new TableElements());
 	}

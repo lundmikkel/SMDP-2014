@@ -48,7 +48,7 @@ Group returns Group:
 Text returns Text:
 	{Text}
 	'<text'
-		(('title' '=' title=QuotedString)
+		( ('title' '=' title=QuotedString)
 		& ('description' '=' description=QuotedString)?
 		& ('id' '=' name=QUOTED_ID)?
 		& ('dependsOn' '=' dependsOn=[Answer|FQN])?
@@ -58,7 +58,7 @@ Text returns Text:
 
 Scale returns Scale:
 	'<scale'
-		(('title' '=' title=QuotedString)
+		( ('title' '=' title=QuotedString)
 		& ('description' '=' description=QuotedString)?
 		& ('id' '=' name=QUOTED_ID)?
 		& ('lower' '=' lower=EInt)
@@ -73,7 +73,7 @@ Scale returns Scale:
 Date returns Date:
 	{Date}
 	'<date'
-		(('title' '=' title=QuotedString)
+		( ('title' '=' title=QuotedString)
 		& ('description' '=' description=QuotedString)?
 		& ('id' '=' name=QUOTED_ID)?
 		& ('from' '=' from=QuotedString)?
@@ -89,7 +89,7 @@ Date returns Date:
 Number returns Number:
 	{Number}
 	'<number'
-		(('title' '=' title=QuotedString)
+		( ('title' '=' title=QuotedString)
 		& ('description' '=' description=QuotedString)?
 		& ('id' '=' name=QUOTED_ID)?
 		& ('lower' '=' lower=EInt)?
@@ -113,7 +113,7 @@ Single returns Single:
 
 Multiple returns Multiple:
 	'<multiple'
-		(('title' '=' title=QuotedString)
+		( ('title' '=' title=QuotedString)
 		& ('description' '=' description=QuotedString)?
 		& ('id' '=' name=QUOTED_ID)?
 		& ('lower' '=' lower=INT)?
@@ -128,15 +128,14 @@ Multiple returns Multiple:
 
 Table returns Table:
 	'<table'
-		(('title' '=' title=QuotedString)?
+		( ('title' '=' title=QuotedString)?
 		& ('description' '=' description=QuotedString)?
 		& ('id' '=' name=QUOTED_ID)?
 		& ('dependsOn' '=' dependsOn=[Answer|FQN])?
 		& (required?='required')?
 		& (other?='other')?		
 		& (multiple?='multiple')?)
-	'>'	
-		// TODO: check if mixed order is allowed
+	'>'
 		((options+=Option)+ & (questions+=TableQuestion)+)
 		((options+=Option) | (questions+=TableQuestion))* 
 	'</table>';
@@ -165,20 +164,7 @@ terminal FQN:
 	"'" ID ('.' ID)* "'";
 
 terminal ID:
-	(('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*);
-	
-terminal INT returns ecore::EInt:
-	('0'..'9')+;
-	
-terminal STRING	: 
-	'"' ( '\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\') | !('\\'|'"') )* '"' |
-	"'" ( '\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\') | !('\\'|"'") )* "'";
+	('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 	
 terminal ML_COMMENT:
 	'<!--' -> '-->';
-
-terminal SL_COMMENT:
-	'//' !('\n'|'\r')* ('\r'? '\n')?;
-	
-terminal WS:
-	(' '|'\t'|'\r'|'\n')+;
