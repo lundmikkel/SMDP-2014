@@ -112,9 +112,9 @@ ruleSurvey returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getSurveyAccess().getTitleQuotedStringParserRuleCall_1_1_0_2_0()); 
+	        newCompositeNode(grammarAccess.getSurveyAccess().getTitleEStringParserRuleCall_1_1_0_2_0()); 
 	    }
-		lv_title_5_0=ruleQuotedString		{
+		lv_title_5_0=ruleEString		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getSurveyRule());
 	        }
@@ -122,7 +122,7 @@ ruleSurvey returns [EObject current=null]
        			$current, 
        			"title",
         		lv_title_5_0, 
-        		"QuotedString");
+        		"EString");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -150,9 +150,9 @@ ruleSurvey returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getSurveyAccess().getDescriptionQuotedStringParserRuleCall_1_1_1_2_0()); 
+	        newCompositeNode(grammarAccess.getSurveyAccess().getDescriptionEStringParserRuleCall_1_1_1_2_0()); 
 	    }
-		lv_description_8_0=ruleQuotedString		{
+		lv_description_8_0=ruleEString		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getSurveyRule());
 	        }
@@ -160,7 +160,7 @@ ruleSurvey returns [EObject current=null]
        			$current, 
        			"description",
         		lv_description_8_0, 
-        		"QuotedString");
+        		"EString");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -226,6 +226,34 @@ ruleSurvey returns [EObject current=null]
     }
 )?)
 ;
+
+
+
+
+
+// Entry rule entryRuleEString
+entryRuleEString returns [String current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getEStringRule()); } 
+	 iv_ruleEString=ruleEString 
+	 { $current=$iv_ruleEString.current.getText(); }  
+	 EOF 
+;
+
+// Rule EString
+ruleEString returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+    this_STRING_0=RULE_STRING    {
+		$current.merge(this_STRING_0);
+    }
+
+    { 
+    newLeafNode(this_STRING_0, grammarAccess.getEStringAccess().getSTRINGTerminalRuleCall()); 
+    }
+
+    ;
 
 
 
@@ -461,42 +489,6 @@ ruleOption returns [EObject current=null]
 
 
 
-// Entry rule entryRuleQuotedString
-entryRuleQuotedString returns [String current=null] 
-	:
-	{ newCompositeNode(grammarAccess.getQuotedStringRule()); } 
-	 iv_ruleQuotedString=ruleQuotedString 
-	 { $current=$iv_ruleQuotedString.current.getText(); }  
-	 EOF 
-;
-
-// Rule QuotedString
-ruleQuotedString returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
-    @init { enterRule(); 
-    }
-    @after { leaveRule(); }:
-(    this_STRING_0=RULE_STRING    {
-		$current.merge(this_STRING_0);
-    }
-
-    { 
-    newLeafNode(this_STRING_0, grammarAccess.getQuotedStringAccess().getSTRINGTerminalRuleCall_0()); 
-    }
-
-    |    this_QUOTED_ID_1=RULE_QUOTED_ID    {
-		$current.merge(this_QUOTED_ID_1);
-    }
-
-    { 
-    newLeafNode(this_QUOTED_ID_1, grammarAccess.getQuotedStringAccess().getQUOTED_IDTerminalRuleCall_1()); 
-    }
-)
-    ;
-
-
-
-
-
 // Entry rule entryRuleAnswerTemplate
 entryRuleAnswerTemplate returns [EObject current=null] 
 	:
@@ -525,9 +517,9 @@ ruleAnswerTemplate returns [EObject current=null]
     }
 (
 (
-		lv_name_3_0=RULE_QUOTED_ID
+		lv_name_3_0=RULE_ID
 		{
-			newLeafNode(lv_name_3_0, grammarAccess.getAnswerTemplateAccess().getNameQUOTED_IDTerminalRuleCall_3_0()); 
+			newLeafNode(lv_name_3_0, grammarAccess.getAnswerTemplateAccess().getNameIDTerminalRuleCall_3_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -537,7 +529,7 @@ ruleAnswerTemplate returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_3_0, 
-        		"QUOTED_ID");
+        		"ID");
 	    }
 
 )
@@ -602,9 +594,9 @@ ruleAnswer returns [EObject current=null]
     }
 (
 (
-		lv_name_3_0=RULE_QUOTED_ID
+		lv_name_3_0=RULE_ID
 		{
-			newLeafNode(lv_name_3_0, grammarAccess.getAnswerAccess().getNameQUOTED_IDTerminalRuleCall_1_2_0()); 
+			newLeafNode(lv_name_3_0, grammarAccess.getAnswerAccess().getNameIDTerminalRuleCall_1_2_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -614,7 +606,7 @@ ruleAnswer returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_3_0, 
-        		"QUOTED_ID");
+        		"ID");
 	    }
 
 )
@@ -625,9 +617,9 @@ ruleAnswer returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getAnswerAccess().getLabelQuotedStringParserRuleCall_3_0()); 
+	        newCompositeNode(grammarAccess.getAnswerAccess().getLabelEStringParserRuleCall_3_0()); 
 	    }
-		lv_label_5_0=ruleQuotedString		{
+		lv_label_5_0=ruleEString		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getAnswerRule());
 	        }
@@ -635,7 +627,7 @@ ruleAnswer returns [EObject current=null]
        			$current, 
        			"label",
         		lv_label_5_0, 
-        		"QuotedString");
+        		"EString");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -694,9 +686,9 @@ ruleGroup returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getGroupAccess().getTitleQuotedStringParserRuleCall_1_0_2_0()); 
+	        newCompositeNode(grammarAccess.getGroupAccess().getTitleEStringParserRuleCall_1_0_2_0()); 
 	    }
-		lv_title_4_0=ruleQuotedString		{
+		lv_title_4_0=ruleEString		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getGroupRule());
 	        }
@@ -704,7 +696,7 @@ ruleGroup returns [EObject current=null]
        			$current, 
        			"title",
         		lv_title_4_0, 
-        		"QuotedString");
+        		"EString");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -732,9 +724,9 @@ ruleGroup returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getGroupAccess().getDescriptionQuotedStringParserRuleCall_1_1_2_0()); 
+	        newCompositeNode(grammarAccess.getGroupAccess().getDescriptionEStringParserRuleCall_1_1_2_0()); 
 	    }
-		lv_description_7_0=ruleQuotedString		{
+		lv_description_7_0=ruleEString		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getGroupRule());
 	        }
@@ -742,7 +734,7 @@ ruleGroup returns [EObject current=null]
        			$current, 
        			"description",
         		lv_description_7_0, 
-        		"QuotedString");
+        		"EString");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -903,9 +895,9 @@ ruleText returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getTextAccess().getTitleQuotedStringParserRuleCall_2_0_2_0()); 
+	        newCompositeNode(grammarAccess.getTextAccess().getTitleEStringParserRuleCall_2_0_2_0()); 
 	    }
-		lv_title_5_0=ruleQuotedString		{
+		lv_title_5_0=ruleEString		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getTextRule());
 	        }
@@ -913,7 +905,7 @@ ruleText returns [EObject current=null]
        			$current, 
        			"title",
         		lv_title_5_0, 
-        		"QuotedString");
+        		"EString");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -941,9 +933,9 @@ ruleText returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getTextAccess().getDescriptionQuotedStringParserRuleCall_2_1_2_0()); 
+	        newCompositeNode(grammarAccess.getTextAccess().getDescriptionEStringParserRuleCall_2_1_2_0()); 
 	    }
-		lv_description_8_0=ruleQuotedString		{
+		lv_description_8_0=ruleEString		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getTextRule());
 	        }
@@ -951,7 +943,7 @@ ruleText returns [EObject current=null]
        			$current, 
        			"description",
         		lv_description_8_0, 
-        		"QuotedString");
+        		"EString");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -978,9 +970,9 @@ ruleText returns [EObject current=null]
     }
 (
 (
-		lv_name_11_0=RULE_QUOTED_ID
+		lv_name_11_0=RULE_ID
 		{
-			newLeafNode(lv_name_11_0, grammarAccess.getTextAccess().getNameQUOTED_IDTerminalRuleCall_2_2_2_0()); 
+			newLeafNode(lv_name_11_0, grammarAccess.getTextAccess().getNameIDTerminalRuleCall_2_2_2_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -990,7 +982,7 @@ ruleText returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_11_0, 
-        		"QUOTED_ID");
+        		"ID");
 	    }
 
 )
@@ -1175,9 +1167,9 @@ ruleScale returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getScaleAccess().getTitleQuotedStringParserRuleCall_1_0_2_0()); 
+	        newCompositeNode(grammarAccess.getScaleAccess().getTitleEStringParserRuleCall_1_0_2_0()); 
 	    }
-		lv_title_4_0=ruleQuotedString		{
+		lv_title_4_0=ruleEString		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getScaleRule());
 	        }
@@ -1185,7 +1177,7 @@ ruleScale returns [EObject current=null]
        			$current, 
        			"title",
         		lv_title_4_0, 
-        		"QuotedString");
+        		"EString");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1213,9 +1205,9 @@ ruleScale returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getScaleAccess().getDescriptionQuotedStringParserRuleCall_1_1_2_0()); 
+	        newCompositeNode(grammarAccess.getScaleAccess().getDescriptionEStringParserRuleCall_1_1_2_0()); 
 	    }
-		lv_description_7_0=ruleQuotedString		{
+		lv_description_7_0=ruleEString		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getScaleRule());
 	        }
@@ -1223,7 +1215,7 @@ ruleScale returns [EObject current=null]
        			$current, 
        			"description",
         		lv_description_7_0, 
-        		"QuotedString");
+        		"EString");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1250,9 +1242,9 @@ ruleScale returns [EObject current=null]
     }
 (
 (
-		lv_name_10_0=RULE_QUOTED_ID
+		lv_name_10_0=RULE_ID
 		{
-			newLeafNode(lv_name_10_0, grammarAccess.getScaleAccess().getNameQUOTED_IDTerminalRuleCall_1_2_2_0()); 
+			newLeafNode(lv_name_10_0, grammarAccess.getScaleAccess().getNameIDTerminalRuleCall_1_2_2_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1262,7 +1254,7 @@ ruleScale returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_10_0, 
-        		"QUOTED_ID");
+        		"ID");
 	    }
 
 )
@@ -1365,9 +1357,9 @@ ruleScale returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getScaleAccess().getLowerLabelQuotedStringParserRuleCall_1_5_2_0()); 
+	        newCompositeNode(grammarAccess.getScaleAccess().getLowerLabelEStringParserRuleCall_1_5_2_0()); 
 	    }
-		lv_lowerLabel_19_0=ruleQuotedString		{
+		lv_lowerLabel_19_0=ruleEString		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getScaleRule());
 	        }
@@ -1375,7 +1367,7 @@ ruleScale returns [EObject current=null]
        			$current, 
        			"lowerLabel",
         		lv_lowerLabel_19_0, 
-        		"QuotedString");
+        		"EString");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1403,9 +1395,9 @@ ruleScale returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getScaleAccess().getUpperLabelQuotedStringParserRuleCall_1_6_2_0()); 
+	        newCompositeNode(grammarAccess.getScaleAccess().getUpperLabelEStringParserRuleCall_1_6_2_0()); 
 	    }
-		lv_upperLabel_22_0=ruleQuotedString		{
+		lv_upperLabel_22_0=ruleEString		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getScaleRule());
 	        }
@@ -1413,7 +1405,7 @@ ruleScale returns [EObject current=null]
        			$current, 
        			"upperLabel",
         		lv_upperLabel_22_0, 
-        		"QuotedString");
+        		"EString");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1553,9 +1545,9 @@ ruleDate returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getDateAccess().getTitleQuotedStringParserRuleCall_2_0_2_0()); 
+	        newCompositeNode(grammarAccess.getDateAccess().getTitleEStringParserRuleCall_2_0_2_0()); 
 	    }
-		lv_title_5_0=ruleQuotedString		{
+		lv_title_5_0=ruleEString		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getDateRule());
 	        }
@@ -1563,7 +1555,7 @@ ruleDate returns [EObject current=null]
        			$current, 
        			"title",
         		lv_title_5_0, 
-        		"QuotedString");
+        		"EString");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1591,9 +1583,9 @@ ruleDate returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getDateAccess().getDescriptionQuotedStringParserRuleCall_2_1_2_0()); 
+	        newCompositeNode(grammarAccess.getDateAccess().getDescriptionEStringParserRuleCall_2_1_2_0()); 
 	    }
-		lv_description_8_0=ruleQuotedString		{
+		lv_description_8_0=ruleEString		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getDateRule());
 	        }
@@ -1601,7 +1593,7 @@ ruleDate returns [EObject current=null]
        			$current, 
        			"description",
         		lv_description_8_0, 
-        		"QuotedString");
+        		"EString");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1628,9 +1620,9 @@ ruleDate returns [EObject current=null]
     }
 (
 (
-		lv_name_11_0=RULE_QUOTED_ID
+		lv_name_11_0=RULE_ID
 		{
-			newLeafNode(lv_name_11_0, grammarAccess.getDateAccess().getNameQUOTED_IDTerminalRuleCall_2_2_2_0()); 
+			newLeafNode(lv_name_11_0, grammarAccess.getDateAccess().getNameIDTerminalRuleCall_2_2_2_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -1640,7 +1632,7 @@ ruleDate returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_11_0, 
-        		"QUOTED_ID");
+        		"ID");
 	    }
 
 )
@@ -1667,9 +1659,9 @@ ruleDate returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getDateAccess().getFromQuotedStringParserRuleCall_2_3_2_0()); 
+	        newCompositeNode(grammarAccess.getDateAccess().getFromEStringParserRuleCall_2_3_2_0()); 
 	    }
-		lv_from_14_0=ruleQuotedString		{
+		lv_from_14_0=ruleEString		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getDateRule());
 	        }
@@ -1677,7 +1669,7 @@ ruleDate returns [EObject current=null]
        			$current, 
        			"from",
         		lv_from_14_0, 
-        		"QuotedString");
+        		"EString");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1705,9 +1697,9 @@ ruleDate returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getDateAccess().getToQuotedStringParserRuleCall_2_4_2_0()); 
+	        newCompositeNode(grammarAccess.getDateAccess().getToEStringParserRuleCall_2_4_2_0()); 
 	    }
-		lv_to_17_0=ruleQuotedString		{
+		lv_to_17_0=ruleEString		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getDateRule());
 	        }
@@ -1715,7 +1707,7 @@ ruleDate returns [EObject current=null]
        			$current, 
        			"to",
         		lv_to_17_0, 
-        		"QuotedString");
+        		"EString");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1963,9 +1955,9 @@ ruleNumber returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getNumberAccess().getTitleQuotedStringParserRuleCall_2_0_2_0()); 
+	        newCompositeNode(grammarAccess.getNumberAccess().getTitleEStringParserRuleCall_2_0_2_0()); 
 	    }
-		lv_title_5_0=ruleQuotedString		{
+		lv_title_5_0=ruleEString		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getNumberRule());
 	        }
@@ -1973,7 +1965,7 @@ ruleNumber returns [EObject current=null]
        			$current, 
        			"title",
         		lv_title_5_0, 
-        		"QuotedString");
+        		"EString");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2001,9 +1993,9 @@ ruleNumber returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getNumberAccess().getDescriptionQuotedStringParserRuleCall_2_1_2_0()); 
+	        newCompositeNode(grammarAccess.getNumberAccess().getDescriptionEStringParserRuleCall_2_1_2_0()); 
 	    }
-		lv_description_8_0=ruleQuotedString		{
+		lv_description_8_0=ruleEString		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getNumberRule());
 	        }
@@ -2011,7 +2003,7 @@ ruleNumber returns [EObject current=null]
        			$current, 
        			"description",
         		lv_description_8_0, 
-        		"QuotedString");
+        		"EString");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2038,9 +2030,9 @@ ruleNumber returns [EObject current=null]
     }
 (
 (
-		lv_name_11_0=RULE_QUOTED_ID
+		lv_name_11_0=RULE_ID
 		{
-			newLeafNode(lv_name_11_0, grammarAccess.getNumberAccess().getNameQUOTED_IDTerminalRuleCall_2_2_2_0()); 
+			newLeafNode(lv_name_11_0, grammarAccess.getNumberAccess().getNameIDTerminalRuleCall_2_2_2_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -2050,7 +2042,7 @@ ruleNumber returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_11_0, 
-        		"QUOTED_ID");
+        		"ID");
 	    }
 
 )
@@ -2286,9 +2278,9 @@ ruleSingle returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getSingleAccess().getTitleQuotedStringParserRuleCall_1_0_2_0()); 
+	        newCompositeNode(grammarAccess.getSingleAccess().getTitleEStringParserRuleCall_1_0_2_0()); 
 	    }
-		lv_title_4_0=ruleQuotedString		{
+		lv_title_4_0=ruleEString		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getSingleRule());
 	        }
@@ -2296,7 +2288,7 @@ ruleSingle returns [EObject current=null]
        			$current, 
        			"title",
         		lv_title_4_0, 
-        		"QuotedString");
+        		"EString");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2324,9 +2316,9 @@ ruleSingle returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getSingleAccess().getDescriptionQuotedStringParserRuleCall_1_1_2_0()); 
+	        newCompositeNode(grammarAccess.getSingleAccess().getDescriptionEStringParserRuleCall_1_1_2_0()); 
 	    }
-		lv_description_7_0=ruleQuotedString		{
+		lv_description_7_0=ruleEString		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getSingleRule());
 	        }
@@ -2334,7 +2326,7 @@ ruleSingle returns [EObject current=null]
        			$current, 
        			"description",
         		lv_description_7_0, 
-        		"QuotedString");
+        		"EString");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2361,9 +2353,9 @@ ruleSingle returns [EObject current=null]
     }
 (
 (
-		lv_name_10_0=RULE_QUOTED_ID
+		lv_name_10_0=RULE_ID
 		{
-			newLeafNode(lv_name_10_0, grammarAccess.getSingleAccess().getNameQUOTED_IDTerminalRuleCall_1_2_2_0()); 
+			newLeafNode(lv_name_10_0, grammarAccess.getSingleAccess().getNameIDTerminalRuleCall_1_2_2_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -2373,7 +2365,7 @@ ruleSingle returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_10_0, 
-        		"QUOTED_ID");
+        		"ID");
 	    }
 
 )
@@ -2555,9 +2547,9 @@ ruleMultiple returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getMultipleAccess().getTitleQuotedStringParserRuleCall_1_0_2_0()); 
+	        newCompositeNode(grammarAccess.getMultipleAccess().getTitleEStringParserRuleCall_1_0_2_0()); 
 	    }
-		lv_title_4_0=ruleQuotedString		{
+		lv_title_4_0=ruleEString		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getMultipleRule());
 	        }
@@ -2565,7 +2557,7 @@ ruleMultiple returns [EObject current=null]
        			$current, 
        			"title",
         		lv_title_4_0, 
-        		"QuotedString");
+        		"EString");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2593,9 +2585,9 @@ ruleMultiple returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getMultipleAccess().getDescriptionQuotedStringParserRuleCall_1_1_2_0()); 
+	        newCompositeNode(grammarAccess.getMultipleAccess().getDescriptionEStringParserRuleCall_1_1_2_0()); 
 	    }
-		lv_description_7_0=ruleQuotedString		{
+		lv_description_7_0=ruleEString		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getMultipleRule());
 	        }
@@ -2603,7 +2595,7 @@ ruleMultiple returns [EObject current=null]
        			$current, 
        			"description",
         		lv_description_7_0, 
-        		"QuotedString");
+        		"EString");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2630,9 +2622,9 @@ ruleMultiple returns [EObject current=null]
     }
 (
 (
-		lv_name_10_0=RULE_QUOTED_ID
+		lv_name_10_0=RULE_ID
 		{
-			newLeafNode(lv_name_10_0, grammarAccess.getMultipleAccess().getNameQUOTED_IDTerminalRuleCall_1_2_2_0()); 
+			newLeafNode(lv_name_10_0, grammarAccess.getMultipleAccess().getNameIDTerminalRuleCall_1_2_2_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -2642,7 +2634,7 @@ ruleMultiple returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_10_0, 
-        		"QUOTED_ID");
+        		"ID");
 	    }
 
 )
@@ -2923,9 +2915,9 @@ ruleTable returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getTableAccess().getTitleQuotedStringParserRuleCall_1_0_2_0()); 
+	        newCompositeNode(grammarAccess.getTableAccess().getTitleEStringParserRuleCall_1_0_2_0()); 
 	    }
-		lv_title_4_0=ruleQuotedString		{
+		lv_title_4_0=ruleEString		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getTableRule());
 	        }
@@ -2933,7 +2925,7 @@ ruleTable returns [EObject current=null]
        			$current, 
        			"title",
         		lv_title_4_0, 
-        		"QuotedString");
+        		"EString");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2961,9 +2953,9 @@ ruleTable returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getTableAccess().getDescriptionQuotedStringParserRuleCall_1_1_2_0()); 
+	        newCompositeNode(grammarAccess.getTableAccess().getDescriptionEStringParserRuleCall_1_1_2_0()); 
 	    }
-		lv_description_7_0=ruleQuotedString		{
+		lv_description_7_0=ruleEString		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getTableRule());
 	        }
@@ -2971,7 +2963,7 @@ ruleTable returns [EObject current=null]
        			$current, 
        			"description",
         		lv_description_7_0, 
-        		"QuotedString");
+        		"EString");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2998,9 +2990,9 @@ ruleTable returns [EObject current=null]
     }
 (
 (
-		lv_name_10_0=RULE_QUOTED_ID
+		lv_name_10_0=RULE_ID
 		{
-			newLeafNode(lv_name_10_0, grammarAccess.getTableAccess().getNameQUOTED_IDTerminalRuleCall_1_2_2_0()); 
+			newLeafNode(lv_name_10_0, grammarAccess.getTableAccess().getNameIDTerminalRuleCall_1_2_2_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -3010,7 +3002,7 @@ ruleTable returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_10_0, 
-        		"QUOTED_ID");
+        		"ID");
 	    }
 
 )
@@ -3338,7 +3330,7 @@ ruleAnswerTemplateRef returns [EObject current=null]
 	            $current = createModelElement(grammarAccess.getAnswerTemplateRefRule());
 	        }
         }
-	otherlv_3=RULE_QUOTED_ID
+	otherlv_3=RULE_ID
 	{
 		newLeafNode(otherlv_3, grammarAccess.getAnswerTemplateRefAccess().getTemplateAnswerTemplateCrossReference_3_0()); 
 	}
@@ -3376,9 +3368,9 @@ ruleTableQuestion returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getTableQuestionAccess().getTitleQuotedStringParserRuleCall_1_0()); 
+	        newCompositeNode(grammarAccess.getTableQuestionAccess().getTitleEStringParserRuleCall_1_0()); 
 	    }
-		lv_title_1_0=ruleQuotedString		{
+		lv_title_1_0=ruleEString		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getTableQuestionRule());
 	        }
@@ -3386,7 +3378,7 @@ ruleTableQuestion returns [EObject current=null]
        			$current, 
        			"title",
         		lv_title_1_0, 
-        		"QuotedString");
+        		"EString");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -3402,17 +3394,15 @@ ruleTableQuestion returns [EObject current=null]
 
 
 
-RULE_QUOTED_ID : ('"' RULE_ID '"'|'\'' RULE_ID '\'');
+RULE_STRING : ('"' ('\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|'\''|'\\')|~(('\\'|'"')))* '"'|'\'' ('\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|'\''|'\\')|~(('\\'|'\'')))* '\'');
 
-RULE_FQN : ('"' RULE_ID ('.' RULE_ID)* '"'|'\'' RULE_ID ('.' RULE_ID)* '\'');
+RULE_FQN : RULE_ID ('.' RULE_ID)+;
 
 RULE_ID : ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 
 RULE_ML_COMMENT : '<!--' ( options {greedy=false;} : . )*'-->';
 
 RULE_INT : ('0'..'9')+;
-
-RULE_STRING : ('"' ('\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|'\''|'\\')|~(('\\'|'"')))* '"'|'\'' ('\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|'\''|'\\')|~(('\\'|'\'')))* '\'');
 
 RULE_SL_COMMENT : '//' ~(('\n'|'\r'))* ('\r'? '\n')?;
 

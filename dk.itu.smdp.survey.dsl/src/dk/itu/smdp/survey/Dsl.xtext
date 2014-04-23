@@ -7,9 +7,13 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 Survey returns Survey:
 	{Survey}
-	('<survey' (('title' '=' title=QuotedString)? & ('description' '=' description=QuotedString)?) '>'
+	('<survey' (('title' '=' title=EString)? & ('description' '=' description=EString)?) '>'
 		(items+=Item | templates+=AnswerTemplate)*
 	'</survey>')?;
+	
+EString returns ecore::EString:
+	STRING
+;
 
 Item returns Item:
 	Group | Text | Scale | Date | Number | Single | Multiple | Table;
@@ -20,25 +24,22 @@ Question returns Question:
 Option returns Option:
 	AnswerTemplateRef | Answer;
 
-QuotedString returns ecore::EString:
-	STRING | QUOTED_ID;
-
 AnswerTemplate returns AnswerTemplate:
 
-	'<template' 'id' '=' name=QUOTED_ID '>'
+	'<template' 'id' '=' name=ID '>'
 		(answers+=Answer)+
 	'</template>';
 
 Answer returns Answer:
-	'<a' ('id' '=' name=QUOTED_ID)? '>'
+	'<a' ('id' '=' name=ID)? '>'
 		// TODO: Do not require quotes
-		label=QuotedString
+		label=EString
 	'</a>';
 
 Group returns Group:
 	'<group'
-		(('title' '=' title=QuotedString)?
-		& ('description' '=' description=QuotedString)?
+		(('title' '=' title=EString)?
+		& ('description' '=' description=EString)?
 		& ('dependsOn' '=' dependsOn=[Referable|FQN])?
 		& (required?='required')?)
 	'>'
@@ -48,9 +49,9 @@ Group returns Group:
 Text returns Text:
 	{Text}
 	'<text'
-		( ('title' '=' title=QuotedString)
-		& ('description' '=' description=QuotedString)?
-		& ('id' '=' name=QUOTED_ID)?
+		( ('title' '=' title=EString)
+		& ('description' '=' description=EString)?
+		& ('id' '=' name=ID)?
 		& ('dependsOn' '=' dependsOn=[Referable|FQN])?
 		& (required?='required')?
 		& ('singleline' | 'single' | (multiline?=('multi' | 'multiline')))?)
@@ -58,14 +59,14 @@ Text returns Text:
 
 Scale returns Scale:
 	'<scale'
-		( ('title' '=' title=QuotedString)
-		& ('description' '=' description=QuotedString)?
-		& ('id' '=' name=QUOTED_ID)?
+		( ('title' '=' title=EString)
+		& ('description' '=' description=EString)?
+		& ('id' '=' name=ID)?
 		& ('lower' '=' lower=EInt)
 		& ('upper' '=' upper=EInt)
 		// TODO: Force that if one label is set, both should be
-		& ('lowerLabel' '=' lowerLabel=QuotedString)?
-		& ('upperLabel' '=' upperLabel=QuotedString)?
+		& ('lowerLabel' '=' lowerLabel=EString)?
+		& ('upperLabel' '=' upperLabel=EString)?
 		& ('dependsOn' '=' dependsOn=[Referable|FQN])?
 		& (required?='required')?)
 	'/>';
@@ -73,11 +74,11 @@ Scale returns Scale:
 Date returns Date:
 	{Date}
 	'<date'
-		( ('title' '=' title=QuotedString)
-		& ('description' '=' description=QuotedString)?
-		& ('id' '=' name=QUOTED_ID)?
-		& ('from' '=' from=QuotedString)?
-		& ('to' '=' to=QuotedString)?
+		( ('title' '=' title=EString)
+		& ('description' '=' description=EString)?
+		& ('id' '=' name=ID)?
+		& ('from' '=' from=EString)?
+		& ('to' '=' to=EString)?
 		& ('dependsOn' '=' dependsOn=[Referable|FQN])?
 		& (showLimits?='showLimits')?
 		& (required?='required')?
@@ -89,9 +90,9 @@ Date returns Date:
 Number returns Number:
 	{Number}
 	'<number'
-		( ('title' '=' title=QuotedString)
-		& ('description' '=' description=QuotedString)?
-		& ('id' '=' name=QUOTED_ID)?
+		( ('title' '=' title=EString)
+		& ('description' '=' description=EString)?
+		& ('id' '=' name=ID)?
 		& ('lower' '=' lower=EInt)?
 		& ('upper' '=' upper=EInt)?
 		& ('dependsOn' '=' dependsOn=[Referable|FQN])?
@@ -101,9 +102,9 @@ Number returns Number:
 
 Single returns Single:
 	'<single'
-		(('title' '=' title=QuotedString)
-		& ('description' '=' description=QuotedString)?
-		& ('id' '=' name=QUOTED_ID)?
+		(('title' '=' title=EString)
+		& ('description' '=' description=EString)?
+		& ('id' '=' name=ID)?
 		& ('dependsOn' '=' dependsOn=[Referable|FQN])?
 		& (required?='required')?
 		& (other?='other')?)
@@ -113,9 +114,9 @@ Single returns Single:
 
 Multiple returns Multiple:
 	'<multiple'
-		( ('title' '=' title=QuotedString)
-		& ('description' '=' description=QuotedString)?
-		& ('id' '=' name=QUOTED_ID)?
+		( ('title' '=' title=EString)
+		& ('description' '=' description=EString)?
+		& ('id' '=' name=ID)?
 		& ('lower' '=' lower=INT)?
 		& ('upper' '=' upper=INT)?
 		& ('dependsOn' dependsOn=[Referable|FQN])?
@@ -128,9 +129,9 @@ Multiple returns Multiple:
 
 Table returns Table:
 	'<table'
-		( ('title' '=' title=QuotedString)?
-		& ('description' '=' description=QuotedString)?
-		& ('id' '=' name=QUOTED_ID)?
+		( ('title' '=' title=EString)?
+		& ('description' '=' description=EString)?
+		& ('id' '=' name=ID)?
 		& ('dependsOn' '=' dependsOn=[Referable|FQN])?
 		& (required?='required')?
 		& (other?='other')?		
@@ -144,24 +145,23 @@ EInt returns ecore::EInt:
 	'-'? INT;
 
 AnswerTemplateRef returns AnswerTemplateRef:
-	'<template' 'id' '=' template=[AnswerTemplate|QUOTED_ID] '/>';
+	'<template' 'id' '=' template=[AnswerTemplate|ID] '/>';
 
 TableQuestion returns TableQuestion:
 	'<q>'
 		// TODO: Do not require quotes
-		title=QuotedString
+		title=EString
 	'</q>';
 
 
 // Custom terminals
 
-terminal QUOTED_ID:
-	'"' ID '"' |
-	"'" ID "'";
+terminal STRING	: 
+	'"' ( '\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\') | !('\\'|'"') )* '"' |
+	"'" ( '\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\') | !('\\'|"'") )* "'"; 
 
 terminal FQN:
-	'"' ID ('.' ID)* '"' |
-	"'" ID ('.' ID)* "'";
+	 ID ('.' ID)+;
 
 terminal ID:
 	('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
