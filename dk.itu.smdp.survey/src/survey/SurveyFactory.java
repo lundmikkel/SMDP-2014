@@ -112,6 +112,15 @@ public interface SurveyFactory extends EFactory {
 	AnswerTemplate createAnswerTemplate();
 
 	/**
+	 * Returns a new object of class '<em>Referable</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Referable</em>'.
+	 * @generated
+	 */
+	Referable createReferable();
+
+	/**
 	 * Returns a new object of class '<em>Table</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -39,7 +39,7 @@ Group returns Group:
 	'<group'
 		(('title' '=' title=QuotedString)?
 		& ('description' '=' description=QuotedString)?
-		& ('dependsOn' '=' dependsOn=[Answer|FQN])?
+		& ('dependsOn' '=' dependsOn=[Referable|FQN])?
 		& (required?='required')?)
 	'>'
 		(questions+=Question)+ 
@@ -51,7 +51,7 @@ Text returns Text:
 		( ('title' '=' title=QuotedString)
 		& ('description' '=' description=QuotedString)?
 		& ('id' '=' name=QUOTED_ID)?
-		& ('dependsOn' '=' dependsOn=[Answer|FQN])?
+		& ('dependsOn' '=' dependsOn=[Referable|FQN])?
 		& (required?='required')?
 		& ('singleline' | 'single' | (multiline?=('multi' | 'multiline')))?)
 	'/>';
@@ -66,7 +66,7 @@ Scale returns Scale:
 		// TODO: Force that if one label is set, both should be
 		& ('lowerLabel' '=' lowerLabel=QuotedString)?
 		& ('upperLabel' '=' upperLabel=QuotedString)?
-		& ('dependsOn' '=' dependsOn=[Answer|FQN])?
+		& ('dependsOn' '=' dependsOn=[Referable|FQN])?
 		& (required?='required')?)
 	'/>';
 
@@ -78,7 +78,7 @@ Date returns Date:
 		& ('id' '=' name=QUOTED_ID)?
 		& ('from' '=' from=QuotedString)?
 		& ('to' '=' to=QuotedString)?
-		& ('dependsOn' '=' dependsOn=[Answer|FQN])?
+		& ('dependsOn' '=' dependsOn=[Referable|FQN])?
 		& (showLimits?='showLimits')?
 		& (required?='required')?
 		& (day?='day')?
@@ -94,7 +94,7 @@ Number returns Number:
 		& ('id' '=' name=QUOTED_ID)?
 		& ('lower' '=' lower=EInt)?
 		& ('upper' '=' upper=EInt)?
-		& ('dependsOn' '=' dependsOn=[Answer|FQN])?
+		& ('dependsOn' '=' dependsOn=[Referable|FQN])?
 		& (required?='required')?
 		& (showLimits?='showLimits')?)
 	'/>';
@@ -104,7 +104,7 @@ Single returns Single:
 		(('title' '=' title=QuotedString)
 		& ('description' '=' description=QuotedString)?
 		& ('id' '=' name=QUOTED_ID)?
-		& ('dependsOn' '=' dependsOn=[Answer|FQN])?
+		& ('dependsOn' '=' dependsOn=[Referable|FQN])?
 		& (required?='required')?
 		& (other?='other')?)
 	'>'
@@ -118,7 +118,7 @@ Multiple returns Multiple:
 		& ('id' '=' name=QUOTED_ID)?
 		& ('lower' '=' lower=INT)?
 		& ('upper' '=' upper=INT)?
-		& ('dependsOn' dependsOn=[Answer|FQN])?
+		& ('dependsOn' dependsOn=[Referable|FQN])?
 		& (required?='required')?
 		& (other?='other')?
 		& (showLimits?='showLimits')?)
@@ -131,7 +131,7 @@ Table returns Table:
 		( ('title' '=' title=QuotedString)?
 		& ('description' '=' description=QuotedString)?
 		& ('id' '=' name=QUOTED_ID)?
-		& ('dependsOn' '=' dependsOn=[Answer|FQN])?
+		& ('dependsOn' '=' dependsOn=[Referable|FQN])?
 		& (required?='required')?
 		& (other?='other')?		
 		& (multiple?='multiple')?)

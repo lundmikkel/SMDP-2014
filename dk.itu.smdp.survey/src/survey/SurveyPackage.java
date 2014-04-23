@@ -1453,6 +1453,34 @@ public interface SurveyPackage extends EPackage {
 	int ANSWER_TEMPLATE_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link survey.impl.ReferableImpl <em>Referable</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see survey.impl.ReferableImpl
+	 * @see survey.impl.SurveyPackageImpl#getReferable()
+	 * @generated
+	 */
+	int REFERABLE = 19;
+
+	/**
+	 * The number of structural features of the '<em>Referable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERABLE_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Referable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERABLE_OPERATION_COUNT = 0;
+
+	/**
 	 * Returns the meta object for class '{@link survey.Meta <em>Meta</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1953,6 +1981,16 @@ public interface SurveyPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getAnswerTemplate_Name();
+
+	/**
+	 * Returns the meta object for class '{@link survey.Referable <em>Referable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Referable</em>'.
+	 * @see survey.Referable
+	 * @generated
+	 */
+	EClass getReferable();
 
 	/**
 	 * Returns the meta object for class '{@link survey.Table <em>Table</em>}'.
@@ -2466,6 +2504,16 @@ public interface SurveyPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ANSWER_TEMPLATE__NAME = eINSTANCE.getAnswerTemplate_Name();
+
+		/**
+		 * The meta object literal for the '{@link survey.impl.ReferableImpl <em>Referable</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see survey.impl.ReferableImpl
+		 * @see survey.impl.SurveyPackageImpl#getReferable()
+		 * @generated
+		 */
+		EClass REFERABLE = eINSTANCE.getReferable();
 
 		/**
 		 * The meta object literal for the '{@link survey.impl.TableImpl <em>Table</em>}' class.

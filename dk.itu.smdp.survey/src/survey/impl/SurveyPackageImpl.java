@@ -19,6 +19,7 @@ import survey.Multiple;
 import survey.Option;
 import survey.Other;
 import survey.Question;
+import survey.Referable;
 import survey.Scale;
 import survey.Single;
 import survey.Survey;
@@ -139,6 +140,13 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 	 * @generated
 	 */
 	private EClass answerTemplateEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass referableEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -657,6 +665,15 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getReferable() {
+		return referableEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getTable() {
 		return tableEClass;
 	}
@@ -825,6 +842,8 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 		answerTemplateEClass = createEClass(ANSWER_TEMPLATE);
 		createEReference(answerTemplateEClass, ANSWER_TEMPLATE__ANSWERS);
 		createEAttribute(answerTemplateEClass, ANSWER_TEMPLATE__NAME);
+
+		referableEClass = createEClass(REFERABLE);
 	}
 
 	/**
@@ -857,6 +876,7 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 		// Add supertypes to classes
 		surveyEClass.getESuperTypes().add(this.getMeta());
 		itemEClass.getESuperTypes().add(this.getMeta());
+		itemEClass.getESuperTypes().add(this.getReferable());
 		groupEClass.getESuperTypes().add(this.getItem());
 		questionEClass.getESuperTypes().add(this.getItem());
 		textEClass.getESuperTypes().add(this.getQuestion());
@@ -874,6 +894,7 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 		tableEClass.getESuperTypes().add(this.getHasOptions());
 		answerTemplateRefEClass.getESuperTypes().add(this.getOption());
 		answerEClass.getESuperTypes().add(this.getOption());
+		answerEClass.getESuperTypes().add(this.getReferable());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(metaEClass, Meta.class, "Meta", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -949,6 +970,8 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 		initEClass(answerTemplateEClass, AnswerTemplate.class, "AnswerTemplate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAnswerTemplate_Answers(), this.getAnswer(), null, "answers", null, 1, -1, AnswerTemplate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAnswerTemplate_Name(), ecorePackage.getEString(), "name", null, 1, 1, AnswerTemplate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(referableEClass, Referable.class, "Referable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);
