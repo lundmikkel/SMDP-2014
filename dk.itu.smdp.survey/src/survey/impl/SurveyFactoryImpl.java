@@ -13,6 +13,7 @@ import survey.AnswerTemplateRef;
 import survey.Date;
 import survey.Group;
 import survey.Multiple;
+import survey.Referable;
 import survey.Scale;
 import survey.Single;
 import survey.Survey;
@@ -79,6 +80,7 @@ public class SurveyFactoryImpl extends EFactoryImpl implements SurveyFactory {
 			case SurveyPackage.ANSWER_TEMPLATE_REF: return createAnswerTemplateRef();
 			case SurveyPackage.ANSWER: return createAnswer();
 			case SurveyPackage.ANSWER_TEMPLATE: return createAnswerTemplate();
+			case SurveyPackage.REFERABLE: return createReferable();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -182,6 +184,16 @@ public class SurveyFactoryImpl extends EFactoryImpl implements SurveyFactory {
 	public AnswerTemplate createAnswerTemplate() {
 		AnswerTemplateImpl answerTemplate = new AnswerTemplateImpl();
 		return answerTemplate;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Referable createReferable() {
+		ReferableImpl referable = new ReferableImpl();
+		return referable;
 	}
 
 	/**

@@ -77,5 +77,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Survey.ecore#//AnswerTemplate/answers"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//AnswerTemplate/name"/>
     </genClasses>
+    <genClasses ecoreClass="Survey.ecore#//Referable"/>
   </genPackages>
 </genmodel:GenModel>

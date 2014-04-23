@@ -177,7 +177,7 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	 *         name=QUOTED_ID? 
 	 *         from=QuotedString? 
 	 *         to=QuotedString? 
-	 *         dependsOn=[Answer|FQN]? 
+	 *         dependsOn=[Referable|FQN]? 
 	 *         showLimits?='showLimits'? 
 	 *         required?='required'? 
 	 *         day?='day'? 
@@ -192,7 +192,7 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	
 	/**
 	 * Constraint:
-	 *     (title=QuotedString? description=QuotedString? dependsOn=[Answer|FQN]? required?='required'? questions+=Question+)
+	 *     (title=QuotedString? description=QuotedString? dependsOn=[Referable|FQN]? required?='required'? questions+=Question+)
 	 */
 	protected void sequence_Group(EObject context, Group semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -207,7 +207,7 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	 *         name=QUOTED_ID? 
 	 *         lower=INT? 
 	 *         upper=INT? 
-	 *         dependsOn=[Answer|FQN]? 
+	 *         dependsOn=[Referable|FQN]? 
 	 *         required?='required'? 
 	 *         other?='other'? 
 	 *         showLimits?='showLimits'? 
@@ -227,7 +227,7 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	 *         name=QUOTED_ID? 
 	 *         lower=EInt? 
 	 *         upper=EInt? 
-	 *         dependsOn=[Answer|FQN]? 
+	 *         dependsOn=[Referable|FQN]? 
 	 *         required?='required'? 
 	 *         showLimits?='showLimits'?
 	 *     )
@@ -247,7 +247,7 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	 *         upper=EInt 
 	 *         lowerLabel=QuotedString? 
 	 *         upperLabel=QuotedString? 
-	 *         dependsOn=[Answer|FQN]? 
+	 *         dependsOn=[Referable|FQN]? 
 	 *         required?='required'?
 	 *     )
 	 */
@@ -262,7 +262,7 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	 *         title=QuotedString 
 	 *         description=QuotedString? 
 	 *         name=QUOTED_ID? 
-	 *         dependsOn=[Answer|FQN]? 
+	 *         dependsOn=[Referable|FQN]? 
 	 *         required?='required'? 
 	 *         other?='other'? 
 	 *         options+=Option+
@@ -304,7 +304,7 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	 *         title=QuotedString? 
 	 *         description=QuotedString? 
 	 *         name=QUOTED_ID? 
-	 *         dependsOn=[Answer|FQN]? 
+	 *         dependsOn=[Referable|FQN]? 
 	 *         required?='required'? 
 	 *         other?='other'? 
 	 *         multiple?='multiple'? 
@@ -324,7 +324,7 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	 *         title=QuotedString 
 	 *         description=QuotedString? 
 	 *         name=QUOTED_ID? 
-	 *         dependsOn=[Answer|FQN]? 
+	 *         dependsOn=[Referable|FQN]? 
 	 *         required?='required'? 
 	 *         (multiline?='multi' | multiline?='multiline')?
 	 *     )

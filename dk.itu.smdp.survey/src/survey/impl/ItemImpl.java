@@ -3,14 +3,11 @@
 package survey.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import survey.Answer;
 import survey.Item;
+import survey.Referable;
 import survey.SurveyPackage;
 
 /**
@@ -36,7 +33,7 @@ public abstract class ItemImpl extends MetaImpl implements Item {
 	 * @generated
 	 * @ordered
 	 */
-	protected Answer dependsOn;
+	protected Referable dependsOn;
 
 	/**
 	 * The default value of the '{@link #isRequired() <em>Required</em>}' attribute.
@@ -82,10 +79,10 @@ public abstract class ItemImpl extends MetaImpl implements Item {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Answer getDependsOn() {
+	public Referable getDependsOn() {
 		if (dependsOn != null && dependsOn.eIsProxy()) {
 			InternalEObject oldDependsOn = (InternalEObject)dependsOn;
-			dependsOn = (Answer)eResolveProxy(oldDependsOn);
+			dependsOn = (Referable)eResolveProxy(oldDependsOn);
 			if (dependsOn != oldDependsOn) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SurveyPackage.ITEM__DEPENDS_ON, oldDependsOn, dependsOn));
@@ -99,7 +96,7 @@ public abstract class ItemImpl extends MetaImpl implements Item {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Answer basicGetDependsOn() {
+	public Referable basicGetDependsOn() {
 		return dependsOn;
 	}
 
@@ -108,8 +105,8 @@ public abstract class ItemImpl extends MetaImpl implements Item {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDependsOn(Answer newDependsOn) {
-		Answer oldDependsOn = dependsOn;
+	public void setDependsOn(Referable newDependsOn) {
+		Referable oldDependsOn = dependsOn;
 		dependsOn = newDependsOn;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SurveyPackage.ITEM__DEPENDS_ON, oldDependsOn, dependsOn));
@@ -162,7 +159,7 @@ public abstract class ItemImpl extends MetaImpl implements Item {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case SurveyPackage.ITEM__DEPENDS_ON:
-				setDependsOn((Answer)newValue);
+				setDependsOn((Referable)newValue);
 				return;
 			case SurveyPackage.ITEM__REQUIRED:
 				setRequired((Boolean)newValue);
@@ -180,7 +177,7 @@ public abstract class ItemImpl extends MetaImpl implements Item {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case SurveyPackage.ITEM__DEPENDS_ON:
-				setDependsOn((Answer)null);
+				setDependsOn((Referable)null);
 				return;
 			case SurveyPackage.ITEM__REQUIRED:
 				setRequired(REQUIRED_EDEFAULT);

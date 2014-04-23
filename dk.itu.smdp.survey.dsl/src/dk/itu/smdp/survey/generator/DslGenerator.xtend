@@ -7,7 +7,7 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.IGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess
 import survey.*
-import com.google.common.collect.DiscreteDomains.BigIntegerDomain
+import java.util.ArrayList
 
 /**
  * Generates code from your model files on save.
@@ -49,8 +49,8 @@ class DslGenerator implements IGenerator {
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
     </head>
 
@@ -74,6 +74,7 @@ class DslGenerator implements IGenerator {
 </html>
 		'''
 		
+		// TODO: Use survey.name to make filename
 		fsa.generateFile("survey.html", template)
 	}
 	
@@ -161,16 +162,16 @@ class DslGenerator implements IGenerator {
     </label>
     <div class="row">
         <div class="col-xs-2">
-            <input type="number" class="form-control" id="«id»" «question.genRequired» min="0" step="1" value="0">
+            <input type="number" class="form-control" id="«id»" «question.genRequired» step="1" value="0">
         </div>
     </div>
 </div>
 		'''
 	}
 	
-	/*def dispatch String genHtml(Single question) {
+	def dispatch String genHtml(Single question) {
 		var id = 'question'
-		question.options.get(0);
+		var i = 0
 		
 		'''
 <div class="form-group">
@@ -179,32 +180,16 @@ class DslGenerator implements IGenerator {
     	«question.genQuestionDesc»
     </label>
     <div>
-    	«FOR i : 0..question.options.size BEFORE '<div class="radio"><label>' SEPARATOR '</label></div><div class="radio"><label>' AFTER '</label></div>' »
-        <input type="radio" name="«id»" id="«id»_«i»" value="«i»" />
-        «(question.options.get(i) as Option).»	
+    	«FOR a : question.getAnswers BEFORE '<div class="radio"><label>' SEPARATOR '</label></div><div class="radio"><label>' AFTER '</label></div>' »
+    	<input type="radio" name="«id»" id="«id»_«i»" value="«i»" />
+        «a.label»
         «ENDFOR»
-        <div class="radio">
-            <label>
-                <input type="radio" name="«id»" id="«id»_«i»" value="male" />
-                Male
-            </label>
-        </div>
-        <div class="radio">
-            <label>
-                <input type="radio" name="radio_1" id="radio_sex_2" value="female" />
-                Female
-            </label>
-        </div>
-        <div class="radio">
-            <label>
-                <input type="radio" name="radio_1" id="radio_sex_2" value="option3" />
-                <input class="form-control input-sm" id="name">
-            </label>
-        </div>
     </div>
 </div>
 		'''
-	}*/
+	}
+	
+	// TODO: Multiple
 	
 	def dispatch String genHtml(Question question) '''
 		«question.title»
@@ -219,6 +204,22 @@ class DslGenerator implements IGenerator {
 	def genRequired(Item item) '''
 	«IF item.required» required «ENDIF»
 	'''
+	
+	// TODO: Make this return an iterable instead of a list
+	def getAnswers(HasOptions hasOptions) {
+		var answers = new ArrayList<Answer>()
+		
+		for (Option option : hasOptions.options) {
+			if (option instanceof Answer) {
+				answers.add(option as Answer)
+			}
+			else if (option instanceof AnswerTemplateRef) {
+				answers.addAll((option as AnswerTemplateRef).template.answers)
+			}
+		}
+		
+		return answers
+	}
 	
 	def genLatex(Survey survey, IFileSystemAccess fsa) {
 		fsa.generateFile("survey.tex", "Something something")

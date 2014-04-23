@@ -20,7 +20,7 @@ package survey;
  * @model
  * @generated
  */
-public interface Answer extends Option {
+public interface Answer extends Option, Referable {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->

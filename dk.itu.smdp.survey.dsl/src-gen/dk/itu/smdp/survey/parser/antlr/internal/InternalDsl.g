@@ -776,7 +776,7 @@ ruleGroup returns [EObject current=null]
         }
 	otherlv_10=RULE_FQN
 	{
-		newLeafNode(otherlv_10, grammarAccess.getGroupAccess().getDependsOnAnswerCrossReference_1_2_2_0()); 
+		newLeafNode(otherlv_10, grammarAccess.getGroupAccess().getDependsOnReferableCrossReference_1_2_2_0()); 
 	}
 
 )
@@ -1023,7 +1023,7 @@ ruleText returns [EObject current=null]
         }
 	otherlv_14=RULE_FQN
 	{
-		newLeafNode(otherlv_14, grammarAccess.getTextAccess().getDependsOnAnswerCrossReference_2_3_2_0()); 
+		newLeafNode(otherlv_14, grammarAccess.getTextAccess().getDependsOnReferableCrossReference_2_3_2_0()); 
 	}
 
 )
@@ -1447,7 +1447,7 @@ ruleScale returns [EObject current=null]
         }
 	otherlv_25=RULE_FQN
 	{
-		newLeafNode(otherlv_25, grammarAccess.getScaleAccess().getDependsOnAnswerCrossReference_1_7_2_0()); 
+		newLeafNode(otherlv_25, grammarAccess.getScaleAccess().getDependsOnReferableCrossReference_1_7_2_0()); 
 	}
 
 )
@@ -1749,7 +1749,7 @@ ruleDate returns [EObject current=null]
         }
 	otherlv_20=RULE_FQN
 	{
-		newLeafNode(otherlv_20, grammarAccess.getDateAccess().getDependsOnAnswerCrossReference_2_5_2_0()); 
+		newLeafNode(otherlv_20, grammarAccess.getDateAccess().getDependsOnReferableCrossReference_2_5_2_0()); 
 	}
 
 )
@@ -2159,7 +2159,7 @@ ruleNumber returns [EObject current=null]
         }
 	otherlv_20=RULE_FQN
 	{
-		newLeafNode(otherlv_20, grammarAccess.getNumberAccess().getDependsOnAnswerCrossReference_2_5_2_0()); 
+		newLeafNode(otherlv_20, grammarAccess.getNumberAccess().getDependsOnReferableCrossReference_2_5_2_0()); 
 	}
 
 )
@@ -2406,7 +2406,7 @@ ruleSingle returns [EObject current=null]
         }
 	otherlv_13=RULE_FQN
 	{
-		newLeafNode(otherlv_13, grammarAccess.getSingleAccess().getDependsOnAnswerCrossReference_1_3_2_0()); 
+		newLeafNode(otherlv_13, grammarAccess.getSingleAccess().getDependsOnReferableCrossReference_1_3_2_0()); 
 	}
 
 )
@@ -2747,7 +2747,7 @@ ruleMultiple returns [EObject current=null]
         }
 	otherlv_18=RULE_FQN
 	{
-		newLeafNode(otherlv_18, grammarAccess.getMultipleAccess().getDependsOnAnswerCrossReference_1_5_1_0()); 
+		newLeafNode(otherlv_18, grammarAccess.getMultipleAccess().getDependsOnReferableCrossReference_1_5_1_0()); 
 	}
 
 )
@@ -3043,7 +3043,7 @@ ruleTable returns [EObject current=null]
         }
 	otherlv_13=RULE_FQN
 	{
-		newLeafNode(otherlv_13, grammarAccess.getTableAccess().getDependsOnAnswerCrossReference_1_3_2_0()); 
+		newLeafNode(otherlv_13, grammarAccess.getTableAccess().getDependsOnReferableCrossReference_1_3_2_0()); 
 	}
 
 )
@@ -3408,11 +3408,11 @@ RULE_FQN : ('"' RULE_ID ('.' RULE_ID)* '"'|'\'' RULE_ID ('.' RULE_ID)* '\'');
 
 RULE_ID : ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 
+RULE_ML_COMMENT : '<!--' ( options {greedy=false;} : . )*'-->';
+
 RULE_INT : ('0'..'9')+;
 
 RULE_STRING : ('"' ('\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|'\''|'\\')|~(('\\'|'"')))* '"'|'\'' ('\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|'\''|'\\')|~(('\\'|'\'')))* '\'');
-
-RULE_ML_COMMENT : '<!--' ( options {greedy=false;} : . )*'-->';
 
 RULE_SL_COMMENT : '//' ~(('\n'|'\r'))* ('\r'? '\n')?;
 

@@ -40,24 +40,6 @@ public interface SurveyFactory extends EFactory {
 	Group createGroup();
 
 	/**
-	 * Returns a new object of class '<em>Single</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Single</em>'.
-	 * @generated
-	 */
-	Single createSingle();
-
-	/**
-	 * Returns a new object of class '<em>Multiple</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Multiple</em>'.
-	 * @generated
-	 */
-	Multiple createMultiple();
-
-	/**
 	 * Returns a new object of class '<em>Text</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -65,6 +47,15 @@ public interface SurveyFactory extends EFactory {
 	 * @generated
 	 */
 	Text createText();
+
+	/**
+	 * Returns a new object of class '<em>Scale</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Scale</em>'.
+	 * @generated
+	 */
+	Scale createScale();
 
 	/**
 	 * Returns a new object of class '<em>Date</em>'.
@@ -85,31 +76,22 @@ public interface SurveyFactory extends EFactory {
 	Number createNumber();
 
 	/**
-	 * Returns a new object of class '<em>Scale</em>'.
+	 * Returns a new object of class '<em>Single</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Scale</em>'.
+	 * @return a new object of class '<em>Single</em>'.
 	 * @generated
 	 */
-	Scale createScale();
+	Single createSingle();
 
 	/**
-	 * Returns a new object of class '<em>Answer</em>'.
+	 * Returns a new object of class '<em>Multiple</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Answer</em>'.
+	 * @return a new object of class '<em>Multiple</em>'.
 	 * @generated
 	 */
-	Answer createAnswer();
-
-	/**
-	 * Returns a new object of class '<em>Answer Template</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Answer Template</em>'.
-	 * @generated
-	 */
-	AnswerTemplate createAnswerTemplate();
+	Multiple createMultiple();
 
 	/**
 	 * Returns a new object of class '<em>Table</em>'.
@@ -137,6 +119,33 @@ public interface SurveyFactory extends EFactory {
 	 * @generated
 	 */
 	AnswerTemplateRef createAnswerTemplateRef();
+
+	/**
+	 * Returns a new object of class '<em>Answer</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Answer</em>'.
+	 * @generated
+	 */
+	Answer createAnswer();
+
+	/**
+	 * Returns a new object of class '<em>Answer Template</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Answer Template</em>'.
+	 * @generated
+	 */
+	AnswerTemplate createAnswerTemplate();
+
+	/**
+	 * Returns a new object of class '<em>Referable</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Referable</em>'.
+	 * @generated
+	 */
+	Referable createReferable();
 
 	/**
 	 * Returns the package supported by this factory.

@@ -3,6 +3,7 @@
  */
 package dk.itu.smdp.survey.generator;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
@@ -13,11 +14,17 @@ import org.eclipse.xtext.generator.IGenerator;
 import org.eclipse.xtext.xbase.lib.IntegerRange;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.StringExtensions;
+import survey.Answer;
+import survey.AnswerTemplate;
+import survey.AnswerTemplateRef;
 import survey.Group;
+import survey.HasOptions;
 import survey.Item;
 import survey.Meta;
+import survey.Option;
 import survey.Question;
 import survey.Scale;
+import survey.Single;
 import survey.Survey;
 import survey.Text;
 
@@ -112,10 +119,10 @@ public class DslGenerator implements IGenerator {
     _builder.append("<!--[if lt IE 9]>");
     _builder.newLine();
     _builder.append("        ");
-    _builder.append("<script src=\"https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js\"></script>");
+    _builder.append("<script src=\"//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js\"></script>");
     _builder.newLine();
     _builder.append("        ");
-    _builder.append("<script src=\"https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js\"></script>");
+    _builder.append("<script src=\"//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js\"></script>");
     _builder.newLine();
     _builder.append("        ");
     _builder.append("<![endif]-->");
@@ -467,7 +474,7 @@ public class DslGenerator implements IGenerator {
       _builder.append("\" ");
       CharSequence _genRequired = this.genRequired(question);
       _builder.append(_genRequired, "            ");
-      _builder.append(" min=\"0\" step=\"1\" value=\"0\">");
+      _builder.append(" step=\"1\" value=\"0\">");
       _builder.newLineIfNotEmpty();
       _builder.append("        ");
       _builder.append("</div>");
@@ -482,45 +489,71 @@ public class DslGenerator implements IGenerator {
     return _xblockexpression;
   }
   
-  /**
-   * def dispatch String genHtml(Single question) {
-   * var id = 'question'
-   * question.options.get(0);
-   * 
-   * '''
-   * <div class="form-group">
-   * <label class="control-label">
-   * «question.title»
-   * «question.genQuestionDesc»
-   * </label>
-   * <div>
-   * «FOR i : 0..question.options.size BEFORE '<div class="radio"><label>' SEPARATOR '</label></div><div class="radio"><label>' AFTER '</label></div>' »
-   * <input type="radio" name="«id»" id="«id»_«i»" value="«i»" />
-   * «(question.options.get(i) as Option).»
-   * «ENDFOR»
-   * <div class="radio">
-   * <label>
-   * <input type="radio" name="«id»" id="«id»_«i»" value="male" />
-   * Male
-   * </label>
-   * </div>
-   * <div class="radio">
-   * <label>
-   * <input type="radio" name="radio_1" id="radio_sex_2" value="female" />
-   * Female
-   * </label>
-   * </div>
-   * <div class="radio">
-   * <label>
-   * <input type="radio" name="radio_1" id="radio_sex_2" value="option3" />
-   * <input class="form-control input-sm" id="name">
-   * </label>
-   * </div>
-   * </div>
-   * </div>
-   * '''
-   * }
-   */
+  protected String _genHtml(final Single question) {
+    String _xblockexpression = null;
+    {
+      String id = "question";
+      int i = 0;
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("<div class=\"form-group\">");
+      _builder.newLine();
+      _builder.append("    ");
+      _builder.append("<label class=\"control-label\">");
+      _builder.newLine();
+      _builder.append("    \t");
+      String _title = question.getTitle();
+      _builder.append(_title, "    	");
+      _builder.newLineIfNotEmpty();
+      _builder.append("    \t");
+      CharSequence _genQuestionDesc = this.genQuestionDesc(question);
+      _builder.append(_genQuestionDesc, "    	");
+      _builder.newLineIfNotEmpty();
+      _builder.append("    ");
+      _builder.append("</label>");
+      _builder.newLine();
+      _builder.append("    ");
+      _builder.append("<div>");
+      _builder.newLine();
+      {
+        ArrayList<Answer> _answers = this.getAnswers(question);
+        boolean _hasElements = false;
+        for(final Answer a : _answers) {
+          if (!_hasElements) {
+            _hasElements = true;
+            _builder.append("<div class=\"radio\"><label>", "    	");
+          } else {
+            _builder.appendImmediate("</label></div><div class=\"radio\"><label>", "    	");
+          }
+          _builder.append("    \t");
+          _builder.append("<input type=\"radio\" name=\"");
+          _builder.append(id, "    	");
+          _builder.append("\" id=\"");
+          _builder.append(id, "    	");
+          _builder.append("_");
+          _builder.append(i, "    	");
+          _builder.append("\" value=\"");
+          _builder.append(i, "    	");
+          _builder.append("\" />");
+          _builder.newLineIfNotEmpty();
+          _builder.append("        ");
+          String _label = a.getLabel();
+          _builder.append(_label, "        ");
+          _builder.newLineIfNotEmpty();
+        }
+        if (_hasElements) {
+          _builder.append("</label></div>", "    	");
+        }
+      }
+      _builder.append("    ");
+      _builder.append("</div>");
+      _builder.newLine();
+      _builder.append("</div>");
+      _builder.newLine();
+      _xblockexpression = (_builder.toString());
+    }
+    return _xblockexpression;
+  }
+  
   protected String _genHtml(final Question question) {
     StringConcatenation _builder = new StringConcatenation();
     String _title = question.getTitle();
@@ -558,6 +591,24 @@ public class DslGenerator implements IGenerator {
     return _builder;
   }
   
+  public ArrayList<Answer> getAnswers(final HasOptions hasOptions) {
+    ArrayList<Answer> _arrayList = new ArrayList<Answer>();
+    ArrayList<Answer> answers = _arrayList;
+    EList<Option> _options = hasOptions.getOptions();
+    for (final Option option : _options) {
+      if ((option instanceof Answer)) {
+        answers.add(((Answer) option));
+      } else {
+        if ((option instanceof AnswerTemplateRef)) {
+          AnswerTemplate _template = ((AnswerTemplateRef) option).getTemplate();
+          EList<Answer> _answers = _template.getAnswers();
+          answers.addAll(_answers);
+        }
+      }
+    }
+    return answers;
+  }
+  
   public void genLatex(final Survey survey, final IFileSystemAccess fsa) {
     fsa.generateFile("survey.tex", "Something something");
   }
@@ -567,6 +618,8 @@ public class DslGenerator implements IGenerator {
       return _genHtml((survey.Number)question);
     } else if (question instanceof Scale) {
       return _genHtml((Scale)question);
+    } else if (question instanceof Single) {
+      return _genHtml((Single)question);
     } else if (question instanceof Text) {
       return _genHtml((Text)question);
     } else if (question instanceof Group) {

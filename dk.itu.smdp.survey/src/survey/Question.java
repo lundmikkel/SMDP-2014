@@ -14,5 +14,4 @@ package survey;
  * @generated
  */
 public interface Question extends Item {
-
 } // Question
