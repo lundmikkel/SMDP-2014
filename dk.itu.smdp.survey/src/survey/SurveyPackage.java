@@ -413,26 +413,6 @@ public interface SurveyPackage extends EPackage {
 	int QUESTION_OPERATION_COUNT = ITEM_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link survey.impl.SingleImpl <em>Single</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see survey.impl.SingleImpl
-	 * @see survey.impl.SurveyPackageImpl#getSingle()
-	 * @generated
-	 */
-	int SINGLE = 12;
-
-	/**
-	 * The meta object id for the '{@link survey.impl.MultipleImpl <em>Multiple</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see survey.impl.MultipleImpl
-	 * @see survey.impl.SurveyPackageImpl#getMultiple()
-	 * @generated
-	 */
-	int MULTIPLE = 13;
-
-	/**
 	 * The meta object id for the '{@link survey.impl.TextImpl <em>Text</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -513,26 +493,6 @@ public interface SurveyPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT_OPERATION_COUNT = QUESTION_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link survey.impl.DateImpl <em>Date</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see survey.impl.DateImpl
-	 * @see survey.impl.SurveyPackageImpl#getDate()
-	 * @generated
-	 */
-	int DATE = 7;
-
-	/**
-	 * The meta object id for the '{@link survey.impl.NumberImpl <em>Number</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see survey.impl.NumberImpl
-	 * @see survey.impl.SurveyPackageImpl#getNumber()
-	 * @generated
-	 */
-	int NUMBER = 8;
 
 	/**
 	 * The meta object id for the '{@link survey.impl.ScaleImpl <em>Scale</em>}' class.
@@ -642,6 +602,16 @@ public interface SurveyPackage extends EPackage {
 	 * @ordered
 	 */
 	int SCALE_OPERATION_COUNT = QUESTION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link survey.impl.DateImpl <em>Date</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see survey.impl.DateImpl
+	 * @see survey.impl.SurveyPackageImpl#getDate()
+	 * @generated
+	 */
+	int DATE = 7;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -761,6 +731,16 @@ public interface SurveyPackage extends EPackage {
 	int DATE_OPERATION_COUNT = QUESTION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link survey.impl.NumberImpl <em>Number</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see survey.impl.NumberImpl
+	 * @see survey.impl.SurveyPackageImpl#getNumber()
+	 * @generated
+	 */
+	int NUMBER = 8;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -851,26 +831,6 @@ public interface SurveyPackage extends EPackage {
 	int NUMBER_OPERATION_COUNT = QUESTION_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link survey.impl.OptionImpl <em>Option</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see survey.impl.OptionImpl
-	 * @see survey.impl.SurveyPackageImpl#getOption()
-	 * @generated
-	 */
-	int OPTION = 11;
-
-	/**
-	 * The meta object id for the '{@link survey.impl.AnswerImpl <em>Answer</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see survey.impl.AnswerImpl
-	 * @see survey.impl.SurveyPackageImpl#getAnswer()
-	 * @generated
-	 */
-	int ANSWER = 17;
-
-	/**
 	 * The meta object id for the '{@link survey.impl.OtherImpl <em>Other</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -954,6 +914,16 @@ public interface SurveyPackage extends EPackage {
 	int HAS_OPTIONS_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link survey.impl.OptionImpl <em>Option</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see survey.impl.OptionImpl
+	 * @see survey.impl.SurveyPackageImpl#getOption()
+	 * @generated
+	 */
+	int OPTION = 11;
+
+	/**
 	 * The number of structural features of the '<em>Option</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -970,6 +940,16 @@ public interface SurveyPackage extends EPackage {
 	 * @ordered
 	 */
 	int OPTION_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link survey.impl.SingleImpl <em>Single</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see survey.impl.SingleImpl
+	 * @see survey.impl.SurveyPackageImpl#getSingle()
+	 * @generated
+	 */
+	int SINGLE = 12;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1060,6 +1040,16 @@ public interface SurveyPackage extends EPackage {
 	 * @ordered
 	 */
 	int SINGLE_OPERATION_COUNT = QUESTION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link survey.impl.MultipleImpl <em>Multiple</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see survey.impl.MultipleImpl
+	 * @see survey.impl.SurveyPackageImpl#getMultiple()
+	 * @generated
+	 */
+	int MULTIPLE = 13;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1177,16 +1167,6 @@ public interface SurveyPackage extends EPackage {
 	 * @ordered
 	 */
 	int MULTIPLE_OPERATION_COUNT = QUESTION_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link survey.impl.AnswerTemplateImpl <em>Answer Template</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see survey.impl.AnswerTemplateImpl
-	 * @see survey.impl.SurveyPackageImpl#getAnswerTemplate()
-	 * @generated
-	 */
-	int ANSWER_TEMPLATE = 18;
 
 	/**
 	 * The meta object id for the '{@link survey.impl.TableImpl <em>Table</em>}' class.
@@ -1381,6 +1361,16 @@ public interface SurveyPackage extends EPackage {
 	int ANSWER_TEMPLATE_REF_OPERATION_COUNT = OPTION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link survey.impl.AnswerImpl <em>Answer</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see survey.impl.AnswerImpl
+	 * @see survey.impl.SurveyPackageImpl#getAnswer()
+	 * @generated
+	 */
+	int ANSWER = 17;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1415,6 +1405,16 @@ public interface SurveyPackage extends EPackage {
 	 * @ordered
 	 */
 	int ANSWER_OPERATION_COUNT = OPTION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link survey.impl.AnswerTemplateImpl <em>Answer Template</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see survey.impl.AnswerTemplateImpl
+	 * @see survey.impl.SurveyPackageImpl#getAnswerTemplate()
+	 * @generated
+	 */
+	int ANSWER_TEMPLATE = 18;
 
 	/**
 	 * The feature id for the '<em><b>Answers</b></em>' containment reference list.
@@ -1479,6 +1479,7 @@ public interface SurveyPackage extends EPackage {
 	 * @ordered
 	 */
 	int REFERABLE_OPERATION_COUNT = 0;
+
 
 	/**
 	 * Returns the meta object for class '{@link survey.Meta <em>Meta</em>}'.
@@ -1556,37 +1557,6 @@ public interface SurveyPackage extends EPackage {
 	EReference getSurvey_Templates();
 
 	/**
-	 * Returns the meta object for class '{@link survey.Group <em>Group</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Group</em>'.
-	 * @see survey.Group
-	 * @generated
-	 */
-	EClass getGroup();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link survey.Group#getQuestions <em>Questions</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Questions</em>'.
-	 * @see survey.Group#getQuestions()
-	 * @see #getGroup()
-	 * @generated
-	 */
-	EReference getGroup_Questions();
-
-	/**
-	 * Returns the meta object for class '{@link survey.Question <em>Question</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Question</em>'.
-	 * @see survey.Question
-	 * @generated
-	 */
-	EClass getQuestion();
-
-	/**
 	 * Returns the meta object for class '{@link survey.Item <em>Item</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1619,57 +1589,35 @@ public interface SurveyPackage extends EPackage {
 	EAttribute getItem_Required();
 
 	/**
-	 * Returns the meta object for class '{@link survey.Single <em>Single</em>}'.
+	 * Returns the meta object for class '{@link survey.Group <em>Group</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Single</em>'.
-	 * @see survey.Single
+	 * @return the meta object for class '<em>Group</em>'.
+	 * @see survey.Group
 	 * @generated
 	 */
-	EClass getSingle();
+	EClass getGroup();
 
 	/**
-	 * Returns the meta object for class '{@link survey.Multiple <em>Multiple</em>}'.
+	 * Returns the meta object for the containment reference list '{@link survey.Group#getQuestions <em>Questions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Multiple</em>'.
-	 * @see survey.Multiple
+	 * @return the meta object for the containment reference list '<em>Questions</em>'.
+	 * @see survey.Group#getQuestions()
+	 * @see #getGroup()
 	 * @generated
 	 */
-	EClass getMultiple();
+	EReference getGroup_Questions();
 
 	/**
-	 * Returns the meta object for the attribute '{@link survey.Multiple#getLower <em>Lower</em>}'.
+	 * Returns the meta object for class '{@link survey.Question <em>Question</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Lower</em>'.
-	 * @see survey.Multiple#getLower()
-	 * @see #getMultiple()
+	 * @return the meta object for class '<em>Question</em>'.
+	 * @see survey.Question
 	 * @generated
 	 */
-	EAttribute getMultiple_Lower();
-
-	/**
-	 * Returns the meta object for the attribute '{@link survey.Multiple#getUpper <em>Upper</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Upper</em>'.
-	 * @see survey.Multiple#getUpper()
-	 * @see #getMultiple()
-	 * @generated
-	 */
-	EAttribute getMultiple_Upper();
-
-	/**
-	 * Returns the meta object for the attribute '{@link survey.Multiple#isShowLimits <em>Show Limits</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Show Limits</em>'.
-	 * @see survey.Multiple#isShowLimits()
-	 * @see #getMultiple()
-	 * @generated
-	 */
-	EAttribute getMultiple_ShowLimits();
+	EClass getQuestion();
 
 	/**
 	 * Returns the meta object for class '{@link survey.Text <em>Text</em>}'.
@@ -1691,6 +1639,60 @@ public interface SurveyPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getText_Multiline();
+
+	/**
+	 * Returns the meta object for class '{@link survey.Scale <em>Scale</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Scale</em>'.
+	 * @see survey.Scale
+	 * @generated
+	 */
+	EClass getScale();
+
+	/**
+	 * Returns the meta object for the attribute '{@link survey.Scale#getLower <em>Lower</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Lower</em>'.
+	 * @see survey.Scale#getLower()
+	 * @see #getScale()
+	 * @generated
+	 */
+	EAttribute getScale_Lower();
+
+	/**
+	 * Returns the meta object for the attribute '{@link survey.Scale#getUpper <em>Upper</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Upper</em>'.
+	 * @see survey.Scale#getUpper()
+	 * @see #getScale()
+	 * @generated
+	 */
+	EAttribute getScale_Upper();
+
+	/**
+	 * Returns the meta object for the attribute '{@link survey.Scale#getLowerLabel <em>Lower Label</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Lower Label</em>'.
+	 * @see survey.Scale#getLowerLabel()
+	 * @see #getScale()
+	 * @generated
+	 */
+	EAttribute getScale_LowerLabel();
+
+	/**
+	 * Returns the meta object for the attribute '{@link survey.Scale#getUpperLabel <em>Upper Label</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Upper Label</em>'.
+	 * @see survey.Scale#getUpperLabel()
+	 * @see #getScale()
+	 * @generated
+	 */
+	EAttribute getScale_UpperLabel();
 
 	/**
 	 * Returns the meta object for class '{@link survey.Date <em>Date</em>}'.
@@ -1812,92 +1814,6 @@ public interface SurveyPackage extends EPackage {
 	EAttribute getNumber_ShowLimits();
 
 	/**
-	 * Returns the meta object for class '{@link survey.Scale <em>Scale</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Scale</em>'.
-	 * @see survey.Scale
-	 * @generated
-	 */
-	EClass getScale();
-
-	/**
-	 * Returns the meta object for the attribute '{@link survey.Scale#getLower <em>Lower</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Lower</em>'.
-	 * @see survey.Scale#getLower()
-	 * @see #getScale()
-	 * @generated
-	 */
-	EAttribute getScale_Lower();
-
-	/**
-	 * Returns the meta object for the attribute '{@link survey.Scale#getUpper <em>Upper</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Upper</em>'.
-	 * @see survey.Scale#getUpper()
-	 * @see #getScale()
-	 * @generated
-	 */
-	EAttribute getScale_Upper();
-
-	/**
-	 * Returns the meta object for the attribute '{@link survey.Scale#getLowerLabel <em>Lower Label</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Lower Label</em>'.
-	 * @see survey.Scale#getLowerLabel()
-	 * @see #getScale()
-	 * @generated
-	 */
-	EAttribute getScale_LowerLabel();
-
-	/**
-	 * Returns the meta object for the attribute '{@link survey.Scale#getUpperLabel <em>Upper Label</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Upper Label</em>'.
-	 * @see survey.Scale#getUpperLabel()
-	 * @see #getScale()
-	 * @generated
-	 */
-	EAttribute getScale_UpperLabel();
-
-	/**
-	 * Returns the meta object for class '{@link survey.Answer <em>Answer</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Answer</em>'.
-	 * @see survey.Answer
-	 * @generated
-	 */
-	EClass getAnswer();
-
-	/**
-	 * Returns the meta object for the attribute '{@link survey.Answer#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see survey.Answer#getName()
-	 * @see #getAnswer()
-	 * @generated
-	 */
-	EAttribute getAnswer_Name();
-
-	/**
-	 * Returns the meta object for the attribute '{@link survey.Answer#getLabel <em>Label</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Label</em>'.
-	 * @see survey.Answer#getLabel()
-	 * @see #getAnswer()
-	 * @generated
-	 */
-	EAttribute getAnswer_Label();
-
-	/**
 	 * Returns the meta object for class '{@link survey.Other <em>Other</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1951,46 +1867,67 @@ public interface SurveyPackage extends EPackage {
 	EReference getHasOptions_Options();
 
 	/**
-	 * Returns the meta object for class '{@link survey.AnswerTemplate <em>Answer Template</em>}'.
+	 * Returns the meta object for class '{@link survey.Option <em>Option</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Answer Template</em>'.
-	 * @see survey.AnswerTemplate
+	 * @return the meta object for class '<em>Option</em>'.
+	 * @see survey.Option
 	 * @generated
 	 */
-	EClass getAnswerTemplate();
+	EClass getOption();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link survey.AnswerTemplate#getAnswers <em>Answers</em>}'.
+	 * Returns the meta object for class '{@link survey.Single <em>Single</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Answers</em>'.
-	 * @see survey.AnswerTemplate#getAnswers()
-	 * @see #getAnswerTemplate()
+	 * @return the meta object for class '<em>Single</em>'.
+	 * @see survey.Single
 	 * @generated
 	 */
-	EReference getAnswerTemplate_Answers();
+	EClass getSingle();
 
 	/**
-	 * Returns the meta object for the attribute '{@link survey.AnswerTemplate#getName <em>Name</em>}'.
+	 * Returns the meta object for class '{@link survey.Multiple <em>Multiple</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see survey.AnswerTemplate#getName()
-	 * @see #getAnswerTemplate()
+	 * @return the meta object for class '<em>Multiple</em>'.
+	 * @see survey.Multiple
 	 * @generated
 	 */
-	EAttribute getAnswerTemplate_Name();
+	EClass getMultiple();
 
 	/**
-	 * Returns the meta object for class '{@link survey.Referable <em>Referable</em>}'.
+	 * Returns the meta object for the attribute '{@link survey.Multiple#getLower <em>Lower</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Referable</em>'.
-	 * @see survey.Referable
+	 * @return the meta object for the attribute '<em>Lower</em>'.
+	 * @see survey.Multiple#getLower()
+	 * @see #getMultiple()
 	 * @generated
 	 */
-	EClass getReferable();
+	EAttribute getMultiple_Lower();
+
+	/**
+	 * Returns the meta object for the attribute '{@link survey.Multiple#getUpper <em>Upper</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Upper</em>'.
+	 * @see survey.Multiple#getUpper()
+	 * @see #getMultiple()
+	 * @generated
+	 */
+	EAttribute getMultiple_Upper();
+
+	/**
+	 * Returns the meta object for the attribute '{@link survey.Multiple#isShowLimits <em>Show Limits</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Show Limits</em>'.
+	 * @see survey.Multiple#isShowLimits()
+	 * @see #getMultiple()
+	 * @generated
+	 */
+	EAttribute getMultiple_ShowLimits();
 
 	/**
 	 * Returns the meta object for class '{@link survey.Table <em>Table</em>}'.
@@ -2067,14 +2004,78 @@ public interface SurveyPackage extends EPackage {
 	EReference getAnswerTemplateRef_Template();
 
 	/**
-	 * Returns the meta object for class '{@link survey.Option <em>Option</em>}'.
+	 * Returns the meta object for class '{@link survey.Answer <em>Answer</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Option</em>'.
-	 * @see survey.Option
+	 * @return the meta object for class '<em>Answer</em>'.
+	 * @see survey.Answer
 	 * @generated
 	 */
-	EClass getOption();
+	EClass getAnswer();
+
+	/**
+	 * Returns the meta object for the attribute '{@link survey.Answer#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see survey.Answer#getName()
+	 * @see #getAnswer()
+	 * @generated
+	 */
+	EAttribute getAnswer_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link survey.Answer#getLabel <em>Label</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Label</em>'.
+	 * @see survey.Answer#getLabel()
+	 * @see #getAnswer()
+	 * @generated
+	 */
+	EAttribute getAnswer_Label();
+
+	/**
+	 * Returns the meta object for class '{@link survey.AnswerTemplate <em>Answer Template</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Answer Template</em>'.
+	 * @see survey.AnswerTemplate
+	 * @generated
+	 */
+	EClass getAnswerTemplate();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link survey.AnswerTemplate#getAnswers <em>Answers</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Answers</em>'.
+	 * @see survey.AnswerTemplate#getAnswers()
+	 * @see #getAnswerTemplate()
+	 * @generated
+	 */
+	EReference getAnswerTemplate_Answers();
+
+	/**
+	 * Returns the meta object for the attribute '{@link survey.AnswerTemplate#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see survey.AnswerTemplate#getName()
+	 * @see #getAnswerTemplate()
+	 * @generated
+	 */
+	EAttribute getAnswerTemplate_Name();
+
+	/**
+	 * Returns the meta object for class '{@link survey.Referable <em>Referable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Referable</em>'.
+	 * @see survey.Referable
+	 * @generated
+	 */
+	EClass getReferable();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -2160,6 +2161,32 @@ public interface SurveyPackage extends EPackage {
 		EReference SURVEY__TEMPLATES = eINSTANCE.getSurvey_Templates();
 
 		/**
+		 * The meta object literal for the '{@link survey.impl.ItemImpl <em>Item</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see survey.impl.ItemImpl
+		 * @see survey.impl.SurveyPackageImpl#getItem()
+		 * @generated
+		 */
+		EClass ITEM = eINSTANCE.getItem();
+
+		/**
+		 * The meta object literal for the '<em><b>Depends On</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ITEM__DEPENDS_ON = eINSTANCE.getItem_DependsOn();
+
+		/**
+		 * The meta object literal for the '<em><b>Required</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ITEM__REQUIRED = eINSTANCE.getItem_Required();
+
+		/**
 		 * The meta object literal for the '{@link survey.impl.GroupImpl <em>Group</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2188,76 +2215,6 @@ public interface SurveyPackage extends EPackage {
 		EClass QUESTION = eINSTANCE.getQuestion();
 
 		/**
-		 * The meta object literal for the '{@link survey.impl.ItemImpl <em>Item</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see survey.impl.ItemImpl
-		 * @see survey.impl.SurveyPackageImpl#getItem()
-		 * @generated
-		 */
-		EClass ITEM = eINSTANCE.getItem();
-
-		/**
-		 * The meta object literal for the '<em><b>Depends On</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ITEM__DEPENDS_ON = eINSTANCE.getItem_DependsOn();
-
-		/**
-		 * The meta object literal for the '<em><b>Required</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ITEM__REQUIRED = eINSTANCE.getItem_Required();
-
-		/**
-		 * The meta object literal for the '{@link survey.impl.SingleImpl <em>Single</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see survey.impl.SingleImpl
-		 * @see survey.impl.SurveyPackageImpl#getSingle()
-		 * @generated
-		 */
-		EClass SINGLE = eINSTANCE.getSingle();
-
-		/**
-		 * The meta object literal for the '{@link survey.impl.MultipleImpl <em>Multiple</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see survey.impl.MultipleImpl
-		 * @see survey.impl.SurveyPackageImpl#getMultiple()
-		 * @generated
-		 */
-		EClass MULTIPLE = eINSTANCE.getMultiple();
-
-		/**
-		 * The meta object literal for the '<em><b>Lower</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute MULTIPLE__LOWER = eINSTANCE.getMultiple_Lower();
-
-		/**
-		 * The meta object literal for the '<em><b>Upper</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute MULTIPLE__UPPER = eINSTANCE.getMultiple_Upper();
-
-		/**
-		 * The meta object literal for the '<em><b>Show Limits</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute MULTIPLE__SHOW_LIMITS = eINSTANCE.getMultiple_ShowLimits();
-
-		/**
 		 * The meta object literal for the '{@link survey.impl.TextImpl <em>Text</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2274,6 +2231,48 @@ public interface SurveyPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute TEXT__MULTILINE = eINSTANCE.getText_Multiline();
+
+		/**
+		 * The meta object literal for the '{@link survey.impl.ScaleImpl <em>Scale</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see survey.impl.ScaleImpl
+		 * @see survey.impl.SurveyPackageImpl#getScale()
+		 * @generated
+		 */
+		EClass SCALE = eINSTANCE.getScale();
+
+		/**
+		 * The meta object literal for the '<em><b>Lower</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SCALE__LOWER = eINSTANCE.getScale_Lower();
+
+		/**
+		 * The meta object literal for the '<em><b>Upper</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SCALE__UPPER = eINSTANCE.getScale_Upper();
+
+		/**
+		 * The meta object literal for the '<em><b>Lower Label</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SCALE__LOWER_LABEL = eINSTANCE.getScale_LowerLabel();
+
+		/**
+		 * The meta object literal for the '<em><b>Upper Label</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SCALE__UPPER_LABEL = eINSTANCE.getScale_UpperLabel();
 
 		/**
 		 * The meta object literal for the '{@link survey.impl.DateImpl <em>Date</em>}' class.
@@ -2368,74 +2367,6 @@ public interface SurveyPackage extends EPackage {
 		EAttribute NUMBER__SHOW_LIMITS = eINSTANCE.getNumber_ShowLimits();
 
 		/**
-		 * The meta object literal for the '{@link survey.impl.ScaleImpl <em>Scale</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see survey.impl.ScaleImpl
-		 * @see survey.impl.SurveyPackageImpl#getScale()
-		 * @generated
-		 */
-		EClass SCALE = eINSTANCE.getScale();
-
-		/**
-		 * The meta object literal for the '<em><b>Lower</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SCALE__LOWER = eINSTANCE.getScale_Lower();
-
-		/**
-		 * The meta object literal for the '<em><b>Upper</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SCALE__UPPER = eINSTANCE.getScale_Upper();
-
-		/**
-		 * The meta object literal for the '<em><b>Lower Label</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SCALE__LOWER_LABEL = eINSTANCE.getScale_LowerLabel();
-
-		/**
-		 * The meta object literal for the '<em><b>Upper Label</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SCALE__UPPER_LABEL = eINSTANCE.getScale_UpperLabel();
-
-		/**
-		 * The meta object literal for the '{@link survey.impl.AnswerImpl <em>Answer</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see survey.impl.AnswerImpl
-		 * @see survey.impl.SurveyPackageImpl#getAnswer()
-		 * @generated
-		 */
-		EClass ANSWER = eINSTANCE.getAnswer();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ANSWER__NAME = eINSTANCE.getAnswer_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Label</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ANSWER__LABEL = eINSTANCE.getAnswer_Label();
-
-		/**
 		 * The meta object literal for the '{@link survey.impl.OtherImpl <em>Other</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2480,40 +2411,58 @@ public interface SurveyPackage extends EPackage {
 		EReference HAS_OPTIONS__OPTIONS = eINSTANCE.getHasOptions_Options();
 
 		/**
-		 * The meta object literal for the '{@link survey.impl.AnswerTemplateImpl <em>Answer Template</em>}' class.
+		 * The meta object literal for the '{@link survey.impl.OptionImpl <em>Option</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see survey.impl.AnswerTemplateImpl
-		 * @see survey.impl.SurveyPackageImpl#getAnswerTemplate()
+		 * @see survey.impl.OptionImpl
+		 * @see survey.impl.SurveyPackageImpl#getOption()
 		 * @generated
 		 */
-		EClass ANSWER_TEMPLATE = eINSTANCE.getAnswerTemplate();
+		EClass OPTION = eINSTANCE.getOption();
 
 		/**
-		 * The meta object literal for the '<em><b>Answers</b></em>' containment reference list feature.
+		 * The meta object literal for the '{@link survey.impl.SingleImpl <em>Single</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
+		 * @see survey.impl.SingleImpl
+		 * @see survey.impl.SurveyPackageImpl#getSingle()
 		 * @generated
 		 */
-		EReference ANSWER_TEMPLATE__ANSWERS = eINSTANCE.getAnswerTemplate_Answers();
+		EClass SINGLE = eINSTANCE.getSingle();
 
 		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * The meta object literal for the '{@link survey.impl.MultipleImpl <em>Multiple</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
+		 * @see survey.impl.MultipleImpl
+		 * @see survey.impl.SurveyPackageImpl#getMultiple()
 		 * @generated
 		 */
-		EAttribute ANSWER_TEMPLATE__NAME = eINSTANCE.getAnswerTemplate_Name();
+		EClass MULTIPLE = eINSTANCE.getMultiple();
 
 		/**
-		 * The meta object literal for the '{@link survey.impl.ReferableImpl <em>Referable</em>}' class.
+		 * The meta object literal for the '<em><b>Lower</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see survey.impl.ReferableImpl
-		 * @see survey.impl.SurveyPackageImpl#getReferable()
 		 * @generated
 		 */
-		EClass REFERABLE = eINSTANCE.getReferable();
+		EAttribute MULTIPLE__LOWER = eINSTANCE.getMultiple_Lower();
+
+		/**
+		 * The meta object literal for the '<em><b>Upper</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MULTIPLE__UPPER = eINSTANCE.getMultiple_Upper();
+
+		/**
+		 * The meta object literal for the '<em><b>Show Limits</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MULTIPLE__SHOW_LIMITS = eINSTANCE.getMultiple_ShowLimits();
 
 		/**
 		 * The meta object literal for the '{@link survey.impl.TableImpl <em>Table</em>}' class.
@@ -2578,14 +2527,66 @@ public interface SurveyPackage extends EPackage {
 		EReference ANSWER_TEMPLATE_REF__TEMPLATE = eINSTANCE.getAnswerTemplateRef_Template();
 
 		/**
-		 * The meta object literal for the '{@link survey.impl.OptionImpl <em>Option</em>}' class.
+		 * The meta object literal for the '{@link survey.impl.AnswerImpl <em>Answer</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see survey.impl.OptionImpl
-		 * @see survey.impl.SurveyPackageImpl#getOption()
+		 * @see survey.impl.AnswerImpl
+		 * @see survey.impl.SurveyPackageImpl#getAnswer()
 		 * @generated
 		 */
-		EClass OPTION = eINSTANCE.getOption();
+		EClass ANSWER = eINSTANCE.getAnswer();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ANSWER__NAME = eINSTANCE.getAnswer_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Label</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ANSWER__LABEL = eINSTANCE.getAnswer_Label();
+
+		/**
+		 * The meta object literal for the '{@link survey.impl.AnswerTemplateImpl <em>Answer Template</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see survey.impl.AnswerTemplateImpl
+		 * @see survey.impl.SurveyPackageImpl#getAnswerTemplate()
+		 * @generated
+		 */
+		EClass ANSWER_TEMPLATE = eINSTANCE.getAnswerTemplate();
+
+		/**
+		 * The meta object literal for the '<em><b>Answers</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ANSWER_TEMPLATE__ANSWERS = eINSTANCE.getAnswerTemplate_Answers();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ANSWER_TEMPLATE__NAME = eINSTANCE.getAnswerTemplate_Name();
+
+		/**
+		 * The meta object literal for the '{@link survey.impl.ReferableImpl <em>Referable</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see survey.impl.ReferableImpl
+		 * @see survey.impl.SurveyPackageImpl#getReferable()
+		 * @generated
+		 */
+		EClass REFERABLE = eINSTANCE.getReferable();
 
 	}
 

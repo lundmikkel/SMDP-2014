@@ -30,12 +30,12 @@ public interface Item extends Meta, Referable {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Depends On</em>' reference.
-	 * @see #setDependsOn(Answer)
+	 * @see #setDependsOn(Referable)
 	 * @see survey.SurveyPackage#getItem_DependsOn()
 	 * @model
 	 * @generated
 	 */
-	Answer getDependsOn();
+	Referable getDependsOn();
 
 	/**
 	 * Sets the value of the '{@link survey.Item#getDependsOn <em>Depends On</em>}' reference.
@@ -45,7 +45,7 @@ public interface Item extends Meta, Referable {
 	 * @see #getDependsOn()
 	 * @generated
 	 */
-	void setDependsOn(Answer value);
+	void setDependsOn(Referable value);
 
 	/**
 	 * Returns the value of the '<em><b>Required</b></em>' attribute.

@@ -1980,7 +1980,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
             	            
             	    otherlv_10=(Token)match(input,RULE_FQN,FollowSets000.FOLLOW_RULE_FQN_in_ruleGroup1946); 
 
-            	    		newLeafNode(otherlv_10, grammarAccess.getGroupAccess().getDependsOnAnswerCrossReference_1_2_2_0()); 
+            	    		newLeafNode(otherlv_10, grammarAccess.getGroupAccess().getDependsOnReferableCrossReference_1_2_2_0()); 
             	    	
 
             	    }
@@ -2574,7 +2574,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
             	            
             	    otherlv_14=(Token)match(input,RULE_FQN,FollowSets000.FOLLOW_RULE_FQN_in_ruleText2604); 
 
-            	    		newLeafNode(otherlv_14, grammarAccess.getTextAccess().getDependsOnAnswerCrossReference_2_3_2_0()); 
+            	    		newLeafNode(otherlv_14, grammarAccess.getTextAccess().getDependsOnReferableCrossReference_2_3_2_0()); 
             	    	
 
             	    }
@@ -3577,7 +3577,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
             	            
             	    otherlv_25=(Token)match(input,RULE_FQN,FollowSets000.FOLLOW_RULE_FQN_in_ruleScale3786); 
 
-            	    		newLeafNode(otherlv_25, grammarAccess.getScaleAccess().getDependsOnAnswerCrossReference_1_7_2_0()); 
+            	    		newLeafNode(otherlv_25, grammarAccess.getScaleAccess().getDependsOnReferableCrossReference_1_7_2_0()); 
             	    	
 
             	    }
@@ -4269,7 +4269,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
             	            
             	    otherlv_20=(Token)match(input,RULE_FQN,FollowSets000.FOLLOW_RULE_FQN_in_ruleDate4618); 
 
-            	    		newLeafNode(otherlv_20, grammarAccess.getDateAccess().getDependsOnAnswerCrossReference_2_5_2_0()); 
+            	    		newLeafNode(otherlv_20, grammarAccess.getDateAccess().getDependsOnReferableCrossReference_2_5_2_0()); 
             	    	
 
             	    }
@@ -5190,7 +5190,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
             	            
             	    otherlv_20=(Token)match(input,RULE_FQN,FollowSets000.FOLLOW_RULE_FQN_in_ruleNumber5790); 
 
-            	    		newLeafNode(otherlv_20, grammarAccess.getNumberAccess().getDependsOnAnswerCrossReference_2_5_2_0()); 
+            	    		newLeafNode(otherlv_20, grammarAccess.getNumberAccess().getDependsOnReferableCrossReference_2_5_2_0()); 
             	    	
 
             	    }
@@ -5780,7 +5780,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
             	            
             	    otherlv_13=(Token)match(input,RULE_FQN,FollowSets000.FOLLOW_RULE_FQN_in_ruleSingle6496); 
 
-            	    		newLeafNode(otherlv_13, grammarAccess.getSingleAccess().getDependsOnAnswerCrossReference_1_3_2_0()); 
+            	    		newLeafNode(otherlv_13, grammarAccess.getSingleAccess().getDependsOnReferableCrossReference_1_3_2_0()); 
             	    	
 
             	    }
@@ -6561,7 +6561,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
             	            
             	    otherlv_18=(Token)match(input,RULE_FQN,FollowSets000.FOLLOW_RULE_FQN_in_ruleMultiple7428); 
 
-            	    		newLeafNode(otherlv_18, grammarAccess.getMultipleAccess().getDependsOnAnswerCrossReference_1_5_1_0()); 
+            	    		newLeafNode(otherlv_18, grammarAccess.getMultipleAccess().getDependsOnReferableCrossReference_1_5_1_0()); 
             	    	
 
             	    }
@@ -7276,7 +7276,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
             	            
             	    otherlv_13=(Token)match(input,RULE_FQN,FollowSets000.FOLLOW_RULE_FQN_in_ruleTable8253); 
 
-            	    		newLeafNode(otherlv_13, grammarAccess.getTableAccess().getDependsOnAnswerCrossReference_1_3_2_0()); 
+            	    		newLeafNode(otherlv_13, grammarAccess.getTableAccess().getDependsOnReferableCrossReference_1_3_2_0()); 
             	    	
 
             	    }
