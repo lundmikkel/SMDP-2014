@@ -146,7 +146,7 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getAnswerTemplateRefAccess().getTemplateAnswerTemplateIDTerminalRuleCall_3_0_1(), semanticObject.getTemplate());
+		feeder.accept(grammarAccess.getAnswerTemplateRefAccess().getTemplateAnswerTemplateIDTerminalRuleCall_2_0_1(), semanticObject.getTemplate());
 		feeder.finish();
 	}
 	
