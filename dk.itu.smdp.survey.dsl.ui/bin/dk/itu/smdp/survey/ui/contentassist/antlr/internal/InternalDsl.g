@@ -2204,7 +2204,7 @@ rule__Group__Group_1_2__0__Impl
 (
 { before(grammarAccess.getGroupAccess().getDependsOnKeyword_1_2_0()); }
 
-	'dependsOn="' 
+	'depends-on="' 
 
 { after(grammarAccess.getGroupAccess().getDependsOnKeyword_1_2_0()); }
 )
@@ -2717,7 +2717,7 @@ rule__Text__Group_2_3__0__Impl
 (
 { before(grammarAccess.getTextAccess().getDependsOnKeyword_2_3_0()); }
 
-	'dependsOn="' 
+	'depends-on="' 
 
 { after(grammarAccess.getTextAccess().getDependsOnKeyword_2_3_0()); }
 )
@@ -3323,7 +3323,7 @@ rule__Scale__Group_1_5__0__Impl
 (
 { before(grammarAccess.getScaleAccess().getMinLabelKeyword_1_5_0()); }
 
-	'minLabel="' 
+	'min-label="' 
 
 { after(grammarAccess.getScaleAccess().getMinLabelKeyword_1_5_0()); }
 )
@@ -3419,7 +3419,7 @@ rule__Scale__Group_1_6__0__Impl
 (
 { before(grammarAccess.getScaleAccess().getMaxLabelKeyword_1_6_0()); }
 
-	'maxLabel="' 
+	'max-label="' 
 
 { after(grammarAccess.getScaleAccess().getMaxLabelKeyword_1_6_0()); }
 )
@@ -3515,7 +3515,7 @@ rule__Scale__Group_1_7__0__Impl
 (
 { before(grammarAccess.getScaleAccess().getDependsOnKeyword_1_7_0()); }
 
-	'dependsOn="' 
+	'depends-on="' 
 
 { after(grammarAccess.getScaleAccess().getDependsOnKeyword_1_7_0()); }
 )
@@ -4220,7 +4220,7 @@ rule__Date__Group_2_5__0__Impl
 (
 { before(grammarAccess.getDateAccess().getDependsOnKeyword_2_5_0()); }
 
-	'dependsOn="' 
+	'depends-on="' 
 
 { after(grammarAccess.getDateAccess().getDependsOnKeyword_2_5_0()); }
 )
@@ -4859,7 +4859,7 @@ rule__Number__Group_2_5__0__Impl
 (
 { before(grammarAccess.getNumberAccess().getDependsOnKeyword_2_5_0()); }
 
-	'dependsOn="' 
+	'depends-on="' 
 
 { after(grammarAccess.getNumberAccess().getDependsOnKeyword_2_5_0()); }
 )
@@ -5410,7 +5410,7 @@ rule__Single__Group_1_3__0__Impl
 (
 { before(grammarAccess.getSingleAccess().getDependsOnKeyword_1_3_0()); }
 
-	'dependsOn="' 
+	'depends-on="' 
 
 { after(grammarAccess.getSingleAccess().getDependsOnKeyword_1_3_0()); }
 )
@@ -6087,7 +6087,7 @@ rule__Multiple__Group_1_5__0__Impl
 (
 { before(grammarAccess.getMultipleAccess().getDependsOnKeyword_1_5_0()); }
 
-	'dependsOn="' 
+	'depends-on="' 
 
 { after(grammarAccess.getMultipleAccess().getDependsOnKeyword_1_5_0()); }
 )
@@ -6662,7 +6662,7 @@ rule__Table__Group_1_3__0__Impl
 (
 { before(grammarAccess.getTableAccess().getDependsOnKeyword_1_3_0()); }
 
-	'dependsOn="' 
+	'depends-on="' 
 
 { after(grammarAccess.getTableAccess().getDependsOnKeyword_1_3_0()); }
 )

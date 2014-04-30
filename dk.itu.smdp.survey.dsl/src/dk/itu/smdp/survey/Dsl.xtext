@@ -39,7 +39,7 @@ Group returns Group:
 	'<group'
 		(('title="' title=EString '"')?
 		& ('description="' description=EString '"')?
-		& ('dependsOn="' dependsOn=[Referable|FQN] '"')?
+		& ('depends-on="' dependsOn=[Referable|FQN] '"')?
 		& (required?='required')?)
 	'>'
 		(questions+=Question)+ 
@@ -51,7 +51,7 @@ Text returns Text:
 		( ('title="' title=EString '"')
 		& ('description="' description=EString '"')?
 		& ('id="' name=ID '"')?
-		& ('dependsOn="' dependsOn=[Referable|FQN]'"')?
+		& ('depends-on="' dependsOn=[Referable|FQN]'"')?
 		& (required?='required')?
 		& ('singleline' | 'single' | (multiline?=('multi' | 'multiline')))?)
 	'/>';
@@ -64,9 +64,9 @@ Scale returns Scale:
 		& ('min=' min=EInt)
 		& ('max=' max=EInt)
 		// TODO: Force that if one label is set, both should be
-		& ('minLabel="' minLabel=EString '"')?
-		& ('maxLabel="' maxLabel=EString '"')?
-		& ('dependsOn="' dependsOn=[Referable|FQN] '"')?
+		& ('min-label="' minLabel=EString '"')?
+		& ('max-label="' maxLabel=EString '"')?
+		& ('depends-on="' dependsOn=[Referable|FQN] '"')?
 		& (required?='required')?)
 	'/>';
 
@@ -78,7 +78,7 @@ Date returns Date:
 		& ('id="' name=ID '"')?
 		& ('from="' from=EString '"')?
 		& ('to="' to=EString '"')?
-		& ('dependsOn="' dependsOn=[Referable|FQN] '"')?
+		& ('depends-on="' dependsOn=[Referable|FQN] '"')?
 		& (showLimits?=('show-limits' | 'show' | 'limits'))?
 		& (required?='required')?
 		& (day?='day')?
@@ -94,7 +94,7 @@ Number returns Number:
 		& ('id="' name=ID '"')?
 		& ('min=' min=EInt)?
 		& ('max=' max=EInt)?
-		& ('dependsOn="' dependsOn=[Referable|FQN] '"')?
+		& ('depends-on="' dependsOn=[Referable|FQN] '"')?
 		& (required?='required')?
 		& (showLimits?=('show-limits' | 'show' | 'limits'))?)
 	'/>';
@@ -104,7 +104,7 @@ Single returns Single:
 		( ('title="' title=EString '"')
 		& ('description="' description=EString '"')?
 		& ('id="' name=ID '"')?
-		& ('dependsOn="' dependsOn=[Referable|FQN]'"') ?
+		& ('depends-on="' dependsOn=[Referable|FQN]'"') ?
 		& (required?='required')?
 		& (other?='other')?)
 	'>'
@@ -118,7 +118,7 @@ Multiple returns Multiple:
 		& ('id""' name=ID '"')?
 		& ('min=' min=INT)?
 		& ('max=' max=INT)?
-		& ('dependsOn="' dependsOn=[Referable|FQN] '"')?
+		& ('depends-on="' dependsOn=[Referable|FQN] '"')?
 		& (required?='required')?
 		& (other?='other')?
 		& (showLimits?=('show-limits' | 'show' | 'limits'))?)
@@ -131,7 +131,7 @@ Table returns Table:
 		( ('title="' title=EString '"')?
 		& ('description="' description=EString '"')?
 		& ('id="' name=ID '"')?
-		& ('dependsOn="' dependsOn=[Referable|FQN] '"')?
+		& ('depends-on="' dependsOn=[Referable|FQN] '"')?
 		& (required?='required')?
 		& (other?='other')?		
 		& (multiple?='multiple')?)

@@ -759,7 +759,7 @@ ruleGroup returns [EObject current=null]
 					{ 
 	 				  getUnorderedGroupHelper().select(grammarAccess.getGroupAccess().getUnorderedGroup_1(), 2);
 	 				}
-					({true}?=>(	otherlv_8='dependsOn="' 
+					({true}?=>(	otherlv_8='depends-on="' 
     {
     	newLeafNode(otherlv_8, grammarAccess.getGroupAccess().getDependsOnKeyword_1_2_0());
     }
@@ -1006,7 +1006,7 @@ ruleText returns [EObject current=null]
 					{ 
 	 				  getUnorderedGroupHelper().select(grammarAccess.getTextAccess().getUnorderedGroup_2(), 3);
 	 				}
-					({true}?=>(	otherlv_12='dependsOn="' 
+					({true}?=>(	otherlv_12='depends-on="' 
     {
     	newLeafNode(otherlv_12, grammarAccess.getTextAccess().getDependsOnKeyword_2_3_0());
     }
@@ -1346,7 +1346,7 @@ ruleScale returns [EObject current=null]
 					{ 
 	 				  getUnorderedGroupHelper().select(grammarAccess.getScaleAccess().getUnorderedGroup_1(), 5);
 	 				}
-					({true}?=>(	otherlv_15='minLabel="' 
+					({true}?=>(	otherlv_15='min-label="' 
     {
     	newLeafNode(otherlv_15, grammarAccess.getScaleAccess().getMinLabelKeyword_1_5_0());
     }
@@ -1384,7 +1384,7 @@ ruleScale returns [EObject current=null]
 					{ 
 	 				  getUnorderedGroupHelper().select(grammarAccess.getScaleAccess().getUnorderedGroup_1(), 6);
 	 				}
-					({true}?=>(	otherlv_18='maxLabel="' 
+					({true}?=>(	otherlv_18='max-label="' 
     {
     	newLeafNode(otherlv_18, grammarAccess.getScaleAccess().getMaxLabelKeyword_1_6_0());
     }
@@ -1422,7 +1422,7 @@ ruleScale returns [EObject current=null]
 					{ 
 	 				  getUnorderedGroupHelper().select(grammarAccess.getScaleAccess().getUnorderedGroup_1(), 7);
 	 				}
-					({true}?=>(	otherlv_21='dependsOn="' 
+					({true}?=>(	otherlv_21='depends-on="' 
     {
     	newLeafNode(otherlv_21, grammarAccess.getScaleAccess().getDependsOnKeyword_1_7_0());
     }
@@ -1724,7 +1724,7 @@ ruleDate returns [EObject current=null]
 					{ 
 	 				  getUnorderedGroupHelper().select(grammarAccess.getDateAccess().getUnorderedGroup_2(), 5);
 	 				}
-					({true}?=>(	otherlv_18='dependsOn="' 
+					({true}?=>(	otherlv_18='depends-on="' 
     {
     	newLeafNode(otherlv_18, grammarAccess.getDateAccess().getDependsOnKeyword_2_5_0());
     }
@@ -2153,7 +2153,7 @@ ruleNumber returns [EObject current=null]
 					{ 
 	 				  getUnorderedGroupHelper().select(grammarAccess.getNumberAccess().getUnorderedGroup_2(), 5);
 	 				}
-					({true}?=>(	otherlv_16='dependsOn="' 
+					({true}?=>(	otherlv_16='depends-on="' 
     {
     	newLeafNode(otherlv_16, grammarAccess.getNumberAccess().getDependsOnKeyword_2_5_0());
     }
@@ -2427,7 +2427,7 @@ ruleSingle returns [EObject current=null]
 					{ 
 	 				  getUnorderedGroupHelper().select(grammarAccess.getSingleAccess().getUnorderedGroup_1(), 3);
 	 				}
-					({true}?=>(	otherlv_11='dependsOn="' 
+					({true}?=>(	otherlv_11='depends-on="' 
     {
     	newLeafNode(otherlv_11, grammarAccess.getSingleAccess().getDependsOnKeyword_1_3_0());
     }
@@ -2764,7 +2764,7 @@ ruleMultiple returns [EObject current=null]
 					{ 
 	 				  getUnorderedGroupHelper().select(grammarAccess.getMultipleAccess().getUnorderedGroup_1(), 5);
 	 				}
-					({true}?=>(	otherlv_15='dependsOn="' 
+					({true}?=>(	otherlv_15='depends-on="' 
     {
     	newLeafNode(otherlv_15, grammarAccess.getMultipleAccess().getDependsOnKeyword_1_5_0());
     }
@@ -3087,7 +3087,7 @@ ruleTable returns [EObject current=null]
 					{ 
 	 				  getUnorderedGroupHelper().select(grammarAccess.getTableAccess().getUnorderedGroup_1(), 3);
 	 				}
-					({true}?=>(	otherlv_11='dependsOn="' 
+					({true}?=>(	otherlv_11='depends-on="' 
     {
     	newLeafNode(otherlv_11, grammarAccess.getTableAccess().getDependsOnKeyword_1_3_0());
     }

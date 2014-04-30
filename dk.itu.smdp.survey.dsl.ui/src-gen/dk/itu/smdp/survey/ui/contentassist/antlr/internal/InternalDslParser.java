@@ -23,7 +23,7 @@ import java.util.HashMap;
 @SuppressWarnings("all")
 public class InternalDslParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_FQN", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'singleline'", "'single'", "'multi'", "'multiline'", "'show-limits'", "'show'", "'limits'", "'<survey'", "'>'", "'</survey>'", "'title=\"'", "'\"'", "'description=\"'", "'<template'", "'id=\"'", "'</template>'", "'<a'", "'</a>'", "'<group'", "'</group>'", "'dependsOn=\"'", "'<text'", "'/>'", "'<scale'", "'min='", "'max='", "'minLabel=\"'", "'maxLabel=\"'", "'<date'", "'from=\"'", "'to=\"'", "'<number'", "'<single'", "'</single>'", "'<multiple'", "'</multiple>'", "'id\"\"'", "'<table'", "'</table>'", "'-'", "'<q>'", "'</q>'", "'required'", "'day'", "'month'", "'year'", "'other'", "'multiple'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_FQN", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'singleline'", "'single'", "'multi'", "'multiline'", "'show-limits'", "'show'", "'limits'", "'<survey'", "'>'", "'</survey>'", "'title=\"'", "'\"'", "'description=\"'", "'<template'", "'id=\"'", "'</template>'", "'<a'", "'</a>'", "'<group'", "'</group>'", "'depends-on=\"'", "'<text'", "'/>'", "'<scale'", "'min='", "'max='", "'min-label=\"'", "'max-label=\"'", "'<date'", "'from=\"'", "'to=\"'", "'<number'", "'<single'", "'</single>'", "'<multiple'", "'</multiple>'", "'id\"\"'", "'<table'", "'</table>'", "'-'", "'<q>'", "'</q>'", "'required'", "'day'", "'month'", "'year'", "'other'", "'multiple'"
     };
     public static final int RULE_ID=5;
     public static final int T__29=29;
@@ -6377,17 +6377,17 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Group__Group_1_2__0__Impl"
-    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:2199:1: rule__Group__Group_1_2__0__Impl : ( 'dependsOn=\"' ) ;
+    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:2199:1: rule__Group__Group_1_2__0__Impl : ( 'depends-on=\"' ) ;
     public final void rule__Group__Group_1_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:2203:1: ( ( 'dependsOn=\"' ) )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:2204:1: ( 'dependsOn=\"' )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:2203:1: ( ( 'depends-on=\"' ) )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:2204:1: ( 'depends-on=\"' )
             {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:2204:1: ( 'dependsOn=\"' )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:2205:1: 'dependsOn=\"'
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:2204:1: ( 'depends-on=\"' )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:2205:1: 'depends-on=\"'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getGroupAccess().getDependsOnKeyword_1_2_0()); 
@@ -7666,17 +7666,17 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Text__Group_2_3__0__Impl"
-    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:2712:1: rule__Text__Group_2_3__0__Impl : ( 'dependsOn=\"' ) ;
+    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:2712:1: rule__Text__Group_2_3__0__Impl : ( 'depends-on=\"' ) ;
     public final void rule__Text__Group_2_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:2716:1: ( ( 'dependsOn=\"' ) )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:2717:1: ( 'dependsOn=\"' )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:2716:1: ( ( 'depends-on=\"' ) )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:2717:1: ( 'depends-on=\"' )
             {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:2717:1: ( 'dependsOn=\"' )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:2718:1: 'dependsOn=\"'
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:2717:1: ( 'depends-on=\"' )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:2718:1: 'depends-on=\"'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getTextAccess().getDependsOnKeyword_2_3_0()); 
@@ -9202,17 +9202,17 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Scale__Group_1_5__0__Impl"
-    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3318:1: rule__Scale__Group_1_5__0__Impl : ( 'minLabel=\"' ) ;
+    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3318:1: rule__Scale__Group_1_5__0__Impl : ( 'min-label=\"' ) ;
     public final void rule__Scale__Group_1_5__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3322:1: ( ( 'minLabel=\"' ) )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3323:1: ( 'minLabel=\"' )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3322:1: ( ( 'min-label=\"' ) )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3323:1: ( 'min-label=\"' )
             {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3323:1: ( 'minLabel=\"' )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3324:1: 'minLabel=\"'
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3323:1: ( 'min-label=\"' )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3324:1: 'min-label=\"'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getScaleAccess().getMinLabelKeyword_1_5_0()); 
@@ -9444,17 +9444,17 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Scale__Group_1_6__0__Impl"
-    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3414:1: rule__Scale__Group_1_6__0__Impl : ( 'maxLabel=\"' ) ;
+    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3414:1: rule__Scale__Group_1_6__0__Impl : ( 'max-label=\"' ) ;
     public final void rule__Scale__Group_1_6__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3418:1: ( ( 'maxLabel=\"' ) )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3419:1: ( 'maxLabel=\"' )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3418:1: ( ( 'max-label=\"' ) )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3419:1: ( 'max-label=\"' )
             {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3419:1: ( 'maxLabel=\"' )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3420:1: 'maxLabel=\"'
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3419:1: ( 'max-label=\"' )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3420:1: 'max-label=\"'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getScaleAccess().getMaxLabelKeyword_1_6_0()); 
@@ -9686,17 +9686,17 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Scale__Group_1_7__0__Impl"
-    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3510:1: rule__Scale__Group_1_7__0__Impl : ( 'dependsOn=\"' ) ;
+    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3510:1: rule__Scale__Group_1_7__0__Impl : ( 'depends-on=\"' ) ;
     public final void rule__Scale__Group_1_7__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3514:1: ( ( 'dependsOn=\"' ) )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3515:1: ( 'dependsOn=\"' )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3514:1: ( ( 'depends-on=\"' ) )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3515:1: ( 'depends-on=\"' )
             {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3515:1: ( 'dependsOn=\"' )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3516:1: 'dependsOn=\"'
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3515:1: ( 'depends-on=\"' )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3516:1: 'depends-on=\"'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getScaleAccess().getDependsOnKeyword_1_7_0()); 
@@ -11459,17 +11459,17 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Date__Group_2_5__0__Impl"
-    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:4215:1: rule__Date__Group_2_5__0__Impl : ( 'dependsOn=\"' ) ;
+    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:4215:1: rule__Date__Group_2_5__0__Impl : ( 'depends-on=\"' ) ;
     public final void rule__Date__Group_2_5__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:4219:1: ( ( 'dependsOn=\"' ) )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:4220:1: ( 'dependsOn=\"' )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:4219:1: ( ( 'depends-on=\"' ) )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:4220:1: ( 'depends-on=\"' )
             {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:4220:1: ( 'dependsOn=\"' )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:4221:1: 'dependsOn=\"'
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:4220:1: ( 'depends-on=\"' )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:4221:1: 'depends-on=\"'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDateAccess().getDependsOnKeyword_2_5_0()); 
@@ -13074,17 +13074,17 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Number__Group_2_5__0__Impl"
-    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:4854:1: rule__Number__Group_2_5__0__Impl : ( 'dependsOn=\"' ) ;
+    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:4854:1: rule__Number__Group_2_5__0__Impl : ( 'depends-on=\"' ) ;
     public final void rule__Number__Group_2_5__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:4858:1: ( ( 'dependsOn=\"' ) )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:4859:1: ( 'dependsOn=\"' )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:4858:1: ( ( 'depends-on=\"' ) )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:4859:1: ( 'depends-on=\"' )
             {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:4859:1: ( 'dependsOn=\"' )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:4860:1: 'dependsOn=\"'
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:4859:1: ( 'depends-on=\"' )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:4860:1: 'depends-on=\"'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getNumberAccess().getDependsOnKeyword_2_5_0()); 
@@ -14499,17 +14499,17 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Single__Group_1_3__0__Impl"
-    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:5405:1: rule__Single__Group_1_3__0__Impl : ( 'dependsOn=\"' ) ;
+    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:5405:1: rule__Single__Group_1_3__0__Impl : ( 'depends-on=\"' ) ;
     public final void rule__Single__Group_1_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:5409:1: ( ( 'dependsOn=\"' ) )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:5410:1: ( 'dependsOn=\"' )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:5409:1: ( ( 'depends-on=\"' ) )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:5410:1: ( 'depends-on=\"' )
             {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:5410:1: ( 'dependsOn=\"' )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:5411:1: 'dependsOn=\"'
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:5410:1: ( 'depends-on=\"' )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:5411:1: 'depends-on=\"'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSingleAccess().getDependsOnKeyword_1_3_0()); 
@@ -16250,17 +16250,17 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Multiple__Group_1_5__0__Impl"
-    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:6082:1: rule__Multiple__Group_1_5__0__Impl : ( 'dependsOn=\"' ) ;
+    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:6082:1: rule__Multiple__Group_1_5__0__Impl : ( 'depends-on=\"' ) ;
     public final void rule__Multiple__Group_1_5__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:6086:1: ( ( 'dependsOn=\"' ) )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:6087:1: ( 'dependsOn=\"' )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:6086:1: ( ( 'depends-on=\"' ) )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:6087:1: ( 'depends-on=\"' )
             {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:6087:1: ( 'dependsOn=\"' )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:6088:1: 'dependsOn=\"'
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:6087:1: ( 'depends-on=\"' )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:6088:1: 'depends-on=\"'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getMultipleAccess().getDependsOnKeyword_1_5_0()); 
@@ -17735,17 +17735,17 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Table__Group_1_3__0__Impl"
-    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:6657:1: rule__Table__Group_1_3__0__Impl : ( 'dependsOn=\"' ) ;
+    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:6657:1: rule__Table__Group_1_3__0__Impl : ( 'depends-on=\"' ) ;
     public final void rule__Table__Group_1_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:6661:1: ( ( 'dependsOn=\"' ) )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:6662:1: ( 'dependsOn=\"' )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:6661:1: ( ( 'depends-on=\"' ) )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:6662:1: ( 'depends-on=\"' )
             {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:6662:1: ( 'dependsOn=\"' )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:6663:1: 'dependsOn=\"'
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:6662:1: ( 'depends-on=\"' )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:6663:1: 'depends-on=\"'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getTableAccess().getDependsOnKeyword_1_3_0()); 

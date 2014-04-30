@@ -63,8 +63,10 @@ RULE_WS=10
 'multi'=14
 '>'=20
 'description="'=24
+'min-label="'=38
 'show'=17
 '<group'=30
+'depends-on="'=32
 '<multiple'=46
 '<single'=44
 '<a'=28
@@ -80,15 +82,13 @@ RULE_WS=10
 'max='=37
 'single'=13
 '</a>'=29
-'dependsOn="'=32
 '</q>'=53
 '<text'=33
-'minLabel="'=38
 'from="'=41
 '</multiple>'=47
-'maxLabel="'=39
 '<template'=25
 '/>'=34
+'max-label="'=39
 '<date'=40
 '</template>'=27
 'month'=56
