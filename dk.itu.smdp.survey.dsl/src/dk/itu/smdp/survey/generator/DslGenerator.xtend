@@ -138,25 +138,25 @@ class DslGenerator implements IGenerator {
 		        </label>
 		        <table class="scale">
 		            <tr class="top">
-		            	«IF !question.lowerLabel.nullOrEmpty »
+		            	«IF !question.minLabel.nullOrEmpty »
 		            	<td></td>
 		                «ENDIF»
-		                «FOR i : question.lower..question.upper BEFORE '<td>' SEPARATOR '</td><td>' AFTER '</td>' »
+		                «FOR i : question.min..question.max BEFORE '<td>' SEPARATOR '</td><td>' AFTER '</td>' »
 		                <label for="«id»_«i»">«i»</label>
 		                «ENDFOR»
-		            	«IF !question.lowerLabel.nullOrEmpty »
+		            	«IF !question.minLabel.nullOrEmpty »
 		            	<td></td>
 		                «ENDIF»
 		            </tr>
 		            <tr class="bottom">
-		            	«IF !question.lowerLabel.nullOrEmpty »
-		            	<td><label for="«id»_«question.lower»">«question.lowerLabel»</label></td>
+		            	«IF !question.minLabel.nullOrEmpty »
+		            	<td><label for="«id»_«question.min»">«question.minLabel»</label></td>
 		                «ENDIF»
-		                «FOR i : question.lower..question.upper BEFORE '<td>' SEPARATOR '</td><td>' AFTER '</td>' »
+		                «FOR i : question.min..question.max BEFORE '<td>' SEPARATOR '</td><td>' AFTER '</td>' »
 		                <input type="radio" name="«id»" id="«id»_«i»" value="«i»" «question.genRequiredAttr»/>
 		                «ENDFOR»
-		            	«IF !question.lowerLabel.nullOrEmpty »
-		            	<td><label for="«id»_«question.upper»">«question.upperLabel»</label></td>
+		            	«IF !question.minLabel.nullOrEmpty »
+		            	<td><label for="«id»_«question.max»">«question.maxLabel»</label></td>
 		                «ENDIF»
 		            </tr>
 		        </table>
@@ -182,11 +182,11 @@ class DslGenerator implements IGenerator {
 		    <div class="row">
 		        <div class="col-xs-2">
 		            <input type="number" class="form-control" id="«id»" «question.genRequiredAttr» step="1"
-		            «IF question.lower != null»
-		            min="«question.lower»"
+		            «IF question.min != null»
+		            min="«question.min»"
 		            «ENDIF»
-		            «IF question.upper != null»
-		            max="«question.upper»"
+		            «IF question.max != null»
+		            max="«question.max»"
 		            «ENDIF»
 		            >
 		        </div>
@@ -243,8 +243,8 @@ class DslGenerator implements IGenerator {
 	}
 	
 	def genLimitsDesc(Number question) {
-		var min = question.lower
-		var max = question.upper
+		var min = question.min
+		var max = question.max
 		var s = ''
 		if (min != null && max != null) {
 			s = '''The value must be between «min» and «max» (both included)'''

@@ -33,8 +33,8 @@ import survey.SurveyPackage;
  *   <li>{@link survey.impl.MultipleImpl#isOther <em>Other</em>}</li>
  *   <li>{@link survey.impl.MultipleImpl#getOtherLabel <em>Other Label</em>}</li>
  *   <li>{@link survey.impl.MultipleImpl#getOptions <em>Options</em>}</li>
- *   <li>{@link survey.impl.MultipleImpl#getLower <em>Lower</em>}</li>
- *   <li>{@link survey.impl.MultipleImpl#getUpper <em>Upper</em>}</li>
+ *   <li>{@link survey.impl.MultipleImpl#getMin <em>Min</em>}</li>
+ *   <li>{@link survey.impl.MultipleImpl#getMax <em>Max</em>}</li>
  *   <li>{@link survey.impl.MultipleImpl#isShowLimits <em>Show Limits</em>}</li>
  * </ul>
  * </p>
@@ -93,44 +93,44 @@ public class MultipleImpl extends QuestionImpl implements Multiple {
 	protected EList<Option> options;
 
 	/**
-	 * The default value of the '{@link #getLower() <em>Lower</em>}' attribute.
+	 * The default value of the '{@link #getMin() <em>Min</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getLower()
+	 * @see #getMin()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int LOWER_EDEFAULT = 0;
+	protected static final int MIN_EDEFAULT = 0;
 
 	/**
-	 * The cached value of the '{@link #getLower() <em>Lower</em>}' attribute.
+	 * The cached value of the '{@link #getMin() <em>Min</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getLower()
+	 * @see #getMin()
 	 * @generated
 	 * @ordered
 	 */
-	protected int lower = LOWER_EDEFAULT;
+	protected int min = MIN_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getUpper() <em>Upper</em>}' attribute.
+	 * The default value of the '{@link #getMax() <em>Max</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getUpper()
+	 * @see #getMax()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int UPPER_EDEFAULT = 0;
+	protected static final int MAX_EDEFAULT = 0;
 
 	/**
-	 * The cached value of the '{@link #getUpper() <em>Upper</em>}' attribute.
+	 * The cached value of the '{@link #getMax() <em>Max</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getUpper()
+	 * @see #getMax()
 	 * @generated
 	 * @ordered
 	 */
-	protected int upper = UPPER_EDEFAULT;
+	protected int max = MAX_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #isShowLimits() <em>Show Limits</em>}' attribute.
@@ -230,8 +230,8 @@ public class MultipleImpl extends QuestionImpl implements Multiple {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getLower() {
-		return lower;
+	public int getMin() {
+		return min;
 	}
 
 	/**
@@ -239,11 +239,11 @@ public class MultipleImpl extends QuestionImpl implements Multiple {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setLower(int newLower) {
-		int oldLower = lower;
-		lower = newLower;
+	public void setMin(int newMin) {
+		int oldMin = min;
+		min = newMin;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SurveyPackage.MULTIPLE__LOWER, oldLower, lower));
+			eNotify(new ENotificationImpl(this, Notification.SET, SurveyPackage.MULTIPLE__MIN, oldMin, min));
 	}
 
 	/**
@@ -251,8 +251,8 @@ public class MultipleImpl extends QuestionImpl implements Multiple {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getUpper() {
-		return upper;
+	public int getMax() {
+		return max;
 	}
 
 	/**
@@ -260,11 +260,11 @@ public class MultipleImpl extends QuestionImpl implements Multiple {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setUpper(int newUpper) {
-		int oldUpper = upper;
-		upper = newUpper;
+	public void setMax(int newMax) {
+		int oldMax = max;
+		max = newMax;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SurveyPackage.MULTIPLE__UPPER, oldUpper, upper));
+			eNotify(new ENotificationImpl(this, Notification.SET, SurveyPackage.MULTIPLE__MAX, oldMax, max));
 	}
 
 	/**
@@ -316,10 +316,10 @@ public class MultipleImpl extends QuestionImpl implements Multiple {
 				return getOtherLabel();
 			case SurveyPackage.MULTIPLE__OPTIONS:
 				return getOptions();
-			case SurveyPackage.MULTIPLE__LOWER:
-				return getLower();
-			case SurveyPackage.MULTIPLE__UPPER:
-				return getUpper();
+			case SurveyPackage.MULTIPLE__MIN:
+				return getMin();
+			case SurveyPackage.MULTIPLE__MAX:
+				return getMax();
 			case SurveyPackage.MULTIPLE__SHOW_LIMITS:
 				return isShowLimits();
 		}
@@ -345,11 +345,11 @@ public class MultipleImpl extends QuestionImpl implements Multiple {
 				getOptions().clear();
 				getOptions().addAll((Collection<? extends Option>)newValue);
 				return;
-			case SurveyPackage.MULTIPLE__LOWER:
-				setLower((Integer)newValue);
+			case SurveyPackage.MULTIPLE__MIN:
+				setMin((Integer)newValue);
 				return;
-			case SurveyPackage.MULTIPLE__UPPER:
-				setUpper((Integer)newValue);
+			case SurveyPackage.MULTIPLE__MAX:
+				setMax((Integer)newValue);
 				return;
 			case SurveyPackage.MULTIPLE__SHOW_LIMITS:
 				setShowLimits((Boolean)newValue);
@@ -375,11 +375,11 @@ public class MultipleImpl extends QuestionImpl implements Multiple {
 			case SurveyPackage.MULTIPLE__OPTIONS:
 				getOptions().clear();
 				return;
-			case SurveyPackage.MULTIPLE__LOWER:
-				setLower(LOWER_EDEFAULT);
+			case SurveyPackage.MULTIPLE__MIN:
+				setMin(MIN_EDEFAULT);
 				return;
-			case SurveyPackage.MULTIPLE__UPPER:
-				setUpper(UPPER_EDEFAULT);
+			case SurveyPackage.MULTIPLE__MAX:
+				setMax(MAX_EDEFAULT);
 				return;
 			case SurveyPackage.MULTIPLE__SHOW_LIMITS:
 				setShowLimits(SHOW_LIMITS_EDEFAULT);
@@ -402,10 +402,10 @@ public class MultipleImpl extends QuestionImpl implements Multiple {
 				return OTHER_LABEL_EDEFAULT == null ? otherLabel != null : !OTHER_LABEL_EDEFAULT.equals(otherLabel);
 			case SurveyPackage.MULTIPLE__OPTIONS:
 				return options != null && !options.isEmpty();
-			case SurveyPackage.MULTIPLE__LOWER:
-				return lower != LOWER_EDEFAULT;
-			case SurveyPackage.MULTIPLE__UPPER:
-				return upper != UPPER_EDEFAULT;
+			case SurveyPackage.MULTIPLE__MIN:
+				return min != MIN_EDEFAULT;
+			case SurveyPackage.MULTIPLE__MAX:
+				return max != MAX_EDEFAULT;
 			case SurveyPackage.MULTIPLE__SHOW_LIMITS:
 				return showLimits != SHOW_LIMITS_EDEFAULT;
 		}
@@ -472,10 +472,10 @@ public class MultipleImpl extends QuestionImpl implements Multiple {
 		result.append(other);
 		result.append(", otherLabel: ");
 		result.append(otherLabel);
-		result.append(", lower: ");
-		result.append(lower);
-		result.append(", upper: ");
-		result.append(upper);
+		result.append(", min: ");
+		result.append(min);
+		result.append(", max: ");
+		result.append(max);
 		result.append(", showLimits: ");
 		result.append(showLimits);
 		result.append(')');

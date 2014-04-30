@@ -23,7 +23,7 @@ import java.util.HashMap;
 @SuppressWarnings("all")
 public class InternalDslParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_FQN", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'singleline'", "'single'", "'multi'", "'multiline'", "'show-limits'", "'show'", "'limits'", "'<survey'", "'>'", "'</survey>'", "'title=\"'", "'\"'", "'description=\"'", "'<template'", "'id=\"'", "'</template>'", "'<a'", "'</a>'", "'<group'", "'</group>'", "'dependsOn=\"'", "'<text'", "'/>'", "'<scale'", "'lower='", "'upper='", "'lowerLabel=\"'", "'upperLabel=\"'", "'<date'", "'from=\"'", "'to=\"'", "'<number'", "'<single'", "'</single>'", "'<multiple'", "'</multiple>'", "'id\"\"'", "'<table'", "'</table>'", "'-'", "'<q>'", "'</q>'", "'required'", "'day'", "'month'", "'year'", "'other'", "'multiple'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_FQN", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'singleline'", "'single'", "'multi'", "'multiline'", "'show-limits'", "'show'", "'limits'", "'<survey'", "'>'", "'</survey>'", "'title=\"'", "'\"'", "'description=\"'", "'<template'", "'id=\"'", "'</template>'", "'<a'", "'</a>'", "'<group'", "'</group>'", "'dependsOn=\"'", "'<text'", "'/>'", "'<scale'", "'min='", "'max='", "'minLabel=\"'", "'maxLabel=\"'", "'<date'", "'from=\"'", "'to=\"'", "'<number'", "'<single'", "'</single>'", "'<multiple'", "'</multiple>'", "'id\"\"'", "'<table'", "'</table>'", "'-'", "'<q>'", "'</q>'", "'required'", "'day'", "'month'", "'year'", "'other'", "'multiple'"
     };
     public static final int RULE_ID=5;
     public static final int T__29=29;
@@ -8876,24 +8876,24 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Scale__Group_1_3__0__Impl"
-    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3192:1: rule__Scale__Group_1_3__0__Impl : ( 'lower=' ) ;
+    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3192:1: rule__Scale__Group_1_3__0__Impl : ( 'min=' ) ;
     public final void rule__Scale__Group_1_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3196:1: ( ( 'lower=' ) )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3197:1: ( 'lower=' )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3196:1: ( ( 'min=' ) )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3197:1: ( 'min=' )
             {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3197:1: ( 'lower=' )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3198:1: 'lower='
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3197:1: ( 'min=' )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3198:1: 'min='
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getScaleAccess().getLowerKeyword_1_3_0()); 
+               before(grammarAccess.getScaleAccess().getMinKeyword_1_3_0()); 
             }
             match(input,36,FollowSets000.FOLLOW_36_in_rule__Scale__Group_1_3__0__Impl6424); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getScaleAccess().getLowerKeyword_1_3_0()); 
+               after(grammarAccess.getScaleAccess().getMinKeyword_1_3_0()); 
             }
 
             }
@@ -8950,26 +8950,26 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Scale__Group_1_3__1__Impl"
-    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3222:1: rule__Scale__Group_1_3__1__Impl : ( ( rule__Scale__LowerAssignment_1_3_1 ) ) ;
+    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3222:1: rule__Scale__Group_1_3__1__Impl : ( ( rule__Scale__MinAssignment_1_3_1 ) ) ;
     public final void rule__Scale__Group_1_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3226:1: ( ( ( rule__Scale__LowerAssignment_1_3_1 ) ) )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3227:1: ( ( rule__Scale__LowerAssignment_1_3_1 ) )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3226:1: ( ( ( rule__Scale__MinAssignment_1_3_1 ) ) )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3227:1: ( ( rule__Scale__MinAssignment_1_3_1 ) )
             {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3227:1: ( ( rule__Scale__LowerAssignment_1_3_1 ) )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3228:1: ( rule__Scale__LowerAssignment_1_3_1 )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3227:1: ( ( rule__Scale__MinAssignment_1_3_1 ) )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3228:1: ( rule__Scale__MinAssignment_1_3_1 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getScaleAccess().getLowerAssignment_1_3_1()); 
+               before(grammarAccess.getScaleAccess().getMinAssignment_1_3_1()); 
             }
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3229:1: ( rule__Scale__LowerAssignment_1_3_1 )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3229:2: rule__Scale__LowerAssignment_1_3_1
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3229:1: ( rule__Scale__MinAssignment_1_3_1 )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3229:2: rule__Scale__MinAssignment_1_3_1
             {
-            pushFollow(FollowSets000.FOLLOW_rule__Scale__LowerAssignment_1_3_1_in_rule__Scale__Group_1_3__1__Impl6482);
-            rule__Scale__LowerAssignment_1_3_1();
+            pushFollow(FollowSets000.FOLLOW_rule__Scale__MinAssignment_1_3_1_in_rule__Scale__Group_1_3__1__Impl6482);
+            rule__Scale__MinAssignment_1_3_1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -8977,7 +8977,7 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getScaleAccess().getLowerAssignment_1_3_1()); 
+               after(grammarAccess.getScaleAccess().getMinAssignment_1_3_1()); 
             }
 
             }
@@ -9039,24 +9039,24 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Scale__Group_1_4__0__Impl"
-    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3255:1: rule__Scale__Group_1_4__0__Impl : ( 'upper=' ) ;
+    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3255:1: rule__Scale__Group_1_4__0__Impl : ( 'max=' ) ;
     public final void rule__Scale__Group_1_4__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3259:1: ( ( 'upper=' ) )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3260:1: ( 'upper=' )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3259:1: ( ( 'max=' ) )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3260:1: ( 'max=' )
             {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3260:1: ( 'upper=' )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3261:1: 'upper='
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3260:1: ( 'max=' )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3261:1: 'max='
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getScaleAccess().getUpperKeyword_1_4_0()); 
+               before(grammarAccess.getScaleAccess().getMaxKeyword_1_4_0()); 
             }
             match(input,37,FollowSets000.FOLLOW_37_in_rule__Scale__Group_1_4__0__Impl6547); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getScaleAccess().getUpperKeyword_1_4_0()); 
+               after(grammarAccess.getScaleAccess().getMaxKeyword_1_4_0()); 
             }
 
             }
@@ -9113,26 +9113,26 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Scale__Group_1_4__1__Impl"
-    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3285:1: rule__Scale__Group_1_4__1__Impl : ( ( rule__Scale__UpperAssignment_1_4_1 ) ) ;
+    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3285:1: rule__Scale__Group_1_4__1__Impl : ( ( rule__Scale__MaxAssignment_1_4_1 ) ) ;
     public final void rule__Scale__Group_1_4__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3289:1: ( ( ( rule__Scale__UpperAssignment_1_4_1 ) ) )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3290:1: ( ( rule__Scale__UpperAssignment_1_4_1 ) )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3289:1: ( ( ( rule__Scale__MaxAssignment_1_4_1 ) ) )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3290:1: ( ( rule__Scale__MaxAssignment_1_4_1 ) )
             {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3290:1: ( ( rule__Scale__UpperAssignment_1_4_1 ) )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3291:1: ( rule__Scale__UpperAssignment_1_4_1 )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3290:1: ( ( rule__Scale__MaxAssignment_1_4_1 ) )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3291:1: ( rule__Scale__MaxAssignment_1_4_1 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getScaleAccess().getUpperAssignment_1_4_1()); 
+               before(grammarAccess.getScaleAccess().getMaxAssignment_1_4_1()); 
             }
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3292:1: ( rule__Scale__UpperAssignment_1_4_1 )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3292:2: rule__Scale__UpperAssignment_1_4_1
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3292:1: ( rule__Scale__MaxAssignment_1_4_1 )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3292:2: rule__Scale__MaxAssignment_1_4_1
             {
-            pushFollow(FollowSets000.FOLLOW_rule__Scale__UpperAssignment_1_4_1_in_rule__Scale__Group_1_4__1__Impl6605);
-            rule__Scale__UpperAssignment_1_4_1();
+            pushFollow(FollowSets000.FOLLOW_rule__Scale__MaxAssignment_1_4_1_in_rule__Scale__Group_1_4__1__Impl6605);
+            rule__Scale__MaxAssignment_1_4_1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -9140,7 +9140,7 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getScaleAccess().getUpperAssignment_1_4_1()); 
+               after(grammarAccess.getScaleAccess().getMaxAssignment_1_4_1()); 
             }
 
             }
@@ -9202,24 +9202,24 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Scale__Group_1_5__0__Impl"
-    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3318:1: rule__Scale__Group_1_5__0__Impl : ( 'lowerLabel=\"' ) ;
+    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3318:1: rule__Scale__Group_1_5__0__Impl : ( 'minLabel=\"' ) ;
     public final void rule__Scale__Group_1_5__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3322:1: ( ( 'lowerLabel=\"' ) )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3323:1: ( 'lowerLabel=\"' )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3322:1: ( ( 'minLabel=\"' ) )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3323:1: ( 'minLabel=\"' )
             {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3323:1: ( 'lowerLabel=\"' )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3324:1: 'lowerLabel=\"'
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3323:1: ( 'minLabel=\"' )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3324:1: 'minLabel=\"'
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getScaleAccess().getLowerLabelKeyword_1_5_0()); 
+               before(grammarAccess.getScaleAccess().getMinLabelKeyword_1_5_0()); 
             }
             match(input,38,FollowSets000.FOLLOW_38_in_rule__Scale__Group_1_5__0__Impl6670); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getScaleAccess().getLowerLabelKeyword_1_5_0()); 
+               after(grammarAccess.getScaleAccess().getMinLabelKeyword_1_5_0()); 
             }
 
             }
@@ -9281,26 +9281,26 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Scale__Group_1_5__1__Impl"
-    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3349:1: rule__Scale__Group_1_5__1__Impl : ( ( rule__Scale__LowerLabelAssignment_1_5_1 ) ) ;
+    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3349:1: rule__Scale__Group_1_5__1__Impl : ( ( rule__Scale__MinLabelAssignment_1_5_1 ) ) ;
     public final void rule__Scale__Group_1_5__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3353:1: ( ( ( rule__Scale__LowerLabelAssignment_1_5_1 ) ) )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3354:1: ( ( rule__Scale__LowerLabelAssignment_1_5_1 ) )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3353:1: ( ( ( rule__Scale__MinLabelAssignment_1_5_1 ) ) )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3354:1: ( ( rule__Scale__MinLabelAssignment_1_5_1 ) )
             {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3354:1: ( ( rule__Scale__LowerLabelAssignment_1_5_1 ) )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3355:1: ( rule__Scale__LowerLabelAssignment_1_5_1 )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3354:1: ( ( rule__Scale__MinLabelAssignment_1_5_1 ) )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3355:1: ( rule__Scale__MinLabelAssignment_1_5_1 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getScaleAccess().getLowerLabelAssignment_1_5_1()); 
+               before(grammarAccess.getScaleAccess().getMinLabelAssignment_1_5_1()); 
             }
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3356:1: ( rule__Scale__LowerLabelAssignment_1_5_1 )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3356:2: rule__Scale__LowerLabelAssignment_1_5_1
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3356:1: ( rule__Scale__MinLabelAssignment_1_5_1 )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3356:2: rule__Scale__MinLabelAssignment_1_5_1
             {
-            pushFollow(FollowSets000.FOLLOW_rule__Scale__LowerLabelAssignment_1_5_1_in_rule__Scale__Group_1_5__1__Impl6731);
-            rule__Scale__LowerLabelAssignment_1_5_1();
+            pushFollow(FollowSets000.FOLLOW_rule__Scale__MinLabelAssignment_1_5_1_in_rule__Scale__Group_1_5__1__Impl6731);
+            rule__Scale__MinLabelAssignment_1_5_1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -9308,7 +9308,7 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getScaleAccess().getLowerLabelAssignment_1_5_1()); 
+               after(grammarAccess.getScaleAccess().getMinLabelAssignment_1_5_1()); 
             }
 
             }
@@ -9444,24 +9444,24 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Scale__Group_1_6__0__Impl"
-    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3414:1: rule__Scale__Group_1_6__0__Impl : ( 'upperLabel=\"' ) ;
+    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3414:1: rule__Scale__Group_1_6__0__Impl : ( 'maxLabel=\"' ) ;
     public final void rule__Scale__Group_1_6__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3418:1: ( ( 'upperLabel=\"' ) )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3419:1: ( 'upperLabel=\"' )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3418:1: ( ( 'maxLabel=\"' ) )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3419:1: ( 'maxLabel=\"' )
             {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3419:1: ( 'upperLabel=\"' )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3420:1: 'upperLabel=\"'
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3419:1: ( 'maxLabel=\"' )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3420:1: 'maxLabel=\"'
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getScaleAccess().getUpperLabelKeyword_1_6_0()); 
+               before(grammarAccess.getScaleAccess().getMaxLabelKeyword_1_6_0()); 
             }
             match(input,39,FollowSets000.FOLLOW_39_in_rule__Scale__Group_1_6__0__Impl6857); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getScaleAccess().getUpperLabelKeyword_1_6_0()); 
+               after(grammarAccess.getScaleAccess().getMaxLabelKeyword_1_6_0()); 
             }
 
             }
@@ -9523,26 +9523,26 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Scale__Group_1_6__1__Impl"
-    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3445:1: rule__Scale__Group_1_6__1__Impl : ( ( rule__Scale__UpperLabelAssignment_1_6_1 ) ) ;
+    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3445:1: rule__Scale__Group_1_6__1__Impl : ( ( rule__Scale__MaxLabelAssignment_1_6_1 ) ) ;
     public final void rule__Scale__Group_1_6__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3449:1: ( ( ( rule__Scale__UpperLabelAssignment_1_6_1 ) ) )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3450:1: ( ( rule__Scale__UpperLabelAssignment_1_6_1 ) )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3449:1: ( ( ( rule__Scale__MaxLabelAssignment_1_6_1 ) ) )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3450:1: ( ( rule__Scale__MaxLabelAssignment_1_6_1 ) )
             {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3450:1: ( ( rule__Scale__UpperLabelAssignment_1_6_1 ) )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3451:1: ( rule__Scale__UpperLabelAssignment_1_6_1 )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3450:1: ( ( rule__Scale__MaxLabelAssignment_1_6_1 ) )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3451:1: ( rule__Scale__MaxLabelAssignment_1_6_1 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getScaleAccess().getUpperLabelAssignment_1_6_1()); 
+               before(grammarAccess.getScaleAccess().getMaxLabelAssignment_1_6_1()); 
             }
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3452:1: ( rule__Scale__UpperLabelAssignment_1_6_1 )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3452:2: rule__Scale__UpperLabelAssignment_1_6_1
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3452:1: ( rule__Scale__MaxLabelAssignment_1_6_1 )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:3452:2: rule__Scale__MaxLabelAssignment_1_6_1
             {
-            pushFollow(FollowSets000.FOLLOW_rule__Scale__UpperLabelAssignment_1_6_1_in_rule__Scale__Group_1_6__1__Impl6918);
-            rule__Scale__UpperLabelAssignment_1_6_1();
+            pushFollow(FollowSets000.FOLLOW_rule__Scale__MaxLabelAssignment_1_6_1_in_rule__Scale__Group_1_6__1__Impl6918);
+            rule__Scale__MaxLabelAssignment_1_6_1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -9550,7 +9550,7 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getScaleAccess().getUpperLabelAssignment_1_6_1()); 
+               after(grammarAccess.getScaleAccess().getMaxLabelAssignment_1_6_1()); 
             }
 
             }
@@ -12748,24 +12748,24 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Number__Group_2_3__0__Impl"
-    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:4728:1: rule__Number__Group_2_3__0__Impl : ( 'lower=' ) ;
+    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:4728:1: rule__Number__Group_2_3__0__Impl : ( 'min=' ) ;
     public final void rule__Number__Group_2_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:4732:1: ( ( 'lower=' ) )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:4733:1: ( 'lower=' )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:4732:1: ( ( 'min=' ) )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:4733:1: ( 'min=' )
             {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:4733:1: ( 'lower=' )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:4734:1: 'lower='
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:4733:1: ( 'min=' )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:4734:1: 'min='
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getNumberAccess().getLowerKeyword_2_3_0()); 
+               before(grammarAccess.getNumberAccess().getMinKeyword_2_3_0()); 
             }
             match(input,36,FollowSets000.FOLLOW_36_in_rule__Number__Group_2_3__0__Impl9414); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getNumberAccess().getLowerKeyword_2_3_0()); 
+               after(grammarAccess.getNumberAccess().getMinKeyword_2_3_0()); 
             }
 
             }
@@ -12822,26 +12822,26 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Number__Group_2_3__1__Impl"
-    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:4758:1: rule__Number__Group_2_3__1__Impl : ( ( rule__Number__LowerAssignment_2_3_1 ) ) ;
+    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:4758:1: rule__Number__Group_2_3__1__Impl : ( ( rule__Number__MinAssignment_2_3_1 ) ) ;
     public final void rule__Number__Group_2_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:4762:1: ( ( ( rule__Number__LowerAssignment_2_3_1 ) ) )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:4763:1: ( ( rule__Number__LowerAssignment_2_3_1 ) )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:4762:1: ( ( ( rule__Number__MinAssignment_2_3_1 ) ) )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:4763:1: ( ( rule__Number__MinAssignment_2_3_1 ) )
             {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:4763:1: ( ( rule__Number__LowerAssignment_2_3_1 ) )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:4764:1: ( rule__Number__LowerAssignment_2_3_1 )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:4763:1: ( ( rule__Number__MinAssignment_2_3_1 ) )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:4764:1: ( rule__Number__MinAssignment_2_3_1 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getNumberAccess().getLowerAssignment_2_3_1()); 
+               before(grammarAccess.getNumberAccess().getMinAssignment_2_3_1()); 
             }
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:4765:1: ( rule__Number__LowerAssignment_2_3_1 )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:4765:2: rule__Number__LowerAssignment_2_3_1
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:4765:1: ( rule__Number__MinAssignment_2_3_1 )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:4765:2: rule__Number__MinAssignment_2_3_1
             {
-            pushFollow(FollowSets000.FOLLOW_rule__Number__LowerAssignment_2_3_1_in_rule__Number__Group_2_3__1__Impl9472);
-            rule__Number__LowerAssignment_2_3_1();
+            pushFollow(FollowSets000.FOLLOW_rule__Number__MinAssignment_2_3_1_in_rule__Number__Group_2_3__1__Impl9472);
+            rule__Number__MinAssignment_2_3_1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -12849,7 +12849,7 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getNumberAccess().getLowerAssignment_2_3_1()); 
+               after(grammarAccess.getNumberAccess().getMinAssignment_2_3_1()); 
             }
 
             }
@@ -12911,24 +12911,24 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Number__Group_2_4__0__Impl"
-    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:4791:1: rule__Number__Group_2_4__0__Impl : ( 'upper=' ) ;
+    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:4791:1: rule__Number__Group_2_4__0__Impl : ( 'max=' ) ;
     public final void rule__Number__Group_2_4__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:4795:1: ( ( 'upper=' ) )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:4796:1: ( 'upper=' )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:4795:1: ( ( 'max=' ) )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:4796:1: ( 'max=' )
             {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:4796:1: ( 'upper=' )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:4797:1: 'upper='
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:4796:1: ( 'max=' )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:4797:1: 'max='
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getNumberAccess().getUpperKeyword_2_4_0()); 
+               before(grammarAccess.getNumberAccess().getMaxKeyword_2_4_0()); 
             }
             match(input,37,FollowSets000.FOLLOW_37_in_rule__Number__Group_2_4__0__Impl9537); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getNumberAccess().getUpperKeyword_2_4_0()); 
+               after(grammarAccess.getNumberAccess().getMaxKeyword_2_4_0()); 
             }
 
             }
@@ -12985,26 +12985,26 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Number__Group_2_4__1__Impl"
-    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:4821:1: rule__Number__Group_2_4__1__Impl : ( ( rule__Number__UpperAssignment_2_4_1 ) ) ;
+    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:4821:1: rule__Number__Group_2_4__1__Impl : ( ( rule__Number__MaxAssignment_2_4_1 ) ) ;
     public final void rule__Number__Group_2_4__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:4825:1: ( ( ( rule__Number__UpperAssignment_2_4_1 ) ) )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:4826:1: ( ( rule__Number__UpperAssignment_2_4_1 ) )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:4825:1: ( ( ( rule__Number__MaxAssignment_2_4_1 ) ) )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:4826:1: ( ( rule__Number__MaxAssignment_2_4_1 ) )
             {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:4826:1: ( ( rule__Number__UpperAssignment_2_4_1 ) )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:4827:1: ( rule__Number__UpperAssignment_2_4_1 )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:4826:1: ( ( rule__Number__MaxAssignment_2_4_1 ) )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:4827:1: ( rule__Number__MaxAssignment_2_4_1 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getNumberAccess().getUpperAssignment_2_4_1()); 
+               before(grammarAccess.getNumberAccess().getMaxAssignment_2_4_1()); 
             }
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:4828:1: ( rule__Number__UpperAssignment_2_4_1 )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:4828:2: rule__Number__UpperAssignment_2_4_1
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:4828:1: ( rule__Number__MaxAssignment_2_4_1 )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:4828:2: rule__Number__MaxAssignment_2_4_1
             {
-            pushFollow(FollowSets000.FOLLOW_rule__Number__UpperAssignment_2_4_1_in_rule__Number__Group_2_4__1__Impl9595);
-            rule__Number__UpperAssignment_2_4_1();
+            pushFollow(FollowSets000.FOLLOW_rule__Number__MaxAssignment_2_4_1_in_rule__Number__Group_2_4__1__Impl9595);
+            rule__Number__MaxAssignment_2_4_1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -13012,7 +13012,7 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getNumberAccess().getUpperAssignment_2_4_1()); 
+               after(grammarAccess.getNumberAccess().getMaxAssignment_2_4_1()); 
             }
 
             }
@@ -15924,24 +15924,24 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Multiple__Group_1_3__0__Impl"
-    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:5956:1: rule__Multiple__Group_1_3__0__Impl : ( 'lower=' ) ;
+    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:5956:1: rule__Multiple__Group_1_3__0__Impl : ( 'min=' ) ;
     public final void rule__Multiple__Group_1_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:5960:1: ( ( 'lower=' ) )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:5961:1: ( 'lower=' )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:5960:1: ( ( 'min=' ) )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:5961:1: ( 'min=' )
             {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:5961:1: ( 'lower=' )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:5962:1: 'lower='
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:5961:1: ( 'min=' )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:5962:1: 'min='
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getMultipleAccess().getLowerKeyword_1_3_0()); 
+               before(grammarAccess.getMultipleAccess().getMinKeyword_1_3_0()); 
             }
             match(input,36,FollowSets000.FOLLOW_36_in_rule__Multiple__Group_1_3__0__Impl11816); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getMultipleAccess().getLowerKeyword_1_3_0()); 
+               after(grammarAccess.getMultipleAccess().getMinKeyword_1_3_0()); 
             }
 
             }
@@ -15998,26 +15998,26 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Multiple__Group_1_3__1__Impl"
-    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:5986:1: rule__Multiple__Group_1_3__1__Impl : ( ( rule__Multiple__LowerAssignment_1_3_1 ) ) ;
+    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:5986:1: rule__Multiple__Group_1_3__1__Impl : ( ( rule__Multiple__MinAssignment_1_3_1 ) ) ;
     public final void rule__Multiple__Group_1_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:5990:1: ( ( ( rule__Multiple__LowerAssignment_1_3_1 ) ) )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:5991:1: ( ( rule__Multiple__LowerAssignment_1_3_1 ) )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:5990:1: ( ( ( rule__Multiple__MinAssignment_1_3_1 ) ) )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:5991:1: ( ( rule__Multiple__MinAssignment_1_3_1 ) )
             {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:5991:1: ( ( rule__Multiple__LowerAssignment_1_3_1 ) )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:5992:1: ( rule__Multiple__LowerAssignment_1_3_1 )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:5991:1: ( ( rule__Multiple__MinAssignment_1_3_1 ) )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:5992:1: ( rule__Multiple__MinAssignment_1_3_1 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getMultipleAccess().getLowerAssignment_1_3_1()); 
+               before(grammarAccess.getMultipleAccess().getMinAssignment_1_3_1()); 
             }
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:5993:1: ( rule__Multiple__LowerAssignment_1_3_1 )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:5993:2: rule__Multiple__LowerAssignment_1_3_1
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:5993:1: ( rule__Multiple__MinAssignment_1_3_1 )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:5993:2: rule__Multiple__MinAssignment_1_3_1
             {
-            pushFollow(FollowSets000.FOLLOW_rule__Multiple__LowerAssignment_1_3_1_in_rule__Multiple__Group_1_3__1__Impl11874);
-            rule__Multiple__LowerAssignment_1_3_1();
+            pushFollow(FollowSets000.FOLLOW_rule__Multiple__MinAssignment_1_3_1_in_rule__Multiple__Group_1_3__1__Impl11874);
+            rule__Multiple__MinAssignment_1_3_1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -16025,7 +16025,7 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getMultipleAccess().getLowerAssignment_1_3_1()); 
+               after(grammarAccess.getMultipleAccess().getMinAssignment_1_3_1()); 
             }
 
             }
@@ -16087,24 +16087,24 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Multiple__Group_1_4__0__Impl"
-    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:6019:1: rule__Multiple__Group_1_4__0__Impl : ( 'upper=' ) ;
+    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:6019:1: rule__Multiple__Group_1_4__0__Impl : ( 'max=' ) ;
     public final void rule__Multiple__Group_1_4__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:6023:1: ( ( 'upper=' ) )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:6024:1: ( 'upper=' )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:6023:1: ( ( 'max=' ) )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:6024:1: ( 'max=' )
             {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:6024:1: ( 'upper=' )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:6025:1: 'upper='
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:6024:1: ( 'max=' )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:6025:1: 'max='
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getMultipleAccess().getUpperKeyword_1_4_0()); 
+               before(grammarAccess.getMultipleAccess().getMaxKeyword_1_4_0()); 
             }
             match(input,37,FollowSets000.FOLLOW_37_in_rule__Multiple__Group_1_4__0__Impl11939); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getMultipleAccess().getUpperKeyword_1_4_0()); 
+               after(grammarAccess.getMultipleAccess().getMaxKeyword_1_4_0()); 
             }
 
             }
@@ -16161,26 +16161,26 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Multiple__Group_1_4__1__Impl"
-    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:6049:1: rule__Multiple__Group_1_4__1__Impl : ( ( rule__Multiple__UpperAssignment_1_4_1 ) ) ;
+    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:6049:1: rule__Multiple__Group_1_4__1__Impl : ( ( rule__Multiple__MaxAssignment_1_4_1 ) ) ;
     public final void rule__Multiple__Group_1_4__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:6053:1: ( ( ( rule__Multiple__UpperAssignment_1_4_1 ) ) )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:6054:1: ( ( rule__Multiple__UpperAssignment_1_4_1 ) )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:6053:1: ( ( ( rule__Multiple__MaxAssignment_1_4_1 ) ) )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:6054:1: ( ( rule__Multiple__MaxAssignment_1_4_1 ) )
             {
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:6054:1: ( ( rule__Multiple__UpperAssignment_1_4_1 ) )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:6055:1: ( rule__Multiple__UpperAssignment_1_4_1 )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:6054:1: ( ( rule__Multiple__MaxAssignment_1_4_1 ) )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:6055:1: ( rule__Multiple__MaxAssignment_1_4_1 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getMultipleAccess().getUpperAssignment_1_4_1()); 
+               before(grammarAccess.getMultipleAccess().getMaxAssignment_1_4_1()); 
             }
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:6056:1: ( rule__Multiple__UpperAssignment_1_4_1 )
-            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:6056:2: rule__Multiple__UpperAssignment_1_4_1
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:6056:1: ( rule__Multiple__MaxAssignment_1_4_1 )
+            // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:6056:2: rule__Multiple__MaxAssignment_1_4_1
             {
-            pushFollow(FollowSets000.FOLLOW_rule__Multiple__UpperAssignment_1_4_1_in_rule__Multiple__Group_1_4__1__Impl11997);
-            rule__Multiple__UpperAssignment_1_4_1();
+            pushFollow(FollowSets000.FOLLOW_rule__Multiple__MaxAssignment_1_4_1_in_rule__Multiple__Group_1_4__1__Impl11997);
+            rule__Multiple__MaxAssignment_1_4_1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -16188,7 +16188,7 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getMultipleAccess().getUpperAssignment_1_4_1()); 
+               after(grammarAccess.getMultipleAccess().getMaxAssignment_1_4_1()); 
             }
 
             }
@@ -27343,9 +27343,9 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Scale__NameAssignment_1_2_1"
 
 
-    // $ANTLR start "rule__Scale__LowerAssignment_1_3_1"
-    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9803:1: rule__Scale__LowerAssignment_1_3_1 : ( ruleEInt ) ;
-    public final void rule__Scale__LowerAssignment_1_3_1() throws RecognitionException {
+    // $ANTLR start "rule__Scale__MinAssignment_1_3_1"
+    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9803:1: rule__Scale__MinAssignment_1_3_1 : ( ruleEInt ) ;
+    public final void rule__Scale__MinAssignment_1_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -27357,15 +27357,15 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
             // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9809:1: ruleEInt
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getScaleAccess().getLowerEIntParserRuleCall_1_3_1_0()); 
+               before(grammarAccess.getScaleAccess().getMinEIntParserRuleCall_1_3_1_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleEInt_in_rule__Scale__LowerAssignment_1_3_123072);
+            pushFollow(FollowSets000.FOLLOW_ruleEInt_in_rule__Scale__MinAssignment_1_3_123072);
             ruleEInt();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getScaleAccess().getLowerEIntParserRuleCall_1_3_1_0()); 
+               after(grammarAccess.getScaleAccess().getMinEIntParserRuleCall_1_3_1_0()); 
             }
 
             }
@@ -27385,12 +27385,12 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Scale__LowerAssignment_1_3_1"
+    // $ANTLR end "rule__Scale__MinAssignment_1_3_1"
 
 
-    // $ANTLR start "rule__Scale__UpperAssignment_1_4_1"
-    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9818:1: rule__Scale__UpperAssignment_1_4_1 : ( ruleEInt ) ;
-    public final void rule__Scale__UpperAssignment_1_4_1() throws RecognitionException {
+    // $ANTLR start "rule__Scale__MaxAssignment_1_4_1"
+    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9818:1: rule__Scale__MaxAssignment_1_4_1 : ( ruleEInt ) ;
+    public final void rule__Scale__MaxAssignment_1_4_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -27402,15 +27402,15 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
             // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9824:1: ruleEInt
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getScaleAccess().getUpperEIntParserRuleCall_1_4_1_0()); 
+               before(grammarAccess.getScaleAccess().getMaxEIntParserRuleCall_1_4_1_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleEInt_in_rule__Scale__UpperAssignment_1_4_123103);
+            pushFollow(FollowSets000.FOLLOW_ruleEInt_in_rule__Scale__MaxAssignment_1_4_123103);
             ruleEInt();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getScaleAccess().getUpperEIntParserRuleCall_1_4_1_0()); 
+               after(grammarAccess.getScaleAccess().getMaxEIntParserRuleCall_1_4_1_0()); 
             }
 
             }
@@ -27430,12 +27430,12 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Scale__UpperAssignment_1_4_1"
+    // $ANTLR end "rule__Scale__MaxAssignment_1_4_1"
 
 
-    // $ANTLR start "rule__Scale__LowerLabelAssignment_1_5_1"
-    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9833:1: rule__Scale__LowerLabelAssignment_1_5_1 : ( ruleEString ) ;
-    public final void rule__Scale__LowerLabelAssignment_1_5_1() throws RecognitionException {
+    // $ANTLR start "rule__Scale__MinLabelAssignment_1_5_1"
+    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9833:1: rule__Scale__MinLabelAssignment_1_5_1 : ( ruleEString ) ;
+    public final void rule__Scale__MinLabelAssignment_1_5_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -27447,15 +27447,15 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
             // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9839:1: ruleEString
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getScaleAccess().getLowerLabelEStringParserRuleCall_1_5_1_0()); 
+               before(grammarAccess.getScaleAccess().getMinLabelEStringParserRuleCall_1_5_1_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_rule__Scale__LowerLabelAssignment_1_5_123134);
+            pushFollow(FollowSets000.FOLLOW_ruleEString_in_rule__Scale__MinLabelAssignment_1_5_123134);
             ruleEString();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getScaleAccess().getLowerLabelEStringParserRuleCall_1_5_1_0()); 
+               after(grammarAccess.getScaleAccess().getMinLabelEStringParserRuleCall_1_5_1_0()); 
             }
 
             }
@@ -27475,12 +27475,12 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Scale__LowerLabelAssignment_1_5_1"
+    // $ANTLR end "rule__Scale__MinLabelAssignment_1_5_1"
 
 
-    // $ANTLR start "rule__Scale__UpperLabelAssignment_1_6_1"
-    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9848:1: rule__Scale__UpperLabelAssignment_1_6_1 : ( ruleEString ) ;
-    public final void rule__Scale__UpperLabelAssignment_1_6_1() throws RecognitionException {
+    // $ANTLR start "rule__Scale__MaxLabelAssignment_1_6_1"
+    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9848:1: rule__Scale__MaxLabelAssignment_1_6_1 : ( ruleEString ) ;
+    public final void rule__Scale__MaxLabelAssignment_1_6_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -27492,15 +27492,15 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
             // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:9854:1: ruleEString
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getScaleAccess().getUpperLabelEStringParserRuleCall_1_6_1_0()); 
+               before(grammarAccess.getScaleAccess().getMaxLabelEStringParserRuleCall_1_6_1_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_rule__Scale__UpperLabelAssignment_1_6_123165);
+            pushFollow(FollowSets000.FOLLOW_ruleEString_in_rule__Scale__MaxLabelAssignment_1_6_123165);
             ruleEString();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getScaleAccess().getUpperLabelEStringParserRuleCall_1_6_1_0()); 
+               after(grammarAccess.getScaleAccess().getMaxLabelEStringParserRuleCall_1_6_1_0()); 
             }
 
             }
@@ -27520,7 +27520,7 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Scale__UpperLabelAssignment_1_6_1"
+    // $ANTLR end "rule__Scale__MaxLabelAssignment_1_6_1"
 
 
     // $ANTLR start "rule__Scale__DependsOnAssignment_1_7_1"
@@ -28297,9 +28297,9 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Number__NameAssignment_2_2_1"
 
 
-    // $ANTLR start "rule__Number__LowerAssignment_2_3_1"
-    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10152:1: rule__Number__LowerAssignment_2_3_1 : ( ruleEInt ) ;
-    public final void rule__Number__LowerAssignment_2_3_1() throws RecognitionException {
+    // $ANTLR start "rule__Number__MinAssignment_2_3_1"
+    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10152:1: rule__Number__MinAssignment_2_3_1 : ( ruleEInt ) ;
+    public final void rule__Number__MinAssignment_2_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -28311,15 +28311,15 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
             // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10158:1: ruleEInt
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getNumberAccess().getLowerEIntParserRuleCall_2_3_1_0()); 
+               before(grammarAccess.getNumberAccess().getMinEIntParserRuleCall_2_3_1_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleEInt_in_rule__Number__LowerAssignment_2_3_123775);
+            pushFollow(FollowSets000.FOLLOW_ruleEInt_in_rule__Number__MinAssignment_2_3_123775);
             ruleEInt();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getNumberAccess().getLowerEIntParserRuleCall_2_3_1_0()); 
+               after(grammarAccess.getNumberAccess().getMinEIntParserRuleCall_2_3_1_0()); 
             }
 
             }
@@ -28339,12 +28339,12 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Number__LowerAssignment_2_3_1"
+    // $ANTLR end "rule__Number__MinAssignment_2_3_1"
 
 
-    // $ANTLR start "rule__Number__UpperAssignment_2_4_1"
-    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10167:1: rule__Number__UpperAssignment_2_4_1 : ( ruleEInt ) ;
-    public final void rule__Number__UpperAssignment_2_4_1() throws RecognitionException {
+    // $ANTLR start "rule__Number__MaxAssignment_2_4_1"
+    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10167:1: rule__Number__MaxAssignment_2_4_1 : ( ruleEInt ) ;
+    public final void rule__Number__MaxAssignment_2_4_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -28356,15 +28356,15 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
             // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10173:1: ruleEInt
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getNumberAccess().getUpperEIntParserRuleCall_2_4_1_0()); 
+               before(grammarAccess.getNumberAccess().getMaxEIntParserRuleCall_2_4_1_0()); 
             }
-            pushFollow(FollowSets000.FOLLOW_ruleEInt_in_rule__Number__UpperAssignment_2_4_123806);
+            pushFollow(FollowSets000.FOLLOW_ruleEInt_in_rule__Number__MaxAssignment_2_4_123806);
             ruleEInt();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getNumberAccess().getUpperEIntParserRuleCall_2_4_1_0()); 
+               after(grammarAccess.getNumberAccess().getMaxEIntParserRuleCall_2_4_1_0()); 
             }
 
             }
@@ -28384,7 +28384,7 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Number__UpperAssignment_2_4_1"
+    // $ANTLR end "rule__Number__MaxAssignment_2_4_1"
 
 
     // $ANTLR start "rule__Number__DependsOnAssignment_2_5_1"
@@ -29010,9 +29010,9 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Multiple__NameAssignment_1_2_1"
 
 
-    // $ANTLR start "rule__Multiple__LowerAssignment_1_3_1"
-    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10410:1: rule__Multiple__LowerAssignment_1_3_1 : ( RULE_INT ) ;
-    public final void rule__Multiple__LowerAssignment_1_3_1() throws RecognitionException {
+    // $ANTLR start "rule__Multiple__MinAssignment_1_3_1"
+    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10410:1: rule__Multiple__MinAssignment_1_3_1 : ( RULE_INT ) ;
+    public final void rule__Multiple__MinAssignment_1_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -29024,11 +29024,11 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
             // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10416:1: RULE_INT
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getMultipleAccess().getLowerINTTerminalRuleCall_1_3_1_0()); 
+               before(grammarAccess.getMultipleAccess().getMinINTTerminalRuleCall_1_3_1_0()); 
             }
-            match(input,RULE_INT,FollowSets000.FOLLOW_RULE_INT_in_rule__Multiple__LowerAssignment_1_3_124297); if (state.failed) return ;
+            match(input,RULE_INT,FollowSets000.FOLLOW_RULE_INT_in_rule__Multiple__MinAssignment_1_3_124297); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getMultipleAccess().getLowerINTTerminalRuleCall_1_3_1_0()); 
+               after(grammarAccess.getMultipleAccess().getMinINTTerminalRuleCall_1_3_1_0()); 
             }
 
             }
@@ -29048,12 +29048,12 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Multiple__LowerAssignment_1_3_1"
+    // $ANTLR end "rule__Multiple__MinAssignment_1_3_1"
 
 
-    // $ANTLR start "rule__Multiple__UpperAssignment_1_4_1"
-    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10425:1: rule__Multiple__UpperAssignment_1_4_1 : ( RULE_INT ) ;
-    public final void rule__Multiple__UpperAssignment_1_4_1() throws RecognitionException {
+    // $ANTLR start "rule__Multiple__MaxAssignment_1_4_1"
+    // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10425:1: rule__Multiple__MaxAssignment_1_4_1 : ( RULE_INT ) ;
+    public final void rule__Multiple__MaxAssignment_1_4_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -29065,11 +29065,11 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
             // ../dk.itu.smdp.survey.dsl.ui/src-gen/dk/itu/smdp/survey/ui/contentassist/antlr/internal/InternalDsl.g:10431:1: RULE_INT
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getMultipleAccess().getUpperINTTerminalRuleCall_1_4_1_0()); 
+               before(grammarAccess.getMultipleAccess().getMaxINTTerminalRuleCall_1_4_1_0()); 
             }
-            match(input,RULE_INT,FollowSets000.FOLLOW_RULE_INT_in_rule__Multiple__UpperAssignment_1_4_124328); if (state.failed) return ;
+            match(input,RULE_INT,FollowSets000.FOLLOW_RULE_INT_in_rule__Multiple__MaxAssignment_1_4_124328); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getMultipleAccess().getUpperINTTerminalRuleCall_1_4_1_0()); 
+               after(grammarAccess.getMultipleAccess().getMaxINTTerminalRuleCall_1_4_1_0()); 
             }
 
             }
@@ -29089,7 +29089,7 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Multiple__UpperAssignment_1_4_1"
+    // $ANTLR end "rule__Multiple__MaxAssignment_1_4_1"
 
 
     // $ANTLR start "rule__Multiple__DependsOnAssignment_1_5_1"
@@ -34295,18 +34295,18 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
         public static final BitSet FOLLOW_rule__Scale__Group_1_3__1_in_rule__Scale__Group_1_3__06396 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_36_in_rule__Scale__Group_1_3__0__Impl6424 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__Scale__Group_1_3__1__Impl_in_rule__Scale__Group_1_3__16455 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Scale__LowerAssignment_1_3_1_in_rule__Scale__Group_1_3__1__Impl6482 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Scale__MinAssignment_1_3_1_in_rule__Scale__Group_1_3__1__Impl6482 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__Scale__Group_1_4__0__Impl_in_rule__Scale__Group_1_4__06516 = new BitSet(new long[]{0x0008000000000040L});
         public static final BitSet FOLLOW_rule__Scale__Group_1_4__1_in_rule__Scale__Group_1_4__06519 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_37_in_rule__Scale__Group_1_4__0__Impl6547 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__Scale__Group_1_4__1__Impl_in_rule__Scale__Group_1_4__16578 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Scale__UpperAssignment_1_4_1_in_rule__Scale__Group_1_4__1__Impl6605 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Scale__MaxAssignment_1_4_1_in_rule__Scale__Group_1_4__1__Impl6605 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__Scale__Group_1_5__0__Impl_in_rule__Scale__Group_1_5__06639 = new BitSet(new long[]{0x0000000000000030L});
         public static final BitSet FOLLOW_rule__Scale__Group_1_5__1_in_rule__Scale__Group_1_5__06642 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_38_in_rule__Scale__Group_1_5__0__Impl6670 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__Scale__Group_1_5__1__Impl_in_rule__Scale__Group_1_5__16701 = new BitSet(new long[]{0x0000000000800000L});
         public static final BitSet FOLLOW_rule__Scale__Group_1_5__2_in_rule__Scale__Group_1_5__16704 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Scale__LowerLabelAssignment_1_5_1_in_rule__Scale__Group_1_5__1__Impl6731 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Scale__MinLabelAssignment_1_5_1_in_rule__Scale__Group_1_5__1__Impl6731 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__Scale__Group_1_5__2__Impl_in_rule__Scale__Group_1_5__26761 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_23_in_rule__Scale__Group_1_5__2__Impl6789 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__Scale__Group_1_6__0__Impl_in_rule__Scale__Group_1_6__06826 = new BitSet(new long[]{0x0000000000000030L});
@@ -34314,7 +34314,7 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
         public static final BitSet FOLLOW_39_in_rule__Scale__Group_1_6__0__Impl6857 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__Scale__Group_1_6__1__Impl_in_rule__Scale__Group_1_6__16888 = new BitSet(new long[]{0x0000000000800000L});
         public static final BitSet FOLLOW_rule__Scale__Group_1_6__2_in_rule__Scale__Group_1_6__16891 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Scale__UpperLabelAssignment_1_6_1_in_rule__Scale__Group_1_6__1__Impl6918 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Scale__MaxLabelAssignment_1_6_1_in_rule__Scale__Group_1_6__1__Impl6918 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__Scale__Group_1_6__2__Impl_in_rule__Scale__Group_1_6__26948 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_23_in_rule__Scale__Group_1_6__2__Impl6976 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__Scale__Group_1_7__0__Impl_in_rule__Scale__Group_1_7__07013 = new BitSet(new long[]{0x0000000000000080L});
@@ -34421,12 +34421,12 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
         public static final BitSet FOLLOW_rule__Number__Group_2_3__1_in_rule__Number__Group_2_3__09386 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_36_in_rule__Number__Group_2_3__0__Impl9414 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__Number__Group_2_3__1__Impl_in_rule__Number__Group_2_3__19445 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Number__LowerAssignment_2_3_1_in_rule__Number__Group_2_3__1__Impl9472 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Number__MinAssignment_2_3_1_in_rule__Number__Group_2_3__1__Impl9472 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__Number__Group_2_4__0__Impl_in_rule__Number__Group_2_4__09506 = new BitSet(new long[]{0x0008000000000040L});
         public static final BitSet FOLLOW_rule__Number__Group_2_4__1_in_rule__Number__Group_2_4__09509 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_37_in_rule__Number__Group_2_4__0__Impl9537 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__Number__Group_2_4__1__Impl_in_rule__Number__Group_2_4__19568 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Number__UpperAssignment_2_4_1_in_rule__Number__Group_2_4__1__Impl9595 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Number__MaxAssignment_2_4_1_in_rule__Number__Group_2_4__1__Impl9595 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__Number__Group_2_5__0__Impl_in_rule__Number__Group_2_5__09629 = new BitSet(new long[]{0x0000000000000080L});
         public static final BitSet FOLLOW_rule__Number__Group_2_5__1_in_rule__Number__Group_2_5__09632 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_32_in_rule__Number__Group_2_5__0__Impl9660 = new BitSet(new long[]{0x0000000000000002L});
@@ -34525,12 +34525,12 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
         public static final BitSet FOLLOW_rule__Multiple__Group_1_3__1_in_rule__Multiple__Group_1_3__011788 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_36_in_rule__Multiple__Group_1_3__0__Impl11816 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__Multiple__Group_1_3__1__Impl_in_rule__Multiple__Group_1_3__111847 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Multiple__LowerAssignment_1_3_1_in_rule__Multiple__Group_1_3__1__Impl11874 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Multiple__MinAssignment_1_3_1_in_rule__Multiple__Group_1_3__1__Impl11874 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__Multiple__Group_1_4__0__Impl_in_rule__Multiple__Group_1_4__011908 = new BitSet(new long[]{0x0000000000000040L});
         public static final BitSet FOLLOW_rule__Multiple__Group_1_4__1_in_rule__Multiple__Group_1_4__011911 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_37_in_rule__Multiple__Group_1_4__0__Impl11939 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__Multiple__Group_1_4__1__Impl_in_rule__Multiple__Group_1_4__111970 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Multiple__UpperAssignment_1_4_1_in_rule__Multiple__Group_1_4__1__Impl11997 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Multiple__MaxAssignment_1_4_1_in_rule__Multiple__Group_1_4__1__Impl11997 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__Multiple__Group_1_5__0__Impl_in_rule__Multiple__Group_1_5__012031 = new BitSet(new long[]{0x0000000000000080L});
         public static final BitSet FOLLOW_rule__Multiple__Group_1_5__1_in_rule__Multiple__Group_1_5__012034 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_32_in_rule__Multiple__Group_1_5__0__Impl12062 = new BitSet(new long[]{0x0000000000000002L});
@@ -34831,10 +34831,10 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
         public static final BitSet FOLLOW_ruleEString_in_rule__Scale__TitleAssignment_1_0_122979 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleEString_in_rule__Scale__DescriptionAssignment_1_1_123010 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_RULE_ID_in_rule__Scale__NameAssignment_1_2_123041 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEInt_in_rule__Scale__LowerAssignment_1_3_123072 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEInt_in_rule__Scale__UpperAssignment_1_4_123103 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_rule__Scale__LowerLabelAssignment_1_5_123134 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_rule__Scale__UpperLabelAssignment_1_6_123165 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEInt_in_rule__Scale__MinAssignment_1_3_123072 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEInt_in_rule__Scale__MaxAssignment_1_4_123103 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEString_in_rule__Scale__MinLabelAssignment_1_5_123134 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEString_in_rule__Scale__MaxLabelAssignment_1_6_123165 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_RULE_FQN_in_rule__Scale__DependsOnAssignment_1_7_123200 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_54_in_rule__Scale__RequiredAssignment_1_823240 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleEString_in_rule__Date__TitleAssignment_2_0_123279 = new BitSet(new long[]{0x0000000000000002L});
@@ -34851,8 +34851,8 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
         public static final BitSet FOLLOW_ruleEString_in_rule__Number__TitleAssignment_2_0_123682 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleEString_in_rule__Number__DescriptionAssignment_2_1_123713 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_RULE_ID_in_rule__Number__NameAssignment_2_2_123744 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEInt_in_rule__Number__LowerAssignment_2_3_123775 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEInt_in_rule__Number__UpperAssignment_2_4_123806 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEInt_in_rule__Number__MinAssignment_2_3_123775 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEInt_in_rule__Number__MaxAssignment_2_4_123806 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_RULE_FQN_in_rule__Number__DependsOnAssignment_2_5_123841 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_54_in_rule__Number__RequiredAssignment_2_623881 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__Number__ShowLimitsAlternatives_2_7_0_in_rule__Number__ShowLimitsAssignment_2_723920 = new BitSet(new long[]{0x0000000000000002L});
@@ -34866,8 +34866,8 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
         public static final BitSet FOLLOW_ruleEString_in_rule__Multiple__TitleAssignment_1_0_124204 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleEString_in_rule__Multiple__DescriptionAssignment_1_1_124235 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_RULE_ID_in_rule__Multiple__NameAssignment_1_2_124266 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_RULE_INT_in_rule__Multiple__LowerAssignment_1_3_124297 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_RULE_INT_in_rule__Multiple__UpperAssignment_1_4_124328 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_INT_in_rule__Multiple__MinAssignment_1_3_124297 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_INT_in_rule__Multiple__MaxAssignment_1_4_124328 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_RULE_FQN_in_rule__Multiple__DependsOnAssignment_1_5_124363 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_54_in_rule__Multiple__RequiredAssignment_1_624403 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_58_in_rule__Multiple__OtherAssignment_1_724447 = new BitSet(new long[]{0x0000000000000002L});

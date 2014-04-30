@@ -129,10 +129,10 @@ public class DslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getScaleAccess().getTitleAssignment_1_0_1(), "rule__Scale__TitleAssignment_1_0_1");
 					put(grammarAccess.getScaleAccess().getDescriptionAssignment_1_1_1(), "rule__Scale__DescriptionAssignment_1_1_1");
 					put(grammarAccess.getScaleAccess().getNameAssignment_1_2_1(), "rule__Scale__NameAssignment_1_2_1");
-					put(grammarAccess.getScaleAccess().getLowerAssignment_1_3_1(), "rule__Scale__LowerAssignment_1_3_1");
-					put(grammarAccess.getScaleAccess().getUpperAssignment_1_4_1(), "rule__Scale__UpperAssignment_1_4_1");
-					put(grammarAccess.getScaleAccess().getLowerLabelAssignment_1_5_1(), "rule__Scale__LowerLabelAssignment_1_5_1");
-					put(grammarAccess.getScaleAccess().getUpperLabelAssignment_1_6_1(), "rule__Scale__UpperLabelAssignment_1_6_1");
+					put(grammarAccess.getScaleAccess().getMinAssignment_1_3_1(), "rule__Scale__MinAssignment_1_3_1");
+					put(grammarAccess.getScaleAccess().getMaxAssignment_1_4_1(), "rule__Scale__MaxAssignment_1_4_1");
+					put(grammarAccess.getScaleAccess().getMinLabelAssignment_1_5_1(), "rule__Scale__MinLabelAssignment_1_5_1");
+					put(grammarAccess.getScaleAccess().getMaxLabelAssignment_1_6_1(), "rule__Scale__MaxLabelAssignment_1_6_1");
 					put(grammarAccess.getScaleAccess().getDependsOnAssignment_1_7_1(), "rule__Scale__DependsOnAssignment_1_7_1");
 					put(grammarAccess.getScaleAccess().getRequiredAssignment_1_8(), "rule__Scale__RequiredAssignment_1_8");
 					put(grammarAccess.getDateAccess().getTitleAssignment_2_0_1(), "rule__Date__TitleAssignment_2_0_1");
@@ -149,8 +149,8 @@ public class DslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getNumberAccess().getTitleAssignment_2_0_1(), "rule__Number__TitleAssignment_2_0_1");
 					put(grammarAccess.getNumberAccess().getDescriptionAssignment_2_1_1(), "rule__Number__DescriptionAssignment_2_1_1");
 					put(grammarAccess.getNumberAccess().getNameAssignment_2_2_1(), "rule__Number__NameAssignment_2_2_1");
-					put(grammarAccess.getNumberAccess().getLowerAssignment_2_3_1(), "rule__Number__LowerAssignment_2_3_1");
-					put(grammarAccess.getNumberAccess().getUpperAssignment_2_4_1(), "rule__Number__UpperAssignment_2_4_1");
+					put(grammarAccess.getNumberAccess().getMinAssignment_2_3_1(), "rule__Number__MinAssignment_2_3_1");
+					put(grammarAccess.getNumberAccess().getMaxAssignment_2_4_1(), "rule__Number__MaxAssignment_2_4_1");
 					put(grammarAccess.getNumberAccess().getDependsOnAssignment_2_5_1(), "rule__Number__DependsOnAssignment_2_5_1");
 					put(grammarAccess.getNumberAccess().getRequiredAssignment_2_6(), "rule__Number__RequiredAssignment_2_6");
 					put(grammarAccess.getNumberAccess().getShowLimitsAssignment_2_7(), "rule__Number__ShowLimitsAssignment_2_7");
@@ -164,8 +164,8 @@ public class DslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getMultipleAccess().getTitleAssignment_1_0_1(), "rule__Multiple__TitleAssignment_1_0_1");
 					put(grammarAccess.getMultipleAccess().getDescriptionAssignment_1_1_1(), "rule__Multiple__DescriptionAssignment_1_1_1");
 					put(grammarAccess.getMultipleAccess().getNameAssignment_1_2_1(), "rule__Multiple__NameAssignment_1_2_1");
-					put(grammarAccess.getMultipleAccess().getLowerAssignment_1_3_1(), "rule__Multiple__LowerAssignment_1_3_1");
-					put(grammarAccess.getMultipleAccess().getUpperAssignment_1_4_1(), "rule__Multiple__UpperAssignment_1_4_1");
+					put(grammarAccess.getMultipleAccess().getMinAssignment_1_3_1(), "rule__Multiple__MinAssignment_1_3_1");
+					put(grammarAccess.getMultipleAccess().getMaxAssignment_1_4_1(), "rule__Multiple__MaxAssignment_1_4_1");
 					put(grammarAccess.getMultipleAccess().getDependsOnAssignment_1_5_1(), "rule__Multiple__DependsOnAssignment_1_5_1");
 					put(grammarAccess.getMultipleAccess().getRequiredAssignment_1_6(), "rule__Multiple__RequiredAssignment_1_6");
 					put(grammarAccess.getMultipleAccess().getOtherAssignment_1_7(), "rule__Multiple__OtherAssignment_1_7");

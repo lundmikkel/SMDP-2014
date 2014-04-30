@@ -27,10 +27,10 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Text/multiline"/>
     </genClasses>
     <genClasses ecoreClass="Survey.ecore#//Scale">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Scale/lower"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Scale/upper"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Scale/lowerLabel"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Scale/upperLabel"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Scale/min"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Scale/max"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Scale/minLabel"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Scale/maxLabel"/>
     </genClasses>
     <genClasses ecoreClass="Survey.ecore#//Date">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Date/day"/>
@@ -41,8 +41,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Date/showLimits"/>
     </genClasses>
     <genClasses ecoreClass="Survey.ecore#//Number">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Number/lower"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Number/upper"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Number/min"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Number/max"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Number/showLimits"/>
     </genClasses>
     <genClasses image="false" ecoreClass="Survey.ecore#//Other">
@@ -55,8 +55,8 @@
     <genClasses ecoreClass="Survey.ecore#//Option"/>
     <genClasses ecoreClass="Survey.ecore#//Single"/>
     <genClasses ecoreClass="Survey.ecore#//Multiple">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Multiple/lower"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Multiple/upper"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Multiple/min"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Multiple/max"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Multiple/showLimits"/>
     </genClasses>
     <genClasses ecoreClass="Survey.ecore#//Table">

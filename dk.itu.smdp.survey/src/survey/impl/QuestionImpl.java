@@ -3,6 +3,7 @@
 package survey.impl;
 
 import org.eclipse.emf.ecore.EClass;
+
 import survey.Question;
 import survey.SurveyPackage;
 

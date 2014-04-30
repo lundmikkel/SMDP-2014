@@ -61,11 +61,11 @@ Scale returns Scale:
 		( ('title="' title=EString '"')
 		& ('description="' description=EString '"')?
 		& ('id="' name=ID '"')?
-		& ('lower=' lower=EInt)
-		& ('upper=' upper=EInt)
+		& ('min=' min=EInt)
+		& ('max=' max=EInt)
 		// TODO: Force that if one label is set, both should be
-		& ('lowerLabel="' lowerLabel=EString '"')?
-		& ('upperLabel="' upperLabel=EString '"')?
+		& ('minLabel="' minLabel=EString '"')?
+		& ('maxLabel="' maxLabel=EString '"')?
 		& ('dependsOn="' dependsOn=[Referable|FQN] '"')?
 		& (required?='required')?)
 	'/>';
@@ -92,8 +92,8 @@ Number returns Number:
 		( ('title="' title=EString '"')
 		& ('description="' description=EString '"')?
 		& ('id="' name=ID '"')?
-		& ('lower=' lower=EInt)?
-		& ('upper=' upper=EInt)?
+		& ('min=' min=EInt)?
+		& ('max=' max=EInt)?
 		& ('dependsOn="' dependsOn=[Referable|FQN] '"')?
 		& (required?='required')?
 		& (showLimits?=('show-limits' | 'show' | 'limits'))?)
@@ -116,8 +116,8 @@ Multiple returns Multiple:
 		( ('title="' title=EString '"')
 		& ('description="' description=EString '"')?
 		& ('id""' name=ID '"')?
-		& ('lower=' lower=INT)?
-		& ('upper=' upper=INT)?
+		& ('min=' min=INT)?
+		& ('max=' max=INT)?
 		& ('dependsOn="' dependsOn=[Referable|FQN] '"')?
 		& (required?='required')?
 		& (other?='other')?

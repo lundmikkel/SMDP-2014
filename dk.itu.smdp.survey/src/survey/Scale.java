@@ -11,10 +11,10 @@ package survey;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link survey.Scale#getLower <em>Lower</em>}</li>
- *   <li>{@link survey.Scale#getUpper <em>Upper</em>}</li>
- *   <li>{@link survey.Scale#getLowerLabel <em>Lower Label</em>}</li>
- *   <li>{@link survey.Scale#getUpperLabel <em>Upper Label</em>}</li>
+ *   <li>{@link survey.Scale#getMin <em>Min</em>}</li>
+ *   <li>{@link survey.Scale#getMax <em>Max</em>}</li>
+ *   <li>{@link survey.Scale#getMinLabel <em>Min Label</em>}</li>
+ *   <li>{@link survey.Scale#getMaxLabel <em>Max Label</em>}</li>
  * </ul>
  * </p>
  *
@@ -24,107 +24,107 @@ package survey;
  */
 public interface Scale extends Question {
 	/**
-	 * Returns the value of the '<em><b>Lower</b></em>' attribute.
+	 * Returns the value of the '<em><b>Min</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Lower</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Min</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Lower</em>' attribute.
-	 * @see #setLower(int)
-	 * @see survey.SurveyPackage#getScale_Lower()
+	 * @return the value of the '<em>Min</em>' attribute.
+	 * @see #setMin(int)
+	 * @see survey.SurveyPackage#getScale_Min()
 	 * @model required="true"
 	 * @generated
 	 */
-	int getLower();
+	int getMin();
 
 	/**
-	 * Sets the value of the '{@link survey.Scale#getLower <em>Lower</em>}' attribute.
+	 * Sets the value of the '{@link survey.Scale#getMin <em>Min</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Lower</em>' attribute.
-	 * @see #getLower()
+	 * @param value the new value of the '<em>Min</em>' attribute.
+	 * @see #getMin()
 	 * @generated
 	 */
-	void setLower(int value);
+	void setMin(int value);
 
 	/**
-	 * Returns the value of the '<em><b>Upper</b></em>' attribute.
+	 * Returns the value of the '<em><b>Max</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Upper</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Max</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Upper</em>' attribute.
-	 * @see #setUpper(int)
-	 * @see survey.SurveyPackage#getScale_Upper()
+	 * @return the value of the '<em>Max</em>' attribute.
+	 * @see #setMax(int)
+	 * @see survey.SurveyPackage#getScale_Max()
 	 * @model required="true"
 	 * @generated
 	 */
-	int getUpper();
+	int getMax();
 
 	/**
-	 * Sets the value of the '{@link survey.Scale#getUpper <em>Upper</em>}' attribute.
+	 * Sets the value of the '{@link survey.Scale#getMax <em>Max</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Upper</em>' attribute.
-	 * @see #getUpper()
+	 * @param value the new value of the '<em>Max</em>' attribute.
+	 * @see #getMax()
 	 * @generated
 	 */
-	void setUpper(int value);
+	void setMax(int value);
 
 	/**
-	 * Returns the value of the '<em><b>Lower Label</b></em>' attribute.
+	 * Returns the value of the '<em><b>Min Label</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Lower Label</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Min Label</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Lower Label</em>' attribute.
-	 * @see #setLowerLabel(String)
-	 * @see survey.SurveyPackage#getScale_LowerLabel()
+	 * @return the value of the '<em>Min Label</em>' attribute.
+	 * @see #setMinLabel(String)
+	 * @see survey.SurveyPackage#getScale_MinLabel()
 	 * @model
 	 * @generated
 	 */
-	String getLowerLabel();
+	String getMinLabel();
 
 	/**
-	 * Sets the value of the '{@link survey.Scale#getLowerLabel <em>Lower Label</em>}' attribute.
+	 * Sets the value of the '{@link survey.Scale#getMinLabel <em>Min Label</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Lower Label</em>' attribute.
-	 * @see #getLowerLabel()
+	 * @param value the new value of the '<em>Min Label</em>' attribute.
+	 * @see #getMinLabel()
 	 * @generated
 	 */
-	void setLowerLabel(String value);
+	void setMinLabel(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Upper Label</b></em>' attribute.
+	 * Returns the value of the '<em><b>Max Label</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Upper Label</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Max Label</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Upper Label</em>' attribute.
-	 * @see #setUpperLabel(String)
-	 * @see survey.SurveyPackage#getScale_UpperLabel()
+	 * @return the value of the '<em>Max Label</em>' attribute.
+	 * @see #setMaxLabel(String)
+	 * @see survey.SurveyPackage#getScale_MaxLabel()
 	 * @model
 	 * @generated
 	 */
-	String getUpperLabel();
+	String getMaxLabel();
 
 	/**
-	 * Sets the value of the '{@link survey.Scale#getUpperLabel <em>Upper Label</em>}' attribute.
+	 * Sets the value of the '{@link survey.Scale#getMaxLabel <em>Max Label</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Upper Label</em>' attribute.
-	 * @see #getUpperLabel()
+	 * @param value the new value of the '<em>Max Label</em>' attribute.
+	 * @see #getMaxLabel()
 	 * @generated
 	 */
-	void setUpperLabel(String value);
+	void setMaxLabel(String value);
 
 } // Scale

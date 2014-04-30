@@ -550,40 +550,40 @@ public interface SurveyPackage extends EPackage {
 	int SCALE__REQUIRED = QUESTION__REQUIRED;
 
 	/**
-	 * The feature id for the '<em><b>Lower</b></em>' attribute.
+	 * The feature id for the '<em><b>Min</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCALE__LOWER = QUESTION_FEATURE_COUNT + 0;
+	int SCALE__MIN = QUESTION_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Upper</b></em>' attribute.
+	 * The feature id for the '<em><b>Max</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCALE__UPPER = QUESTION_FEATURE_COUNT + 1;
+	int SCALE__MAX = QUESTION_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Lower Label</b></em>' attribute.
+	 * The feature id for the '<em><b>Min Label</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCALE__LOWER_LABEL = QUESTION_FEATURE_COUNT + 2;
+	int SCALE__MIN_LABEL = QUESTION_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Upper Label</b></em>' attribute.
+	 * The feature id for the '<em><b>Max Label</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCALE__UPPER_LABEL = QUESTION_FEATURE_COUNT + 3;
+	int SCALE__MAX_LABEL = QUESTION_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Scale</em>' class.
@@ -786,22 +786,22 @@ public interface SurveyPackage extends EPackage {
 	int NUMBER__REQUIRED = QUESTION__REQUIRED;
 
 	/**
-	 * The feature id for the '<em><b>Lower</b></em>' attribute.
+	 * The feature id for the '<em><b>Min</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER__LOWER = QUESTION_FEATURE_COUNT + 0;
+	int NUMBER__MIN = QUESTION_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Upper</b></em>' attribute.
+	 * The feature id for the '<em><b>Max</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER__UPPER = QUESTION_FEATURE_COUNT + 1;
+	int NUMBER__MAX = QUESTION_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Show Limits</b></em>' attribute.
@@ -1124,22 +1124,22 @@ public interface SurveyPackage extends EPackage {
 	int MULTIPLE__OPTIONS = QUESTION_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Lower</b></em>' attribute.
+	 * The feature id for the '<em><b>Min</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MULTIPLE__LOWER = QUESTION_FEATURE_COUNT + 3;
+	int MULTIPLE__MIN = QUESTION_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Upper</b></em>' attribute.
+	 * The feature id for the '<em><b>Max</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MULTIPLE__UPPER = QUESTION_FEATURE_COUNT + 4;
+	int MULTIPLE__MAX = QUESTION_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Show Limits</b></em>' attribute.
@@ -1651,48 +1651,48 @@ public interface SurveyPackage extends EPackage {
 	EClass getScale();
 
 	/**
-	 * Returns the meta object for the attribute '{@link survey.Scale#getLower <em>Lower</em>}'.
+	 * Returns the meta object for the attribute '{@link survey.Scale#getMin <em>Min</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Lower</em>'.
-	 * @see survey.Scale#getLower()
+	 * @return the meta object for the attribute '<em>Min</em>'.
+	 * @see survey.Scale#getMin()
 	 * @see #getScale()
 	 * @generated
 	 */
-	EAttribute getScale_Lower();
+	EAttribute getScale_Min();
 
 	/**
-	 * Returns the meta object for the attribute '{@link survey.Scale#getUpper <em>Upper</em>}'.
+	 * Returns the meta object for the attribute '{@link survey.Scale#getMax <em>Max</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Upper</em>'.
-	 * @see survey.Scale#getUpper()
+	 * @return the meta object for the attribute '<em>Max</em>'.
+	 * @see survey.Scale#getMax()
 	 * @see #getScale()
 	 * @generated
 	 */
-	EAttribute getScale_Upper();
+	EAttribute getScale_Max();
 
 	/**
-	 * Returns the meta object for the attribute '{@link survey.Scale#getLowerLabel <em>Lower Label</em>}'.
+	 * Returns the meta object for the attribute '{@link survey.Scale#getMinLabel <em>Min Label</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Lower Label</em>'.
-	 * @see survey.Scale#getLowerLabel()
+	 * @return the meta object for the attribute '<em>Min Label</em>'.
+	 * @see survey.Scale#getMinLabel()
 	 * @see #getScale()
 	 * @generated
 	 */
-	EAttribute getScale_LowerLabel();
+	EAttribute getScale_MinLabel();
 
 	/**
-	 * Returns the meta object for the attribute '{@link survey.Scale#getUpperLabel <em>Upper Label</em>}'.
+	 * Returns the meta object for the attribute '{@link survey.Scale#getMaxLabel <em>Max Label</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Upper Label</em>'.
-	 * @see survey.Scale#getUpperLabel()
+	 * @return the meta object for the attribute '<em>Max Label</em>'.
+	 * @see survey.Scale#getMaxLabel()
 	 * @see #getScale()
 	 * @generated
 	 */
-	EAttribute getScale_UpperLabel();
+	EAttribute getScale_MaxLabel();
 
 	/**
 	 * Returns the meta object for class '{@link survey.Date <em>Date</em>}'.
@@ -1781,26 +1781,26 @@ public interface SurveyPackage extends EPackage {
 	EClass getNumber();
 
 	/**
-	 * Returns the meta object for the attribute '{@link survey.Number#getLower <em>Lower</em>}'.
+	 * Returns the meta object for the attribute '{@link survey.Number#getMin <em>Min</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Lower</em>'.
-	 * @see survey.Number#getLower()
+	 * @return the meta object for the attribute '<em>Min</em>'.
+	 * @see survey.Number#getMin()
 	 * @see #getNumber()
 	 * @generated
 	 */
-	EAttribute getNumber_Lower();
+	EAttribute getNumber_Min();
 
 	/**
-	 * Returns the meta object for the attribute '{@link survey.Number#getUpper <em>Upper</em>}'.
+	 * Returns the meta object for the attribute '{@link survey.Number#getMax <em>Max</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Upper</em>'.
-	 * @see survey.Number#getUpper()
+	 * @return the meta object for the attribute '<em>Max</em>'.
+	 * @see survey.Number#getMax()
 	 * @see #getNumber()
 	 * @generated
 	 */
-	EAttribute getNumber_Upper();
+	EAttribute getNumber_Max();
 
 	/**
 	 * Returns the meta object for the attribute '{@link survey.Number#isShowLimits <em>Show Limits</em>}'.
@@ -1897,26 +1897,26 @@ public interface SurveyPackage extends EPackage {
 	EClass getMultiple();
 
 	/**
-	 * Returns the meta object for the attribute '{@link survey.Multiple#getLower <em>Lower</em>}'.
+	 * Returns the meta object for the attribute '{@link survey.Multiple#getMin <em>Min</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Lower</em>'.
-	 * @see survey.Multiple#getLower()
+	 * @return the meta object for the attribute '<em>Min</em>'.
+	 * @see survey.Multiple#getMin()
 	 * @see #getMultiple()
 	 * @generated
 	 */
-	EAttribute getMultiple_Lower();
+	EAttribute getMultiple_Min();
 
 	/**
-	 * Returns the meta object for the attribute '{@link survey.Multiple#getUpper <em>Upper</em>}'.
+	 * Returns the meta object for the attribute '{@link survey.Multiple#getMax <em>Max</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Upper</em>'.
-	 * @see survey.Multiple#getUpper()
+	 * @return the meta object for the attribute '<em>Max</em>'.
+	 * @see survey.Multiple#getMax()
 	 * @see #getMultiple()
 	 * @generated
 	 */
-	EAttribute getMultiple_Upper();
+	EAttribute getMultiple_Max();
 
 	/**
 	 * Returns the meta object for the attribute '{@link survey.Multiple#isShowLimits <em>Show Limits</em>}'.
@@ -2243,36 +2243,36 @@ public interface SurveyPackage extends EPackage {
 		EClass SCALE = eINSTANCE.getScale();
 
 		/**
-		 * The meta object literal for the '<em><b>Lower</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Min</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SCALE__LOWER = eINSTANCE.getScale_Lower();
+		EAttribute SCALE__MIN = eINSTANCE.getScale_Min();
 
 		/**
-		 * The meta object literal for the '<em><b>Upper</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Max</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SCALE__UPPER = eINSTANCE.getScale_Upper();
+		EAttribute SCALE__MAX = eINSTANCE.getScale_Max();
 
 		/**
-		 * The meta object literal for the '<em><b>Lower Label</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Min Label</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SCALE__LOWER_LABEL = eINSTANCE.getScale_LowerLabel();
+		EAttribute SCALE__MIN_LABEL = eINSTANCE.getScale_MinLabel();
 
 		/**
-		 * The meta object literal for the '<em><b>Upper Label</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Max Label</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SCALE__UPPER_LABEL = eINSTANCE.getScale_UpperLabel();
+		EAttribute SCALE__MAX_LABEL = eINSTANCE.getScale_MaxLabel();
 
 		/**
 		 * The meta object literal for the '{@link survey.impl.DateImpl <em>Date</em>}' class.
@@ -2343,20 +2343,20 @@ public interface SurveyPackage extends EPackage {
 		EClass NUMBER = eINSTANCE.getNumber();
 
 		/**
-		 * The meta object literal for the '<em><b>Lower</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Min</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute NUMBER__LOWER = eINSTANCE.getNumber_Lower();
+		EAttribute NUMBER__MIN = eINSTANCE.getNumber_Min();
 
 		/**
-		 * The meta object literal for the '<em><b>Upper</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Max</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute NUMBER__UPPER = eINSTANCE.getNumber_Upper();
+		EAttribute NUMBER__MAX = eINSTANCE.getNumber_Max();
 
 		/**
 		 * The meta object literal for the '<em><b>Show Limits</b></em>' attribute feature.
@@ -2441,20 +2441,20 @@ public interface SurveyPackage extends EPackage {
 		EClass MULTIPLE = eINSTANCE.getMultiple();
 
 		/**
-		 * The meta object literal for the '<em><b>Lower</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Min</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute MULTIPLE__LOWER = eINSTANCE.getMultiple_Lower();
+		EAttribute MULTIPLE__MIN = eINSTANCE.getMultiple_Min();
 
 		/**
-		 * The meta object literal for the '<em><b>Upper</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Max</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute MULTIPLE__UPPER = eINSTANCE.getMultiple_Upper();
+		EAttribute MULTIPLE__MAX = eINSTANCE.getMultiple_Max();
 
 		/**
 		 * The meta object literal for the '<em><b>Show Limits</b></em>' attribute feature.

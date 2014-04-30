@@ -1278,23 +1278,23 @@ ruleScale returns [EObject current=null]
 					{ 
 	 				  getUnorderedGroupHelper().select(grammarAccess.getScaleAccess().getUnorderedGroup_1(), 3);
 	 				}
-					({true}?=>(	otherlv_11='lower=' 
+					({true}?=>(	otherlv_11='min=' 
     {
-    	newLeafNode(otherlv_11, grammarAccess.getScaleAccess().getLowerKeyword_1_3_0());
+    	newLeafNode(otherlv_11, grammarAccess.getScaleAccess().getMinKeyword_1_3_0());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getScaleAccess().getLowerEIntParserRuleCall_1_3_1_0()); 
+	        newCompositeNode(grammarAccess.getScaleAccess().getMinEIntParserRuleCall_1_3_1_0()); 
 	    }
-		lv_lower_12_0=ruleEInt		{
+		lv_min_12_0=ruleEInt		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getScaleRule());
 	        }
        		set(
        			$current, 
-       			"lower",
-        		lv_lower_12_0, 
+       			"min",
+        		lv_min_12_0, 
         		"EInt");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -1312,23 +1312,23 @@ ruleScale returns [EObject current=null]
 					{ 
 	 				  getUnorderedGroupHelper().select(grammarAccess.getScaleAccess().getUnorderedGroup_1(), 4);
 	 				}
-					({true}?=>(	otherlv_13='upper=' 
+					({true}?=>(	otherlv_13='max=' 
     {
-    	newLeafNode(otherlv_13, grammarAccess.getScaleAccess().getUpperKeyword_1_4_0());
+    	newLeafNode(otherlv_13, grammarAccess.getScaleAccess().getMaxKeyword_1_4_0());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getScaleAccess().getUpperEIntParserRuleCall_1_4_1_0()); 
+	        newCompositeNode(grammarAccess.getScaleAccess().getMaxEIntParserRuleCall_1_4_1_0()); 
 	    }
-		lv_upper_14_0=ruleEInt		{
+		lv_max_14_0=ruleEInt		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getScaleRule());
 	        }
        		set(
        			$current, 
-       			"upper",
-        		lv_upper_14_0, 
+       			"max",
+        		lv_max_14_0, 
         		"EInt");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -1346,23 +1346,23 @@ ruleScale returns [EObject current=null]
 					{ 
 	 				  getUnorderedGroupHelper().select(grammarAccess.getScaleAccess().getUnorderedGroup_1(), 5);
 	 				}
-					({true}?=>(	otherlv_15='lowerLabel="' 
+					({true}?=>(	otherlv_15='minLabel="' 
     {
-    	newLeafNode(otherlv_15, grammarAccess.getScaleAccess().getLowerLabelKeyword_1_5_0());
+    	newLeafNode(otherlv_15, grammarAccess.getScaleAccess().getMinLabelKeyword_1_5_0());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getScaleAccess().getLowerLabelEStringParserRuleCall_1_5_1_0()); 
+	        newCompositeNode(grammarAccess.getScaleAccess().getMinLabelEStringParserRuleCall_1_5_1_0()); 
 	    }
-		lv_lowerLabel_16_0=ruleEString		{
+		lv_minLabel_16_0=ruleEString		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getScaleRule());
 	        }
        		set(
        			$current, 
-       			"lowerLabel",
-        		lv_lowerLabel_16_0, 
+       			"minLabel",
+        		lv_minLabel_16_0, 
         		"EString");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -1384,23 +1384,23 @@ ruleScale returns [EObject current=null]
 					{ 
 	 				  getUnorderedGroupHelper().select(grammarAccess.getScaleAccess().getUnorderedGroup_1(), 6);
 	 				}
-					({true}?=>(	otherlv_18='upperLabel="' 
+					({true}?=>(	otherlv_18='maxLabel="' 
     {
-    	newLeafNode(otherlv_18, grammarAccess.getScaleAccess().getUpperLabelKeyword_1_6_0());
+    	newLeafNode(otherlv_18, grammarAccess.getScaleAccess().getMaxLabelKeyword_1_6_0());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getScaleAccess().getUpperLabelEStringParserRuleCall_1_6_1_0()); 
+	        newCompositeNode(grammarAccess.getScaleAccess().getMaxLabelEStringParserRuleCall_1_6_1_0()); 
 	    }
-		lv_upperLabel_19_0=ruleEString		{
+		lv_maxLabel_19_0=ruleEString		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getScaleRule());
 	        }
        		set(
        			$current, 
-       			"upperLabel",
-        		lv_upperLabel_19_0, 
+       			"maxLabel",
+        		lv_maxLabel_19_0, 
         		"EString");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -2085,23 +2085,23 @@ ruleNumber returns [EObject current=null]
 					{ 
 	 				  getUnorderedGroupHelper().select(grammarAccess.getNumberAccess().getUnorderedGroup_2(), 3);
 	 				}
-					({true}?=>(	otherlv_12='lower=' 
+					({true}?=>(	otherlv_12='min=' 
     {
-    	newLeafNode(otherlv_12, grammarAccess.getNumberAccess().getLowerKeyword_2_3_0());
+    	newLeafNode(otherlv_12, grammarAccess.getNumberAccess().getMinKeyword_2_3_0());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getNumberAccess().getLowerEIntParserRuleCall_2_3_1_0()); 
+	        newCompositeNode(grammarAccess.getNumberAccess().getMinEIntParserRuleCall_2_3_1_0()); 
 	    }
-		lv_lower_13_0=ruleEInt		{
+		lv_min_13_0=ruleEInt		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getNumberRule());
 	        }
        		set(
        			$current, 
-       			"lower",
-        		lv_lower_13_0, 
+       			"min",
+        		lv_min_13_0, 
         		"EInt");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -2119,23 +2119,23 @@ ruleNumber returns [EObject current=null]
 					{ 
 	 				  getUnorderedGroupHelper().select(grammarAccess.getNumberAccess().getUnorderedGroup_2(), 4);
 	 				}
-					({true}?=>(	otherlv_14='upper=' 
+					({true}?=>(	otherlv_14='max=' 
     {
-    	newLeafNode(otherlv_14, grammarAccess.getNumberAccess().getUpperKeyword_2_4_0());
+    	newLeafNode(otherlv_14, grammarAccess.getNumberAccess().getMaxKeyword_2_4_0());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getNumberAccess().getUpperEIntParserRuleCall_2_4_1_0()); 
+	        newCompositeNode(grammarAccess.getNumberAccess().getMaxEIntParserRuleCall_2_4_1_0()); 
 	    }
-		lv_upper_15_0=ruleEInt		{
+		lv_max_15_0=ruleEInt		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getNumberRule());
 	        }
        		set(
        			$current, 
-       			"upper",
-        		lv_upper_15_0, 
+       			"max",
+        		lv_max_15_0, 
         		"EInt");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -2696,15 +2696,15 @@ ruleMultiple returns [EObject current=null]
 					{ 
 	 				  getUnorderedGroupHelper().select(grammarAccess.getMultipleAccess().getUnorderedGroup_1(), 3);
 	 				}
-					({true}?=>(	otherlv_11='lower=' 
+					({true}?=>(	otherlv_11='min=' 
     {
-    	newLeafNode(otherlv_11, grammarAccess.getMultipleAccess().getLowerKeyword_1_3_0());
+    	newLeafNode(otherlv_11, grammarAccess.getMultipleAccess().getMinKeyword_1_3_0());
     }
 (
 (
-		lv_lower_12_0=RULE_INT
+		lv_min_12_0=RULE_INT
 		{
-			newLeafNode(lv_lower_12_0, grammarAccess.getMultipleAccess().getLowerINTTerminalRuleCall_1_3_1_0()); 
+			newLeafNode(lv_min_12_0, grammarAccess.getMultipleAccess().getMinINTTerminalRuleCall_1_3_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -2712,8 +2712,8 @@ ruleMultiple returns [EObject current=null]
 	        }
        		setWithLastConsumed(
        			$current, 
-       			"lower",
-        		lv_lower_12_0, 
+       			"min",
+        		lv_min_12_0, 
         		"INT");
 	    }
 
@@ -2730,15 +2730,15 @@ ruleMultiple returns [EObject current=null]
 					{ 
 	 				  getUnorderedGroupHelper().select(grammarAccess.getMultipleAccess().getUnorderedGroup_1(), 4);
 	 				}
-					({true}?=>(	otherlv_13='upper=' 
+					({true}?=>(	otherlv_13='max=' 
     {
-    	newLeafNode(otherlv_13, grammarAccess.getMultipleAccess().getUpperKeyword_1_4_0());
+    	newLeafNode(otherlv_13, grammarAccess.getMultipleAccess().getMaxKeyword_1_4_0());
     }
 (
 (
-		lv_upper_14_0=RULE_INT
+		lv_max_14_0=RULE_INT
 		{
-			newLeafNode(lv_upper_14_0, grammarAccess.getMultipleAccess().getUpperINTTerminalRuleCall_1_4_1_0()); 
+			newLeafNode(lv_max_14_0, grammarAccess.getMultipleAccess().getMaxINTTerminalRuleCall_1_4_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -2746,8 +2746,8 @@ ruleMultiple returns [EObject current=null]
 	        }
        		setWithLastConsumed(
        			$current, 
-       			"upper",
-        		lv_upper_14_0, 
+       			"max",
+        		lv_max_14_0, 
         		"INT");
 	    }
 

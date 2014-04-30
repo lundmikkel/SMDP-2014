@@ -17,8 +17,8 @@ import survey.SurveyPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link survey.impl.NumberImpl#getLower <em>Lower</em>}</li>
- *   <li>{@link survey.impl.NumberImpl#getUpper <em>Upper</em>}</li>
+ *   <li>{@link survey.impl.NumberImpl#getMin <em>Min</em>}</li>
+ *   <li>{@link survey.impl.NumberImpl#getMax <em>Max</em>}</li>
  *   <li>{@link survey.impl.NumberImpl#isShowLimits <em>Show Limits</em>}</li>
  * </ul>
  * </p>
@@ -27,44 +27,44 @@ import survey.SurveyPackage;
  */
 public class NumberImpl extends QuestionImpl implements survey.Number {
 	/**
-	 * The default value of the '{@link #getLower() <em>Lower</em>}' attribute.
+	 * The default value of the '{@link #getMin() <em>Min</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getLower()
+	 * @see #getMin()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Integer LOWER_EDEFAULT = null;
+	protected static final Integer MIN_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getLower() <em>Lower</em>}' attribute.
+	 * The cached value of the '{@link #getMin() <em>Min</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getLower()
+	 * @see #getMin()
 	 * @generated
 	 * @ordered
 	 */
-	protected Integer lower = LOWER_EDEFAULT;
+	protected Integer min = MIN_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getUpper() <em>Upper</em>}' attribute.
+	 * The default value of the '{@link #getMax() <em>Max</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getUpper()
+	 * @see #getMax()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Integer UPPER_EDEFAULT = null;
+	protected static final Integer MAX_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getUpper() <em>Upper</em>}' attribute.
+	 * The cached value of the '{@link #getMax() <em>Max</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getUpper()
+	 * @see #getMax()
 	 * @generated
 	 * @ordered
 	 */
-	protected Integer upper = UPPER_EDEFAULT;
+	protected Integer max = MAX_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #isShowLimits() <em>Show Limits</em>}' attribute.
@@ -110,8 +110,8 @@ public class NumberImpl extends QuestionImpl implements survey.Number {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Integer getLower() {
-		return lower;
+	public Integer getMin() {
+		return min;
 	}
 
 	/**
@@ -119,11 +119,11 @@ public class NumberImpl extends QuestionImpl implements survey.Number {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setLower(Integer newLower) {
-		Integer oldLower = lower;
-		lower = newLower;
+	public void setMin(Integer newMin) {
+		Integer oldMin = min;
+		min = newMin;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SurveyPackage.NUMBER__LOWER, oldLower, lower));
+			eNotify(new ENotificationImpl(this, Notification.SET, SurveyPackage.NUMBER__MIN, oldMin, min));
 	}
 
 	/**
@@ -131,8 +131,8 @@ public class NumberImpl extends QuestionImpl implements survey.Number {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Integer getUpper() {
-		return upper;
+	public Integer getMax() {
+		return max;
 	}
 
 	/**
@@ -140,11 +140,11 @@ public class NumberImpl extends QuestionImpl implements survey.Number {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setUpper(Integer newUpper) {
-		Integer oldUpper = upper;
-		upper = newUpper;
+	public void setMax(Integer newMax) {
+		Integer oldMax = max;
+		max = newMax;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SurveyPackage.NUMBER__UPPER, oldUpper, upper));
+			eNotify(new ENotificationImpl(this, Notification.SET, SurveyPackage.NUMBER__MAX, oldMax, max));
 	}
 
 	/**
@@ -176,10 +176,10 @@ public class NumberImpl extends QuestionImpl implements survey.Number {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case SurveyPackage.NUMBER__LOWER:
-				return getLower();
-			case SurveyPackage.NUMBER__UPPER:
-				return getUpper();
+			case SurveyPackage.NUMBER__MIN:
+				return getMin();
+			case SurveyPackage.NUMBER__MAX:
+				return getMax();
 			case SurveyPackage.NUMBER__SHOW_LIMITS:
 				return isShowLimits();
 		}
@@ -194,11 +194,11 @@ public class NumberImpl extends QuestionImpl implements survey.Number {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case SurveyPackage.NUMBER__LOWER:
-				setLower((Integer)newValue);
+			case SurveyPackage.NUMBER__MIN:
+				setMin((Integer)newValue);
 				return;
-			case SurveyPackage.NUMBER__UPPER:
-				setUpper((Integer)newValue);
+			case SurveyPackage.NUMBER__MAX:
+				setMax((Integer)newValue);
 				return;
 			case SurveyPackage.NUMBER__SHOW_LIMITS:
 				setShowLimits((Boolean)newValue);
@@ -215,11 +215,11 @@ public class NumberImpl extends QuestionImpl implements survey.Number {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case SurveyPackage.NUMBER__LOWER:
-				setLower(LOWER_EDEFAULT);
+			case SurveyPackage.NUMBER__MIN:
+				setMin(MIN_EDEFAULT);
 				return;
-			case SurveyPackage.NUMBER__UPPER:
-				setUpper(UPPER_EDEFAULT);
+			case SurveyPackage.NUMBER__MAX:
+				setMax(MAX_EDEFAULT);
 				return;
 			case SurveyPackage.NUMBER__SHOW_LIMITS:
 				setShowLimits(SHOW_LIMITS_EDEFAULT);
@@ -236,10 +236,10 @@ public class NumberImpl extends QuestionImpl implements survey.Number {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case SurveyPackage.NUMBER__LOWER:
-				return LOWER_EDEFAULT == null ? lower != null : !LOWER_EDEFAULT.equals(lower);
-			case SurveyPackage.NUMBER__UPPER:
-				return UPPER_EDEFAULT == null ? upper != null : !UPPER_EDEFAULT.equals(upper);
+			case SurveyPackage.NUMBER__MIN:
+				return MIN_EDEFAULT == null ? min != null : !MIN_EDEFAULT.equals(min);
+			case SurveyPackage.NUMBER__MAX:
+				return MAX_EDEFAULT == null ? max != null : !MAX_EDEFAULT.equals(max);
 			case SurveyPackage.NUMBER__SHOW_LIMITS:
 				return showLimits != SHOW_LIMITS_EDEFAULT;
 		}
@@ -256,10 +256,10 @@ public class NumberImpl extends QuestionImpl implements survey.Number {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (lower: ");
-		result.append(lower);
-		result.append(", upper: ");
-		result.append(upper);
+		result.append(" (min: ");
+		result.append(min);
+		result.append(", max: ");
+		result.append(max);
 		result.append(", showLimits: ");
 		result.append(showLimits);
 		result.append(')');

@@ -5,8 +5,11 @@ package survey.impl;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
+
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
+
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+
 import survey.Answer;
 import survey.AnswerTemplate;
 import survey.AnswerTemplateRef;
@@ -111,29 +114,19 @@ public class SurveyFactoryImpl extends EFactoryImpl implements SurveyFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Single createSingle() {
-		SingleImpl single = new SingleImpl();
-		return single;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Multiple createMultiple() {
-		MultipleImpl multiple = new MultipleImpl();
-		return multiple;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Text createText() {
 		TextImpl text = new TextImpl();
 		return text;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Scale createScale() {
+		ScaleImpl scale = new ScaleImpl();
+		return scale;
 	}
 
 	/**
@@ -161,9 +154,9 @@ public class SurveyFactoryImpl extends EFactoryImpl implements SurveyFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Scale createScale() {
-		ScaleImpl scale = new ScaleImpl();
-		return scale;
+	public Single createSingle() {
+		SingleImpl single = new SingleImpl();
+		return single;
 	}
 
 	/**
@@ -171,29 +164,9 @@ public class SurveyFactoryImpl extends EFactoryImpl implements SurveyFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Answer createAnswer() {
-		AnswerImpl answer = new AnswerImpl();
-		return answer;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public AnswerTemplate createAnswerTemplate() {
-		AnswerTemplateImpl answerTemplate = new AnswerTemplateImpl();
-		return answerTemplate;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Referable createReferable() {
-		ReferableImpl referable = new ReferableImpl();
-		return referable;
+	public Multiple createMultiple() {
+		MultipleImpl multiple = new MultipleImpl();
+		return multiple;
 	}
 
 	/**
@@ -224,6 +197,36 @@ public class SurveyFactoryImpl extends EFactoryImpl implements SurveyFactory {
 	public AnswerTemplateRef createAnswerTemplateRef() {
 		AnswerTemplateRefImpl answerTemplateRef = new AnswerTemplateRefImpl();
 		return answerTemplateRef;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Answer createAnswer() {
+		AnswerImpl answer = new AnswerImpl();
+		return answer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AnswerTemplate createAnswerTemplate() {
+		AnswerTemplateImpl answerTemplate = new AnswerTemplateImpl();
+		return answerTemplate;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Referable createReferable() {
+		ReferableImpl referable = new ReferableImpl();
+		return referable;
 	}
 
 	/**

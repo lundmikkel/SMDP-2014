@@ -11,8 +11,8 @@ package survey;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link survey.Multiple#getLower <em>Lower</em>}</li>
- *   <li>{@link survey.Multiple#getUpper <em>Upper</em>}</li>
+ *   <li>{@link survey.Multiple#getMin <em>Min</em>}</li>
+ *   <li>{@link survey.Multiple#getMax <em>Max</em>}</li>
  *   <li>{@link survey.Multiple#isShowLimits <em>Show Limits</em>}</li>
  * </ul>
  * </p>
@@ -23,56 +23,56 @@ package survey;
  */
 public interface Multiple extends Question, Other, HasOptions {
 	/**
-	 * Returns the value of the '<em><b>Lower</b></em>' attribute.
+	 * Returns the value of the '<em><b>Min</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Lower</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Min</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Lower</em>' attribute.
-	 * @see #setLower(int)
-	 * @see survey.SurveyPackage#getMultiple_Lower()
+	 * @return the value of the '<em>Min</em>' attribute.
+	 * @see #setMin(int)
+	 * @see survey.SurveyPackage#getMultiple_Min()
 	 * @model
 	 * @generated
 	 */
-	int getLower();
+	int getMin();
 
 	/**
-	 * Sets the value of the '{@link survey.Multiple#getLower <em>Lower</em>}' attribute.
+	 * Sets the value of the '{@link survey.Multiple#getMin <em>Min</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Lower</em>' attribute.
-	 * @see #getLower()
+	 * @param value the new value of the '<em>Min</em>' attribute.
+	 * @see #getMin()
 	 * @generated
 	 */
-	void setLower(int value);
+	void setMin(int value);
 
 	/**
-	 * Returns the value of the '<em><b>Upper</b></em>' attribute.
+	 * Returns the value of the '<em><b>Max</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Upper</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Max</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Upper</em>' attribute.
-	 * @see #setUpper(int)
-	 * @see survey.SurveyPackage#getMultiple_Upper()
+	 * @return the value of the '<em>Max</em>' attribute.
+	 * @see #setMax(int)
+	 * @see survey.SurveyPackage#getMultiple_Max()
 	 * @model
 	 * @generated
 	 */
-	int getUpper();
+	int getMax();
 
 	/**
-	 * Sets the value of the '{@link survey.Multiple#getUpper <em>Upper</em>}' attribute.
+	 * Sets the value of the '{@link survey.Multiple#getMax <em>Max</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Upper</em>' attribute.
-	 * @see #getUpper()
+	 * @param value the new value of the '<em>Max</em>' attribute.
+	 * @see #getMax()
 	 * @generated
 	 */
-	void setUpper(int value);
+	void setMax(int value);
 
 	/**
 	 * Returns the value of the '<em><b>Show Limits</b></em>' attribute.

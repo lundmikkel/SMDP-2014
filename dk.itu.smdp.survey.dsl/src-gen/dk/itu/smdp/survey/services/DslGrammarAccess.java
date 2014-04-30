@@ -630,22 +630,22 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameIDTerminalRuleCall_1_2_1_0 = (RuleCall)cNameAssignment_1_2_1.eContents().get(0);
 		private final Keyword cQuotationMarkKeyword_1_2_2 = (Keyword)cGroup_1_2.eContents().get(2);
 		private final Group cGroup_1_3 = (Group)cUnorderedGroup_1.eContents().get(3);
-		private final Keyword cLowerKeyword_1_3_0 = (Keyword)cGroup_1_3.eContents().get(0);
-		private final Assignment cLowerAssignment_1_3_1 = (Assignment)cGroup_1_3.eContents().get(1);
-		private final RuleCall cLowerEIntParserRuleCall_1_3_1_0 = (RuleCall)cLowerAssignment_1_3_1.eContents().get(0);
+		private final Keyword cMinKeyword_1_3_0 = (Keyword)cGroup_1_3.eContents().get(0);
+		private final Assignment cMinAssignment_1_3_1 = (Assignment)cGroup_1_3.eContents().get(1);
+		private final RuleCall cMinEIntParserRuleCall_1_3_1_0 = (RuleCall)cMinAssignment_1_3_1.eContents().get(0);
 		private final Group cGroup_1_4 = (Group)cUnorderedGroup_1.eContents().get(4);
-		private final Keyword cUpperKeyword_1_4_0 = (Keyword)cGroup_1_4.eContents().get(0);
-		private final Assignment cUpperAssignment_1_4_1 = (Assignment)cGroup_1_4.eContents().get(1);
-		private final RuleCall cUpperEIntParserRuleCall_1_4_1_0 = (RuleCall)cUpperAssignment_1_4_1.eContents().get(0);
+		private final Keyword cMaxKeyword_1_4_0 = (Keyword)cGroup_1_4.eContents().get(0);
+		private final Assignment cMaxAssignment_1_4_1 = (Assignment)cGroup_1_4.eContents().get(1);
+		private final RuleCall cMaxEIntParserRuleCall_1_4_1_0 = (RuleCall)cMaxAssignment_1_4_1.eContents().get(0);
 		private final Group cGroup_1_5 = (Group)cUnorderedGroup_1.eContents().get(5);
-		private final Keyword cLowerLabelKeyword_1_5_0 = (Keyword)cGroup_1_5.eContents().get(0);
-		private final Assignment cLowerLabelAssignment_1_5_1 = (Assignment)cGroup_1_5.eContents().get(1);
-		private final RuleCall cLowerLabelEStringParserRuleCall_1_5_1_0 = (RuleCall)cLowerLabelAssignment_1_5_1.eContents().get(0);
+		private final Keyword cMinLabelKeyword_1_5_0 = (Keyword)cGroup_1_5.eContents().get(0);
+		private final Assignment cMinLabelAssignment_1_5_1 = (Assignment)cGroup_1_5.eContents().get(1);
+		private final RuleCall cMinLabelEStringParserRuleCall_1_5_1_0 = (RuleCall)cMinLabelAssignment_1_5_1.eContents().get(0);
 		private final Keyword cQuotationMarkKeyword_1_5_2 = (Keyword)cGroup_1_5.eContents().get(2);
 		private final Group cGroup_1_6 = (Group)cUnorderedGroup_1.eContents().get(6);
-		private final Keyword cUpperLabelKeyword_1_6_0 = (Keyword)cGroup_1_6.eContents().get(0);
-		private final Assignment cUpperLabelAssignment_1_6_1 = (Assignment)cGroup_1_6.eContents().get(1);
-		private final RuleCall cUpperLabelEStringParserRuleCall_1_6_1_0 = (RuleCall)cUpperLabelAssignment_1_6_1.eContents().get(0);
+		private final Keyword cMaxLabelKeyword_1_6_0 = (Keyword)cGroup_1_6.eContents().get(0);
+		private final Assignment cMaxLabelAssignment_1_6_1 = (Assignment)cGroup_1_6.eContents().get(1);
+		private final RuleCall cMaxLabelEStringParserRuleCall_1_6_1_0 = (RuleCall)cMaxLabelAssignment_1_6_1.eContents().get(0);
 		private final Keyword cQuotationMarkKeyword_1_6_2 = (Keyword)cGroup_1_6.eContents().get(2);
 		private final Group cGroup_1_7 = (Group)cUnorderedGroup_1.eContents().get(7);
 		private final Keyword cDependsOnKeyword_1_7_0 = (Keyword)cGroup_1_7.eContents().get(0);
@@ -659,14 +659,14 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Scale:
 		//	"<scale" ("title=\"" title=EString "\"" // TODO: Force that if one label is set, both should be
-		//	& ("description=\"" description=EString "\"")? & ("id=\"" name=ID "\"")? & "lower=" lower=EInt & "upper=" upper=EInt &
-		//	("lowerLabel=\"" lowerLabel=EString "\"")? & ("upperLabel=\"" upperLabel=EString "\"")? & ("dependsOn=\""
+		//	& ("description=\"" description=EString "\"")? & ("id=\"" name=ID "\"")? & "min=" min=EInt & "max=" max=EInt &
+		//	("minLabel=\"" minLabel=EString "\"")? & ("maxLabel=\"" maxLabel=EString "\"")? & ("dependsOn=\""
 		//	dependsOn=[Referable|FQN] "\"")? & required?="required"?) "/>";
 		public ParserRule getRule() { return rule; }
 
 		//"<scale" ("title=\"" title=EString "\"" // TODO: Force that if one label is set, both should be
-		//& ("description=\"" description=EString "\"")? & ("id=\"" name=ID "\"")? & "lower=" lower=EInt & "upper=" upper=EInt &
-		//("lowerLabel=\"" lowerLabel=EString "\"")? & ("upperLabel=\"" upperLabel=EString "\"")? & ("dependsOn=\""
+		//& ("description=\"" description=EString "\"")? & ("id=\"" name=ID "\"")? & "min=" min=EInt & "max=" max=EInt &
+		//("minLabel=\"" minLabel=EString "\"")? & ("maxLabel=\"" maxLabel=EString "\"")? & ("dependsOn=\""
 		//dependsOn=[Referable|FQN] "\"")? & required?="required"?) "/>"
 		public Group getGroup() { return cGroup; }
 
@@ -674,8 +674,8 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getScaleKeyword_0() { return cScaleKeyword_0; }
 
 		//"title=\"" title=EString "\"" // TODO: Force that if one label is set, both should be
-		//& ("description=\"" description=EString "\"")? & ("id=\"" name=ID "\"")? & "lower=" lower=EInt & "upper=" upper=EInt &
-		//("lowerLabel=\"" lowerLabel=EString "\"")? & ("upperLabel=\"" upperLabel=EString "\"")? & ("dependsOn=\""
+		//& ("description=\"" description=EString "\"")? & ("id=\"" name=ID "\"")? & "min=" min=EInt & "max=" max=EInt &
+		//("minLabel=\"" minLabel=EString "\"")? & ("maxLabel=\"" maxLabel=EString "\"")? & ("dependsOn=\""
 		//dependsOn=[Referable|FQN] "\"")? & required?="required"?
 		public UnorderedGroup getUnorderedGroup_1() { return cUnorderedGroup_1; }
 
@@ -724,56 +724,56 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//"\""
 		public Keyword getQuotationMarkKeyword_1_2_2() { return cQuotationMarkKeyword_1_2_2; }
 
-		//"lower=" lower=EInt
+		//"min=" min=EInt
 		public Group getGroup_1_3() { return cGroup_1_3; }
 
-		//"lower="
-		public Keyword getLowerKeyword_1_3_0() { return cLowerKeyword_1_3_0; }
+		//"min="
+		public Keyword getMinKeyword_1_3_0() { return cMinKeyword_1_3_0; }
 
-		//lower=EInt
-		public Assignment getLowerAssignment_1_3_1() { return cLowerAssignment_1_3_1; }
+		//min=EInt
+		public Assignment getMinAssignment_1_3_1() { return cMinAssignment_1_3_1; }
 
 		//EInt
-		public RuleCall getLowerEIntParserRuleCall_1_3_1_0() { return cLowerEIntParserRuleCall_1_3_1_0; }
+		public RuleCall getMinEIntParserRuleCall_1_3_1_0() { return cMinEIntParserRuleCall_1_3_1_0; }
 
-		//"upper=" upper=EInt
+		//"max=" max=EInt
 		public Group getGroup_1_4() { return cGroup_1_4; }
 
-		//"upper="
-		public Keyword getUpperKeyword_1_4_0() { return cUpperKeyword_1_4_0; }
+		//"max="
+		public Keyword getMaxKeyword_1_4_0() { return cMaxKeyword_1_4_0; }
 
-		//upper=EInt
-		public Assignment getUpperAssignment_1_4_1() { return cUpperAssignment_1_4_1; }
+		//max=EInt
+		public Assignment getMaxAssignment_1_4_1() { return cMaxAssignment_1_4_1; }
 
 		//EInt
-		public RuleCall getUpperEIntParserRuleCall_1_4_1_0() { return cUpperEIntParserRuleCall_1_4_1_0; }
+		public RuleCall getMaxEIntParserRuleCall_1_4_1_0() { return cMaxEIntParserRuleCall_1_4_1_0; }
 
-		//("lowerLabel=\"" lowerLabel=EString "\"")?
+		//("minLabel=\"" minLabel=EString "\"")?
 		public Group getGroup_1_5() { return cGroup_1_5; }
 
-		//"lowerLabel=\""
-		public Keyword getLowerLabelKeyword_1_5_0() { return cLowerLabelKeyword_1_5_0; }
+		//"minLabel=\""
+		public Keyword getMinLabelKeyword_1_5_0() { return cMinLabelKeyword_1_5_0; }
 
-		//lowerLabel=EString
-		public Assignment getLowerLabelAssignment_1_5_1() { return cLowerLabelAssignment_1_5_1; }
+		//minLabel=EString
+		public Assignment getMinLabelAssignment_1_5_1() { return cMinLabelAssignment_1_5_1; }
 
 		//EString
-		public RuleCall getLowerLabelEStringParserRuleCall_1_5_1_0() { return cLowerLabelEStringParserRuleCall_1_5_1_0; }
+		public RuleCall getMinLabelEStringParserRuleCall_1_5_1_0() { return cMinLabelEStringParserRuleCall_1_5_1_0; }
 
 		//"\""
 		public Keyword getQuotationMarkKeyword_1_5_2() { return cQuotationMarkKeyword_1_5_2; }
 
-		//("upperLabel=\"" upperLabel=EString "\"")?
+		//("maxLabel=\"" maxLabel=EString "\"")?
 		public Group getGroup_1_6() { return cGroup_1_6; }
 
-		//"upperLabel=\""
-		public Keyword getUpperLabelKeyword_1_6_0() { return cUpperLabelKeyword_1_6_0; }
+		//"maxLabel=\""
+		public Keyword getMaxLabelKeyword_1_6_0() { return cMaxLabelKeyword_1_6_0; }
 
-		//upperLabel=EString
-		public Assignment getUpperLabelAssignment_1_6_1() { return cUpperLabelAssignment_1_6_1; }
+		//maxLabel=EString
+		public Assignment getMaxLabelAssignment_1_6_1() { return cMaxLabelAssignment_1_6_1; }
 
 		//EString
-		public RuleCall getUpperLabelEStringParserRuleCall_1_6_1_0() { return cUpperLabelEStringParserRuleCall_1_6_1_0; }
+		public RuleCall getMaxLabelEStringParserRuleCall_1_6_1_0() { return cMaxLabelEStringParserRuleCall_1_6_1_0; }
 
 		//"\""
 		public Keyword getQuotationMarkKeyword_1_6_2() { return cQuotationMarkKeyword_1_6_2; }
@@ -1041,13 +1041,13 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameIDTerminalRuleCall_2_2_1_0 = (RuleCall)cNameAssignment_2_2_1.eContents().get(0);
 		private final Keyword cQuotationMarkKeyword_2_2_2 = (Keyword)cGroup_2_2.eContents().get(2);
 		private final Group cGroup_2_3 = (Group)cUnorderedGroup_2.eContents().get(3);
-		private final Keyword cLowerKeyword_2_3_0 = (Keyword)cGroup_2_3.eContents().get(0);
-		private final Assignment cLowerAssignment_2_3_1 = (Assignment)cGroup_2_3.eContents().get(1);
-		private final RuleCall cLowerEIntParserRuleCall_2_3_1_0 = (RuleCall)cLowerAssignment_2_3_1.eContents().get(0);
+		private final Keyword cMinKeyword_2_3_0 = (Keyword)cGroup_2_3.eContents().get(0);
+		private final Assignment cMinAssignment_2_3_1 = (Assignment)cGroup_2_3.eContents().get(1);
+		private final RuleCall cMinEIntParserRuleCall_2_3_1_0 = (RuleCall)cMinAssignment_2_3_1.eContents().get(0);
 		private final Group cGroup_2_4 = (Group)cUnorderedGroup_2.eContents().get(4);
-		private final Keyword cUpperKeyword_2_4_0 = (Keyword)cGroup_2_4.eContents().get(0);
-		private final Assignment cUpperAssignment_2_4_1 = (Assignment)cGroup_2_4.eContents().get(1);
-		private final RuleCall cUpperEIntParserRuleCall_2_4_1_0 = (RuleCall)cUpperAssignment_2_4_1.eContents().get(0);
+		private final Keyword cMaxKeyword_2_4_0 = (Keyword)cGroup_2_4.eContents().get(0);
+		private final Assignment cMaxAssignment_2_4_1 = (Assignment)cGroup_2_4.eContents().get(1);
+		private final RuleCall cMaxEIntParserRuleCall_2_4_1_0 = (RuleCall)cMaxAssignment_2_4_1.eContents().get(0);
 		private final Group cGroup_2_5 = (Group)cUnorderedGroup_2.eContents().get(5);
 		private final Keyword cDependsOnKeyword_2_5_0 = (Keyword)cGroup_2_5.eContents().get(0);
 		private final Assignment cDependsOnAssignment_2_5_1 = (Assignment)cGroup_2_5.eContents().get(1);
@@ -1065,12 +1065,12 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Number:
 		//	{Number} "<number" ("title=\"" title=EString "\"" & ("description=\"" description=EString "\"")? & ("id=\"" name=ID
-		//	"\"")? & ("lower=" lower=EInt)? & ("upper=" upper=EInt)? & ("dependsOn=\"" dependsOn=[Referable|FQN] "\"")? &
+		//	"\"")? & ("min=" min=EInt)? & ("max=" max=EInt)? & ("dependsOn=\"" dependsOn=[Referable|FQN] "\"")? &
 		//	required?="required"? & showLimits?=("show-limits" | "show" | "limits")?) "/>";
 		public ParserRule getRule() { return rule; }
 
 		//{Number} "<number" ("title=\"" title=EString "\"" & ("description=\"" description=EString "\"")? & ("id=\"" name=ID
-		//"\"")? & ("lower=" lower=EInt)? & ("upper=" upper=EInt)? & ("dependsOn=\"" dependsOn=[Referable|FQN] "\"")? &
+		//"\"")? & ("min=" min=EInt)? & ("max=" max=EInt)? & ("dependsOn=\"" dependsOn=[Referable|FQN] "\"")? &
 		//required?="required"? & showLimits?=("show-limits" | "show" | "limits")?) "/>"
 		public Group getGroup() { return cGroup; }
 
@@ -1080,8 +1080,8 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//"<number"
 		public Keyword getNumberKeyword_1() { return cNumberKeyword_1; }
 
-		//"title=\"" title=EString "\"" & ("description=\"" description=EString "\"")? & ("id=\"" name=ID "\"")? & ("lower="
-		//lower=EInt)? & ("upper=" upper=EInt)? & ("dependsOn=\"" dependsOn=[Referable|FQN] "\"")? & required?="required"? &
+		//"title=\"" title=EString "\"" & ("description=\"" description=EString "\"")? & ("id=\"" name=ID "\"")? & ("min="
+		//min=EInt)? & ("max=" max=EInt)? & ("dependsOn=\"" dependsOn=[Referable|FQN] "\"")? & required?="required"? &
 		//showLimits?=("show-limits" | "show" | "limits")?
 		public UnorderedGroup getUnorderedGroup_2() { return cUnorderedGroup_2; }
 
@@ -1130,29 +1130,29 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//"\""
 		public Keyword getQuotationMarkKeyword_2_2_2() { return cQuotationMarkKeyword_2_2_2; }
 
-		//("lower=" lower=EInt)?
+		//("min=" min=EInt)?
 		public Group getGroup_2_3() { return cGroup_2_3; }
 
-		//"lower="
-		public Keyword getLowerKeyword_2_3_0() { return cLowerKeyword_2_3_0; }
+		//"min="
+		public Keyword getMinKeyword_2_3_0() { return cMinKeyword_2_3_0; }
 
-		//lower=EInt
-		public Assignment getLowerAssignment_2_3_1() { return cLowerAssignment_2_3_1; }
+		//min=EInt
+		public Assignment getMinAssignment_2_3_1() { return cMinAssignment_2_3_1; }
 
 		//EInt
-		public RuleCall getLowerEIntParserRuleCall_2_3_1_0() { return cLowerEIntParserRuleCall_2_3_1_0; }
+		public RuleCall getMinEIntParserRuleCall_2_3_1_0() { return cMinEIntParserRuleCall_2_3_1_0; }
 
-		//("upper=" upper=EInt)?
+		//("max=" max=EInt)?
 		public Group getGroup_2_4() { return cGroup_2_4; }
 
-		//"upper="
-		public Keyword getUpperKeyword_2_4_0() { return cUpperKeyword_2_4_0; }
+		//"max="
+		public Keyword getMaxKeyword_2_4_0() { return cMaxKeyword_2_4_0; }
 
-		//upper=EInt
-		public Assignment getUpperAssignment_2_4_1() { return cUpperAssignment_2_4_1; }
+		//max=EInt
+		public Assignment getMaxAssignment_2_4_1() { return cMaxAssignment_2_4_1; }
 
 		//EInt
-		public RuleCall getUpperEIntParserRuleCall_2_4_1_0() { return cUpperEIntParserRuleCall_2_4_1_0; }
+		public RuleCall getMaxEIntParserRuleCall_2_4_1_0() { return cMaxEIntParserRuleCall_2_4_1_0; }
 
 		//("dependsOn=\"" dependsOn=[Referable|FQN] "\"")?
 		public Group getGroup_2_5() { return cGroup_2_5; }
@@ -1359,13 +1359,13 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameIDTerminalRuleCall_1_2_1_0 = (RuleCall)cNameAssignment_1_2_1.eContents().get(0);
 		private final Keyword cQuotationMarkKeyword_1_2_2 = (Keyword)cGroup_1_2.eContents().get(2);
 		private final Group cGroup_1_3 = (Group)cUnorderedGroup_1.eContents().get(3);
-		private final Keyword cLowerKeyword_1_3_0 = (Keyword)cGroup_1_3.eContents().get(0);
-		private final Assignment cLowerAssignment_1_3_1 = (Assignment)cGroup_1_3.eContents().get(1);
-		private final RuleCall cLowerINTTerminalRuleCall_1_3_1_0 = (RuleCall)cLowerAssignment_1_3_1.eContents().get(0);
+		private final Keyword cMinKeyword_1_3_0 = (Keyword)cGroup_1_3.eContents().get(0);
+		private final Assignment cMinAssignment_1_3_1 = (Assignment)cGroup_1_3.eContents().get(1);
+		private final RuleCall cMinINTTerminalRuleCall_1_3_1_0 = (RuleCall)cMinAssignment_1_3_1.eContents().get(0);
 		private final Group cGroup_1_4 = (Group)cUnorderedGroup_1.eContents().get(4);
-		private final Keyword cUpperKeyword_1_4_0 = (Keyword)cGroup_1_4.eContents().get(0);
-		private final Assignment cUpperAssignment_1_4_1 = (Assignment)cGroup_1_4.eContents().get(1);
-		private final RuleCall cUpperINTTerminalRuleCall_1_4_1_0 = (RuleCall)cUpperAssignment_1_4_1.eContents().get(0);
+		private final Keyword cMaxKeyword_1_4_0 = (Keyword)cGroup_1_4.eContents().get(0);
+		private final Assignment cMaxAssignment_1_4_1 = (Assignment)cGroup_1_4.eContents().get(1);
+		private final RuleCall cMaxINTTerminalRuleCall_1_4_1_0 = (RuleCall)cMaxAssignment_1_4_1.eContents().get(0);
 		private final Group cGroup_1_5 = (Group)cUnorderedGroup_1.eContents().get(5);
 		private final Keyword cDependsOnKeyword_1_5_0 = (Keyword)cGroup_1_5.eContents().get(0);
 		private final Assignment cDependsOnAssignment_1_5_1 = (Assignment)cGroup_1_5.eContents().get(1);
@@ -1388,22 +1388,20 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Multiple:
 		//	"<multiple" ("title=\"" title=EString "\"" & ("description=\"" description=EString "\"")? & ("id\"\"" name=ID "\"")? &
-		//	("lower=" lower=INT)? & ("upper=" upper=INT)? & ("dependsOn=\"" dependsOn=[Referable|FQN] "\"")? &
-		//	required?="required"? & other?="other"? & showLimits?=("show-limits" | "show" | "limits")?) ">" options+=Option+
-		//	"</multiple>";
+		//	("min=" min=INT)? & ("max=" max=INT)? & ("dependsOn=\"" dependsOn=[Referable|FQN] "\"")? & required?="required"? &
+		//	other?="other"? & showLimits?=("show-limits" | "show" | "limits")?) ">" options+=Option+ "</multiple>";
 		public ParserRule getRule() { return rule; }
 
 		//"<multiple" ("title=\"" title=EString "\"" & ("description=\"" description=EString "\"")? & ("id\"\"" name=ID "\"")? &
-		//("lower=" lower=INT)? & ("upper=" upper=INT)? & ("dependsOn=\"" dependsOn=[Referable|FQN] "\"")? &
-		//required?="required"? & other?="other"? & showLimits?=("show-limits" | "show" | "limits")?) ">" options+=Option+
-		//"</multiple>"
+		//("min=" min=INT)? & ("max=" max=INT)? & ("dependsOn=\"" dependsOn=[Referable|FQN] "\"")? & required?="required"? &
+		//other?="other"? & showLimits?=("show-limits" | "show" | "limits")?) ">" options+=Option+ "</multiple>"
 		public Group getGroup() { return cGroup; }
 
 		//"<multiple"
 		public Keyword getMultipleKeyword_0() { return cMultipleKeyword_0; }
 
-		//"title=\"" title=EString "\"" & ("description=\"" description=EString "\"")? & ("id\"\"" name=ID "\"")? & ("lower="
-		//lower=INT)? & ("upper=" upper=INT)? & ("dependsOn=\"" dependsOn=[Referable|FQN] "\"")? & required?="required"? &
+		//"title=\"" title=EString "\"" & ("description=\"" description=EString "\"")? & ("id\"\"" name=ID "\"")? & ("min="
+		//min=INT)? & ("max=" max=INT)? & ("dependsOn=\"" dependsOn=[Referable|FQN] "\"")? & required?="required"? &
 		//other?="other"? & showLimits?=("show-limits" | "show" | "limits")?
 		public UnorderedGroup getUnorderedGroup_1() { return cUnorderedGroup_1; }
 
@@ -1452,29 +1450,29 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//"\""
 		public Keyword getQuotationMarkKeyword_1_2_2() { return cQuotationMarkKeyword_1_2_2; }
 
-		//("lower=" lower=INT)?
+		//("min=" min=INT)?
 		public Group getGroup_1_3() { return cGroup_1_3; }
 
-		//"lower="
-		public Keyword getLowerKeyword_1_3_0() { return cLowerKeyword_1_3_0; }
+		//"min="
+		public Keyword getMinKeyword_1_3_0() { return cMinKeyword_1_3_0; }
 
-		//lower=INT
-		public Assignment getLowerAssignment_1_3_1() { return cLowerAssignment_1_3_1; }
+		//min=INT
+		public Assignment getMinAssignment_1_3_1() { return cMinAssignment_1_3_1; }
 
 		//INT
-		public RuleCall getLowerINTTerminalRuleCall_1_3_1_0() { return cLowerINTTerminalRuleCall_1_3_1_0; }
+		public RuleCall getMinINTTerminalRuleCall_1_3_1_0() { return cMinINTTerminalRuleCall_1_3_1_0; }
 
-		//("upper=" upper=INT)?
+		//("max=" max=INT)?
 		public Group getGroup_1_4() { return cGroup_1_4; }
 
-		//"upper="
-		public Keyword getUpperKeyword_1_4_0() { return cUpperKeyword_1_4_0; }
+		//"max="
+		public Keyword getMaxKeyword_1_4_0() { return cMaxKeyword_1_4_0; }
 
-		//upper=INT
-		public Assignment getUpperAssignment_1_4_1() { return cUpperAssignment_1_4_1; }
+		//max=INT
+		public Assignment getMaxAssignment_1_4_1() { return cMaxAssignment_1_4_1; }
 
 		//INT
-		public RuleCall getUpperINTTerminalRuleCall_1_4_1_0() { return cUpperINTTerminalRuleCall_1_4_1_0; }
+		public RuleCall getMaxINTTerminalRuleCall_1_4_1_0() { return cMaxINTTerminalRuleCall_1_4_1_0; }
 
 		//("dependsOn=\"" dependsOn=[Referable|FQN] "\"")?
 		public Group getGroup_1_5() { return cGroup_1_5; }
@@ -1965,8 +1963,8 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 
 	//Scale:
 	//	"<scale" ("title=\"" title=EString "\"" // TODO: Force that if one label is set, both should be
-	//	& ("description=\"" description=EString "\"")? & ("id=\"" name=ID "\"")? & "lower=" lower=EInt & "upper=" upper=EInt &
-	//	("lowerLabel=\"" lowerLabel=EString "\"")? & ("upperLabel=\"" upperLabel=EString "\"")? & ("dependsOn=\""
+	//	& ("description=\"" description=EString "\"")? & ("id=\"" name=ID "\"")? & "min=" min=EInt & "max=" max=EInt &
+	//	("minLabel=\"" minLabel=EString "\"")? & ("maxLabel=\"" maxLabel=EString "\"")? & ("dependsOn=\""
 	//	dependsOn=[Referable|FQN] "\"")? & required?="required"?) "/>";
 	public ScaleElements getScaleAccess() {
 		return (pScale != null) ? pScale : (pScale = new ScaleElements());
@@ -1991,7 +1989,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 
 	//Number:
 	//	{Number} "<number" ("title=\"" title=EString "\"" & ("description=\"" description=EString "\"")? & ("id=\"" name=ID
-	//	"\"")? & ("lower=" lower=EInt)? & ("upper=" upper=EInt)? & ("dependsOn=\"" dependsOn=[Referable|FQN] "\"")? &
+	//	"\"")? & ("min=" min=EInt)? & ("max=" max=EInt)? & ("dependsOn=\"" dependsOn=[Referable|FQN] "\"")? &
 	//	required?="required"? & showLimits?=("show-limits" | "show" | "limits")?) "/>";
 	public NumberElements getNumberAccess() {
 		return (pNumber != null) ? pNumber : (pNumber = new NumberElements());
@@ -2015,9 +2013,8 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 
 	//Multiple:
 	//	"<multiple" ("title=\"" title=EString "\"" & ("description=\"" description=EString "\"")? & ("id\"\"" name=ID "\"")? &
-	//	("lower=" lower=INT)? & ("upper=" upper=INT)? & ("dependsOn=\"" dependsOn=[Referable|FQN] "\"")? &
-	//	required?="required"? & other?="other"? & showLimits?=("show-limits" | "show" | "limits")?) ">" options+=Option+
-	//	"</multiple>";
+	//	("min=" min=INT)? & ("max=" max=INT)? & ("dependsOn=\"" dependsOn=[Referable|FQN] "\"")? & required?="required"? &
+	//	other?="other"? & showLimits?=("show-limits" | "show" | "limits")?) ">" options+=Option+ "</multiple>";
 	public MultipleElements getMultipleAccess() {
 		return (pMultiple != null) ? pMultiple : (pMultiple = new MultipleElements());
 	}

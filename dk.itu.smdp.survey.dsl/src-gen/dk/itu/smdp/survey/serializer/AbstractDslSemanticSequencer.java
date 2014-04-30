@@ -205,8 +205,8 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	 *         title=EString 
 	 *         description=EString? 
 	 *         name=ID? 
-	 *         lower=INT? 
-	 *         upper=INT? 
+	 *         min=INT? 
+	 *         max=INT? 
 	 *         dependsOn=[Referable|FQN]? 
 	 *         required?='required'? 
 	 *         other?='other'? 
@@ -225,8 +225,8 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	 *         title=EString 
 	 *         description=EString? 
 	 *         name=ID? 
-	 *         lower=EInt? 
-	 *         upper=EInt? 
+	 *         min=EInt? 
+	 *         max=EInt? 
 	 *         dependsOn=[Referable|FQN]? 
 	 *         required?='required'? 
 	 *         (showLimits?='show-limits' | showLimits?='show' | showLimits?='limits')?
@@ -243,10 +243,10 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	 *         title=EString 
 	 *         description=EString? 
 	 *         name=ID? 
-	 *         lower=EInt 
-	 *         upper=EInt 
-	 *         lowerLabel=EString? 
-	 *         upperLabel=EString? 
+	 *         min=EInt 
+	 *         max=EInt 
+	 *         minLabel=EString? 
+	 *         maxLabel=EString? 
 	 *         dependsOn=[Referable|FQN]? 
 	 *         required?='required'?
 	 *     )

@@ -270,52 +270,52 @@ class DslValidator extends AbstractDslValidator {
 	}
 
 	/*
- * Check that the upper value in a scale question is larger than the lower value 
+ * Check that the max value in a scale question is larger than the min value 
  */
 	@Check
 	def checkThatLowerIsLargerThanUpperScale(Survey survey) {
 		for (Question question : survey.items.filter(typeof(Question))) {
 			if (question instanceof Scale) {
 				var scale = question as Scale
-				if (scale.lower >= scale.upper) {
-					val lowerLessThanUpperString = 'Scale upper value must be larger than lower value' 
+				if (scale.min >= scale.max) {
+					val minLessThanUpperString = 'Scale max value must be larger than min value' 
 					error(
-						lowerLessThanUpperString,
+						minLessThanUpperString,
 						scale,
-						SurveyPackage.Literals.SCALE__LOWER,
+						SurveyPackage.Literals.SCALE__MIN,
 						INVALID_VALUE
 					)
 					error(
-						lowerLessThanUpperString,
+						minLessThanUpperString,
 						scale,
-						SurveyPackage.Literals.SCALE__UPPER,
+						SurveyPackage.Literals.SCALE__MAX,
 						INVALID_VALUE
 					)
 				}
 				
 				val largeScaleString = 'Large scales may not render properly nor be very user friendly'
-				if (scale.upper - scale.lower > 20) {
+				if (scale.max - scale.min > 20) {
 					warning(
 						largeScaleString,
 						scale,
-						SurveyPackage.Literals.SCALE__LOWER
+						SurveyPackage.Literals.SCALE__MIN
 					)
 					warning(
 						largeScaleString,
 						scale,
-						SurveyPackage.Literals.SCALE__UPPER
+						SurveyPackage.Literals.SCALE__MAX
 					)
 				}
 				
 				val bothLabelsString = 'You must specify both labels or none of them'
-				if (scale.lowerLabel.nullOrEmpty != scale.upperLabel.nullOrEmpty) {
-					println("Lower \"" + scale.lowerLabel + "\"")
-					println("Upper \"" + scale.upperLabel + "\"")
-					if (!scale.lowerLabel.nullOrEmpty) {
+				if (scale.minLabel.nullOrEmpty != scale.maxLabel.nullOrEmpty) {
+					println("Lower \"" + scale.minLabel + "\"")
+					println("Upper \"" + scale.maxLabel + "\"")
+					if (!scale.minLabel.nullOrEmpty) {
 						error(
 							bothLabelsString,
 							scale,
-							SurveyPackage.Literals.SCALE__LOWER_LABEL,
+							SurveyPackage.Literals.SCALE__MIN_LABEL,
 							INVALID_VALUE
 						)
 					}
@@ -323,7 +323,7 @@ class DslValidator extends AbstractDslValidator {
 						error(
 							bothLabelsString,
 							scale,
-							SurveyPackage.Literals.SCALE__UPPER_LABEL,
+							SurveyPackage.Literals.SCALE__MAX_LABEL,
 							INVALID_VALUE
 						)
 					}
@@ -333,27 +333,27 @@ class DslValidator extends AbstractDslValidator {
 	}
 
 	/*
- * Check that the upper value in a number question is larger than the lower value 
+ * Check that the max value in a number question is larger than the min value 
  */
 	@Check
 	def checkThatLowerIsLargerThanUpperNumber(Survey survey) {
 		for (Question question : survey.items.filter(typeof(Question))) {
 			if (question instanceof Number) {
  				var number = question as Number
-				val lowerLessThanUpperString = 'Number upper value must be larger than lower value'
-				val lower = number.lower
-				val upper = number.upper
-				if (lower != null && upper != null && lower >= upper) {
+				val minLessThanUpperString = 'Number max value must be larger than min value'
+				val min = number.min
+				val max = number.max
+				if (min != null && max != null && min >= max) {
 					error(
-						lowerLessThanUpperString,
+						minLessThanUpperString,
 						number,
-						SurveyPackage.Literals.NUMBER__LOWER,
+						SurveyPackage.Literals.NUMBER__MIN,
 						INVALID_VALUE
 					)
 					error(
-						lowerLessThanUpperString,
+						minLessThanUpperString,
 						number,
-						SurveyPackage.Literals.NUMBER__UPPER,
+						SurveyPackage.Literals.NUMBER__MAX,
 						INVALID_VALUE
 					)
 				}
@@ -362,18 +362,18 @@ class DslValidator extends AbstractDslValidator {
 	}
 
 	/*
- * Check that the upper value in a multiple question is larger than the lower value 
+ * Check that the max value in a multiple question is larger than the min value 
  */
 	@Check
 	def checkThatLowerIsLargerThanUpperMultiple(Survey survey) {
 		for (Question question : survey.items.filter(typeof(Question))) {
 			if (question instanceof Multiple) {
 				var multiple = question as Multiple
-				if (multiple.lower > multiple.upper) {
+				if (multiple.min > multiple.max) {
 					error(
-						'Multiple upper value must be larger than lower value',
+						'Multiple max value must be larger than min value',
 						multiple,
-						SurveyPackage.Literals.MULTIPLE__UPPER,
+						SurveyPackage.Literals.MULTIPLE__MAX,
 						INVALID_VALUE
 					)
 				}

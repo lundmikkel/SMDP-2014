@@ -367,8 +367,8 @@ public class DslGenerator implements IGenerator {
       _builder.append("<tr class=\"top\">");
       _builder.newLine();
       {
-        String _lowerLabel = question.getLowerLabel();
-        boolean _isNullOrEmpty = StringExtensions.isNullOrEmpty(_lowerLabel);
+        String _minLabel = question.getMinLabel();
+        boolean _isNullOrEmpty = StringExtensions.isNullOrEmpty(_minLabel);
         boolean _not = (!_isNullOrEmpty);
         if (_not) {
           _builder.append("            \t");
@@ -377,9 +377,9 @@ public class DslGenerator implements IGenerator {
         }
       }
       {
-        int _lower = question.getLower();
-        int _upper = question.getUpper();
-        IntegerRange _upTo = new IntegerRange(_lower, _upper);
+        int _min = question.getMin();
+        int _max = question.getMax();
+        IntegerRange _upTo = new IntegerRange(_min, _max);
         boolean _hasElements = false;
         for(final Integer i : _upTo) {
           if (!_hasElements) {
@@ -403,8 +403,8 @@ public class DslGenerator implements IGenerator {
         }
       }
       {
-        String _lowerLabel_1 = question.getLowerLabel();
-        boolean _isNullOrEmpty_1 = StringExtensions.isNullOrEmpty(_lowerLabel_1);
+        String _minLabel_1 = question.getMinLabel();
+        boolean _isNullOrEmpty_1 = StringExtensions.isNullOrEmpty(_minLabel_1);
         boolean _not_1 = (!_isNullOrEmpty_1);
         if (_not_1) {
           _builder.append("            \t");
@@ -419,27 +419,27 @@ public class DslGenerator implements IGenerator {
       _builder.append("<tr class=\"bottom\">");
       _builder.newLine();
       {
-        String _lowerLabel_2 = question.getLowerLabel();
-        boolean _isNullOrEmpty_2 = StringExtensions.isNullOrEmpty(_lowerLabel_2);
+        String _minLabel_2 = question.getMinLabel();
+        boolean _isNullOrEmpty_2 = StringExtensions.isNullOrEmpty(_minLabel_2);
         boolean _not_2 = (!_isNullOrEmpty_2);
         if (_not_2) {
           _builder.append("            \t");
           _builder.append("<td><label for=\"");
           _builder.append(id, "            	");
           _builder.append("_");
-          int _lower_1 = question.getLower();
-          _builder.append(_lower_1, "            	");
+          int _min_1 = question.getMin();
+          _builder.append(_min_1, "            	");
           _builder.append("\">");
-          String _lowerLabel_3 = question.getLowerLabel();
-          _builder.append(_lowerLabel_3, "            	");
+          String _minLabel_3 = question.getMinLabel();
+          _builder.append(_minLabel_3, "            	");
           _builder.append("</label></td>");
           _builder.newLineIfNotEmpty();
         }
       }
       {
-        int _lower_2 = question.getLower();
-        int _upper_1 = question.getUpper();
-        IntegerRange _upTo_1 = new IntegerRange(_lower_2, _upper_1);
+        int _min_2 = question.getMin();
+        int _max_1 = question.getMax();
+        IntegerRange _upTo_1 = new IntegerRange(_min_2, _max_1);
         boolean _hasElements_1 = false;
         for(final Integer i_1 : _upTo_1) {
           if (!_hasElements_1) {
@@ -468,19 +468,19 @@ public class DslGenerator implements IGenerator {
         }
       }
       {
-        String _lowerLabel_4 = question.getLowerLabel();
-        boolean _isNullOrEmpty_3 = StringExtensions.isNullOrEmpty(_lowerLabel_4);
+        String _minLabel_4 = question.getMinLabel();
+        boolean _isNullOrEmpty_3 = StringExtensions.isNullOrEmpty(_minLabel_4);
         boolean _not_3 = (!_isNullOrEmpty_3);
         if (_not_3) {
           _builder.append("            \t");
           _builder.append("<td><label for=\"");
           _builder.append(id, "            	");
           _builder.append("_");
-          int _upper_2 = question.getUpper();
-          _builder.append(_upper_2, "            	");
+          int _max_2 = question.getMax();
+          _builder.append(_max_2, "            	");
           _builder.append("\">");
-          String _upperLabel = question.getUpperLabel();
-          _builder.append(_upperLabel, "            	");
+          String _maxLabel = question.getMaxLabel();
+          _builder.append(_maxLabel, "            	");
           _builder.append("</label></td>");
           _builder.newLineIfNotEmpty();
         }
@@ -546,25 +546,25 @@ public class DslGenerator implements IGenerator {
       _builder.append(" step=\"1\"");
       _builder.newLineIfNotEmpty();
       {
-        Integer _lower = question.getLower();
-        boolean _notEquals = (!Objects.equal(_lower, null));
+        Integer _min = question.getMin();
+        boolean _notEquals = (!Objects.equal(_min, null));
         if (_notEquals) {
           _builder.append("            ");
           _builder.append("min=\"");
-          Integer _lower_1 = question.getLower();
-          _builder.append(_lower_1, "            ");
+          Integer _min_1 = question.getMin();
+          _builder.append(_min_1, "            ");
           _builder.append("\"");
           _builder.newLineIfNotEmpty();
         }
       }
       {
-        Integer _upper = question.getUpper();
-        boolean _notEquals_1 = (!Objects.equal(_upper, null));
+        Integer _max = question.getMax();
+        boolean _notEquals_1 = (!Objects.equal(_max, null));
         if (_notEquals_1) {
           _builder.append("            ");
           _builder.append("max=\"");
-          Integer _upper_1 = question.getUpper();
-          _builder.append(_upper_1, "            ");
+          Integer _max_1 = question.getMax();
+          _builder.append(_max_1, "            ");
           _builder.append("\"");
           _builder.newLineIfNotEmpty();
         }
@@ -702,8 +702,8 @@ public class DslGenerator implements IGenerator {
   public CharSequence genLimitsDesc(final survey.Number question) {
     CharSequence _xblockexpression = null;
     {
-      Integer min = question.getLower();
-      Integer max = question.getUpper();
+      Integer min = question.getMin();
+      Integer max = question.getMax();
       String s = "";
       boolean _and = false;
       boolean _notEquals = (!Objects.equal(min, null));

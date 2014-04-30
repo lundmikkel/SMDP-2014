@@ -18,10 +18,10 @@ import survey.SurveyPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link survey.impl.ScaleImpl#getLower <em>Lower</em>}</li>
- *   <li>{@link survey.impl.ScaleImpl#getUpper <em>Upper</em>}</li>
- *   <li>{@link survey.impl.ScaleImpl#getLowerLabel <em>Lower Label</em>}</li>
- *   <li>{@link survey.impl.ScaleImpl#getUpperLabel <em>Upper Label</em>}</li>
+ *   <li>{@link survey.impl.ScaleImpl#getMin <em>Min</em>}</li>
+ *   <li>{@link survey.impl.ScaleImpl#getMax <em>Max</em>}</li>
+ *   <li>{@link survey.impl.ScaleImpl#getMinLabel <em>Min Label</em>}</li>
+ *   <li>{@link survey.impl.ScaleImpl#getMaxLabel <em>Max Label</em>}</li>
  * </ul>
  * </p>
  *
@@ -29,84 +29,84 @@ import survey.SurveyPackage;
  */
 public class ScaleImpl extends QuestionImpl implements Scale {
 	/**
-	 * The default value of the '{@link #getLower() <em>Lower</em>}' attribute.
+	 * The default value of the '{@link #getMin() <em>Min</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getLower()
+	 * @see #getMin()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int LOWER_EDEFAULT = 0;
+	protected static final int MIN_EDEFAULT = 0;
 
 	/**
-	 * The cached value of the '{@link #getLower() <em>Lower</em>}' attribute.
+	 * The cached value of the '{@link #getMin() <em>Min</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getLower()
+	 * @see #getMin()
 	 * @generated
 	 * @ordered
 	 */
-	protected int lower = LOWER_EDEFAULT;
+	protected int min = MIN_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getUpper() <em>Upper</em>}' attribute.
+	 * The default value of the '{@link #getMax() <em>Max</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getUpper()
+	 * @see #getMax()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int UPPER_EDEFAULT = 0;
+	protected static final int MAX_EDEFAULT = 0;
 
 	/**
-	 * The cached value of the '{@link #getUpper() <em>Upper</em>}' attribute.
+	 * The cached value of the '{@link #getMax() <em>Max</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getUpper()
+	 * @see #getMax()
 	 * @generated
 	 * @ordered
 	 */
-	protected int upper = UPPER_EDEFAULT;
+	protected int max = MAX_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getLowerLabel() <em>Lower Label</em>}' attribute.
+	 * The default value of the '{@link #getMinLabel() <em>Min Label</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getLowerLabel()
+	 * @see #getMinLabel()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String LOWER_LABEL_EDEFAULT = null;
+	protected static final String MIN_LABEL_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getLowerLabel() <em>Lower Label</em>}' attribute.
+	 * The cached value of the '{@link #getMinLabel() <em>Min Label</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getLowerLabel()
+	 * @see #getMinLabel()
 	 * @generated
 	 * @ordered
 	 */
-	protected String lowerLabel = LOWER_LABEL_EDEFAULT;
+	protected String minLabel = MIN_LABEL_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getUpperLabel() <em>Upper Label</em>}' attribute.
+	 * The default value of the '{@link #getMaxLabel() <em>Max Label</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getUpperLabel()
+	 * @see #getMaxLabel()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String UPPER_LABEL_EDEFAULT = null;
+	protected static final String MAX_LABEL_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getUpperLabel() <em>Upper Label</em>}' attribute.
+	 * The cached value of the '{@link #getMaxLabel() <em>Max Label</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getUpperLabel()
+	 * @see #getMaxLabel()
 	 * @generated
 	 * @ordered
 	 */
-	protected String upperLabel = UPPER_LABEL_EDEFAULT;
+	protected String maxLabel = MAX_LABEL_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -132,8 +132,8 @@ public class ScaleImpl extends QuestionImpl implements Scale {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getLower() {
-		return lower;
+	public int getMin() {
+		return min;
 	}
 
 	/**
@@ -141,11 +141,11 @@ public class ScaleImpl extends QuestionImpl implements Scale {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setLower(int newLower) {
-		int oldLower = lower;
-		lower = newLower;
+	public void setMin(int newMin) {
+		int oldMin = min;
+		min = newMin;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SurveyPackage.SCALE__LOWER, oldLower, lower));
+			eNotify(new ENotificationImpl(this, Notification.SET, SurveyPackage.SCALE__MIN, oldMin, min));
 	}
 
 	/**
@@ -153,8 +153,8 @@ public class ScaleImpl extends QuestionImpl implements Scale {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getUpper() {
-		return upper;
+	public int getMax() {
+		return max;
 	}
 
 	/**
@@ -162,11 +162,11 @@ public class ScaleImpl extends QuestionImpl implements Scale {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setUpper(int newUpper) {
-		int oldUpper = upper;
-		upper = newUpper;
+	public void setMax(int newMax) {
+		int oldMax = max;
+		max = newMax;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SurveyPackage.SCALE__UPPER, oldUpper, upper));
+			eNotify(new ENotificationImpl(this, Notification.SET, SurveyPackage.SCALE__MAX, oldMax, max));
 	}
 
 	/**
@@ -174,8 +174,8 @@ public class ScaleImpl extends QuestionImpl implements Scale {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getLowerLabel() {
-		return lowerLabel;
+	public String getMinLabel() {
+		return minLabel;
 	}
 
 	/**
@@ -183,11 +183,11 @@ public class ScaleImpl extends QuestionImpl implements Scale {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setLowerLabel(String newLowerLabel) {
-		String oldLowerLabel = lowerLabel;
-		lowerLabel = newLowerLabel;
+	public void setMinLabel(String newMinLabel) {
+		String oldMinLabel = minLabel;
+		minLabel = newMinLabel;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SurveyPackage.SCALE__LOWER_LABEL, oldLowerLabel, lowerLabel));
+			eNotify(new ENotificationImpl(this, Notification.SET, SurveyPackage.SCALE__MIN_LABEL, oldMinLabel, minLabel));
 	}
 
 	/**
@@ -195,8 +195,8 @@ public class ScaleImpl extends QuestionImpl implements Scale {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getUpperLabel() {
-		return upperLabel;
+	public String getMaxLabel() {
+		return maxLabel;
 	}
 
 	/**
@@ -204,11 +204,11 @@ public class ScaleImpl extends QuestionImpl implements Scale {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setUpperLabel(String newUpperLabel) {
-		String oldUpperLabel = upperLabel;
-		upperLabel = newUpperLabel;
+	public void setMaxLabel(String newMaxLabel) {
+		String oldMaxLabel = maxLabel;
+		maxLabel = newMaxLabel;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SurveyPackage.SCALE__UPPER_LABEL, oldUpperLabel, upperLabel));
+			eNotify(new ENotificationImpl(this, Notification.SET, SurveyPackage.SCALE__MAX_LABEL, oldMaxLabel, maxLabel));
 	}
 
 	/**
@@ -219,14 +219,14 @@ public class ScaleImpl extends QuestionImpl implements Scale {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case SurveyPackage.SCALE__LOWER:
-				return getLower();
-			case SurveyPackage.SCALE__UPPER:
-				return getUpper();
-			case SurveyPackage.SCALE__LOWER_LABEL:
-				return getLowerLabel();
-			case SurveyPackage.SCALE__UPPER_LABEL:
-				return getUpperLabel();
+			case SurveyPackage.SCALE__MIN:
+				return getMin();
+			case SurveyPackage.SCALE__MAX:
+				return getMax();
+			case SurveyPackage.SCALE__MIN_LABEL:
+				return getMinLabel();
+			case SurveyPackage.SCALE__MAX_LABEL:
+				return getMaxLabel();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -239,17 +239,17 @@ public class ScaleImpl extends QuestionImpl implements Scale {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case SurveyPackage.SCALE__LOWER:
-				setLower((Integer)newValue);
+			case SurveyPackage.SCALE__MIN:
+				setMin((Integer)newValue);
 				return;
-			case SurveyPackage.SCALE__UPPER:
-				setUpper((Integer)newValue);
+			case SurveyPackage.SCALE__MAX:
+				setMax((Integer)newValue);
 				return;
-			case SurveyPackage.SCALE__LOWER_LABEL:
-				setLowerLabel((String)newValue);
+			case SurveyPackage.SCALE__MIN_LABEL:
+				setMinLabel((String)newValue);
 				return;
-			case SurveyPackage.SCALE__UPPER_LABEL:
-				setUpperLabel((String)newValue);
+			case SurveyPackage.SCALE__MAX_LABEL:
+				setMaxLabel((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -263,17 +263,17 @@ public class ScaleImpl extends QuestionImpl implements Scale {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case SurveyPackage.SCALE__LOWER:
-				setLower(LOWER_EDEFAULT);
+			case SurveyPackage.SCALE__MIN:
+				setMin(MIN_EDEFAULT);
 				return;
-			case SurveyPackage.SCALE__UPPER:
-				setUpper(UPPER_EDEFAULT);
+			case SurveyPackage.SCALE__MAX:
+				setMax(MAX_EDEFAULT);
 				return;
-			case SurveyPackage.SCALE__LOWER_LABEL:
-				setLowerLabel(LOWER_LABEL_EDEFAULT);
+			case SurveyPackage.SCALE__MIN_LABEL:
+				setMinLabel(MIN_LABEL_EDEFAULT);
 				return;
-			case SurveyPackage.SCALE__UPPER_LABEL:
-				setUpperLabel(UPPER_LABEL_EDEFAULT);
+			case SurveyPackage.SCALE__MAX_LABEL:
+				setMaxLabel(MAX_LABEL_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -287,14 +287,14 @@ public class ScaleImpl extends QuestionImpl implements Scale {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case SurveyPackage.SCALE__LOWER:
-				return lower != LOWER_EDEFAULT;
-			case SurveyPackage.SCALE__UPPER:
-				return upper != UPPER_EDEFAULT;
-			case SurveyPackage.SCALE__LOWER_LABEL:
-				return LOWER_LABEL_EDEFAULT == null ? lowerLabel != null : !LOWER_LABEL_EDEFAULT.equals(lowerLabel);
-			case SurveyPackage.SCALE__UPPER_LABEL:
-				return UPPER_LABEL_EDEFAULT == null ? upperLabel != null : !UPPER_LABEL_EDEFAULT.equals(upperLabel);
+			case SurveyPackage.SCALE__MIN:
+				return min != MIN_EDEFAULT;
+			case SurveyPackage.SCALE__MAX:
+				return max != MAX_EDEFAULT;
+			case SurveyPackage.SCALE__MIN_LABEL:
+				return MIN_LABEL_EDEFAULT == null ? minLabel != null : !MIN_LABEL_EDEFAULT.equals(minLabel);
+			case SurveyPackage.SCALE__MAX_LABEL:
+				return MAX_LABEL_EDEFAULT == null ? maxLabel != null : !MAX_LABEL_EDEFAULT.equals(maxLabel);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -309,14 +309,14 @@ public class ScaleImpl extends QuestionImpl implements Scale {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (lower: ");
-		result.append(lower);
-		result.append(", upper: ");
-		result.append(upper);
-		result.append(", lowerLabel: ");
-		result.append(lowerLabel);
-		result.append(", upperLabel: ");
-		result.append(upperLabel);
+		result.append(" (min: ");
+		result.append(min);
+		result.append(", max: ");
+		result.append(max);
+		result.append(", minLabel: ");
+		result.append(minLabel);
+		result.append(", maxLabel: ");
+		result.append(maxLabel);
 		result.append(')');
 		return result.toString();
 	}

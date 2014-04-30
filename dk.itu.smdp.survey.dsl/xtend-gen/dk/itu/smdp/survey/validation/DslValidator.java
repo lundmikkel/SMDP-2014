@@ -359,7 +359,7 @@ public class DslValidator extends AbstractDslValidator {
   }
   
   /**
-   * Check that the upper value in a scale question is larger than the lower value
+   * Check that the max value in a scale question is larger than the min value
    */
   @Check
   public void checkThatLowerIsLargerThanUpperScale(final Survey survey) {
@@ -368,54 +368,54 @@ public class DslValidator extends AbstractDslValidator {
     for (final Question question : _filter) {
       if ((question instanceof Scale)) {
         Scale scale = ((Scale) question);
-        int _lower = scale.getLower();
-        int _upper = scale.getUpper();
-        boolean _greaterEqualsThan = (_lower >= _upper);
+        int _min = scale.getMin();
+        int _max = scale.getMax();
+        boolean _greaterEqualsThan = (_min >= _max);
         if (_greaterEqualsThan) {
-          final String lowerLessThanUpperString = "Scale upper value must be larger than lower value";
-          this.error(lowerLessThanUpperString, scale, 
-            Literals.SCALE__LOWER, 
+          final String minLessThanUpperString = "Scale max value must be larger than min value";
+          this.error(minLessThanUpperString, scale, 
+            Literals.SCALE__MIN, 
             DslValidator.INVALID_VALUE);
-          this.error(lowerLessThanUpperString, scale, 
-            Literals.SCALE__UPPER, 
+          this.error(minLessThanUpperString, scale, 
+            Literals.SCALE__MAX, 
             DslValidator.INVALID_VALUE);
         }
         final String largeScaleString = "Large scales may not render properly nor be very user friendly";
-        int _upper_1 = scale.getUpper();
-        int _lower_1 = scale.getLower();
-        int _minus = (_upper_1 - _lower_1);
+        int _max_1 = scale.getMax();
+        int _min_1 = scale.getMin();
+        int _minus = (_max_1 - _min_1);
         boolean _greaterThan = (_minus > 20);
         if (_greaterThan) {
           this.warning(largeScaleString, scale, 
-            Literals.SCALE__LOWER);
+            Literals.SCALE__MIN);
           this.warning(largeScaleString, scale, 
-            Literals.SCALE__UPPER);
+            Literals.SCALE__MAX);
         }
         final String bothLabelsString = "You must specify both labels or none of them";
-        String _lowerLabel = scale.getLowerLabel();
-        boolean _isNullOrEmpty = StringExtensions.isNullOrEmpty(_lowerLabel);
-        String _upperLabel = scale.getUpperLabel();
-        boolean _isNullOrEmpty_1 = StringExtensions.isNullOrEmpty(_upperLabel);
+        String _minLabel = scale.getMinLabel();
+        boolean _isNullOrEmpty = StringExtensions.isNullOrEmpty(_minLabel);
+        String _maxLabel = scale.getMaxLabel();
+        boolean _isNullOrEmpty_1 = StringExtensions.isNullOrEmpty(_maxLabel);
         boolean _notEquals = (_isNullOrEmpty != _isNullOrEmpty_1);
         if (_notEquals) {
-          String _lowerLabel_1 = scale.getLowerLabel();
-          String _plus = ("Lower \"" + _lowerLabel_1);
+          String _minLabel_1 = scale.getMinLabel();
+          String _plus = ("Lower \"" + _minLabel_1);
           String _plus_1 = (_plus + "\"");
           InputOutput.<String>println(_plus_1);
-          String _upperLabel_1 = scale.getUpperLabel();
-          String _plus_2 = ("Upper \"" + _upperLabel_1);
+          String _maxLabel_1 = scale.getMaxLabel();
+          String _plus_2 = ("Upper \"" + _maxLabel_1);
           String _plus_3 = (_plus_2 + "\"");
           InputOutput.<String>println(_plus_3);
-          String _lowerLabel_2 = scale.getLowerLabel();
-          boolean _isNullOrEmpty_2 = StringExtensions.isNullOrEmpty(_lowerLabel_2);
+          String _minLabel_2 = scale.getMinLabel();
+          boolean _isNullOrEmpty_2 = StringExtensions.isNullOrEmpty(_minLabel_2);
           boolean _not = (!_isNullOrEmpty_2);
           if (_not) {
             this.error(bothLabelsString, scale, 
-              Literals.SCALE__LOWER_LABEL, 
+              Literals.SCALE__MIN_LABEL, 
               DslValidator.INVALID_VALUE);
           } else {
             this.error(bothLabelsString, scale, 
-              Literals.SCALE__UPPER_LABEL, 
+              Literals.SCALE__MAX_LABEL, 
               DslValidator.INVALID_VALUE);
           }
         }
@@ -424,7 +424,7 @@ public class DslValidator extends AbstractDslValidator {
   }
   
   /**
-   * Check that the upper value in a number question is larger than the lower value
+   * Check that the max value in a number question is larger than the min value
    */
   @Check
   public void checkThatLowerIsLargerThanUpperNumber(final Survey survey) {
@@ -433,30 +433,30 @@ public class DslValidator extends AbstractDslValidator {
     for (final Question question : _filter) {
       if ((question instanceof survey.Number)) {
         survey.Number number = ((survey.Number) question);
-        final String lowerLessThanUpperString = "Number upper value must be larger than lower value";
-        final Integer lower = number.getLower();
-        final Integer upper = number.getUpper();
+        final String minLessThanUpperString = "Number max value must be larger than min value";
+        final Integer min = number.getMin();
+        final Integer max = number.getMax();
         boolean _and = false;
         boolean _and_1 = false;
-        boolean _notEquals = (!Objects.equal(lower, null));
+        boolean _notEquals = (!Objects.equal(min, null));
         if (!_notEquals) {
           _and_1 = false;
         } else {
-          boolean _notEquals_1 = (!Objects.equal(upper, null));
+          boolean _notEquals_1 = (!Objects.equal(max, null));
           _and_1 = (_notEquals && _notEquals_1);
         }
         if (!_and_1) {
           _and = false;
         } else {
-          boolean _greaterEqualsThan = (lower.compareTo(upper) >= 0);
+          boolean _greaterEqualsThan = (min.compareTo(max) >= 0);
           _and = (_and_1 && _greaterEqualsThan);
         }
         if (_and) {
-          this.error(lowerLessThanUpperString, number, 
-            Literals.NUMBER__LOWER, 
+          this.error(minLessThanUpperString, number, 
+            Literals.NUMBER__MIN, 
             DslValidator.INVALID_VALUE);
-          this.error(lowerLessThanUpperString, number, 
-            Literals.NUMBER__UPPER, 
+          this.error(minLessThanUpperString, number, 
+            Literals.NUMBER__MAX, 
             DslValidator.INVALID_VALUE);
         }
       }
@@ -464,7 +464,7 @@ public class DslValidator extends AbstractDslValidator {
   }
   
   /**
-   * Check that the upper value in a multiple question is larger than the lower value
+   * Check that the max value in a multiple question is larger than the min value
    */
   @Check
   public void checkThatLowerIsLargerThanUpperMultiple(final Survey survey) {
@@ -473,13 +473,13 @@ public class DslValidator extends AbstractDslValidator {
     for (final Question question : _filter) {
       if ((question instanceof Multiple)) {
         Multiple multiple = ((Multiple) question);
-        int _lower = multiple.getLower();
-        int _upper = multiple.getUpper();
-        boolean _greaterThan = (_lower > _upper);
+        int _min = multiple.getMin();
+        int _max = multiple.getMax();
+        boolean _greaterThan = (_min > _max);
         if (_greaterThan) {
           this.error(
-            "Multiple upper value must be larger than lower value", multiple, 
-            Literals.MULTIPLE__UPPER, 
+            "Multiple max value must be larger than min value", multiple, 
+            Literals.MULTIPLE__MAX, 
             DslValidator.INVALID_VALUE);
         }
       }
