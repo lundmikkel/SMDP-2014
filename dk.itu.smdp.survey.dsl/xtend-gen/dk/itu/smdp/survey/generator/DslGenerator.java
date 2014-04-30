@@ -616,42 +616,36 @@ public class DslGenerator implements IGenerator {
       _builder.append("    ");
       _builder.append("</label>");
       _builder.newLine();
-      _builder.append("    ");
-      _builder.append("<div>");
-      _builder.newLine();
       {
         ArrayList<Answer> _answers = this.getAnswers(question);
         boolean _hasElements = false;
         for(final Answer a : _answers) {
           if (!_hasElements) {
             _hasElements = true;
-            _builder.append("<div class=\"radio\"><label>", "    	");
+            _builder.append("<div class=\"checkbox\"><label>", "    ");
           } else {
-            _builder.appendImmediate("</label></div><div class=\"radio\"><label>", "    	");
+            _builder.appendImmediate("</label></div><div class=\"checkbox\"><label>", "    ");
           }
-          _builder.append("    \t");
-          _builder.append("<input type=\"radio\" name=\"");
-          _builder.append(id, "    	");
+          _builder.append("    ");
+          _builder.append("<input type=\"checkbox\" name=\"");
+          _builder.append(id, "    ");
           _builder.append("\" id=\"");
-          _builder.append(id, "    	");
+          _builder.append(id, "    ");
           _builder.append("_");
-          _builder.append(i, "    	");
+          int _plus = (i + 1);
+          int _i = i = _plus;
+          _builder.append(_i, "    ");
           _builder.append("\" value=\"");
-          _builder.append(i, "    	");
-          _builder.append("\" />");
-          _builder.newLineIfNotEmpty();
-          _builder.append("\t\t        ");
+          _builder.append(i, "    ");
+          _builder.append("\"> ");
           String _label = a.getLabel();
-          _builder.append(_label, "		        ");
+          _builder.append(_label, "    ");
           _builder.newLineIfNotEmpty();
         }
         if (_hasElements) {
-          _builder.append("</label></div>", "    	");
+          _builder.append("</label></div>", "    ");
         }
       }
-      _builder.append("    ");
-      _builder.append("</div>");
-      _builder.newLine();
       _builder.append("</div>");
       _builder.newLine();
       _xblockexpression = (_builder.toString());

@@ -208,12 +208,11 @@ class DslGenerator implements IGenerator {
 		    	«question.title»
 		    	«question.genQuestionDesc»
 		    </label>
-		    <div>
-		    	«FOR a : question.getAnswers BEFORE '<div class="radio"><label>' SEPARATOR '</label></div><div class="radio"><label>' AFTER '</label></div>' »
-		    	<input type="radio" name="«id»" id="«id»_«i»" value="«i»" />
-		        «a.label»
-		        «ENDFOR»
-		    </div>
+		    «FOR a : question.getAnswers BEFORE '<div class="checkbox"><label>'
+		    							 SEPARATOR '</label></div><div class="checkbox"><label>'
+		    							 AFTER '</label></div>' »
+		    <input type="checkbox" name="«id»" id="«id»_«(i = i + 1)»" value="«i»"> «a.label»
+			«ENDFOR»
 		</div>
 		'''
 	}
