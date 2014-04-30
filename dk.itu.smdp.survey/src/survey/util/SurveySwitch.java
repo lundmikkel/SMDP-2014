@@ -17,7 +17,6 @@ import survey.Multiple;
 import survey.Option;
 import survey.Other;
 import survey.Question;
-import survey.Referable;
 import survey.Scale;
 import survey.Single;
 import survey.Survey;
@@ -100,7 +99,6 @@ public class SurveySwitch<T> extends Switch<T> {
 				Item item = (Item)theEObject;
 				T result = caseItem(item);
 				if (result == null) result = caseMeta(item);
-				if (result == null) result = caseReferable(item);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -109,7 +107,6 @@ public class SurveySwitch<T> extends Switch<T> {
 				T result = caseGroup(group);
 				if (result == null) result = caseItem(group);
 				if (result == null) result = caseMeta(group);
-				if (result == null) result = caseReferable(group);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -118,7 +115,6 @@ public class SurveySwitch<T> extends Switch<T> {
 				T result = caseQuestion(question);
 				if (result == null) result = caseItem(question);
 				if (result == null) result = caseMeta(question);
-				if (result == null) result = caseReferable(question);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -128,7 +124,6 @@ public class SurveySwitch<T> extends Switch<T> {
 				if (result == null) result = caseQuestion(text);
 				if (result == null) result = caseItem(text);
 				if (result == null) result = caseMeta(text);
-				if (result == null) result = caseReferable(text);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -138,7 +133,6 @@ public class SurveySwitch<T> extends Switch<T> {
 				if (result == null) result = caseQuestion(scale);
 				if (result == null) result = caseItem(scale);
 				if (result == null) result = caseMeta(scale);
-				if (result == null) result = caseReferable(scale);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -148,7 +142,6 @@ public class SurveySwitch<T> extends Switch<T> {
 				if (result == null) result = caseQuestion(date);
 				if (result == null) result = caseItem(date);
 				if (result == null) result = caseMeta(date);
-				if (result == null) result = caseReferable(date);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -158,7 +151,6 @@ public class SurveySwitch<T> extends Switch<T> {
 				if (result == null) result = caseQuestion(number);
 				if (result == null) result = caseItem(number);
 				if (result == null) result = caseMeta(number);
-				if (result == null) result = caseReferable(number);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -188,7 +180,6 @@ public class SurveySwitch<T> extends Switch<T> {
 				if (result == null) result = caseHasOptions(single);
 				if (result == null) result = caseItem(single);
 				if (result == null) result = caseMeta(single);
-				if (result == null) result = caseReferable(single);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -200,7 +191,6 @@ public class SurveySwitch<T> extends Switch<T> {
 				if (result == null) result = caseHasOptions(multiple);
 				if (result == null) result = caseItem(multiple);
 				if (result == null) result = caseMeta(multiple);
-				if (result == null) result = caseReferable(multiple);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -212,7 +202,6 @@ public class SurveySwitch<T> extends Switch<T> {
 				if (result == null) result = caseHasOptions(table);
 				if (result == null) result = caseItem(table);
 				if (result == null) result = caseMeta(table);
-				if (result == null) result = caseReferable(table);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -233,19 +222,12 @@ public class SurveySwitch<T> extends Switch<T> {
 				Answer answer = (Answer)theEObject;
 				T result = caseAnswer(answer);
 				if (result == null) result = caseOption(answer);
-				if (result == null) result = caseReferable(answer);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case SurveyPackage.ANSWER_TEMPLATE: {
 				AnswerTemplate answerTemplate = (AnswerTemplate)theEObject;
 				T result = caseAnswerTemplate(answerTemplate);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case SurveyPackage.REFERABLE: {
-				Referable referable = (Referable)theEObject;
-				T result = caseReferable(referable);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -475,21 +457,6 @@ public class SurveySwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseAnswerTemplate(AnswerTemplate object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Referable</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Referable</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseReferable(Referable object) {
 		return null;
 	}
 

@@ -765,15 +765,20 @@ ruleGroup returns [EObject current=null]
     }
 (
 (
-		{
-			if ($current==null) {
-	            $current = createModelElement(grammarAccess.getGroupRule());
+		{ 
+	        newCompositeNode(grammarAccess.getGroupAccess().getDependsOnDEP_IDParserRuleCall_1_2_1_0()); 
+	    }
+		lv_dependsOn_9_0=ruleDEP_ID		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getGroupRule());
 	        }
-        }
-	otherlv_9=RULE_FQN
-	{
-		newLeafNode(otherlv_9, grammarAccess.getGroupAccess().getDependsOnReferableCrossReference_1_2_1_0()); 
-	}
+       		set(
+       			$current, 
+       			"dependsOn",
+        		lv_dependsOn_9_0, 
+        		"DEP_ID");
+	        afterParserOrEnumRuleCall();
+	    }
 
 )
 )	otherlv_10='"' 
@@ -1012,15 +1017,20 @@ ruleText returns [EObject current=null]
     }
 (
 (
-		{
-			if ($current==null) {
-	            $current = createModelElement(grammarAccess.getTextRule());
+		{ 
+	        newCompositeNode(grammarAccess.getTextAccess().getDependsOnDEP_IDParserRuleCall_2_3_1_0()); 
+	    }
+		lv_dependsOn_13_0=ruleDEP_ID		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getTextRule());
 	        }
-        }
-	otherlv_13=RULE_FQN
-	{
-		newLeafNode(otherlv_13, grammarAccess.getTextAccess().getDependsOnReferableCrossReference_2_3_1_0()); 
-	}
+       		set(
+       			$current, 
+       			"dependsOn",
+        		lv_dependsOn_13_0, 
+        		"DEP_ID");
+	        afterParserOrEnumRuleCall();
+	    }
 
 )
 )	otherlv_14='"' 
@@ -1428,15 +1438,20 @@ ruleScale returns [EObject current=null]
     }
 (
 (
-		{
-			if ($current==null) {
-	            $current = createModelElement(grammarAccess.getScaleRule());
+		{ 
+	        newCompositeNode(grammarAccess.getScaleAccess().getDependsOnDEP_IDParserRuleCall_1_7_1_0()); 
+	    }
+		lv_dependsOn_22_0=ruleDEP_ID		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getScaleRule());
 	        }
-        }
-	otherlv_22=RULE_FQN
-	{
-		newLeafNode(otherlv_22, grammarAccess.getScaleAccess().getDependsOnReferableCrossReference_1_7_1_0()); 
-	}
+       		set(
+       			$current, 
+       			"dependsOn",
+        		lv_dependsOn_22_0, 
+        		"DEP_ID");
+	        afterParserOrEnumRuleCall();
+	    }
 
 )
 )	otherlv_23='"' 
@@ -1730,15 +1745,20 @@ ruleDate returns [EObject current=null]
     }
 (
 (
-		{
-			if ($current==null) {
-	            $current = createModelElement(grammarAccess.getDateRule());
+		{ 
+	        newCompositeNode(grammarAccess.getDateAccess().getDependsOnDEP_IDParserRuleCall_2_5_1_0()); 
+	    }
+		lv_dependsOn_19_0=ruleDEP_ID		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getDateRule());
 	        }
-        }
-	otherlv_19=RULE_FQN
-	{
-		newLeafNode(otherlv_19, grammarAccess.getDateAccess().getDependsOnReferableCrossReference_2_5_1_0()); 
-	}
+       		set(
+       			$current, 
+       			"dependsOn",
+        		lv_dependsOn_19_0, 
+        		"DEP_ID");
+	        afterParserOrEnumRuleCall();
+	    }
 
 )
 )	otherlv_20='"' 
@@ -2159,15 +2179,20 @@ ruleNumber returns [EObject current=null]
     }
 (
 (
-		{
-			if ($current==null) {
-	            $current = createModelElement(grammarAccess.getNumberRule());
+		{ 
+	        newCompositeNode(grammarAccess.getNumberAccess().getDependsOnDEP_IDParserRuleCall_2_5_1_0()); 
+	    }
+		lv_dependsOn_17_0=ruleDEP_ID		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getNumberRule());
 	        }
-        }
-	otherlv_17=RULE_FQN
-	{
-		newLeafNode(otherlv_17, grammarAccess.getNumberAccess().getDependsOnReferableCrossReference_2_5_1_0()); 
-	}
+       		set(
+       			$current, 
+       			"dependsOn",
+        		lv_dependsOn_17_0, 
+        		"DEP_ID");
+	        afterParserOrEnumRuleCall();
+	    }
 
 )
 )	otherlv_18='"' 
@@ -2433,15 +2458,20 @@ ruleSingle returns [EObject current=null]
     }
 (
 (
-		{
-			if ($current==null) {
-	            $current = createModelElement(grammarAccess.getSingleRule());
+		{ 
+	        newCompositeNode(grammarAccess.getSingleAccess().getDependsOnDEP_IDParserRuleCall_1_3_1_0()); 
+	    }
+		lv_dependsOn_12_0=ruleDEP_ID		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getSingleRule());
 	        }
-        }
-	otherlv_12=RULE_FQN
-	{
-		newLeafNode(otherlv_12, grammarAccess.getSingleAccess().getDependsOnReferableCrossReference_1_3_1_0()); 
-	}
+       		set(
+       			$current, 
+       			"dependsOn",
+        		lv_dependsOn_12_0, 
+        		"DEP_ID");
+	        afterParserOrEnumRuleCall();
+	    }
 
 )
 )	otherlv_13='"' 
@@ -2770,15 +2800,20 @@ ruleMultiple returns [EObject current=null]
     }
 (
 (
-		{
-			if ($current==null) {
-	            $current = createModelElement(grammarAccess.getMultipleRule());
+		{ 
+	        newCompositeNode(grammarAccess.getMultipleAccess().getDependsOnDEP_IDParserRuleCall_1_5_1_0()); 
+	    }
+		lv_dependsOn_16_0=ruleDEP_ID		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getMultipleRule());
 	        }
-        }
-	otherlv_16=RULE_FQN
-	{
-		newLeafNode(otherlv_16, grammarAccess.getMultipleAccess().getDependsOnReferableCrossReference_1_5_1_0()); 
-	}
+       		set(
+       			$current, 
+       			"dependsOn",
+        		lv_dependsOn_16_0, 
+        		"DEP_ID");
+	        afterParserOrEnumRuleCall();
+	    }
 
 )
 )	otherlv_17='"' 
@@ -3093,15 +3128,20 @@ ruleTable returns [EObject current=null]
     }
 (
 (
-		{
-			if ($current==null) {
-	            $current = createModelElement(grammarAccess.getTableRule());
+		{ 
+	        newCompositeNode(grammarAccess.getTableAccess().getDependsOnDEP_IDParserRuleCall_1_3_1_0()); 
+	    }
+		lv_dependsOn_12_0=ruleDEP_ID		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getTableRule());
 	        }
-        }
-	otherlv_12=RULE_FQN
-	{
-		newLeafNode(otherlv_12, grammarAccess.getTableAccess().getDependsOnReferableCrossReference_1_3_1_0()); 
-	}
+       		set(
+       			$current, 
+       			"dependsOn",
+        		lv_dependsOn_12_0, 
+        		"DEP_ID");
+	        afterParserOrEnumRuleCall();
+	    }
 
 )
 )	otherlv_13='"' 
@@ -3463,9 +3503,45 @@ ruleTableQuestion returns [EObject current=null]
 
 
 
+// Entry rule entryRuleDEP_ID
+entryRuleDEP_ID returns [String current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getDEP_IDRule()); } 
+	 iv_ruleDEP_ID=ruleDEP_ID 
+	 { $current=$iv_ruleDEP_ID.current.getText(); }  
+	 EOF 
+;
+
+// Rule DEP_ID
+ruleDEP_ID returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(    this_ID_0=RULE_ID    {
+		$current.merge(this_ID_0);
+    }
+
+    { 
+    newLeafNode(this_ID_0, grammarAccess.getDEP_IDAccess().getIDTerminalRuleCall_0()); 
+    }
+
+    |    this_FQN_1=RULE_FQN    {
+		$current.merge(this_FQN_1);
+    }
+
+    { 
+    newLeafNode(this_FQN_1, grammarAccess.getDEP_IDAccess().getFQNTerminalRuleCall_1()); 
+    }
+)
+    ;
+
+
+
+
+
 RULE_STRING : '$' ('\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|'\''|'\\')|~(('\\'|'$')))* '$';
 
-RULE_FQN : RULE_ID ('.' RULE_ID)+;
+RULE_FQN : (RULE_ID '.')? RULE_ID '.' RULE_ID;
 
 RULE_ID : ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 

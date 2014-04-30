@@ -39,7 +39,7 @@ Group returns Group:
 	'<group'
 		(('title="' title=EString '"')?
 		& ('description="' description=EString '"')?
-		& ('depends-on="' dependsOn=[Referable|FQN] '"')?
+		& ('depends-on="' dependsOn=DEP_ID '"')?
 		& (required?='required')?)
 	'>'
 		(questions+=Question)+ 
@@ -51,7 +51,7 @@ Text returns Text:
 		( ('title="' title=EString '"')
 		& ('description="' description=EString '"')?
 		& ('id="' name=ID '"')?
-		& ('depends-on="' dependsOn=[Referable|FQN]'"')?
+		& ('depends-on="' dependsOn=DEP_ID'"')?
 		& (required?='required')?
 		& ('singleline' | 'single' | (multiline?=('multi' | 'multiline')))?)
 	'/>';
@@ -66,7 +66,7 @@ Scale returns Scale:
 		// TODO: Force that if one label is set, both should be
 		& ('min-label="' minLabel=EString '"')?
 		& ('max-label="' maxLabel=EString '"')?
-		& ('depends-on="' dependsOn=[Referable|FQN] '"')?
+		& ('depends-on="' dependsOn=DEP_ID '"')?
 		& (required?='required')?)
 	'/>';
 
@@ -78,7 +78,7 @@ Date returns Date:
 		& ('id="' name=ID '"')?
 		& ('from="' from=EString '"')?
 		& ('to="' to=EString '"')?
-		& ('depends-on="' dependsOn=[Referable|FQN] '"')?
+		& ('depends-on="' dependsOn=DEP_ID '"')?
 		& (showLimits?=('show-limits' | 'show' | 'limits'))?
 		& (required?='required')?
 		& (day?='day')?
@@ -94,7 +94,7 @@ Number returns Number:
 		& ('id="' name=ID '"')?
 		& ('min=' min=EInt)?
 		& ('max=' max=EInt)?
-		& ('depends-on="' dependsOn=[Referable|FQN] '"')?
+		& ('depends-on="' dependsOn=DEP_ID '"')?
 		& (required?='required')?
 		& (showLimits?=('show-limits' | 'show' | 'limits'))?)
 	'/>';
@@ -104,7 +104,7 @@ Single returns Single:
 		( ('title="' title=EString '"')
 		& ('description="' description=EString '"')?
 		& ('id="' name=ID '"')?
-		& ('depends-on="' dependsOn=[Referable|FQN]'"') ?
+		& ('depends-on="' dependsOn=DEP_ID'"') ?
 		& (required?='required')?
 		& (other?='other')?)
 	'>'
@@ -118,7 +118,7 @@ Multiple returns Multiple:
 		& ('id""' name=ID '"')?
 		& ('min=' min=INT)?
 		& ('max=' max=INT)?
-		& ('depends-on="' dependsOn=[Referable|FQN] '"')?
+		& ('depends-on="' dependsOn=DEP_ID '"')?
 		& (required?='required')?
 		& (other?='other')?
 		& (showLimits?=('show-limits' | 'show' | 'limits'))?)
@@ -131,9 +131,9 @@ Table returns Table:
 		( ('title="' title=EString '"')?
 		& ('description="' description=EString '"')?
 		& ('id="' name=ID '"')?
-		& ('depends-on="' dependsOn=[Referable|FQN] '"')?
+		& ('depends-on="' dependsOn=DEP_ID '"')?
 		& (required?='required')?
-		& (other?='other')?		
+		& (other?='other')?
 		& (multiple?='multiple')?)
 	'>'
 		((options+=Option)+ & (questions+=TableQuestion)+)
@@ -152,6 +152,8 @@ TableQuestion returns TableQuestion:
 		title=EString
 	'</q>';
 
+DEP_ID returns ecore::EString:
+	ID | FQN;
 
 // Custom terminals
 
@@ -160,7 +162,7 @@ terminal STRING:
 	"$" ( '\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\') | !('\\'|"$") )* "$";
 
 terminal FQN:
-	 ID ('.' ID)+;
+	 (ID '.')? ID '.' ID;
 
 terminal ID:
 	('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;

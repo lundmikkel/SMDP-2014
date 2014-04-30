@@ -177,7 +177,7 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	 *         name=ID? 
 	 *         from=EString? 
 	 *         to=EString? 
-	 *         dependsOn=[Referable|FQN]? 
+	 *         dependsOn=DEP_ID? 
 	 *         (showLimits?='show-limits' | showLimits?='show' | showLimits?='limits')? 
 	 *         required?='required'? 
 	 *         day?='day'? 
@@ -192,7 +192,7 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	
 	/**
 	 * Constraint:
-	 *     (title=EString? description=EString? dependsOn=[Referable|FQN]? required?='required'? questions+=Question+)
+	 *     (title=EString? description=EString? dependsOn=DEP_ID? required?='required'? questions+=Question+)
 	 */
 	protected void sequence_Group(EObject context, Group semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -207,7 +207,7 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	 *         name=ID? 
 	 *         min=INT? 
 	 *         max=INT? 
-	 *         dependsOn=[Referable|FQN]? 
+	 *         dependsOn=DEP_ID? 
 	 *         required?='required'? 
 	 *         other?='other'? 
 	 *         (showLimits?='show-limits' | showLimits?='show' | showLimits?='limits')? 
@@ -227,7 +227,7 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	 *         name=ID? 
 	 *         min=EInt? 
 	 *         max=EInt? 
-	 *         dependsOn=[Referable|FQN]? 
+	 *         dependsOn=DEP_ID? 
 	 *         required?='required'? 
 	 *         (showLimits?='show-limits' | showLimits?='show' | showLimits?='limits')?
 	 *     )
@@ -247,7 +247,7 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	 *         max=EInt 
 	 *         minLabel=EString? 
 	 *         maxLabel=EString? 
-	 *         dependsOn=[Referable|FQN]? 
+	 *         dependsOn=DEP_ID? 
 	 *         required?='required'?
 	 *     )
 	 */
@@ -262,7 +262,7 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	 *         title=EString 
 	 *         description=EString? 
 	 *         name=ID? 
-	 *         dependsOn=[Referable|FQN]? 
+	 *         dependsOn=DEP_ID? 
 	 *         required?='required'? 
 	 *         other?='other'? 
 	 *         options+=Option+
@@ -304,7 +304,7 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	 *         title=EString? 
 	 *         description=EString? 
 	 *         name=ID? 
-	 *         dependsOn=[Referable|FQN]? 
+	 *         dependsOn=DEP_ID? 
 	 *         required?='required'? 
 	 *         other?='other'? 
 	 *         multiple?='multiple'? 
@@ -324,7 +324,7 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	 *         title=EString 
 	 *         description=EString? 
 	 *         name=ID? 
-	 *         dependsOn=[Referable|FQN]? 
+	 *         dependsOn=DEP_ID? 
 	 *         required?='required'? 
 	 *         (multiline?='multi' | multiline?='multiline')?
 	 *     )

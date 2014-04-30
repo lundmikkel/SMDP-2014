@@ -222,22 +222,22 @@ public interface SurveyPackage extends EPackage {
 	int ITEM__DESCRIPTION = META__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Depends On</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ITEM__DEPENDS_ON = META_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Required</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ITEM__REQUIRED = META_FEATURE_COUNT + 1;
+	int ITEM__REQUIRED = META_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Depends On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ITEM__DEPENDS_ON = META_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Item</em>' class.
@@ -295,15 +295,6 @@ public interface SurveyPackage extends EPackage {
 	int GROUP__DESCRIPTION = ITEM__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Depends On</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GROUP__DEPENDS_ON = ITEM__DEPENDS_ON;
-
-	/**
 	 * The feature id for the '<em><b>Required</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -311,6 +302,15 @@ public interface SurveyPackage extends EPackage {
 	 * @ordered
 	 */
 	int GROUP__REQUIRED = ITEM__REQUIRED;
+
+	/**
+	 * The feature id for the '<em><b>Depends On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GROUP__DEPENDS_ON = ITEM__DEPENDS_ON;
 
 	/**
 	 * The feature id for the '<em><b>Questions</b></em>' containment reference list.
@@ -377,15 +377,6 @@ public interface SurveyPackage extends EPackage {
 	int QUESTION__DESCRIPTION = ITEM__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Depends On</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int QUESTION__DEPENDS_ON = ITEM__DEPENDS_ON;
-
-	/**
 	 * The feature id for the '<em><b>Required</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -393,6 +384,15 @@ public interface SurveyPackage extends EPackage {
 	 * @ordered
 	 */
 	int QUESTION__REQUIRED = ITEM__REQUIRED;
+
+	/**
+	 * The feature id for the '<em><b>Depends On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUESTION__DEPENDS_ON = ITEM__DEPENDS_ON;
 
 	/**
 	 * The number of structural features of the '<em>Question</em>' class.
@@ -450,15 +450,6 @@ public interface SurveyPackage extends EPackage {
 	int TEXT__DESCRIPTION = QUESTION__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Depends On</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT__DEPENDS_ON = QUESTION__DEPENDS_ON;
-
-	/**
 	 * The feature id for the '<em><b>Required</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -466,6 +457,15 @@ public interface SurveyPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT__REQUIRED = QUESTION__REQUIRED;
+
+	/**
+	 * The feature id for the '<em><b>Depends On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT__DEPENDS_ON = QUESTION__DEPENDS_ON;
 
 	/**
 	 * The feature id for the '<em><b>Multiline</b></em>' attribute.
@@ -532,15 +532,6 @@ public interface SurveyPackage extends EPackage {
 	int SCALE__DESCRIPTION = QUESTION__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Depends On</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCALE__DEPENDS_ON = QUESTION__DEPENDS_ON;
-
-	/**
 	 * The feature id for the '<em><b>Required</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -548,6 +539,15 @@ public interface SurveyPackage extends EPackage {
 	 * @ordered
 	 */
 	int SCALE__REQUIRED = QUESTION__REQUIRED;
+
+	/**
+	 * The feature id for the '<em><b>Depends On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCALE__DEPENDS_ON = QUESTION__DEPENDS_ON;
 
 	/**
 	 * The feature id for the '<em><b>Min</b></em>' attribute.
@@ -641,15 +641,6 @@ public interface SurveyPackage extends EPackage {
 	int DATE__DESCRIPTION = QUESTION__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Depends On</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATE__DEPENDS_ON = QUESTION__DEPENDS_ON;
-
-	/**
 	 * The feature id for the '<em><b>Required</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -657,6 +648,15 @@ public interface SurveyPackage extends EPackage {
 	 * @ordered
 	 */
 	int DATE__REQUIRED = QUESTION__REQUIRED;
+
+	/**
+	 * The feature id for the '<em><b>Depends On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATE__DEPENDS_ON = QUESTION__DEPENDS_ON;
 
 	/**
 	 * The feature id for the '<em><b>Day</b></em>' attribute.
@@ -768,15 +768,6 @@ public interface SurveyPackage extends EPackage {
 	int NUMBER__DESCRIPTION = QUESTION__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Depends On</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NUMBER__DEPENDS_ON = QUESTION__DEPENDS_ON;
-
-	/**
 	 * The feature id for the '<em><b>Required</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -784,6 +775,15 @@ public interface SurveyPackage extends EPackage {
 	 * @ordered
 	 */
 	int NUMBER__REQUIRED = QUESTION__REQUIRED;
+
+	/**
+	 * The feature id for the '<em><b>Depends On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER__DEPENDS_ON = QUESTION__DEPENDS_ON;
 
 	/**
 	 * The feature id for the '<em><b>Min</b></em>' attribute.
@@ -979,15 +979,6 @@ public interface SurveyPackage extends EPackage {
 	int SINGLE__DESCRIPTION = QUESTION__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Depends On</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE__DEPENDS_ON = QUESTION__DEPENDS_ON;
-
-	/**
 	 * The feature id for the '<em><b>Required</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -995,6 +986,15 @@ public interface SurveyPackage extends EPackage {
 	 * @ordered
 	 */
 	int SINGLE__REQUIRED = QUESTION__REQUIRED;
+
+	/**
+	 * The feature id for the '<em><b>Depends On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE__DEPENDS_ON = QUESTION__DEPENDS_ON;
 
 	/**
 	 * The feature id for the '<em><b>Other</b></em>' attribute.
@@ -1079,15 +1079,6 @@ public interface SurveyPackage extends EPackage {
 	int MULTIPLE__DESCRIPTION = QUESTION__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Depends On</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MULTIPLE__DEPENDS_ON = QUESTION__DEPENDS_ON;
-
-	/**
 	 * The feature id for the '<em><b>Required</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1095,6 +1086,15 @@ public interface SurveyPackage extends EPackage {
 	 * @ordered
 	 */
 	int MULTIPLE__REQUIRED = QUESTION__REQUIRED;
+
+	/**
+	 * The feature id for the '<em><b>Depends On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTIPLE__DEPENDS_ON = QUESTION__DEPENDS_ON;
 
 	/**
 	 * The feature id for the '<em><b>Other</b></em>' attribute.
@@ -1206,15 +1206,6 @@ public interface SurveyPackage extends EPackage {
 	int TABLE__DESCRIPTION = QUESTION__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Depends On</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE__DEPENDS_ON = QUESTION__DEPENDS_ON;
-
-	/**
 	 * The feature id for the '<em><b>Required</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1222,6 +1213,15 @@ public interface SurveyPackage extends EPackage {
 	 * @ordered
 	 */
 	int TABLE__REQUIRED = QUESTION__REQUIRED;
+
+	/**
+	 * The feature id for the '<em><b>Depends On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__DEPENDS_ON = QUESTION__DEPENDS_ON;
 
 	/**
 	 * The feature id for the '<em><b>Other</b></em>' attribute.
@@ -1452,34 +1452,6 @@ public interface SurveyPackage extends EPackage {
 	 */
 	int ANSWER_TEMPLATE_OPERATION_COUNT = 0;
 
-	/**
-	 * The meta object id for the '{@link survey.impl.ReferableImpl <em>Referable</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see survey.impl.ReferableImpl
-	 * @see survey.impl.SurveyPackageImpl#getReferable()
-	 * @generated
-	 */
-	int REFERABLE = 19;
-
-	/**
-	 * The number of structural features of the '<em>Referable</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REFERABLE_FEATURE_COUNT = 0;
-
-	/**
-	 * The number of operations of the '<em>Referable</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REFERABLE_OPERATION_COUNT = 0;
-
 
 	/**
 	 * Returns the meta object for class '{@link survey.Meta <em>Meta</em>}'.
@@ -1567,17 +1539,6 @@ public interface SurveyPackage extends EPackage {
 	EClass getItem();
 
 	/**
-	 * Returns the meta object for the reference '{@link survey.Item#getDependsOn <em>Depends On</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Depends On</em>'.
-	 * @see survey.Item#getDependsOn()
-	 * @see #getItem()
-	 * @generated
-	 */
-	EReference getItem_DependsOn();
-
-	/**
 	 * Returns the meta object for the attribute '{@link survey.Item#isRequired <em>Required</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1587,6 +1548,17 @@ public interface SurveyPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getItem_Required();
+
+	/**
+	 * Returns the meta object for the attribute '{@link survey.Item#getDependsOn <em>Depends On</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Depends On</em>'.
+	 * @see survey.Item#getDependsOn()
+	 * @see #getItem()
+	 * @generated
+	 */
+	EAttribute getItem_DependsOn();
 
 	/**
 	 * Returns the meta object for class '{@link survey.Group <em>Group</em>}'.
@@ -2068,16 +2040,6 @@ public interface SurveyPackage extends EPackage {
 	EAttribute getAnswerTemplate_Name();
 
 	/**
-	 * Returns the meta object for class '{@link survey.Referable <em>Referable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Referable</em>'.
-	 * @see survey.Referable
-	 * @generated
-	 */
-	EClass getReferable();
-
-	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2171,20 +2133,20 @@ public interface SurveyPackage extends EPackage {
 		EClass ITEM = eINSTANCE.getItem();
 
 		/**
-		 * The meta object literal for the '<em><b>Depends On</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ITEM__DEPENDS_ON = eINSTANCE.getItem_DependsOn();
-
-		/**
 		 * The meta object literal for the '<em><b>Required</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute ITEM__REQUIRED = eINSTANCE.getItem_Required();
+
+		/**
+		 * The meta object literal for the '<em><b>Depends On</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ITEM__DEPENDS_ON = eINSTANCE.getItem_DependsOn();
 
 		/**
 		 * The meta object literal for the '{@link survey.impl.GroupImpl <em>Group</em>}' class.
@@ -2577,16 +2539,6 @@ public interface SurveyPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ANSWER_TEMPLATE__NAME = eINSTANCE.getAnswerTemplate_Name();
-
-		/**
-		 * The meta object literal for the '{@link survey.impl.ReferableImpl <em>Referable</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see survey.impl.ReferableImpl
-		 * @see survey.impl.SurveyPackageImpl#getReferable()
-		 * @generated
-		 */
-		EClass REFERABLE = eINSTANCE.getReferable();
 
 	}
 

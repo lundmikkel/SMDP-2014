@@ -16,8 +16,8 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Survey.ecore#//Survey/templates"/>
     </genClasses>
     <genClasses image="false" ecoreClass="Survey.ecore#//Item">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Survey.ecore#//Item/dependsOn"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Item/required"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EAttribute Survey.ecore#//Item/dependsOn"/>
     </genClasses>
     <genClasses ecoreClass="Survey.ecore#//Group">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Survey.ecore#//Group/questions"/>
@@ -77,6 +77,5 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Survey.ecore#//AnswerTemplate/answers"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//AnswerTemplate/name"/>
     </genClasses>
-    <genClasses ecoreClass="Survey.ecore#//Referable"/>
   </genPackages>
 </genmodel:GenModel>

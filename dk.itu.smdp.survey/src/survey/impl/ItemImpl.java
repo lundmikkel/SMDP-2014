@@ -5,12 +5,10 @@ package survey.impl;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import survey.Item;
-import survey.Referable;
 import survey.SurveyPackage;
 
 /**
@@ -20,24 +18,14 @@ import survey.SurveyPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link survey.impl.ItemImpl#getDependsOn <em>Depends On</em>}</li>
  *   <li>{@link survey.impl.ItemImpl#isRequired <em>Required</em>}</li>
+ *   <li>{@link survey.impl.ItemImpl#getDependsOn <em>Depends On</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
 public abstract class ItemImpl extends MetaImpl implements Item {
-	/**
-	 * The cached value of the '{@link #getDependsOn() <em>Depends On</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDependsOn()
-	 * @generated
-	 * @ordered
-	 */
-	protected Referable dependsOn;
-
 	/**
 	 * The default value of the '{@link #isRequired() <em>Required</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -59,6 +47,26 @@ public abstract class ItemImpl extends MetaImpl implements Item {
 	protected boolean required = REQUIRED_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #getDependsOn() <em>Depends On</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDependsOn()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DEPENDS_ON_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getDependsOn() <em>Depends On</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDependsOn()
+	 * @generated
+	 * @ordered
+	 */
+	protected String dependsOn = DEPENDS_ON_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -75,44 +83,6 @@ public abstract class ItemImpl extends MetaImpl implements Item {
 	@Override
 	protected EClass eStaticClass() {
 		return SurveyPackage.Literals.ITEM;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Referable getDependsOn() {
-		if (dependsOn != null && dependsOn.eIsProxy()) {
-			InternalEObject oldDependsOn = (InternalEObject)dependsOn;
-			dependsOn = (Referable)eResolveProxy(oldDependsOn);
-			if (dependsOn != oldDependsOn) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SurveyPackage.ITEM__DEPENDS_ON, oldDependsOn, dependsOn));
-			}
-		}
-		return dependsOn;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Referable basicGetDependsOn() {
-		return dependsOn;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setDependsOn(Referable newDependsOn) {
-		Referable oldDependsOn = dependsOn;
-		dependsOn = newDependsOn;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SurveyPackage.ITEM__DEPENDS_ON, oldDependsOn, dependsOn));
 	}
 
 	/**
@@ -141,14 +111,34 @@ public abstract class ItemImpl extends MetaImpl implements Item {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getDependsOn() {
+		return dependsOn;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDependsOn(String newDependsOn) {
+		String oldDependsOn = dependsOn;
+		dependsOn = newDependsOn;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SurveyPackage.ITEM__DEPENDS_ON, oldDependsOn, dependsOn));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case SurveyPackage.ITEM__DEPENDS_ON:
-				if (resolve) return getDependsOn();
-				return basicGetDependsOn();
 			case SurveyPackage.ITEM__REQUIRED:
 				return isRequired();
+			case SurveyPackage.ITEM__DEPENDS_ON:
+				return getDependsOn();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -161,11 +151,11 @@ public abstract class ItemImpl extends MetaImpl implements Item {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case SurveyPackage.ITEM__DEPENDS_ON:
-				setDependsOn((Referable)newValue);
-				return;
 			case SurveyPackage.ITEM__REQUIRED:
 				setRequired((Boolean)newValue);
+				return;
+			case SurveyPackage.ITEM__DEPENDS_ON:
+				setDependsOn((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -179,11 +169,11 @@ public abstract class ItemImpl extends MetaImpl implements Item {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case SurveyPackage.ITEM__DEPENDS_ON:
-				setDependsOn((Referable)null);
-				return;
 			case SurveyPackage.ITEM__REQUIRED:
 				setRequired(REQUIRED_EDEFAULT);
+				return;
+			case SurveyPackage.ITEM__DEPENDS_ON:
+				setDependsOn(DEPENDS_ON_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -197,10 +187,10 @@ public abstract class ItemImpl extends MetaImpl implements Item {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case SurveyPackage.ITEM__DEPENDS_ON:
-				return dependsOn != null;
 			case SurveyPackage.ITEM__REQUIRED:
 				return required != REQUIRED_EDEFAULT;
+			case SurveyPackage.ITEM__DEPENDS_ON:
+				return DEPENDS_ON_EDEFAULT == null ? dependsOn != null : !DEPENDS_ON_EDEFAULT.equals(dependsOn);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -217,6 +207,8 @@ public abstract class ItemImpl extends MetaImpl implements Item {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (required: ");
 		result.append(required);
+		result.append(", dependsOn: ");
+		result.append(dependsOn);
 		result.append(')');
 		return result.toString();
 	}

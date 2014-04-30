@@ -18,7 +18,6 @@ import survey.Multiple;
 import survey.Option;
 import survey.Other;
 import survey.Question;
-import survey.Referable;
 import survey.Scale;
 import survey.Single;
 import survey.Survey;
@@ -158,10 +157,6 @@ public class SurveyAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseAnswerTemplate(AnswerTemplate object) {
 				return createAnswerTemplateAdapter();
-			}
-			@Override
-			public Adapter caseReferable(Referable object) {
-				return createReferableAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -390,20 +385,6 @@ public class SurveyAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createAnswerTemplateAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link survey.Referable <em>Referable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see survey.Referable
-	 * @generated
-	 */
-	public Adapter createReferableAdapter() {
 		return null;
 	}
 
