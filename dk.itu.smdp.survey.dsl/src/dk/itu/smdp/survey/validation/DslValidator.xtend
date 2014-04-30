@@ -277,13 +277,56 @@ class DslValidator extends AbstractDslValidator {
 		for (Question question : survey.items.filter(typeof(Question))) {
 			if (question instanceof Scale) {
 				var scale = question as Scale
-				if (scale.lower > scale.upper) {
+				if (scale.lower >= scale.upper) {
+					val lowerLessThanUpperString = 'Scale upper value must be larger than lower value' 
 					error(
-						'Scale upper value must be larger than lower value',
+						lowerLessThanUpperString,
+						scale,
+						SurveyPackage.Literals.SCALE__LOWER,
+						INVALID_VALUE
+					)
+					error(
+						lowerLessThanUpperString,
 						scale,
 						SurveyPackage.Literals.SCALE__UPPER,
 						INVALID_VALUE
 					)
+				}
+				
+				val largeScaleString = 'Large scales may not render properly nor be very user friendly'
+				if (scale.upper - scale.lower > 20) {
+					warning(
+						largeScaleString,
+						scale,
+						SurveyPackage.Literals.SCALE__LOWER
+					)
+					warning(
+						largeScaleString,
+						scale,
+						SurveyPackage.Literals.SCALE__UPPER
+					)
+				}
+				
+				val bothLabelsString = 'You must specify both labels or none of them'
+				if (scale.lowerLabel.nullOrEmpty != scale.upperLabel.nullOrEmpty) {
+					println("Lower \"" + scale.lowerLabel + "\"")
+					println("Upper \"" + scale.upperLabel + "\"")
+					if (!scale.lowerLabel.nullOrEmpty) {
+						error(
+							bothLabelsString,
+							scale,
+							SurveyPackage.Literals.SCALE__LOWER_LABEL,
+							INVALID_VALUE
+						)
+					}
+					else {
+						error(
+							bothLabelsString,
+							scale,
+							SurveyPackage.Literals.SCALE__UPPER_LABEL,
+							INVALID_VALUE
+						)
+					}
 				}
 			}
 		}
@@ -296,10 +339,19 @@ class DslValidator extends AbstractDslValidator {
 	def checkThatLowerIsLargerThanUpperNumber(Survey survey) {
 		for (Question question : survey.items.filter(typeof(Question))) {
 			if (question instanceof Number) {
-				var number = question as Number
-				if (number.lower > number.upper) {
+ 				var number = question as Number
+				val lowerLessThanUpperString = 'Number upper value must be larger than lower value'
+				val lower = number.lower
+				val upper = number.upper
+				if (lower != null && upper != null && lower >= upper) {
 					error(
-						'Number upper value must be larger than lower value',
+						lowerLessThanUpperString,
+						number,
+						SurveyPackage.Literals.NUMBER__LOWER,
+						INVALID_VALUE
+					)
+					error(
+						lowerLessThanUpperString,
 						number,
 						SurveyPackage.Literals.NUMBER__UPPER,
 						INVALID_VALUE

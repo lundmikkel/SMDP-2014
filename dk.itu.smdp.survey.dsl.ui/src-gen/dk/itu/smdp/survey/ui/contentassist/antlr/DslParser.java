@@ -44,6 +44,9 @@ public class DslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getOptionAccess().getAlternatives(), "rule__Option__Alternatives");
 					put(grammarAccess.getTextAccess().getAlternatives_2_5(), "rule__Text__Alternatives_2_5");
 					put(grammarAccess.getTextAccess().getMultilineAlternatives_2_5_2_0(), "rule__Text__MultilineAlternatives_2_5_2_0");
+					put(grammarAccess.getDateAccess().getShowLimitsAlternatives_2_6_0(), "rule__Date__ShowLimitsAlternatives_2_6_0");
+					put(grammarAccess.getNumberAccess().getShowLimitsAlternatives_2_7_0(), "rule__Number__ShowLimitsAlternatives_2_7_0");
+					put(grammarAccess.getMultipleAccess().getShowLimitsAlternatives_1_8_0(), "rule__Multiple__ShowLimitsAlternatives_1_8_0");
 					put(grammarAccess.getTableAccess().getAlternatives_4(), "rule__Table__Alternatives_4");
 					put(grammarAccess.getSurveyAccess().getGroup(), "rule__Survey__Group__0");
 					put(grammarAccess.getSurveyAccess().getGroup_1(), "rule__Survey__Group_1__0");

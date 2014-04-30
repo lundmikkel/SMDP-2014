@@ -28,53 +28,53 @@ class DslGenerator implements IGenerator {
 	
 	def genHtml(Survey survey, IFileSystemAccess fsa) {
 		var template = '''
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>«survey.title»</title>
-        <!-- Bootstrap -->
-        <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
-        <style media="screen" type="text/css">
-            .group { margin-bottom: 20px; margin-top: 50px; }
-            input[type=number] { text-align: right; }
-            h2 + p.lead { font-size: 21px; margin-bottom: 30px; margin-top: -15px; }
-            label.control-label { font-size: 16px; }
-            label .help-block { font-size: 85%; }
-            table.scale td { padding: 8px; text-align: center; }
-            table.scale .top td { padding-bottom: 0; }
-            table.scale .bottom { border-top: 1px solid #DDD; border-bottom: 1px solid #DDD; }
-            form .form-group + .form-group { padding-top: 15px; }
-            form hr { margin-top: 30px; }
-        </style>
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
-    </head>
-
-    <body>
-    	<div class="container">
-            <div class="row">
-                <div> <h1>«survey.title»</h1> <p class="lead">«survey.description»</p> </div>
-                <form role="form">
-					«FOR item : survey.items»
-						«item.genHtml»
-					«ENDFOR»
-                    <hr/>
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-success btn-lg">Submit</button>
-                        <button type="reset" class="btn btn-danger btn-lg">Reset</button>
-                    </div>
-				</form>
-            </div>
-        </div>
-	</body>
-</html>
+		<!DOCTYPE html>
+		<html lang="en">
+		    <head>
+		        <meta charset="utf-8">
+		        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+		        <meta name="viewport" content="width=device-width, initial-scale=1">
+		        <title>«survey.title»</title>
+		        <!-- Bootstrap -->
+		        <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+		        <style media="screen" type="text/css">
+		            .group { margin-bottom: 20px; margin-top: 50px; }
+		            input[type=number] { text-align: right; }
+		            h2 + p.lead { font-size: 21px; margin-bottom: 30px; margin-top: -15px; }
+		            label.control-label { font-size: 16px; }
+		            label .help-block { font-size: 85%; }
+		            table.scale td { padding: 8px; text-align: center; }
+		            table.scale .top td { padding-bottom: 0; }
+		            table.scale .bottom { border-top: 1px solid #DDD; border-bottom: 1px solid #DDD; }
+		            form .form-group + .form-group { padding-top: 15px; }
+		            form hr { margin-top: 30px; }
+		        </style>
+		        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		        <!--[if lt IE 9]>
+		        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		        <![endif]-->
+		    </head>
+		
+		    <body>
+		    	<div class="container">
+		            <div class="row">
+		                <div> <h1>«survey.title»</h1> <p class="lead">«survey.description»</p> </div>
+		                <form role="form">
+							«FOR item : survey.items»
+								«item.genHtml»
+							«ENDFOR»
+		                    <hr/>
+		                    <div class="form-group">
+		                        <button type="submit" class="btn btn-success btn-lg">Submit</button>
+		                        <button type="reset" class="btn btn-danger btn-lg">Reset</button>
+		                    </div>
+						</form>
+		            </div>
+		        </div>
+			</body>
+		</html>
 		'''
 		
 		// TODO: Use survey.name to make filename
@@ -89,39 +89,40 @@ class DslGenerator implements IGenerator {
 	}
 	
 	// TODO: Make sure all items in group are required
-	def dispatch String genHtml(Group group) '''
-<div class="group">
-    «IF !group.title.nullOrEmpty»
-    <h2 id="grid" class="page-header">«group.title»</h2>
-    «ENDIF»
-    « IF !group.description.nullOrEmpty »
-    <p class="lead">«group.description»</p>
-    «ENDIF»
-	«FOR question : group.questions»
-		«question.genHtml»
-	«ENDFOR»
-</div>
+	def dispatch String genHtml(Group group)
+	'''
+	<div class="group">
+	    «IF !group.title.nullOrEmpty»
+	    <h2 id="grid" class="page-header">«group.title»</h2>
+	    «ENDIF»
+	    « IF !group.description.nullOrEmpty »
+	    <p class="lead">«group.description»</p>
+	    «ENDIF»
+		«FOR question : group.questions»
+			«question.genHtml»
+		«ENDFOR»
+	</div>
 	'''
 	
 	def dispatch String genHtml(Text question) {
 		var id = getUniqueId(question);
 		
 		'''
-<div class="form-group">
-    <label for="«id»" class="control-label">
-        «question.title»
-        «question.genQuestionDesc»
-    </label>
-    <div class="row">
-        <div class="col-xs-4">
-			«IF !question.multiline»
-			<input class="form-control" id="«id»" «question.genRequired»>
-			«ELSE»
-			<textarea class="form-control" id="«id»" «question.genRequired» rows="3"></textarea>
-			«ENDIF»
-        </div>
-    </div>
-</div>
+		<div class="form-group">
+		    <label for="«id»" class="control-label">
+		        «question.title» «question.genRequiredLabel»
+		        «question.genQuestionDesc»
+		    </label>
+		    <div class="row">
+		        <div class="col-xs-4">
+					«IF !question.multiline»
+					<input class="form-control" id="«id»" «question.genRequiredAttr» «question.genRequiredAttr»>
+					«ELSE»
+					<textarea class="form-control" id="«id»" «question.genRequiredAttr» rows="3" «question.genRequiredAttr»></textarea>
+					«ENDIF»
+		        </div>
+		    </div>
+		</div>
 		'''
 	}
 	
@@ -129,32 +130,43 @@ class DslGenerator implements IGenerator {
 		var id = getUniqueId(question);
 		
 		'''
-<div class="group">
-    <div class="form-group">
-        <label class="control-label">
-	        «question.title»
-	        «question.genQuestionDesc»
-        </label>
-        <table class="scale">
-            <tr class="top">
-                <td></td>
-                «FOR i : question.lower..question.upper BEFORE '<td>' SEPARATOR '</td><td>' AFTER '</td>' »
-                <label for="«id»_«i»">«i»</label>
-                «ENDFOR»
-                <td></td>
-            </tr>
-            <tr class="bottom">
-                <td><label for="«id»_«question.lower»">«question.lowerLabel»</label></td>
-                
-                «FOR i : question.lower..question.upper BEFORE '<td>' SEPARATOR '</td><td>' AFTER '</td>' »
-                <input type="radio" name="«id»" id="«id»_«i»" value="«i»" />
-                «ENDFOR»
-                <td><label for="«id»_«question.upper»">«question.upperLabel»</label></td>
-            </tr>
-        </table>
-    </div>
-</div>
+		<div class="group">
+		    <div class="form-group">
+		        <label class="control-label">
+			        «question.title» «question.genRequiredLabel»
+			        «question.genQuestionDesc»
+		        </label>
+		        <table class="scale">
+		            <tr class="top">
+		            	«IF !question.lowerLabel.nullOrEmpty »
+		            	<td></td>
+		                «ENDIF»
+		                «FOR i : question.lower..question.upper BEFORE '<td>' SEPARATOR '</td><td>' AFTER '</td>' »
+		                <label for="«id»_«i»">«i»</label>
+		                «ENDFOR»
+		            	«IF !question.lowerLabel.nullOrEmpty »
+		            	<td></td>
+		                «ENDIF»
+		            </tr>
+		            <tr class="bottom">
+		            	«IF !question.lowerLabel.nullOrEmpty »
+		            	<td><label for="«id»_«question.lower»">«question.lowerLabel»</label></td>
+		                «ENDIF»
+		                «FOR i : question.lower..question.upper BEFORE '<td>' SEPARATOR '</td><td>' AFTER '</td>' »
+		                <input type="radio" name="«id»" id="«id»_«i»" value="«i»" «question.genRequiredAttr»/>
+		                «ENDFOR»
+		            	«IF !question.lowerLabel.nullOrEmpty »
+		            	<td><label for="«id»_«question.upper»">«question.upperLabel»</label></td>
+		                «ENDIF»
+		            </tr>
+		        </table>
+		    </div>
+		</div>
 		'''
+	}
+	
+	def dispatch String genHtml(Date question) {
+		// TODO:FINISH!!
 	}
 	
 	def dispatch String genHtml(Number question) {
@@ -162,17 +174,27 @@ class DslGenerator implements IGenerator {
 		
 		// TODO: Generate min/max, step, value
 		'''
-<div class="form-group">
-    <label for="«id»" class="control-label">
-        «question.title»
-        «question.genQuestionDesc»
-    </label>
-    <div class="row">
-        <div class="col-xs-2">
-            <input type="number" class="form-control" id="«id»" «question.genRequired» step="1" value="0">
-        </div>
-    </div>
-</div>
+		<div class="form-group">
+		    <label for="«id»" class="control-label">
+		        «question.title» «question.genRequiredLabel»
+		        «question.genQuestionDesc»
+		    </label>
+		    <div class="row">
+		        <div class="col-xs-2">
+		            <input type="number" class="form-control" id="«id»" «question.genRequiredAttr» step="1"
+		            «IF question.lower != null»
+		            min="«question.lower»"
+		            «ENDIF»
+		            «IF question.upper != null»
+		            max="«question.upper»"
+		            «ENDIF»
+		            >
+		        </div>
+		    </div>
+            «IF question.showLimits»
+            «question.genLimitsDesc»
+            «ENDIF»
+		</div>
 		'''
 	}
 	
@@ -181,18 +203,18 @@ class DslGenerator implements IGenerator {
 		var i = 0
 		
 		'''
-<div class="form-group">
-    <label class="control-label">
-    	«question.title»
-    	«question.genQuestionDesc»
-    </label>
-    <div>
-    	«FOR a : question.getAnswers BEFORE '<div class="radio"><label>' SEPARATOR '</label></div><div class="radio"><label>' AFTER '</label></div>' »
-    	<input type="radio" name="«id»" id="«id»_«i»" value="«i»" />
-        «a.label»
-        «ENDFOR»
-    </div>
-</div>
+		<div class="form-group">
+		    <label class="control-label">
+		    	«question.title»
+		    	«question.genQuestionDesc»
+		    </label>
+		    <div>
+		    	«FOR a : question.getAnswers BEFORE '<div class="radio"><label>' SEPARATOR '</label></div><div class="radio"><label>' AFTER '</label></div>' »
+		    	<input type="radio" name="«id»" id="«id»_«i»" value="«i»" />
+		        «a.label»
+		        «ENDFOR»
+		    </div>
+		</div>
 		'''
 	}
 	
@@ -202,14 +224,59 @@ class DslGenerator implements IGenerator {
 		«question.title»
 	'''
 	
+	def genRequiredLabel(Question question) {
+		var required = question.required
+		'''
+		«IF required»
+		*
+		«ENDIF»
+		'''
+	}
+	
+	def genRequiredAttr(Question question) {
+		var required = question.required
+		'''
+		«IF required»
+		required
+		«ENDIF»
+		'''
+	}
+	
+	def genLimitsDesc(Number question) {
+		var min = question.lower
+		var max = question.upper
+		var s = ''
+		if (min != null && max != null) {
+			s = '''The value must be between «min» and «max» (both included)'''
+		}
+		else if (min != null) {
+			switch(min) {
+				case 0:
+					s = '''The value must be non-negative'''
+				case 1:
+					s = '''The value must be positive'''
+				default:
+					s = '''The value must be larger than or equal to «min»'''
+			}
+		}
+		else if (max != null) {
+			switch(max) {
+				case -1:
+					s = '''The value must be negative'''
+				default:
+					s = '''The value must be less than or equal to «max»'''
+			}
+		}
+		
+		if (!s.nullOrEmpty) {
+			'''<p class="help-block">«s»</p>'''
+		}
+	}
+	
 	def genQuestionDesc(Meta item) '''
 	«IF !item.description.nullOrEmpty»
 	<p class="help-block">«item.description»</p>
 	«ENDIF»
-	'''
-	
-	def genRequired(Item item) '''
-	«IF item.required» required «ENDIF»
 	'''
 	
 	// TODO: Make this return an iterable instead of a list

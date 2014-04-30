@@ -121,6 +121,8 @@ public class AbstractDslProposalProvider extends org.eclipse.xtext.common.ui.con
 	}
 	public void completeDate_ShowLimits(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		// subclasses may override
+		// subclasses may override
+		// subclasses may override
 	}
 	public void completeDate_Required(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		// subclasses may override
@@ -156,6 +158,8 @@ public class AbstractDslProposalProvider extends org.eclipse.xtext.common.ui.con
 		// subclasses may override
 	}
 	public void completeNumber_ShowLimits(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		// subclasses may override
+		// subclasses may override
 		// subclasses may override
 	}
 	public void completeSingle_Title(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
@@ -204,6 +208,8 @@ public class AbstractDslProposalProvider extends org.eclipse.xtext.common.ui.con
 		// subclasses may override
 	}
 	public void completeMultiple_ShowLimits(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		// subclasses may override
+		// subclasses may override
 		// subclasses may override
 	}
 	public void completeMultiple_Options(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {

@@ -178,7 +178,7 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	 *         from=EString? 
 	 *         to=EString? 
 	 *         dependsOn=[Referable|FQN]? 
-	 *         showLimits?='showLimits'? 
+	 *         (showLimits?='show-limits' | showLimits?='show' | showLimits?='limits')? 
 	 *         required?='required'? 
 	 *         day?='day'? 
 	 *         month?='month'? 
@@ -210,7 +210,7 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	 *         dependsOn=[Referable|FQN]? 
 	 *         required?='required'? 
 	 *         other?='other'? 
-	 *         showLimits?='showLimits'? 
+	 *         (showLimits?='show-limits' | showLimits?='show' | showLimits?='limits')? 
 	 *         options+=Option+
 	 *     )
 	 */
@@ -229,7 +229,7 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	 *         upper=EInt? 
 	 *         dependsOn=[Referable|FQN]? 
 	 *         required?='required'? 
-	 *         showLimits?='showLimits'?
+	 *         (showLimits?='show-limits' | showLimits?='show' | showLimits?='limits')?
 	 *     )
 	 */
 	protected void sequence_Number(EObject context, survey.Number semanticObject) {

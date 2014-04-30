@@ -34,7 +34,7 @@ public class NumberImpl extends QuestionImpl implements survey.Number {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int LOWER_EDEFAULT = 0;
+	protected static final Integer LOWER_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getLower() <em>Lower</em>}' attribute.
@@ -44,7 +44,7 @@ public class NumberImpl extends QuestionImpl implements survey.Number {
 	 * @generated
 	 * @ordered
 	 */
-	protected int lower = LOWER_EDEFAULT;
+	protected Integer lower = LOWER_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getUpper() <em>Upper</em>}' attribute.
@@ -54,7 +54,7 @@ public class NumberImpl extends QuestionImpl implements survey.Number {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int UPPER_EDEFAULT = 0;
+	protected static final Integer UPPER_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getUpper() <em>Upper</em>}' attribute.
@@ -64,7 +64,7 @@ public class NumberImpl extends QuestionImpl implements survey.Number {
 	 * @generated
 	 * @ordered
 	 */
-	protected int upper = UPPER_EDEFAULT;
+	protected Integer upper = UPPER_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #isShowLimits() <em>Show Limits</em>}' attribute.
@@ -110,7 +110,7 @@ public class NumberImpl extends QuestionImpl implements survey.Number {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getLower() {
+	public Integer getLower() {
 		return lower;
 	}
 
@@ -119,8 +119,8 @@ public class NumberImpl extends QuestionImpl implements survey.Number {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setLower(int newLower) {
-		int oldLower = lower;
+	public void setLower(Integer newLower) {
+		Integer oldLower = lower;
 		lower = newLower;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SurveyPackage.NUMBER__LOWER, oldLower, lower));
@@ -131,7 +131,7 @@ public class NumberImpl extends QuestionImpl implements survey.Number {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getUpper() {
+	public Integer getUpper() {
 		return upper;
 	}
 
@@ -140,8 +140,8 @@ public class NumberImpl extends QuestionImpl implements survey.Number {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setUpper(int newUpper) {
-		int oldUpper = upper;
+	public void setUpper(Integer newUpper) {
+		Integer oldUpper = upper;
 		upper = newUpper;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SurveyPackage.NUMBER__UPPER, oldUpper, upper));
@@ -237,9 +237,9 @@ public class NumberImpl extends QuestionImpl implements survey.Number {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case SurveyPackage.NUMBER__LOWER:
-				return lower != LOWER_EDEFAULT;
+				return LOWER_EDEFAULT == null ? lower != null : !LOWER_EDEFAULT.equals(lower);
 			case SurveyPackage.NUMBER__UPPER:
-				return upper != UPPER_EDEFAULT;
+				return UPPER_EDEFAULT == null ? upper != null : !UPPER_EDEFAULT.equals(upper);
 			case SurveyPackage.NUMBER__SHOW_LIMITS:
 				return showLimits != SHOW_LIMITS_EDEFAULT;
 		}

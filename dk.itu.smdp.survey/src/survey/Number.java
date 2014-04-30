@@ -31,12 +31,12 @@ public interface Number extends Question {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Lower</em>' attribute.
-	 * @see #setLower(int)
+	 * @see #setLower(Integer)
 	 * @see survey.SurveyPackage#getNumber_Lower()
 	 * @model
 	 * @generated
 	 */
-	int getLower();
+	Integer getLower();
 
 	/**
 	 * Sets the value of the '{@link survey.Number#getLower <em>Lower</em>}' attribute.
@@ -46,7 +46,7 @@ public interface Number extends Question {
 	 * @see #getLower()
 	 * @generated
 	 */
-	void setLower(int value);
+	void setLower(Integer value);
 
 	/**
 	 * Returns the value of the '<em><b>Upper</b></em>' attribute.
@@ -57,12 +57,12 @@ public interface Number extends Question {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Upper</em>' attribute.
-	 * @see #setUpper(int)
+	 * @see #setUpper(Integer)
 	 * @see survey.SurveyPackage#getNumber_Upper()
 	 * @model
 	 * @generated
 	 */
-	int getUpper();
+	Integer getUpper();
 
 	/**
 	 * Sets the value of the '{@link survey.Number#getUpper <em>Upper</em>}' attribute.
@@ -72,7 +72,7 @@ public interface Number extends Question {
 	 * @see #getUpper()
 	 * @generated
 	 */
-	void setUpper(int value);
+	void setUpper(Integer value);
 
 	/**
 	 * Returns the value of the '<em><b>Show Limits</b></em>' attribute.

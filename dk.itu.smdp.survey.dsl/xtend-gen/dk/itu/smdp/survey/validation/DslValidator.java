@@ -3,11 +3,14 @@
  */
 package dk.itu.smdp.survey.validation;
 
+import com.google.common.base.Objects;
 import com.google.common.collect.Iterables;
 import dk.itu.smdp.survey.validation.AbstractDslValidator;
 import java.util.HashMap;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtext.validation.Check;
+import org.eclipse.xtext.xbase.lib.InputOutput;
+import org.eclipse.xtext.xbase.lib.StringExtensions;
 import survey.Answer;
 import survey.AnswerTemplate;
 import survey.Group;
@@ -367,12 +370,54 @@ public class DslValidator extends AbstractDslValidator {
         Scale scale = ((Scale) question);
         int _lower = scale.getLower();
         int _upper = scale.getUpper();
-        boolean _greaterThan = (_lower > _upper);
-        if (_greaterThan) {
-          this.error(
-            "Scale upper value must be larger than lower value", scale, 
+        boolean _greaterEqualsThan = (_lower >= _upper);
+        if (_greaterEqualsThan) {
+          final String lowerLessThanUpperString = "Scale upper value must be larger than lower value";
+          this.error(lowerLessThanUpperString, scale, 
+            Literals.SCALE__LOWER, 
+            DslValidator.INVALID_VALUE);
+          this.error(lowerLessThanUpperString, scale, 
             Literals.SCALE__UPPER, 
             DslValidator.INVALID_VALUE);
+        }
+        final String largeScaleString = "Large scales may not render properly nor be very user friendly";
+        int _upper_1 = scale.getUpper();
+        int _lower_1 = scale.getLower();
+        int _minus = (_upper_1 - _lower_1);
+        boolean _greaterThan = (_minus > 20);
+        if (_greaterThan) {
+          this.warning(largeScaleString, scale, 
+            Literals.SCALE__LOWER);
+          this.warning(largeScaleString, scale, 
+            Literals.SCALE__UPPER);
+        }
+        final String bothLabelsString = "You must specify both labels or none of them";
+        String _lowerLabel = scale.getLowerLabel();
+        boolean _isNullOrEmpty = StringExtensions.isNullOrEmpty(_lowerLabel);
+        String _upperLabel = scale.getUpperLabel();
+        boolean _isNullOrEmpty_1 = StringExtensions.isNullOrEmpty(_upperLabel);
+        boolean _notEquals = (_isNullOrEmpty != _isNullOrEmpty_1);
+        if (_notEquals) {
+          String _lowerLabel_1 = scale.getLowerLabel();
+          String _plus = ("Lower \"" + _lowerLabel_1);
+          String _plus_1 = (_plus + "\"");
+          InputOutput.<String>println(_plus_1);
+          String _upperLabel_1 = scale.getUpperLabel();
+          String _plus_2 = ("Upper \"" + _upperLabel_1);
+          String _plus_3 = (_plus_2 + "\"");
+          InputOutput.<String>println(_plus_3);
+          String _lowerLabel_2 = scale.getLowerLabel();
+          boolean _isNullOrEmpty_2 = StringExtensions.isNullOrEmpty(_lowerLabel_2);
+          boolean _not = (!_isNullOrEmpty_2);
+          if (_not) {
+            this.error(bothLabelsString, scale, 
+              Literals.SCALE__LOWER_LABEL, 
+              DslValidator.INVALID_VALUE);
+          } else {
+            this.error(bothLabelsString, scale, 
+              Literals.SCALE__UPPER_LABEL, 
+              DslValidator.INVALID_VALUE);
+          }
         }
       }
     }
@@ -388,12 +433,29 @@ public class DslValidator extends AbstractDslValidator {
     for (final Question question : _filter) {
       if ((question instanceof survey.Number)) {
         survey.Number number = ((survey.Number) question);
-        int _lower = number.getLower();
-        int _upper = number.getUpper();
-        boolean _greaterThan = (_lower > _upper);
-        if (_greaterThan) {
-          this.error(
-            "Number upper value must be larger than lower value", number, 
+        final String lowerLessThanUpperString = "Number upper value must be larger than lower value";
+        final Integer lower = number.getLower();
+        final Integer upper = number.getUpper();
+        boolean _and = false;
+        boolean _and_1 = false;
+        boolean _notEquals = (!Objects.equal(lower, null));
+        if (!_notEquals) {
+          _and_1 = false;
+        } else {
+          boolean _notEquals_1 = (!Objects.equal(upper, null));
+          _and_1 = (_notEquals && _notEquals_1);
+        }
+        if (!_and_1) {
+          _and = false;
+        } else {
+          boolean _greaterEqualsThan = (lower.compareTo(upper) >= 0);
+          _and = (_and_1 && _greaterEqualsThan);
+        }
+        if (_and) {
+          this.error(lowerLessThanUpperString, number, 
+            Literals.NUMBER__LOWER, 
+            DslValidator.INVALID_VALUE);
+          this.error(lowerLessThanUpperString, number, 
             Literals.NUMBER__UPPER, 
             DslValidator.INVALID_VALUE);
         }

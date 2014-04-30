@@ -79,7 +79,7 @@ Date returns Date:
 		& ('from="' from=EString '"')?
 		& ('to="' to=EString '"')?
 		& ('dependsOn="' dependsOn=[Referable|FQN] '"')?
-		& (showLimits?='showLimits')?
+		& (showLimits?=('show-limits' | 'show' | 'limits'))?
 		& (required?='required')?
 		& (day?='day')?
 		& (month?='month')?
@@ -96,7 +96,7 @@ Number returns Number:
 		& ('upper=' upper=EInt)?
 		& ('dependsOn="' dependsOn=[Referable|FQN] '"')?
 		& (required?='required')?
-		& (showLimits?='showLimits')?)
+		& (showLimits?=('show-limits' | 'show' | 'limits'))?)
 	'/>';
 
 Single returns Single:
@@ -121,7 +121,7 @@ Multiple returns Multiple:
 		& ('dependsOn="' dependsOn=[Referable|FQN] '"')?
 		& (required?='required')?
 		& (other?='other')?
-		& (showLimits?='showLimits')?)
+		& (showLimits?=('show-limits' | 'show' | 'limits'))?)
 	'>'	
 		(options+=Option)+ 
 	'</multiple>';
