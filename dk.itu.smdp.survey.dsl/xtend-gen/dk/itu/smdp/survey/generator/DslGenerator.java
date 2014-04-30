@@ -5,12 +5,14 @@ package dk.itu.smdp.survey.generator;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.IFileSystemAccess;
 import org.eclipse.xtext.generator.IGenerator;
+import org.eclipse.xtext.xbase.lib.Functions.Function0;
 import org.eclipse.xtext.xbase.lib.IntegerRange;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.StringExtensions;
@@ -35,6 +37,15 @@ import survey.Text;
  */
 @SuppressWarnings("all")
 public class DslGenerator implements IGenerator {
+  private int nextId = 0;
+  
+  private HashMap<Question,String> idMap = new Function0<HashMap<Question,String>>() {
+    public HashMap<Question,String> apply() {
+      HashMap<Question,String> _hashMap = new HashMap<Question, String>();
+      return _hashMap;
+    }
+  }.apply();
+  
   public void doGenerate(final Resource resource, final IFileSystemAccess fsa) {
     EList<EObject> _contents = resource.getContents();
     EObject _head = IterableExtensions.<EObject>head(_contents);
@@ -194,6 +205,14 @@ public class DslGenerator implements IGenerator {
     fsa.generateFile("survey.html", template);
   }
   
+  public String getUniqueId(final Question question) {
+    int _plus = (this.nextId + 1);
+    this.nextId = _plus;
+    String id = ("input" + Integer.valueOf(this.nextId));
+    this.idMap.put(question, id);
+    return id;
+  }
+  
   protected String _genHtml(final Group group) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("<div class=\"group\">");
@@ -241,7 +260,7 @@ public class DslGenerator implements IGenerator {
   protected String _genHtml(final Text question) {
     String _xblockexpression = null;
     {
-      String id = "name";
+      String id = this.getUniqueId(question);
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("<div class=\"form-group\">");
       _builder.newLine();
@@ -306,7 +325,7 @@ public class DslGenerator implements IGenerator {
   protected String _genHtml(final Scale question) {
     String _xblockexpression = null;
     {
-      String id = "radio_1";
+      String id = this.getUniqueId(question);
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("<div class=\"group\">");
       _builder.newLine();
@@ -442,7 +461,7 @@ public class DslGenerator implements IGenerator {
   protected String _genHtml(final survey.Number question) {
     String _xblockexpression = null;
     {
-      String id = "children";
+      String id = this.getUniqueId(question);
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("<div class=\"form-group\">");
       _builder.newLine();
@@ -492,7 +511,7 @@ public class DslGenerator implements IGenerator {
   protected String _genHtml(final Single question) {
     String _xblockexpression = null;
     {
-      String id = "question";
+      String id = this.getUniqueId(question);
       int i = 0;
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("<div class=\"form-group\">");

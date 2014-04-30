@@ -8,6 +8,7 @@ import org.eclipse.xtext.generator.IGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess
 import survey.*
 import java.util.ArrayList
+import java.util.HashMap
 
 /**
  * Generates code from your model files on save.
@@ -15,6 +16,8 @@ import java.util.ArrayList
  * see http://www.eclipse.org/Xtext/documentation.html#TutorialCodeGeneration
  */
 class DslGenerator implements IGenerator {
+	var nextId = 0;
+	var idMap = new HashMap<Question, String>();
 	
 	override void doGenerate(Resource resource, IFileSystemAccess fsa) {
 		var survey = resource.contents.head as Survey
@@ -78,6 +81,13 @@ class DslGenerator implements IGenerator {
 		fsa.generateFile("survey.html", template)
 	}
 	
+	def getUniqueId(Question question) {
+		nextId = nextId + 1;
+		var id = 'input' + nextId;
+		idMap.put(question, id);
+		return id;
+	}
+	
 	// TODO: Make sure all items in group are required
 	def dispatch String genHtml(Group group) '''
 <div class="group">
@@ -94,8 +104,7 @@ class DslGenerator implements IGenerator {
 	'''
 	
 	def dispatch String genHtml(Text question) {
-		// TODO: Get id
-		var id = 'name'
+		var id = getUniqueId(question);
 		
 		'''
 <div class="form-group">
@@ -117,8 +126,7 @@ class DslGenerator implements IGenerator {
 	}
 	
 	def dispatch String genHtml(Scale question) {
-		// TODO: Get id 
-		var id ='radio_1'
+		var id = getUniqueId(question);
 		
 		'''
 <div class="group">
@@ -150,8 +158,7 @@ class DslGenerator implements IGenerator {
 	}
 	
 	def dispatch String genHtml(Number question) {
-		// TODO: Get id 
-		var id ='children'
+		var id = getUniqueId(question);
 		
 		// TODO: Generate min/max, step, value
 		'''
@@ -170,7 +177,7 @@ class DslGenerator implements IGenerator {
 	}
 	
 	def dispatch String genHtml(Single question) {
-		var id = 'question'
+		var id = getUniqueId(question);
 		var i = 0
 		
 		'''
