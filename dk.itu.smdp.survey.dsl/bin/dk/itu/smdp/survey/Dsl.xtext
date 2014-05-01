@@ -64,7 +64,6 @@ Scale returns Scale:
 		& ('id="' name=ID '"')?
 		& ('min=' min=EInt)
 		& ('max=' max=EInt)
-		// TODO: Force that if one label is set, both should be
 		& ('min-label="' minLabel=EString '"')?
 		& ('max-label="' maxLabel=EString '"')?
 		& ('depends-on="' dependsOn=DEP_ID '"')?

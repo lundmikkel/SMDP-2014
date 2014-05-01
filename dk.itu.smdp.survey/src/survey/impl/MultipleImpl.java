@@ -100,7 +100,7 @@ public class MultipleImpl extends QuestionImpl implements Multiple {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int MIN_EDEFAULT = 0;
+	protected static final Integer MIN_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getMin() <em>Min</em>}' attribute.
@@ -110,7 +110,7 @@ public class MultipleImpl extends QuestionImpl implements Multiple {
 	 * @generated
 	 * @ordered
 	 */
-	protected int min = MIN_EDEFAULT;
+	protected Integer min = MIN_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getMax() <em>Max</em>}' attribute.
@@ -120,7 +120,7 @@ public class MultipleImpl extends QuestionImpl implements Multiple {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int MAX_EDEFAULT = 0;
+	protected static final Integer MAX_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getMax() <em>Max</em>}' attribute.
@@ -130,7 +130,7 @@ public class MultipleImpl extends QuestionImpl implements Multiple {
 	 * @generated
 	 * @ordered
 	 */
-	protected int max = MAX_EDEFAULT;
+	protected Integer max = MAX_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #isShowLimits() <em>Show Limits</em>}' attribute.
@@ -230,7 +230,7 @@ public class MultipleImpl extends QuestionImpl implements Multiple {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getMin() {
+	public Integer getMin() {
 		return min;
 	}
 
@@ -239,8 +239,8 @@ public class MultipleImpl extends QuestionImpl implements Multiple {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setMin(int newMin) {
-		int oldMin = min;
+	public void setMin(Integer newMin) {
+		Integer oldMin = min;
 		min = newMin;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SurveyPackage.MULTIPLE__MIN, oldMin, min));
@@ -251,7 +251,7 @@ public class MultipleImpl extends QuestionImpl implements Multiple {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getMax() {
+	public Integer getMax() {
 		return max;
 	}
 
@@ -260,8 +260,8 @@ public class MultipleImpl extends QuestionImpl implements Multiple {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setMax(int newMax) {
-		int oldMax = max;
+	public void setMax(Integer newMax) {
+		Integer oldMax = max;
 		max = newMax;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SurveyPackage.MULTIPLE__MAX, oldMax, max));
@@ -403,9 +403,9 @@ public class MultipleImpl extends QuestionImpl implements Multiple {
 			case SurveyPackage.MULTIPLE__OPTIONS:
 				return options != null && !options.isEmpty();
 			case SurveyPackage.MULTIPLE__MIN:
-				return min != MIN_EDEFAULT;
+				return MIN_EDEFAULT == null ? min != null : !MIN_EDEFAULT.equals(min);
 			case SurveyPackage.MULTIPLE__MAX:
-				return max != MAX_EDEFAULT;
+				return MAX_EDEFAULT == null ? max != null : !MAX_EDEFAULT.equals(max);
 			case SurveyPackage.MULTIPLE__SHOW_LIMITS:
 				return showLimits != SHOW_LIMITS_EDEFAULT;
 		}

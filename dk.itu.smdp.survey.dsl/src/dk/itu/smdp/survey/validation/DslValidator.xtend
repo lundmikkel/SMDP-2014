@@ -97,40 +97,44 @@ class DslValidator extends AbstractDslValidator {
 	 */
 	@Check
 	def checkMinIsLessThanMax(Number number) {
-		if (number.min >= number.max) {
+		val min = number.min
+		val max = number.max
+		if (min != null && max != null && min >= max) {
 			error(
 				minIsLessThanMaxString,
 				number,
-				SurveyPackage.Literals.SCALE__MIN,
+				SurveyPackage.Literals.NUMBER__MIN,
 				INVALID_VALUE
 			)
 			error(
 				minIsLessThanMaxString,
 				number,
-				SurveyPackage.Literals.SCALE__MAX,
+				SurveyPackage.Literals.NUMBER__MAX,
 				INVALID_VALUE
 			)
 		}
 	}
-
-
+	
 	/*
- * Check that the max value in a multiple question is larger than the min value 
- */
+	 * Check that the min is less than max value in a scale 
+	 */
 	@Check
-	def checkThatLowerIsLargerThanUpperMultiple(Survey survey) {
-		for (Question question : survey.items.filter(typeof(Question))) {
-			if (question instanceof Multiple) {
-				var multiple = question as Multiple
-				if (multiple.min > multiple.max) {
-					error(
-						'Multiple max value must be larger than min value',
-						multiple,
-						SurveyPackage.Literals.MULTIPLE__MAX,
-						INVALID_VALUE
-					)
-				}
-			}
+	def checkMinIsLessThanMax(Multiple multiple) {
+		val min = multiple.min
+		val max = multiple.max
+		if (min != null && max != null && min >= max) {
+			error(
+				minIsLessThanMaxString,
+				multiple,
+				SurveyPackage.Literals.NUMBER__MIN,
+				INVALID_VALUE
+			)
+			error(
+				minIsLessThanMaxString,
+				multiple,
+				SurveyPackage.Literals.NUMBER__MAX,
+				INVALID_VALUE
+			)
 		}
 	}
 	

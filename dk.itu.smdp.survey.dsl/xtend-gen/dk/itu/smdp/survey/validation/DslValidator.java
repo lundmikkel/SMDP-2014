@@ -3,6 +3,7 @@
  */
 package dk.itu.smdp.survey.validation;
 
+import com.google.common.base.Objects;
 import com.google.common.collect.Iterables;
 import dk.itu.smdp.survey.validation.AbstractDslValidator;
 import java.util.Arrays;
@@ -103,41 +104,66 @@ public class DslValidator extends AbstractDslValidator {
    */
   @Check
   public void checkMinIsLessThanMax(final survey.Number number) {
-    Integer _min = number.getMin();
-    Integer _max = number.getMax();
-    boolean _greaterEqualsThan = (_min.compareTo(_max) >= 0);
-    if (_greaterEqualsThan) {
+    final Integer min = number.getMin();
+    final Integer max = number.getMax();
+    boolean _and = false;
+    boolean _and_1 = false;
+    boolean _notEquals = (!Objects.equal(min, null));
+    if (!_notEquals) {
+      _and_1 = false;
+    } else {
+      boolean _notEquals_1 = (!Objects.equal(max, null));
+      _and_1 = (_notEquals && _notEquals_1);
+    }
+    if (!_and_1) {
+      _and = false;
+    } else {
+      boolean _greaterEqualsThan = (min.compareTo(max) >= 0);
+      _and = (_and_1 && _greaterEqualsThan);
+    }
+    if (_and) {
       this.error(
         DslValidator.minIsLessThanMaxString, number, 
-        Literals.SCALE__MIN, 
+        Literals.NUMBER__MIN, 
         DslValidator.INVALID_VALUE);
       this.error(
         DslValidator.minIsLessThanMaxString, number, 
-        Literals.SCALE__MAX, 
+        Literals.NUMBER__MAX, 
         DslValidator.INVALID_VALUE);
     }
   }
   
   /**
-   * Check that the max value in a multiple question is larger than the min value
+   * Check that the min is less than max value in a scale
    */
   @Check
-  public void checkThatLowerIsLargerThanUpperMultiple(final Survey survey) {
-    EList<Item> _items = survey.getItems();
-    Iterable<Question> _filter = Iterables.<Question>filter(_items, Question.class);
-    for (final Question question : _filter) {
-      if ((question instanceof Multiple)) {
-        Multiple multiple = ((Multiple) question);
-        int _min = multiple.getMin();
-        int _max = multiple.getMax();
-        boolean _greaterThan = (_min > _max);
-        if (_greaterThan) {
-          this.error(
-            "Multiple max value must be larger than min value", multiple, 
-            Literals.MULTIPLE__MAX, 
-            DslValidator.INVALID_VALUE);
-        }
-      }
+  public void checkMinIsLessThanMax(final Multiple multiple) {
+    final Integer min = multiple.getMin();
+    final Integer max = multiple.getMax();
+    boolean _and = false;
+    boolean _and_1 = false;
+    boolean _notEquals = (!Objects.equal(min, null));
+    if (!_notEquals) {
+      _and_1 = false;
+    } else {
+      boolean _notEquals_1 = (!Objects.equal(max, null));
+      _and_1 = (_notEquals && _notEquals_1);
+    }
+    if (!_and_1) {
+      _and = false;
+    } else {
+      boolean _greaterEqualsThan = (min.compareTo(max) >= 0);
+      _and = (_and_1 && _greaterEqualsThan);
+    }
+    if (_and) {
+      this.error(
+        DslValidator.minIsLessThanMaxString, multiple, 
+        Literals.NUMBER__MIN, 
+        DslValidator.INVALID_VALUE);
+      this.error(
+        DslValidator.minIsLessThanMaxString, multiple, 
+        Literals.NUMBER__MAX, 
+        DslValidator.INVALID_VALUE);
     }
   }
   

@@ -31,12 +31,12 @@ public interface Multiple extends Question, Other, HasOptions {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Min</em>' attribute.
-	 * @see #setMin(int)
+	 * @see #setMin(Integer)
 	 * @see survey.SurveyPackage#getMultiple_Min()
 	 * @model
 	 * @generated
 	 */
-	int getMin();
+	Integer getMin();
 
 	/**
 	 * Sets the value of the '{@link survey.Multiple#getMin <em>Min</em>}' attribute.
@@ -46,7 +46,7 @@ public interface Multiple extends Question, Other, HasOptions {
 	 * @see #getMin()
 	 * @generated
 	 */
-	void setMin(int value);
+	void setMin(Integer value);
 
 	/**
 	 * Returns the value of the '<em><b>Max</b></em>' attribute.
@@ -57,12 +57,12 @@ public interface Multiple extends Question, Other, HasOptions {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Max</em>' attribute.
-	 * @see #setMax(int)
+	 * @see #setMax(Integer)
 	 * @see survey.SurveyPackage#getMultiple_Max()
 	 * @model
 	 * @generated
 	 */
-	int getMax();
+	Integer getMax();
 
 	/**
 	 * Sets the value of the '{@link survey.Multiple#getMax <em>Max</em>}' attribute.
@@ -72,7 +72,7 @@ public interface Multiple extends Question, Other, HasOptions {
 	 * @see #getMax()
 	 * @generated
 	 */
-	void setMax(int value);
+	void setMax(Integer value);
 
 	/**
 	 * Returns the value of the '<em><b>Show Limits</b></em>' attribute.
