@@ -60,6 +60,7 @@ public class DslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getGroupAccess().getGroup_1_0(), "rule__Group__Group_1_0__0");
 					put(grammarAccess.getGroupAccess().getGroup_1_1(), "rule__Group__Group_1_1__0");
 					put(grammarAccess.getGroupAccess().getGroup_1_2(), "rule__Group__Group_1_2__0");
+					put(grammarAccess.getGroupAccess().getGroup_1_3(), "rule__Group__Group_1_3__0");
 					put(grammarAccess.getTextAccess().getGroup(), "rule__Text__Group__0");
 					put(grammarAccess.getTextAccess().getGroup_2_0(), "rule__Text__Group_2_0__0");
 					put(grammarAccess.getTextAccess().getGroup_2_1(), "rule__Text__Group_2_1__0");
@@ -117,9 +118,10 @@ public class DslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getAnswerAccess().getNameAssignment_1_1(), "rule__Answer__NameAssignment_1_1");
 					put(grammarAccess.getAnswerAccess().getLabelAssignment_3(), "rule__Answer__LabelAssignment_3");
 					put(grammarAccess.getGroupAccess().getTitleAssignment_1_0_1(), "rule__Group__TitleAssignment_1_0_1");
-					put(grammarAccess.getGroupAccess().getDescriptionAssignment_1_1_1(), "rule__Group__DescriptionAssignment_1_1_1");
-					put(grammarAccess.getGroupAccess().getDependsOnAssignment_1_2_1(), "rule__Group__DependsOnAssignment_1_2_1");
-					put(grammarAccess.getGroupAccess().getRequiredAssignment_1_3(), "rule__Group__RequiredAssignment_1_3");
+					put(grammarAccess.getGroupAccess().getNameAssignment_1_1_1(), "rule__Group__NameAssignment_1_1_1");
+					put(grammarAccess.getGroupAccess().getDescriptionAssignment_1_2_1(), "rule__Group__DescriptionAssignment_1_2_1");
+					put(grammarAccess.getGroupAccess().getDependsOnAssignment_1_3_1(), "rule__Group__DependsOnAssignment_1_3_1");
+					put(grammarAccess.getGroupAccess().getRequiredAssignment_1_4(), "rule__Group__RequiredAssignment_1_4");
 					put(grammarAccess.getGroupAccess().getQuestionsAssignment_3(), "rule__Group__QuestionsAssignment_3");
 					put(grammarAccess.getTextAccess().getTitleAssignment_2_0_1(), "rule__Text__TitleAssignment_2_0_1");
 					put(grammarAccess.getTextAccess().getDescriptionAssignment_2_1_1(), "rule__Text__DescriptionAssignment_2_1_1");

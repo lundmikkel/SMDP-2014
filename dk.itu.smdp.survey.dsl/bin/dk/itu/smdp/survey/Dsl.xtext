@@ -37,7 +37,8 @@ Answer returns Answer:
 
 Group returns Group:
 	'<group'
-		(('title="' title=EString '"')?
+		( ('title="' title=EString '"')?
+		& ('id="' name=EString '"')?
 		& ('description="' description=EString '"')?
 		& ('depends-on="' dependsOn=DEP_ID '"')?
 		& (required?='required')?)
@@ -115,7 +116,7 @@ Multiple returns Multiple:
 	'<multiple'
 		( ('title="' title=EString '"')
 		& ('description="' description=EString '"')?
-		& ('id""' name=ID '"')?
+		& ('id="' name=ID '"')?
 		& ('min=' min=INT)?
 		& ('max=' max=INT)?
 		& ('depends-on="' dependsOn=DEP_ID '"')?
@@ -144,11 +145,10 @@ EInt returns ecore::EInt:
 	'-'? INT;
 
 AnswerTemplateRef returns AnswerTemplateRef:
-	'<template' 'id="' template=[AnswerTemplate|ID] '"' '/>';
+	'<template' 'ref="' template=[AnswerTemplate|ID] '"' '/>';
 
 TableQuestion returns TableQuestion:
 	'<q>'
-		// TODO: Do not require quotes
 		title=EString
 	'</q>';
 
@@ -158,6 +158,7 @@ DEP_ID returns ecore::EString:
 // Custom terminals
 
 terminal STRING:
+	// TODO: Remove $
 	//'"' ( '\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\') | !('\\'|'"') )* '"' |
 	"$" ( '\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\') | !('\\'|"$") )* "$";
 

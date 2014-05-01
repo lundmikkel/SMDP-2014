@@ -3,17 +3,23 @@
  */
 package dk.itu.smdp.survey.validation;
 
-import com.google.common.base.Objects;
 import com.google.common.collect.Iterables;
 import dk.itu.smdp.survey.validation.AbstractDslValidator;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Set;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.validation.Check;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.InputOutput;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.StringExtensions;
 import survey.Answer;
 import survey.AnswerTemplate;
+import survey.AnswerTemplateRef;
 import survey.Group;
+import survey.HasOptions;
 import survey.Item;
 import survey.Multiple;
 import survey.Option;
@@ -37,60 +43,149 @@ public class DslValidator extends AbstractDslValidator {
   
   public final static String INVALID_DATE = "invalidDate";
   
+  public final static String MISSING_ATTRIBUTE = "missingAttribute";
+  
+  private final static String minIsLessThanMaxString = "Max value must be larger than min value";
+  
   /**
-   * Check that the groups have unique titles
+   * Check that the min is less than max value in a scale
    */
   @Check
-  public void checkThatGroupTitlesAreUnique(final Survey survey) {
-    HashMap<String,Group> _hashMap = new HashMap<String, Group>();
-    HashMap<String,Group> groupMap = _hashMap;
-    EList<Item> _items = survey.getItems();
-    Iterable<Group> _filter = Iterables.<Group>filter(_items, Group.class);
-    for (final Group group : _filter) {
-      String _title = group.getTitle();
-      boolean _isEmpty = _title.isEmpty();
-      boolean _not = (!_isEmpty);
+  public void checkMinIsLessThanMax(final Scale scale) {
+    int _min = scale.getMin();
+    int _max = scale.getMax();
+    boolean _greaterEqualsThan = (_min >= _max);
+    if (_greaterEqualsThan) {
+      this.error(
+        DslValidator.minIsLessThanMaxString, scale, 
+        Literals.SCALE__MIN, 
+        DslValidator.INVALID_VALUE);
+      this.error(
+        DslValidator.minIsLessThanMaxString, scale, 
+        Literals.SCALE__MAX, 
+        DslValidator.INVALID_VALUE);
+    }
+    final String largeScaleString = "Large scales may not render properly nor be very user friendly";
+    int _max_1 = scale.getMax();
+    int _min_1 = scale.getMin();
+    int _minus = (_max_1 - _min_1);
+    boolean _greaterThan = (_minus > 20);
+    if (_greaterThan) {
+      this.warning(largeScaleString, scale, 
+        Literals.SCALE__MIN);
+      this.warning(largeScaleString, scale, 
+        Literals.SCALE__MAX);
+    }
+    final String bothLabelsString = "You must specify both labels or none of them";
+    String _minLabel = scale.getMinLabel();
+    boolean _isNullOrEmpty = StringExtensions.isNullOrEmpty(_minLabel);
+    String _maxLabel = scale.getMaxLabel();
+    boolean _isNullOrEmpty_1 = StringExtensions.isNullOrEmpty(_maxLabel);
+    boolean _notEquals = (_isNullOrEmpty != _isNullOrEmpty_1);
+    if (_notEquals) {
+      String _minLabel_1 = scale.getMinLabel();
+      boolean _isNullOrEmpty_2 = StringExtensions.isNullOrEmpty(_minLabel_1);
+      boolean _not = (!_isNullOrEmpty_2);
       if (_not) {
-        String _title_1 = group.getTitle();
-        boolean _containsKey = groupMap.containsKey(_title_1);
-        if (_containsKey) {
+        this.error(bothLabelsString, scale, 
+          Literals.SCALE__MIN_LABEL, 
+          DslValidator.MISSING_ATTRIBUTE);
+      } else {
+        this.error(bothLabelsString, scale, 
+          Literals.SCALE__MAX_LABEL, 
+          DslValidator.MISSING_ATTRIBUTE);
+      }
+    }
+  }
+  
+  /**
+   * Check that the min is less than max value in a scale
+   */
+  @Check
+  public void checkMinIsLessThanMax(final survey.Number number) {
+    Integer _min = number.getMin();
+    Integer _max = number.getMax();
+    boolean _greaterEqualsThan = (_min.compareTo(_max) >= 0);
+    if (_greaterEqualsThan) {
+      this.error(
+        DslValidator.minIsLessThanMaxString, number, 
+        Literals.SCALE__MIN, 
+        DslValidator.INVALID_VALUE);
+      this.error(
+        DslValidator.minIsLessThanMaxString, number, 
+        Literals.SCALE__MAX, 
+        DslValidator.INVALID_VALUE);
+    }
+  }
+  
+  /**
+   * Check that the max value in a multiple question is larger than the min value
+   */
+  @Check
+  public void checkThatLowerIsLargerThanUpperMultiple(final Survey survey) {
+    EList<Item> _items = survey.getItems();
+    Iterable<Question> _filter = Iterables.<Question>filter(_items, Question.class);
+    for (final Question question : _filter) {
+      if ((question instanceof Multiple)) {
+        Multiple multiple = ((Multiple) question);
+        int _min = multiple.getMin();
+        int _max = multiple.getMax();
+        boolean _greaterThan = (_min > _max);
+        if (_greaterThan) {
           this.error(
-            "Groups must have unique titles", group, 
-            Literals.META__TITLE, 
-            DslValidator.DUPLICATE_NAME);
-        } else {
-          String _title_2 = group.getTitle();
-          groupMap.put(_title_2, group);
+            "Multiple max value must be larger than min value", multiple, 
+            Literals.MULTIPLE__MAX, 
+            DslValidator.INVALID_VALUE);
         }
       }
     }
   }
   
   /**
-   * Check that questions, not in a group, have a unique ID
+   * Chech that questions at the same level have unique names
    */
   @Check
-  public void checkThatQuestionNamesAreUnique(final Survey survey) {
-    HashMap<String,Question> _hashMap = new HashMap<String, Question>();
-    HashMap<String,Question> questionMap = _hashMap;
+  public void checkUniqueQuestionNamesAtSameLevel(final Survey survey) {
     EList<Item> _items = survey.getItems();
     Iterable<Question> _filter = Iterables.<Question>filter(_items, Question.class);
+    this.checkUniqueQuestionNamesAtSameLevel(((EList<Question>) _filter));
+    EList<Item> _items_1 = survey.getItems();
+    Iterable<Group> _filter_1 = Iterables.<Group>filter(_items_1, Group.class);
+    for (final Group group : _filter_1) {
+      EList<Question> _questions = group.getQuestions();
+      this.checkUniqueQuestionNamesAtSameLevel(_questions);
+    }
+  }
+  
+  public void checkUniqueQuestionNamesAtSameLevel(final EList<Question> questions) {
+    HashMap<String,Question> _hashMap = new HashMap<String, Question>();
+    final HashMap<String,Question> map = _hashMap;
+    final Function1<Question,Boolean> _function = new Function1<Question,Boolean>() {
+      public Boolean apply(final Question it) {
+        String _name = it.getName();
+        boolean _isNullOrEmpty = StringExtensions.isNullOrEmpty(_name);
+        boolean _not = (!_isNullOrEmpty);
+        return Boolean.valueOf(_not);
+      }
+    };
+    Iterable<Question> _filter = IterableExtensions.<Question>filter(questions, _function);
     for (final Question question : _filter) {
       String _name = question.getName();
-      boolean _isEmpty = _name.isEmpty();
-      boolean _not = (!_isEmpty);
-      if (_not) {
+      boolean _containsKey = map.containsKey(_name);
+      if (_containsKey) {
+        this.error(
+          "Questions at the same level cannot have the same id", question, 
+          Literals.META__NAME, 
+          DslValidator.DUPLICATE_NAME);
         String _name_1 = question.getName();
-        boolean _containsKey = questionMap.containsKey(_name_1);
-        if (_containsKey) {
-          this.error(
-            "Questions must have unique IDs", question, 
-            Literals.META__NAME, 
-            DslValidator.DUPLICATE_NAME);
-        } else {
-          String _name_2 = question.getName();
-          questionMap.put(_name_2, question);
-        }
+        Question _get = map.get(_name_1);
+        this.error(
+          "Questions at the same level cannot have the same id", _get, 
+          Literals.META__NAME, 
+          DslValidator.DUPLICATE_NAME);
+      } else {
+        String _name_2 = question.getName();
+        map.put(_name_2, question);
       }
     }
   }
@@ -359,130 +454,234 @@ public class DslValidator extends AbstractDslValidator {
   }
   
   /**
-   * Check that the max value in a scale question is larger than the min value
-   */
-  @Check
-  public void checkThatLowerIsLargerThanUpperScale(final Survey survey) {
-    EList<Item> _items = survey.getItems();
-    Iterable<Question> _filter = Iterables.<Question>filter(_items, Question.class);
-    for (final Question question : _filter) {
-      if ((question instanceof Scale)) {
-        Scale scale = ((Scale) question);
-        int _min = scale.getMin();
-        int _max = scale.getMax();
-        boolean _greaterEqualsThan = (_min >= _max);
-        if (_greaterEqualsThan) {
-          final String minLessThanUpperString = "Scale max value must be larger than min value";
-          this.error(minLessThanUpperString, scale, 
-            Literals.SCALE__MIN, 
-            DslValidator.INVALID_VALUE);
-          this.error(minLessThanUpperString, scale, 
-            Literals.SCALE__MAX, 
-            DslValidator.INVALID_VALUE);
-        }
-        final String largeScaleString = "Large scales may not render properly nor be very user friendly";
-        int _max_1 = scale.getMax();
-        int _min_1 = scale.getMin();
-        int _minus = (_max_1 - _min_1);
-        boolean _greaterThan = (_minus > 20);
-        if (_greaterThan) {
-          this.warning(largeScaleString, scale, 
-            Literals.SCALE__MIN);
-          this.warning(largeScaleString, scale, 
-            Literals.SCALE__MAX);
-        }
-        final String bothLabelsString = "You must specify both labels or none of them";
-        String _minLabel = scale.getMinLabel();
-        boolean _isNullOrEmpty = StringExtensions.isNullOrEmpty(_minLabel);
-        String _maxLabel = scale.getMaxLabel();
-        boolean _isNullOrEmpty_1 = StringExtensions.isNullOrEmpty(_maxLabel);
-        boolean _notEquals = (_isNullOrEmpty != _isNullOrEmpty_1);
-        if (_notEquals) {
-          String _minLabel_1 = scale.getMinLabel();
-          String _plus = ("Lower \"" + _minLabel_1);
-          String _plus_1 = (_plus + "\"");
-          InputOutput.<String>println(_plus_1);
-          String _maxLabel_1 = scale.getMaxLabel();
-          String _plus_2 = ("Upper \"" + _maxLabel_1);
-          String _plus_3 = (_plus_2 + "\"");
-          InputOutput.<String>println(_plus_3);
-          String _minLabel_2 = scale.getMinLabel();
-          boolean _isNullOrEmpty_2 = StringExtensions.isNullOrEmpty(_minLabel_2);
-          boolean _not = (!_isNullOrEmpty_2);
-          if (_not) {
-            this.error(bothLabelsString, scale, 
-              Literals.SCALE__MIN_LABEL, 
-              DslValidator.INVALID_VALUE);
-          } else {
-            this.error(bothLabelsString, scale, 
-              Literals.SCALE__MAX_LABEL, 
-              DslValidator.INVALID_VALUE);
-          }
-        }
-      }
-    }
-  }
-  
-  /**
-   * Check that the max value in a number question is larger than the min value
-   */
-  @Check
-  public void checkThatLowerIsLargerThanUpperNumber(final Survey survey) {
-    EList<Item> _items = survey.getItems();
-    Iterable<Question> _filter = Iterables.<Question>filter(_items, Question.class);
-    for (final Question question : _filter) {
-      if ((question instanceof survey.Number)) {
-        survey.Number number = ((survey.Number) question);
-        final String minLessThanUpperString = "Number max value must be larger than min value";
-        final Integer min = number.getMin();
-        final Integer max = number.getMax();
-        boolean _and = false;
-        boolean _and_1 = false;
-        boolean _notEquals = (!Objects.equal(min, null));
-        if (!_notEquals) {
-          _and_1 = false;
-        } else {
-          boolean _notEquals_1 = (!Objects.equal(max, null));
-          _and_1 = (_notEquals && _notEquals_1);
-        }
-        if (!_and_1) {
-          _and = false;
-        } else {
-          boolean _greaterEqualsThan = (min.compareTo(max) >= 0);
-          _and = (_and_1 && _greaterEqualsThan);
-        }
-        if (_and) {
-          this.error(minLessThanUpperString, number, 
-            Literals.NUMBER__MIN, 
-            DslValidator.INVALID_VALUE);
-          this.error(minLessThanUpperString, number, 
-            Literals.NUMBER__MAX, 
-            DslValidator.INVALID_VALUE);
-        }
-      }
-    }
-  }
-  
-  /**
    * Check that the max value in a multiple question is larger than the min value
    */
   @Check
-  public void checkThatLowerIsLargerThanUpperMultiple(final Survey survey) {
+  public void checkDependsOnReference(final Survey survey) {
+    HashMap<String,Question> _hashMap = new HashMap<String, Question>();
+    HashMap<String,Question> map = _hashMap;
+    HashMap<String,Item> _hashMap_1 = new HashMap<String, Item>();
+    final HashMap<String,Item> ids = _hashMap_1;
+    final String doubleIdString = "The ids must be unique at the same level";
     EList<Item> _items = survey.getItems();
-    Iterable<Question> _filter = Iterables.<Question>filter(_items, Question.class);
-    for (final Question question : _filter) {
-      if ((question instanceof Multiple)) {
-        Multiple multiple = ((Multiple) question);
-        int _min = multiple.getMin();
-        int _max = multiple.getMax();
-        boolean _greaterThan = (_min > _max);
-        if (_greaterThan) {
+    for (final Item item : _items) {
+      {
+        String _name = item.getName();
+        boolean _isNullOrEmpty = StringExtensions.isNullOrEmpty(_name);
+        boolean _not = (!_isNullOrEmpty);
+        if (_not) {
+          String _name_1 = item.getName();
+          boolean _containsKey = ids.containsKey(_name_1);
+          if (_containsKey) {
+            this.error(doubleIdString, item, 
+              Literals.META__NAME, 
+              DslValidator.INVALID_VALUE);
+            String _name_2 = item.getName();
+            Item _get = ids.get(_name_2);
+            this.error(doubleIdString, _get, 
+              Literals.META__NAME, 
+              DslValidator.INVALID_VALUE);
+          } else {
+            String _name_3 = item.getName();
+            ids.put(_name_3, item);
+          }
+        }
+        this.genRefIds(item, "", map, null);
+      }
+    }
+    Set<String> _keySet = map.keySet();
+    for (final String key : _keySet) {
+      InputOutput.<String>println(key);
+    }
+    EList<Item> _items_1 = survey.getItems();
+    for (final Item item_1 : _items_1) {
+      String _dependsOn = item_1.getDependsOn();
+      boolean _isNullOrEmpty = StringExtensions.isNullOrEmpty(_dependsOn);
+      boolean _not = (!_isNullOrEmpty);
+      if (_not) {
+        String _dependsOn_1 = item_1.getDependsOn();
+        boolean _containsKey = map.containsKey(_dependsOn_1);
+        boolean _not_1 = (!_containsKey);
+        if (_not_1) {
           this.error(
-            "Multiple max value must be larger than min value", multiple, 
-            Literals.MULTIPLE__MAX, 
+            "There is no question with this id", item_1, 
+            Literals.ITEM__DEPENDS_ON, 
             DslValidator.INVALID_VALUE);
         }
       }
+    }
+  }
+  
+  protected void _genRefIds(final Group group, final String pid, final HashMap<String,Question> map, final Question value) {
+    HashMap<String,Item> _hashMap = new HashMap<String, Item>();
+    final HashMap<String,Item> ids = _hashMap;
+    final String doubleIdString = "The ids must be unique at the same level";
+    EList<Question> _questions = group.getQuestions();
+    for (final Question question : _questions) {
+      {
+        String _name = question.getName();
+        boolean _isNullOrEmpty = StringExtensions.isNullOrEmpty(_name);
+        boolean _not = (!_isNullOrEmpty);
+        if (_not) {
+          String _name_1 = question.getName();
+          boolean _containsKey = ids.containsKey(_name_1);
+          if (_containsKey) {
+            this.error(doubleIdString, question, 
+              Literals.META__NAME, 
+              DslValidator.INVALID_VALUE);
+            String _name_2 = question.getName();
+            Item _get = ids.get(_name_2);
+            this.error(doubleIdString, _get, 
+              Literals.META__NAME, 
+              DslValidator.INVALID_VALUE);
+          } else {
+            String _name_3 = question.getName();
+            ids.put(_name_3, question);
+          }
+        }
+        String _xifexpression = null;
+        String _name_4 = group.getName();
+        boolean _isNullOrEmpty_1 = StringExtensions.isNullOrEmpty(_name_4);
+        if (_isNullOrEmpty_1) {
+          _xifexpression = pid;
+        } else {
+          String _plus = (pid + ".");
+          String _name_5 = group.getName();
+          String _plus_1 = (_plus + _name_5);
+          _xifexpression = _plus_1;
+        }
+        final String id = _xifexpression;
+        this.genRefIds(question, id, map, null);
+      }
+    }
+  }
+  
+  protected void _genRefIds(final AnswerTemplateRef templateRef, final String pid, final HashMap<String,Question> map, final Question question) {
+    AnswerTemplate _template = templateRef.getTemplate();
+    EList<Answer> _answers = _template.getAnswers();
+    for (final Answer answer : _answers) {
+      {
+        String _plus = (pid + ".");
+        AnswerTemplate _template_1 = templateRef.getTemplate();
+        String _name = _template_1.getName();
+        final String id = (_plus + _name);
+        this.genRefIds(answer, id, map, question);
+      }
+    }
+  }
+  
+  protected void _genRefIds(final Answer answer, final String pid, final HashMap<String,Question> map, final Question question) {
+    String _name = answer.getName();
+    boolean _isNullOrEmpty = StringExtensions.isNullOrEmpty(_name);
+    boolean _not = (!_isNullOrEmpty);
+    if (_not) {
+      String _plus = (pid + ".");
+      String _name_1 = answer.getName();
+      String _plus_1 = (_plus + _name_1);
+      final String id = _plus_1.substring(1);
+      boolean _containsKey = map.containsKey(id);
+      if (_containsKey) {
+        final String ambiguousIdString = "The id is ambiguous";
+        this.error(ambiguousIdString, question, 
+          Literals.META__NAME, 
+          DslValidator.INVALID_VALUE);
+        Question _get = map.get(id);
+        this.error(ambiguousIdString, _get, 
+          Literals.META__NAME, 
+          DslValidator.INVALID_VALUE);
+      } else {
+        map.put(id, ((Question) question));
+      }
+    }
+  }
+  
+  protected void _genRefIds(final Question question, final String pid, final HashMap<String,Question> map, final Question value) {
+    if ((question instanceof HasOptions)) {
+      HashMap<String,Answer> _hashMap = new HashMap<String, Answer>();
+      final HashMap<String,Answer> ids = _hashMap;
+      final String doubleIdString = "The ids must be unique at the same level";
+      EList<Option> _options = ((HasOptions) question).getOptions();
+      for (final Option option : _options) {
+        if ((option instanceof Answer)) {
+          Answer answer = ((Answer) option);
+          String _name = answer.getName();
+          boolean _isNullOrEmpty = StringExtensions.isNullOrEmpty(_name);
+          boolean _not = (!_isNullOrEmpty);
+          if (_not) {
+            String _name_1 = answer.getName();
+            boolean _containsKey = ids.containsKey(_name_1);
+            if (_containsKey) {
+              this.error(doubleIdString, answer, 
+                Literals.ANSWER__NAME, 
+                DslValidator.INVALID_VALUE);
+              String _name_2 = answer.getName();
+              Answer _get = ids.get(_name_2);
+              this.error(doubleIdString, _get, 
+                Literals.ANSWER__NAME, 
+                DslValidator.INVALID_VALUE);
+            } else {
+              String _name_3 = answer.getName();
+              ids.put(_name_3, answer);
+            }
+          }
+        } else {
+          String _xifexpression = null;
+          String _name_4 = question.getName();
+          boolean _isNullOrEmpty_1 = StringExtensions.isNullOrEmpty(_name_4);
+          if (_isNullOrEmpty_1) {
+            _xifexpression = pid;
+          } else {
+            String _plus = (pid + ".");
+            String _name_5 = question.getName();
+            String _plus_1 = (_plus + _name_5);
+            _xifexpression = _plus_1;
+          }
+          final String id = _xifexpression;
+          this.genRefIds(option, id, map, ((Question) question));
+        }
+      }
+    } else {
+      String _name_6 = question.getName();
+      boolean _isNullOrEmpty_2 = StringExtensions.isNullOrEmpty(_name_6);
+      boolean _not_1 = (!_isNullOrEmpty_2);
+      if (_not_1) {
+        String _plus_2 = (pid + ".");
+        String _name_7 = question.getName();
+        String _plus_3 = (_plus_2 + _name_7);
+        final String id_1 = _plus_3.substring(1);
+        boolean _containsKey_1 = map.containsKey(id_1);
+        if (_containsKey_1) {
+          final String ambiguousIdString = "The id is ambiguous";
+          this.error(ambiguousIdString, question, 
+            Literals.META__NAME, 
+            DslValidator.INVALID_VALUE);
+          Question _get_1 = map.get(id_1);
+          this.error(ambiguousIdString, _get_1, 
+            Literals.META__NAME, 
+            DslValidator.INVALID_VALUE);
+        } else {
+          map.put(id_1, question);
+        }
+      }
+    }
+  }
+  
+  public void genRefIds(final EObject group, final String pid, final HashMap<String,Question> map, final Question value) {
+    if (group instanceof Group) {
+      _genRefIds((Group)group, pid, map, value);
+      return;
+    } else if (group instanceof Question) {
+      _genRefIds((Question)group, pid, map, value);
+      return;
+    } else if (group instanceof Answer) {
+      _genRefIds((Answer)group, pid, map, value);
+      return;
+    } else if (group instanceof AnswerTemplateRef) {
+      _genRefIds((AnswerTemplateRef)group, pid, map, value);
+      return;
+    } else {
+      throw new IllegalArgumentException("Unhandled parameter types: " +
+        Arrays.<Object>asList(group, pid, map, value).toString());
     }
   }
 }

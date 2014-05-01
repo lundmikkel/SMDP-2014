@@ -4,18 +4,23 @@
 package dk.itu.smdp.survey.validation
 
 import java.util.HashMap
-import survey.Survey
 import org.eclipse.xtext.validation.Check
-import survey.Question
-import survey.SurveyPackage
-import survey.Group
 import survey.Answer
-import survey.Multiple
-import survey.Single
-import survey.Table
 import survey.AnswerTemplate
-import survey.Scale
+import survey.AnswerTemplateRef
+import survey.Group
+import survey.HasOptions
+import survey.Item
+import survey.Multiple
 import survey.Number
+import survey.Option
+import survey.Question
+import survey.Scale
+import survey.Single
+import survey.Survey
+import survey.SurveyPackage
+import survey.Table
+import org.eclipse.emf.common.util.EList
 
 /**
  * Custom validation rules. 
@@ -27,50 +32,145 @@ class DslValidator extends AbstractDslValidator {
 	public static val DUPLICATE_NAME = 'duplicateName'
 	public static val INVALID_VALUE = 'invalidValue'
 	public static val INVALID_DATE = 'invalidDate'
+	public static val MISSING_ATTRIBUTE = 'missingAttribute'
+	
+	
+	private static val minIsLessThanMaxString = 'Max value must be larger than min value' 
 
 	/*
- * Check that the groups have unique titles
- */
+	 * Check that the min is less than max value in a scale 
+	 */
 	@Check
-	def checkThatGroupTitlesAreUnique(Survey survey) {
-		var groupMap = new HashMap<String, Group>
-		for (Group group : survey.items.filter(typeof(Group))) {
-			if (!group.title.empty) {
-				if (groupMap.containsKey(group.title)) {
-					error(
-						'Groups must have unique titles',
-						group,
-						SurveyPackage.Literals.META__TITLE,
-						DUPLICATE_NAME
-					)
-				} else {
-					groupMap.put(group.title, group)
-				}
+	def checkMinIsLessThanMax(Scale scale) {
+		if (scale.min >= scale.max) {
+			error(
+				minIsLessThanMaxString,
+				scale,
+				SurveyPackage.Literals.SCALE__MIN,
+				INVALID_VALUE
+			)
+			error(
+				minIsLessThanMaxString,
+				scale,
+				SurveyPackage.Literals.SCALE__MAX,
+				INVALID_VALUE
+			)
+		}
+		
+		val largeScaleString = 'Large scales may not render properly nor be very user friendly'
+		if (scale.max - scale.min > 20) {
+			warning(
+				largeScaleString,
+				scale,
+				SurveyPackage.Literals.SCALE__MIN
+			)
+			warning(
+				largeScaleString,
+				scale,
+				SurveyPackage.Literals.SCALE__MAX
+			)
+		}
+		
+		val bothLabelsString = 'You must specify both labels or none of them'
+		if (scale.minLabel.nullOrEmpty != scale.maxLabel.nullOrEmpty) {
+			if (!scale.minLabel.nullOrEmpty) {
+				error(
+					bothLabelsString,
+					scale,
+					SurveyPackage.Literals.SCALE__MIN_LABEL,
+					MISSING_ATTRIBUTE
+				)
+			}
+			else {
+				error(
+					bothLabelsString,
+					scale,
+					SurveyPackage.Literals.SCALE__MAX_LABEL,
+					MISSING_ATTRIBUTE
+				)
 			}
 		}
 	}
+	
+	/*
+	 * Check that the min is less than max value in a scale 
+	 */
+	@Check
+	def checkMinIsLessThanMax(Number number) {
+		if (number.min >= number.max) {
+			error(
+				minIsLessThanMaxString,
+				number,
+				SurveyPackage.Literals.SCALE__MIN,
+				INVALID_VALUE
+			)
+			error(
+				minIsLessThanMaxString,
+				number,
+				SurveyPackage.Literals.SCALE__MAX,
+				INVALID_VALUE
+			)
+		}
+	}
+
 
 	/*
- * Check that questions, not in a group, have a unique ID
+ * Check that the max value in a multiple question is larger than the min value 
  */
 	@Check
-	def checkThatQuestionNamesAreUnique(Survey survey) {
-		var questionMap = new HashMap<String, Question>
+	def checkThatLowerIsLargerThanUpperMultiple(Survey survey) {
 		for (Question question : survey.items.filter(typeof(Question))) {
-			if (!question.name.empty) {
-				if (questionMap.containsKey(question.name)) {
+			if (question instanceof Multiple) {
+				var multiple = question as Multiple
+				if (multiple.min > multiple.max) {
 					error(
-						'Questions must have unique IDs',
-						question,
-						SurveyPackage.Literals.META__NAME,
-						DUPLICATE_NAME
+						'Multiple max value must be larger than min value',
+						multiple,
+						SurveyPackage.Literals.MULTIPLE__MAX,
+						INVALID_VALUE
 					)
-				} else {
-					questionMap.put(question.name, question)
 				}
 			}
 		}
 	}
+	
+	/*
+	 * Chech that questions at the same level have unique names
+	 */
+	@Check
+	def checkUniqueQuestionNamesAtSameLevel(Survey survey) {
+		// Check for questions outside groups
+		(survey.items.filter(typeof(Question)) as EList<Question>).checkUniqueQuestionNamesAtSameLevel
+		
+		// Check for questions within groups
+		for (Group group : survey.items.filter(typeof(Group))) {
+			group.questions.checkUniqueQuestionNamesAtSameLevel
+		}
+	}
+	
+	def checkUniqueQuestionNamesAtSameLevel(EList<Question> questions) {
+		val map = new HashMap<String, Question>()
+		for (Question question : questions.filter([!name.nullOrEmpty])) {
+			if (map.containsKey(question.name)) {
+				error(
+					'Questions at the same level cannot have the same id',
+					question,
+					SurveyPackage.Literals.META__NAME,
+					DUPLICATE_NAME
+				)
+				error(
+					'Questions at the same level cannot have the same id',
+					map.get(question.name),
+					SurveyPackage.Literals.META__NAME,
+					DUPLICATE_NAME
+				)
+			}
+			else {
+				map.put(question.name, question)
+			}
+		}
+	}
+
 
 	/*
  * Check that answers in questions outside of a group have unique IDs
@@ -270,113 +370,175 @@ class DslValidator extends AbstractDslValidator {
 	}
 
 	/*
- * Check that the max value in a scale question is larger than the min value 
- */
-	@Check
-	def checkThatLowerIsLargerThanUpperScale(Survey survey) {
-		for (Question question : survey.items.filter(typeof(Question))) {
-			if (question instanceof Scale) {
-				var scale = question as Scale
-				if (scale.min >= scale.max) {
-					val minLessThanUpperString = 'Scale max value must be larger than min value' 
-					error(
-						minLessThanUpperString,
-						scale,
-						SurveyPackage.Literals.SCALE__MIN,
-						INVALID_VALUE
-					)
-					error(
-						minLessThanUpperString,
-						scale,
-						SurveyPackage.Literals.SCALE__MAX,
-						INVALID_VALUE
-					)
-				}
-				
-				val largeScaleString = 'Large scales may not render properly nor be very user friendly'
-				if (scale.max - scale.min > 20) {
-					warning(
-						largeScaleString,
-						scale,
-						SurveyPackage.Literals.SCALE__MIN
-					)
-					warning(
-						largeScaleString,
-						scale,
-						SurveyPackage.Literals.SCALE__MAX
-					)
-				}
-				
-				val bothLabelsString = 'You must specify both labels or none of them'
-				if (scale.minLabel.nullOrEmpty != scale.maxLabel.nullOrEmpty) {
-					println("Lower \"" + scale.minLabel + "\"")
-					println("Upper \"" + scale.maxLabel + "\"")
-					if (!scale.minLabel.nullOrEmpty) {
-						error(
-							bothLabelsString,
-							scale,
-							SurveyPackage.Literals.SCALE__MIN_LABEL,
-							INVALID_VALUE
-						)
-					}
-					else {
-						error(
-							bothLabelsString,
-							scale,
-							SurveyPackage.Literals.SCALE__MAX_LABEL,
-							INVALID_VALUE
-						)
-					}
-				}
-			}
-		}
-	}
-
-	/*
- * Check that the max value in a number question is larger than the min value 
- */
-	@Check
-	def checkThatLowerIsLargerThanUpperNumber(Survey survey) {
-		for (Question question : survey.items.filter(typeof(Question))) {
-			if (question instanceof Number) {
- 				var number = question as Number
-				val minLessThanUpperString = 'Number max value must be larger than min value'
-				val min = number.min
-				val max = number.max
-				if (min != null && max != null && min >= max) {
-					error(
-						minLessThanUpperString,
-						number,
-						SurveyPackage.Literals.NUMBER__MIN,
-						INVALID_VALUE
-					)
-					error(
-						minLessThanUpperString,
-						number,
-						SurveyPackage.Literals.NUMBER__MAX,
-						INVALID_VALUE
-					)
-				}
-			}
-		}
-	}
-
-	/*
  * Check that the max value in a multiple question is larger than the min value 
  */
 	@Check
-	def checkThatLowerIsLargerThanUpperMultiple(Survey survey) {
-		for (Question question : survey.items.filter(typeof(Question))) {
-			if (question instanceof Multiple) {
-				var multiple = question as Multiple
-				if (multiple.min > multiple.max) {
+	def checkDependsOnReference(Survey survey) {
+		var map = new HashMap<String, Question>()
+		
+		val ids = new HashMap<String, Item>()
+		val doubleIdString = 'The ids must be unique at the same level'
+		
+		for (Item item : survey.items) {
+			// Make sure two items at same level don't have the same id
+			if (!item.name.nullOrEmpty) {
+				if (ids.containsKey(item.name)) {
 					error(
-						'Multiple max value must be larger than min value',
-						multiple,
-						SurveyPackage.Literals.MULTIPLE__MAX,
+						doubleIdString,
+						item,
+						SurveyPackage.Literals.META__NAME,
+						INVALID_VALUE
+					)
+					error(
+						doubleIdString,
+						ids.get(item.name),
+						SurveyPackage.Literals.META__NAME,
 						INVALID_VALUE
 					)
 				}
+				else {
+					ids.put(item.name, item)
+				}
+			}
+			
+			item.genRefIds("", map, null)
+		}
+		
+		for (String key : map.keySet)
+			println(key)
+		
+		for (Item item : survey.items) {
+			if (!item.dependsOn.nullOrEmpty) {
+				if (!map.containsKey(item.dependsOn)) {
+					error(
+						'There is no question with this id',
+						item,
+						SurveyPackage.Literals.ITEM__DEPENDS_ON,
+						INVALID_VALUE
+					)
+				}
+			}
+		}
+	}
+	
+	def dispatch void genRefIds(Group group, String pid, HashMap<String, Question> map, Question value) {
+		val ids = new HashMap<String, Item>()
+		val doubleIdString = 'The ids must be unique at the same level'
+		
+		for (Question question : group.questions) {	
+			if (!question.name.nullOrEmpty) {
+				if (ids.containsKey(question.name)) {
+					error(
+						doubleIdString,
+						question,
+						SurveyPackage.Literals.META__NAME,
+						INVALID_VALUE
+					)
+					error(
+						doubleIdString,
+						ids.get(question.name),
+						SurveyPackage.Literals.META__NAME,
+						INVALID_VALUE
+					)
+				}
+				else {
+					ids.put(question.name, question)
+				}
+			}
+					
+			val id = if (group.name.nullOrEmpty) pid else pid + "." + group.name
+			question.genRefIds(id, map, null)
+		}
+	}
+	
+	def dispatch void genRefIds(AnswerTemplateRef templateRef, String pid, HashMap<String, Question> map, Question question) {
+		for (Answer answer : templateRef.template.answers) {
+			val id = pid + "." + templateRef.template.name
+			answer.genRefIds(id, map, question)
+		}
+	}
+	
+	def dispatch void genRefIds(Answer answer, String pid, HashMap<String, Question> map, Question question) {
+		if (!answer.name.nullOrEmpty) {
+			val id = (pid + "." + answer.name).substring(1)
+			//println(id)
+			
+			if (map.containsKey(id)) {
+				val ambiguousIdString = 'The id is ambiguous'
+				error(
+					ambiguousIdString,
+					question,
+					SurveyPackage.Literals.META__NAME,
+					INVALID_VALUE
+				)
+				error(
+					ambiguousIdString,
+					map.get(id),
+					SurveyPackage.Literals.META__NAME,
+					INVALID_VALUE
+				)
+			}
+			else {
+				map.put(id, question as Question)
+			}
+		}
+	}
+	
+	def dispatch void genRefIds(Question question, String pid, HashMap<String, Question> map, Question value) {
+		if (question instanceof HasOptions){
+			val ids = new HashMap<String, Answer>()
+			val doubleIdString = 'The ids must be unique at the same level'
+			
+			for (Option option : (question as HasOptions).options) {
+				if (option instanceof Answer) {
+					var answer = option as Answer
+					if (!answer.name.nullOrEmpty) {
+						if (ids.containsKey(answer.name)) {
+							error(
+								doubleIdString,
+								answer,
+								SurveyPackage.Literals.ANSWER__NAME,
+								INVALID_VALUE
+							)
+							error(
+								doubleIdString,
+								ids.get(answer.name),
+								SurveyPackage.Literals.ANSWER__NAME,
+								INVALID_VALUE
+							)
+						}
+						else {
+							ids.put(answer.name, answer)
+						}
+					}
+				}
+				else {
+					val id = if (question.name.nullOrEmpty) pid else pid + "." + question.name
+					option.genRefIds(id, map, question as Question)
+				}
+			}
+		}
+		else if (!question.name.nullOrEmpty) {
+			val id = (pid + "." + question.name).substring(1)
+			//println(id)
+			
+			if (map.containsKey(id)) {
+				val ambiguousIdString = 'The id is ambiguous'
+				error(
+					ambiguousIdString,
+					question,
+					SurveyPackage.Literals.META__NAME,
+					INVALID_VALUE
+				)
+				error(
+					ambiguousIdString,
+					map.get(id),
+					SurveyPackage.Literals.META__NAME,
+					INVALID_VALUE
+				)
+			}
+			else {
+				map.put(id, question)
 			}
 		}
 	}
