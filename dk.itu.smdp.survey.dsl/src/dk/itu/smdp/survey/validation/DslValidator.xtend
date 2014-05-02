@@ -290,12 +290,15 @@ class DslValidator extends AbstractDslValidator {
 		}
 		
 		// TODO: Remove
+		println("Question keys:")
 		for (String key : qMap.keySet)
 			println(key)
+		println("Answer keys:")
 		for (String key : aMap.keySet)
 			println(key)
 		
 		for (Item item : survey.items.filter[!dependsOn.nullOrEmpty]) {
+			println("Depends on: " + item.dependsOn)
 			if (!qMap.containsKey(item.dependsOn) && !aMap.containsKey(item.dependsOn)) {
 				error(
 					invalidRefIdString,
@@ -303,6 +306,21 @@ class DslValidator extends AbstractDslValidator {
 					SurveyPackage.Literals.ITEM__DEPENDS_ON,
 					INVALID_VALUE
 				)
+			}
+		}
+		
+		
+		for (Group group : survey.items.filter(typeof(Group))) {
+			for (Item item : group.questions.filter[!dependsOn.nullOrEmpty]) {
+				println("Depends on: " + item.dependsOn)
+				if (!qMap.containsKey(item.dependsOn) && !aMap.containsKey(item.dependsOn)) {
+					error(
+						invalidRefIdString,
+						item,
+						SurveyPackage.Literals.ITEM__DEPENDS_ON,
+						INVALID_VALUE
+					)
+				}
 			}
 		}
 	}

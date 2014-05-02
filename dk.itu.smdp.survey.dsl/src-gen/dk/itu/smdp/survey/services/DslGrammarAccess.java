@@ -669,25 +669,22 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cSolidusGreaterThanSignKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		
 		//Scale:
-		//	"<scale" ("title=\"" title=EString "\"" // TODO: Force that if one label is set, both should be
-		//	& ("description=\"" description=EString "\"")? & ("id=\"" name=ID "\"")? & "min=" min=EInt & "max=" max=EInt &
-		//	("min-label=\"" minLabel=EString "\"")? & ("max-label=\"" maxLabel=EString "\"")? & ("depends-on=\"" dependsOn=DEP_ID
-		//	"\"")? & required?="required"?) "/>";
+		//	"<scale" ("title=\"" title=EString "\"" & ("description=\"" description=EString "\"")? & ("id=\"" name=ID "\"")? &
+		//	"min=" min=EInt & "max=" max=EInt & ("min-label=\"" minLabel=EString "\"")? & ("max-label=\"" maxLabel=EString "\"")?
+		//	& ("depends-on=\"" dependsOn=DEP_ID "\"")? & required?="required"?) "/>";
 		public ParserRule getRule() { return rule; }
 
-		//"<scale" ("title=\"" title=EString "\"" // TODO: Force that if one label is set, both should be
-		//& ("description=\"" description=EString "\"")? & ("id=\"" name=ID "\"")? & "min=" min=EInt & "max=" max=EInt &
-		//("min-label=\"" minLabel=EString "\"")? & ("max-label=\"" maxLabel=EString "\"")? & ("depends-on=\"" dependsOn=DEP_ID
-		//"\"")? & required?="required"?) "/>"
+		//"<scale" ("title=\"" title=EString "\"" & ("description=\"" description=EString "\"")? & ("id=\"" name=ID "\"")? &
+		//"min=" min=EInt & "max=" max=EInt & ("min-label=\"" minLabel=EString "\"")? & ("max-label=\"" maxLabel=EString "\"")? &
+		//("depends-on=\"" dependsOn=DEP_ID "\"")? & required?="required"?) "/>"
 		public Group getGroup() { return cGroup; }
 
 		//"<scale"
 		public Keyword getScaleKeyword_0() { return cScaleKeyword_0; }
 
-		//"title=\"" title=EString "\"" // TODO: Force that if one label is set, both should be
-		//& ("description=\"" description=EString "\"")? & ("id=\"" name=ID "\"")? & "min=" min=EInt & "max=" max=EInt &
-		//("min-label=\"" minLabel=EString "\"")? & ("max-label=\"" maxLabel=EString "\"")? & ("depends-on=\"" dependsOn=DEP_ID
-		//"\"")? & required?="required"?
+		//"title=\"" title=EString "\"" & ("description=\"" description=EString "\"")? & ("id=\"" name=ID "\"")? & "min=" min=EInt
+		//& "max=" max=EInt & ("min-label=\"" minLabel=EString "\"")? & ("max-label=\"" maxLabel=EString "\"")? &
+		//("depends-on=\"" dependsOn=DEP_ID "\"")? & required?="required"?
 		public UnorderedGroup getUnorderedGroup_1() { return cUnorderedGroup_1; }
 
 		//"title=\"" title=EString "\""
@@ -1966,10 +1963,9 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Scale:
-	//	"<scale" ("title=\"" title=EString "\"" // TODO: Force that if one label is set, both should be
-	//	& ("description=\"" description=EString "\"")? & ("id=\"" name=ID "\"")? & "min=" min=EInt & "max=" max=EInt &
-	//	("min-label=\"" minLabel=EString "\"")? & ("max-label=\"" maxLabel=EString "\"")? & ("depends-on=\"" dependsOn=DEP_ID
-	//	"\"")? & required?="required"?) "/>";
+	//	"<scale" ("title=\"" title=EString "\"" & ("description=\"" description=EString "\"")? & ("id=\"" name=ID "\"")? &
+	//	"min=" min=EInt & "max=" max=EInt & ("min-label=\"" minLabel=EString "\"")? & ("max-label=\"" maxLabel=EString "\"")?
+	//	& ("depends-on=\"" dependsOn=DEP_ID "\"")? & required?="required"?) "/>";
 	public ScaleElements getScaleAccess() {
 		return (pScale != null) ? pScale : (pScale = new ScaleElements());
 	}

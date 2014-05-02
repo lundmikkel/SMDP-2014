@@ -354,10 +354,12 @@ public class DslValidator extends AbstractDslValidator {
     for (final Item item : _items) {
       this.getFullIds(item, "", qMap, aMap);
     }
+    InputOutput.<String>println("Question keys:");
     Set<String> _keySet = qMap.keySet();
     for (final String key : _keySet) {
       InputOutput.<String>println(key);
     }
+    InputOutput.<String>println("Answer keys:");
     Set<String> _keySet_1 = aMap.keySet();
     for (final String key_1 : _keySet_1) {
       InputOutput.<String>println(key_1);
@@ -373,23 +375,67 @@ public class DslValidator extends AbstractDslValidator {
     };
     Iterable<Item> _filter = IterableExtensions.<Item>filter(_items_1, _function);
     for (final Item item_1 : _filter) {
-      boolean _and = false;
-      String _dependsOn = item_1.getDependsOn();
-      boolean _containsKey = qMap.containsKey(_dependsOn);
-      boolean _not = (!_containsKey);
-      if (!_not) {
-        _and = false;
-      } else {
+      {
+        String _dependsOn = item_1.getDependsOn();
+        String _plus = ("Depends on: " + _dependsOn);
+        InputOutput.<String>println(_plus);
+        boolean _and = false;
         String _dependsOn_1 = item_1.getDependsOn();
-        boolean _containsKey_1 = aMap.containsKey(_dependsOn_1);
-        boolean _not_1 = (!_containsKey_1);
-        _and = (_not && _not_1);
+        boolean _containsKey = qMap.containsKey(_dependsOn_1);
+        boolean _not = (!_containsKey);
+        if (!_not) {
+          _and = false;
+        } else {
+          String _dependsOn_2 = item_1.getDependsOn();
+          boolean _containsKey_1 = aMap.containsKey(_dependsOn_2);
+          boolean _not_1 = (!_containsKey_1);
+          _and = (_not && _not_1);
+        }
+        if (_and) {
+          this.error(
+            DslValidator.invalidRefIdString, item_1, 
+            Literals.ITEM__DEPENDS_ON, 
+            DslValidator.INVALID_VALUE);
+        }
       }
-      if (_and) {
-        this.error(
-          DslValidator.invalidRefIdString, item_1, 
-          Literals.ITEM__DEPENDS_ON, 
-          DslValidator.INVALID_VALUE);
+    }
+    EList<Item> _items_2 = survey.getItems();
+    Iterable<Group> _filter_1 = Iterables.<Group>filter(_items_2, Group.class);
+    for (final Group group : _filter_1) {
+      EList<Question> _questions = group.getQuestions();
+      final Function1<Question,Boolean> _function_1 = new Function1<Question,Boolean>() {
+        public Boolean apply(final Question it) {
+          String _dependsOn = it.getDependsOn();
+          boolean _isNullOrEmpty = StringExtensions.isNullOrEmpty(_dependsOn);
+          boolean _not = (!_isNullOrEmpty);
+          return Boolean.valueOf(_not);
+        }
+      };
+      Iterable<Question> _filter_2 = IterableExtensions.<Question>filter(_questions, _function_1);
+      for (final Item item_2 : _filter_2) {
+        {
+          String _dependsOn = item_2.getDependsOn();
+          String _plus = ("Depends on: " + _dependsOn);
+          InputOutput.<String>println(_plus);
+          boolean _and = false;
+          String _dependsOn_1 = item_2.getDependsOn();
+          boolean _containsKey = qMap.containsKey(_dependsOn_1);
+          boolean _not = (!_containsKey);
+          if (!_not) {
+            _and = false;
+          } else {
+            String _dependsOn_2 = item_2.getDependsOn();
+            boolean _containsKey_1 = aMap.containsKey(_dependsOn_2);
+            boolean _not_1 = (!_containsKey_1);
+            _and = (_not && _not_1);
+          }
+          if (_and) {
+            this.error(
+              DslValidator.invalidRefIdString, item_2, 
+              Literals.ITEM__DEPENDS_ON, 
+              DslValidator.INVALID_VALUE);
+          }
+        }
       }
     }
   }
