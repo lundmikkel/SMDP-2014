@@ -157,12 +157,16 @@ public class SurveySwitch<T> extends Switch<T> {
 			case SurveyPackage.OTHER: {
 				Other other = (Other)theEObject;
 				T result = caseOther(other);
+				if (result == null) result = caseItem(other);
+				if (result == null) result = caseMeta(other);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case SurveyPackage.HAS_OPTIONS: {
 				HasOptions hasOptions = (HasOptions)theEObject;
 				T result = caseHasOptions(hasOptions);
+				if (result == null) result = caseItem(hasOptions);
+				if (result == null) result = caseMeta(hasOptions);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

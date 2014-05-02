@@ -43,11 +43,11 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="max" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="showLimits" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Other" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="Other" abstract="true" eSuperTypes="#//Item">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="other" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="otherLabel" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="HasOptions" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="HasOptions" abstract="true" eSuperTypes="#//Item">
     <eStructuralFeatures xsi:type="ecore:EReference" name="options" lowerBound="1"
         upperBound="-1" eType="#//Option" containment="true"/>
   </eClassifiers>

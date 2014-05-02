@@ -4,8 +4,6 @@ package survey;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Has Options</b></em>'.
@@ -22,7 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model abstract="true"
  * @generated
  */
-public interface HasOptions extends EObject {
+public interface HasOptions extends Item {
 	/**
 	 * Returns the value of the '<em><b>Options</b></em>' containment reference list.
 	 * The list contents are of type {@link survey.Option}.

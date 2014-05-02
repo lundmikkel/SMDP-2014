@@ -865,6 +865,8 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 		scaleEClass.getESuperTypes().add(this.getQuestion());
 		dateEClass.getESuperTypes().add(this.getQuestion());
 		numberEClass.getESuperTypes().add(this.getQuestion());
+		otherEClass.getESuperTypes().add(this.getItem());
+		hasOptionsEClass.getESuperTypes().add(this.getItem());
 		singleEClass.getESuperTypes().add(this.getQuestion());
 		singleEClass.getESuperTypes().add(this.getOther());
 		singleEClass.getESuperTypes().add(this.getHasOptions());

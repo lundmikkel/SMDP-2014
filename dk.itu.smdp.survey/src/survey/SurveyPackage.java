@@ -841,13 +841,58 @@ public interface SurveyPackage extends EPackage {
 	int OTHER = 9;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OTHER__NAME = ITEM__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OTHER__TITLE = ITEM__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OTHER__DESCRIPTION = ITEM__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Required</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OTHER__REQUIRED = ITEM__REQUIRED;
+
+	/**
+	 * The feature id for the '<em><b>Depends On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OTHER__DEPENDS_ON = ITEM__DEPENDS_ON;
+
+	/**
 	 * The feature id for the '<em><b>Other</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OTHER__OTHER = 0;
+	int OTHER__OTHER = ITEM_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Other Label</b></em>' attribute.
@@ -856,7 +901,7 @@ public interface SurveyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OTHER__OTHER_LABEL = 1;
+	int OTHER__OTHER_LABEL = ITEM_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Other</em>' class.
@@ -865,7 +910,7 @@ public interface SurveyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OTHER_FEATURE_COUNT = 2;
+	int OTHER_FEATURE_COUNT = ITEM_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Other</em>' class.
@@ -874,7 +919,7 @@ public interface SurveyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OTHER_OPERATION_COUNT = 0;
+	int OTHER_OPERATION_COUNT = ITEM_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link survey.impl.HasOptionsImpl <em>Has Options</em>}' class.
@@ -887,13 +932,58 @@ public interface SurveyPackage extends EPackage {
 	int HAS_OPTIONS = 10;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HAS_OPTIONS__NAME = ITEM__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HAS_OPTIONS__TITLE = ITEM__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HAS_OPTIONS__DESCRIPTION = ITEM__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Required</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HAS_OPTIONS__REQUIRED = ITEM__REQUIRED;
+
+	/**
+	 * The feature id for the '<em><b>Depends On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HAS_OPTIONS__DEPENDS_ON = ITEM__DEPENDS_ON;
+
+	/**
 	 * The feature id for the '<em><b>Options</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int HAS_OPTIONS__OPTIONS = 0;
+	int HAS_OPTIONS__OPTIONS = ITEM_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Has Options</em>' class.
@@ -902,7 +992,7 @@ public interface SurveyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int HAS_OPTIONS_FEATURE_COUNT = 1;
+	int HAS_OPTIONS_FEATURE_COUNT = ITEM_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Has Options</em>' class.
@@ -911,7 +1001,7 @@ public interface SurveyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int HAS_OPTIONS_OPERATION_COUNT = 0;
+	int HAS_OPTIONS_OPERATION_COUNT = ITEM_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link survey.impl.OptionImpl <em>Option</em>}' class.

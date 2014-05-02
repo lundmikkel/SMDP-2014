@@ -36,8 +36,12 @@ class DslValidator extends AbstractDslValidator {
 	
 	
 	private static val minIsLessThanMaxString = 'Max value must be larger than min value' 
+	private static val uniqueIdsAtSameLevelString = 'Ids at the same level must be unique'
+	private static val invalidRefIdString = 'There is no answer with this id'
+	private static val ambiguousIdString = 'The id %s is ambiguous'
 
-	/*
+
+	/**
 	 * Check that the min is less than max value in a scale 
 	 */
 	@Check
@@ -92,7 +96,7 @@ class DslValidator extends AbstractDslValidator {
 		}
 	}
 	
-	/*
+	/**
 	 * Check that the min is less than max value in a scale 
 	 */
 	@Check
@@ -115,7 +119,7 @@ class DslValidator extends AbstractDslValidator {
 		}
 	}
 	
-	/*
+	/**
 	 * Check that the min is less than max value in a scale 
 	 */
 	@Check
@@ -137,33 +141,63 @@ class DslValidator extends AbstractDslValidator {
 			)
 		}
 	}
-	
-	/*
-	 * Chech that questions at the same level have unique names
+
+
+	/**
+	 * Check that groups and questions in root have unique names
 	 */
-	@Check
-	def checkUniqueQuestionNamesAtSameLevel(Survey survey) {
-		// Check for questions outside groups
-		(survey.items.filter(typeof(Question)) as EList<Question>).checkUniqueQuestionNamesAtSameLevel
-		
-		// Check for questions within groups
-		for (Group group : survey.items.filter(typeof(Group))) {
-			group.questions.checkUniqueQuestionNamesAtSameLevel
+	def checkUniqueItemNames(Survey survey) {
+		val map = new HashMap<String, Item>()
+		for (Item item : survey.items.filter([!name.nullOrEmpty])) {
+			if (map.containsKey(item.name)) {
+				error(
+					uniqueIdsAtSameLevelString,
+					item,
+					SurveyPackage.Literals.META__NAME,
+					DUPLICATE_NAME
+				)
+				error(
+					uniqueIdsAtSameLevelString,
+					map.get(item.name),
+					SurveyPackage.Literals.META__NAME,
+					DUPLICATE_NAME
+				)
+			}
+			else {
+				map.put(item.name, item)
+			}
 		}
 	}
 	
-	def checkUniqueQuestionNamesAtSameLevel(EList<Question> questions) {
+	/**
+	 * Check that questions at the same level have unique names
+	 */
+	@Check
+	def checkUniqueQuestionNames(Group group) {
+		group.questions.checkUniqueQuestionNames
+	}
+	
+	/**
+	 * Check that questions at the same level have unique names
+	 */
+	@Check
+	def checkUniqueQuestionNames(Survey survey) {
+		// Check for questions outside groups
+		survey.items.filter(typeof(Question)).checkUniqueQuestionNames
+	}
+	
+	def checkUniqueQuestionNames(Iterable<Question> questions) {
 		val map = new HashMap<String, Question>()
 		for (Question question : questions.filter([!name.nullOrEmpty])) {
 			if (map.containsKey(question.name)) {
 				error(
-					'Questions at the same level cannot have the same id',
+					uniqueIdsAtSameLevelString,
 					question,
 					SurveyPackage.Literals.META__NAME,
 					DUPLICATE_NAME
 				)
 				error(
-					'Questions at the same level cannot have the same id',
+					uniqueIdsAtSameLevelString,
 					map.get(question.name),
 					SurveyPackage.Literals.META__NAME,
 					DUPLICATE_NAME
@@ -174,375 +208,200 @@ class DslValidator extends AbstractDslValidator {
 			}
 		}
 	}
-
-
-	/*
- * Check that answers in questions outside of a group have unique IDs
- */
+	
+	/**
+	 * Check that the AnswerTemplates have unique IDs
+	 */
 	@Check
-	def checkThatAnswerNamesAreUnique(Survey survey) {
-		for (Question question : survey.items.filter(typeof(Question))) {
-			var answerMap = new HashMap<String, Answer>
-			if (question instanceof Single) {
-				var s = question as Single
-				for (Answer answer : s.options.filter(typeof(Answer))) {
-					if (!answer.name.empty) {
-						if (answerMap.containsKey(answer.name)) {
-							error(
-								'Answers within a Single must have unique IDs',
-								answer,
-								SurveyPackage.Literals.ANSWER__NAME,
-								DUPLICATE_NAME
-							)
-						} else {
-							answerMap.put(answer.name, answer)
-						}
-					}
-				}
-			} else if (question instanceof Multiple) {
-				var m = question as Multiple
-				for (Answer answer : m.options.filter(typeof(Answer))) {
-					if (!answer.name.empty) {
-						if (answerMap.containsKey(answer.name)) {
-							error(
-								'Answers within a Multiple must have unique IDs',
-								answer,
-								SurveyPackage.Literals.ANSWER__NAME,
-								DUPLICATE_NAME
-							)
-						} else {
-							answerMap.put(answer.name, answer)
-						}
-					}
-				}
+	def checkUniqueAnswerTemplateNames(Survey survey) {
+		var map = new HashMap<String, AnswerTemplate>
+
+		for (AnswerTemplate template : survey.templates) {
+			if (map.containsKey(template.name)) {
+				error(
+					uniqueIdsAtSameLevelString,
+					template,
+					SurveyPackage.Literals.ANSWER_TEMPLATE__NAME,
+					DUPLICATE_NAME
+				)
+				error(
+					uniqueIdsAtSameLevelString,
+					map.get(template.name),
+					SurveyPackage.Literals.ANSWER_TEMPLATE__NAME,
+					DUPLICATE_NAME
+				)
 			}
-			if (question instanceof Table) {
-				var t = question as Table
-				for (Answer answer : t.options.filter(typeof(Answer))) {
-					if (!answer.name.empty) {
-						if (answerMap.containsKey(answer.name)) {
-							error(
-								'Answers within a Table must have unique IDs',
-								answer,
-								SurveyPackage.Literals.ANSWER__NAME,
-								DUPLICATE_NAME
-							)
-						} else {
-							answerMap.put(answer.name, answer)
-						}
-					}
-				}
+			else {
+				map.put(template.name, template)
+			}
+		}
+	}
+	
+	/**
+	 * Check that the answers in an AnswerTemplate have unique IDs
+	 */
+	@Check
+	def checkUniqueAnswerNames(AnswerTemplate template) {
+		template.answers.checkUniqueAnswerNames
+	}
+	
+	/**
+	 * Check that the answers in a Question have unique IDs
+	 */
+	@Check
+	def checkUniqueAnswerNames(HasOptions hasOptions) {
+		hasOptions.options.filter(typeof(Answer)).checkUniqueAnswerNames
+	}
+	
+	def checkUniqueAnswerNames(Iterable<Answer> answers) {
+		var map = new HashMap<String, Answer>
+
+		for (Answer answer : answers.filter([!name.nullOrEmpty])) {
+			if (map.containsKey(answer.name)) {
+				error(
+					uniqueIdsAtSameLevelString,
+					answer,
+					SurveyPackage.Literals.ANSWER__NAME,
+					DUPLICATE_NAME
+				)
+				error(
+					uniqueIdsAtSameLevelString,
+					map.get(answer.name),
+					SurveyPackage.Literals.ANSWER__NAME,
+					DUPLICATE_NAME
+				)
+			}
+			else {
+				map.put(answer.name, answer)
 			}
 		}
 	}
 
-	/*
- * Check that the questions in each group have unique IDs
- */
+
+	/**
+	 * TODO
+	 */
 	@Check
-	def checkThatQuestionNamesInGroupsAreUnique(Survey survey) {
-		var questionMap = new HashMap<String, Question>
-
-		for (Group group : survey.items.filter(typeof(Group))) {
-			for (Question question : group.questions) {
-
-				if (!question.name.empty) {
-					if (questionMap.containsKey(question.name)) {
-						error(
-							'Questions within a group must have unique IDs',
-							question,
-							SurveyPackage.Literals.META__NAME,
-							DUPLICATE_NAME
-						)
-					} else {
-						questionMap.put(question.name, question)
-					}
-				}
-			}
-		}
-	}
-
-	/*
- * Check that the answers in each question (of type Single, Multiple or Table) in each group have unique IDs
- */
-	@Check
-	def checkThatAnswerNamesInGroupsAreUnique(Survey survey) {
-		for (Group group : survey.items.filter(typeof(Group))) {
-			for (Question question : group.questions) {
-				var answerMap = new HashMap<String, Answer>
-				if (question instanceof Single) {
-					var s = question as Single
-					for (Answer answer : s.options.filter(typeof(Answer))) {
-						if (!answer.name.empty) {
-							if (answerMap.containsKey(answer.name)) {
-								error(
-									'Answers within a Single must have unique IDs',
-									answer,
-									SurveyPackage.Literals.ANSWER__NAME,
-									DUPLICATE_NAME
-								)
-							} else {
-								answerMap.put(answer.name, answer)
-							}
-						}
-					}
-				}
-				if (question instanceof Multiple) {
-					var m = question as Multiple
-					for (Answer answer : m.options.filter(typeof(Answer))) {
-						if (!answer.name.empty) {
-							if (answerMap.containsKey(answer.name)) {
-								error(
-									'Answers within a Multiple must have unique IDs',
-									answer,
-									SurveyPackage.Literals.ANSWER__NAME,
-									DUPLICATE_NAME
-								)
-							} else {
-								answerMap.put(answer.name, answer)
-							}
-						}
-					}
-				}
-				if (question instanceof Table) {
-					var t = question as Table
-					for (Answer answer : t.options.filter(typeof(Answer))) {
-						if (!answer.name.empty) {
-							if (answerMap.containsKey(answer.name)) {
-								error(
-									'Answers within a Table must have unique IDs',
-									answer,
-									SurveyPackage.Literals.ANSWER__NAME,
-									DUPLICATE_NAME
-								)
-							} else {
-								answerMap.put(answer.name, answer)
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-
-	/*
- * Check that the AnswerTemplates have unique IDs
- */
-	@Check
-	def checkThatAnswerTemplateNamesAreUnique(Survey survey) {
-		var answerTemplateMap = new HashMap<String, AnswerTemplate>
-
-		for (AnswerTemplate answerTemplate : survey.templates) {
-			if (!answerTemplate.name.empty) {
-				if (answerTemplateMap.containsKey(answerTemplate.name)) {
-					error(
-						'AnswerTemplates must have unique IDs',
-						answerTemplate,
-						SurveyPackage.Literals.ANSWER_TEMPLATE__NAME,
-						DUPLICATE_NAME
-					)
-				} else {
-					answerTemplateMap.put(answerTemplate.name, answerTemplate)
-				}
-			}
-		}
-	}
-
-	/*
- * Check that the ID of answers in an AnswerTemplate have unique IDs
- */
-	@Check
-	def checkThatNamesOfAnswersInAnswerTemplatesAreUnique(Survey survey) {
-		var answerMap = new HashMap<String, Answer>
-
-		for (AnswerTemplate answerTemplate : survey.templates) {
-			for (Answer answer : answerTemplate.answers) {
-				if (!answer.name.empty) {
-					if (answerMap.containsKey(answer.name)) {
-						error(
-							'Answers within AnswerTemplates must have unique IDs',
-							answer,
-							SurveyPackage.Literals.ANSWER__NAME,
-							DUPLICATE_NAME
-						)
-					} else {
-						answerMap.put(answer.name, answer)
-					}
-				}
-			}
-		}
-	}
-
-	/*
- * Check that the max value in a multiple question is larger than the min value 
- */
-	@Check
-	def checkDependsOnReference(Survey survey) {
-		var map = new HashMap<String, Question>()
-		
-		val ids = new HashMap<String, Item>()
-		val doubleIdString = 'The ids must be unique at the same level'
-		
+	def checkDependsOn(Survey survey) {
+		var qMap = new HashMap<String, Question>()
+		var aMap = new HashMap<String, Answer>()
 		for (Item item : survey.items) {
-			// Make sure two items at same level don't have the same id
-			if (!item.name.nullOrEmpty) {
-				if (ids.containsKey(item.name)) {
-					error(
-						doubleIdString,
-						item,
-						SurveyPackage.Literals.META__NAME,
-						INVALID_VALUE
-					)
-					error(
-						doubleIdString,
-						ids.get(item.name),
-						SurveyPackage.Literals.META__NAME,
-						INVALID_VALUE
-					)
-				}
-				else {
-					ids.put(item.name, item)
-				}
-			}
-			
-			item.genRefIds("", map, null)
+			item.getFullIds("", qMap, aMap)
 		}
 		
-		for (String key : map.keySet)
+		// TODO: Remove
+		for (String key : qMap.keySet)
+			println(key)
+		for (String key : aMap.keySet)
 			println(key)
 		
-		for (Item item : survey.items) {
-			if (!item.dependsOn.nullOrEmpty) {
-				if (!map.containsKey(item.dependsOn)) {
-					error(
-						'There is no question with this id',
-						item,
-						SurveyPackage.Literals.ITEM__DEPENDS_ON,
-						INVALID_VALUE
-					)
-				}
+		for (Item item : survey.items.filter[!dependsOn.nullOrEmpty]) {
+			if (!qMap.containsKey(item.dependsOn) && !aMap.containsKey(item.dependsOn)) {
+				error(
+					invalidRefIdString,
+					item,
+					SurveyPackage.Literals.ITEM__DEPENDS_ON,
+					INVALID_VALUE
+				)
 			}
 		}
 	}
 	
-	def dispatch void genRefIds(Group group, String pid, HashMap<String, Question> map, Question value) {
-		val ids = new HashMap<String, Item>()
-		val doubleIdString = 'The ids must be unique at the same level'
-		
+	def dispatch void getFullIds(Group group, String pid, HashMap<String, Question> qMap, HashMap<String, Answer> aMap) {
 		for (Question question : group.questions) {	
-			if (!question.name.nullOrEmpty) {
-				if (ids.containsKey(question.name)) {
-					error(
-						doubleIdString,
-						question,
-						SurveyPackage.Literals.META__NAME,
-						INVALID_VALUE
-					)
-					error(
-						doubleIdString,
-						ids.get(question.name),
-						SurveyPackage.Literals.META__NAME,
-						INVALID_VALUE
-					)
-				}
-				else {
-					ids.put(question.name, question)
-				}
-			}
-					
 			val id = if (group.name.nullOrEmpty) pid else pid + "." + group.name
-			question.genRefIds(id, map, null)
+			question.getFullIds(id, qMap, aMap)
 		}
 	}
 	
-	def dispatch void genRefIds(AnswerTemplateRef templateRef, String pid, HashMap<String, Question> map, Question question) {
+	def dispatch void getFullIds(Question question, String pid, HashMap<String, Question> qMap, HashMap<String, Answer> aMap) {
+		if (!question.name.nullOrEmpty) {
+			val id = (pid + "." + question.name).substring(1)
+			val s = String::format(ambiguousIdString, id) 
+			
+			if (qMap.containsKey(id)) {
+				error(
+					s,
+					question,
+					SurveyPackage.Literals.META__NAME,
+					INVALID_VALUE
+				)
+				error(
+					s,
+					qMap.get(id),
+					SurveyPackage.Literals.META__NAME,
+					INVALID_VALUE
+				)
+			}
+			else if (aMap.containsKey(id)) {
+				error(
+					s,
+					question,
+					SurveyPackage.Literals.META__NAME,
+					INVALID_VALUE
+				)
+				error(
+					s,
+					aMap.get(id),
+					SurveyPackage.Literals.ANSWER__NAME,
+					INVALID_VALUE
+				)
+			}
+			else {
+				qMap.put(id, question)
+			}
+		}
+	}
+	
+	def dispatch void getFullIds(HasOptions question, String pid, HashMap<String, Question> qMap, HashMap<String, Answer> aMap) {
+		for (Option option : question.options) {
+			val id = if (question.name.nullOrEmpty) pid else pid + "." + question.name
+			option.getFullIds(id, qMap, aMap)
+		}
+	}
+	
+	def dispatch void getFullIds(AnswerTemplateRef templateRef, String pid, HashMap<String, Question> qMap, HashMap<String, Answer> aMap) {
 		for (Answer answer : templateRef.template.answers) {
 			val id = pid + "." + templateRef.template.name
-			answer.genRefIds(id, map, question)
+			answer.getFullIds(id, qMap, aMap)
 		}
 	}
 	
-	def dispatch void genRefIds(Answer answer, String pid, HashMap<String, Question> map, Question question) {
+	def dispatch void getFullIds(Answer answer, String pid, HashMap<String, Question> qMap, HashMap<String, Answer> aMap) {
 		if (!answer.name.nullOrEmpty) {
 			val id = (pid + "." + answer.name).substring(1)
-			//println(id)
+			val s = String::format(ambiguousIdString, id) 
 			
-			if (map.containsKey(id)) {
-				val ambiguousIdString = 'The id is ambiguous'
+			if (qMap.containsKey(id)) {
 				error(
-					ambiguousIdString,
-					question,
-					SurveyPackage.Literals.META__NAME,
+					s,
+					answer,
+					SurveyPackage.Literals.ANSWER__NAME,
 					INVALID_VALUE
 				)
 				error(
-					ambiguousIdString,
-					map.get(id),
+					s,
+					qMap.get(id),
 					SurveyPackage.Literals.META__NAME,
+					INVALID_VALUE
+				)
+			}
+			else if (aMap.containsKey(id)) {
+				error(
+					s,
+					answer,
+					SurveyPackage.Literals.ANSWER__NAME,
+					INVALID_VALUE
+				)
+				error(
+					s,
+					aMap.get(id),
+					SurveyPackage.Literals.ANSWER__NAME,
 					INVALID_VALUE
 				)
 			}
 			else {
-				map.put(id, question as Question)
-			}
-		}
-	}
-	
-	def dispatch void genRefIds(Question question, String pid, HashMap<String, Question> map, Question value) {
-		if (question instanceof HasOptions){
-			val ids = new HashMap<String, Answer>()
-			val doubleIdString = 'The ids must be unique at the same level'
-			
-			for (Option option : (question as HasOptions).options) {
-				if (option instanceof Answer) {
-					var answer = option as Answer
-					if (!answer.name.nullOrEmpty) {
-						if (ids.containsKey(answer.name)) {
-							error(
-								doubleIdString,
-								answer,
-								SurveyPackage.Literals.ANSWER__NAME,
-								INVALID_VALUE
-							)
-							error(
-								doubleIdString,
-								ids.get(answer.name),
-								SurveyPackage.Literals.ANSWER__NAME,
-								INVALID_VALUE
-							)
-						}
-						else {
-							ids.put(answer.name, answer)
-						}
-					}
-				}
-				else {
-					val id = if (question.name.nullOrEmpty) pid else pid + "." + question.name
-					option.genRefIds(id, map, question as Question)
-				}
-			}
-		}
-		else if (!question.name.nullOrEmpty) {
-			val id = (pid + "." + question.name).substring(1)
-			//println(id)
-			
-			if (map.containsKey(id)) {
-				val ambiguousIdString = 'The id is ambiguous'
-				error(
-					ambiguousIdString,
-					question,
-					SurveyPackage.Literals.META__NAME,
-					INVALID_VALUE
-				)
-				error(
-					ambiguousIdString,
-					map.get(id),
-					SurveyPackage.Literals.META__NAME,
-					INVALID_VALUE
-				)
-			}
-			else {
-				map.put(id, question)
+				aMap.put(id, answer)
 			}
 		}
 	}
