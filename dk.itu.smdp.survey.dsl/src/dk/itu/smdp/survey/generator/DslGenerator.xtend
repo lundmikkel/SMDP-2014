@@ -22,11 +22,11 @@ class DslGenerator implements IGenerator {
 	override void doGenerate(Resource resource, IFileSystemAccess fsa) {
 		var survey = resource.contents.head as Survey
 		
-		survey.genHtml(fsa)
+		survey.genPhp(fsa)
 		survey.genLatex(fsa)
 	}
 	
-	def genHtml(Survey survey, IFileSystemAccess fsa) {
+	def genPhp(Survey survey, IFileSystemAccess fsa) {
 		var template = '''
 		<!DOCTYPE html>
 		<html lang="en">
@@ -63,7 +63,7 @@ class DslGenerator implements IGenerator {
 		                <div> <h1>«survey.title»</h1> <p class="lead">«survey.description»</p> </div>
 		                <form role="form">
 							«FOR item : survey.items»
-								«item.genHtml»
+								«item.genHtml(false)»
 							«ENDFOR»
 		                    <hr/>
 		                    <div class="form-group">
@@ -77,8 +77,8 @@ class DslGenerator implements IGenerator {
 		</html>
 		'''
 		
-		// TODO: Use survey.name to make filename
-		fsa.generateFile("survey.html", template)
+		val filename = if (survey.name.nullOrEmpty) "survey.html" else survey.name + ".html"
+		fsa.generateFile(filename, template)
 	}
 	
 	def getUniqueId(Question question) {
@@ -88,8 +88,7 @@ class DslGenerator implements IGenerator {
 		return id;
 	}
 	
-	// TODO: Make sure all items in group are required
-	def dispatch String genHtml(Group group)
+	def dispatch String genHtml(Group group, boolean required)
 	'''
 	<div class="group">
 	    «IF !group.title.nullOrEmpty»
@@ -99,26 +98,26 @@ class DslGenerator implements IGenerator {
 	    <p class="lead">«group.description»</p>
 	    «ENDIF»
 		«FOR question : group.questions»
-			«question.genHtml»
+			«question.genHtml(group.required)»
 		«ENDFOR»
 	</div>
 	'''
 	
-	def dispatch String genHtml(Text question) {
+	def dispatch String genHtml(Text question, boolean required) {
 		var id = getUniqueId(question);
 		
 		'''
 		<div class="form-group">
 		    <label for="«id»" class="control-label">
-		        «question.title» «question.genRequiredLabel»
+		        «question.title» «question.genRequiredLabel(required)»
 		        «question.genQuestionDesc»
 		    </label>
 		    <div class="row">
 		        <div class="col-xs-4">
 					«IF !question.multiline»
-					<input class="form-control" id="«id»" «question.genRequiredAttr» «question.genRequiredAttr»>
+					<input class="form-control" id="«id»" «question.genRequiredAttr(required)»>
 					«ELSE»
-					<textarea class="form-control" id="«id»" «question.genRequiredAttr» rows="3" «question.genRequiredAttr»></textarea>
+					<textarea class="form-control" id="«id»" rows="3" «question.genRequiredAttr(required)»></textarea>
 					«ENDIF»
 		        </div>
 		    </div>
@@ -126,14 +125,14 @@ class DslGenerator implements IGenerator {
 		'''
 	}
 	
-	def dispatch String genHtml(Scale question) {
+	def dispatch String genHtml(Scale question, boolean required) {
 		var id = getUniqueId(question);
 		
 		'''
 		<div class="group">
 		    <div class="form-group">
 		        <label class="control-label">
-			        «question.title» «question.genRequiredLabel»
+			        «question.title» «question.genRequiredLabel(required)»
 			        «question.genQuestionDesc»
 		        </label>
 		        <table class="scale">
@@ -153,7 +152,7 @@ class DslGenerator implements IGenerator {
 		            	<td><label for="«id»_«question.min»">«question.minLabel»</label></td>
 		                «ENDIF»
 		                «FOR i : question.min..question.max BEFORE '<td>' SEPARATOR '</td><td>' AFTER '</td>' »
-		                <input type="radio" name="«id»" id="«id»_«i»" value="«i»" «question.genRequiredAttr»/>
+		                <input type="radio" name="«id»" id="«id»_«i»" value="«i»" «question.genRequiredAttr(required)»/>
 		                «ENDFOR»
 		            	«IF !question.minLabel.nullOrEmpty »
 		            	<td><label for="«id»_«question.max»">«question.maxLabel»</label></td>
@@ -165,21 +164,21 @@ class DslGenerator implements IGenerator {
 		'''
 	}
 	
-	def dispatch String genHtml(Date question) {
+	def dispatch String genHtml(Date question, boolean required) {
 		// TODO:FINISH!!
 	}
 	
-	def dispatch String genHtml(Number question) {
+	def dispatch String genHtml(Number question, boolean required) {
 		var id = getUniqueId(question);
 		'''
 		<div class="form-group">
 		    <label for="«id»" class="control-label">
-		        «question.title» «question.genRequiredLabel»
+		        «question.title» «question.genRequiredLabel(required)»
 		        «question.genQuestionDesc»
 		    </label>
 		    <div class="row">
 		        <div class="col-xs-2">
-		            <input type="number" class="form-control" id="«id»" «question.genRequiredAttr» step="1"
+		            <input type="number" class="form-control" id="«id»" «question.genRequiredAttr(required)» step="1"
 		            «IF question.min != null»
 		            min="«question.min»"
 		            «ENDIF»
@@ -196,16 +195,51 @@ class DslGenerator implements IGenerator {
 		'''
 	}
 	
-	// TODO: Multiple
-	
-	def dispatch String genHtml(Single question) {
+	def dispatch String genHtml(Single question, boolean required) {
 		var id = getUniqueId(question);
 		var i = 0
 		
 		'''
 		<div class="form-group">
+			<label class="control-label">
+				«question.title» «question.genRequiredLabel(required)»
+				«question.genQuestionDesc»
+			</label>
+			<div>
+				«FOR a : question.getAnswers BEFORE '<div class="radio"><label>'
+											 SEPARATOR '</label></div><div class="radio"><label>'
+											 AFTER '</label></div>' »
+				<input type="radio" name="«id»" id="«id»_«(i = i + 1)»" value="«i»" «question.genRequiredAttr(required)»/>
+				«a.label»
+				«ENDFOR»
+			</div>
+		</div>
+		'''
+	}
+	
+	def getMin(Multiple question, boolean required) {
+		var min = if (question.min != null) question.min else 0
+		if ((required || question.required) && min == 0)
+			min = 1
+		return min
+	}
+	
+	def getMax(Multiple question, boolean required) {
+		if (question.max != null) question.max.intValue else null
+	}
+	
+	def dispatch String genHtml(Multiple question, boolean required) {
+		val id = getUniqueId(question);
+		var i = 0
+		val min = question.getMin(required)
+		val max = question.getMax(required)
+		
+		'''
+		<div class="form-group"
+			«IF min > 0» data-min-selections="«min»" «ENDIF»
+			«IF max != null» data-max-selections="«max»" «ENDIF»>
 		    <label class="control-label">
-		    	«question.title»
+		    	«question.title» «question.genRequiredLabel(required)»
 		    	«question.genQuestionDesc»
 		    </label>
 		    «FOR a : question.getAnswers BEFORE '<div class="checkbox"><label>'
@@ -217,27 +251,16 @@ class DslGenerator implements IGenerator {
 		'''
 	}
 	
-	def dispatch String genHtml(Question question) '''
+	def dispatch String genHtml(Question question, boolean required) '''
 		MISSING: «question.title» («question.class»)
 	'''
 	
-	def genRequiredLabel(Question question) {
-		var required = question.required
-		'''
-		«IF required»
-		*
-		«ENDIF»
-		'''
-	}
-	
-	def genRequiredAttr(Question question) {
-		var required = question.required
-		'''
-		«IF required»
-		required
-		«ENDIF»
-		'''
-	}
+	def genRequiredLabel(Question question, boolean requiredParent)
+		'''«IF requiredParent || question.required» * «ENDIF»'''
+		
+		
+	def genRequiredAttr(Question question, boolean requiredParent)
+		'''«IF requiredParent || question.required» required «ENDIF»'''
 	
 	def genLimitsDesc(Number question) {
 		var min = question.min
@@ -270,13 +293,9 @@ class DslGenerator implements IGenerator {
 		}
 	}
 	
-	def genQuestionDesc(Meta item) '''
-	«IF !item.description.nullOrEmpty»
-	<p class="help-block">«item.description»</p>
-	«ENDIF»
-	'''
+	def genQuestionDesc(Meta item)
+		'''«IF !item.description.nullOrEmpty»<p class="help-block">«item.description»</p>«ENDIF»'''
 	
-	// TODO: Make this return an iterable instead of a list
 	def getAnswers(HasOptions hasOptions) {
 		var answers = new ArrayList<Answer>()
 		

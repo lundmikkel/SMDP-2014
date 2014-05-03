@@ -54,6 +54,8 @@ public class DslValidator extends AbstractDslValidator {
   
   private final static String noNegativeValueString = "The value must be non-negative";
   
+  private final static String betterUseSingleString = "If your maximum is one, you should rather use a single question instead of a multiple for usability reasons";
+  
   /**
    * Check that the min is less than max value in a scale
    */
@@ -124,7 +126,9 @@ public class DslValidator extends AbstractDslValidator {
     if (!_and_1) {
       _and = false;
     } else {
-      boolean _greaterEqualsThan = (min.compareTo(max) >= 0);
+      int _intValue = min.intValue();
+      int _intValue_1 = max.intValue();
+      boolean _greaterEqualsThan = (_intValue >= _intValue_1);
       _and = (_and_1 && _greaterEqualsThan);
     }
     if (_and) {
@@ -158,17 +162,19 @@ public class DslValidator extends AbstractDslValidator {
     if (!_and_1) {
       _and = false;
     } else {
-      boolean _greaterEqualsThan = (min.compareTo(max) >= 0);
+      int _intValue = min.intValue();
+      int _intValue_1 = max.intValue();
+      boolean _greaterEqualsThan = (_intValue >= _intValue_1);
       _and = (_and_1 && _greaterEqualsThan);
     }
     if (_and) {
       this.error(
         DslValidator.minIsLessThanMaxString, multiple, 
-        Literals.NUMBER__MIN, 
+        Literals.MULTIPLE__MIN, 
         DslValidator.INVALID_VALUE);
       this.error(
         DslValidator.minIsLessThanMaxString, multiple, 
-        Literals.NUMBER__MAX, 
+        Literals.MULTIPLE__MAX, 
         DslValidator.INVALID_VALUE);
     }
     boolean _and_2 = false;
@@ -176,13 +182,14 @@ public class DslValidator extends AbstractDslValidator {
     if (!_notEquals_2) {
       _and_2 = false;
     } else {
-      boolean _lessThan = ((min).intValue() < 0);
+      int _intValue_2 = min.intValue();
+      boolean _lessThan = (_intValue_2 < 0);
       _and_2 = (_notEquals_2 && _lessThan);
     }
     if (_and_2) {
       this.error(
         DslValidator.noNegativeValueString, multiple, 
-        Literals.NUMBER__MIN, 
+        Literals.MULTIPLE__MIN, 
         DslValidator.INVALID_VALUE);
     }
     boolean _and_3 = false;
@@ -190,14 +197,31 @@ public class DslValidator extends AbstractDslValidator {
     if (!_notEquals_3) {
       _and_3 = false;
     } else {
-      boolean _lessThan_1 = ((max).intValue() < 0);
-      _and_3 = (_notEquals_3 && _lessThan_1);
+      int _intValue_3 = max.intValue();
+      boolean _equals = (_intValue_3 == 1);
+      _and_3 = (_notEquals_3 && _equals);
     }
     if (_and_3) {
-      this.error(
-        DslValidator.noNegativeValueString, multiple, 
-        Literals.NUMBER__MAX, 
+      this.warning(
+        DslValidator.betterUseSingleString, multiple, 
+        Literals.MULTIPLE__MAX, 
         DslValidator.INVALID_VALUE);
+    } else {
+      boolean _and_4 = false;
+      boolean _notEquals_4 = (!Objects.equal(max, null));
+      if (!_notEquals_4) {
+        _and_4 = false;
+      } else {
+        int _intValue_4 = max.intValue();
+        boolean _lessThan_1 = (_intValue_4 < 1);
+        _and_4 = (_notEquals_4 && _lessThan_1);
+      }
+      if (_and_4) {
+        this.error(
+          DslValidator.noNegativeValueString, multiple, 
+          Literals.MULTIPLE__MAX, 
+          DslValidator.INVALID_VALUE);
+      }
     }
   }
   

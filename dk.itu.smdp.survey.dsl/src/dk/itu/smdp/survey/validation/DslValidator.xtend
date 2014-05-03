@@ -40,6 +40,7 @@ class DslValidator extends AbstractDslValidator {
 	private static val invalidRefIdString = 'There is no answer with this id'
 	private static val ambiguousIdString = 'The id %s is ambiguous'
 	private static val noNegativeValueString = 'The value must be non-negative'
+	private static val betterUseSingleString = 'If your maximum is one, you should rather use a single question instead of a multiple for usability reasons'
 
 
 	/**
@@ -104,7 +105,7 @@ class DslValidator extends AbstractDslValidator {
 	def checkMinIsLessThanMax(Number number) {
 		val min = number.min
 		val max = number.max
-		if (min != null && max != null && min >= max) {
+		if (min != null && max != null && min.intValue >= max.intValue) {
 			error(
 				minIsLessThanMaxString,
 				number,
@@ -127,33 +128,41 @@ class DslValidator extends AbstractDslValidator {
 	def checkMinIsLessThanMax(Multiple multiple) {
 		val min = multiple.min
 		val max = multiple.max
-		if (min != null && max != null && min >= max) {
+		if (min != null && max != null && min.intValue >= max.intValue) {
 			error(
 				minIsLessThanMaxString,
 				multiple,
-				SurveyPackage.Literals.NUMBER__MIN,
+				SurveyPackage.Literals.MULTIPLE__MIN,
 				INVALID_VALUE
 			)
 			error(
 				minIsLessThanMaxString,
 				multiple,
-				SurveyPackage.Literals.NUMBER__MAX,
+				SurveyPackage.Literals.MULTIPLE__MAX,
 				INVALID_VALUE
 			)
 		}
-		if (min != null && min < 0) {
+		if (min != null && min.intValue < 0) {
 			error(
 				noNegativeValueString,
 				multiple,
-				SurveyPackage.Literals.NUMBER__MIN,
+				SurveyPackage.Literals.MULTIPLE__MIN,
 				INVALID_VALUE
 			)
 		}
-		if (max != null && max < 0) {
+		if (max != null && max.intValue == 1) {
+			warning(
+				betterUseSingleString,
+				multiple,
+				SurveyPackage.Literals.MULTIPLE__MAX,
+				INVALID_VALUE
+			)
+		}
+		else if (max != null && max.intValue < 1) {
 			error(
 				noNegativeValueString,
 				multiple,
-				SurveyPackage.Literals.NUMBER__MAX,
+				SurveyPackage.Literals.MULTIPLE__MAX,
 				INVALID_VALUE
 			)
 		}
