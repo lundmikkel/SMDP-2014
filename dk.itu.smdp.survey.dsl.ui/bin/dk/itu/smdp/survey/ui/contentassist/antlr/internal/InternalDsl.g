@@ -11253,7 +11253,7 @@ finally {
 
 RULE_STRING : '$' ('\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|'\''|'\\')|~(('\\'|'$')))* '$';
 
-RULE_FQN : (RULE_ID '.')? RULE_ID '.' RULE_ID;
+RULE_FQN : (RULE_ID '.')+ RULE_ID;
 
 RULE_ID : ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 

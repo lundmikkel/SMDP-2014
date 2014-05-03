@@ -262,6 +262,7 @@ public class DslValidator extends AbstractDslValidator {
   /**
    * Check that groups and questions in root have unique names
    */
+  @Check
   public void checkUniqueItemNames(final Survey survey) {
     HashMap<String,Item> _hashMap = new HashMap<String, Item>();
     final HashMap<String,Item> map = _hashMap;
@@ -303,16 +304,6 @@ public class DslValidator extends AbstractDslValidator {
   public void checkUniqueQuestionNames(final Group group) {
     EList<Question> _questions = group.getQuestions();
     this.checkUniqueQuestionNames(_questions);
-  }
-  
-  /**
-   * Check that questions at the same level have unique names
-   */
-  @Check
-  public void checkUniqueQuestionNames(final Survey survey) {
-    EList<Item> _items = survey.getItems();
-    Iterable<Question> _filter = Iterables.<Question>filter(_items, Question.class);
-    this.checkUniqueQuestionNames(_filter);
   }
   
   public void checkUniqueQuestionNames(final Iterable<Question> questions) {
@@ -429,9 +420,6 @@ public class DslValidator extends AbstractDslValidator {
     }
   }
   
-  /**
-   * TODO
-   */
   @Check
   public void checkDependsOn(final Survey survey) {
     HashMap<String,Question> _hashMap = new HashMap<String, Question>();

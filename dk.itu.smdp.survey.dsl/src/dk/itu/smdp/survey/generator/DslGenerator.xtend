@@ -3,12 +3,25 @@
  */
 package dk.itu.smdp.survey.generator
 
-import org.eclipse.emf.ecore.resource.Resource
-import org.eclipse.xtext.generator.IGenerator
-import org.eclipse.xtext.generator.IFileSystemAccess
-import survey.*
 import java.util.ArrayList
 import java.util.HashMap
+import org.eclipse.emf.ecore.resource.Resource
+import org.eclipse.xtext.generator.IFileSystemAccess
+import org.eclipse.xtext.generator.IGenerator
+import survey.Answer
+import survey.AnswerTemplateRef
+import survey.Date
+import survey.Group
+import survey.HasOptions
+import survey.Multiple
+import survey.Number
+import survey.Option
+import survey.Question
+import survey.Scale
+import survey.Single
+import survey.Survey
+import survey.Table
+import survey.Text
 
 /**
  * Generates code from your model files on save.
@@ -27,97 +40,14 @@ class DslGenerator implements IGenerator {
 	}
 	
 	def genPhp(Survey survey, IFileSystemAccess fsa) {
-		var template = '''
-		<!DOCTYPE html>
-		<html lang="en">
-		    <head>
-		        <meta charset="utf-8">
-		        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-		        <meta name="viewport" content="width=device-width, initial-scale=1">
-		        <title>«survey.title»</title>
-		        <!-- Bootstrap -->
-		        <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
-		        <link href="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker3.min.css" rel="stylesheet">
-		        <style media="screen" type="text/css">
-		            .group { margin-bottom: 20px; margin-top: 50px; }
-		            input[type=number] { text-align: right; }
-		            h2 + p.lead { font-size: 21px; margin-bottom: 30px; margin-top: -15px; }
-		            label.control-label { font-size: 16px; }
-		            label .help-block { font-size: 85%; }
-		            .table { min-width: 50%; width: auto; }
-		            table.scale td { padding: 8px; text-align: center; }
-		            table.scale .top td { padding-bottom: 0; }
-		            table.scale .bottom { border-top: 1px solid #DDD; border-bottom: 1px solid #DDD; }
-		            form .form-group + .form-group { padding-top: 15px; }
-		            form hr { margin-top: 30px; }
-		        </style>
-		        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-		        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-		        <!--[if lt IE 9]>
-		        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-		        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-		        <![endif]-->
-		    </head>
-		
-		    <body>
-		    	<div class="container">
-		            <div class="row">
-		                <div> <h1>«survey.title»</h1> <p class="lead">«survey.description»</p> </div>
-		                <form role="form">
-							«FOR item : survey.items»
-								«item.genHtml(false)»
-							«ENDFOR»
-		                    <hr/>
-		                    <div class="form-group">
-		                        <button type="submit" class="btn btn-success btn-lg">Submit</button>
-		                        <button type="reset" class="btn btn-danger btn-lg">Reset</button>
-		                    </div>
-						</form>
-		            </div>
-		        </div>
-
-		        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-		        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-		        <!-- Include all compiled plugins (below), or include individual files as needed -->
-		        <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-				<script src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
-				
-		        <script type="text/javascript">
-		            $( document ).ready(function() {
-		            	$('.input-group.date').datepicker({
-							autoclose: true,
-							todayHighlight: true,
-							todayBtn: true
-						});
-		            	
-		                $("[data-depends-on]").each(function() {
-		                    var _this = $(this);
-		
-		                    _this.hide();
-		
-		                    var dependsOnId = $(this).attr("data-depends-on");
-		                    var dependsOn = $("#" + dependsOnId);
-		
-		                    switch (dependsOn.attr("type")) {
-		                        case "radio":
-		                            {
-		                                $("input[name=" + dependsOn.attr("name") + "]:radio").change(function () {
-		                                    if ($(this).attr("id") == dependsOnId)
-		                                        _this.show();
-		                                    else
-		                                        _this.hide();
-		                                });
-		                            }
-		                            break;
-		                    }
-		                });
-		            });
-		        </script>
-			</body>
-		</html>
+		var body = '''
+			«FOR item : survey.items»
+				«item.genHtml(false)»
+			«ENDFOR»
 		'''
 		
-		val filename = if (survey.name.nullOrEmpty) "survey.html" else survey.name + ".html"
+		var template = PhpTemplate.template(survey.title, survey.description, body)
+		val filename = (if (survey.name.nullOrEmpty) "index" else survey.name) + ".php"
 		fsa.generateFile(filename, template)
 	}
 	

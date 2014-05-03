@@ -175,6 +175,7 @@ class DslValidator extends AbstractDslValidator {
 	 */
 	@Check
 	def checkDateGranularity(Date date) {
+		// TODO: Default to dd/mm/yyyy
 		if (!date.day && !date.month && !date.year) {
 			error(
 				setDateGranularityString,
@@ -189,6 +190,7 @@ class DslValidator extends AbstractDslValidator {
 	/**
 	 * Check that groups and questions in root have unique names
 	 */
+	@Check
 	def checkUniqueItemNames(Survey survey) {
 		val map = new HashMap<String, Item>()
 		for (Item item : survey.items.filter([!name.nullOrEmpty])) {
@@ -218,15 +220,6 @@ class DslValidator extends AbstractDslValidator {
 	@Check
 	def checkUniqueQuestionNames(Group group) {
 		group.questions.checkUniqueQuestionNames
-	}
-	
-	/**
-	 * Check that questions at the same level have unique names
-	 */
-	@Check
-	def checkUniqueQuestionNames(Survey survey) {
-		// Check for questions outside groups
-		survey.items.filter(typeof(Question)).checkUniqueQuestionNames
 	}
 	
 	def checkUniqueQuestionNames(Iterable<Question> questions) {
@@ -320,10 +313,6 @@ class DslValidator extends AbstractDslValidator {
 		}
 	}
 
-
-	/**
-	 * TODO
-	 */
 	@Check
 	def checkDependsOn(Survey survey) {
 		var qMap = new HashMap<String, Question>()

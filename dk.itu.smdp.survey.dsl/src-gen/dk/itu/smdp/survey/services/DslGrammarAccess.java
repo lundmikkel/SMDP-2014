@@ -2113,7 +2113,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	} 
 
 	//terminal FQN:
-	//	(ID ".")? ID "." ID;
+	//	(ID ".")+ ID;
 	public TerminalRule getFQNRule() {
 		return (tFQN != null) ? tFQN : (tFQN = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "FQN"));
 	} 
