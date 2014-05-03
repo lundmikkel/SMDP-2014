@@ -175,8 +175,8 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	 *         title=EString 
 	 *         description=EString? 
 	 *         name=ID? 
-	 *         from=EString? 
-	 *         to=EString? 
+	 *         start=EString? 
+	 *         end=EString? 
 	 *         dependsOn=DEP_ID? 
 	 *         (showLimits?='show-limits' | showLimits?='show' | showLimits?='limits')? 
 	 *         required?='required'? 

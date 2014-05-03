@@ -686,22 +686,22 @@ public interface SurveyPackage extends EPackage {
 	int DATE__YEAR = QUESTION_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>From</b></em>' attribute.
+	 * The feature id for the '<em><b>Start</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATE__FROM = QUESTION_FEATURE_COUNT + 3;
+	int DATE__START = QUESTION_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>To</b></em>' attribute.
+	 * The feature id for the '<em><b>End</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATE__TO = QUESTION_FEATURE_COUNT + 4;
+	int DATE__END = QUESTION_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Show Limits</b></em>' attribute.
@@ -1800,26 +1800,26 @@ public interface SurveyPackage extends EPackage {
 	EAttribute getDate_Year();
 
 	/**
-	 * Returns the meta object for the attribute '{@link survey.Date#getFrom <em>From</em>}'.
+	 * Returns the meta object for the attribute '{@link survey.Date#getStart <em>Start</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>From</em>'.
-	 * @see survey.Date#getFrom()
+	 * @return the meta object for the attribute '<em>Start</em>'.
+	 * @see survey.Date#getStart()
 	 * @see #getDate()
 	 * @generated
 	 */
-	EAttribute getDate_From();
+	EAttribute getDate_Start();
 
 	/**
-	 * Returns the meta object for the attribute '{@link survey.Date#getTo <em>To</em>}'.
+	 * Returns the meta object for the attribute '{@link survey.Date#getEnd <em>End</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>To</em>'.
-	 * @see survey.Date#getTo()
+	 * @return the meta object for the attribute '<em>End</em>'.
+	 * @see survey.Date#getEnd()
 	 * @see #getDate()
 	 * @generated
 	 */
-	EAttribute getDate_To();
+	EAttribute getDate_End();
 
 	/**
 	 * Returns the meta object for the attribute '{@link survey.Date#isShowLimits <em>Show Limits</em>}'.
@@ -2361,20 +2361,20 @@ public interface SurveyPackage extends EPackage {
 		EAttribute DATE__YEAR = eINSTANCE.getDate_Year();
 
 		/**
-		 * The meta object literal for the '<em><b>From</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Start</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute DATE__FROM = eINSTANCE.getDate_From();
+		EAttribute DATE__START = eINSTANCE.getDate_Start();
 
 		/**
-		 * The meta object literal for the '<em><b>To</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>End</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute DATE__TO = eINSTANCE.getDate_To();
+		EAttribute DATE__END = eINSTANCE.getDate_End();
 
 		/**
 		 * The meta object literal for the '<em><b>Show Limits</b></em>' attribute feature.

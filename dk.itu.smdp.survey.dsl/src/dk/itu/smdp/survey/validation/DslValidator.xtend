@@ -21,6 +21,7 @@ import survey.Survey
 import survey.SurveyPackage
 import survey.Table
 import org.eclipse.emf.common.util.EList
+import survey.Date
 
 /**
  * Custom validation rules. 
@@ -41,6 +42,7 @@ class DslValidator extends AbstractDslValidator {
 	private static val ambiguousIdString = 'The id %s is ambiguous'
 	private static val noNegativeValueString = 'The value must be non-negative'
 	private static val betterUseSingleString = 'If your maximum is one, you should rather use a single question instead of a multiple for usability reasons'
+	private static val setDateGranularityString = "You must specify the date's granularity"
 
 
 	/**
@@ -163,6 +165,21 @@ class DslValidator extends AbstractDslValidator {
 				noNegativeValueString,
 				multiple,
 				SurveyPackage.Literals.MULTIPLE__MAX,
+				INVALID_VALUE
+			)
+		}
+	}
+	
+	/**
+	 * Check that the min is less than max value in a scale 
+	 */
+	@Check
+	def checkDateGranularity(Date date) {
+		if (!date.day && !date.month && !date.year) {
+			error(
+				setDateGranularityString,
+				date,
+				SurveyPackage.Literals.DATE__DAY,
 				INVALID_VALUE
 			)
 		}

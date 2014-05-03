@@ -77,8 +77,8 @@ Date returns Date:
 		( ('title="' title=EString '"')
 		& ('description="' description=EString? '"')?
 		& ('id="' name=ID? '"')?
-		& ('from="' from=EString? '"')?
-		& ('to="' to=EString? '"')?
+		& ('start="' start=EString? '"')?
+		& ('end="' end=EString? '"')?
 		& ('depends-on="' dependsOn=DEP_ID? '"')?
 		& (showLimits?=('show-limits' | 'show' | 'limits'))?
 		& (required?='required')?
@@ -135,7 +135,7 @@ Table returns Table:
 		& ('depends-on="' dependsOn=DEP_ID? '"')?
 		& (required?='required')?
 		& (other?='other')?
-		& (multiple?='multiple')?)
+		& ('single' | multiple?='multiple')?)
 	'>'
 		((options+=Option)+ & (questions+=TableQuestion)+)
 		((options+=Option) | (questions+=TableQuestion))* 

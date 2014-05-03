@@ -834,14 +834,14 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameIDTerminalRuleCall_2_2_1_0 = (RuleCall)cNameAssignment_2_2_1.eContents().get(0);
 		private final Keyword cQuotationMarkKeyword_2_2_2 = (Keyword)cGroup_2_2.eContents().get(2);
 		private final Group cGroup_2_3 = (Group)cUnorderedGroup_2.eContents().get(3);
-		private final Keyword cFromKeyword_2_3_0 = (Keyword)cGroup_2_3.eContents().get(0);
-		private final Assignment cFromAssignment_2_3_1 = (Assignment)cGroup_2_3.eContents().get(1);
-		private final RuleCall cFromEStringParserRuleCall_2_3_1_0 = (RuleCall)cFromAssignment_2_3_1.eContents().get(0);
+		private final Keyword cStartKeyword_2_3_0 = (Keyword)cGroup_2_3.eContents().get(0);
+		private final Assignment cStartAssignment_2_3_1 = (Assignment)cGroup_2_3.eContents().get(1);
+		private final RuleCall cStartEStringParserRuleCall_2_3_1_0 = (RuleCall)cStartAssignment_2_3_1.eContents().get(0);
 		private final Keyword cQuotationMarkKeyword_2_3_2 = (Keyword)cGroup_2_3.eContents().get(2);
 		private final Group cGroup_2_4 = (Group)cUnorderedGroup_2.eContents().get(4);
-		private final Keyword cToKeyword_2_4_0 = (Keyword)cGroup_2_4.eContents().get(0);
-		private final Assignment cToAssignment_2_4_1 = (Assignment)cGroup_2_4.eContents().get(1);
-		private final RuleCall cToEStringParserRuleCall_2_4_1_0 = (RuleCall)cToAssignment_2_4_1.eContents().get(0);
+		private final Keyword cEndKeyword_2_4_0 = (Keyword)cGroup_2_4.eContents().get(0);
+		private final Assignment cEndAssignment_2_4_1 = (Assignment)cGroup_2_4.eContents().get(1);
+		private final RuleCall cEndEStringParserRuleCall_2_4_1_0 = (RuleCall)cEndAssignment_2_4_1.eContents().get(0);
 		private final Keyword cQuotationMarkKeyword_2_4_2 = (Keyword)cGroup_2_4.eContents().get(2);
 		private final Group cGroup_2_5 = (Group)cUnorderedGroup_2.eContents().get(5);
 		private final Keyword cDependsOnKeyword_2_5_0 = (Keyword)cGroup_2_5.eContents().get(0);
@@ -865,13 +865,13 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Date:
 		//	{Date} "<date" ("title=\"" title=EString "\"" & ("description=\"" description=EString? "\"")? & ("id=\"" name=ID?
-		//	"\"")? & ("from=\"" from=EString? "\"")? & ("to=\"" to=EString? "\"")? & ("depends-on=\"" dependsOn=DEP_ID? "\"")? &
-		//	showLimits?=("show-limits" | "show" | "limits")? & required?="required"? & day?="day"? & month?="month"? &
+		//	"\"")? & ("start=\"" start=EString? "\"")? & ("end=\"" end=EString? "\"")? & ("depends-on=\"" dependsOn=DEP_ID? "\"")?
+		//	& showLimits?=("show-limits" | "show" | "limits")? & required?="required"? & day?="day"? & month?="month"? &
 		//	year?="year"?) "/>";
 		public ParserRule getRule() { return rule; }
 
 		//{Date} "<date" ("title=\"" title=EString "\"" & ("description=\"" description=EString? "\"")? & ("id=\"" name=ID? "\"")?
-		//& ("from=\"" from=EString? "\"")? & ("to=\"" to=EString? "\"")? & ("depends-on=\"" dependsOn=DEP_ID? "\"")? &
+		//& ("start=\"" start=EString? "\"")? & ("end=\"" end=EString? "\"")? & ("depends-on=\"" dependsOn=DEP_ID? "\"")? &
 		//showLimits?=("show-limits" | "show" | "limits")? & required?="required"? & day?="day"? & month?="month"? &
 		//year?="year"?) "/>"
 		public Group getGroup() { return cGroup; }
@@ -882,8 +882,8 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//"<date"
 		public Keyword getDateKeyword_1() { return cDateKeyword_1; }
 
-		//"title=\"" title=EString "\"" & ("description=\"" description=EString? "\"")? & ("id=\"" name=ID? "\"")? & ("from=\""
-		//from=EString? "\"")? & ("to=\"" to=EString? "\"")? & ("depends-on=\"" dependsOn=DEP_ID? "\"")? &
+		//"title=\"" title=EString "\"" & ("description=\"" description=EString? "\"")? & ("id=\"" name=ID? "\"")? & ("start=\""
+		//start=EString? "\"")? & ("end=\"" end=EString? "\"")? & ("depends-on=\"" dependsOn=DEP_ID? "\"")? &
 		//showLimits?=("show-limits" | "show" | "limits")? & required?="required"? & day?="day"? & month?="month"? &
 		//year?="year"?
 		public UnorderedGroup getUnorderedGroup_2() { return cUnorderedGroup_2; }
@@ -933,32 +933,32 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//"\""
 		public Keyword getQuotationMarkKeyword_2_2_2() { return cQuotationMarkKeyword_2_2_2; }
 
-		//("from=\"" from=EString? "\"")?
+		//("start=\"" start=EString? "\"")?
 		public Group getGroup_2_3() { return cGroup_2_3; }
 
-		//"from=\""
-		public Keyword getFromKeyword_2_3_0() { return cFromKeyword_2_3_0; }
+		//"start=\""
+		public Keyword getStartKeyword_2_3_0() { return cStartKeyword_2_3_0; }
 
-		//from=EString?
-		public Assignment getFromAssignment_2_3_1() { return cFromAssignment_2_3_1; }
+		//start=EString?
+		public Assignment getStartAssignment_2_3_1() { return cStartAssignment_2_3_1; }
 
 		//EString
-		public RuleCall getFromEStringParserRuleCall_2_3_1_0() { return cFromEStringParserRuleCall_2_3_1_0; }
+		public RuleCall getStartEStringParserRuleCall_2_3_1_0() { return cStartEStringParserRuleCall_2_3_1_0; }
 
 		//"\""
 		public Keyword getQuotationMarkKeyword_2_3_2() { return cQuotationMarkKeyword_2_3_2; }
 
-		//("to=\"" to=EString? "\"")?
+		//("end=\"" end=EString? "\"")?
 		public Group getGroup_2_4() { return cGroup_2_4; }
 
-		//"to=\""
-		public Keyword getToKeyword_2_4_0() { return cToKeyword_2_4_0; }
+		//"end=\""
+		public Keyword getEndKeyword_2_4_0() { return cEndKeyword_2_4_0; }
 
-		//to=EString?
-		public Assignment getToAssignment_2_4_1() { return cToAssignment_2_4_1; }
+		//end=EString?
+		public Assignment getEndAssignment_2_4_1() { return cEndAssignment_2_4_1; }
 
 		//EString
-		public RuleCall getToEStringParserRuleCall_2_4_1_0() { return cToEStringParserRuleCall_2_4_1_0; }
+		public RuleCall getEndEStringParserRuleCall_2_4_1_0() { return cEndEStringParserRuleCall_2_4_1_0; }
 
 		//"\""
 		public Keyword getQuotationMarkKeyword_2_4_2() { return cQuotationMarkKeyword_2_4_2; }
@@ -1566,8 +1566,10 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRequiredRequiredKeyword_1_4_0 = (Keyword)cRequiredAssignment_1_4.eContents().get(0);
 		private final Assignment cOtherAssignment_1_5 = (Assignment)cUnorderedGroup_1.eContents().get(5);
 		private final Keyword cOtherOtherKeyword_1_5_0 = (Keyword)cOtherAssignment_1_5.eContents().get(0);
-		private final Assignment cMultipleAssignment_1_6 = (Assignment)cUnorderedGroup_1.eContents().get(6);
-		private final Keyword cMultipleMultipleKeyword_1_6_0 = (Keyword)cMultipleAssignment_1_6.eContents().get(0);
+		private final Alternatives cAlternatives_1_6 = (Alternatives)cUnorderedGroup_1.eContents().get(6);
+		private final Keyword cSingleKeyword_1_6_0 = (Keyword)cAlternatives_1_6.eContents().get(0);
+		private final Assignment cMultipleAssignment_1_6_1 = (Assignment)cAlternatives_1_6.eContents().get(1);
+		private final Keyword cMultipleMultipleKeyword_1_6_1_0 = (Keyword)cMultipleAssignment_1_6_1.eContents().get(0);
 		private final Keyword cGreaterThanSignKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final UnorderedGroup cUnorderedGroup_3 = (UnorderedGroup)cGroup.eContents().get(3);
 		private final Assignment cOptionsAssignment_3_0 = (Assignment)cUnorderedGroup_3.eContents().get(0);
@@ -1583,20 +1585,23 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Table:
 		//	"<table" (("title=\"" title=EString? "\"")? & ("description=\"" description=EString? "\"")? & ("id=\"" name=ID? "\"")?
-		//	& ("depends-on=\"" dependsOn=DEP_ID? "\"")? & required?="required"? & other?="other"? & multiple?="multiple"?) ">"
-		//	(options+=Option+ & questions+=TableQuestion+) (options+=Option | questions+=TableQuestion)* "</table>";
+		//	& ("depends-on=\"" dependsOn=DEP_ID? "\"")? & required?="required"? & other?="other"? & ("single" |
+		//	multiple?="multiple")?) ">" (options+=Option+ & questions+=TableQuestion+) (options+=Option |
+		//	questions+=TableQuestion)* "</table>";
 		public ParserRule getRule() { return rule; }
 
 		//"<table" (("title=\"" title=EString? "\"")? & ("description=\"" description=EString? "\"")? & ("id=\"" name=ID? "\"")? &
-		//("depends-on=\"" dependsOn=DEP_ID? "\"")? & required?="required"? & other?="other"? & multiple?="multiple"?) ">"
-		//(options+=Option+ & questions+=TableQuestion+) (options+=Option | questions+=TableQuestion)* "</table>"
+		//("depends-on=\"" dependsOn=DEP_ID? "\"")? & required?="required"? & other?="other"? & ("single" |
+		//multiple?="multiple")?) ">" (options+=Option+ & questions+=TableQuestion+) (options+=Option |
+		//questions+=TableQuestion)* "</table>"
 		public Group getGroup() { return cGroup; }
 
 		//"<table"
 		public Keyword getTableKeyword_0() { return cTableKeyword_0; }
 
 		//("title=\"" title=EString? "\"")? & ("description=\"" description=EString? "\"")? & ("id=\"" name=ID? "\"")? &
-		//("depends-on=\"" dependsOn=DEP_ID? "\"")? & required?="required"? & other?="other"? & multiple?="multiple"?
+		//("depends-on=\"" dependsOn=DEP_ID? "\"")? & required?="required"? & other?="other"? & ("single" |
+		//multiple?="multiple")?
 		public UnorderedGroup getUnorderedGroup_1() { return cUnorderedGroup_1; }
 
 		//("title=\"" title=EString? "\"")?
@@ -1671,11 +1676,17 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//"other"
 		public Keyword getOtherOtherKeyword_1_5_0() { return cOtherOtherKeyword_1_5_0; }
 
-		//multiple?="multiple"?
-		public Assignment getMultipleAssignment_1_6() { return cMultipleAssignment_1_6; }
+		//("single" | multiple?="multiple")?
+		public Alternatives getAlternatives_1_6() { return cAlternatives_1_6; }
+
+		//"single"
+		public Keyword getSingleKeyword_1_6_0() { return cSingleKeyword_1_6_0; }
+
+		//multiple?="multiple"
+		public Assignment getMultipleAssignment_1_6_1() { return cMultipleAssignment_1_6_1; }
 
 		//"multiple"
-		public Keyword getMultipleMultipleKeyword_1_6_0() { return cMultipleMultipleKeyword_1_6_0; }
+		public Keyword getMultipleMultipleKeyword_1_6_1_0() { return cMultipleMultipleKeyword_1_6_1_0; }
 
 		//">"
 		public Keyword getGreaterThanSignKeyword_2() { return cGreaterThanSignKeyword_2; }
@@ -1993,8 +2004,8 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 
 	//Date:
 	//	{Date} "<date" ("title=\"" title=EString "\"" & ("description=\"" description=EString? "\"")? & ("id=\"" name=ID?
-	//	"\"")? & ("from=\"" from=EString? "\"")? & ("to=\"" to=EString? "\"")? & ("depends-on=\"" dependsOn=DEP_ID? "\"")? &
-	//	showLimits?=("show-limits" | "show" | "limits")? & required?="required"? & day?="day"? & month?="month"? &
+	//	"\"")? & ("start=\"" start=EString? "\"")? & ("end=\"" end=EString? "\"")? & ("depends-on=\"" dependsOn=DEP_ID? "\"")?
+	//	& showLimits?=("show-limits" | "show" | "limits")? & required?="required"? & day?="day"? & month?="month"? &
 	//	year?="year"?) "/>";
 	public DateElements getDateAccess() {
 		return (pDate != null) ? pDate : (pDate = new DateElements());
@@ -2042,8 +2053,9 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 
 	//Table:
 	//	"<table" (("title=\"" title=EString? "\"")? & ("description=\"" description=EString? "\"")? & ("id=\"" name=ID? "\"")?
-	//	& ("depends-on=\"" dependsOn=DEP_ID? "\"")? & required?="required"? & other?="other"? & multiple?="multiple"?) ">"
-	//	(options+=Option+ & questions+=TableQuestion+) (options+=Option | questions+=TableQuestion)* "</table>";
+	//	& ("depends-on=\"" dependsOn=DEP_ID? "\"")? & required?="required"? & other?="other"? & ("single" |
+	//	multiple?="multiple")?) ">" (options+=Option+ & questions+=TableQuestion+) (options+=Option |
+	//	questions+=TableQuestion)* "</table>";
 	public TableElements getTableAccess() {
 		return (pTable != null) ? pTable : (pTable = new TableElements());
 	}

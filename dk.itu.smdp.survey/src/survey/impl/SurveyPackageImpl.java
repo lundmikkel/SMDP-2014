@@ -452,7 +452,7 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDate_From() {
+	public EAttribute getDate_Start() {
 		return (EAttribute)dateEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -461,7 +461,7 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDate_To() {
+	public EAttribute getDate_End() {
 		return (EAttribute)dateEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -785,8 +785,8 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 		createEAttribute(dateEClass, DATE__DAY);
 		createEAttribute(dateEClass, DATE__MONTH);
 		createEAttribute(dateEClass, DATE__YEAR);
-		createEAttribute(dateEClass, DATE__FROM);
-		createEAttribute(dateEClass, DATE__TO);
+		createEAttribute(dateEClass, DATE__START);
+		createEAttribute(dateEClass, DATE__END);
 		createEAttribute(dateEClass, DATE__SHOW_LIMITS);
 
 		numberEClass = createEClass(NUMBER);
@@ -911,8 +911,8 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 		initEAttribute(getDate_Day(), ecorePackage.getEBoolean(), "day", null, 0, 1, Date.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDate_Month(), ecorePackage.getEBoolean(), "month", null, 0, 1, Date.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDate_Year(), ecorePackage.getEBoolean(), "year", null, 0, 1, Date.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDate_From(), ecorePackage.getEString(), "from", null, 0, 1, Date.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDate_To(), ecorePackage.getEString(), "to", null, 0, 1, Date.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDate_Start(), ecorePackage.getEString(), "start", null, 0, 1, Date.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDate_End(), ecorePackage.getEString(), "end", null, 0, 1, Date.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDate_ShowLimits(), ecorePackage.getEBoolean(), "showLimits", null, 0, 1, Date.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(numberEClass, survey.Number.class, "Number", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

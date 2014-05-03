@@ -21,8 +21,8 @@ import survey.SurveyPackage;
  *   <li>{@link survey.impl.DateImpl#isDay <em>Day</em>}</li>
  *   <li>{@link survey.impl.DateImpl#isMonth <em>Month</em>}</li>
  *   <li>{@link survey.impl.DateImpl#isYear <em>Year</em>}</li>
- *   <li>{@link survey.impl.DateImpl#getFrom <em>From</em>}</li>
- *   <li>{@link survey.impl.DateImpl#getTo <em>To</em>}</li>
+ *   <li>{@link survey.impl.DateImpl#getStart <em>Start</em>}</li>
+ *   <li>{@link survey.impl.DateImpl#getEnd <em>End</em>}</li>
  *   <li>{@link survey.impl.DateImpl#isShowLimits <em>Show Limits</em>}</li>
  * </ul>
  * </p>
@@ -91,44 +91,44 @@ public class DateImpl extends QuestionImpl implements Date {
 	protected boolean year = YEAR_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getFrom() <em>From</em>}' attribute.
+	 * The default value of the '{@link #getStart() <em>Start</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFrom()
+	 * @see #getStart()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String FROM_EDEFAULT = null;
+	protected static final String START_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getFrom() <em>From</em>}' attribute.
+	 * The cached value of the '{@link #getStart() <em>Start</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFrom()
+	 * @see #getStart()
 	 * @generated
 	 * @ordered
 	 */
-	protected String from = FROM_EDEFAULT;
+	protected String start = START_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getTo() <em>To</em>}' attribute.
+	 * The default value of the '{@link #getEnd() <em>End</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTo()
+	 * @see #getEnd()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String TO_EDEFAULT = null;
+	protected static final String END_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getTo() <em>To</em>}' attribute.
+	 * The cached value of the '{@link #getEnd() <em>End</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTo()
+	 * @see #getEnd()
 	 * @generated
 	 * @ordered
 	 */
-	protected String to = TO_EDEFAULT;
+	protected String end = END_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #isShowLimits() <em>Show Limits</em>}' attribute.
@@ -237,8 +237,8 @@ public class DateImpl extends QuestionImpl implements Date {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getFrom() {
-		return from;
+	public String getStart() {
+		return start;
 	}
 
 	/**
@@ -246,11 +246,11 @@ public class DateImpl extends QuestionImpl implements Date {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setFrom(String newFrom) {
-		String oldFrom = from;
-		from = newFrom;
+	public void setStart(String newStart) {
+		String oldStart = start;
+		start = newStart;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SurveyPackage.DATE__FROM, oldFrom, from));
+			eNotify(new ENotificationImpl(this, Notification.SET, SurveyPackage.DATE__START, oldStart, start));
 	}
 
 	/**
@@ -258,8 +258,8 @@ public class DateImpl extends QuestionImpl implements Date {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getTo() {
-		return to;
+	public String getEnd() {
+		return end;
 	}
 
 	/**
@@ -267,11 +267,11 @@ public class DateImpl extends QuestionImpl implements Date {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTo(String newTo) {
-		String oldTo = to;
-		to = newTo;
+	public void setEnd(String newEnd) {
+		String oldEnd = end;
+		end = newEnd;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SurveyPackage.DATE__TO, oldTo, to));
+			eNotify(new ENotificationImpl(this, Notification.SET, SurveyPackage.DATE__END, oldEnd, end));
 	}
 
 	/**
@@ -309,10 +309,10 @@ public class DateImpl extends QuestionImpl implements Date {
 				return isMonth();
 			case SurveyPackage.DATE__YEAR:
 				return isYear();
-			case SurveyPackage.DATE__FROM:
-				return getFrom();
-			case SurveyPackage.DATE__TO:
-				return getTo();
+			case SurveyPackage.DATE__START:
+				return getStart();
+			case SurveyPackage.DATE__END:
+				return getEnd();
 			case SurveyPackage.DATE__SHOW_LIMITS:
 				return isShowLimits();
 		}
@@ -336,11 +336,11 @@ public class DateImpl extends QuestionImpl implements Date {
 			case SurveyPackage.DATE__YEAR:
 				setYear((Boolean)newValue);
 				return;
-			case SurveyPackage.DATE__FROM:
-				setFrom((String)newValue);
+			case SurveyPackage.DATE__START:
+				setStart((String)newValue);
 				return;
-			case SurveyPackage.DATE__TO:
-				setTo((String)newValue);
+			case SurveyPackage.DATE__END:
+				setEnd((String)newValue);
 				return;
 			case SurveyPackage.DATE__SHOW_LIMITS:
 				setShowLimits((Boolean)newValue);
@@ -366,11 +366,11 @@ public class DateImpl extends QuestionImpl implements Date {
 			case SurveyPackage.DATE__YEAR:
 				setYear(YEAR_EDEFAULT);
 				return;
-			case SurveyPackage.DATE__FROM:
-				setFrom(FROM_EDEFAULT);
+			case SurveyPackage.DATE__START:
+				setStart(START_EDEFAULT);
 				return;
-			case SurveyPackage.DATE__TO:
-				setTo(TO_EDEFAULT);
+			case SurveyPackage.DATE__END:
+				setEnd(END_EDEFAULT);
 				return;
 			case SurveyPackage.DATE__SHOW_LIMITS:
 				setShowLimits(SHOW_LIMITS_EDEFAULT);
@@ -393,10 +393,10 @@ public class DateImpl extends QuestionImpl implements Date {
 				return month != MONTH_EDEFAULT;
 			case SurveyPackage.DATE__YEAR:
 				return year != YEAR_EDEFAULT;
-			case SurveyPackage.DATE__FROM:
-				return FROM_EDEFAULT == null ? from != null : !FROM_EDEFAULT.equals(from);
-			case SurveyPackage.DATE__TO:
-				return TO_EDEFAULT == null ? to != null : !TO_EDEFAULT.equals(to);
+			case SurveyPackage.DATE__START:
+				return START_EDEFAULT == null ? start != null : !START_EDEFAULT.equals(start);
+			case SurveyPackage.DATE__END:
+				return END_EDEFAULT == null ? end != null : !END_EDEFAULT.equals(end);
 			case SurveyPackage.DATE__SHOW_LIMITS:
 				return showLimits != SHOW_LIMITS_EDEFAULT;
 		}
@@ -419,10 +419,10 @@ public class DateImpl extends QuestionImpl implements Date {
 		result.append(month);
 		result.append(", year: ");
 		result.append(year);
-		result.append(", from: ");
-		result.append(from);
-		result.append(", to: ");
-		result.append(to);
+		result.append(", start: ");
+		result.append(start);
+		result.append(", end: ");
+		result.append(end);
 		result.append(", showLimits: ");
 		result.append(showLimits);
 		result.append(')');

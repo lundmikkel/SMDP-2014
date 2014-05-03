@@ -36,8 +36,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Date/day"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Date/month"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Date/year"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Date/from"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Date/to"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Date/start"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Date/end"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Date/showLimits"/>
     </genClasses>
     <genClasses ecoreClass="Survey.ecore#//Number">

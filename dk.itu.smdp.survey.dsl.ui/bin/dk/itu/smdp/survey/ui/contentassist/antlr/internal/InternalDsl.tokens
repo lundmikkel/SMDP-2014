@@ -57,17 +57,18 @@ T__39=39
 RULE_WS=10
 'day'=56
 'show-limits'=16
+'end="'=43
 '<survey'=19
 'year'=58
 'description="'=24
 '>'=20
+'start="'=42
 'min-label="'=39
 'show'=17
 '<a'=29
 '<single'=45
 '<table'=49
 '<scale'=36
-'to="'=43
 '</survey>'=21
 'required'=55
 'ref="'=52
@@ -95,7 +96,6 @@ RULE_WS=10
 'single'=13
 '</q>'=54
 '<text'=34
-'from="'=42
 '/>'=35
 '</multiple>'=48
 'max-label="'=40

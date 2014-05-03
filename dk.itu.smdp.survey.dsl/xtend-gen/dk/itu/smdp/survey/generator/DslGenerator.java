@@ -24,13 +24,14 @@ import survey.Date;
 import survey.Group;
 import survey.HasOptions;
 import survey.Item;
-import survey.Meta;
 import survey.Multiple;
 import survey.Option;
 import survey.Question;
 import survey.Scale;
 import survey.Single;
 import survey.Survey;
+import survey.Table;
+import survey.TableQuestion;
 import survey.Text;
 
 /**
@@ -88,6 +89,9 @@ public class DslGenerator implements IGenerator {
     _builder.append("<link href=\"http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css\" rel=\"stylesheet\">");
     _builder.newLine();
     _builder.append("        ");
+    _builder.append("<link href=\"http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker3.min.css\" rel=\"stylesheet\">");
+    _builder.newLine();
+    _builder.append("        ");
     _builder.append("<style media=\"screen\" type=\"text/css\">");
     _builder.newLine();
     _builder.append("            ");
@@ -104,6 +108,9 @@ public class DslGenerator implements IGenerator {
     _builder.newLine();
     _builder.append("            ");
     _builder.append("label .help-block { font-size: 85%; }");
+    _builder.newLine();
+    _builder.append("            ");
+    _builder.append(".table { min-width: 50%; width: auto; }");
     _builder.newLine();
     _builder.append("            ");
     _builder.append("table.scale td { padding: 8px; text-align: center; }");
@@ -199,6 +206,110 @@ public class DslGenerator implements IGenerator {
     _builder.append("        ");
     _builder.append("</div>");
     _builder.newLine();
+    _builder.newLine();
+    _builder.append("        ");
+    _builder.append("<!-- jQuery (necessary for Bootstrap\'s JavaScript plugins) -->");
+    _builder.newLine();
+    _builder.append("        ");
+    _builder.append("<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js\"></script>");
+    _builder.newLine();
+    _builder.append("        ");
+    _builder.append("<!-- Include all compiled plugins (below), or include individual files as needed -->");
+    _builder.newLine();
+    _builder.append("        ");
+    _builder.append("<script src=\"https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js\"></script>");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("<script src=\"http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js\"></script>");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.newLine();
+    _builder.append("        ");
+    _builder.append("<script type=\"text/javascript\">");
+    _builder.newLine();
+    _builder.append("            ");
+    _builder.append("$( document ).ready(function() {");
+    _builder.newLine();
+    _builder.append("            \t");
+    _builder.append("$(\'.input-group.date\').datepicker({");
+    _builder.newLine();
+    _builder.append("\t\t\t\t\t");
+    _builder.append("autoclose: true,");
+    _builder.newLine();
+    _builder.append("\t\t\t\t\t");
+    _builder.append("todayHighlight: true,");
+    _builder.newLine();
+    _builder.append("\t\t\t\t\t");
+    _builder.append("todayBtn: true");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.append("});");
+    _builder.newLine();
+    _builder.append("            \t");
+    _builder.newLine();
+    _builder.append("                ");
+    _builder.append("$(\"[data-depends-on]\").each(function() {");
+    _builder.newLine();
+    _builder.append("                    ");
+    _builder.append("var _this = $(this);");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("                    ");
+    _builder.append("_this.hide();");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("                    ");
+    _builder.append("var dependsOnId = $(this).attr(\"data-depends-on\");");
+    _builder.newLine();
+    _builder.append("                    ");
+    _builder.append("var dependsOn = $(\"#\" + dependsOnId);");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("                    ");
+    _builder.append("switch (dependsOn.attr(\"type\")) {");
+    _builder.newLine();
+    _builder.append("                        ");
+    _builder.append("case \"radio\":");
+    _builder.newLine();
+    _builder.append("                            ");
+    _builder.append("{");
+    _builder.newLine();
+    _builder.append("                                ");
+    _builder.append("$(\"input[name=\" + dependsOn.attr(\"name\") + \"]:radio\").change(function () {");
+    _builder.newLine();
+    _builder.append("                                    ");
+    _builder.append("if ($(this).attr(\"id\") == dependsOnId)");
+    _builder.newLine();
+    _builder.append("                                        ");
+    _builder.append("_this.show();");
+    _builder.newLine();
+    _builder.append("                                    ");
+    _builder.append("else");
+    _builder.newLine();
+    _builder.append("                                        ");
+    _builder.append("_this.hide();");
+    _builder.newLine();
+    _builder.append("                                ");
+    _builder.append("});");
+    _builder.newLine();
+    _builder.append("                            ");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("                            ");
+    _builder.append("break;");
+    _builder.newLine();
+    _builder.append("                    ");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("                ");
+    _builder.append("});");
+    _builder.newLine();
+    _builder.append("            ");
+    _builder.append("});");
+    _builder.newLine();
+    _builder.append("        ");
+    _builder.append("</script>");
+    _builder.newLine();
     _builder.append("\t");
     _builder.append("</body>");
     _builder.newLine();
@@ -272,6 +383,42 @@ public class DslGenerator implements IGenerator {
     return _builder.toString();
   }
   
+  public CharSequence genHeader(final Question question, final boolean required) {
+    CharSequence _genHeader = this.genHeader(question, required, "");
+    return _genHeader;
+  }
+  
+  public CharSequence genHeader(final Question question, final boolean required, final String extraAttributes) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("<label class=\"control-label\" ");
+    _builder.append(extraAttributes, "");
+    _builder.append(">");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t        ");
+    String _title = question.getTitle();
+    _builder.append(_title, "	        ");
+    _builder.append(" ");
+    CharSequence _genRequiredLabel = this.genRequiredLabel(question, required);
+    _builder.append(_genRequiredLabel, "	        ");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t        ");
+    {
+      String _description = question.getDescription();
+      boolean _isNullOrEmpty = StringExtensions.isNullOrEmpty(_description);
+      boolean _not = (!_isNullOrEmpty);
+      if (_not) {
+        _builder.append("<p class=\"help-block\">");
+        String _description_1 = question.getDescription();
+        _builder.append(_description_1, "	        ");
+        _builder.append("</p>");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    _builder.append("</label>");
+    _builder.newLine();
+    return _builder;
+  }
+  
   protected String _genHtml(final Text question, final boolean required) {
     String _xblockexpression = null;
     {
@@ -279,25 +426,14 @@ public class DslGenerator implements IGenerator {
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("<div class=\"form-group\">");
       _builder.newLine();
-      _builder.append("    ");
-      _builder.append("<label for=\"");
-      _builder.append(id, "    ");
-      _builder.append("\" class=\"control-label\">");
+      _builder.append("\t");
+      StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.append("for=\"");
+      _builder_1.append(id, "");
+      _builder_1.append("\"");
+      CharSequence _genHeader = this.genHeader(question, required, _builder_1.toString());
+      _builder.append(_genHeader, "	");
       _builder.newLineIfNotEmpty();
-      _builder.append("        ");
-      String _title = question.getTitle();
-      _builder.append(_title, "        ");
-      _builder.append(" ");
-      CharSequence _genRequiredLabel = this.genRequiredLabel(question, required);
-      _builder.append(_genRequiredLabel, "        ");
-      _builder.newLineIfNotEmpty();
-      _builder.append("        ");
-      CharSequence _genQuestionDesc = this.genQuestionDesc(question);
-      _builder.append(_genQuestionDesc, "        ");
-      _builder.newLineIfNotEmpty();
-      _builder.append("    ");
-      _builder.append("</label>");
-      _builder.newLine();
       _builder.append("    ");
       _builder.append("<div class=\"row\">");
       _builder.newLine();
@@ -350,23 +486,10 @@ public class DslGenerator implements IGenerator {
       _builder.append("    ");
       _builder.append("<div class=\"form-group\">");
       _builder.newLine();
-      _builder.append("        ");
-      _builder.append("<label class=\"control-label\">");
-      _builder.newLine();
-      _builder.append("\t        ");
-      String _title = question.getTitle();
-      _builder.append(_title, "	        ");
-      _builder.append(" ");
-      CharSequence _genRequiredLabel = this.genRequiredLabel(question, required);
-      _builder.append(_genRequiredLabel, "	        ");
+      _builder.append("    \t");
+      CharSequence _genHeader = this.genHeader(question, required);
+      _builder.append(_genHeader, "    	");
       _builder.newLineIfNotEmpty();
-      _builder.append("\t        ");
-      CharSequence _genQuestionDesc = this.genQuestionDesc(question);
-      _builder.append(_genQuestionDesc, "	        ");
-      _builder.newLineIfNotEmpty();
-      _builder.append("        ");
-      _builder.append("</label>");
-      _builder.newLine();
       _builder.append("        ");
       _builder.append("<table class=\"scale\">");
       _builder.newLine();
@@ -508,8 +631,150 @@ public class DslGenerator implements IGenerator {
     return _xblockexpression;
   }
   
+  public String genDateFormat(final Date question) {
+    ArrayList<String> _arrayList = new ArrayList<String>();
+    ArrayList<String> list = _arrayList;
+    boolean _isDay = question.isDay();
+    if (_isDay) {
+      list.add("dd");
+    }
+    boolean _isMonth = question.isMonth();
+    if (_isMonth) {
+      list.add("mm");
+    }
+    boolean _isYear = question.isYear();
+    if (_isYear) {
+      list.add("yyyy");
+    }
+    return IterableExtensions.join(list, "/");
+  }
+  
+  public Integer genDateMinViewMode(final Date question) {
+    Integer _xblockexpression = null;
+    {
+      boolean _isDay = question.isDay();
+      if (_isDay) {
+        return 0;
+      }
+      boolean _isMonth = question.isMonth();
+      if (_isMonth) {
+        return 1;
+      }
+      Integer _xifexpression = null;
+      boolean _isYear = question.isYear();
+      if (_isYear) {
+        return 2;
+      }
+      _xblockexpression = (_xifexpression);
+    }
+    return _xblockexpression;
+  }
+  
   protected String _genHtml(final Date question, final boolean required) {
-    return null;
+    String _xblockexpression = null;
+    {
+      final String id = this.getUniqueId(question);
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("<div class=\"form-group\">");
+      _builder.newLine();
+      _builder.append("\t");
+      StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.append("for=\"");
+      _builder_1.append(id, "");
+      _builder_1.append("\"");
+      CharSequence _genHeader = this.genHeader(question, required, _builder_1.toString());
+      _builder.append(_genHeader, "	");
+      _builder.newLineIfNotEmpty();
+      _builder.append("    ");
+      _builder.append("<div class=\"row\">");
+      _builder.newLine();
+      _builder.append("        ");
+      _builder.append("<div class=\"col-xs-4\">");
+      _builder.newLine();
+      _builder.append("\t\t    ");
+      _builder.append("<div class=\"input-group date\"");
+      _builder.newLine();
+      _builder.append("\t\t    \t");
+      _builder.append("data-date-format=\"");
+      String _genDateFormat = this.genDateFormat(question);
+      _builder.append(_genDateFormat, "		    	");
+      _builder.append("\"");
+      _builder.newLineIfNotEmpty();
+      _builder.append("\t\t    \t");
+      _builder.append("data-date-min-view-mode=\"");
+      Integer _genDateMinViewMode = this.genDateMinViewMode(question);
+      _builder.append(_genDateMinViewMode, "		    	");
+      _builder.append("\"");
+      _builder.newLineIfNotEmpty();
+      _builder.append("\t\t    \t");
+      {
+        String _start = question.getStart();
+        boolean _isNullOrEmpty = StringExtensions.isNullOrEmpty(_start);
+        boolean _not = (!_isNullOrEmpty);
+        if (_not) {
+          _builder.append("data-date-start-date=\"");
+          String _start_1 = question.getStart();
+          _builder.append(_start_1, "		    	");
+          _builder.append("\"");
+        }
+      }
+      _builder.newLineIfNotEmpty();
+      _builder.append("\t\t    \t");
+      {
+        String _end = question.getEnd();
+        boolean _isNullOrEmpty_1 = StringExtensions.isNullOrEmpty(_end);
+        boolean _not_1 = (!_isNullOrEmpty_1);
+        if (_not_1) {
+          _builder.append("data-date-end-date=\"");
+          String _end_1 = question.getEnd();
+          _builder.append(_end_1, "		    	");
+          _builder.append("\"");
+        }
+      }
+      _builder.newLineIfNotEmpty();
+      _builder.append("\t\t    \t");
+      _builder.append(">");
+      _builder.newLine();
+      _builder.append("\t\t\t\t");
+      _builder.append("<input id=\"");
+      _builder.append(id, "				");
+      _builder.append("\" type=\"text\" class=\"form-control\" ");
+      CharSequence _genRequiredAttr = this.genRequiredAttr(question, required);
+      _builder.append(_genRequiredAttr, "				");
+      _builder.append(">");
+      _builder.newLineIfNotEmpty();
+      _builder.append("\t\t\t\t");
+      _builder.append("<span class=\"input-group-addon\">");
+      _builder.newLine();
+      _builder.append("\t\t\t\t\t");
+      _builder.append("<i class=\"glyphicon glyphicon-calendar\"></i>");
+      _builder.newLine();
+      _builder.append("\t\t\t\t");
+      _builder.append("</span>");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("</div>");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("</div>");
+      _builder.newLine();
+      {
+        boolean _isShowLimits = question.isShowLimits();
+        if (_isShowLimits) {
+          _builder.append("\t\t");
+          CharSequence _genLimitsDesc = this.genLimitsDesc(question);
+          _builder.append(_genLimitsDesc, "		");
+          _builder.newLineIfNotEmpty();
+        }
+      }
+      _builder.append("    ");
+      _builder.append("</div>");
+      _builder.newLine();
+      _builder.append("</div>");
+      _builder.newLine();
+      _xblockexpression = (_builder.toString());
+    }
+    return _xblockexpression;
   }
   
   protected String _genHtml(final survey.Number question, final boolean required) {
@@ -519,25 +784,14 @@ public class DslGenerator implements IGenerator {
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("<div class=\"form-group\">");
       _builder.newLine();
-      _builder.append("    ");
-      _builder.append("<label for=\"");
-      _builder.append(id, "    ");
-      _builder.append("\" class=\"control-label\">");
+      _builder.append("\t    \t");
+      StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.append("for=\"");
+      _builder_1.append(id, "");
+      _builder_1.append("\"");
+      CharSequence _genHeader = this.genHeader(question, required, _builder_1.toString());
+      _builder.append(_genHeader, "	    	");
       _builder.newLineIfNotEmpty();
-      _builder.append("        ");
-      String _title = question.getTitle();
-      _builder.append(_title, "        ");
-      _builder.append(" ");
-      CharSequence _genRequiredLabel = this.genRequiredLabel(question, required);
-      _builder.append(_genRequiredLabel, "        ");
-      _builder.newLineIfNotEmpty();
-      _builder.append("        ");
-      CharSequence _genQuestionDesc = this.genQuestionDesc(question);
-      _builder.append(_genQuestionDesc, "        ");
-      _builder.newLineIfNotEmpty();
-      _builder.append("    ");
-      _builder.append("</label>");
-      _builder.newLine();
       _builder.append("    ");
       _builder.append("<div class=\"row\">");
       _builder.newLine();
@@ -609,23 +863,10 @@ public class DslGenerator implements IGenerator {
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("<div class=\"form-group\">");
       _builder.newLine();
-      _builder.append("\t");
-      _builder.append("<label class=\"control-label\">");
-      _builder.newLine();
-      _builder.append("\t\t");
-      String _title = question.getTitle();
-      _builder.append(_title, "		");
-      _builder.append(" ");
-      CharSequence _genRequiredLabel = this.genRequiredLabel(question, required);
-      _builder.append(_genRequiredLabel, "		");
+      _builder.append("\t    \t");
+      CharSequence _genHeader = this.genHeader(question, required);
+      _builder.append(_genHeader, "	    	");
       _builder.newLineIfNotEmpty();
-      _builder.append("\t\t");
-      CharSequence _genQuestionDesc = this.genQuestionDesc(question);
-      _builder.append(_genQuestionDesc, "		");
-      _builder.newLineIfNotEmpty();
-      _builder.append("\t");
-      _builder.append("</label>");
-      _builder.newLine();
       _builder.append("\t");
       _builder.append("<div>");
       _builder.newLine();
@@ -674,6 +915,193 @@ public class DslGenerator implements IGenerator {
     return _xblockexpression;
   }
   
+  protected String _genHtml(final Multiple question, final boolean required) {
+    String _xblockexpression = null;
+    {
+      final String id = this.getUniqueId(question);
+      int i = 0;
+      final Integer min = this.getMin(question, required);
+      final Integer max = this.getMax(question, required);
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("<div class=\"form-group\"");
+      _builder.newLine();
+      _builder.append("\t");
+      {
+        boolean _greaterThan = ((min).intValue() > 0);
+        if (_greaterThan) {
+          _builder.append(" data-min-selections=\"");
+          _builder.append(min, "	");
+          _builder.append("\" ");
+        }
+      }
+      _builder.newLineIfNotEmpty();
+      _builder.append("\t");
+      {
+        boolean _notEquals = (!Objects.equal(max, null));
+        if (_notEquals) {
+          _builder.append(" data-max-selections=\"");
+          _builder.append(max, "	");
+          _builder.append("\" ");
+        }
+      }
+      _builder.append(">");
+      _builder.newLineIfNotEmpty();
+      _builder.append("\t    \t");
+      CharSequence _genHeader = this.genHeader(question, required);
+      _builder.append(_genHeader, "	    	");
+      _builder.newLineIfNotEmpty();
+      {
+        ArrayList<Answer> _answers = this.getAnswers(question);
+        boolean _hasElements = false;
+        for(final Answer a : _answers) {
+          if (!_hasElements) {
+            _hasElements = true;
+            _builder.append("<div class=\"checkbox\"><label>", "    ");
+          } else {
+            _builder.appendImmediate("</label></div><div class=\"checkbox\"><label>", "    ");
+          }
+          _builder.append("    ");
+          _builder.append("<input type=\"checkbox\" name=\"");
+          _builder.append(id, "    ");
+          _builder.append("\" id=\"");
+          _builder.append(id, "    ");
+          _builder.append("_");
+          int _plus = (i + 1);
+          int _i = i = _plus;
+          _builder.append(_i, "    ");
+          _builder.append("\" value=\"");
+          _builder.append(i, "    ");
+          _builder.append("\"> ");
+          String _label = a.getLabel();
+          _builder.append(_label, "    ");
+          _builder.newLineIfNotEmpty();
+        }
+        if (_hasElements) {
+          _builder.append("</label></div>", "    ");
+        }
+      }
+      _builder.append("</div>");
+      _builder.newLine();
+      _xblockexpression = (_builder.toString());
+    }
+    return _xblockexpression;
+  }
+  
+  protected String _genHtml(final Table question, final boolean required) {
+    String _xblockexpression = null;
+    {
+      final ArrayList<Answer> answers = this.getAnswers(question);
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("<div class=\"form-group\">");
+      _builder.newLine();
+      _builder.append("\t    \t");
+      CharSequence _genHeader = this.genHeader(question, required);
+      _builder.append(_genHeader, "	    	");
+      _builder.newLineIfNotEmpty();
+      _builder.append("    ");
+      _builder.append("<table class=\"table table-striped\">");
+      _builder.newLine();
+      _builder.append("    \t");
+      _builder.append("<thead>");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("<tr>");
+      _builder.newLine();
+      _builder.append("\t\t\t\t");
+      _builder.append("<th></th>");
+      _builder.newLine();
+      {
+        for(final Answer a : answers) {
+          _builder.append("\t\t\t\t");
+          _builder.append("<th>");
+          String _label = a.getLabel();
+          _builder.append(_label, "				");
+          _builder.append("</th>");
+          _builder.newLineIfNotEmpty();
+        }
+      }
+      _builder.append("\t\t\t");
+      _builder.append("</tr>");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("</thead>");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("<tbody>");
+      _builder.newLine();
+      {
+        EList<TableQuestion> _questions = question.getQuestions();
+        for(final TableQuestion q : _questions) {
+          _builder.append("\t\t\t");
+          _builder.append("<tr>");
+          _builder.newLine();
+          _builder.append("\t\t\t");
+          _builder.append("    ");
+          _builder.append("<td><label for=\"");
+          String qid = this.getUniqueId(question);
+          _builder.append("_");
+          int aid = 0;
+          _builder.append("\">");
+          String _title = q.getTitle();
+          _builder.append(_title, "			    ");
+          _builder.append("</label></td>");
+          _builder.newLineIfNotEmpty();
+          {
+            for(final Answer a_1 : answers) {
+              _builder.append("\t\t\t");
+              _builder.append("    ");
+              _builder.append("<td><input type=\"");
+              {
+                boolean _isMultiple = question.isMultiple();
+                if (_isMultiple) {
+                  _builder.append("checkbox");
+                } else {
+                  _builder.append("radio");
+                }
+              }
+              _builder.append("\" name=\"");
+              _builder.append(qid, "			    ");
+              _builder.append("\" id=\"");
+              _builder.append(qid, "			    ");
+              _builder.append("_");
+              int _plus = (aid + 1);
+              int _aid = aid = _plus;
+              _builder.append(_aid, "			    ");
+              _builder.append("\"/></td>");
+              _builder.newLineIfNotEmpty();
+            }
+          }
+          _builder.append("\t\t\t");
+          _builder.append("</tr>");
+          _builder.newLine();
+        }
+      }
+      _builder.append("\t\t");
+      _builder.append("</tbody>");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("</table>");
+      _builder.newLine();
+      _builder.append("</div>");
+      _builder.newLine();
+      _xblockexpression = (_builder.toString());
+    }
+    return _xblockexpression;
+  }
+  
+  protected String _genHtml(final Question question, final boolean required) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("MISSING: ");
+    String _title = question.getTitle();
+    _builder.append(_title, "");
+    _builder.append(" (");
+    Class<? extends Question> _class = question.getClass();
+    _builder.append(_class, "");
+    _builder.append(")");
+    _builder.newLineIfNotEmpty();
+    return _builder.toString();
+  }
+  
   public Integer getMin(final Multiple question, final boolean required) {
     Integer _xifexpression = null;
     Integer _min = question.getMin();
@@ -719,104 +1147,6 @@ public class DslGenerator implements IGenerator {
     return _xifexpression;
   }
   
-  protected String _genHtml(final Multiple question, final boolean required) {
-    String _xblockexpression = null;
-    {
-      final String id = this.getUniqueId(question);
-      int i = 0;
-      final Integer min = this.getMin(question, required);
-      final Integer max = this.getMax(question, required);
-      StringConcatenation _builder = new StringConcatenation();
-      _builder.append("<div class=\"form-group\"");
-      _builder.newLine();
-      _builder.append("\t");
-      {
-        boolean _greaterThan = ((min).intValue() > 0);
-        if (_greaterThan) {
-          _builder.append(" data-min-selections=\"");
-          _builder.append(min, "	");
-          _builder.append("\" ");
-        }
-      }
-      _builder.newLineIfNotEmpty();
-      _builder.append("\t");
-      {
-        boolean _notEquals = (!Objects.equal(max, null));
-        if (_notEquals) {
-          _builder.append(" data-max-selections=\"");
-          _builder.append(max, "	");
-          _builder.append("\" ");
-        }
-      }
-      _builder.append(">");
-      _builder.newLineIfNotEmpty();
-      _builder.append("    ");
-      _builder.append("<label class=\"control-label\">");
-      _builder.newLine();
-      _builder.append("    \t");
-      String _title = question.getTitle();
-      _builder.append(_title, "    	");
-      _builder.append(" ");
-      CharSequence _genRequiredLabel = this.genRequiredLabel(question, required);
-      _builder.append(_genRequiredLabel, "    	");
-      _builder.newLineIfNotEmpty();
-      _builder.append("    \t");
-      CharSequence _genQuestionDesc = this.genQuestionDesc(question);
-      _builder.append(_genQuestionDesc, "    	");
-      _builder.newLineIfNotEmpty();
-      _builder.append("    ");
-      _builder.append("</label>");
-      _builder.newLine();
-      {
-        ArrayList<Answer> _answers = this.getAnswers(question);
-        boolean _hasElements = false;
-        for(final Answer a : _answers) {
-          if (!_hasElements) {
-            _hasElements = true;
-            _builder.append("<div class=\"checkbox\"><label>", "    ");
-          } else {
-            _builder.appendImmediate("</label></div><div class=\"checkbox\"><label>", "    ");
-          }
-          _builder.append("    ");
-          _builder.append("<input type=\"checkbox\" name=\"");
-          _builder.append(id, "    ");
-          _builder.append("\" id=\"");
-          _builder.append(id, "    ");
-          _builder.append("_");
-          int _plus = (i + 1);
-          int _i = i = _plus;
-          _builder.append(_i, "    ");
-          _builder.append("\" value=\"");
-          _builder.append(i, "    ");
-          _builder.append("\"> ");
-          String _label = a.getLabel();
-          _builder.append(_label, "    ");
-          _builder.newLineIfNotEmpty();
-        }
-        if (_hasElements) {
-          _builder.append("</label></div>", "    ");
-        }
-      }
-      _builder.append("</div>");
-      _builder.newLine();
-      _xblockexpression = (_builder.toString());
-    }
-    return _xblockexpression;
-  }
-  
-  protected String _genHtml(final Question question, final boolean required) {
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append("MISSING: ");
-    String _title = question.getTitle();
-    _builder.append(_title, "");
-    _builder.append(" (");
-    Class<? extends Question> _class = question.getClass();
-    _builder.append(_class, "");
-    _builder.append(")");
-    _builder.newLineIfNotEmpty();
-    return _builder.toString();
-  }
-  
   public CharSequence genRequiredLabel(final Question question, final boolean requiredParent) {
     StringConcatenation _builder = new StringConcatenation();
     {
@@ -851,11 +1181,68 @@ public class DslGenerator implements IGenerator {
     return _builder;
   }
   
+  public CharSequence genLimitsDesc(final Date question) {
+    CharSequence _xblockexpression = null;
+    {
+      final String start = question.getStart();
+      final String end = question.getEnd();
+      String s = "";
+      boolean _and = false;
+      boolean _isNullOrEmpty = StringExtensions.isNullOrEmpty(start);
+      boolean _not = (!_isNullOrEmpty);
+      if (!_not) {
+        _and = false;
+      } else {
+        boolean _isNullOrEmpty_1 = StringExtensions.isNullOrEmpty(end);
+        boolean _not_1 = (!_isNullOrEmpty_1);
+        _and = (_not && _not_1);
+      }
+      if (_and) {
+        StringConcatenation _builder = new StringConcatenation();
+        _builder.append("The date must be between ");
+        _builder.append(start, "");
+        _builder.append(" and ");
+        _builder.append(end, "");
+        s = _builder.toString();
+      } else {
+        boolean _isNullOrEmpty_2 = StringExtensions.isNullOrEmpty(start);
+        boolean _not_2 = (!_isNullOrEmpty_2);
+        if (_not_2) {
+          StringConcatenation _builder_1 = new StringConcatenation();
+          _builder_1.append("The date must be before ");
+          _builder_1.append(end, "");
+          s = _builder_1.toString();
+        } else {
+          boolean _isNullOrEmpty_3 = StringExtensions.isNullOrEmpty(end);
+          boolean _not_3 = (!_isNullOrEmpty_3);
+          if (_not_3) {
+            StringConcatenation _builder_2 = new StringConcatenation();
+            _builder_2.append("The date must be after ");
+            _builder_2.append(start, "");
+            s = _builder_2.toString();
+          }
+        }
+      }
+      CharSequence _xifexpression = null;
+      boolean _isNullOrEmpty_4 = StringExtensions.isNullOrEmpty(s);
+      boolean _not_4 = (!_isNullOrEmpty_4);
+      if (_not_4) {
+        StringConcatenation _builder_3 = new StringConcatenation();
+        _builder_3.append("<p class=\"help-block\">");
+        _builder_3.append(s, "");
+        _builder_3.append("</p>");
+        _xifexpression = _builder_3;
+      }
+      _xblockexpression = (_xifexpression);
+    }
+    return _xblockexpression;
+  }
+  
   public CharSequence genLimitsDesc(final survey.Number question) {
     CharSequence _xblockexpression = null;
     {
-      Integer min = question.getMin();
-      Integer max = question.getMax();
+      final Integer min = question.getMin();
+      final Integer max = question.getMax();
       String s = "";
       boolean _and = false;
       boolean _notEquals = (!Objects.equal(min, null));
@@ -936,22 +1323,6 @@ public class DslGenerator implements IGenerator {
     return _xblockexpression;
   }
   
-  public CharSequence genQuestionDesc(final Meta item) {
-    StringConcatenation _builder = new StringConcatenation();
-    {
-      String _description = item.getDescription();
-      boolean _isNullOrEmpty = StringExtensions.isNullOrEmpty(_description);
-      boolean _not = (!_isNullOrEmpty);
-      if (_not) {
-        _builder.append("<p class=\"help-block\">");
-        String _description_1 = item.getDescription();
-        _builder.append(_description_1, "");
-        _builder.append("</p>");
-      }
-    }
-    return _builder;
-  }
-  
   public ArrayList<Answer> getAnswers(final HasOptions hasOptions) {
     ArrayList<Answer> _arrayList = new ArrayList<Answer>();
     ArrayList<Answer> answers = _arrayList;
@@ -985,6 +1356,8 @@ public class DslGenerator implements IGenerator {
       return _genHtml((Scale)question, required);
     } else if (question instanceof Single) {
       return _genHtml((Single)question, required);
+    } else if (question instanceof Table) {
+      return _genHtml((Table)question, required);
     } else if (question instanceof Text) {
       return _genHtml((Text)question, required);
     } else if (question instanceof Group) {

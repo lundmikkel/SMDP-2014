@@ -152,11 +152,11 @@
         <layoutConstraint xmi:type="notation:Location" xmi:id="_KTWG8bUDEeOUudlMY6Mo_A"/>
       </children>
       <children xmi:type="notation:Node" xmi:id="_0tNPgLUDEeOUudlMY6Mo_A" type="2001">
-        <element xmi:type="ecore:EAttribute" href="Survey.ecore#//Date/from"/>
+        <element xmi:type="ecore:EAttribute" href="Survey.ecore#//Date/start"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_0tNPgbUDEeOUudlMY6Mo_A"/>
       </children>
       <children xmi:type="notation:Node" xmi:id="__xy-ULUDEeOUudlMY6Mo_A" type="2001">
-        <element xmi:type="ecore:EAttribute" href="Survey.ecore#//Date/to"/>
+        <element xmi:type="ecore:EAttribute" href="Survey.ecore#//Date/end"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="__xy-UbUDEeOUudlMY6Mo_A"/>
       </children>
       <children xmi:type="notation:Node" xmi:id="_43fJ0L_TEeOzQcVK6pBQyQ" type="2001">

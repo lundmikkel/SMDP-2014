@@ -19,6 +19,7 @@ import org.eclipse.xtext.xbase.lib.StringExtensions;
 import survey.Answer;
 import survey.AnswerTemplate;
 import survey.AnswerTemplateRef;
+import survey.Date;
 import survey.Group;
 import survey.HasOptions;
 import survey.Item;
@@ -55,6 +56,8 @@ public class DslValidator extends AbstractDslValidator {
   private final static String noNegativeValueString = "The value must be non-negative";
   
   private final static String betterUseSingleString = "If your maximum is one, you should rather use a single question instead of a multiple for usability reasons";
+  
+  private final static String setDateGranularityString = "You must specify the date\'s granularity";
   
   /**
    * Check that the min is less than max value in a scale
@@ -222,6 +225,37 @@ public class DslValidator extends AbstractDslValidator {
           Literals.MULTIPLE__MAX, 
           DslValidator.INVALID_VALUE);
       }
+    }
+  }
+  
+  /**
+   * Check that the min is less than max value in a scale
+   */
+  @Check
+  public void checkDateGranularity(final Date date) {
+    boolean _and = false;
+    boolean _and_1 = false;
+    boolean _isDay = date.isDay();
+    boolean _not = (!_isDay);
+    if (!_not) {
+      _and_1 = false;
+    } else {
+      boolean _isMonth = date.isMonth();
+      boolean _not_1 = (!_isMonth);
+      _and_1 = (_not && _not_1);
+    }
+    if (!_and_1) {
+      _and = false;
+    } else {
+      boolean _isYear = date.isYear();
+      boolean _not_2 = (!_isYear);
+      _and = (_and_1 && _not_2);
+    }
+    if (_and) {
+      this.error(
+        DslValidator.setDateGranularityString, date, 
+        Literals.DATE__DAY, 
+        DslValidator.INVALID_VALUE);
     }
   }
   
