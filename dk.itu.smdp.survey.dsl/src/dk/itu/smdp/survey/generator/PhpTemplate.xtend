@@ -24,12 +24,37 @@ class PhpTemplate {
 		
 		    <body>
 		    	<div class="container">
-		            <div class="row">
+		    		<div class="row">
+						
+						<?php
+						if ($_POST):
+						?>
+			                <div>
+		                		«IF !title.nullOrEmpty»<h1>«title»</h1>«ENDIF»
+		                		<p class="lead">Thanks for submitting your answer</p>
+							</div>
+			    		<?php
+						
+						echo '<dl class="dl-horizontal">';
+						foreach ($_POST as $key => $value) {
+							// Question
+							if (strpos($key,'_question') !== false) {
+								echo '<dt>', $value, '</dt>';
+							}
+							// Answer
+							else {
+								echo '<dd>', $value, '</dd>';
+							}
+						}
+						echo '</dl>';
+						
+						else:
+						?>
 		                <div>
 		                	«IF !title.nullOrEmpty»<h1>«title»</h1>«ENDIF»
 		                	«IF !description.nullOrEmpty»<p class="lead">«description»</p>«ENDIF»
 						</div>
-		                <form role="form">
+		                <form role="form" method="post">
 							«formContent»
 		                    <hr/>
 		                    <div class="form-group">
@@ -37,6 +62,7 @@ class PhpTemplate {
 		                        <button type="reset" class="btn btn-danger btn-lg">Reset</button>
 		                    </div>
 						</form>
+						<?php endif; ?>
 		            </div>
 		        </div>
 

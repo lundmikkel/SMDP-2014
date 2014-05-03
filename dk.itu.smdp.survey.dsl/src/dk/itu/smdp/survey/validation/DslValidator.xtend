@@ -321,14 +321,6 @@ class DslValidator extends AbstractDslValidator {
 			item.getFullIds("", qMap, aMap)
 		}
 		
-		// TODO: Remove
-		println("Question keys:")
-		for (String key : qMap.keySet)
-			println(key)
-		println("Answer keys:")
-		for (String key : aMap.keySet)
-			println(key)
-		
 		for (Item item : survey.items.filter[!dependsOn.nullOrEmpty]) {
 			println("Depends on: " + item.dependsOn)
 			if (!qMap.containsKey(item.dependsOn) && !aMap.containsKey(item.dependsOn)) {

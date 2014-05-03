@@ -82,6 +82,7 @@ class DslGenerator implements IGenerator {
 	        «question.title» «question.genRequiredLabel(required)»
 	        «IF !question.description.nullOrEmpty»<p class="help-block">«question.description»</p>«ENDIF»
 		</label>
+		«question.genHiddenInput(idMap.get(question))»
 	'''
 	
 	def dispatch String genHtml(Text question, boolean required) {
@@ -93,9 +94,9 @@ class DslGenerator implements IGenerator {
 		    <div class="row">
 		        <div class="col-xs-4">
 					«IF !question.multiline»
-					<input class="form-control" id="«id»" «question.genRequiredAttr(required)»>
+					<input class="form-control" id="«id»" name="«id»" «question.genRequiredAttr(required)»>
 					«ELSE»
-					<textarea class="form-control" id="«id»" rows="3" «question.genRequiredAttr(required)»></textarea>
+					<textarea class="form-control" id="«id»" name="«id»" rows="3" «question.genRequiredAttr(required)»></textarea>
 					«ENDIF»
 		        </div>
 		    </div>
@@ -127,7 +128,7 @@ class DslGenerator implements IGenerator {
 		            	<td><label for="«id»_«question.min»">«question.minLabel»</label></td>
 		                «ENDIF»
 		                «FOR i : question.min..question.max BEFORE '<td>' SEPARATOR '</td><td>' AFTER '</td>' »
-		                <input type="radio" name="«id»" id="«id»_«i»" value="«i»" «question.genRequiredAttr(required)»/>
+		                <input type="radio" name="«id»" id="«id»_«i»" name="«id»_«i»" value="«i»" «question.genRequiredAttr(required)»/>
 		                «ENDFOR»
 		            	«IF !question.minLabel.nullOrEmpty »
 		            	<td><label for="«id»_«question.max»">«question.maxLabel»</label></td>
@@ -177,7 +178,7 @@ class DslGenerator implements IGenerator {
 				    	«IF !question.start.nullOrEmpty»data-date-start-date="«question.start»"«ENDIF»
 				    	«IF !question.end.nullOrEmpty»data-date-end-date="«question.end»"«ENDIF»
 				    	>
-						<input id="«id»" type="text" class="form-control" «question.genRequiredAttr(required)»>
+						<input id="«id»" name="«id»" type="text" class="form-control" «question.genRequiredAttr(required)»>
 						<span class="input-group-addon">
 							<i class="glyphicon glyphicon-calendar"></i>
 						</span>
@@ -198,7 +199,7 @@ class DslGenerator implements IGenerator {
 	    	«question.genHeader(required, '''for="«id»"''')»
 		    <div class="row">
 		        <div class="col-xs-2">
-		            <input type="number" class="form-control" id="«id»" «question.genRequiredAttr(required)» step="1"
+		            <input type="number" class="form-control" id="«id»" name="«id»" «question.genRequiredAttr(required)» step="1"
 		            «IF question.min != null»
 		            min="«question.min»"
 		            «ENDIF»
@@ -370,6 +371,10 @@ class DslGenerator implements IGenerator {
 		
 		return answers
 	}
+	
+	def genHiddenInput(Question question, String id) '''
+		<input type="hidden" name="«id»_question" value="«question.title»" />
+	'''
 	
 	def genLatex(Survey survey, IFileSystemAccess fsa) {
 		fsa.generateFile("survey.tex", "Something something")

@@ -172,6 +172,10 @@ public class DslGenerator implements IGenerator {
     _builder.newLineIfNotEmpty();
     _builder.append("</label>");
     _builder.newLine();
+    String _get = this.idMap.get(question);
+    CharSequence _genHiddenInput = this.genHiddenInput(question, _get);
+    _builder.append(_genHiddenInput, "");
+    _builder.newLineIfNotEmpty();
     return _builder;
   }
   
@@ -203,6 +207,8 @@ public class DslGenerator implements IGenerator {
           _builder.append("\t\t\t");
           _builder.append("<input class=\"form-control\" id=\"");
           _builder.append(id, "			");
+          _builder.append("\" name=\"");
+          _builder.append(id, "			");
           _builder.append("\" ");
           CharSequence _genRequiredAttr = this.genRequiredAttr(question, required);
           _builder.append(_genRequiredAttr, "			");
@@ -211,6 +217,8 @@ public class DslGenerator implements IGenerator {
         } else {
           _builder.append("\t\t\t");
           _builder.append("<textarea class=\"form-control\" id=\"");
+          _builder.append(id, "			");
+          _builder.append("\" name=\"");
           _builder.append(id, "			");
           _builder.append("\" rows=\"3\" ");
           CharSequence _genRequiredAttr_1 = this.genRequiredAttr(question, required);
@@ -338,6 +346,10 @@ public class DslGenerator implements IGenerator {
           _builder.append("<input type=\"radio\" name=\"");
           _builder.append(id, "                ");
           _builder.append("\" id=\"");
+          _builder.append(id, "                ");
+          _builder.append("_");
+          _builder.append(i_1, "                ");
+          _builder.append("\" name=\"");
           _builder.append(id, "                ");
           _builder.append("_");
           _builder.append(i_1, "                ");
@@ -494,6 +506,8 @@ public class DslGenerator implements IGenerator {
       _builder.append("\t\t\t\t");
       _builder.append("<input id=\"");
       _builder.append(id, "				");
+      _builder.append("\" name=\"");
+      _builder.append(id, "				");
       _builder.append("\" type=\"text\" class=\"form-control\" ");
       CharSequence _genRequiredAttr = this.genRequiredAttr(question, required);
       _builder.append(_genRequiredAttr, "				");
@@ -556,6 +570,8 @@ public class DslGenerator implements IGenerator {
       _builder.newLine();
       _builder.append("            ");
       _builder.append("<input type=\"number\" class=\"form-control\" id=\"");
+      _builder.append(id, "            ");
+      _builder.append("\" name=\"");
       _builder.append(id, "            ");
       _builder.append("\" ");
       CharSequence _genRequiredAttr = this.genRequiredAttr(question, required);
@@ -1095,6 +1111,18 @@ public class DslGenerator implements IGenerator {
       }
     }
     return answers;
+  }
+  
+  public CharSequence genHiddenInput(final Question question, final String id) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("<input type=\"hidden\" name=\"");
+    _builder.append(id, "");
+    _builder.append("_question\" value=\"");
+    String _title = question.getTitle();
+    _builder.append(_title, "");
+    _builder.append("\" />");
+    _builder.newLineIfNotEmpty();
+    return _builder;
   }
   
   public void genLatex(final Survey survey, final IFileSystemAccess fsa) {

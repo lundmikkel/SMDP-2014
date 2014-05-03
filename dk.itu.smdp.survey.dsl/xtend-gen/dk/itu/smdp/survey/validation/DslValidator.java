@@ -8,7 +8,6 @@ import com.google.common.collect.Iterables;
 import dk.itu.smdp.survey.validation.AbstractDslValidator;
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.Set;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.validation.Check;
@@ -429,16 +428,6 @@ public class DslValidator extends AbstractDslValidator {
     EList<Item> _items = survey.getItems();
     for (final Item item : _items) {
       this.getFullIds(item, "", qMap, aMap);
-    }
-    InputOutput.<String>println("Question keys:");
-    Set<String> _keySet = qMap.keySet();
-    for (final String key : _keySet) {
-      InputOutput.<String>println(key);
-    }
-    InputOutput.<String>println("Answer keys:");
-    Set<String> _keySet_1 = aMap.keySet();
-    for (final String key_1 : _keySet_1) {
-      InputOutput.<String>println(key_1);
     }
     EList<Item> _items_1 = survey.getItems();
     final Function1<Item,Boolean> _function = new Function1<Item,Boolean>() {

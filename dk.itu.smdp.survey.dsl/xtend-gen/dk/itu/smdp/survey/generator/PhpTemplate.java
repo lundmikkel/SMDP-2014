@@ -71,17 +71,97 @@ public class PhpTemplate {
     _builder.append("    \t");
     _builder.append("<div class=\"container\">");
     _builder.newLine();
-    _builder.append("            ");
+    _builder.append("    \t\t");
     _builder.append("<div class=\"row\">");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.append("<?php");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.append("if ($_POST):");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.append("?>");
+    _builder.newLine();
+    _builder.append("\t                ");
+    _builder.append("<div>");
+    _builder.newLine();
+    _builder.append("                \t\t");
+    {
+      boolean _isNullOrEmpty = StringExtensions.isNullOrEmpty(title);
+      boolean _not = (!_isNullOrEmpty);
+      if (_not) {
+        _builder.append("<h1>");
+        _builder.append(title, "                		");
+        _builder.append("</h1>");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    _builder.append("                \t\t");
+    _builder.append("<p class=\"lead\">Thanks for submitting your answer</p>");
+    _builder.newLine();
+    _builder.append("\t\t\t\t\t");
+    _builder.append("</div>");
+    _builder.newLine();
+    _builder.append("\t    \t\t");
+    _builder.append("<?php");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.append("echo \'<dl class=\"dl-horizontal\">\';");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.append("foreach ($_POST as $key => $value) {");
+    _builder.newLine();
+    _builder.append("\t\t\t\t\t");
+    _builder.append("// Question");
+    _builder.newLine();
+    _builder.append("\t\t\t\t\t");
+    _builder.append("if (strpos($key,\'_question\') !== false) {");
+    _builder.newLine();
+    _builder.append("\t\t\t\t\t\t");
+    _builder.append("echo \'<dt>\', $value, \'</dt>\';");
+    _builder.newLine();
+    _builder.append("\t\t\t\t\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t\t\t\t\t");
+    _builder.append("// Answer");
+    _builder.newLine();
+    _builder.append("\t\t\t\t\t");
+    _builder.append("else {");
+    _builder.newLine();
+    _builder.append("\t\t\t\t\t\t");
+    _builder.append("echo \'<dd>\', $value, \'</dd>\';");
+    _builder.newLine();
+    _builder.append("\t\t\t\t\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.append("echo \'</dl>\';");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.append("else:");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.append("?>");
     _builder.newLine();
     _builder.append("                ");
     _builder.append("<div>");
     _builder.newLine();
     _builder.append("                \t");
     {
-      boolean _isNullOrEmpty = StringExtensions.isNullOrEmpty(title);
-      boolean _not = (!_isNullOrEmpty);
-      if (_not) {
+      boolean _isNullOrEmpty_1 = StringExtensions.isNullOrEmpty(title);
+      boolean _not_1 = (!_isNullOrEmpty_1);
+      if (_not_1) {
         _builder.append("<h1>");
         _builder.append(title, "                	");
         _builder.append("</h1>");
@@ -90,9 +170,9 @@ public class PhpTemplate {
     _builder.newLineIfNotEmpty();
     _builder.append("                \t");
     {
-      boolean _isNullOrEmpty_1 = StringExtensions.isNullOrEmpty(description);
-      boolean _not_1 = (!_isNullOrEmpty_1);
-      if (_not_1) {
+      boolean _isNullOrEmpty_2 = StringExtensions.isNullOrEmpty(description);
+      boolean _not_2 = (!_isNullOrEmpty_2);
+      if (_not_2) {
         _builder.append("<p class=\"lead\">");
         _builder.append(description, "                	");
         _builder.append("</p>");
@@ -103,7 +183,7 @@ public class PhpTemplate {
     _builder.append("</div>");
     _builder.newLine();
     _builder.append("                ");
-    _builder.append("<form role=\"form\">");
+    _builder.append("<form role=\"form\" method=\"post\">");
     _builder.newLine();
     _builder.append("\t\t\t\t\t");
     _builder.append(formContent, "					");
@@ -125,6 +205,9 @@ public class PhpTemplate {
     _builder.newLine();
     _builder.append("\t\t\t\t");
     _builder.append("</form>");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.append("<?php endif; ?>");
     _builder.newLine();
     _builder.append("            ");
     _builder.append("</div>");
