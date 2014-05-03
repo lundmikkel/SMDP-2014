@@ -171,8 +171,6 @@ class DslGenerator implements IGenerator {
 	
 	def dispatch String genHtml(Number question) {
 		var id = getUniqueId(question);
-		
-		// TODO: Generate min/max, step, value
 		'''
 		<div class="form-group">
 		    <label for="«id»" class="control-label">
@@ -198,6 +196,8 @@ class DslGenerator implements IGenerator {
 		'''
 	}
 	
+	// TODO: Multiple
+	
 	def dispatch String genHtml(Single question) {
 		var id = getUniqueId(question);
 		var i = 0
@@ -217,10 +217,8 @@ class DslGenerator implements IGenerator {
 		'''
 	}
 	
-	// TODO: Multiple
-	
 	def dispatch String genHtml(Question question) '''
-		«question.title»
+		MISSING: «question.title» («question.class»)
 	'''
 	
 	def genRequiredLabel(Question question) {

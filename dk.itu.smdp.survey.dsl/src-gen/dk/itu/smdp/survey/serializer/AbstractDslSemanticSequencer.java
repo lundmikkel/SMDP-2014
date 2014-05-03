@@ -282,7 +282,7 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	
 	/**
 	 * Constraint:
-	 *     ((title=EString? description=EString? (items+=Item | templates+=AnswerTemplate)*)?)
+	 *     ((title=EString? description=EString? name=ID? (items+=Item | templates+=AnswerTemplate)*)?)
 	 */
 	protected void sequence_Survey(EObject context, Survey semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

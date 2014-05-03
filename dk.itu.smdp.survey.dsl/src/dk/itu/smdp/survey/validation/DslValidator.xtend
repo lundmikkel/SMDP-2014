@@ -39,6 +39,7 @@ class DslValidator extends AbstractDslValidator {
 	private static val uniqueIdsAtSameLevelString = 'Ids at the same level must be unique'
 	private static val invalidRefIdString = 'There is no answer with this id'
 	private static val ambiguousIdString = 'The id %s is ambiguous'
+	private static val noNegativeValueString = 'The value must be non-negative'
 
 
 	/**
@@ -135,6 +136,22 @@ class DslValidator extends AbstractDslValidator {
 			)
 			error(
 				minIsLessThanMaxString,
+				multiple,
+				SurveyPackage.Literals.NUMBER__MAX,
+				INVALID_VALUE
+			)
+		}
+		if (min != null && min < 0) {
+			error(
+				noNegativeValueString,
+				multiple,
+				SurveyPackage.Literals.NUMBER__MIN,
+				INVALID_VALUE
+			)
+		}
+		if (max != null && max < 0) {
+			error(
+				noNegativeValueString,
 				multiple,
 				SurveyPackage.Literals.NUMBER__MAX,
 				INVALID_VALUE

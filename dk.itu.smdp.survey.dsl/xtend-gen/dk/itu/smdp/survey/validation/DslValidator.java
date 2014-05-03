@@ -52,6 +52,8 @@ public class DslValidator extends AbstractDslValidator {
   
   private final static String ambiguousIdString = "The id %s is ambiguous";
   
+  private final static String noNegativeValueString = "The value must be non-negative";
+  
   /**
    * Check that the min is less than max value in a scale
    */
@@ -166,6 +168,34 @@ public class DslValidator extends AbstractDslValidator {
         DslValidator.INVALID_VALUE);
       this.error(
         DslValidator.minIsLessThanMaxString, multiple, 
+        Literals.NUMBER__MAX, 
+        DslValidator.INVALID_VALUE);
+    }
+    boolean _and_2 = false;
+    boolean _notEquals_2 = (!Objects.equal(min, null));
+    if (!_notEquals_2) {
+      _and_2 = false;
+    } else {
+      boolean _lessThan = ((min).intValue() < 0);
+      _and_2 = (_notEquals_2 && _lessThan);
+    }
+    if (_and_2) {
+      this.error(
+        DslValidator.noNegativeValueString, multiple, 
+        Literals.NUMBER__MIN, 
+        DslValidator.INVALID_VALUE);
+    }
+    boolean _and_3 = false;
+    boolean _notEquals_3 = (!Objects.equal(max, null));
+    if (!_notEquals_3) {
+      _and_3 = false;
+    } else {
+      boolean _lessThan_1 = ((max).intValue() < 0);
+      _and_3 = (_notEquals_3 && _lessThan_1);
+    }
+    if (_and_3) {
+      this.error(
+        DslValidator.noNegativeValueString, multiple, 
         Literals.NUMBER__MAX, 
         DslValidator.INVALID_VALUE);
     }

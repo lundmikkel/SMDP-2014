@@ -655,8 +655,13 @@ public class DslGenerator implements IGenerator {
   
   protected String _genHtml(final Question question) {
     StringConcatenation _builder = new StringConcatenation();
+    _builder.append("MISSING: ");
     String _title = question.getTitle();
     _builder.append(_title, "");
+    _builder.append(" (");
+    Class<? extends Question> _class = question.getClass();
+    _builder.append(_class, "");
+    _builder.append(")");
     _builder.newLineIfNotEmpty();
     return _builder.toString();
   }
