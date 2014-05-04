@@ -107,7 +107,7 @@ Single returns Single:
 		& ('id="' name=ID? '"')?
 		& ('depends-on="' dependsOn=DEP_ID? '"')?
 		& (required?='required')?
-		& (other?='other')?)
+		& (other?=('other'|'other=""') | 'other="' otherLabel=EString '"')?)
 	'>'
 		(options+=Option)+
 	'</single>';
@@ -161,7 +161,8 @@ DEP_ID returns ecore::EString:
 terminal STRING:
 	// TODO: Remove $
 	//'"' ( '\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\') | !('\\'|'"') )* '"' |
-	"$" ( '\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\') | !('\\'|"$") )* "$";
+	//"$" ( '\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\') | !('\\'|"$") )* "$";
+	"'" ( '\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\') | !('\\'|"'") )* "'";
 
 terminal FQN:
 	 (ID '.')+ ID;

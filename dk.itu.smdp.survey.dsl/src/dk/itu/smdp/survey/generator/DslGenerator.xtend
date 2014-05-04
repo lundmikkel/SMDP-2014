@@ -227,9 +227,20 @@ class DslGenerator implements IGenerator {
 				«FOR a : question.getAnswers BEFORE '<div class="radio"><label>'
 											 SEPARATOR '</label></div><div class="radio"><label>'
 											 AFTER '</label></div>' »
-				<input type="radio" name="«id»" id="«id»_«(i = i + 1)»" value="«i»" «question.genRequiredAttr(required)»/>
+				<input type="radio" name="«id»" id="«id»_«(i = i + 1)»" value="«a.label»" «question.genRequiredAttr(required)»/>
 				«a.label»
 				«ENDFOR»
+				«IF question.other || !question.otherLabel.nullOrEmpty»
+				<div class="radio">
+				<input type="radio" name="«id»" id="«id»_«(i = i + 1)»" value="«id»_«(i = i + 1)»_other" «question.genRequiredAttr(required)»/>
+				«IF !question.otherLabel.nullOrEmpty»
+				«question.otherLabel»:
+				«ELSE»
+				Other:
+				«ENDIF»
+				<input class="other-option" type="text" name="«id»_«i»_other"/>
+				</div>
+				«ENDIF»
 			</div>
 		</div>
 		'''
@@ -249,7 +260,7 @@ class DslGenerator implements IGenerator {
 		    «FOR a : question.getAnswers BEFORE '<div class="checkbox"><label>'
 		    							 SEPARATOR '</label></div><div class="checkbox"><label>'
 		    							 AFTER '</label></div>' »
-		    <input type="checkbox" name="«id»" id="«id»_«(i = i + 1)»" value="«i»"> «a.label»
+		    <input type="checkbox" name="«id»[]" id="«id»_«(i = i + 1)»" value="«i»"> «a.label»
 			«ENDFOR»
 		</div>
 		'''

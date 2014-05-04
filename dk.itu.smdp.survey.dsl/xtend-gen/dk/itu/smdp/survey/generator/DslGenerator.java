@@ -662,19 +662,83 @@ public class DslGenerator implements IGenerator {
           int _i = i = _plus;
           _builder.append(_i, "		");
           _builder.append("\" value=\"");
-          _builder.append(i, "		");
+          String _label = a.getLabel();
+          _builder.append(_label, "		");
           _builder.append("\" ");
           CharSequence _genRequiredAttr = this.genRequiredAttr(question, required);
           _builder.append(_genRequiredAttr, "		");
           _builder.append("/>");
           _builder.newLineIfNotEmpty();
           _builder.append("\t\t");
-          String _label = a.getLabel();
-          _builder.append(_label, "		");
+          String _label_1 = a.getLabel();
+          _builder.append(_label_1, "		");
           _builder.newLineIfNotEmpty();
         }
         if (_hasElements) {
           _builder.append("</label></div>", "		");
+        }
+      }
+      {
+        boolean _or = false;
+        boolean _isOther = question.isOther();
+        if (_isOther) {
+          _or = true;
+        } else {
+          String _otherLabel = question.getOtherLabel();
+          boolean _isNullOrEmpty = StringExtensions.isNullOrEmpty(_otherLabel);
+          boolean _not = (!_isNullOrEmpty);
+          _or = (_isOther || _not);
+        }
+        if (_or) {
+          _builder.append("\t\t");
+          _builder.append("<div class=\"radio\">");
+          _builder.newLine();
+          _builder.append("\t\t");
+          _builder.append("<input type=\"radio\" name=\"");
+          _builder.append(id, "		");
+          _builder.append("\" id=\"");
+          _builder.append(id, "		");
+          _builder.append("_");
+          int _plus_1 = (i + 1);
+          int _i_1 = i = _plus_1;
+          _builder.append(_i_1, "		");
+          _builder.append("\" value=\"");
+          _builder.append(id, "		");
+          _builder.append("_");
+          int _plus_2 = (i + 1);
+          int _i_2 = i = _plus_2;
+          _builder.append(_i_2, "		");
+          _builder.append("_other\" ");
+          CharSequence _genRequiredAttr_1 = this.genRequiredAttr(question, required);
+          _builder.append(_genRequiredAttr_1, "		");
+          _builder.append("/>");
+          _builder.newLineIfNotEmpty();
+          {
+            String _otherLabel_1 = question.getOtherLabel();
+            boolean _isNullOrEmpty_1 = StringExtensions.isNullOrEmpty(_otherLabel_1);
+            boolean _not_1 = (!_isNullOrEmpty_1);
+            if (_not_1) {
+              _builder.append("\t\t");
+              String _otherLabel_2 = question.getOtherLabel();
+              _builder.append(_otherLabel_2, "		");
+              _builder.append(":");
+              _builder.newLineIfNotEmpty();
+            } else {
+              _builder.append("\t\t");
+              _builder.append("Other:");
+              _builder.newLine();
+            }
+          }
+          _builder.append("\t\t");
+          _builder.append("<input class=\"other-option\" type=\"text\" name=\"");
+          _builder.append(id, "		");
+          _builder.append("_");
+          _builder.append(i, "		");
+          _builder.append("_other\"/>");
+          _builder.newLineIfNotEmpty();
+          _builder.append("\t\t");
+          _builder.append("</div>");
+          _builder.newLine();
         }
       }
       _builder.append("\t");
@@ -735,7 +799,7 @@ public class DslGenerator implements IGenerator {
           _builder.append("    ");
           _builder.append("<input type=\"checkbox\" name=\"");
           _builder.append(id, "    ");
-          _builder.append("\" id=\"");
+          _builder.append("[]\" id=\"");
           _builder.append(id, "    ");
           _builder.append("_");
           int _plus = (i + 1);

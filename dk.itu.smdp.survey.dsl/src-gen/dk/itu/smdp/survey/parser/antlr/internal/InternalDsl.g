@@ -2549,22 +2549,64 @@ ruleSingle returns [EObject current=null]
 					{ 
 	 				  getUnorderedGroupHelper().select(grammarAccess.getSingleAccess().getUnorderedGroup_1(), 5);
 	 				}
-					({true}?=>(
+					({true}?=>((
 (
-		lv_other_15_0=	'other' 
+(
+		lv_other_15_1=	'other' 
     {
-        newLeafNode(lv_other_15_0, grammarAccess.getSingleAccess().getOtherOtherKeyword_1_5_0());
+        newLeafNode(lv_other_15_1, grammarAccess.getSingleAccess().getOtherOtherKeyword_1_5_0_0_0());
     }
  
 	    {
 	        if ($current==null) {
 	            $current = createModelElement(grammarAccess.getSingleRule());
 	        }
-       		setWithLastConsumed($current, "other", true, "other");
+       		setWithLastConsumed($current, "other", true, null);
+	    }
+
+    |		lv_other_15_2=	'other=""' 
+    {
+        newLeafNode(lv_other_15_2, grammarAccess.getSingleAccess().getOtherOtherKeyword_1_5_0_0_1());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getSingleRule());
+	        }
+       		setWithLastConsumed($current, "other", true, null);
 	    }
 
 )
-))
+
+)
+)
+    |(	otherlv_16='other="' 
+    {
+    	newLeafNode(otherlv_16, grammarAccess.getSingleAccess().getOtherKeyword_1_5_1_0());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getSingleAccess().getOtherLabelEStringParserRuleCall_1_5_1_1_0()); 
+	    }
+		lv_otherLabel_17_0=ruleEString		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getSingleRule());
+	        }
+       		set(
+       			$current, 
+       			"otherLabel",
+        		lv_otherLabel_17_0, 
+        		"EString");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)	otherlv_18='"' 
+    {
+    	newLeafNode(otherlv_18, grammarAccess.getSingleAccess().getQuotationMarkKeyword_1_5_1_2());
+    }
+)))
 					{ 
 	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getSingleAccess().getUnorderedGroup_1());
 	 				}
@@ -2579,31 +2621,31 @@ ruleSingle returns [EObject current=null]
 	  getUnorderedGroupHelper().leave(grammarAccess.getSingleAccess().getUnorderedGroup_1());
 	}
 
-)	otherlv_16='>' 
+)	otherlv_19='>' 
     {
-    	newLeafNode(otherlv_16, grammarAccess.getSingleAccess().getGreaterThanSignKeyword_2());
+    	newLeafNode(otherlv_19, grammarAccess.getSingleAccess().getGreaterThanSignKeyword_2());
     }
 (
 (
 		{ 
 	        newCompositeNode(grammarAccess.getSingleAccess().getOptionsOptionParserRuleCall_3_0()); 
 	    }
-		lv_options_17_0=ruleOption		{
+		lv_options_20_0=ruleOption		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getSingleRule());
 	        }
        		add(
        			$current, 
        			"options",
-        		lv_options_17_0, 
+        		lv_options_20_0, 
         		"Option");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)+	otherlv_18='</single>' 
+)+	otherlv_21='</single>' 
     {
-    	newLeafNode(otherlv_18, grammarAccess.getSingleAccess().getSingleKeyword_4());
+    	newLeafNode(otherlv_21, grammarAccess.getSingleAccess().getSingleKeyword_4());
     }
 )
 ;
@@ -3584,7 +3626,7 @@ ruleDEP_ID returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
 
 
 
-RULE_STRING : '$' ('\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|'\''|'\\')|~(('\\'|'$')))* '$';
+RULE_STRING : '\'' ('\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|'\''|'\\')|~(('\\'|'\'')))* '\'';
 
 RULE_FQN : (RULE_ID '.')+ RULE_ID;
 

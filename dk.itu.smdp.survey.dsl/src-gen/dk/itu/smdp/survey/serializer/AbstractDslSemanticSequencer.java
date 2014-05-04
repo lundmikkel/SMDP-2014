@@ -271,7 +271,7 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	 *         name=ID? 
 	 *         dependsOn=DEP_ID? 
 	 *         required?='required'? 
-	 *         other?='other'? 
+	 *         (other?='other' | other?='other=""' | otherLabel=EString)? 
 	 *         options+=Option+
 	 *     )
 	 */

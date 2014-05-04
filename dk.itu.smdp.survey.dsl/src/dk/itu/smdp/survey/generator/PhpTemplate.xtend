@@ -41,12 +41,25 @@ class PhpTemplate {
 							if (strpos($key,'_question') !== false) {
 								echo '<dt>', $value, '</dt>';
 							}
+							// Other
+							else if (strpos($key, '_other') !== false) {
+								// skip
+							}
 							// Answer
 							else {
-								echo '<dd>', $value, '</dd>';
+								if (strpos($value, '_other') !== false) {
+									echo '<dd>', $_POST[$value], '</dd>';
+								}
+								else {
+									echo '<dd>', $value, '</dd>';
+								}
 							}
 						}
 						echo '</dl>';
+						
+						echo '<pre>';
+						print_r($_POST);
+						echo '</pre>';
 						
 						else:
 						?>
@@ -136,6 +149,10 @@ class PhpTemplate {
 			autoclose: true,
 			todayHighlight: true,
 			todayBtn: true
+		});
+		
+		$('.other-option').focus(function() {
+			$(this).siblings(':radio').attr('checked', 'checked');
 		});
 		
 		$("[data-depends-on]").each(function() {
