@@ -21,7 +21,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalDslParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_FQN", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'<survey'", "'title=\"'", "'\"'", "'description=\"'", "'filename=\"'", "'>'", "'</survey>'", "'<template'", "'id=\"'", "'</template>'", "'<a'", "'</a>'", "'<group'", "'depends-on=\"'", "'required'", "'</group>'", "'<text'", "'singleline'", "'single'", "'multi'", "'multiline'", "'/>'", "'<scale'", "'min=\"'", "'max=\"'", "'min-label=\"'", "'max-label=\"'", "'<date'", "'start=\"'", "'end=\"'", "'show-limits'", "'show'", "'limits'", "'day'", "'month'", "'year'", "'<number'", "'<single'", "'other'", "'other=\"\"'", "'other=\"'", "'</single>'", "'<multiple'", "'</multiple>'", "'<table'", "'multiple'", "'</table>'", "'-'", "'ref=\"'", "'template=\"'", "'<q>'", "'</q>'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_FQN", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'<survey'", "'title=\"'", "'\"'", "'description=\"'", "'filename=\"'", "'>'", "'</survey>'", "'<template'", "'id=\"'", "'</template>'", "'<a'", "'</a>'", "'<group'", "'depends-on=\"'", "'required'", "'</group>'", "'<text'", "'singleline'", "'single'", "'multi'", "'multiline'", "'/>'", "'<scale'", "'min=\"'", "'max=\"'", "'min-label=\"'", "'max-label=\"'", "'<date'", "'start=\"'", "'end=\"'", "'show-limits'", "'show'", "'limits'", "'day'", "'month'", "'year'", "'<number'", "'<single'", "'other'", "'other=\"\"'", "'other=\"'", "'</single>'", "'<multiple'", "'</multiple>'", "'<table'", "'multiple'", "'</table>'", "'-'", "'ref=\"'", "'template=\"'", "'<q'", "'</q>'"
     };
     public static final int RULE_ID=4;
     public static final int T__29=29;
@@ -1499,7 +1499,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleAnswer"
-    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:565:1: ruleAnswer returns [EObject current=null] : (otherlv_0= '<a' (otherlv_1= 'id=\"' ( (lv_name_2_0= RULE_ID ) )? otherlv_3= '\"' )? otherlv_4= '>' ( (lv_label_5_0= ruleEString ) ) otherlv_6= '</a>' ) ;
+    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:565:1: ruleAnswer returns [EObject current=null] : (otherlv_0= '<a' (otherlv_1= 'id=\"' ( (lv_name_2_0= RULE_ID ) )? otherlv_3= '\"' )? otherlv_4= '>' ( (lv_title_5_0= ruleEString ) ) otherlv_6= '</a>' ) ;
     public final EObject ruleAnswer() throws RecognitionException {
         EObject current = null;
 
@@ -1509,17 +1509,17 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
         Token otherlv_3=null;
         Token otherlv_4=null;
         Token otherlv_6=null;
-        AntlrDatatypeRuleToken lv_label_5_0 = null;
+        AntlrDatatypeRuleToken lv_title_5_0 = null;
 
 
          enterRule(); 
             
         try {
-            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:568:28: ( (otherlv_0= '<a' (otherlv_1= 'id=\"' ( (lv_name_2_0= RULE_ID ) )? otherlv_3= '\"' )? otherlv_4= '>' ( (lv_label_5_0= ruleEString ) ) otherlv_6= '</a>' ) )
-            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:569:1: (otherlv_0= '<a' (otherlv_1= 'id=\"' ( (lv_name_2_0= RULE_ID ) )? otherlv_3= '\"' )? otherlv_4= '>' ( (lv_label_5_0= ruleEString ) ) otherlv_6= '</a>' )
+            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:568:28: ( (otherlv_0= '<a' (otherlv_1= 'id=\"' ( (lv_name_2_0= RULE_ID ) )? otherlv_3= '\"' )? otherlv_4= '>' ( (lv_title_5_0= ruleEString ) ) otherlv_6= '</a>' ) )
+            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:569:1: (otherlv_0= '<a' (otherlv_1= 'id=\"' ( (lv_name_2_0= RULE_ID ) )? otherlv_3= '\"' )? otherlv_4= '>' ( (lv_title_5_0= ruleEString ) ) otherlv_6= '</a>' )
             {
-            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:569:1: (otherlv_0= '<a' (otherlv_1= 'id=\"' ( (lv_name_2_0= RULE_ID ) )? otherlv_3= '\"' )? otherlv_4= '>' ( (lv_label_5_0= ruleEString ) ) otherlv_6= '</a>' )
-            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:569:3: otherlv_0= '<a' (otherlv_1= 'id=\"' ( (lv_name_2_0= RULE_ID ) )? otherlv_3= '\"' )? otherlv_4= '>' ( (lv_label_5_0= ruleEString ) ) otherlv_6= '</a>'
+            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:569:1: (otherlv_0= '<a' (otherlv_1= 'id=\"' ( (lv_name_2_0= RULE_ID ) )? otherlv_3= '\"' )? otherlv_4= '>' ( (lv_title_5_0= ruleEString ) ) otherlv_6= '</a>' )
+            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:569:3: otherlv_0= '<a' (otherlv_1= 'id=\"' ( (lv_name_2_0= RULE_ID ) )? otherlv_3= '\"' )? otherlv_4= '>' ( (lv_title_5_0= ruleEString ) ) otherlv_6= '</a>'
             {
             otherlv_0=(Token)match(input,22,FollowSets000.FOLLOW_22_in_ruleAnswer1420); 
 
@@ -1591,17 +1591,17 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
                 	newLeafNode(otherlv_4, grammarAccess.getAnswerAccess().getGreaterThanSignKeyword_2());
                 
-            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:603:1: ( (lv_label_5_0= ruleEString ) )
-            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:604:1: (lv_label_5_0= ruleEString )
+            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:603:1: ( (lv_title_5_0= ruleEString ) )
+            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:604:1: (lv_title_5_0= ruleEString )
             {
-            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:604:1: (lv_label_5_0= ruleEString )
-            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:605:3: lv_label_5_0= ruleEString
+            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:604:1: (lv_title_5_0= ruleEString )
+            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:605:3: lv_title_5_0= ruleEString
             {
              
-            	        newCompositeNode(grammarAccess.getAnswerAccess().getLabelEStringParserRuleCall_3_0()); 
+            	        newCompositeNode(grammarAccess.getAnswerAccess().getTitleEStringParserRuleCall_3_0()); 
             	    
             pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleAnswer1503);
-            lv_label_5_0=ruleEString();
+            lv_title_5_0=ruleEString();
 
             state._fsp--;
 
@@ -1611,8 +1611,8 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
             	        }
                    		set(
                    			current, 
-                   			"label",
-                    		lv_label_5_0, 
+                   			"title",
+                    		lv_title_5_0, 
                     		"EString");
             	        afterParserOrEnumRuleCall();
             	    
@@ -9675,7 +9675,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleTable"
-    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:3887:1: ruleTable returns [EObject current=null] : (otherlv_0= '<table' ( ( ( ( ({...}? => ( ({...}? => (otherlv_2= 'title=\"' ( (lv_title_3_0= ruleEString ) )? otherlv_4= '\"' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'description=\"' ( (lv_description_6_0= ruleEString ) )? otherlv_7= '\"' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'id=\"' ( (lv_name_9_0= RULE_ID ) )? otherlv_10= '\"' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_11= 'depends-on=\"' ( (lv_dependsOn_12_0= ruleDEP_ID ) )? otherlv_13= '\"' ) ) ) ) | ({...}? => ( ({...}? => ( (lv_required_14_0= 'required' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_other_15_0= 'other' ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_16= 'single' | ( (lv_multiple_17_0= 'multiple' ) ) ) ) ) ) )* ) ) ) otherlv_18= '>' ( ( ( ( ({...}? => ( ({...}? => ( (lv_options_20_0= ruleOption ) ) )+ ) ) | ({...}? => ( ({...}? => ( (lv_questions_21_0= ruleTableQuestion ) ) )+ ) ) )+ {...}?) ) ) ( ( (lv_options_22_0= ruleOption ) ) | ( (lv_questions_23_0= ruleTableQuestion ) ) )* otherlv_24= '</table>' ) ;
+    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:3887:1: ruleTable returns [EObject current=null] : (otherlv_0= '<table' ( ( ( ( ({...}? => ( ({...}? => (otherlv_2= 'title=\"' ( (lv_title_3_0= ruleEString ) )? otherlv_4= '\"' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'description=\"' ( (lv_description_6_0= ruleEString ) )? otherlv_7= '\"' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'depends-on=\"' ( (lv_dependsOn_9_0= ruleDEP_ID ) )? otherlv_10= '\"' ) ) ) ) | ({...}? => ( ({...}? => ( (lv_required_11_0= 'required' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_other_12_0= 'other' ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_13= 'single' | ( (lv_multiple_14_0= 'multiple' ) ) ) ) ) ) )* ) ) ) otherlv_15= '>' ( ( ( ( ({...}? => ( ({...}? => ( (lv_options_17_0= ruleOption ) ) )+ ) ) | ({...}? => ( ({...}? => ( (lv_questions_18_0= ruleTableQuestion ) ) )+ ) ) )+ {...}?) ) ) ( ( (lv_options_19_0= ruleOption ) ) | ( (lv_questions_20_0= ruleTableQuestion ) ) )* otherlv_21= '</table>' ) ;
     public final EObject ruleTable() throws RecognitionException {
         EObject current = null;
 
@@ -9685,86 +9685,80 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
         Token otherlv_5=null;
         Token otherlv_7=null;
         Token otherlv_8=null;
-        Token lv_name_9_0=null;
         Token otherlv_10=null;
-        Token otherlv_11=null;
+        Token lv_required_11_0=null;
+        Token lv_other_12_0=null;
         Token otherlv_13=null;
-        Token lv_required_14_0=null;
-        Token lv_other_15_0=null;
-        Token otherlv_16=null;
-        Token lv_multiple_17_0=null;
-        Token otherlv_18=null;
-        Token otherlv_24=null;
+        Token lv_multiple_14_0=null;
+        Token otherlv_15=null;
+        Token otherlv_21=null;
         AntlrDatatypeRuleToken lv_title_3_0 = null;
 
         AntlrDatatypeRuleToken lv_description_6_0 = null;
 
-        AntlrDatatypeRuleToken lv_dependsOn_12_0 = null;
+        AntlrDatatypeRuleToken lv_dependsOn_9_0 = null;
 
-        EObject lv_options_20_0 = null;
+        EObject lv_options_17_0 = null;
 
-        EObject lv_questions_21_0 = null;
+        EObject lv_questions_18_0 = null;
 
-        EObject lv_options_22_0 = null;
+        EObject lv_options_19_0 = null;
 
-        EObject lv_questions_23_0 = null;
+        EObject lv_questions_20_0 = null;
 
 
          enterRule(); 
             
         try {
-            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:3890:28: ( (otherlv_0= '<table' ( ( ( ( ({...}? => ( ({...}? => (otherlv_2= 'title=\"' ( (lv_title_3_0= ruleEString ) )? otherlv_4= '\"' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'description=\"' ( (lv_description_6_0= ruleEString ) )? otherlv_7= '\"' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'id=\"' ( (lv_name_9_0= RULE_ID ) )? otherlv_10= '\"' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_11= 'depends-on=\"' ( (lv_dependsOn_12_0= ruleDEP_ID ) )? otherlv_13= '\"' ) ) ) ) | ({...}? => ( ({...}? => ( (lv_required_14_0= 'required' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_other_15_0= 'other' ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_16= 'single' | ( (lv_multiple_17_0= 'multiple' ) ) ) ) ) ) )* ) ) ) otherlv_18= '>' ( ( ( ( ({...}? => ( ({...}? => ( (lv_options_20_0= ruleOption ) ) )+ ) ) | ({...}? => ( ({...}? => ( (lv_questions_21_0= ruleTableQuestion ) ) )+ ) ) )+ {...}?) ) ) ( ( (lv_options_22_0= ruleOption ) ) | ( (lv_questions_23_0= ruleTableQuestion ) ) )* otherlv_24= '</table>' ) )
-            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:3891:1: (otherlv_0= '<table' ( ( ( ( ({...}? => ( ({...}? => (otherlv_2= 'title=\"' ( (lv_title_3_0= ruleEString ) )? otherlv_4= '\"' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'description=\"' ( (lv_description_6_0= ruleEString ) )? otherlv_7= '\"' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'id=\"' ( (lv_name_9_0= RULE_ID ) )? otherlv_10= '\"' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_11= 'depends-on=\"' ( (lv_dependsOn_12_0= ruleDEP_ID ) )? otherlv_13= '\"' ) ) ) ) | ({...}? => ( ({...}? => ( (lv_required_14_0= 'required' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_other_15_0= 'other' ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_16= 'single' | ( (lv_multiple_17_0= 'multiple' ) ) ) ) ) ) )* ) ) ) otherlv_18= '>' ( ( ( ( ({...}? => ( ({...}? => ( (lv_options_20_0= ruleOption ) ) )+ ) ) | ({...}? => ( ({...}? => ( (lv_questions_21_0= ruleTableQuestion ) ) )+ ) ) )+ {...}?) ) ) ( ( (lv_options_22_0= ruleOption ) ) | ( (lv_questions_23_0= ruleTableQuestion ) ) )* otherlv_24= '</table>' )
+            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:3890:28: ( (otherlv_0= '<table' ( ( ( ( ({...}? => ( ({...}? => (otherlv_2= 'title=\"' ( (lv_title_3_0= ruleEString ) )? otherlv_4= '\"' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'description=\"' ( (lv_description_6_0= ruleEString ) )? otherlv_7= '\"' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'depends-on=\"' ( (lv_dependsOn_9_0= ruleDEP_ID ) )? otherlv_10= '\"' ) ) ) ) | ({...}? => ( ({...}? => ( (lv_required_11_0= 'required' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_other_12_0= 'other' ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_13= 'single' | ( (lv_multiple_14_0= 'multiple' ) ) ) ) ) ) )* ) ) ) otherlv_15= '>' ( ( ( ( ({...}? => ( ({...}? => ( (lv_options_17_0= ruleOption ) ) )+ ) ) | ({...}? => ( ({...}? => ( (lv_questions_18_0= ruleTableQuestion ) ) )+ ) ) )+ {...}?) ) ) ( ( (lv_options_19_0= ruleOption ) ) | ( (lv_questions_20_0= ruleTableQuestion ) ) )* otherlv_21= '</table>' ) )
+            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:3891:1: (otherlv_0= '<table' ( ( ( ( ({...}? => ( ({...}? => (otherlv_2= 'title=\"' ( (lv_title_3_0= ruleEString ) )? otherlv_4= '\"' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'description=\"' ( (lv_description_6_0= ruleEString ) )? otherlv_7= '\"' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'depends-on=\"' ( (lv_dependsOn_9_0= ruleDEP_ID ) )? otherlv_10= '\"' ) ) ) ) | ({...}? => ( ({...}? => ( (lv_required_11_0= 'required' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_other_12_0= 'other' ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_13= 'single' | ( (lv_multiple_14_0= 'multiple' ) ) ) ) ) ) )* ) ) ) otherlv_15= '>' ( ( ( ( ({...}? => ( ({...}? => ( (lv_options_17_0= ruleOption ) ) )+ ) ) | ({...}? => ( ({...}? => ( (lv_questions_18_0= ruleTableQuestion ) ) )+ ) ) )+ {...}?) ) ) ( ( (lv_options_19_0= ruleOption ) ) | ( (lv_questions_20_0= ruleTableQuestion ) ) )* otherlv_21= '</table>' )
             {
-            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:3891:1: (otherlv_0= '<table' ( ( ( ( ({...}? => ( ({...}? => (otherlv_2= 'title=\"' ( (lv_title_3_0= ruleEString ) )? otherlv_4= '\"' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'description=\"' ( (lv_description_6_0= ruleEString ) )? otherlv_7= '\"' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'id=\"' ( (lv_name_9_0= RULE_ID ) )? otherlv_10= '\"' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_11= 'depends-on=\"' ( (lv_dependsOn_12_0= ruleDEP_ID ) )? otherlv_13= '\"' ) ) ) ) | ({...}? => ( ({...}? => ( (lv_required_14_0= 'required' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_other_15_0= 'other' ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_16= 'single' | ( (lv_multiple_17_0= 'multiple' ) ) ) ) ) ) )* ) ) ) otherlv_18= '>' ( ( ( ( ({...}? => ( ({...}? => ( (lv_options_20_0= ruleOption ) ) )+ ) ) | ({...}? => ( ({...}? => ( (lv_questions_21_0= ruleTableQuestion ) ) )+ ) ) )+ {...}?) ) ) ( ( (lv_options_22_0= ruleOption ) ) | ( (lv_questions_23_0= ruleTableQuestion ) ) )* otherlv_24= '</table>' )
-            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:3891:3: otherlv_0= '<table' ( ( ( ( ({...}? => ( ({...}? => (otherlv_2= 'title=\"' ( (lv_title_3_0= ruleEString ) )? otherlv_4= '\"' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'description=\"' ( (lv_description_6_0= ruleEString ) )? otherlv_7= '\"' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'id=\"' ( (lv_name_9_0= RULE_ID ) )? otherlv_10= '\"' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_11= 'depends-on=\"' ( (lv_dependsOn_12_0= ruleDEP_ID ) )? otherlv_13= '\"' ) ) ) ) | ({...}? => ( ({...}? => ( (lv_required_14_0= 'required' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_other_15_0= 'other' ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_16= 'single' | ( (lv_multiple_17_0= 'multiple' ) ) ) ) ) ) )* ) ) ) otherlv_18= '>' ( ( ( ( ({...}? => ( ({...}? => ( (lv_options_20_0= ruleOption ) ) )+ ) ) | ({...}? => ( ({...}? => ( (lv_questions_21_0= ruleTableQuestion ) ) )+ ) ) )+ {...}?) ) ) ( ( (lv_options_22_0= ruleOption ) ) | ( (lv_questions_23_0= ruleTableQuestion ) ) )* otherlv_24= '</table>'
+            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:3891:1: (otherlv_0= '<table' ( ( ( ( ({...}? => ( ({...}? => (otherlv_2= 'title=\"' ( (lv_title_3_0= ruleEString ) )? otherlv_4= '\"' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'description=\"' ( (lv_description_6_0= ruleEString ) )? otherlv_7= '\"' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'depends-on=\"' ( (lv_dependsOn_9_0= ruleDEP_ID ) )? otherlv_10= '\"' ) ) ) ) | ({...}? => ( ({...}? => ( (lv_required_11_0= 'required' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_other_12_0= 'other' ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_13= 'single' | ( (lv_multiple_14_0= 'multiple' ) ) ) ) ) ) )* ) ) ) otherlv_15= '>' ( ( ( ( ({...}? => ( ({...}? => ( (lv_options_17_0= ruleOption ) ) )+ ) ) | ({...}? => ( ({...}? => ( (lv_questions_18_0= ruleTableQuestion ) ) )+ ) ) )+ {...}?) ) ) ( ( (lv_options_19_0= ruleOption ) ) | ( (lv_questions_20_0= ruleTableQuestion ) ) )* otherlv_21= '</table>' )
+            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:3891:3: otherlv_0= '<table' ( ( ( ( ({...}? => ( ({...}? => (otherlv_2= 'title=\"' ( (lv_title_3_0= ruleEString ) )? otherlv_4= '\"' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'description=\"' ( (lv_description_6_0= ruleEString ) )? otherlv_7= '\"' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'depends-on=\"' ( (lv_dependsOn_9_0= ruleDEP_ID ) )? otherlv_10= '\"' ) ) ) ) | ({...}? => ( ({...}? => ( (lv_required_11_0= 'required' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_other_12_0= 'other' ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_13= 'single' | ( (lv_multiple_14_0= 'multiple' ) ) ) ) ) ) )* ) ) ) otherlv_15= '>' ( ( ( ( ({...}? => ( ({...}? => ( (lv_options_17_0= ruleOption ) ) )+ ) ) | ({...}? => ( ({...}? => ( (lv_questions_18_0= ruleTableQuestion ) ) )+ ) ) )+ {...}?) ) ) ( ( (lv_options_19_0= ruleOption ) ) | ( (lv_questions_20_0= ruleTableQuestion ) ) )* otherlv_21= '</table>'
             {
             otherlv_0=(Token)match(input,56,FollowSets000.FOLLOW_56_in_ruleTable10475); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getTableAccess().getTableKeyword_0());
                 
-            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:3895:1: ( ( ( ( ({...}? => ( ({...}? => (otherlv_2= 'title=\"' ( (lv_title_3_0= ruleEString ) )? otherlv_4= '\"' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'description=\"' ( (lv_description_6_0= ruleEString ) )? otherlv_7= '\"' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'id=\"' ( (lv_name_9_0= RULE_ID ) )? otherlv_10= '\"' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_11= 'depends-on=\"' ( (lv_dependsOn_12_0= ruleDEP_ID ) )? otherlv_13= '\"' ) ) ) ) | ({...}? => ( ({...}? => ( (lv_required_14_0= 'required' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_other_15_0= 'other' ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_16= 'single' | ( (lv_multiple_17_0= 'multiple' ) ) ) ) ) ) )* ) ) )
-            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:3897:1: ( ( ( ({...}? => ( ({...}? => (otherlv_2= 'title=\"' ( (lv_title_3_0= ruleEString ) )? otherlv_4= '\"' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'description=\"' ( (lv_description_6_0= ruleEString ) )? otherlv_7= '\"' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'id=\"' ( (lv_name_9_0= RULE_ID ) )? otherlv_10= '\"' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_11= 'depends-on=\"' ( (lv_dependsOn_12_0= ruleDEP_ID ) )? otherlv_13= '\"' ) ) ) ) | ({...}? => ( ({...}? => ( (lv_required_14_0= 'required' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_other_15_0= 'other' ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_16= 'single' | ( (lv_multiple_17_0= 'multiple' ) ) ) ) ) ) )* ) )
+            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:3895:1: ( ( ( ( ({...}? => ( ({...}? => (otherlv_2= 'title=\"' ( (lv_title_3_0= ruleEString ) )? otherlv_4= '\"' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'description=\"' ( (lv_description_6_0= ruleEString ) )? otherlv_7= '\"' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'depends-on=\"' ( (lv_dependsOn_9_0= ruleDEP_ID ) )? otherlv_10= '\"' ) ) ) ) | ({...}? => ( ({...}? => ( (lv_required_11_0= 'required' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_other_12_0= 'other' ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_13= 'single' | ( (lv_multiple_14_0= 'multiple' ) ) ) ) ) ) )* ) ) )
+            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:3897:1: ( ( ( ({...}? => ( ({...}? => (otherlv_2= 'title=\"' ( (lv_title_3_0= ruleEString ) )? otherlv_4= '\"' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'description=\"' ( (lv_description_6_0= ruleEString ) )? otherlv_7= '\"' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'depends-on=\"' ( (lv_dependsOn_9_0= ruleDEP_ID ) )? otherlv_10= '\"' ) ) ) ) | ({...}? => ( ({...}? => ( (lv_required_11_0= 'required' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_other_12_0= 'other' ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_13= 'single' | ( (lv_multiple_14_0= 'multiple' ) ) ) ) ) ) )* ) )
             {
-            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:3897:1: ( ( ( ({...}? => ( ({...}? => (otherlv_2= 'title=\"' ( (lv_title_3_0= ruleEString ) )? otherlv_4= '\"' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'description=\"' ( (lv_description_6_0= ruleEString ) )? otherlv_7= '\"' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'id=\"' ( (lv_name_9_0= RULE_ID ) )? otherlv_10= '\"' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_11= 'depends-on=\"' ( (lv_dependsOn_12_0= ruleDEP_ID ) )? otherlv_13= '\"' ) ) ) ) | ({...}? => ( ({...}? => ( (lv_required_14_0= 'required' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_other_15_0= 'other' ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_16= 'single' | ( (lv_multiple_17_0= 'multiple' ) ) ) ) ) ) )* ) )
-            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:3898:2: ( ( ({...}? => ( ({...}? => (otherlv_2= 'title=\"' ( (lv_title_3_0= ruleEString ) )? otherlv_4= '\"' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'description=\"' ( (lv_description_6_0= ruleEString ) )? otherlv_7= '\"' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'id=\"' ( (lv_name_9_0= RULE_ID ) )? otherlv_10= '\"' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_11= 'depends-on=\"' ( (lv_dependsOn_12_0= ruleDEP_ID ) )? otherlv_13= '\"' ) ) ) ) | ({...}? => ( ({...}? => ( (lv_required_14_0= 'required' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_other_15_0= 'other' ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_16= 'single' | ( (lv_multiple_17_0= 'multiple' ) ) ) ) ) ) )* )
+            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:3897:1: ( ( ( ({...}? => ( ({...}? => (otherlv_2= 'title=\"' ( (lv_title_3_0= ruleEString ) )? otherlv_4= '\"' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'description=\"' ( (lv_description_6_0= ruleEString ) )? otherlv_7= '\"' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'depends-on=\"' ( (lv_dependsOn_9_0= ruleDEP_ID ) )? otherlv_10= '\"' ) ) ) ) | ({...}? => ( ({...}? => ( (lv_required_11_0= 'required' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_other_12_0= 'other' ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_13= 'single' | ( (lv_multiple_14_0= 'multiple' ) ) ) ) ) ) )* ) )
+            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:3898:2: ( ( ({...}? => ( ({...}? => (otherlv_2= 'title=\"' ( (lv_title_3_0= ruleEString ) )? otherlv_4= '\"' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'description=\"' ( (lv_description_6_0= ruleEString ) )? otherlv_7= '\"' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'depends-on=\"' ( (lv_dependsOn_9_0= ruleDEP_ID ) )? otherlv_10= '\"' ) ) ) ) | ({...}? => ( ({...}? => ( (lv_required_11_0= 'required' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_other_12_0= 'other' ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_13= 'single' | ( (lv_multiple_14_0= 'multiple' ) ) ) ) ) ) )* )
             {
              
             	  getUnorderedGroupHelper().enter(grammarAccess.getTableAccess().getUnorderedGroup_1());
             	
-            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:3901:2: ( ( ({...}? => ( ({...}? => (otherlv_2= 'title=\"' ( (lv_title_3_0= ruleEString ) )? otherlv_4= '\"' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'description=\"' ( (lv_description_6_0= ruleEString ) )? otherlv_7= '\"' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'id=\"' ( (lv_name_9_0= RULE_ID ) )? otherlv_10= '\"' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_11= 'depends-on=\"' ( (lv_dependsOn_12_0= ruleDEP_ID ) )? otherlv_13= '\"' ) ) ) ) | ({...}? => ( ({...}? => ( (lv_required_14_0= 'required' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_other_15_0= 'other' ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_16= 'single' | ( (lv_multiple_17_0= 'multiple' ) ) ) ) ) ) )* )
-            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:3902:3: ( ({...}? => ( ({...}? => (otherlv_2= 'title=\"' ( (lv_title_3_0= ruleEString ) )? otherlv_4= '\"' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'description=\"' ( (lv_description_6_0= ruleEString ) )? otherlv_7= '\"' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'id=\"' ( (lv_name_9_0= RULE_ID ) )? otherlv_10= '\"' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_11= 'depends-on=\"' ( (lv_dependsOn_12_0= ruleDEP_ID ) )? otherlv_13= '\"' ) ) ) ) | ({...}? => ( ({...}? => ( (lv_required_14_0= 'required' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_other_15_0= 'other' ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_16= 'single' | ( (lv_multiple_17_0= 'multiple' ) ) ) ) ) ) )*
+            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:3901:2: ( ( ({...}? => ( ({...}? => (otherlv_2= 'title=\"' ( (lv_title_3_0= ruleEString ) )? otherlv_4= '\"' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'description=\"' ( (lv_description_6_0= ruleEString ) )? otherlv_7= '\"' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'depends-on=\"' ( (lv_dependsOn_9_0= ruleDEP_ID ) )? otherlv_10= '\"' ) ) ) ) | ({...}? => ( ({...}? => ( (lv_required_11_0= 'required' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_other_12_0= 'other' ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_13= 'single' | ( (lv_multiple_14_0= 'multiple' ) ) ) ) ) ) )* )
+            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:3902:3: ( ({...}? => ( ({...}? => (otherlv_2= 'title=\"' ( (lv_title_3_0= ruleEString ) )? otherlv_4= '\"' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'description=\"' ( (lv_description_6_0= ruleEString ) )? otherlv_7= '\"' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'depends-on=\"' ( (lv_dependsOn_9_0= ruleDEP_ID ) )? otherlv_10= '\"' ) ) ) ) | ({...}? => ( ({...}? => ( (lv_required_11_0= 'required' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_other_12_0= 'other' ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_13= 'single' | ( (lv_multiple_14_0= 'multiple' ) ) ) ) ) ) )*
             {
-            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:3902:3: ( ({...}? => ( ({...}? => (otherlv_2= 'title=\"' ( (lv_title_3_0= ruleEString ) )? otherlv_4= '\"' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'description=\"' ( (lv_description_6_0= ruleEString ) )? otherlv_7= '\"' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'id=\"' ( (lv_name_9_0= RULE_ID ) )? otherlv_10= '\"' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_11= 'depends-on=\"' ( (lv_dependsOn_12_0= ruleDEP_ID ) )? otherlv_13= '\"' ) ) ) ) | ({...}? => ( ({...}? => ( (lv_required_14_0= 'required' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_other_15_0= 'other' ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_16= 'single' | ( (lv_multiple_17_0= 'multiple' ) ) ) ) ) ) )*
-            loop74:
+            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:3902:3: ( ({...}? => ( ({...}? => (otherlv_2= 'title=\"' ( (lv_title_3_0= ruleEString ) )? otherlv_4= '\"' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_5= 'description=\"' ( (lv_description_6_0= ruleEString ) )? otherlv_7= '\"' ) ) ) ) | ({...}? => ( ({...}? => (otherlv_8= 'depends-on=\"' ( (lv_dependsOn_9_0= ruleDEP_ID ) )? otherlv_10= '\"' ) ) ) ) | ({...}? => ( ({...}? => ( (lv_required_11_0= 'required' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_other_12_0= 'other' ) ) ) ) ) | ({...}? => ( ({...}? => (otherlv_13= 'single' | ( (lv_multiple_14_0= 'multiple' ) ) ) ) ) ) )*
+            loop73:
             do {
-                int alt74=8;
-                int LA74_0 = input.LA(1);
+                int alt73=7;
+                int LA73_0 = input.LA(1);
 
-                if ( LA74_0 ==13 && getUnorderedGroupHelper().canSelect(grammarAccess.getTableAccess().getUnorderedGroup_1(), 0) ) {
-                    alt74=1;
+                if ( LA73_0 ==13 && getUnorderedGroupHelper().canSelect(grammarAccess.getTableAccess().getUnorderedGroup_1(), 0) ) {
+                    alt73=1;
                 }
-                else if ( LA74_0 ==15 && getUnorderedGroupHelper().canSelect(grammarAccess.getTableAccess().getUnorderedGroup_1(), 1) ) {
-                    alt74=2;
+                else if ( LA73_0 ==15 && getUnorderedGroupHelper().canSelect(grammarAccess.getTableAccess().getUnorderedGroup_1(), 1) ) {
+                    alt73=2;
                 }
-                else if ( LA74_0 ==20 && getUnorderedGroupHelper().canSelect(grammarAccess.getTableAccess().getUnorderedGroup_1(), 2) ) {
-                    alt74=3;
+                else if ( LA73_0 ==25 && getUnorderedGroupHelper().canSelect(grammarAccess.getTableAccess().getUnorderedGroup_1(), 2) ) {
+                    alt73=3;
                 }
-                else if ( LA74_0 ==25 && getUnorderedGroupHelper().canSelect(grammarAccess.getTableAccess().getUnorderedGroup_1(), 3) ) {
-                    alt74=4;
+                else if ( LA73_0 ==26 && getUnorderedGroupHelper().canSelect(grammarAccess.getTableAccess().getUnorderedGroup_1(), 3) ) {
+                    alt73=4;
                 }
-                else if ( LA74_0 ==26 && getUnorderedGroupHelper().canSelect(grammarAccess.getTableAccess().getUnorderedGroup_1(), 4) ) {
-                    alt74=5;
+                else if ( LA73_0 ==50 && getUnorderedGroupHelper().canSelect(grammarAccess.getTableAccess().getUnorderedGroup_1(), 4) ) {
+                    alt73=5;
                 }
-                else if ( LA74_0 ==50 && getUnorderedGroupHelper().canSelect(grammarAccess.getTableAccess().getUnorderedGroup_1(), 5) ) {
-                    alt74=6;
-                }
-                else if ( (LA74_0==30||LA74_0==57) && getUnorderedGroupHelper().canSelect(grammarAccess.getTableAccess().getUnorderedGroup_1(), 6) ) {
-                    alt74=7;
+                else if ( (LA73_0==30||LA73_0==57) && getUnorderedGroupHelper().canSelect(grammarAccess.getTableAccess().getUnorderedGroup_1(), 5) ) {
+                    alt73=6;
                 }
 
 
-                switch (alt74) {
+                switch (alt73) {
             	case 1 :
             	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:3904:4: ({...}? => ( ({...}? => (otherlv_2= 'title=\"' ( (lv_title_3_0= ruleEString ) )? otherlv_4= '\"' ) ) ) )
             	    {
@@ -9950,60 +9944,65 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
             	    }
             	    break;
             	case 3 :
-            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:3980:4: ({...}? => ( ({...}? => (otherlv_8= 'id=\"' ( (lv_name_9_0= RULE_ID ) )? otherlv_10= '\"' ) ) ) )
+            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:3980:4: ({...}? => ( ({...}? => (otherlv_8= 'depends-on=\"' ( (lv_dependsOn_9_0= ruleDEP_ID ) )? otherlv_10= '\"' ) ) ) )
             	    {
-            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:3980:4: ({...}? => ( ({...}? => (otherlv_8= 'id=\"' ( (lv_name_9_0= RULE_ID ) )? otherlv_10= '\"' ) ) ) )
-            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:3981:5: {...}? => ( ({...}? => (otherlv_8= 'id=\"' ( (lv_name_9_0= RULE_ID ) )? otherlv_10= '\"' ) ) )
+            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:3980:4: ({...}? => ( ({...}? => (otherlv_8= 'depends-on=\"' ( (lv_dependsOn_9_0= ruleDEP_ID ) )? otherlv_10= '\"' ) ) ) )
+            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:3981:5: {...}? => ( ({...}? => (otherlv_8= 'depends-on=\"' ( (lv_dependsOn_9_0= ruleDEP_ID ) )? otherlv_10= '\"' ) ) )
             	    {
             	    if ( ! getUnorderedGroupHelper().canSelect(grammarAccess.getTableAccess().getUnorderedGroup_1(), 2) ) {
             	        throw new FailedPredicateException(input, "ruleTable", "getUnorderedGroupHelper().canSelect(grammarAccess.getTableAccess().getUnorderedGroup_1(), 2)");
             	    }
-            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:3981:102: ( ({...}? => (otherlv_8= 'id=\"' ( (lv_name_9_0= RULE_ID ) )? otherlv_10= '\"' ) ) )
-            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:3982:6: ({...}? => (otherlv_8= 'id=\"' ( (lv_name_9_0= RULE_ID ) )? otherlv_10= '\"' ) )
+            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:3981:102: ( ({...}? => (otherlv_8= 'depends-on=\"' ( (lv_dependsOn_9_0= ruleDEP_ID ) )? otherlv_10= '\"' ) ) )
+            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:3982:6: ({...}? => (otherlv_8= 'depends-on=\"' ( (lv_dependsOn_9_0= ruleDEP_ID ) )? otherlv_10= '\"' ) )
             	    {
             	     
             	    	 				  getUnorderedGroupHelper().select(grammarAccess.getTableAccess().getUnorderedGroup_1(), 2);
             	    	 				
-            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:3985:6: ({...}? => (otherlv_8= 'id=\"' ( (lv_name_9_0= RULE_ID ) )? otherlv_10= '\"' ) )
-            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:3985:7: {...}? => (otherlv_8= 'id=\"' ( (lv_name_9_0= RULE_ID ) )? otherlv_10= '\"' )
+            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:3985:6: ({...}? => (otherlv_8= 'depends-on=\"' ( (lv_dependsOn_9_0= ruleDEP_ID ) )? otherlv_10= '\"' ) )
+            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:3985:7: {...}? => (otherlv_8= 'depends-on=\"' ( (lv_dependsOn_9_0= ruleDEP_ID ) )? otherlv_10= '\"' )
             	    {
             	    if ( !((true)) ) {
             	        throw new FailedPredicateException(input, "ruleTable", "true");
             	    }
-            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:3985:16: (otherlv_8= 'id=\"' ( (lv_name_9_0= RULE_ID ) )? otherlv_10= '\"' )
-            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:3985:18: otherlv_8= 'id=\"' ( (lv_name_9_0= RULE_ID ) )? otherlv_10= '\"'
+            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:3985:16: (otherlv_8= 'depends-on=\"' ( (lv_dependsOn_9_0= ruleDEP_ID ) )? otherlv_10= '\"' )
+            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:3985:18: otherlv_8= 'depends-on=\"' ( (lv_dependsOn_9_0= ruleDEP_ID ) )? otherlv_10= '\"'
             	    {
-            	    otherlv_8=(Token)match(input,20,FollowSets000.FOLLOW_20_in_ruleTable10737); 
+            	    otherlv_8=(Token)match(input,25,FollowSets000.FOLLOW_25_in_ruleTable10737); 
 
-            	        	newLeafNode(otherlv_8, grammarAccess.getTableAccess().getIdKeyword_1_2_0());
+            	        	newLeafNode(otherlv_8, grammarAccess.getTableAccess().getDependsOnKeyword_1_2_0());
             	        
-            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:3989:1: ( (lv_name_9_0= RULE_ID ) )?
+            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:3989:1: ( (lv_dependsOn_9_0= ruleDEP_ID ) )?
             	    int alt71=2;
             	    int LA71_0 = input.LA(1);
 
-            	    if ( (LA71_0==RULE_ID) ) {
+            	    if ( (LA71_0==RULE_ID||LA71_0==RULE_FQN) ) {
             	        alt71=1;
             	    }
             	    switch (alt71) {
             	        case 1 :
-            	            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:3990:1: (lv_name_9_0= RULE_ID )
+            	            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:3990:1: (lv_dependsOn_9_0= ruleDEP_ID )
             	            {
-            	            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:3990:1: (lv_name_9_0= RULE_ID )
-            	            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:3991:3: lv_name_9_0= RULE_ID
+            	            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:3990:1: (lv_dependsOn_9_0= ruleDEP_ID )
+            	            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:3991:3: lv_dependsOn_9_0= ruleDEP_ID
             	            {
-            	            lv_name_9_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleTable10754); 
+            	             
+            	            	        newCompositeNode(grammarAccess.getTableAccess().getDependsOnDEP_IDParserRuleCall_1_2_1_0()); 
+            	            	    
+            	            pushFollow(FollowSets000.FOLLOW_ruleDEP_ID_in_ruleTable10758);
+            	            lv_dependsOn_9_0=ruleDEP_ID();
 
-            	            			newLeafNode(lv_name_9_0, grammarAccess.getTableAccess().getNameIDTerminalRuleCall_1_2_1_0()); 
-            	            		
+            	            state._fsp--;
+
 
             	            	        if (current==null) {
-            	            	            current = createModelElement(grammarAccess.getTableRule());
+            	            	            current = createModelElementForParent(grammarAccess.getTableRule());
             	            	        }
-            	                   		setWithLastConsumed(
+            	                   		set(
             	                   			current, 
-            	                   			"name",
-            	                    		lv_name_9_0, 
-            	                    		"ID");
+            	                   			"dependsOn",
+            	                    		lv_dependsOn_9_0, 
+            	                    		"DEP_ID");
+            	            	        afterParserOrEnumRuleCall();
             	            	    
 
             	            }
@@ -10014,7 +10013,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    otherlv_10=(Token)match(input,14,FollowSets000.FOLLOW_14_in_ruleTable10772); 
+            	    otherlv_10=(Token)match(input,14,FollowSets000.FOLLOW_14_in_ruleTable10771); 
 
             	        	newLeafNode(otherlv_10, grammarAccess.getTableAccess().getQuotationMarkKeyword_1_2_2());
             	        
@@ -10037,127 +10036,35 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
             	    }
             	    break;
             	case 4 :
-            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4018:4: ({...}? => ( ({...}? => (otherlv_11= 'depends-on=\"' ( (lv_dependsOn_12_0= ruleDEP_ID ) )? otherlv_13= '\"' ) ) ) )
+            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4018:4: ({...}? => ( ({...}? => ( (lv_required_11_0= 'required' ) ) ) ) )
             	    {
-            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4018:4: ({...}? => ( ({...}? => (otherlv_11= 'depends-on=\"' ( (lv_dependsOn_12_0= ruleDEP_ID ) )? otherlv_13= '\"' ) ) ) )
-            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4019:5: {...}? => ( ({...}? => (otherlv_11= 'depends-on=\"' ( (lv_dependsOn_12_0= ruleDEP_ID ) )? otherlv_13= '\"' ) ) )
+            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4018:4: ({...}? => ( ({...}? => ( (lv_required_11_0= 'required' ) ) ) ) )
+            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4019:5: {...}? => ( ({...}? => ( (lv_required_11_0= 'required' ) ) ) )
             	    {
             	    if ( ! getUnorderedGroupHelper().canSelect(grammarAccess.getTableAccess().getUnorderedGroup_1(), 3) ) {
             	        throw new FailedPredicateException(input, "ruleTable", "getUnorderedGroupHelper().canSelect(grammarAccess.getTableAccess().getUnorderedGroup_1(), 3)");
             	    }
-            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4019:102: ( ({...}? => (otherlv_11= 'depends-on=\"' ( (lv_dependsOn_12_0= ruleDEP_ID ) )? otherlv_13= '\"' ) ) )
-            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4020:6: ({...}? => (otherlv_11= 'depends-on=\"' ( (lv_dependsOn_12_0= ruleDEP_ID ) )? otherlv_13= '\"' ) )
+            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4019:102: ( ({...}? => ( (lv_required_11_0= 'required' ) ) ) )
+            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4020:6: ({...}? => ( (lv_required_11_0= 'required' ) ) )
             	    {
             	     
             	    	 				  getUnorderedGroupHelper().select(grammarAccess.getTableAccess().getUnorderedGroup_1(), 3);
             	    	 				
-            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4023:6: ({...}? => (otherlv_11= 'depends-on=\"' ( (lv_dependsOn_12_0= ruleDEP_ID ) )? otherlv_13= '\"' ) )
-            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4023:7: {...}? => (otherlv_11= 'depends-on=\"' ( (lv_dependsOn_12_0= ruleDEP_ID ) )? otherlv_13= '\"' )
+            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4023:6: ({...}? => ( (lv_required_11_0= 'required' ) ) )
+            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4023:7: {...}? => ( (lv_required_11_0= 'required' ) )
             	    {
             	    if ( !((true)) ) {
             	        throw new FailedPredicateException(input, "ruleTable", "true");
             	    }
-            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4023:16: (otherlv_11= 'depends-on=\"' ( (lv_dependsOn_12_0= ruleDEP_ID ) )? otherlv_13= '\"' )
-            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4023:18: otherlv_11= 'depends-on=\"' ( (lv_dependsOn_12_0= ruleDEP_ID ) )? otherlv_13= '\"'
+            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4023:16: ( (lv_required_11_0= 'required' ) )
+            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4024:1: (lv_required_11_0= 'required' )
             	    {
-            	    otherlv_11=(Token)match(input,25,FollowSets000.FOLLOW_25_in_ruleTable10840); 
-
-            	        	newLeafNode(otherlv_11, grammarAccess.getTableAccess().getDependsOnKeyword_1_3_0());
-            	        
-            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4027:1: ( (lv_dependsOn_12_0= ruleDEP_ID ) )?
-            	    int alt72=2;
-            	    int LA72_0 = input.LA(1);
-
-            	    if ( (LA72_0==RULE_ID||LA72_0==RULE_FQN) ) {
-            	        alt72=1;
-            	    }
-            	    switch (alt72) {
-            	        case 1 :
-            	            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4028:1: (lv_dependsOn_12_0= ruleDEP_ID )
-            	            {
-            	            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4028:1: (lv_dependsOn_12_0= ruleDEP_ID )
-            	            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4029:3: lv_dependsOn_12_0= ruleDEP_ID
-            	            {
-            	             
-            	            	        newCompositeNode(grammarAccess.getTableAccess().getDependsOnDEP_IDParserRuleCall_1_3_1_0()); 
-            	            	    
-            	            pushFollow(FollowSets000.FOLLOW_ruleDEP_ID_in_ruleTable10861);
-            	            lv_dependsOn_12_0=ruleDEP_ID();
-
-            	            state._fsp--;
-
-
-            	            	        if (current==null) {
-            	            	            current = createModelElementForParent(grammarAccess.getTableRule());
-            	            	        }
-            	                   		set(
-            	                   			current, 
-            	                   			"dependsOn",
-            	                    		lv_dependsOn_12_0, 
-            	                    		"DEP_ID");
-            	            	        afterParserOrEnumRuleCall();
-            	            	    
-
-            	            }
-
-
-            	            }
-            	            break;
-
-            	    }
-
-            	    otherlv_13=(Token)match(input,14,FollowSets000.FOLLOW_14_in_ruleTable10874); 
-
-            	        	newLeafNode(otherlv_13, grammarAccess.getTableAccess().getQuotationMarkKeyword_1_3_2());
-            	        
-
-            	    }
-
-
-            	    }
-
-            	     
-            	    	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getTableAccess().getUnorderedGroup_1());
-            	    	 				
-
-            	    }
-
-
-            	    }
-
-
-            	    }
-            	    break;
-            	case 5 :
-            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4056:4: ({...}? => ( ({...}? => ( (lv_required_14_0= 'required' ) ) ) ) )
+            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4024:1: (lv_required_11_0= 'required' )
+            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4025:3: lv_required_11_0= 'required'
             	    {
-            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4056:4: ({...}? => ( ({...}? => ( (lv_required_14_0= 'required' ) ) ) ) )
-            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4057:5: {...}? => ( ({...}? => ( (lv_required_14_0= 'required' ) ) ) )
-            	    {
-            	    if ( ! getUnorderedGroupHelper().canSelect(grammarAccess.getTableAccess().getUnorderedGroup_1(), 4) ) {
-            	        throw new FailedPredicateException(input, "ruleTable", "getUnorderedGroupHelper().canSelect(grammarAccess.getTableAccess().getUnorderedGroup_1(), 4)");
-            	    }
-            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4057:102: ( ({...}? => ( (lv_required_14_0= 'required' ) ) ) )
-            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4058:6: ({...}? => ( (lv_required_14_0= 'required' ) ) )
-            	    {
-            	     
-            	    	 				  getUnorderedGroupHelper().select(grammarAccess.getTableAccess().getUnorderedGroup_1(), 4);
-            	    	 				
-            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4061:6: ({...}? => ( (lv_required_14_0= 'required' ) ) )
-            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4061:7: {...}? => ( (lv_required_14_0= 'required' ) )
-            	    {
-            	    if ( !((true)) ) {
-            	        throw new FailedPredicateException(input, "ruleTable", "true");
-            	    }
-            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4061:16: ( (lv_required_14_0= 'required' ) )
-            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4062:1: (lv_required_14_0= 'required' )
-            	    {
-            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4062:1: (lv_required_14_0= 'required' )
-            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4063:3: lv_required_14_0= 'required'
-            	    {
-            	    lv_required_14_0=(Token)match(input,26,FollowSets000.FOLLOW_26_in_ruleTable10947); 
+            	    lv_required_11_0=(Token)match(input,26,FollowSets000.FOLLOW_26_in_ruleTable10844); 
 
-            	            newLeafNode(lv_required_14_0, grammarAccess.getTableAccess().getRequiredRequiredKeyword_1_4_0());
+            	            newLeafNode(lv_required_11_0, grammarAccess.getTableAccess().getRequiredRequiredKeyword_1_3_0());
             	        
 
             	    	        if (current==null) {
@@ -10186,36 +10093,36 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             	    }
             	    break;
-            	case 6 :
-            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4083:4: ({...}? => ( ({...}? => ( (lv_other_15_0= 'other' ) ) ) ) )
+            	case 5 :
+            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4045:4: ({...}? => ( ({...}? => ( (lv_other_12_0= 'other' ) ) ) ) )
             	    {
-            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4083:4: ({...}? => ( ({...}? => ( (lv_other_15_0= 'other' ) ) ) ) )
-            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4084:5: {...}? => ( ({...}? => ( (lv_other_15_0= 'other' ) ) ) )
+            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4045:4: ({...}? => ( ({...}? => ( (lv_other_12_0= 'other' ) ) ) ) )
+            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4046:5: {...}? => ( ({...}? => ( (lv_other_12_0= 'other' ) ) ) )
             	    {
-            	    if ( ! getUnorderedGroupHelper().canSelect(grammarAccess.getTableAccess().getUnorderedGroup_1(), 5) ) {
-            	        throw new FailedPredicateException(input, "ruleTable", "getUnorderedGroupHelper().canSelect(grammarAccess.getTableAccess().getUnorderedGroup_1(), 5)");
+            	    if ( ! getUnorderedGroupHelper().canSelect(grammarAccess.getTableAccess().getUnorderedGroup_1(), 4) ) {
+            	        throw new FailedPredicateException(input, "ruleTable", "getUnorderedGroupHelper().canSelect(grammarAccess.getTableAccess().getUnorderedGroup_1(), 4)");
             	    }
-            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4084:102: ( ({...}? => ( (lv_other_15_0= 'other' ) ) ) )
-            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4085:6: ({...}? => ( (lv_other_15_0= 'other' ) ) )
+            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4046:102: ( ({...}? => ( (lv_other_12_0= 'other' ) ) ) )
+            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4047:6: ({...}? => ( (lv_other_12_0= 'other' ) ) )
             	    {
             	     
-            	    	 				  getUnorderedGroupHelper().select(grammarAccess.getTableAccess().getUnorderedGroup_1(), 5);
+            	    	 				  getUnorderedGroupHelper().select(grammarAccess.getTableAccess().getUnorderedGroup_1(), 4);
             	    	 				
-            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4088:6: ({...}? => ( (lv_other_15_0= 'other' ) ) )
-            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4088:7: {...}? => ( (lv_other_15_0= 'other' ) )
+            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4050:6: ({...}? => ( (lv_other_12_0= 'other' ) ) )
+            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4050:7: {...}? => ( (lv_other_12_0= 'other' ) )
             	    {
             	    if ( !((true)) ) {
             	        throw new FailedPredicateException(input, "ruleTable", "true");
             	    }
-            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4088:16: ( (lv_other_15_0= 'other' ) )
-            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4089:1: (lv_other_15_0= 'other' )
+            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4050:16: ( (lv_other_12_0= 'other' ) )
+            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4051:1: (lv_other_12_0= 'other' )
             	    {
-            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4089:1: (lv_other_15_0= 'other' )
-            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4090:3: lv_other_15_0= 'other'
+            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4051:1: (lv_other_12_0= 'other' )
+            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4052:3: lv_other_12_0= 'other'
             	    {
-            	    lv_other_15_0=(Token)match(input,50,FollowSets000.FOLLOW_50_in_ruleTable11032); 
+            	    lv_other_12_0=(Token)match(input,50,FollowSets000.FOLLOW_50_in_ruleTable10929); 
 
-            	            newLeafNode(lv_other_15_0, grammarAccess.getTableAccess().getOtherOtherKeyword_1_5_0());
+            	            newLeafNode(lv_other_12_0, grammarAccess.getTableAccess().getOtherOtherKeyword_1_4_0());
             	        
 
             	    	        if (current==null) {
@@ -10244,66 +10151,66 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             	    }
             	    break;
-            	case 7 :
-            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4110:4: ({...}? => ( ({...}? => (otherlv_16= 'single' | ( (lv_multiple_17_0= 'multiple' ) ) ) ) ) )
+            	case 6 :
+            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4072:4: ({...}? => ( ({...}? => (otherlv_13= 'single' | ( (lv_multiple_14_0= 'multiple' ) ) ) ) ) )
             	    {
-            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4110:4: ({...}? => ( ({...}? => (otherlv_16= 'single' | ( (lv_multiple_17_0= 'multiple' ) ) ) ) ) )
-            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4111:5: {...}? => ( ({...}? => (otherlv_16= 'single' | ( (lv_multiple_17_0= 'multiple' ) ) ) ) )
+            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4072:4: ({...}? => ( ({...}? => (otherlv_13= 'single' | ( (lv_multiple_14_0= 'multiple' ) ) ) ) ) )
+            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4073:5: {...}? => ( ({...}? => (otherlv_13= 'single' | ( (lv_multiple_14_0= 'multiple' ) ) ) ) )
             	    {
-            	    if ( ! getUnorderedGroupHelper().canSelect(grammarAccess.getTableAccess().getUnorderedGroup_1(), 6) ) {
-            	        throw new FailedPredicateException(input, "ruleTable", "getUnorderedGroupHelper().canSelect(grammarAccess.getTableAccess().getUnorderedGroup_1(), 6)");
+            	    if ( ! getUnorderedGroupHelper().canSelect(grammarAccess.getTableAccess().getUnorderedGroup_1(), 5) ) {
+            	        throw new FailedPredicateException(input, "ruleTable", "getUnorderedGroupHelper().canSelect(grammarAccess.getTableAccess().getUnorderedGroup_1(), 5)");
             	    }
-            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4111:102: ( ({...}? => (otherlv_16= 'single' | ( (lv_multiple_17_0= 'multiple' ) ) ) ) )
-            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4112:6: ({...}? => (otherlv_16= 'single' | ( (lv_multiple_17_0= 'multiple' ) ) ) )
+            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4073:102: ( ({...}? => (otherlv_13= 'single' | ( (lv_multiple_14_0= 'multiple' ) ) ) ) )
+            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4074:6: ({...}? => (otherlv_13= 'single' | ( (lv_multiple_14_0= 'multiple' ) ) ) )
             	    {
             	     
-            	    	 				  getUnorderedGroupHelper().select(grammarAccess.getTableAccess().getUnorderedGroup_1(), 6);
+            	    	 				  getUnorderedGroupHelper().select(grammarAccess.getTableAccess().getUnorderedGroup_1(), 5);
             	    	 				
-            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4115:6: ({...}? => (otherlv_16= 'single' | ( (lv_multiple_17_0= 'multiple' ) ) ) )
-            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4115:7: {...}? => (otherlv_16= 'single' | ( (lv_multiple_17_0= 'multiple' ) ) )
+            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4077:6: ({...}? => (otherlv_13= 'single' | ( (lv_multiple_14_0= 'multiple' ) ) ) )
+            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4077:7: {...}? => (otherlv_13= 'single' | ( (lv_multiple_14_0= 'multiple' ) ) )
             	    {
             	    if ( !((true)) ) {
             	        throw new FailedPredicateException(input, "ruleTable", "true");
             	    }
-            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4115:16: (otherlv_16= 'single' | ( (lv_multiple_17_0= 'multiple' ) ) )
-            	    int alt73=2;
-            	    int LA73_0 = input.LA(1);
+            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4077:16: (otherlv_13= 'single' | ( (lv_multiple_14_0= 'multiple' ) ) )
+            	    int alt72=2;
+            	    int LA72_0 = input.LA(1);
 
-            	    if ( (LA73_0==30) ) {
-            	        alt73=1;
+            	    if ( (LA72_0==30) ) {
+            	        alt72=1;
             	    }
-            	    else if ( (LA73_0==57) ) {
-            	        alt73=2;
+            	    else if ( (LA72_0==57) ) {
+            	        alt72=2;
             	    }
             	    else {
             	        NoViableAltException nvae =
-            	            new NoViableAltException("", 73, 0, input);
+            	            new NoViableAltException("", 72, 0, input);
 
             	        throw nvae;
             	    }
-            	    switch (alt73) {
+            	    switch (alt72) {
             	        case 1 :
-            	            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4115:18: otherlv_16= 'single'
+            	            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4077:18: otherlv_13= 'single'
             	            {
-            	            otherlv_16=(Token)match(input,30,FollowSets000.FOLLOW_30_in_ruleTable11112); 
+            	            otherlv_13=(Token)match(input,30,FollowSets000.FOLLOW_30_in_ruleTable11009); 
 
-            	                	newLeafNode(otherlv_16, grammarAccess.getTableAccess().getSingleKeyword_1_6_0());
+            	                	newLeafNode(otherlv_13, grammarAccess.getTableAccess().getSingleKeyword_1_5_0());
             	                
 
             	            }
             	            break;
             	        case 2 :
-            	            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4120:6: ( (lv_multiple_17_0= 'multiple' ) )
+            	            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4082:6: ( (lv_multiple_14_0= 'multiple' ) )
             	            {
-            	            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4120:6: ( (lv_multiple_17_0= 'multiple' ) )
-            	            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4121:1: (lv_multiple_17_0= 'multiple' )
+            	            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4082:6: ( (lv_multiple_14_0= 'multiple' ) )
+            	            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4083:1: (lv_multiple_14_0= 'multiple' )
             	            {
-            	            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4121:1: (lv_multiple_17_0= 'multiple' )
-            	            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4122:3: lv_multiple_17_0= 'multiple'
+            	            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4083:1: (lv_multiple_14_0= 'multiple' )
+            	            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4084:3: lv_multiple_14_0= 'multiple'
             	            {
-            	            lv_multiple_17_0=(Token)match(input,57,FollowSets000.FOLLOW_57_in_ruleTable11136); 
+            	            lv_multiple_14_0=(Token)match(input,57,FollowSets000.FOLLOW_57_in_ruleTable11033); 
 
-            	                    newLeafNode(lv_multiple_17_0, grammarAccess.getTableAccess().getMultipleMultipleKeyword_1_6_1_0());
+            	                    newLeafNode(lv_multiple_14_0, grammarAccess.getTableAccess().getMultipleMultipleKeyword_1_5_1_0());
             	                
 
             	            	        if (current==null) {
@@ -10340,7 +10247,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop74;
+            	    break loop73;
                 }
             } while (true);
 
@@ -10356,61 +10263,157 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_18=(Token)match(input,17,FollowSets000.FOLLOW_17_in_ruleTable11202); 
+            otherlv_15=(Token)match(input,17,FollowSets000.FOLLOW_17_in_ruleTable11099); 
 
-                	newLeafNode(otherlv_18, grammarAccess.getTableAccess().getGreaterThanSignKeyword_2());
+                	newLeafNode(otherlv_15, grammarAccess.getTableAccess().getGreaterThanSignKeyword_2());
                 
-            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4153:1: ( ( ( ( ({...}? => ( ({...}? => ( (lv_options_20_0= ruleOption ) ) )+ ) ) | ({...}? => ( ({...}? => ( (lv_questions_21_0= ruleTableQuestion ) ) )+ ) ) )+ {...}?) ) )
-            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4155:1: ( ( ( ({...}? => ( ({...}? => ( (lv_options_20_0= ruleOption ) ) )+ ) ) | ({...}? => ( ({...}? => ( (lv_questions_21_0= ruleTableQuestion ) ) )+ ) ) )+ {...}?) )
+            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4115:1: ( ( ( ( ({...}? => ( ({...}? => ( (lv_options_17_0= ruleOption ) ) )+ ) ) | ({...}? => ( ({...}? => ( (lv_questions_18_0= ruleTableQuestion ) ) )+ ) ) )+ {...}?) ) )
+            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4117:1: ( ( ( ({...}? => ( ({...}? => ( (lv_options_17_0= ruleOption ) ) )+ ) ) | ({...}? => ( ({...}? => ( (lv_questions_18_0= ruleTableQuestion ) ) )+ ) ) )+ {...}?) )
             {
-            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4155:1: ( ( ( ({...}? => ( ({...}? => ( (lv_options_20_0= ruleOption ) ) )+ ) ) | ({...}? => ( ({...}? => ( (lv_questions_21_0= ruleTableQuestion ) ) )+ ) ) )+ {...}?) )
-            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4156:2: ( ( ({...}? => ( ({...}? => ( (lv_options_20_0= ruleOption ) ) )+ ) ) | ({...}? => ( ({...}? => ( (lv_questions_21_0= ruleTableQuestion ) ) )+ ) ) )+ {...}?)
+            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4117:1: ( ( ( ({...}? => ( ({...}? => ( (lv_options_17_0= ruleOption ) ) )+ ) ) | ({...}? => ( ({...}? => ( (lv_questions_18_0= ruleTableQuestion ) ) )+ ) ) )+ {...}?) )
+            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4118:2: ( ( ({...}? => ( ({...}? => ( (lv_options_17_0= ruleOption ) ) )+ ) ) | ({...}? => ( ({...}? => ( (lv_questions_18_0= ruleTableQuestion ) ) )+ ) ) )+ {...}?)
             {
              
             	  getUnorderedGroupHelper().enter(grammarAccess.getTableAccess().getUnorderedGroup_3());
             	
-            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4159:2: ( ( ({...}? => ( ({...}? => ( (lv_options_20_0= ruleOption ) ) )+ ) ) | ({...}? => ( ({...}? => ( (lv_questions_21_0= ruleTableQuestion ) ) )+ ) ) )+ {...}?)
-            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4160:3: ( ({...}? => ( ({...}? => ( (lv_options_20_0= ruleOption ) ) )+ ) ) | ({...}? => ( ({...}? => ( (lv_questions_21_0= ruleTableQuestion ) ) )+ ) ) )+ {...}?
+            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4121:2: ( ( ({...}? => ( ({...}? => ( (lv_options_17_0= ruleOption ) ) )+ ) ) | ({...}? => ( ({...}? => ( (lv_questions_18_0= ruleTableQuestion ) ) )+ ) ) )+ {...}?)
+            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4122:3: ( ({...}? => ( ({...}? => ( (lv_options_17_0= ruleOption ) ) )+ ) ) | ({...}? => ( ({...}? => ( (lv_questions_18_0= ruleTableQuestion ) ) )+ ) ) )+ {...}?
             {
-            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4160:3: ( ({...}? => ( ({...}? => ( (lv_options_20_0= ruleOption ) ) )+ ) ) | ({...}? => ( ({...}? => ( (lv_questions_21_0= ruleTableQuestion ) ) )+ ) ) )+
-            int cnt77=0;
-            loop77:
+            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4122:3: ( ({...}? => ( ({...}? => ( (lv_options_17_0= ruleOption ) ) )+ ) ) | ({...}? => ( ({...}? => ( (lv_questions_18_0= ruleTableQuestion ) ) )+ ) ) )+
+            int cnt76=0;
+            loop76:
             do {
-                int alt77=3;
-                alt77 = dfa77.predict(input);
-                switch (alt77) {
+                int alt76=3;
+                alt76 = dfa76.predict(input);
+                switch (alt76) {
             	case 1 :
-            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4162:4: ({...}? => ( ({...}? => ( (lv_options_20_0= ruleOption ) ) )+ ) )
+            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4124:4: ({...}? => ( ({...}? => ( (lv_options_17_0= ruleOption ) ) )+ ) )
             	    {
-            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4162:4: ({...}? => ( ({...}? => ( (lv_options_20_0= ruleOption ) ) )+ ) )
-            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4163:5: {...}? => ( ({...}? => ( (lv_options_20_0= ruleOption ) ) )+ )
+            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4124:4: ({...}? => ( ({...}? => ( (lv_options_17_0= ruleOption ) ) )+ ) )
+            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4125:5: {...}? => ( ({...}? => ( (lv_options_17_0= ruleOption ) ) )+ )
             	    {
             	    if ( ! getUnorderedGroupHelper().canSelect(grammarAccess.getTableAccess().getUnorderedGroup_3(), 0) ) {
             	        throw new FailedPredicateException(input, "ruleTable", "getUnorderedGroupHelper().canSelect(grammarAccess.getTableAccess().getUnorderedGroup_3(), 0)");
             	    }
-            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4163:102: ( ({...}? => ( (lv_options_20_0= ruleOption ) ) )+ )
-            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4164:6: ({...}? => ( (lv_options_20_0= ruleOption ) ) )+
+            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4125:102: ( ({...}? => ( (lv_options_17_0= ruleOption ) ) )+ )
+            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4126:6: ({...}? => ( (lv_options_17_0= ruleOption ) ) )+
             	    {
             	     
             	    	 				  getUnorderedGroupHelper().select(grammarAccess.getTableAccess().getUnorderedGroup_3(), 0);
             	    	 				
-            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4167:6: ({...}? => ( (lv_options_20_0= ruleOption ) ) )+
+            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4129:6: ({...}? => ( (lv_options_17_0= ruleOption ) ) )+
+            	    int cnt74=0;
+            	    loop74:
+            	    do {
+            	        int alt74=2;
+            	        int LA74_0 = input.LA(1);
+
+            	        if ( (LA74_0==19) ) {
+            	            int LA74_1 = input.LA(2);
+
+            	            if ( ((true)) ) {
+            	                alt74=1;
+            	            }
+
+
+            	        }
+            	        else if ( (LA74_0==22) ) {
+            	            int LA74_2 = input.LA(2);
+
+            	            if ( ((true)) ) {
+            	                alt74=1;
+            	            }
+
+
+            	        }
+
+
+            	        switch (alt74) {
+            	    	case 1 :
+            	    	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4129:7: {...}? => ( (lv_options_17_0= ruleOption ) )
+            	    	    {
+            	    	    if ( !((true)) ) {
+            	    	        throw new FailedPredicateException(input, "ruleTable", "true");
+            	    	    }
+            	    	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4129:16: ( (lv_options_17_0= ruleOption ) )
+            	    	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4130:1: (lv_options_17_0= ruleOption )
+            	    	    {
+            	    	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4130:1: (lv_options_17_0= ruleOption )
+            	    	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4131:3: lv_options_17_0= ruleOption
+            	    	    {
+            	    	     
+            	    	    	        newCompositeNode(grammarAccess.getTableAccess().getOptionsOptionParserRuleCall_3_0_0()); 
+            	    	    	    
+            	    	    pushFollow(FollowSets000.FOLLOW_ruleOption_in_ruleTable11165);
+            	    	    lv_options_17_0=ruleOption();
+
+            	    	    state._fsp--;
+
+
+            	    	    	        if (current==null) {
+            	    	    	            current = createModelElementForParent(grammarAccess.getTableRule());
+            	    	    	        }
+            	    	           		add(
+            	    	           			current, 
+            	    	           			"options",
+            	    	            		lv_options_17_0, 
+            	    	            		"Option");
+            	    	    	        afterParserOrEnumRuleCall();
+            	    	    	    
+
+            	    	    }
+
+
+            	    	    }
+
+
+            	    	    }
+            	    	    break;
+
+            	    	default :
+            	    	    if ( cnt74 >= 1 ) break loop74;
+            	                EarlyExitException eee =
+            	                    new EarlyExitException(74, input);
+            	                throw eee;
+            	        }
+            	        cnt74++;
+            	    } while (true);
+
+            	     
+            	    	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getTableAccess().getUnorderedGroup_3());
+            	    	 				
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+            	    break;
+            	case 2 :
+            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4154:4: ({...}? => ( ({...}? => ( (lv_questions_18_0= ruleTableQuestion ) ) )+ ) )
+            	    {
+            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4154:4: ({...}? => ( ({...}? => ( (lv_questions_18_0= ruleTableQuestion ) ) )+ ) )
+            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4155:5: {...}? => ( ({...}? => ( (lv_questions_18_0= ruleTableQuestion ) ) )+ )
+            	    {
+            	    if ( ! getUnorderedGroupHelper().canSelect(grammarAccess.getTableAccess().getUnorderedGroup_3(), 1) ) {
+            	        throw new FailedPredicateException(input, "ruleTable", "getUnorderedGroupHelper().canSelect(grammarAccess.getTableAccess().getUnorderedGroup_3(), 1)");
+            	    }
+            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4155:102: ( ({...}? => ( (lv_questions_18_0= ruleTableQuestion ) ) )+ )
+            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4156:6: ({...}? => ( (lv_questions_18_0= ruleTableQuestion ) ) )+
+            	    {
+            	     
+            	    	 				  getUnorderedGroupHelper().select(grammarAccess.getTableAccess().getUnorderedGroup_3(), 1);
+            	    	 				
+            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4159:6: ({...}? => ( (lv_questions_18_0= ruleTableQuestion ) ) )+
             	    int cnt75=0;
             	    loop75:
             	    do {
             	        int alt75=2;
             	        int LA75_0 = input.LA(1);
 
-            	        if ( (LA75_0==19) ) {
-            	            int LA75_1 = input.LA(2);
-
-            	            if ( ((true)) ) {
-            	                alt75=1;
-            	            }
-
-
-            	        }
-            	        else if ( (LA75_0==22) ) {
+            	        if ( (LA75_0==62) ) {
             	            int LA75_2 = input.LA(2);
 
             	            if ( ((true)) ) {
@@ -10423,22 +10426,22 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             	        switch (alt75) {
             	    	case 1 :
-            	    	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4167:7: {...}? => ( (lv_options_20_0= ruleOption ) )
+            	    	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4159:7: {...}? => ( (lv_questions_18_0= ruleTableQuestion ) )
             	    	    {
             	    	    if ( !((true)) ) {
             	    	        throw new FailedPredicateException(input, "ruleTable", "true");
             	    	    }
-            	    	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4167:16: ( (lv_options_20_0= ruleOption ) )
-            	    	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4168:1: (lv_options_20_0= ruleOption )
+            	    	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4159:16: ( (lv_questions_18_0= ruleTableQuestion ) )
+            	    	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4160:1: (lv_questions_18_0= ruleTableQuestion )
             	    	    {
-            	    	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4168:1: (lv_options_20_0= ruleOption )
-            	    	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4169:3: lv_options_20_0= ruleOption
+            	    	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4160:1: (lv_questions_18_0= ruleTableQuestion )
+            	    	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4161:3: lv_questions_18_0= ruleTableQuestion
             	    	    {
             	    	     
-            	    	    	        newCompositeNode(grammarAccess.getTableAccess().getOptionsOptionParserRuleCall_3_0_0()); 
+            	    	    	        newCompositeNode(grammarAccess.getTableAccess().getQuestionsTableQuestionParserRuleCall_3_1_0()); 
             	    	    	    
-            	    	    pushFollow(FollowSets000.FOLLOW_ruleOption_in_ruleTable11268);
-            	    	    lv_options_20_0=ruleOption();
+            	    	    pushFollow(FollowSets000.FOLLOW_ruleTableQuestion_in_ruleTable11241);
+            	    	    lv_questions_18_0=ruleTableQuestion();
 
             	    	    state._fsp--;
 
@@ -10448,9 +10451,9 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
             	    	    	        }
             	    	           		add(
             	    	           			current, 
-            	    	           			"options",
-            	    	            		lv_options_20_0, 
-            	    	            		"Option");
+            	    	           			"questions",
+            	    	            		lv_questions_18_0, 
+            	    	            		"TableQuestion");
             	    	    	        afterParserOrEnumRuleCall();
             	    	    	    
 
@@ -10484,110 +10487,14 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             	    }
             	    break;
-            	case 2 :
-            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4192:4: ({...}? => ( ({...}? => ( (lv_questions_21_0= ruleTableQuestion ) ) )+ ) )
-            	    {
-            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4192:4: ({...}? => ( ({...}? => ( (lv_questions_21_0= ruleTableQuestion ) ) )+ ) )
-            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4193:5: {...}? => ( ({...}? => ( (lv_questions_21_0= ruleTableQuestion ) ) )+ )
-            	    {
-            	    if ( ! getUnorderedGroupHelper().canSelect(grammarAccess.getTableAccess().getUnorderedGroup_3(), 1) ) {
-            	        throw new FailedPredicateException(input, "ruleTable", "getUnorderedGroupHelper().canSelect(grammarAccess.getTableAccess().getUnorderedGroup_3(), 1)");
-            	    }
-            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4193:102: ( ({...}? => ( (lv_questions_21_0= ruleTableQuestion ) ) )+ )
-            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4194:6: ({...}? => ( (lv_questions_21_0= ruleTableQuestion ) ) )+
-            	    {
-            	     
-            	    	 				  getUnorderedGroupHelper().select(grammarAccess.getTableAccess().getUnorderedGroup_3(), 1);
-            	    	 				
-            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4197:6: ({...}? => ( (lv_questions_21_0= ruleTableQuestion ) ) )+
-            	    int cnt76=0;
-            	    loop76:
-            	    do {
-            	        int alt76=2;
-            	        int LA76_0 = input.LA(1);
-
-            	        if ( (LA76_0==62) ) {
-            	            int LA76_2 = input.LA(2);
-
-            	            if ( ((true)) ) {
-            	                alt76=1;
-            	            }
-
-
-            	        }
-
-
-            	        switch (alt76) {
-            	    	case 1 :
-            	    	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4197:7: {...}? => ( (lv_questions_21_0= ruleTableQuestion ) )
-            	    	    {
-            	    	    if ( !((true)) ) {
-            	    	        throw new FailedPredicateException(input, "ruleTable", "true");
-            	    	    }
-            	    	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4197:16: ( (lv_questions_21_0= ruleTableQuestion ) )
-            	    	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4198:1: (lv_questions_21_0= ruleTableQuestion )
-            	    	    {
-            	    	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4198:1: (lv_questions_21_0= ruleTableQuestion )
-            	    	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4199:3: lv_questions_21_0= ruleTableQuestion
-            	    	    {
-            	    	     
-            	    	    	        newCompositeNode(grammarAccess.getTableAccess().getQuestionsTableQuestionParserRuleCall_3_1_0()); 
-            	    	    	    
-            	    	    pushFollow(FollowSets000.FOLLOW_ruleTableQuestion_in_ruleTable11344);
-            	    	    lv_questions_21_0=ruleTableQuestion();
-
-            	    	    state._fsp--;
-
-
-            	    	    	        if (current==null) {
-            	    	    	            current = createModelElementForParent(grammarAccess.getTableRule());
-            	    	    	        }
-            	    	           		add(
-            	    	           			current, 
-            	    	           			"questions",
-            	    	            		lv_questions_21_0, 
-            	    	            		"TableQuestion");
-            	    	    	        afterParserOrEnumRuleCall();
-            	    	    	    
-
-            	    	    }
-
-
-            	    	    }
-
-
-            	    	    }
-            	    	    break;
-
-            	    	default :
-            	    	    if ( cnt76 >= 1 ) break loop76;
-            	                EarlyExitException eee =
-            	                    new EarlyExitException(76, input);
-            	                throw eee;
-            	        }
-            	        cnt76++;
-            	    } while (true);
-
-            	     
-            	    	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getTableAccess().getUnorderedGroup_3());
-            	    	 				
-
-            	    }
-
-
-            	    }
-
-
-            	    }
-            	    break;
 
             	default :
-            	    if ( cnt77 >= 1 ) break loop77;
+            	    if ( cnt76 >= 1 ) break loop76;
                         EarlyExitException eee =
-                            new EarlyExitException(77, input);
+                            new EarlyExitException(76, input);
                         throw eee;
                 }
-                cnt77++;
+                cnt76++;
             } while (true);
 
             if ( ! getUnorderedGroupHelper().canLeave(grammarAccess.getTableAccess().getUnorderedGroup_3()) ) {
@@ -10605,35 +10512,35 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4230:2: ( ( (lv_options_22_0= ruleOption ) ) | ( (lv_questions_23_0= ruleTableQuestion ) ) )*
-            loop78:
+            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4192:2: ( ( (lv_options_19_0= ruleOption ) ) | ( (lv_questions_20_0= ruleTableQuestion ) ) )*
+            loop77:
             do {
-                int alt78=3;
-                int LA78_0 = input.LA(1);
+                int alt77=3;
+                int LA77_0 = input.LA(1);
 
-                if ( (LA78_0==19||LA78_0==22) ) {
-                    alt78=1;
+                if ( (LA77_0==19||LA77_0==22) ) {
+                    alt77=1;
                 }
-                else if ( (LA78_0==62) ) {
-                    alt78=2;
+                else if ( (LA77_0==62) ) {
+                    alt77=2;
                 }
 
 
-                switch (alt78) {
+                switch (alt77) {
             	case 1 :
-            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4230:3: ( (lv_options_22_0= ruleOption ) )
+            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4192:3: ( (lv_options_19_0= ruleOption ) )
             	    {
-            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4230:3: ( (lv_options_22_0= ruleOption ) )
-            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4231:1: (lv_options_22_0= ruleOption )
+            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4192:3: ( (lv_options_19_0= ruleOption ) )
+            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4193:1: (lv_options_19_0= ruleOption )
             	    {
-            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4231:1: (lv_options_22_0= ruleOption )
-            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4232:3: lv_options_22_0= ruleOption
+            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4193:1: (lv_options_19_0= ruleOption )
+            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4194:3: lv_options_19_0= ruleOption
             	    {
             	     
             	    	        newCompositeNode(grammarAccess.getTableAccess().getOptionsOptionParserRuleCall_4_0_0()); 
             	    	    
-            	    pushFollow(FollowSets000.FOLLOW_ruleOption_in_ruleTable11413);
-            	    lv_options_22_0=ruleOption();
+            	    pushFollow(FollowSets000.FOLLOW_ruleOption_in_ruleTable11310);
+            	    lv_options_19_0=ruleOption();
 
             	    state._fsp--;
 
@@ -10644,7 +10551,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
             	           		add(
             	           			current, 
             	           			"options",
-            	            		lv_options_22_0, 
+            	            		lv_options_19_0, 
             	            		"Option");
             	    	        afterParserOrEnumRuleCall();
             	    	    
@@ -10658,19 +10565,19 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
             	    }
             	    break;
             	case 2 :
-            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4249:6: ( (lv_questions_23_0= ruleTableQuestion ) )
+            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4211:6: ( (lv_questions_20_0= ruleTableQuestion ) )
             	    {
-            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4249:6: ( (lv_questions_23_0= ruleTableQuestion ) )
-            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4250:1: (lv_questions_23_0= ruleTableQuestion )
+            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4211:6: ( (lv_questions_20_0= ruleTableQuestion ) )
+            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4212:1: (lv_questions_20_0= ruleTableQuestion )
             	    {
-            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4250:1: (lv_questions_23_0= ruleTableQuestion )
-            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4251:3: lv_questions_23_0= ruleTableQuestion
+            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4212:1: (lv_questions_20_0= ruleTableQuestion )
+            	    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4213:3: lv_questions_20_0= ruleTableQuestion
             	    {
             	     
             	    	        newCompositeNode(grammarAccess.getTableAccess().getQuestionsTableQuestionParserRuleCall_4_1_0()); 
             	    	    
-            	    pushFollow(FollowSets000.FOLLOW_ruleTableQuestion_in_ruleTable11440);
-            	    lv_questions_23_0=ruleTableQuestion();
+            	    pushFollow(FollowSets000.FOLLOW_ruleTableQuestion_in_ruleTable11337);
+            	    lv_questions_20_0=ruleTableQuestion();
 
             	    state._fsp--;
 
@@ -10681,7 +10588,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
             	           		add(
             	           			current, 
             	           			"questions",
-            	            		lv_questions_23_0, 
+            	            		lv_questions_20_0, 
             	            		"TableQuestion");
             	    	        afterParserOrEnumRuleCall();
             	    	    
@@ -10696,13 +10603,13 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop78;
+            	    break loop77;
                 }
             } while (true);
 
-            otherlv_24=(Token)match(input,58,FollowSets000.FOLLOW_58_in_ruleTable11454); 
+            otherlv_21=(Token)match(input,58,FollowSets000.FOLLOW_58_in_ruleTable11351); 
 
-                	newLeafNode(otherlv_24, grammarAccess.getTableAccess().getTableKeyword_5());
+                	newLeafNode(otherlv_21, grammarAccess.getTableAccess().getTableKeyword_5());
                 
 
             }
@@ -10725,7 +10632,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleEInt"
-    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4279:1: entryRuleEInt returns [String current=null] : iv_ruleEInt= ruleEInt EOF ;
+    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4241:1: entryRuleEInt returns [String current=null] : iv_ruleEInt= ruleEInt EOF ;
     public final String entryRuleEInt() throws RecognitionException {
         String current = null;
 
@@ -10733,17 +10640,17 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4280:2: (iv_ruleEInt= ruleEInt EOF )
-            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4281:2: iv_ruleEInt= ruleEInt EOF
+            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4242:2: (iv_ruleEInt= ruleEInt EOF )
+            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4243:2: iv_ruleEInt= ruleEInt EOF
             {
              newCompositeNode(grammarAccess.getEIntRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleEInt_in_entryRuleEInt11491);
+            pushFollow(FollowSets000.FOLLOW_ruleEInt_in_entryRuleEInt11388);
             iv_ruleEInt=ruleEInt();
 
             state._fsp--;
 
              current =iv_ruleEInt.getText(); 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleEInt11502); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleEInt11399); 
 
             }
 
@@ -10761,7 +10668,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleEInt"
-    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4288:1: ruleEInt returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : ( (kw= '-' )? this_INT_1= RULE_INT ) ;
+    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4250:1: ruleEInt returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : ( (kw= '-' )? this_INT_1= RULE_INT ) ;
     public final AntlrDatatypeRuleToken ruleEInt() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -10771,24 +10678,24 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4291:28: ( ( (kw= '-' )? this_INT_1= RULE_INT ) )
-            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4292:1: ( (kw= '-' )? this_INT_1= RULE_INT )
+            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4253:28: ( ( (kw= '-' )? this_INT_1= RULE_INT ) )
+            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4254:1: ( (kw= '-' )? this_INT_1= RULE_INT )
             {
-            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4292:1: ( (kw= '-' )? this_INT_1= RULE_INT )
-            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4292:2: (kw= '-' )? this_INT_1= RULE_INT
+            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4254:1: ( (kw= '-' )? this_INT_1= RULE_INT )
+            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4254:2: (kw= '-' )? this_INT_1= RULE_INT
             {
-            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4292:2: (kw= '-' )?
-            int alt79=2;
-            int LA79_0 = input.LA(1);
+            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4254:2: (kw= '-' )?
+            int alt78=2;
+            int LA78_0 = input.LA(1);
 
-            if ( (LA79_0==59) ) {
-                alt79=1;
+            if ( (LA78_0==59) ) {
+                alt78=1;
             }
-            switch (alt79) {
+            switch (alt78) {
                 case 1 :
-                    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4293:2: kw= '-'
+                    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4255:2: kw= '-'
                     {
-                    kw=(Token)match(input,59,FollowSets000.FOLLOW_59_in_ruleEInt11541); 
+                    kw=(Token)match(input,59,FollowSets000.FOLLOW_59_in_ruleEInt11438); 
 
                             current.merge(kw);
                             newLeafNode(kw, grammarAccess.getEIntAccess().getHyphenMinusKeyword_0()); 
@@ -10799,7 +10706,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            this_INT_1=(Token)match(input,RULE_INT,FollowSets000.FOLLOW_RULE_INT_in_ruleEInt11558); 
+            this_INT_1=(Token)match(input,RULE_INT,FollowSets000.FOLLOW_RULE_INT_in_ruleEInt11455); 
 
             		current.merge(this_INT_1);
                 
@@ -10827,7 +10734,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleAnswerTemplateRef"
-    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4313:1: entryRuleAnswerTemplateRef returns [EObject current=null] : iv_ruleAnswerTemplateRef= ruleAnswerTemplateRef EOF ;
+    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4275:1: entryRuleAnswerTemplateRef returns [EObject current=null] : iv_ruleAnswerTemplateRef= ruleAnswerTemplateRef EOF ;
     public final EObject entryRuleAnswerTemplateRef() throws RecognitionException {
         EObject current = null;
 
@@ -10835,17 +10742,17 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4314:2: (iv_ruleAnswerTemplateRef= ruleAnswerTemplateRef EOF )
-            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4315:2: iv_ruleAnswerTemplateRef= ruleAnswerTemplateRef EOF
+            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4276:2: (iv_ruleAnswerTemplateRef= ruleAnswerTemplateRef EOF )
+            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4277:2: iv_ruleAnswerTemplateRef= ruleAnswerTemplateRef EOF
             {
              newCompositeNode(grammarAccess.getAnswerTemplateRefRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleAnswerTemplateRef_in_entryRuleAnswerTemplateRef11603);
+            pushFollow(FollowSets000.FOLLOW_ruleAnswerTemplateRef_in_entryRuleAnswerTemplateRef11500);
             iv_ruleAnswerTemplateRef=ruleAnswerTemplateRef();
 
             state._fsp--;
 
              current =iv_ruleAnswerTemplateRef; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleAnswerTemplateRef11613); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleAnswerTemplateRef11510); 
 
             }
 
@@ -10863,7 +10770,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleAnswerTemplateRef"
-    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4322:1: ruleAnswerTemplateRef returns [EObject current=null] : (otherlv_0= '<template' otherlv_1= 'ref=\"' ( (otherlv_2= RULE_ID ) ) otherlv_3= '\"' otherlv_4= '/>' ) ;
+    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4284:1: ruleAnswerTemplateRef returns [EObject current=null] : (otherlv_0= '<template' otherlv_1= 'ref=\"' ( (otherlv_2= RULE_ID ) ) otherlv_3= '\"' otherlv_4= '/>' ) ;
     public final EObject ruleAnswerTemplateRef() throws RecognitionException {
         EObject current = null;
 
@@ -10876,32 +10783,32 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4325:28: ( (otherlv_0= '<template' otherlv_1= 'ref=\"' ( (otherlv_2= RULE_ID ) ) otherlv_3= '\"' otherlv_4= '/>' ) )
-            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4326:1: (otherlv_0= '<template' otherlv_1= 'ref=\"' ( (otherlv_2= RULE_ID ) ) otherlv_3= '\"' otherlv_4= '/>' )
+            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4287:28: ( (otherlv_0= '<template' otherlv_1= 'ref=\"' ( (otherlv_2= RULE_ID ) ) otherlv_3= '\"' otherlv_4= '/>' ) )
+            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4288:1: (otherlv_0= '<template' otherlv_1= 'ref=\"' ( (otherlv_2= RULE_ID ) ) otherlv_3= '\"' otherlv_4= '/>' )
             {
-            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4326:1: (otherlv_0= '<template' otherlv_1= 'ref=\"' ( (otherlv_2= RULE_ID ) ) otherlv_3= '\"' otherlv_4= '/>' )
-            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4326:3: otherlv_0= '<template' otherlv_1= 'ref=\"' ( (otherlv_2= RULE_ID ) ) otherlv_3= '\"' otherlv_4= '/>'
+            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4288:1: (otherlv_0= '<template' otherlv_1= 'ref=\"' ( (otherlv_2= RULE_ID ) ) otherlv_3= '\"' otherlv_4= '/>' )
+            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4288:3: otherlv_0= '<template' otherlv_1= 'ref=\"' ( (otherlv_2= RULE_ID ) ) otherlv_3= '\"' otherlv_4= '/>'
             {
-            otherlv_0=(Token)match(input,19,FollowSets000.FOLLOW_19_in_ruleAnswerTemplateRef11650); 
+            otherlv_0=(Token)match(input,19,FollowSets000.FOLLOW_19_in_ruleAnswerTemplateRef11547); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getAnswerTemplateRefAccess().getTemplateKeyword_0());
                 
-            otherlv_1=(Token)match(input,60,FollowSets000.FOLLOW_60_in_ruleAnswerTemplateRef11662); 
+            otherlv_1=(Token)match(input,60,FollowSets000.FOLLOW_60_in_ruleAnswerTemplateRef11559); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getAnswerTemplateRefAccess().getRefKeyword_1());
                 
-            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4334:1: ( (otherlv_2= RULE_ID ) )
-            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4335:1: (otherlv_2= RULE_ID )
+            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4296:1: ( (otherlv_2= RULE_ID ) )
+            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4297:1: (otherlv_2= RULE_ID )
             {
-            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4335:1: (otherlv_2= RULE_ID )
-            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4336:3: otherlv_2= RULE_ID
+            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4297:1: (otherlv_2= RULE_ID )
+            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4298:3: otherlv_2= RULE_ID
             {
 
             			if (current==null) {
             	            current = createModelElement(grammarAccess.getAnswerTemplateRefRule());
             	        }
                     
-            otherlv_2=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleAnswerTemplateRef11682); 
+            otherlv_2=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleAnswerTemplateRef11579); 
 
             		newLeafNode(otherlv_2, grammarAccess.getAnswerTemplateRefAccess().getTemplateAnswerTemplateCrossReference_2_0()); 
             	
@@ -10911,11 +10818,11 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_3=(Token)match(input,14,FollowSets000.FOLLOW_14_in_ruleAnswerTemplateRef11694); 
+            otherlv_3=(Token)match(input,14,FollowSets000.FOLLOW_14_in_ruleAnswerTemplateRef11591); 
 
                 	newLeafNode(otherlv_3, grammarAccess.getAnswerTemplateRefAccess().getQuotationMarkKeyword_3());
                 
-            otherlv_4=(Token)match(input,33,FollowSets000.FOLLOW_33_in_ruleAnswerTemplateRef11706); 
+            otherlv_4=(Token)match(input,33,FollowSets000.FOLLOW_33_in_ruleAnswerTemplateRef11603); 
 
                 	newLeafNode(otherlv_4, grammarAccess.getAnswerTemplateRefAccess().getSolidusGreaterThanSignKeyword_4());
                 
@@ -10940,7 +10847,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleAnswerTemplateRefAttr"
-    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4363:1: entryRuleAnswerTemplateRefAttr returns [EObject current=null] : iv_ruleAnswerTemplateRefAttr= ruleAnswerTemplateRefAttr EOF ;
+    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4325:1: entryRuleAnswerTemplateRefAttr returns [EObject current=null] : iv_ruleAnswerTemplateRefAttr= ruleAnswerTemplateRefAttr EOF ;
     public final EObject entryRuleAnswerTemplateRefAttr() throws RecognitionException {
         EObject current = null;
 
@@ -10948,17 +10855,17 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4364:2: (iv_ruleAnswerTemplateRefAttr= ruleAnswerTemplateRefAttr EOF )
-            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4365:2: iv_ruleAnswerTemplateRefAttr= ruleAnswerTemplateRefAttr EOF
+            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4326:2: (iv_ruleAnswerTemplateRefAttr= ruleAnswerTemplateRefAttr EOF )
+            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4327:2: iv_ruleAnswerTemplateRefAttr= ruleAnswerTemplateRefAttr EOF
             {
              newCompositeNode(grammarAccess.getAnswerTemplateRefAttrRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleAnswerTemplateRefAttr_in_entryRuleAnswerTemplateRefAttr11742);
+            pushFollow(FollowSets000.FOLLOW_ruleAnswerTemplateRefAttr_in_entryRuleAnswerTemplateRefAttr11639);
             iv_ruleAnswerTemplateRefAttr=ruleAnswerTemplateRefAttr();
 
             state._fsp--;
 
              current =iv_ruleAnswerTemplateRefAttr; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleAnswerTemplateRefAttr11752); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleAnswerTemplateRefAttr11649); 
 
             }
 
@@ -10976,7 +10883,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleAnswerTemplateRefAttr"
-    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4372:1: ruleAnswerTemplateRefAttr returns [EObject current=null] : (otherlv_0= 'template=\"' ( (otherlv_1= RULE_ID ) ) otherlv_2= '\"' ) ;
+    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4334:1: ruleAnswerTemplateRefAttr returns [EObject current=null] : (otherlv_0= 'template=\"' ( (otherlv_1= RULE_ID ) ) otherlv_2= '\"' ) ;
     public final EObject ruleAnswerTemplateRefAttr() throws RecognitionException {
         EObject current = null;
 
@@ -10987,28 +10894,28 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4375:28: ( (otherlv_0= 'template=\"' ( (otherlv_1= RULE_ID ) ) otherlv_2= '\"' ) )
-            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4376:1: (otherlv_0= 'template=\"' ( (otherlv_1= RULE_ID ) ) otherlv_2= '\"' )
+            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4337:28: ( (otherlv_0= 'template=\"' ( (otherlv_1= RULE_ID ) ) otherlv_2= '\"' ) )
+            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4338:1: (otherlv_0= 'template=\"' ( (otherlv_1= RULE_ID ) ) otherlv_2= '\"' )
             {
-            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4376:1: (otherlv_0= 'template=\"' ( (otherlv_1= RULE_ID ) ) otherlv_2= '\"' )
-            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4376:3: otherlv_0= 'template=\"' ( (otherlv_1= RULE_ID ) ) otherlv_2= '\"'
+            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4338:1: (otherlv_0= 'template=\"' ( (otherlv_1= RULE_ID ) ) otherlv_2= '\"' )
+            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4338:3: otherlv_0= 'template=\"' ( (otherlv_1= RULE_ID ) ) otherlv_2= '\"'
             {
-            otherlv_0=(Token)match(input,61,FollowSets000.FOLLOW_61_in_ruleAnswerTemplateRefAttr11789); 
+            otherlv_0=(Token)match(input,61,FollowSets000.FOLLOW_61_in_ruleAnswerTemplateRefAttr11686); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getAnswerTemplateRefAttrAccess().getTemplateKeyword_0());
                 
-            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4380:1: ( (otherlv_1= RULE_ID ) )
-            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4381:1: (otherlv_1= RULE_ID )
+            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4342:1: ( (otherlv_1= RULE_ID ) )
+            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4343:1: (otherlv_1= RULE_ID )
             {
-            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4381:1: (otherlv_1= RULE_ID )
-            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4382:3: otherlv_1= RULE_ID
+            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4343:1: (otherlv_1= RULE_ID )
+            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4344:3: otherlv_1= RULE_ID
             {
 
             			if (current==null) {
             	            current = createModelElement(grammarAccess.getAnswerTemplateRefAttrRule());
             	        }
                     
-            otherlv_1=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleAnswerTemplateRefAttr11809); 
+            otherlv_1=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleAnswerTemplateRefAttr11706); 
 
             		newLeafNode(otherlv_1, grammarAccess.getAnswerTemplateRefAttrAccess().getTemplateAnswerTemplateCrossReference_1_0()); 
             	
@@ -11018,7 +10925,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,14,FollowSets000.FOLLOW_14_in_ruleAnswerTemplateRefAttr11821); 
+            otherlv_2=(Token)match(input,14,FollowSets000.FOLLOW_14_in_ruleAnswerTemplateRefAttr11718); 
 
                 	newLeafNode(otherlv_2, grammarAccess.getAnswerTemplateRefAttrAccess().getQuotationMarkKeyword_2());
                 
@@ -11043,7 +10950,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleTableQuestion"
-    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4405:1: entryRuleTableQuestion returns [EObject current=null] : iv_ruleTableQuestion= ruleTableQuestion EOF ;
+    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4367:1: entryRuleTableQuestion returns [EObject current=null] : iv_ruleTableQuestion= ruleTableQuestion EOF ;
     public final EObject entryRuleTableQuestion() throws RecognitionException {
         EObject current = null;
 
@@ -11051,17 +10958,17 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4406:2: (iv_ruleTableQuestion= ruleTableQuestion EOF )
-            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4407:2: iv_ruleTableQuestion= ruleTableQuestion EOF
+            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4368:2: (iv_ruleTableQuestion= ruleTableQuestion EOF )
+            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4369:2: iv_ruleTableQuestion= ruleTableQuestion EOF
             {
              newCompositeNode(grammarAccess.getTableQuestionRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleTableQuestion_in_entryRuleTableQuestion11857);
+            pushFollow(FollowSets000.FOLLOW_ruleTableQuestion_in_entryRuleTableQuestion11754);
             iv_ruleTableQuestion=ruleTableQuestion();
 
             state._fsp--;
 
              current =iv_ruleTableQuestion; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleTableQuestion11867); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleTableQuestion11764); 
 
             }
 
@@ -11079,39 +10986,109 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleTableQuestion"
-    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4414:1: ruleTableQuestion returns [EObject current=null] : (otherlv_0= '<q>' ( (lv_title_1_0= ruleEString ) ) otherlv_2= '</q>' ) ;
+    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4376:1: ruleTableQuestion returns [EObject current=null] : (otherlv_0= '<q' (otherlv_1= 'id=\"' ( (lv_name_2_0= RULE_ID ) )? otherlv_3= '\"' )? otherlv_4= '>' ( (lv_title_5_0= ruleEString ) ) otherlv_6= '</q>' ) ;
     public final EObject ruleTableQuestion() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
-        Token otherlv_2=null;
-        AntlrDatatypeRuleToken lv_title_1_0 = null;
+        Token otherlv_1=null;
+        Token lv_name_2_0=null;
+        Token otherlv_3=null;
+        Token otherlv_4=null;
+        Token otherlv_6=null;
+        AntlrDatatypeRuleToken lv_title_5_0 = null;
 
 
          enterRule(); 
             
         try {
-            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4417:28: ( (otherlv_0= '<q>' ( (lv_title_1_0= ruleEString ) ) otherlv_2= '</q>' ) )
-            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4418:1: (otherlv_0= '<q>' ( (lv_title_1_0= ruleEString ) ) otherlv_2= '</q>' )
+            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4379:28: ( (otherlv_0= '<q' (otherlv_1= 'id=\"' ( (lv_name_2_0= RULE_ID ) )? otherlv_3= '\"' )? otherlv_4= '>' ( (lv_title_5_0= ruleEString ) ) otherlv_6= '</q>' ) )
+            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4380:1: (otherlv_0= '<q' (otherlv_1= 'id=\"' ( (lv_name_2_0= RULE_ID ) )? otherlv_3= '\"' )? otherlv_4= '>' ( (lv_title_5_0= ruleEString ) ) otherlv_6= '</q>' )
             {
-            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4418:1: (otherlv_0= '<q>' ( (lv_title_1_0= ruleEString ) ) otherlv_2= '</q>' )
-            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4418:3: otherlv_0= '<q>' ( (lv_title_1_0= ruleEString ) ) otherlv_2= '</q>'
+            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4380:1: (otherlv_0= '<q' (otherlv_1= 'id=\"' ( (lv_name_2_0= RULE_ID ) )? otherlv_3= '\"' )? otherlv_4= '>' ( (lv_title_5_0= ruleEString ) ) otherlv_6= '</q>' )
+            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4380:3: otherlv_0= '<q' (otherlv_1= 'id=\"' ( (lv_name_2_0= RULE_ID ) )? otherlv_3= '\"' )? otherlv_4= '>' ( (lv_title_5_0= ruleEString ) ) otherlv_6= '</q>'
             {
-            otherlv_0=(Token)match(input,62,FollowSets000.FOLLOW_62_in_ruleTableQuestion11904); 
+            otherlv_0=(Token)match(input,62,FollowSets000.FOLLOW_62_in_ruleTableQuestion11801); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getTableQuestionAccess().getQKeyword_0());
                 
-            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4422:1: ( (lv_title_1_0= ruleEString ) )
-            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4423:1: (lv_title_1_0= ruleEString )
+            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4384:1: (otherlv_1= 'id=\"' ( (lv_name_2_0= RULE_ID ) )? otherlv_3= '\"' )?
+            int alt80=2;
+            int LA80_0 = input.LA(1);
+
+            if ( (LA80_0==20) ) {
+                alt80=1;
+            }
+            switch (alt80) {
+                case 1 :
+                    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4384:3: otherlv_1= 'id=\"' ( (lv_name_2_0= RULE_ID ) )? otherlv_3= '\"'
+                    {
+                    otherlv_1=(Token)match(input,20,FollowSets000.FOLLOW_20_in_ruleTableQuestion11814); 
+
+                        	newLeafNode(otherlv_1, grammarAccess.getTableQuestionAccess().getIdKeyword_1_0());
+                        
+                    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4388:1: ( (lv_name_2_0= RULE_ID ) )?
+                    int alt79=2;
+                    int LA79_0 = input.LA(1);
+
+                    if ( (LA79_0==RULE_ID) ) {
+                        alt79=1;
+                    }
+                    switch (alt79) {
+                        case 1 :
+                            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4389:1: (lv_name_2_0= RULE_ID )
+                            {
+                            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4389:1: (lv_name_2_0= RULE_ID )
+                            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4390:3: lv_name_2_0= RULE_ID
+                            {
+                            lv_name_2_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleTableQuestion11831); 
+
+                            			newLeafNode(lv_name_2_0, grammarAccess.getTableQuestionAccess().getNameIDTerminalRuleCall_1_1_0()); 
+                            		
+
+                            	        if (current==null) {
+                            	            current = createModelElement(grammarAccess.getTableQuestionRule());
+                            	        }
+                                   		setWithLastConsumed(
+                                   			current, 
+                                   			"name",
+                                    		lv_name_2_0, 
+                                    		"ID");
+                            	    
+
+                            }
+
+
+                            }
+                            break;
+
+                    }
+
+                    otherlv_3=(Token)match(input,14,FollowSets000.FOLLOW_14_in_ruleTableQuestion11849); 
+
+                        	newLeafNode(otherlv_3, grammarAccess.getTableQuestionAccess().getQuotationMarkKeyword_1_2());
+                        
+
+                    }
+                    break;
+
+            }
+
+            otherlv_4=(Token)match(input,17,FollowSets000.FOLLOW_17_in_ruleTableQuestion11863); 
+
+                	newLeafNode(otherlv_4, grammarAccess.getTableQuestionAccess().getGreaterThanSignKeyword_2());
+                
+            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4414:1: ( (lv_title_5_0= ruleEString ) )
+            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4415:1: (lv_title_5_0= ruleEString )
             {
-            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4423:1: (lv_title_1_0= ruleEString )
-            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4424:3: lv_title_1_0= ruleEString
+            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4415:1: (lv_title_5_0= ruleEString )
+            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4416:3: lv_title_5_0= ruleEString
             {
              
-            	        newCompositeNode(grammarAccess.getTableQuestionAccess().getTitleEStringParserRuleCall_1_0()); 
+            	        newCompositeNode(grammarAccess.getTableQuestionAccess().getTitleEStringParserRuleCall_3_0()); 
             	    
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleTableQuestion11925);
-            lv_title_1_0=ruleEString();
+            pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleTableQuestion11884);
+            lv_title_5_0=ruleEString();
 
             state._fsp--;
 
@@ -11122,7 +11099,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
                    		set(
                    			current, 
                    			"title",
-                    		lv_title_1_0, 
+                    		lv_title_5_0, 
                     		"EString");
             	        afterParserOrEnumRuleCall();
             	    
@@ -11132,9 +11109,9 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,63,FollowSets000.FOLLOW_63_in_ruleTableQuestion11937); 
+            otherlv_6=(Token)match(input,63,FollowSets000.FOLLOW_63_in_ruleTableQuestion11896); 
 
-                	newLeafNode(otherlv_2, grammarAccess.getTableQuestionAccess().getQKeyword_2());
+                	newLeafNode(otherlv_6, grammarAccess.getTableQuestionAccess().getQKeyword_4());
                 
 
             }
@@ -11157,7 +11134,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDEP_ID"
-    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4452:1: entryRuleDEP_ID returns [String current=null] : iv_ruleDEP_ID= ruleDEP_ID EOF ;
+    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4444:1: entryRuleDEP_ID returns [String current=null] : iv_ruleDEP_ID= ruleDEP_ID EOF ;
     public final String entryRuleDEP_ID() throws RecognitionException {
         String current = null;
 
@@ -11165,17 +11142,17 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4453:2: (iv_ruleDEP_ID= ruleDEP_ID EOF )
-            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4454:2: iv_ruleDEP_ID= ruleDEP_ID EOF
+            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4445:2: (iv_ruleDEP_ID= ruleDEP_ID EOF )
+            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4446:2: iv_ruleDEP_ID= ruleDEP_ID EOF
             {
              newCompositeNode(grammarAccess.getDEP_IDRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleDEP_ID_in_entryRuleDEP_ID11974);
+            pushFollow(FollowSets000.FOLLOW_ruleDEP_ID_in_entryRuleDEP_ID11933);
             iv_ruleDEP_ID=ruleDEP_ID();
 
             state._fsp--;
 
              current =iv_ruleDEP_ID.getText(); 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleDEP_ID11985); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleDEP_ID11944); 
 
             }
 
@@ -11193,7 +11170,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDEP_ID"
-    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4461:1: ruleDEP_ID returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ID_0= RULE_ID | this_FQN_1= RULE_FQN ) ;
+    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4453:1: ruleDEP_ID returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ID_0= RULE_ID | this_FQN_1= RULE_FQN ) ;
     public final AntlrDatatypeRuleToken ruleDEP_ID() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -11203,30 +11180,30 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4464:28: ( (this_ID_0= RULE_ID | this_FQN_1= RULE_FQN ) )
-            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4465:1: (this_ID_0= RULE_ID | this_FQN_1= RULE_FQN )
+            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4456:28: ( (this_ID_0= RULE_ID | this_FQN_1= RULE_FQN ) )
+            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4457:1: (this_ID_0= RULE_ID | this_FQN_1= RULE_FQN )
             {
-            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4465:1: (this_ID_0= RULE_ID | this_FQN_1= RULE_FQN )
-            int alt80=2;
-            int LA80_0 = input.LA(1);
+            // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4457:1: (this_ID_0= RULE_ID | this_FQN_1= RULE_FQN )
+            int alt81=2;
+            int LA81_0 = input.LA(1);
 
-            if ( (LA80_0==RULE_ID) ) {
-                alt80=1;
+            if ( (LA81_0==RULE_ID) ) {
+                alt81=1;
             }
-            else if ( (LA80_0==RULE_FQN) ) {
-                alt80=2;
+            else if ( (LA81_0==RULE_FQN) ) {
+                alt81=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 80, 0, input);
+                    new NoViableAltException("", 81, 0, input);
 
                 throw nvae;
             }
-            switch (alt80) {
+            switch (alt81) {
                 case 1 :
-                    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4465:6: this_ID_0= RULE_ID
+                    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4457:6: this_ID_0= RULE_ID
                     {
-                    this_ID_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleDEP_ID12025); 
+                    this_ID_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleDEP_ID11984); 
 
                     		current.merge(this_ID_0);
                         
@@ -11237,9 +11214,9 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4473:10: this_FQN_1= RULE_FQN
+                    // ../dk.itu.smdp.survey.dsl/src-gen/dk/itu/smdp/survey/parser/antlr/internal/InternalDsl.g:4465:10: this_FQN_1= RULE_FQN
                     {
-                    this_FQN_1=(Token)match(input,RULE_FQN,FollowSets000.FOLLOW_RULE_FQN_in_ruleDEP_ID12051); 
+                    this_FQN_1=(Token)match(input,RULE_FQN,FollowSets000.FOLLOW_RULE_FQN_in_ruleDEP_ID12010); 
 
                     		current.merge(this_FQN_1);
                         
@@ -11278,7 +11255,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
     protected DFA57 dfa57 = new DFA57(this);
     protected DFA62 dfa62 = new DFA62(this);
     protected DFA68 dfa68 = new DFA68(this);
-    protected DFA77 dfa77 = new DFA77(this);
+    protected DFA76 dfa76 = new DFA76(this);
     static final String DFA30_eotS =
         "\13\uffff";
     static final String DFA30_eofS =
@@ -11978,128 +11955,132 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
             throw nvae;
         }
     }
-    static final String DFA77_eotS =
-        "\25\uffff";
-    static final String DFA77_eofS =
-        "\25\uffff";
-    static final String DFA77_minS =
-        "\1\23\1\74\1\21\1\4\1\uffff\3\4\2\77\2\16\1\21\2\27\1\0\1\41\1\0"+
-        "\1\uffff\1\0\1\uffff";
-    static final String DFA77_maxS =
-        "\1\76\1\74\1\24\1\5\1\uffff\1\4\1\16\1\5\2\77\2\16\1\21\2\27\1\0"+
-        "\1\41\1\0\1\uffff\1\0\1\uffff";
-    static final String DFA77_acceptS =
-        "\4\uffff\1\3\15\uffff\1\2\1\uffff\1\1";
-    static final String DFA77_specialS =
-        "\17\uffff\1\0\1\uffff\1\1\1\uffff\1\2\1\uffff}>";
-    static final String[] DFA77_transitionS = {
+    static final String DFA76_eotS =
+        "\31\uffff";
+    static final String DFA76_eofS =
+        "\31\uffff";
+    static final String DFA76_minS =
+        "\1\23\1\74\2\21\1\uffff\5\4\2\16\1\21\2\27\1\16\1\21\2\77\1\41\3"+
+        "\0\2\uffff";
+    static final String DFA76_maxS =
+        "\1\76\1\74\2\24\1\uffff\1\4\1\16\1\5\1\16\1\5\2\16\1\21\2\27\1\16"+
+        "\1\21\2\77\1\41\3\0\2\uffff";
+    static final String DFA76_acceptS =
+        "\4\uffff\1\3\22\uffff\1\1\1\2";
+    static final String DFA76_specialS =
+        "\24\uffff\1\1\1\2\1\0\2\uffff}>";
+    static final String[] DFA76_transitionS = {
             "\1\1\2\uffff\1\2\43\uffff\1\4\3\uffff\1\3",
             "\1\5",
             "\1\7\2\uffff\1\6",
-            "\1\11\1\10",
+            "\1\11\2\uffff\1\10",
             "",
             "\1\12",
             "\1\13\11\uffff\1\14",
             "\1\16\1\15",
-            "\1\17",
-            "\1\17",
-            "\1\20",
+            "\1\17\11\uffff\1\20",
+            "\1\22\1\21",
+            "\1\23",
             "\1\14",
             "\1\7",
-            "\1\21",
-            "\1\21",
+            "\1\24",
+            "\1\24",
+            "\1\20",
+            "\1\11",
+            "\1\25",
+            "\1\25",
+            "\1\26",
             "\1\uffff",
-            "\1\23",
+            "\1\uffff",
             "\1\uffff",
             "",
-            "\1\uffff",
             ""
     };
 
-    static final short[] DFA77_eot = DFA.unpackEncodedString(DFA77_eotS);
-    static final short[] DFA77_eof = DFA.unpackEncodedString(DFA77_eofS);
-    static final char[] DFA77_min = DFA.unpackEncodedStringToUnsignedChars(DFA77_minS);
-    static final char[] DFA77_max = DFA.unpackEncodedStringToUnsignedChars(DFA77_maxS);
-    static final short[] DFA77_accept = DFA.unpackEncodedString(DFA77_acceptS);
-    static final short[] DFA77_special = DFA.unpackEncodedString(DFA77_specialS);
-    static final short[][] DFA77_transition;
+    static final short[] DFA76_eot = DFA.unpackEncodedString(DFA76_eotS);
+    static final short[] DFA76_eof = DFA.unpackEncodedString(DFA76_eofS);
+    static final char[] DFA76_min = DFA.unpackEncodedStringToUnsignedChars(DFA76_minS);
+    static final char[] DFA76_max = DFA.unpackEncodedStringToUnsignedChars(DFA76_maxS);
+    static final short[] DFA76_accept = DFA.unpackEncodedString(DFA76_acceptS);
+    static final short[] DFA76_special = DFA.unpackEncodedString(DFA76_specialS);
+    static final short[][] DFA76_transition;
 
     static {
-        int numStates = DFA77_transitionS.length;
-        DFA77_transition = new short[numStates][];
+        int numStates = DFA76_transitionS.length;
+        DFA76_transition = new short[numStates][];
         for (int i=0; i<numStates; i++) {
-            DFA77_transition[i] = DFA.unpackEncodedString(DFA77_transitionS[i]);
+            DFA76_transition[i] = DFA.unpackEncodedString(DFA76_transitionS[i]);
         }
     }
 
-    class DFA77 extends DFA {
+    class DFA76 extends DFA {
 
-        public DFA77(BaseRecognizer recognizer) {
+        public DFA76(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
-            this.decisionNumber = 77;
-            this.eot = DFA77_eot;
-            this.eof = DFA77_eof;
-            this.min = DFA77_min;
-            this.max = DFA77_max;
-            this.accept = DFA77_accept;
-            this.special = DFA77_special;
-            this.transition = DFA77_transition;
+            this.decisionNumber = 76;
+            this.eot = DFA76_eot;
+            this.eof = DFA76_eof;
+            this.min = DFA76_min;
+            this.max = DFA76_max;
+            this.accept = DFA76_accept;
+            this.special = DFA76_special;
+            this.transition = DFA76_transition;
         }
         public String getDescription() {
-            return "()+ loopback of 4160:3: ( ({...}? => ( ({...}? => ( (lv_options_20_0= ruleOption ) ) )+ ) ) | ({...}? => ( ({...}? => ( (lv_questions_21_0= ruleTableQuestion ) ) )+ ) ) )+";
+            return "()+ loopback of 4122:3: ( ({...}? => ( ({...}? => ( (lv_options_17_0= ruleOption ) ) )+ ) ) | ({...}? => ( ({...}? => ( (lv_questions_18_0= ruleTableQuestion ) ) )+ ) ) )+";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             TokenStream input = (TokenStream)_input;
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA77_15 = input.LA(1);
+                        int LA76_22 = input.LA(1);
 
                          
-                        int index77_15 = input.index();
+                        int index76_22 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( getUnorderedGroupHelper().canSelect(grammarAccess.getTableAccess().getUnorderedGroup_3(), 1) ) {s = 18;}
+                        if ( getUnorderedGroupHelper().canSelect(grammarAccess.getTableAccess().getUnorderedGroup_3(), 0) ) {s = 23;}
 
                         else if ( getUnorderedGroupHelper().canLeave(grammarAccess.getTableAccess().getUnorderedGroup_3()) ) {s = 4;}
 
                          
-                        input.seek(index77_15);
+                        input.seek(index76_22);
                         if ( s>=0 ) return s;
                         break;
                     case 1 : 
-                        int LA77_17 = input.LA(1);
+                        int LA76_20 = input.LA(1);
 
                          
-                        int index77_17 = input.index();
+                        int index76_20 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( getUnorderedGroupHelper().canSelect(grammarAccess.getTableAccess().getUnorderedGroup_3(), 0) ) {s = 20;}
+                        if ( getUnorderedGroupHelper().canSelect(grammarAccess.getTableAccess().getUnorderedGroup_3(), 0) ) {s = 23;}
 
                         else if ( getUnorderedGroupHelper().canLeave(grammarAccess.getTableAccess().getUnorderedGroup_3()) ) {s = 4;}
 
                          
-                        input.seek(index77_17);
+                        input.seek(index76_20);
                         if ( s>=0 ) return s;
                         break;
                     case 2 : 
-                        int LA77_19 = input.LA(1);
+                        int LA76_21 = input.LA(1);
 
                          
-                        int index77_19 = input.index();
+                        int index76_21 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( getUnorderedGroupHelper().canSelect(grammarAccess.getTableAccess().getUnorderedGroup_3(), 0) ) {s = 20;}
+                        if ( getUnorderedGroupHelper().canSelect(grammarAccess.getTableAccess().getUnorderedGroup_3(), 1) ) {s = 24;}
 
                         else if ( getUnorderedGroupHelper().canLeave(grammarAccess.getTableAccess().getUnorderedGroup_3()) ) {s = 4;}
 
                          
-                        input.seek(index77_19);
+                        input.seek(index76_21);
                         if ( s>=0 ) return s;
                         break;
             }
             NoViableAltException nvae =
-                new NoViableAltException(getDescription(), 77, _s, input);
+                new NoViableAltException(getDescription(), 76, _s, input);
             error(nvae);
             throw nvae;
         }
@@ -12401,54 +12382,55 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
         public static final BitSet FOLLOW_33_in_ruleMultipleRef10392 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleTable_in_entryRuleTable10428 = new BitSet(new long[]{0x0000000000000000L});
         public static final BitSet FOLLOW_EOF_in_entryRuleTable10438 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_56_in_ruleTable10475 = new BitSet(new long[]{0x020400004612A000L});
+        public static final BitSet FOLLOW_56_in_ruleTable10475 = new BitSet(new long[]{0x020400004602A000L});
         public static final BitSet FOLLOW_13_in_ruleTable10533 = new BitSet(new long[]{0x0000000000004030L});
         public static final BitSet FOLLOW_ruleEString_in_ruleTable10554 = new BitSet(new long[]{0x0000000000004000L});
-        public static final BitSet FOLLOW_14_in_ruleTable10567 = new BitSet(new long[]{0x020400004612A000L});
+        public static final BitSet FOLLOW_14_in_ruleTable10567 = new BitSet(new long[]{0x020400004602A000L});
         public static final BitSet FOLLOW_15_in_ruleTable10635 = new BitSet(new long[]{0x0000000000004030L});
         public static final BitSet FOLLOW_ruleEString_in_ruleTable10656 = new BitSet(new long[]{0x0000000000004000L});
-        public static final BitSet FOLLOW_14_in_ruleTable10669 = new BitSet(new long[]{0x020400004612A000L});
-        public static final BitSet FOLLOW_20_in_ruleTable10737 = new BitSet(new long[]{0x0000000000004010L});
-        public static final BitSet FOLLOW_RULE_ID_in_ruleTable10754 = new BitSet(new long[]{0x0000000000004000L});
-        public static final BitSet FOLLOW_14_in_ruleTable10772 = new BitSet(new long[]{0x020400004612A000L});
-        public static final BitSet FOLLOW_25_in_ruleTable10840 = new BitSet(new long[]{0x0000000000004090L});
-        public static final BitSet FOLLOW_ruleDEP_ID_in_ruleTable10861 = new BitSet(new long[]{0x0000000000004000L});
-        public static final BitSet FOLLOW_14_in_ruleTable10874 = new BitSet(new long[]{0x020400004612A000L});
-        public static final BitSet FOLLOW_26_in_ruleTable10947 = new BitSet(new long[]{0x020400004612A000L});
-        public static final BitSet FOLLOW_50_in_ruleTable11032 = new BitSet(new long[]{0x020400004612A000L});
-        public static final BitSet FOLLOW_30_in_ruleTable11112 = new BitSet(new long[]{0x020400004612A000L});
-        public static final BitSet FOLLOW_57_in_ruleTable11136 = new BitSet(new long[]{0x020400004612A000L});
-        public static final BitSet FOLLOW_17_in_ruleTable11202 = new BitSet(new long[]{0x4000000000480000L});
-        public static final BitSet FOLLOW_ruleOption_in_ruleTable11268 = new BitSet(new long[]{0x4400000000480000L});
-        public static final BitSet FOLLOW_ruleTableQuestion_in_ruleTable11344 = new BitSet(new long[]{0x4400000000480000L});
-        public static final BitSet FOLLOW_ruleOption_in_ruleTable11413 = new BitSet(new long[]{0x4400000000480000L});
-        public static final BitSet FOLLOW_ruleTableQuestion_in_ruleTable11440 = new BitSet(new long[]{0x4400000000480000L});
-        public static final BitSet FOLLOW_58_in_ruleTable11454 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEInt_in_entryRuleEInt11491 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleEInt11502 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_59_in_ruleEInt11541 = new BitSet(new long[]{0x0000000000000040L});
-        public static final BitSet FOLLOW_RULE_INT_in_ruleEInt11558 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleAnswerTemplateRef_in_entryRuleAnswerTemplateRef11603 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleAnswerTemplateRef11613 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_19_in_ruleAnswerTemplateRef11650 = new BitSet(new long[]{0x1000000000000000L});
-        public static final BitSet FOLLOW_60_in_ruleAnswerTemplateRef11662 = new BitSet(new long[]{0x0000000000000010L});
-        public static final BitSet FOLLOW_RULE_ID_in_ruleAnswerTemplateRef11682 = new BitSet(new long[]{0x0000000000004000L});
-        public static final BitSet FOLLOW_14_in_ruleAnswerTemplateRef11694 = new BitSet(new long[]{0x0000000200000000L});
-        public static final BitSet FOLLOW_33_in_ruleAnswerTemplateRef11706 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleAnswerTemplateRefAttr_in_entryRuleAnswerTemplateRefAttr11742 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleAnswerTemplateRefAttr11752 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_61_in_ruleAnswerTemplateRefAttr11789 = new BitSet(new long[]{0x0000000000000010L});
-        public static final BitSet FOLLOW_RULE_ID_in_ruleAnswerTemplateRefAttr11809 = new BitSet(new long[]{0x0000000000004000L});
-        public static final BitSet FOLLOW_14_in_ruleAnswerTemplateRefAttr11821 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleTableQuestion_in_entryRuleTableQuestion11857 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleTableQuestion11867 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_62_in_ruleTableQuestion11904 = new BitSet(new long[]{0x0000000000000030L});
-        public static final BitSet FOLLOW_ruleEString_in_ruleTableQuestion11925 = new BitSet(new long[]{0x8000000000000000L});
-        public static final BitSet FOLLOW_63_in_ruleTableQuestion11937 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleDEP_ID_in_entryRuleDEP_ID11974 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleDEP_ID11985 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_RULE_ID_in_ruleDEP_ID12025 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_RULE_FQN_in_ruleDEP_ID12051 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_14_in_ruleTable10669 = new BitSet(new long[]{0x020400004602A000L});
+        public static final BitSet FOLLOW_25_in_ruleTable10737 = new BitSet(new long[]{0x0000000000004090L});
+        public static final BitSet FOLLOW_ruleDEP_ID_in_ruleTable10758 = new BitSet(new long[]{0x0000000000004000L});
+        public static final BitSet FOLLOW_14_in_ruleTable10771 = new BitSet(new long[]{0x020400004602A000L});
+        public static final BitSet FOLLOW_26_in_ruleTable10844 = new BitSet(new long[]{0x020400004602A000L});
+        public static final BitSet FOLLOW_50_in_ruleTable10929 = new BitSet(new long[]{0x020400004602A000L});
+        public static final BitSet FOLLOW_30_in_ruleTable11009 = new BitSet(new long[]{0x020400004602A000L});
+        public static final BitSet FOLLOW_57_in_ruleTable11033 = new BitSet(new long[]{0x020400004602A000L});
+        public static final BitSet FOLLOW_17_in_ruleTable11099 = new BitSet(new long[]{0x4000000000480000L});
+        public static final BitSet FOLLOW_ruleOption_in_ruleTable11165 = new BitSet(new long[]{0x4400000000480000L});
+        public static final BitSet FOLLOW_ruleTableQuestion_in_ruleTable11241 = new BitSet(new long[]{0x4400000000480000L});
+        public static final BitSet FOLLOW_ruleOption_in_ruleTable11310 = new BitSet(new long[]{0x4400000000480000L});
+        public static final BitSet FOLLOW_ruleTableQuestion_in_ruleTable11337 = new BitSet(new long[]{0x4400000000480000L});
+        public static final BitSet FOLLOW_58_in_ruleTable11351 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEInt_in_entryRuleEInt11388 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleEInt11399 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_59_in_ruleEInt11438 = new BitSet(new long[]{0x0000000000000040L});
+        public static final BitSet FOLLOW_RULE_INT_in_ruleEInt11455 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleAnswerTemplateRef_in_entryRuleAnswerTemplateRef11500 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleAnswerTemplateRef11510 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_19_in_ruleAnswerTemplateRef11547 = new BitSet(new long[]{0x1000000000000000L});
+        public static final BitSet FOLLOW_60_in_ruleAnswerTemplateRef11559 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_RULE_ID_in_ruleAnswerTemplateRef11579 = new BitSet(new long[]{0x0000000000004000L});
+        public static final BitSet FOLLOW_14_in_ruleAnswerTemplateRef11591 = new BitSet(new long[]{0x0000000200000000L});
+        public static final BitSet FOLLOW_33_in_ruleAnswerTemplateRef11603 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleAnswerTemplateRefAttr_in_entryRuleAnswerTemplateRefAttr11639 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleAnswerTemplateRefAttr11649 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_61_in_ruleAnswerTemplateRefAttr11686 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_RULE_ID_in_ruleAnswerTemplateRefAttr11706 = new BitSet(new long[]{0x0000000000004000L});
+        public static final BitSet FOLLOW_14_in_ruleAnswerTemplateRefAttr11718 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleTableQuestion_in_entryRuleTableQuestion11754 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleTableQuestion11764 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_62_in_ruleTableQuestion11801 = new BitSet(new long[]{0x0000000000120000L});
+        public static final BitSet FOLLOW_20_in_ruleTableQuestion11814 = new BitSet(new long[]{0x0000000000004010L});
+        public static final BitSet FOLLOW_RULE_ID_in_ruleTableQuestion11831 = new BitSet(new long[]{0x0000000000004000L});
+        public static final BitSet FOLLOW_14_in_ruleTableQuestion11849 = new BitSet(new long[]{0x0000000000020000L});
+        public static final BitSet FOLLOW_17_in_ruleTableQuestion11863 = new BitSet(new long[]{0x0000000000000030L});
+        public static final BitSet FOLLOW_ruleEString_in_ruleTableQuestion11884 = new BitSet(new long[]{0x8000000000000000L});
+        public static final BitSet FOLLOW_63_in_ruleTableQuestion11896 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleDEP_ID_in_entryRuleDEP_ID11933 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleDEP_ID11944 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_ID_in_ruleDEP_ID11984 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_FQN_in_ruleDEP_ID12010 = new BitSet(new long[]{0x0000000000000002L});
     }
 
 

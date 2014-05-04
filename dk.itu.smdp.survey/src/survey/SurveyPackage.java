@@ -1387,13 +1387,31 @@ public interface SurveyPackage extends EPackage {
 	int TABLE_QUESTION = 15;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_QUESTION__NAME = META__NAME;
+
+	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_QUESTION__TITLE = 0;
+	int TABLE_QUESTION__TITLE = META__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_QUESTION__DESCRIPTION = META__DESCRIPTION;
 
 	/**
 	 * The number of structural features of the '<em>Table Question</em>' class.
@@ -1402,7 +1420,7 @@ public interface SurveyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_QUESTION_FEATURE_COUNT = 1;
+	int TABLE_QUESTION_FEATURE_COUNT = META_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Table Question</em>' class.
@@ -1411,7 +1429,7 @@ public interface SurveyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_QUESTION_OPERATION_COUNT = 0;
+	int TABLE_QUESTION_OPERATION_COUNT = META_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link survey.impl.AnswerTemplateRefImpl <em>Answer Template Ref</em>}' class.
@@ -1470,13 +1488,22 @@ public interface SurveyPackage extends EPackage {
 	int ANSWER__NAME = OPTION_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ANSWER__LABEL = OPTION_FEATURE_COUNT + 1;
+	int ANSWER__TITLE = OPTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANSWER__DESCRIPTION = OPTION_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Answer</em>' class.
@@ -1485,7 +1512,7 @@ public interface SurveyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANSWER_FEATURE_COUNT = OPTION_FEATURE_COUNT + 2;
+	int ANSWER_FEATURE_COUNT = OPTION_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Answer</em>' class.
@@ -2034,17 +2061,6 @@ public interface SurveyPackage extends EPackage {
 	EClass getTableQuestion();
 
 	/**
-	 * Returns the meta object for the attribute '{@link survey.TableQuestion#getTitle <em>Title</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Title</em>'.
-	 * @see survey.TableQuestion#getTitle()
-	 * @see #getTableQuestion()
-	 * @generated
-	 */
-	EAttribute getTableQuestion_Title();
-
-	/**
 	 * Returns the meta object for class '{@link survey.AnswerTemplateRef <em>Answer Template Ref</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2074,28 +2090,6 @@ public interface SurveyPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getAnswer();
-
-	/**
-	 * Returns the meta object for the attribute '{@link survey.Answer#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see survey.Answer#getName()
-	 * @see #getAnswer()
-	 * @generated
-	 */
-	EAttribute getAnswer_Name();
-
-	/**
-	 * Returns the meta object for the attribute '{@link survey.Answer#getLabel <em>Label</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Label</em>'.
-	 * @see survey.Answer#getLabel()
-	 * @see #getAnswer()
-	 * @generated
-	 */
-	EAttribute getAnswer_Label();
 
 	/**
 	 * Returns the meta object for class '{@link survey.AnswerTemplate <em>Answer Template</em>}'.
@@ -2553,14 +2547,6 @@ public interface SurveyPackage extends EPackage {
 		EClass TABLE_QUESTION = eINSTANCE.getTableQuestion();
 
 		/**
-		 * The meta object literal for the '<em><b>Title</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TABLE_QUESTION__TITLE = eINSTANCE.getTableQuestion_Title();
-
-		/**
 		 * The meta object literal for the '{@link survey.impl.AnswerTemplateRefImpl <em>Answer Template Ref</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2587,22 +2573,6 @@ public interface SurveyPackage extends EPackage {
 		 * @generated
 		 */
 		EClass ANSWER = eINSTANCE.getAnswer();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ANSWER__NAME = eINSTANCE.getAnswer_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Label</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ANSWER__LABEL = eINSTANCE.getAnswer_Label();
 
 		/**
 		 * The meta object literal for the '{@link survey.impl.AnswerTemplateImpl <em>Answer Template</em>}' class.

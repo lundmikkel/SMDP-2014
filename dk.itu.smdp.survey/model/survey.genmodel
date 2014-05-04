@@ -63,16 +63,11 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Survey.ecore#//Table/questions"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Table/multiple"/>
     </genClasses>
-    <genClasses ecoreClass="Survey.ecore#//TableQuestion">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//TableQuestion/title"/>
-    </genClasses>
+    <genClasses ecoreClass="Survey.ecore#//TableQuestion"/>
     <genClasses ecoreClass="Survey.ecore#//AnswerTemplateRef">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Survey.ecore#//AnswerTemplateRef/template"/>
     </genClasses>
-    <genClasses ecoreClass="Survey.ecore#//Answer">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Answer/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Answer/label"/>
-    </genClasses>
+    <genClasses ecoreClass="Survey.ecore#//Answer"/>
     <genClasses ecoreClass="Survey.ecore#//AnswerTemplate">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Survey.ecore#//AnswerTemplate/answers"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//AnswerTemplate/name"/>

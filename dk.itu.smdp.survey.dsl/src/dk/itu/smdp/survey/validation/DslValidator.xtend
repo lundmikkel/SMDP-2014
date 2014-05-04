@@ -16,12 +16,12 @@ import survey.Number
 import survey.Option
 import survey.Question
 import survey.Scale
-import survey.Single
 import survey.Survey
 import survey.SurveyPackage
 import survey.Table
-import org.eclipse.emf.common.util.EList
 import survey.Date
+import survey.TableQuestion
+import survey.Meta
 
 /**
  * Custom validation rules. 
@@ -36,6 +36,7 @@ class DslValidator extends AbstractDslValidator {
 	public static val MISSING_ATTRIBUTE = 'missingAttribute'
 	
 	
+	private static val noThreeUnderscores = 'The string may not contain three underscores'
 	private static val minIsLessThanMaxString = 'Max value must be larger than min value' 
 	private static val uniqueIdsAtSameLevelString = 'Ids at the same level must be unique'
 	private static val invalidRefIdString = 'There is no answer with this id'
@@ -44,6 +45,23 @@ class DslValidator extends AbstractDslValidator {
 	private static val betterUseSingleString = 'If your maximum is one, you should rather use a single question instead of a multiple for usability reasons'
 	private static val setDateGranularityString = "You must specify the date's granularity"
 
+
+	/**
+	 * Check that no name contains three underscores
+	 */
+	 @Check
+	 def checkForTooManyUnderscores(Meta meta) {
+	 	if (!meta.name.nullOrEmpty) {
+	 		if (meta.name.contains('___')) {
+	 			error(
+					minIsLessThanMaxString,
+					meta,
+					SurveyPackage.Literals.META__NAME,
+					INVALID_VALUE
+				)
+	 		}
+	 	}
+	 }
 
 	/**
 	 * Check that the min is less than max value in a scale 
@@ -297,13 +315,13 @@ class DslValidator extends AbstractDslValidator {
 				error(
 					uniqueIdsAtSameLevelString,
 					answer,
-					SurveyPackage.Literals.ANSWER__NAME,
+					SurveyPackage.Literals.META__NAME,
 					DUPLICATE_NAME
 				)
 				error(
 					uniqueIdsAtSameLevelString,
 					map.get(answer.name),
-					SurveyPackage.Literals.ANSWER__NAME,
+					SurveyPackage.Literals.META__NAME,
 					DUPLICATE_NAME
 				)
 			}
@@ -315,15 +333,13 @@ class DslValidator extends AbstractDslValidator {
 
 	@Check
 	def checkDependsOn(Survey survey) {
-		var qMap = new HashMap<String, Question>()
-		var aMap = new HashMap<String, Answer>()
+		var map = new HashMap<String, Meta>()
 		for (Item item : survey.items) {
-			item.getFullIds("", qMap, aMap)
+			item.getFullIds("", map)
 		}
 		
 		for (Item item : survey.items.filter[!dependsOn.nullOrEmpty]) {
-			println("Depends on: " + item.dependsOn)
-			if (!qMap.containsKey(item.dependsOn) && !aMap.containsKey(item.dependsOn)) {
+			if (!map.containsKey(item.dependsOn)) {
 				error(
 					invalidRefIdString,
 					item,
@@ -336,8 +352,7 @@ class DslValidator extends AbstractDslValidator {
 		
 		for (Group group : survey.items.filter(typeof(Group))) {
 			for (Item item : group.questions.filter[!dependsOn.nullOrEmpty]) {
-				println("Depends on: " + item.dependsOn)
-				if (!qMap.containsKey(item.dependsOn) && !aMap.containsKey(item.dependsOn)) {
+				if (!map.containsKey(item.dependsOn)) {
 					error(
 						invalidRefIdString,
 						item,
@@ -349,19 +364,19 @@ class DslValidator extends AbstractDslValidator {
 		}
 	}
 	
-	def dispatch void getFullIds(Group group, String pid, HashMap<String, Question> qMap, HashMap<String, Answer> aMap) {
+	def dispatch void getFullIds(Group group, String pid, HashMap<String, Meta> map) {
 		for (Question question : group.questions) {	
 			val id = if (group.name.nullOrEmpty) pid else pid + "." + group.name
-			question.getFullIds(id, qMap, aMap)
+			question.getFullIds(id, map)
 		}
 	}
 	
-	def dispatch void getFullIds(Question question, String pid, HashMap<String, Question> qMap, HashMap<String, Answer> aMap) {
+	def dispatch void getFullIds(Question question, String pid, HashMap<String, Meta> map) {
 		if (!question.name.nullOrEmpty) {
 			val id = (pid + "." + question.name).substring(1)
 			val s = String::format(ambiguousIdString, id) 
 			
-			if (qMap.containsKey(id)) {
+			if (map.containsKey(id)) {
 				error(
 					s,
 					question,
@@ -370,82 +385,72 @@ class DslValidator extends AbstractDslValidator {
 				)
 				error(
 					s,
-					qMap.get(id),
+					map.get(id),
 					SurveyPackage.Literals.META__NAME,
-					INVALID_VALUE
-				)
-			}
-			else if (aMap.containsKey(id)) {
-				error(
-					s,
-					question,
-					SurveyPackage.Literals.META__NAME,
-					INVALID_VALUE
-				)
-				error(
-					s,
-					aMap.get(id),
-					SurveyPackage.Literals.ANSWER__NAME,
 					INVALID_VALUE
 				)
 			}
 			else {
-				qMap.put(id, question)
+				if (question instanceof Scale) {
+					val scale = question as Scale
+					for (int i : scale.min..scale.max) {
+						map.put(id + "._" + i, question)
+					}
+				}	
+				else			
+					map.put(id, question)
 			}
 		}
 	}
 	
-	def dispatch void getFullIds(HasOptions question, String pid, HashMap<String, Question> qMap, HashMap<String, Answer> aMap) {
-		for (Option option : question.options) {
-			val id = if (question.name.nullOrEmpty) pid else pid + "." + question.name
-			option.getFullIds(id, qMap, aMap)
+	// TODO: Add table questions!
+	def dispatch void getFullIds(Table question, String pid, HashMap<String, Meta> map) {
+		for (TableQuestion q : question.questions.filter[!name.nullOrEmpty]) {
+			var id = pid + "." + q.name
+			for (Option option : question.options) {
+				id = if (question.name.nullOrEmpty) id else id + "." + question.name
+				option.getFullIds(id, map)
+			}
 		}
 	}
 	
-	def dispatch void getFullIds(AnswerTemplateRef templateRef, String pid, HashMap<String, Question> qMap, HashMap<String, Answer> aMap) {
+	def dispatch void getFullIds(HasOptions question, String pid, HashMap<String, Meta> map) {
+		for (Option option : question.options) {
+			val id = if (question.name.nullOrEmpty) pid else pid + "." + question.name
+			option.getFullIds(id, map)
+		}
+	}
+	
+	def dispatch void getFullIds(AnswerTemplateRef templateRef, String pid, HashMap<String, Meta> map) {
 		// Skip if the question has no id
 		if (!pid.nullOrEmpty)
 			for (Answer answer : templateRef.template.answers) {
 				val id = pid + "." + templateRef.template.name
-				answer.getFullIds(id, qMap, aMap)
+				answer.getFullIds(id, map)
 			}
 	}
 	
-	def dispatch void getFullIds(Answer answer, String pid, HashMap<String, Question> qMap, HashMap<String, Answer> aMap) {
+	def dispatch void getFullIds(Answer answer, String pid, HashMap<String, Meta> map) {
 		if (!answer.name.nullOrEmpty) {
 			val id = (pid + "." + answer.name).substring(1)
 			val s = String::format(ambiguousIdString, id) 
 			
-			if (qMap.containsKey(id)) {
+			if (map.containsKey(id)) {
 				error(
 					s,
 					answer,
-					SurveyPackage.Literals.ANSWER__NAME,
+					SurveyPackage.Literals.META__NAME,
 					INVALID_VALUE
 				)
 				error(
 					s,
-					qMap.get(id),
+					map.get(id),
 					SurveyPackage.Literals.META__NAME,
 					INVALID_VALUE
 				)
 			}
-			else if (aMap.containsKey(id)) {
-				error(
-					s,
-					answer,
-					SurveyPackage.Literals.ANSWER__NAME,
-					INVALID_VALUE
-				)
-				error(
-					s,
-					aMap.get(id),
-					SurveyPackage.Literals.ANSWER__NAME,
-					INVALID_VALUE
-				)
-			}
 			else {
-				aMap.put(id, answer)
+				map.put(id, answer)
 			}
 		}
 	}

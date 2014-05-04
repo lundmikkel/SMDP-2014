@@ -33,7 +33,7 @@ AnswerTemplate returns AnswerTemplate:
 
 Answer returns Answer:
 	'<a' ('id="' name=ID? '"')? '>'
-		label=EString
+		title=EString
 	'</a>';
 
 Group returns Group:
@@ -162,7 +162,7 @@ Table returns Table:
 	'<table'
 		( ('title="' title=EString? '"')?
 		& ('description="' description=EString? '"')?
-		& ('id="' name=ID? '"')?
+		//& ('id="' name=ID? '"')?
 		& ('depends-on="' dependsOn=DEP_ID? '"')?
 		& (required?='required')?
 		& (other?='other')?
@@ -182,7 +182,7 @@ AnswerTemplateRefAttr returns AnswerTemplateRef:
 	'template="' template=[AnswerTemplate|ID] '"';
 
 TableQuestion returns TableQuestion:
-	'<q>'
+	'<q' ('id="' name=ID? '"')? '>'
 		title=EString
 	'</q>';
 

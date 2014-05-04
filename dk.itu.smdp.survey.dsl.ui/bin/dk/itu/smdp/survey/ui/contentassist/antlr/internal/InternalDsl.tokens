@@ -107,6 +107,6 @@ RULE_WS=10
 'max-label="'=42
 '</single>'=48
 '</table>'=53
-'<q>'=57
 'multiline'=15
 '<number'=46
+'<q'=57

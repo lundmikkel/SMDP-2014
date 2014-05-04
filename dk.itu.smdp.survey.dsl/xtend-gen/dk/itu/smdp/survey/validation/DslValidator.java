@@ -12,7 +12,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.validation.Check;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
-import org.eclipse.xtext.xbase.lib.InputOutput;
+import org.eclipse.xtext.xbase.lib.IntegerRange;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.StringExtensions;
 import survey.Answer;
@@ -22,12 +22,15 @@ import survey.Date;
 import survey.Group;
 import survey.HasOptions;
 import survey.Item;
+import survey.Meta;
 import survey.Multiple;
 import survey.Option;
 import survey.Question;
 import survey.Scale;
 import survey.Survey;
 import survey.SurveyPackage.Literals;
+import survey.Table;
+import survey.TableQuestion;
 
 /**
  * Custom validation rules.
@@ -44,6 +47,8 @@ public class DslValidator extends AbstractDslValidator {
   
   public final static String MISSING_ATTRIBUTE = "missingAttribute";
   
+  private final static String noThreeUnderscores = "The string may not contain three underscores";
+  
   private final static String minIsLessThanMaxString = "Max value must be larger than min value";
   
   private final static String uniqueIdsAtSameLevelString = "Ids at the same level must be unique";
@@ -57,6 +62,26 @@ public class DslValidator extends AbstractDslValidator {
   private final static String betterUseSingleString = "If your maximum is one, you should rather use a single question instead of a multiple for usability reasons";
   
   private final static String setDateGranularityString = "You must specify the date\'s granularity";
+  
+  /**
+   * Check that no name contains three underscores
+   */
+  @Check
+  public void checkForTooManyUnderscores(final Meta meta) {
+    String _name = meta.getName();
+    boolean _isNullOrEmpty = StringExtensions.isNullOrEmpty(_name);
+    boolean _not = (!_isNullOrEmpty);
+    if (_not) {
+      String _name_1 = meta.getName();
+      boolean _contains = _name_1.contains("___");
+      if (_contains) {
+        this.error(
+          DslValidator.minIsLessThanMaxString, meta, 
+          Literals.META__NAME, 
+          DslValidator.INVALID_VALUE);
+      }
+    }
+  }
   
   /**
    * Check that the min is less than max value in a scale
@@ -404,13 +429,13 @@ public class DslValidator extends AbstractDslValidator {
       if (_containsKey) {
         this.error(
           DslValidator.uniqueIdsAtSameLevelString, answer, 
-          Literals.ANSWER__NAME, 
+          Literals.META__NAME, 
           DslValidator.DUPLICATE_NAME);
         String _name_1 = answer.getName();
         Answer _get = map.get(_name_1);
         this.error(
           DslValidator.uniqueIdsAtSameLevelString, _get, 
-          Literals.ANSWER__NAME, 
+          Literals.META__NAME, 
           DslValidator.DUPLICATE_NAME);
       } else {
         String _name_2 = answer.getName();
@@ -421,13 +446,11 @@ public class DslValidator extends AbstractDslValidator {
   
   @Check
   public void checkDependsOn(final Survey survey) {
-    HashMap<String,Question> _hashMap = new HashMap<String, Question>();
-    HashMap<String,Question> qMap = _hashMap;
-    HashMap<String,Answer> _hashMap_1 = new HashMap<String, Answer>();
-    HashMap<String,Answer> aMap = _hashMap_1;
+    HashMap<String,Meta> _hashMap = new HashMap<String, Meta>();
+    HashMap<String,Meta> map = _hashMap;
     EList<Item> _items = survey.getItems();
     for (final Item item : _items) {
-      this.getFullIds(item, "", qMap, aMap);
+      this.getFullIds(item, "", map);
     }
     EList<Item> _items_1 = survey.getItems();
     final Function1<Item,Boolean> _function = new Function1<Item,Boolean>() {
@@ -440,28 +463,14 @@ public class DslValidator extends AbstractDslValidator {
     };
     Iterable<Item> _filter = IterableExtensions.<Item>filter(_items_1, _function);
     for (final Item item_1 : _filter) {
-      {
-        String _dependsOn = item_1.getDependsOn();
-        String _plus = ("Depends on: " + _dependsOn);
-        InputOutput.<String>println(_plus);
-        boolean _and = false;
-        String _dependsOn_1 = item_1.getDependsOn();
-        boolean _containsKey = qMap.containsKey(_dependsOn_1);
-        boolean _not = (!_containsKey);
-        if (!_not) {
-          _and = false;
-        } else {
-          String _dependsOn_2 = item_1.getDependsOn();
-          boolean _containsKey_1 = aMap.containsKey(_dependsOn_2);
-          boolean _not_1 = (!_containsKey_1);
-          _and = (_not && _not_1);
-        }
-        if (_and) {
-          this.error(
-            DslValidator.invalidRefIdString, item_1, 
-            Literals.ITEM__DEPENDS_ON, 
-            DslValidator.INVALID_VALUE);
-        }
+      String _dependsOn = item_1.getDependsOn();
+      boolean _containsKey = map.containsKey(_dependsOn);
+      boolean _not = (!_containsKey);
+      if (_not) {
+        this.error(
+          DslValidator.invalidRefIdString, item_1, 
+          Literals.ITEM__DEPENDS_ON, 
+          DslValidator.INVALID_VALUE);
       }
     }
     EList<Item> _items_2 = survey.getItems();
@@ -478,34 +487,20 @@ public class DslValidator extends AbstractDslValidator {
       };
       Iterable<Question> _filter_2 = IterableExtensions.<Question>filter(_questions, _function_1);
       for (final Item item_2 : _filter_2) {
-        {
-          String _dependsOn = item_2.getDependsOn();
-          String _plus = ("Depends on: " + _dependsOn);
-          InputOutput.<String>println(_plus);
-          boolean _and = false;
-          String _dependsOn_1 = item_2.getDependsOn();
-          boolean _containsKey = qMap.containsKey(_dependsOn_1);
-          boolean _not = (!_containsKey);
-          if (!_not) {
-            _and = false;
-          } else {
-            String _dependsOn_2 = item_2.getDependsOn();
-            boolean _containsKey_1 = aMap.containsKey(_dependsOn_2);
-            boolean _not_1 = (!_containsKey_1);
-            _and = (_not && _not_1);
-          }
-          if (_and) {
-            this.error(
-              DslValidator.invalidRefIdString, item_2, 
-              Literals.ITEM__DEPENDS_ON, 
-              DslValidator.INVALID_VALUE);
-          }
+        String _dependsOn_1 = item_2.getDependsOn();
+        boolean _containsKey_1 = map.containsKey(_dependsOn_1);
+        boolean _not_1 = (!_containsKey_1);
+        if (_not_1) {
+          this.error(
+            DslValidator.invalidRefIdString, item_2, 
+            Literals.ITEM__DEPENDS_ON, 
+            DslValidator.INVALID_VALUE);
         }
       }
     }
   }
   
-  protected void _getFullIds(final Group group, final String pid, final HashMap<String,Question> qMap, final HashMap<String,Answer> aMap) {
+  protected void _getFullIds(final Group group, final String pid, final HashMap<String,Meta> map) {
     EList<Question> _questions = group.getQuestions();
     for (final Question question : _questions) {
       {
@@ -521,12 +516,12 @@ public class DslValidator extends AbstractDslValidator {
           _xifexpression = _plus_1;
         }
         final String id = _xifexpression;
-        this.getFullIds(question, id, qMap, aMap);
+        this.getFullIds(question, id, map);
       }
     }
   }
   
-  protected void _getFullIds(final Question question, final String pid, final HashMap<String,Question> qMap, final HashMap<String,Answer> aMap) {
+  protected void _getFullIds(final Question question, final String pid, final HashMap<String,Meta> map) {
     String _name = question.getName();
     boolean _isNullOrEmpty = StringExtensions.isNullOrEmpty(_name);
     boolean _not = (!_isNullOrEmpty);
@@ -536,33 +531,72 @@ public class DslValidator extends AbstractDslValidator {
       String _plus_1 = (_plus + _name_1);
       final String id = _plus_1.substring(1);
       final String s = String.format(DslValidator.ambiguousIdString, id);
-      boolean _containsKey = qMap.containsKey(id);
+      boolean _containsKey = map.containsKey(id);
       if (_containsKey) {
         this.error(s, question, 
           Literals.META__NAME, 
           DslValidator.INVALID_VALUE);
-        Question _get = qMap.get(id);
+        Meta _get = map.get(id);
         this.error(s, _get, 
           Literals.META__NAME, 
           DslValidator.INVALID_VALUE);
       } else {
-        boolean _containsKey_1 = aMap.containsKey(id);
-        if (_containsKey_1) {
-          this.error(s, question, 
-            Literals.META__NAME, 
-            DslValidator.INVALID_VALUE);
-          Answer _get_1 = aMap.get(id);
-          this.error(s, _get_1, 
-            Literals.ANSWER__NAME, 
-            DslValidator.INVALID_VALUE);
+        if ((question instanceof Scale)) {
+          final Scale scale = ((Scale) question);
+          int _min = scale.getMin();
+          int _max = scale.getMax();
+          IntegerRange _upTo = new IntegerRange(_min, _max);
+          for (final int i : _upTo) {
+            String _plus_2 = (id + "._");
+            String _plus_3 = (_plus_2 + Integer.valueOf(i));
+            map.put(_plus_3, question);
+          }
         } else {
-          qMap.put(id, question);
+          map.put(id, question);
         }
       }
     }
   }
   
-  protected void _getFullIds(final HasOptions question, final String pid, final HashMap<String,Question> qMap, final HashMap<String,Answer> aMap) {
+  protected void _getFullIds(final Table question, final String pid, final HashMap<String,Meta> map) {
+    EList<TableQuestion> _questions = question.getQuestions();
+    final Function1<TableQuestion,Boolean> _function = new Function1<TableQuestion,Boolean>() {
+      public Boolean apply(final TableQuestion it) {
+        String _name = it.getName();
+        boolean _isNullOrEmpty = StringExtensions.isNullOrEmpty(_name);
+        boolean _not = (!_isNullOrEmpty);
+        return Boolean.valueOf(_not);
+      }
+    };
+    Iterable<TableQuestion> _filter = IterableExtensions.<TableQuestion>filter(_questions, _function);
+    for (final TableQuestion q : _filter) {
+      {
+        String _plus = (pid + ".");
+        String _name = q.getName();
+        String id = (_plus + _name);
+        EList<Option> _options = question.getOptions();
+        for (final Option option : _options) {
+          {
+            String _xifexpression = null;
+            String _name_1 = question.getName();
+            boolean _isNullOrEmpty = StringExtensions.isNullOrEmpty(_name_1);
+            if (_isNullOrEmpty) {
+              _xifexpression = id;
+            } else {
+              String _plus_1 = (id + ".");
+              String _name_2 = question.getName();
+              String _plus_2 = (_plus_1 + _name_2);
+              _xifexpression = _plus_2;
+            }
+            id = _xifexpression;
+            this.getFullIds(option, id, map);
+          }
+        }
+      }
+    }
+  }
+  
+  protected void _getFullIds(final HasOptions question, final String pid, final HashMap<String,Meta> map) {
     EList<Option> _options = question.getOptions();
     for (final Option option : _options) {
       {
@@ -578,12 +612,12 @@ public class DslValidator extends AbstractDslValidator {
           _xifexpression = _plus_1;
         }
         final String id = _xifexpression;
-        this.getFullIds(option, id, qMap, aMap);
+        this.getFullIds(option, id, map);
       }
     }
   }
   
-  protected void _getFullIds(final AnswerTemplateRef templateRef, final String pid, final HashMap<String,Question> qMap, final HashMap<String,Answer> aMap) {
+  protected void _getFullIds(final AnswerTemplateRef templateRef, final String pid, final HashMap<String,Meta> map) {
     boolean _isNullOrEmpty = StringExtensions.isNullOrEmpty(pid);
     boolean _not = (!_isNullOrEmpty);
     if (_not) {
@@ -595,13 +629,13 @@ public class DslValidator extends AbstractDslValidator {
           AnswerTemplate _template_1 = templateRef.getTemplate();
           String _name = _template_1.getName();
           final String id = (_plus + _name);
-          this.getFullIds(answer, id, qMap, aMap);
+          this.getFullIds(answer, id, map);
         }
       }
     }
   }
   
-  protected void _getFullIds(final Answer answer, final String pid, final HashMap<String,Question> qMap, final HashMap<String,Answer> aMap) {
+  protected void _getFullIds(final Answer answer, final String pid, final HashMap<String,Meta> map) {
     String _name = answer.getName();
     boolean _isNullOrEmpty = StringExtensions.isNullOrEmpty(_name);
     boolean _not = (!_isNullOrEmpty);
@@ -611,51 +645,43 @@ public class DslValidator extends AbstractDslValidator {
       String _plus_1 = (_plus + _name_1);
       final String id = _plus_1.substring(1);
       final String s = String.format(DslValidator.ambiguousIdString, id);
-      boolean _containsKey = qMap.containsKey(id);
+      boolean _containsKey = map.containsKey(id);
       if (_containsKey) {
         this.error(s, answer, 
-          Literals.ANSWER__NAME, 
+          Literals.META__NAME, 
           DslValidator.INVALID_VALUE);
-        Question _get = qMap.get(id);
+        Meta _get = map.get(id);
         this.error(s, _get, 
           Literals.META__NAME, 
           DslValidator.INVALID_VALUE);
       } else {
-        boolean _containsKey_1 = aMap.containsKey(id);
-        if (_containsKey_1) {
-          this.error(s, answer, 
-            Literals.ANSWER__NAME, 
-            DslValidator.INVALID_VALUE);
-          Answer _get_1 = aMap.get(id);
-          this.error(s, _get_1, 
-            Literals.ANSWER__NAME, 
-            DslValidator.INVALID_VALUE);
-        } else {
-          aMap.put(id, answer);
-        }
+        map.put(id, answer);
       }
     }
   }
   
-  public void getFullIds(final EObject group, final String pid, final HashMap<String,Question> qMap, final HashMap<String,Answer> aMap) {
-    if (group instanceof Group) {
-      _getFullIds((Group)group, pid, qMap, aMap);
+  public void getFullIds(final EObject question, final String pid, final HashMap<String,Meta> map) {
+    if (question instanceof Table) {
+      _getFullIds((Table)question, pid, map);
       return;
-    } else if (group instanceof HasOptions) {
-      _getFullIds((HasOptions)group, pid, qMap, aMap);
+    } else if (question instanceof Group) {
+      _getFullIds((Group)question, pid, map);
       return;
-    } else if (group instanceof Question) {
-      _getFullIds((Question)group, pid, qMap, aMap);
+    } else if (question instanceof HasOptions) {
+      _getFullIds((HasOptions)question, pid, map);
       return;
-    } else if (group instanceof Answer) {
-      _getFullIds((Answer)group, pid, qMap, aMap);
+    } else if (question instanceof Question) {
+      _getFullIds((Question)question, pid, map);
       return;
-    } else if (group instanceof AnswerTemplateRef) {
-      _getFullIds((AnswerTemplateRef)group, pid, qMap, aMap);
+    } else if (question instanceof Answer) {
+      _getFullIds((Answer)question, pid, map);
+      return;
+    } else if (question instanceof AnswerTemplateRef) {
+      _getFullIds((AnswerTemplateRef)question, pid, map);
       return;
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
-        Arrays.<Object>asList(group, pid, qMap, aMap).toString());
+        Arrays.<Object>asList(question, pid, map).toString());
     }
   }
 }

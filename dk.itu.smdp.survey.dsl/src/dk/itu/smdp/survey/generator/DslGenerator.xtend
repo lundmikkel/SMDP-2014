@@ -22,6 +22,7 @@ import survey.Single
 import survey.Survey
 import survey.Table
 import survey.Text
+import survey.Item
 
 /**
  * Generates code from your model files on save.
@@ -45,7 +46,7 @@ class DslGenerator implements IGenerator {
 	def genPhp(Survey survey, IFileSystemAccess fsa) {
 		var body = '''
 			«FOR item : survey.items»
-				«item.genHtml(false)»
+				«item.genHtml(false, "")»
 			«ENDFOR»
 		'''
 		
@@ -61,20 +62,28 @@ class DslGenerator implements IGenerator {
 		return id;
 	}
 	
-	def dispatch String genHtml(Group group, boolean required)
+	def dispatch String genHtml(Group group, boolean required, String pid) {
+		val refId = if (group.name.nullOrEmpty) pid else pid + "." + group.name
 		'''
-		<div class="group">
+		<div class="group" «group.genDependsOn»>
 		    «IF !group.title.nullOrEmpty»
-		    <h2 id="grid" class="page-header">«group.title»</h2>
+		    <h2 class="page-header">«group.title»</h2>
 		    «ENDIF»
 		    « IF !group.description.nullOrEmpty »
 		    <p class="lead">«group.description»</p>
 		    «ENDIF»
 			«FOR question : group.questions»
-				«question.genHtml(group.required)»
+				«question.genHtml(group.required, refId)»
 			«ENDFOR»
 		</div>
 		'''
+	}
+	
+	def genDependsOn(Item item) '''
+		«IF !item.dependsOn.nullOrEmpty»
+		data-depends-on="«item.dependsOn.replace('.', "___")»"
+		«ENDIF»
+	'''
 	
 	def genHeader(Question question, boolean required) {
 		question.genHeader(required, "")
@@ -88,18 +97,37 @@ class DslGenerator implements IGenerator {
 		«question.genHiddenInput(idMap.get(question))»
 	'''
 	
-	def dispatch String genHtml(Text question, boolean required) {
-		var id = getUniqueId(question);
+	def genRefIdAttr(String id, int i) '''
+		«IF !id.nullOrEmpty»
+		id="«id.substring(1).replace('.', "___")»____«i»"
+		«ENDIF»
+	'''
+	
+	def genRefIdAttr(String id, Answer a) '''
+		«IF !id.nullOrEmpty && !a.name.nullOrEmpty»
+		id="«id.substring(1).replace('.', "___") + "___" + a.name»"
+		«ENDIF»
+	'''
+	
+	def genRefIdAttr(String id) '''
+		«IF !id.nullOrEmpty»
+		id="«id.substring(1).replace('.', "___")»"
+		«ENDIF»
+	'''
+	
+	def dispatch String genHtml(Text question, boolean required, String pid) {
+		var id = getUniqueId(question)
+		val refId = if (question.name.nullOrEmpty) "" else pid + "." + question.name
 		
 		'''
-		<div class="form-group">
+		<div class="form-group" «question.genDependsOn»>
 			«question.genHeader(required, '''for="«id»"''')»
 		    <div class="row">
 		        <div class="col-xs-4">
 					«IF !question.multiline»
-					<input class="form-control" id="«id»" name="«id»" «question.genRequiredAttr(required)»>
+					<input class="form-control" «genRefIdAttr(refId)» name="«id»" «question.genRequiredAttr(required)»>
 					«ELSE»
-					<textarea class="form-control" id="«id»" name="«id»" rows="3" «question.genRequiredAttr(required)»></textarea>
+					<textarea class="form-control" «genRefIdAttr(refId)» name="«id»" rows="3" «question.genRequiredAttr(required)»></textarea>
 					«ENDIF»
 		        </div>
 		    </div>
@@ -107,39 +135,41 @@ class DslGenerator implements IGenerator {
 		'''
 	}
 	
-	def dispatch String genHtml(Scale question, boolean required) {
-		var id = getUniqueId(question);
+	def dispatch String genHtml(Scale question, boolean required, String pid) {
+		val id = getUniqueId(question)
+		// For label references
+		if (question.name.nullOrEmpty)
+			question.name = id
+		val refId = pid + "." + question.name
 		
 		'''
-		<div class="group">
-		    <div class="form-group">
-		    	«question.genHeader(required)»
-		        <table class="scale">
-		            <tr class="top">
-		            	«IF !question.minLabel.nullOrEmpty »
-		            	<td></td>
-		                «ENDIF»
-		                «FOR i : question.min..question.max BEFORE '<td>' SEPARATOR '</td><td>' AFTER '</td>' »
-		                <label for="«id»_«i»">«i»</label>
-		                «ENDFOR»
-		            	«IF !question.minLabel.nullOrEmpty »
-		            	<td></td>
-		                «ENDIF»
-		            </tr>
-		            <tr class="bottom">
-		            	«IF !question.minLabel.nullOrEmpty »
-		            	<td><label for="«id»_«question.min»">«question.minLabel»</label></td>
-		                «ENDIF»
-		                «FOR i : question.min..question.max BEFORE '<td>' SEPARATOR '</td><td>' AFTER '</td>' »
-		                <input type="radio" name="«id»" id="«id»_«i»" name="«id»_«i»" value="«i»" «question.genRequiredAttr(required)»/>
-		                «ENDFOR»
-		            	«IF !question.minLabel.nullOrEmpty »
-		            	<td><label for="«id»_«question.max»">«question.maxLabel»</label></td>
-		                «ENDIF»
-		            </tr>
-		        </table>
-		    </div>
-		</div>
+	    <div class="form-group" «question.genDependsOn»>
+	    	«question.genHeader(required)»
+	        <table class="scale">
+	            <tr class="top">
+	            	«IF !question.minLabel.nullOrEmpty »
+	            	<td></td>
+	                «ENDIF»
+	                «FOR i : question.min..question.max BEFORE '<td>' SEPARATOR '</td><td>' AFTER '</td>' »
+	                <label for="«refId.substring(1)»____«i»">«i»</label>
+	                «ENDFOR»
+	            	«IF !question.minLabel.nullOrEmpty »
+	            	<td></td>
+	                «ENDIF»
+	            </tr>
+	            <tr class="bottom">
+	            	«IF !question.minLabel.nullOrEmpty »
+	            	<td><label for="«refId.substring(1)»____«question.min»">«question.minLabel»</label></td>
+	                «ENDIF»
+	                «FOR i : question.min..question.max BEFORE '<td>' SEPARATOR '</td><td>' AFTER '</td>' »
+	                <input type="radio" name="«id»" «genRefIdAttr(refId, i)» value="«i»" «question.genRequiredAttr(required)»/>
+	                «ENDFOR»
+	            	«IF !question.minLabel.nullOrEmpty »
+	            	<td><label for="«refId.substring(1)»____«question.max»">«question.maxLabel»</label></td>
+	                «ENDIF»
+	            </tr>
+	        </table>
+	    </div>
 		'''
 	}
 	
@@ -168,10 +198,12 @@ class DslGenerator implements IGenerator {
 			return 2
 	}
 	
-	def dispatch String genHtml(Date question, boolean required) {
+	def dispatch String genHtml(Date question, boolean required, String pid) {
 		val id = getUniqueId(question)
+		val refId = if (question.name.nullOrEmpty) "" else pid + "." + question.name
+		
 		'''
-		<div class="form-group">
+		<div class="form-group" «question.genDependsOn»>
 			«question.genHeader(required, '''for="«id»"''')»
 		    <div class="row">
 		        <div class="col-xs-4">
@@ -181,7 +213,7 @@ class DslGenerator implements IGenerator {
 				    	«IF !question.start.nullOrEmpty»data-date-start-date="«question.start»"«ENDIF»
 				    	«IF !question.end.nullOrEmpty»data-date-end-date="«question.end»"«ENDIF»
 				    	>
-						<input id="«id»" name="«id»" type="text" class="form-control" «question.genRequiredAttr(required)»>
+						<input «genRefIdAttr(refId)» name="«id»" type="text" class="form-control" «question.genRequiredAttr(required)»>
 						<span class="input-group-addon">
 							<i class="glyphicon glyphicon-calendar"></i>
 						</span>
@@ -195,14 +227,16 @@ class DslGenerator implements IGenerator {
 		'''
 	}
 	
-	def dispatch String genHtml(Number question, boolean required) {
+	def dispatch String genHtml(Number question, boolean required, String pid) {
 		var id = getUniqueId(question);
+		val refId = if (question.name.nullOrEmpty) "" else pid + "." + question.name
+		
 		'''
-		<div class="form-group">
+		<div class="form-group" «question.genDependsOn»>
 	    	«question.genHeader(required, '''for="«id»"''')»
 		    <div class="row">
 		        <div class="col-xs-2">
-		            <input type="number" class="form-control" id="«id»" name="«id»" «question.genRequiredAttr(required)» step="1"
+		            <input type="number" class="form-control"  «genRefIdAttr(refId)» name="«id»" «question.genRequiredAttr(required)» step="1"
 		            «IF question.min != null»
 		            min="«question.min»"
 		            «ENDIF»
@@ -219,23 +253,24 @@ class DslGenerator implements IGenerator {
 		'''
 	}
 	
-	def dispatch String genHtml(Single question, boolean required) {
+	def dispatch String genHtml(Single question, boolean required, String pid) {
 		var id = getUniqueId(question);
 		var i = 0
+		val refId = if (question.name.nullOrEmpty) "" else pid + "." + question.name
 		
 		'''
-		<div class="form-group">
+		<div class="form-group" «question.genDependsOn»>
 	    	«question.genHeader(required)»
 			<div>
 				«FOR a : question.getAnswers BEFORE '<div class="radio"><label>'
 											 SEPARATOR '</label></div><div class="radio"><label>'
 											 AFTER '</label></div>' »
-				<input type="radio" name="«id»" id="«id»_«(i = i + 1)»" value="«a.label»" «question.genRequiredAttr(required)»/>
-				«a.label»
+				<input type="radio" name="«id»"  «genRefIdAttr(refId, a)» value="«a.title»" «question.genRequiredAttr(required)»/>
+				«a.title»
 				«ENDFOR»
 				«IF question.other || !question.otherLabel.nullOrEmpty»
 				<div class="radio">
-				<input type="radio" name="«id»" id="«id»_«(i = i + 1)»" value="«id»_«(i = i + 1)»_other" «question.genRequiredAttr(required)»/>
+				<input type="radio" name="«id»" value="«id»_«(i = i + 1)»_other" «question.genRequiredAttr(required)»/>
 				«IF !question.otherLabel.nullOrEmpty»
 				«question.otherLabel»:
 				«ELSE»
@@ -249,46 +284,62 @@ class DslGenerator implements IGenerator {
 		'''
 	}
 		
-	def dispatch String genHtml(Multiple question, boolean required) {
+	def dispatch String genHtml(Multiple question, boolean required, String pid) {
 		val id = getUniqueId(question);
-		var i = 0
 		val min = question.getMin(required)
 		val max = question.getMax(required)
+		val refId = if (question.name.nullOrEmpty) "" else pid + "." + question.name
+		val answers = question.getAnswers
+		
 		
 		'''
 		<div class="form-group"
+			«question.genDependsOn»
 			«IF min > 0» data-min-selections="«min»" «ENDIF»
 			«IF max != null» data-max-selections="«max»" «ENDIF»>
 	    	«question.genHeader(required)»
-		    «FOR a : question.getAnswers BEFORE '<div class="checkbox"><label>'
+		    «FOR a : answers BEFORE '<div class="checkbox"><label>'
 		    							 SEPARATOR '</label></div><div class="checkbox"><label>'
 		    							 AFTER '</label></div>' »
-		    <input type="checkbox" name="«id»[]" id="«id»_«(i = i + 1)»" value="«i»"> «a.label»
+		    <input type="checkbox" name="«id»[]" «genRefIdAttr(refId, a)» value="«a.title»"> «a.title»
 			«ENDFOR»
+			«IF question.other || !question.otherLabel.nullOrEmpty»
+				<div class="checkbox">
+				<input type="checkbox" name="«id»[]" value="«id»_«answers.size»_other" «question.genRequiredAttr(required)»/>
+				«IF !question.otherLabel.nullOrEmpty»
+				«question.otherLabel»:
+				«ELSE»
+				Other:
+				«ENDIF»
+				<input class="other-option" type="text" name="«id»_«answers.size»_other"/>
+				</div>
+				«ENDIF»
 		</div>
 		'''
 	}
 	
-	def dispatch String genHtml(Table question, boolean required) {
+	def dispatch String genHtml(Table question, boolean required, String pid) {
 		val answers = question.getAnswers
 		'''
-		<div class="form-group">
+		<div class="form-group" «question.genDependsOn»>
 	    	«question.genHeader(required)»
 		    <table class="table table-striped">
 		    	<thead>
 					<tr>
 						<th></th>
 						«FOR a : answers»
-						<th>«a.label»</th>
+						<th>«a.title»</th>
 						«ENDFOR»
 					</tr>
 				</thead>
 				<tbody>
 					«FOR q : question.questions»
 					<tr>
-					    <td><label for="«var qid = getUniqueId(question)»_«var aid = 0»">«q.title»</label></td>
+					    <td><label for="«var qid = getUniqueId(question)»">«q.title»</label></td>
 					    «FOR a : answers»
-					    <td><input type="«IF question.multiple»checkbox«ELSE»radio«ENDIF»" name="«qid»" id="«qid»_«(aid = aid + 1)»"/></td>
+					    <td><input type="«IF question.multiple»checkbox«ELSE»radio«ENDIF»" name="«qid»"
+					    «genRefIdAttr(if (q.name.nullOrEmpty) pid else pid + "." + q.name, a)»
+					    "/></td>
 					    «ENDFOR»
 					</tr>
 				    «ENDFOR»
@@ -298,7 +349,7 @@ class DslGenerator implements IGenerator {
 		'''
 	}
 	
-	def dispatch String genHtml(Question question, boolean required) '''
+	def dispatch String genHtml(Question question, boolean required, String pid) '''
 		MISSING: «question.title» («question.class»)
 	'''
 	
@@ -379,7 +430,13 @@ class DslGenerator implements IGenerator {
 				answers.add(option as Answer)
 			}
 			else if (option instanceof AnswerTemplateRef) {
-				answers.addAll((option as AnswerTemplateRef).template.answers)
+				val template = (option as AnswerTemplateRef).template
+				for (Answer answer : template.answers) {
+					if (!answer.name.nullOrEmpty && !answer.name.contains('___')) {
+						answer.name = template.name + '___' + answer.name
+					}
+					answers.add(answer)
+				}
 			}
 		}
 		

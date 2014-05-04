@@ -212,6 +212,7 @@ public class SurveySwitch<T> extends Switch<T> {
 			case SurveyPackage.TABLE_QUESTION: {
 				TableQuestion tableQuestion = (TableQuestion)theEObject;
 				T result = caseTableQuestion(tableQuestion);
+				if (result == null) result = caseMeta(tableQuestion);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -226,6 +227,7 @@ public class SurveySwitch<T> extends Switch<T> {
 				Answer answer = (Answer)theEObject;
 				T result = caseAnswer(answer);
 				if (result == null) result = caseOption(answer);
+				if (result == null) result = caseMeta(answer);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

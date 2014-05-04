@@ -35,7 +35,7 @@ class PhpTemplate {
 							</div>
 			    		<?php
 						
-						echo '<dl class="dl-horizontal">';
+						echo '<dl>';
 						foreach ($_POST as $key => $value) {
 							// Question
 							if (strpos($key,'_question') !== false) {
@@ -47,7 +47,17 @@ class PhpTemplate {
 							}
 							// Answer
 							else {
-								if (strpos($value, '_other') !== false) {
+								if (is_array($value)) {
+									foreach ($value as $answer) {
+										if (strpos($answer, '_other') !== false) {
+											echo '<dd>', $_POST[$answer], '</dd>';
+										}
+										else {
+											echo '<dd>', $answer, '</dd>';
+										}
+									}
+								}
+								else if (strpos($value, '_other') !== false) {
 									echo '<dd>', $_POST[$value], '</dd>';
 								}
 								else {
@@ -57,9 +67,9 @@ class PhpTemplate {
 						}
 						echo '</dl>';
 						
-						echo '<pre>';
+						/*echo '<pre>';
 						print_r($_POST);
-						echo '</pre>';
+						echo '</pre>';*/
 						
 						else:
 						?>
@@ -152,7 +162,7 @@ class PhpTemplate {
 		});
 		
 		$('.other-option').focus(function() {
-			$(this).siblings(':radio').attr('checked', 'checked');
+			$(this).siblings(':radio, :checkbox').attr('checked', 'checked');
 		});
 		
 		$("[data-depends-on]").each(function() {

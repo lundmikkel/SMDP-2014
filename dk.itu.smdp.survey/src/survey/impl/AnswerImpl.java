@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import survey.Answer;
+import survey.Meta;
 import survey.SurveyPackage;
 
 /**
@@ -19,7 +20,8 @@ import survey.SurveyPackage;
  * The following features are implemented:
  * <ul>
  *   <li>{@link survey.impl.AnswerImpl#getName <em>Name</em>}</li>
- *   <li>{@link survey.impl.AnswerImpl#getLabel <em>Label</em>}</li>
+ *   <li>{@link survey.impl.AnswerImpl#getTitle <em>Title</em>}</li>
+ *   <li>{@link survey.impl.AnswerImpl#getDescription <em>Description</em>}</li>
  * </ul>
  * </p>
  *
@@ -47,24 +49,44 @@ public class AnswerImpl extends OptionImpl implements Answer {
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getLabel() <em>Label</em>}' attribute.
+	 * The default value of the '{@link #getTitle() <em>Title</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getLabel()
+	 * @see #getTitle()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String LABEL_EDEFAULT = null;
+	protected static final String TITLE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getLabel() <em>Label</em>}' attribute.
+	 * The cached value of the '{@link #getTitle() <em>Title</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getLabel()
+	 * @see #getTitle()
 	 * @generated
 	 * @ordered
 	 */
-	protected String label = LABEL_EDEFAULT;
+	protected String title = TITLE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DESCRIPTION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected String description = DESCRIPTION_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -111,8 +133,8 @@ public class AnswerImpl extends OptionImpl implements Answer {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getLabel() {
-		return label;
+	public String getTitle() {
+		return title;
 	}
 
 	/**
@@ -120,11 +142,32 @@ public class AnswerImpl extends OptionImpl implements Answer {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setLabel(String newLabel) {
-		String oldLabel = label;
-		label = newLabel;
+	public void setTitle(String newTitle) {
+		String oldTitle = title;
+		title = newTitle;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SurveyPackage.ANSWER__LABEL, oldLabel, label));
+			eNotify(new ENotificationImpl(this, Notification.SET, SurveyPackage.ANSWER__TITLE, oldTitle, title));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getDescription() {
+		return description;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDescription(String newDescription) {
+		String oldDescription = description;
+		description = newDescription;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SurveyPackage.ANSWER__DESCRIPTION, oldDescription, description));
 	}
 
 	/**
@@ -137,8 +180,10 @@ public class AnswerImpl extends OptionImpl implements Answer {
 		switch (featureID) {
 			case SurveyPackage.ANSWER__NAME:
 				return getName();
-			case SurveyPackage.ANSWER__LABEL:
-				return getLabel();
+			case SurveyPackage.ANSWER__TITLE:
+				return getTitle();
+			case SurveyPackage.ANSWER__DESCRIPTION:
+				return getDescription();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -154,8 +199,11 @@ public class AnswerImpl extends OptionImpl implements Answer {
 			case SurveyPackage.ANSWER__NAME:
 				setName((String)newValue);
 				return;
-			case SurveyPackage.ANSWER__LABEL:
-				setLabel((String)newValue);
+			case SurveyPackage.ANSWER__TITLE:
+				setTitle((String)newValue);
+				return;
+			case SurveyPackage.ANSWER__DESCRIPTION:
+				setDescription((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -172,8 +220,11 @@ public class AnswerImpl extends OptionImpl implements Answer {
 			case SurveyPackage.ANSWER__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case SurveyPackage.ANSWER__LABEL:
-				setLabel(LABEL_EDEFAULT);
+			case SurveyPackage.ANSWER__TITLE:
+				setTitle(TITLE_EDEFAULT);
+				return;
+			case SurveyPackage.ANSWER__DESCRIPTION:
+				setDescription(DESCRIPTION_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -189,10 +240,48 @@ public class AnswerImpl extends OptionImpl implements Answer {
 		switch (featureID) {
 			case SurveyPackage.ANSWER__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case SurveyPackage.ANSWER__LABEL:
-				return LABEL_EDEFAULT == null ? label != null : !LABEL_EDEFAULT.equals(label);
+			case SurveyPackage.ANSWER__TITLE:
+				return TITLE_EDEFAULT == null ? title != null : !TITLE_EDEFAULT.equals(title);
+			case SurveyPackage.ANSWER__DESCRIPTION:
+				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == Meta.class) {
+			switch (derivedFeatureID) {
+				case SurveyPackage.ANSWER__NAME: return SurveyPackage.META__NAME;
+				case SurveyPackage.ANSWER__TITLE: return SurveyPackage.META__TITLE;
+				case SurveyPackage.ANSWER__DESCRIPTION: return SurveyPackage.META__DESCRIPTION;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == Meta.class) {
+			switch (baseFeatureID) {
+				case SurveyPackage.META__NAME: return SurveyPackage.ANSWER__NAME;
+				case SurveyPackage.META__TITLE: return SurveyPackage.ANSWER__TITLE;
+				case SurveyPackage.META__DESCRIPTION: return SurveyPackage.ANSWER__DESCRIPTION;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 	/**
@@ -207,8 +296,10 @@ public class AnswerImpl extends OptionImpl implements Answer {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");
 		result.append(name);
-		result.append(", label: ");
-		result.append(label);
+		result.append(", title: ");
+		result.append(title);
+		result.append(", description: ");
+		result.append(description);
 		result.append(')');
 		return result.toString();
 	}

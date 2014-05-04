@@ -198,7 +198,7 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	
 	/**
 	 * Constraint:
-	 *     (name=ID? label=EString)
+	 *     (name=ID? title=EString)
 	 */
 	protected void sequence_Answer(EObject context, Answer semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -426,17 +426,10 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	
 	/**
 	 * Constraint:
-	 *     title=EString
+	 *     (name=ID? title=EString)
 	 */
 	protected void sequence_TableQuestion(EObject context, TableQuestion semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, SurveyPackage.Literals.TABLE_QUESTION__TITLE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SurveyPackage.Literals.TABLE_QUESTION__TITLE));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getTableQuestionAccess().getTitleEStringParserRuleCall_1_0(), semanticObject.getTitle());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -445,7 +438,6 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	 *     (
 	 *         title=EString? 
 	 *         description=EString? 
-	 *         name=ID? 
 	 *         dependsOn=DEP_ID? 
 	 *         required?='required'? 
 	 *         other?='other'? 

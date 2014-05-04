@@ -650,15 +650,6 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTableQuestion_Title() {
-		return (EAttribute)tableQuestionEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getAnswerTemplateRef() {
 		return answerTemplateRefEClass;
 	}
@@ -679,24 +670,6 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 	 */
 	public EClass getAnswer() {
 		return answerEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getAnswer_Name() {
-		return (EAttribute)answerEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getAnswer_Label() {
-		return (EAttribute)answerEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -815,14 +788,11 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 		createEAttribute(tableEClass, TABLE__MULTIPLE);
 
 		tableQuestionEClass = createEClass(TABLE_QUESTION);
-		createEAttribute(tableQuestionEClass, TABLE_QUESTION__TITLE);
 
 		answerTemplateRefEClass = createEClass(ANSWER_TEMPLATE_REF);
 		createEReference(answerTemplateRefEClass, ANSWER_TEMPLATE_REF__TEMPLATE);
 
 		answerEClass = createEClass(ANSWER);
-		createEAttribute(answerEClass, ANSWER__NAME);
-		createEAttribute(answerEClass, ANSWER__LABEL);
 
 		answerTemplateEClass = createEClass(ANSWER_TEMPLATE);
 		createEReference(answerTemplateEClass, ANSWER_TEMPLATE__ANSWERS);
@@ -876,8 +846,10 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 		tableEClass.getESuperTypes().add(this.getQuestion());
 		tableEClass.getESuperTypes().add(this.getOther());
 		tableEClass.getESuperTypes().add(this.getHasOptions());
+		tableQuestionEClass.getESuperTypes().add(this.getMeta());
 		answerTemplateRefEClass.getESuperTypes().add(this.getOption());
 		answerEClass.getESuperTypes().add(this.getOption());
+		answerEClass.getESuperTypes().add(this.getMeta());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(metaEClass, Meta.class, "Meta", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -941,14 +913,11 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 		initEAttribute(getTable_Multiple(), ecorePackage.getEBoolean(), "multiple", null, 0, 1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(tableQuestionEClass, TableQuestion.class, "TableQuestion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getTableQuestion_Title(), ecorePackage.getEString(), "title", null, 1, 1, TableQuestion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(answerTemplateRefEClass, AnswerTemplateRef.class, "AnswerTemplateRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAnswerTemplateRef_Template(), this.getAnswerTemplate(), null, "template", null, 1, 1, AnswerTemplateRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(answerEClass, Answer.class, "Answer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getAnswer_Name(), ecorePackage.getEString(), "name", null, 0, 1, Answer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAnswer_Label(), ecorePackage.getEString(), "label", null, 1, 1, Answer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(answerTemplateEClass, AnswerTemplate.class, "AnswerTemplate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAnswerTemplate_Answers(), this.getAnswer(), null, "answers", null, 1, -1, AnswerTemplate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
