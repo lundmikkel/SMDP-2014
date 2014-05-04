@@ -403,10 +403,12 @@ class DslValidator extends AbstractDslValidator {
 	}
 	
 	def dispatch void getFullIds(AnswerTemplateRef templateRef, String pid, HashMap<String, Question> qMap, HashMap<String, Answer> aMap) {
-		for (Answer answer : templateRef.template.answers) {
-			val id = pid + "." + templateRef.template.name
-			answer.getFullIds(id, qMap, aMap)
-		}
+		// Skip if the question has no id
+		if (!pid.nullOrEmpty)
+			for (Answer answer : templateRef.template.answers) {
+				val id = pid + "." + templateRef.template.name
+				answer.getFullIds(id, qMap, aMap)
+			}
 	}
 	
 	def dispatch void getFullIds(Answer answer, String pid, HashMap<String, Question> qMap, HashMap<String, Answer> aMap) {

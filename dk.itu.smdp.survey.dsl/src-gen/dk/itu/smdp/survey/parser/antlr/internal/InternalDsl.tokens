@@ -3,6 +3,7 @@ T__29=29
 T__28=28
 T__62=62
 T__27=27
+T__63=63
 T__26=26
 T__25=25
 T__24=24
@@ -63,6 +64,7 @@ RULE_WS=10
 'other="'=52
 '<survey'=12
 'year'=47
+'template="'=61
 'description="'=15
 '>'=17
 'start="'=40
@@ -98,13 +100,13 @@ RULE_WS=10
 'single'=30
 '</a>'=23
 'multiple'=57
-'</q>'=62
+'</q>'=63
 '<text'=28
 '/>'=33
 '</multiple>'=55
 'max-label="'=38
 '</single>'=53
 '</table>'=58
-'<q>'=61
+'<q>'=62
 'multiline'=32
 '<number'=48

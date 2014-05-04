@@ -14,7 +14,6 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.IFileSystemAccess;
 import org.eclipse.xtext.generator.IGenerator;
-import org.eclipse.xtext.xbase.lib.Functions.Function0;
 import org.eclipse.xtext.xbase.lib.IntegerRange;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.StringExtensions;
@@ -42,19 +41,17 @@ import survey.Text;
  */
 @SuppressWarnings("all")
 public class DslGenerator implements IGenerator {
-  private int nextId = 0;
+  private int nextId;
   
-  private HashMap<Question,String> idMap = new Function0<HashMap<Question,String>>() {
-    public HashMap<Question,String> apply() {
-      HashMap<Question,String> _hashMap = new HashMap<Question, String>();
-      return _hashMap;
-    }
-  }.apply();
+  private HashMap<Question,String> idMap;
   
   public void doGenerate(final Resource resource, final IFileSystemAccess fsa) {
     EList<EObject> _contents = resource.getContents();
     EObject _head = IterableExtensions.<EObject>head(_contents);
     Survey survey = ((Survey) _head);
+    this.nextId = 0;
+    HashMap<Question,String> _hashMap = new HashMap<Question, String>();
+    this.idMap = _hashMap;
     this.genPhp(survey, fsa);
     this.genLatex(survey, fsa);
   }

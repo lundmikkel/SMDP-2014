@@ -101,6 +101,9 @@ Number returns Number:
 	'/>';
 
 Single returns Single:
+	SingleWithOptions | SingleRef;
+	
+SingleWithOptions returns Single:
 	'<single'
 		( ('title="' title=EString '"')
 		& ('description="' description=EString? '"')?
@@ -111,8 +114,22 @@ Single returns Single:
 	'>'
 		(options+=Option)+
 	'</single>';
+	
+SingleRef returns Single:
+	'<single'
+		( ('title="' title=EString '"')
+		& ('description="' description=EString? '"')?
+		& ('id="' name=ID? '"')?
+		& ('depends-on="' dependsOn=DEP_ID? '"')?
+		& (required?='required')?
+		& (other?=('other'|'other=""') | 'other="' otherLabel=EString '"')?
+		& (options+=AnswerTemplateRefAttr))
+	'/>';
 
 Multiple returns Multiple:
+	MultipleWithOptions | MultipleRef;
+	
+MultipleWithOptions returns Multiple:
 	'<multiple'
 		( ('title="' title=EString '"')
 		& ('description="' description=EString? '"')?
@@ -126,6 +143,20 @@ Multiple returns Multiple:
 	'>'	
 		(options+=Option)+ 
 	'</multiple>';
+	
+MultipleRef returns Multiple:
+	'<multiple'
+		( ('title="' title=EString '"')
+		& ('description="' description=EString? '"')?
+		& ('id="' name=ID? '"')?
+		& ('min="' min=INT '"')?
+		& ('max="' max=INT '"')?
+		& ('depends-on="' dependsOn=DEP_ID? '"')?
+		& (required?='required')?
+		& (other?='other')?
+		& (showLimits?=('show-limits' | 'show' | 'limits'))?
+		& (options+=AnswerTemplateRefAttr))
+	'/>';
 
 Table returns Table:
 	'<table'
@@ -147,6 +178,9 @@ EInt returns ecore::EInt:
 AnswerTemplateRef returns AnswerTemplateRef:
 	'<template' 'ref="' template=[AnswerTemplate|ID] '"' '/>';
 
+AnswerTemplateRefAttr returns AnswerTemplateRef:
+	'template="' template=[AnswerTemplate|ID] '"';
+
 TableQuestion returns TableQuestion:
 	'<q>'
 		title=EString
@@ -159,9 +193,7 @@ DEP_ID returns ecore::EString:
 // Custom terminals
 
 terminal STRING:
-	// TODO: Remove $
-	//'"' ( '\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\') | !('\\'|'"') )* '"' |
-	//"$" ( '\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\') | !('\\'|"$") )* "$";
+	// TODO: Remove '
 	"'" ( '\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\') | !('\\'|"'") )* "'";
 
 terminal FQN:

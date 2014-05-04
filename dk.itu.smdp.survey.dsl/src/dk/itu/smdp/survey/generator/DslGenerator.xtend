@@ -29,11 +29,14 @@ import survey.Text
  * see http://www.eclipse.org/Xtext/documentation.html#TutorialCodeGeneration
  */
 class DslGenerator implements IGenerator {
-	var nextId = 0;
-	var idMap = new HashMap<Question, String>();
+	int nextId
+	HashMap<Question, String> idMap
 	
 	override void doGenerate(Resource resource, IFileSystemAccess fsa) {
 		var survey = resource.contents.head as Survey
+		
+		nextId = 0
+		idMap = new HashMap<Question, String>()
 		
 		survey.genPhp(fsa)
 		survey.genLatex(fsa)

@@ -584,15 +584,19 @@ public class DslValidator extends AbstractDslValidator {
   }
   
   protected void _getFullIds(final AnswerTemplateRef templateRef, final String pid, final HashMap<String,Question> qMap, final HashMap<String,Answer> aMap) {
-    AnswerTemplate _template = templateRef.getTemplate();
-    EList<Answer> _answers = _template.getAnswers();
-    for (final Answer answer : _answers) {
-      {
-        String _plus = (pid + ".");
-        AnswerTemplate _template_1 = templateRef.getTemplate();
-        String _name = _template_1.getName();
-        final String id = (_plus + _name);
-        this.getFullIds(answer, id, qMap, aMap);
+    boolean _isNullOrEmpty = StringExtensions.isNullOrEmpty(pid);
+    boolean _not = (!_isNullOrEmpty);
+    if (_not) {
+      AnswerTemplate _template = templateRef.getTemplate();
+      EList<Answer> _answers = _template.getAnswers();
+      for (final Answer answer : _answers) {
+        {
+          String _plus = (pid + ".");
+          AnswerTemplate _template_1 = templateRef.getTemplate();
+          String _name = _template_1.getName();
+          final String id = (_plus + _name);
+          this.getFullIds(answer, id, qMap, aMap);
+        }
       }
     }
   }

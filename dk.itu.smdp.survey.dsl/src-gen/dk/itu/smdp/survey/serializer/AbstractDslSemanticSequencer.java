@@ -50,7 +50,11 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 				}
 				else break;
 			case SurveyPackage.ANSWER_TEMPLATE_REF:
-				if(context == grammarAccess.getAnswerTemplateRefRule() ||
+				if(context == grammarAccess.getAnswerTemplateRefAttrRule()) {
+					sequence_AnswerTemplateRefAttr(context, (AnswerTemplateRef) semanticObject); 
+					return; 
+				}
+				else if(context == grammarAccess.getAnswerTemplateRefRule() ||
 				   context == grammarAccess.getOptionRule()) {
 					sequence_AnswerTemplateRef(context, (AnswerTemplateRef) semanticObject); 
 					return; 
@@ -72,10 +76,18 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 				}
 				else break;
 			case SurveyPackage.MULTIPLE:
-				if(context == grammarAccess.getItemRule() ||
+				if(context == grammarAccess.getMultipleRefRule()) {
+					sequence_MultipleRef(context, (Multiple) semanticObject); 
+					return; 
+				}
+				else if(context == grammarAccess.getMultipleWithOptionsRule()) {
+					sequence_MultipleWithOptions(context, (Multiple) semanticObject); 
+					return; 
+				}
+				else if(context == grammarAccess.getItemRule() ||
 				   context == grammarAccess.getMultipleRule() ||
 				   context == grammarAccess.getQuestionRule()) {
-					sequence_Multiple(context, (Multiple) semanticObject); 
+					sequence_Multiple_MultipleRef_MultipleWithOptions(context, (Multiple) semanticObject); 
 					return; 
 				}
 				else break;
@@ -96,10 +108,18 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 				}
 				else break;
 			case SurveyPackage.SINGLE:
-				if(context == grammarAccess.getItemRule() ||
+				if(context == grammarAccess.getSingleRefRule()) {
+					sequence_SingleRef(context, (Single) semanticObject); 
+					return; 
+				}
+				else if(context == grammarAccess.getSingleWithOptionsRule()) {
+					sequence_SingleWithOptions(context, (Single) semanticObject); 
+					return; 
+				}
+				else if(context == grammarAccess.getItemRule() ||
 				   context == grammarAccess.getQuestionRule() ||
 				   context == grammarAccess.getSingleRule()) {
-					sequence_Single(context, (Single) semanticObject); 
+					sequence_Single_SingleRef_SingleWithOptions(context, (Single) semanticObject); 
 					return; 
 				}
 				else break;
@@ -134,6 +154,22 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 			}
 		if (errorAcceptor != null) errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
+	
+	/**
+	 * Constraint:
+	 *     template=[AnswerTemplate|ID]
+	 */
+	protected void sequence_AnswerTemplateRefAttr(EObject context, AnswerTemplateRef semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, SurveyPackage.Literals.ANSWER_TEMPLATE_REF__TEMPLATE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SurveyPackage.Literals.ANSWER_TEMPLATE_REF__TEMPLATE));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getAnswerTemplateRefAttrAccess().getTemplateAnswerTemplateIDTerminalRuleCall_1_0_1(), semanticObject.getTemplate());
+		feeder.finish();
+	}
+	
 	
 	/**
 	 * Constraint:
@@ -218,10 +254,64 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	 *         required?='required'? 
 	 *         other?='other'? 
 	 *         (showLimits?='show-limits' | showLimits?='show' | showLimits?='limits')? 
+	 *         options+=AnswerTemplateRefAttr
+	 *     )
+	 */
+	protected void sequence_MultipleRef(EObject context, Multiple semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (
+	 *         title=EString 
+	 *         description=EString? 
+	 *         name=ID? 
+	 *         min=INT? 
+	 *         max=INT? 
+	 *         dependsOn=DEP_ID? 
+	 *         required?='required'? 
+	 *         other?='other'? 
+	 *         (showLimits?='show-limits' | showLimits?='show' | showLimits?='limits')? 
 	 *         options+=Option+
 	 *     )
 	 */
-	protected void sequence_Multiple(EObject context, Multiple semanticObject) {
+	protected void sequence_MultipleWithOptions(EObject context, Multiple semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (
+	 *         (
+	 *             title=EString 
+	 *             description=EString? 
+	 *             name=ID? 
+	 *             min=INT? 
+	 *             max=INT? 
+	 *             dependsOn=DEP_ID? 
+	 *             required?='required'? 
+	 *             other?='other'? 
+	 *             (showLimits?='show-limits' | showLimits?='show' | showLimits?='limits')? 
+	 *             options+=Option+
+	 *         ) | 
+	 *         (
+	 *             title=EString 
+	 *             description=EString? 
+	 *             name=ID? 
+	 *             min=INT? 
+	 *             max=INT? 
+	 *             dependsOn=DEP_ID? 
+	 *             required?='required'? 
+	 *             other?='other'? 
+	 *             (showLimits?='show-limits' | showLimits?='show' | showLimits?='limits')? 
+	 *             options+=AnswerTemplateRefAttr
+	 *         )
+	 *     )
+	 */
+	protected void sequence_Multiple_MultipleRef_MultipleWithOptions(EObject context, Multiple semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -272,10 +362,55 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	 *         dependsOn=DEP_ID? 
 	 *         required?='required'? 
 	 *         (other?='other' | other?='other=""' | otherLabel=EString)? 
+	 *         options+=AnswerTemplateRefAttr
+	 *     )
+	 */
+	protected void sequence_SingleRef(EObject context, Single semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (
+	 *         title=EString 
+	 *         description=EString? 
+	 *         name=ID? 
+	 *         dependsOn=DEP_ID? 
+	 *         required?='required'? 
+	 *         (other?='other' | other?='other=""' | otherLabel=EString)? 
 	 *         options+=Option+
 	 *     )
 	 */
-	protected void sequence_Single(EObject context, Single semanticObject) {
+	protected void sequence_SingleWithOptions(EObject context, Single semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (
+	 *         (
+	 *             title=EString 
+	 *             description=EString? 
+	 *             name=ID? 
+	 *             dependsOn=DEP_ID? 
+	 *             required?='required'? 
+	 *             (other?='other' | other?='other=""' | otherLabel=EString)? 
+	 *             options+=Option+
+	 *         ) | 
+	 *         (
+	 *             title=EString 
+	 *             description=EString? 
+	 *             name=ID? 
+	 *             dependsOn=DEP_ID? 
+	 *             required?='required'? 
+	 *             (other?='other' | other?='other=""' | otherLabel=EString)? 
+	 *             options+=AnswerTemplateRefAttr
+	 *         )
+	 *     )
+	 */
+	protected void sequence_Single_SingleRef_SingleWithOptions(EObject context, Single semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

@@ -2352,36 +2352,76 @@ ruleSingle returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
+(
+    { 
+        newCompositeNode(grammarAccess.getSingleAccess().getSingleWithOptionsParserRuleCall_0()); 
+    }
+    this_SingleWithOptions_0=ruleSingleWithOptions
+    { 
+        $current = $this_SingleWithOptions_0.current; 
+        afterParserOrEnumRuleCall();
+    }
+
+    |
+    { 
+        newCompositeNode(grammarAccess.getSingleAccess().getSingleRefParserRuleCall_1()); 
+    }
+    this_SingleRef_1=ruleSingleRef
+    { 
+        $current = $this_SingleRef_1.current; 
+        afterParserOrEnumRuleCall();
+    }
+)
+;
+
+
+
+
+
+// Entry rule entryRuleSingleWithOptions
+entryRuleSingleWithOptions returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getSingleWithOptionsRule()); }
+	 iv_ruleSingleWithOptions=ruleSingleWithOptions 
+	 { $current=$iv_ruleSingleWithOptions.current; } 
+	 EOF 
+;
+
+// Rule SingleWithOptions
+ruleSingleWithOptions returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
 (	otherlv_0='<single' 
     {
-    	newLeafNode(otherlv_0, grammarAccess.getSingleAccess().getSingleKeyword_0());
+    	newLeafNode(otherlv_0, grammarAccess.getSingleWithOptionsAccess().getSingleKeyword_0());
     }
 (
 
 (
 	{ 
-	  getUnorderedGroupHelper().enter(grammarAccess.getSingleAccess().getUnorderedGroup_1());
+	  getUnorderedGroupHelper().enter(grammarAccess.getSingleWithOptionsAccess().getUnorderedGroup_1());
 	}
 	(
 		(
 
 			( 
-				{getUnorderedGroupHelper().canSelect(grammarAccess.getSingleAccess().getUnorderedGroup_1(), 0)}?=>(
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getSingleWithOptionsAccess().getUnorderedGroup_1(), 0)}?=>(
 					{ 
-	 				  getUnorderedGroupHelper().select(grammarAccess.getSingleAccess().getUnorderedGroup_1(), 0);
+	 				  getUnorderedGroupHelper().select(grammarAccess.getSingleWithOptionsAccess().getUnorderedGroup_1(), 0);
 	 				}
 					({true}?=>(	otherlv_2='title="' 
     {
-    	newLeafNode(otherlv_2, grammarAccess.getSingleAccess().getTitleKeyword_1_0_0());
+    	newLeafNode(otherlv_2, grammarAccess.getSingleWithOptionsAccess().getTitleKeyword_1_0_0());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getSingleAccess().getTitleEStringParserRuleCall_1_0_1_0()); 
+	        newCompositeNode(grammarAccess.getSingleWithOptionsAccess().getTitleEStringParserRuleCall_1_0_1_0()); 
 	    }
 		lv_title_3_0=ruleEString		{
 	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getSingleRule());
+	            $current = createModelElementForParent(grammarAccess.getSingleWithOptionsRule());
 	        }
        		set(
        			$current, 
@@ -2394,32 +2434,32 @@ ruleSingle returns [EObject current=null]
 )
 )	otherlv_4='"' 
     {
-    	newLeafNode(otherlv_4, grammarAccess.getSingleAccess().getQuotationMarkKeyword_1_0_2());
+    	newLeafNode(otherlv_4, grammarAccess.getSingleWithOptionsAccess().getQuotationMarkKeyword_1_0_2());
     }
 ))
 					{ 
-	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getSingleAccess().getUnorderedGroup_1());
+	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getSingleWithOptionsAccess().getUnorderedGroup_1());
 	 				}
  				)
 			)  |
 
 			( 
-				{getUnorderedGroupHelper().canSelect(grammarAccess.getSingleAccess().getUnorderedGroup_1(), 1)}?=>(
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getSingleWithOptionsAccess().getUnorderedGroup_1(), 1)}?=>(
 					{ 
-	 				  getUnorderedGroupHelper().select(grammarAccess.getSingleAccess().getUnorderedGroup_1(), 1);
+	 				  getUnorderedGroupHelper().select(grammarAccess.getSingleWithOptionsAccess().getUnorderedGroup_1(), 1);
 	 				}
 					({true}?=>(	otherlv_5='description="' 
     {
-    	newLeafNode(otherlv_5, grammarAccess.getSingleAccess().getDescriptionKeyword_1_1_0());
+    	newLeafNode(otherlv_5, grammarAccess.getSingleWithOptionsAccess().getDescriptionKeyword_1_1_0());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getSingleAccess().getDescriptionEStringParserRuleCall_1_1_1_0()); 
+	        newCompositeNode(grammarAccess.getSingleWithOptionsAccess().getDescriptionEStringParserRuleCall_1_1_1_0()); 
 	    }
 		lv_description_6_0=ruleEString		{
 	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getSingleRule());
+	            $current = createModelElementForParent(grammarAccess.getSingleWithOptionsRule());
 	        }
        		set(
        			$current, 
@@ -2432,33 +2472,33 @@ ruleSingle returns [EObject current=null]
 )
 )?	otherlv_7='"' 
     {
-    	newLeafNode(otherlv_7, grammarAccess.getSingleAccess().getQuotationMarkKeyword_1_1_2());
+    	newLeafNode(otherlv_7, grammarAccess.getSingleWithOptionsAccess().getQuotationMarkKeyword_1_1_2());
     }
 ))
 					{ 
-	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getSingleAccess().getUnorderedGroup_1());
+	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getSingleWithOptionsAccess().getUnorderedGroup_1());
 	 				}
  				)
 			)  |
 
 			( 
-				{getUnorderedGroupHelper().canSelect(grammarAccess.getSingleAccess().getUnorderedGroup_1(), 2)}?=>(
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getSingleWithOptionsAccess().getUnorderedGroup_1(), 2)}?=>(
 					{ 
-	 				  getUnorderedGroupHelper().select(grammarAccess.getSingleAccess().getUnorderedGroup_1(), 2);
+	 				  getUnorderedGroupHelper().select(grammarAccess.getSingleWithOptionsAccess().getUnorderedGroup_1(), 2);
 	 				}
 					({true}?=>(	otherlv_8='id="' 
     {
-    	newLeafNode(otherlv_8, grammarAccess.getSingleAccess().getIdKeyword_1_2_0());
+    	newLeafNode(otherlv_8, grammarAccess.getSingleWithOptionsAccess().getIdKeyword_1_2_0());
     }
 (
 (
 		lv_name_9_0=RULE_ID
 		{
-			newLeafNode(lv_name_9_0, grammarAccess.getSingleAccess().getNameIDTerminalRuleCall_1_2_1_0()); 
+			newLeafNode(lv_name_9_0, grammarAccess.getSingleWithOptionsAccess().getNameIDTerminalRuleCall_1_2_1_0()); 
 		}
 		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getSingleRule());
+	            $current = createModelElement(grammarAccess.getSingleWithOptionsRule());
 	        }
        		setWithLastConsumed(
        			$current, 
@@ -2470,32 +2510,32 @@ ruleSingle returns [EObject current=null]
 )
 )?	otherlv_10='"' 
     {
-    	newLeafNode(otherlv_10, grammarAccess.getSingleAccess().getQuotationMarkKeyword_1_2_2());
+    	newLeafNode(otherlv_10, grammarAccess.getSingleWithOptionsAccess().getQuotationMarkKeyword_1_2_2());
     }
 ))
 					{ 
-	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getSingleAccess().getUnorderedGroup_1());
+	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getSingleWithOptionsAccess().getUnorderedGroup_1());
 	 				}
  				)
 			)  |
 
 			( 
-				{getUnorderedGroupHelper().canSelect(grammarAccess.getSingleAccess().getUnorderedGroup_1(), 3)}?=>(
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getSingleWithOptionsAccess().getUnorderedGroup_1(), 3)}?=>(
 					{ 
-	 				  getUnorderedGroupHelper().select(grammarAccess.getSingleAccess().getUnorderedGroup_1(), 3);
+	 				  getUnorderedGroupHelper().select(grammarAccess.getSingleWithOptionsAccess().getUnorderedGroup_1(), 3);
 	 				}
 					({true}?=>(	otherlv_11='depends-on="' 
     {
-    	newLeafNode(otherlv_11, grammarAccess.getSingleAccess().getDependsOnKeyword_1_3_0());
+    	newLeafNode(otherlv_11, grammarAccess.getSingleWithOptionsAccess().getDependsOnKeyword_1_3_0());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getSingleAccess().getDependsOnDEP_IDParserRuleCall_1_3_1_0()); 
+	        newCompositeNode(grammarAccess.getSingleWithOptionsAccess().getDependsOnDEP_IDParserRuleCall_1_3_1_0()); 
 	    }
 		lv_dependsOn_12_0=ruleDEP_ID		{
 	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getSingleRule());
+	            $current = createModelElementForParent(grammarAccess.getSingleWithOptionsRule());
 	        }
        		set(
        			$current, 
@@ -2508,30 +2548,30 @@ ruleSingle returns [EObject current=null]
 )
 )?	otherlv_13='"' 
     {
-    	newLeafNode(otherlv_13, grammarAccess.getSingleAccess().getQuotationMarkKeyword_1_3_2());
+    	newLeafNode(otherlv_13, grammarAccess.getSingleWithOptionsAccess().getQuotationMarkKeyword_1_3_2());
     }
 ))
 					{ 
-	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getSingleAccess().getUnorderedGroup_1());
+	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getSingleWithOptionsAccess().getUnorderedGroup_1());
 	 				}
  				)
 			)  |
 
 			( 
-				{getUnorderedGroupHelper().canSelect(grammarAccess.getSingleAccess().getUnorderedGroup_1(), 4)}?=>(
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getSingleWithOptionsAccess().getUnorderedGroup_1(), 4)}?=>(
 					{ 
-	 				  getUnorderedGroupHelper().select(grammarAccess.getSingleAccess().getUnorderedGroup_1(), 4);
+	 				  getUnorderedGroupHelper().select(grammarAccess.getSingleWithOptionsAccess().getUnorderedGroup_1(), 4);
 	 				}
 					({true}?=>(
 (
 		lv_required_14_0=	'required' 
     {
-        newLeafNode(lv_required_14_0, grammarAccess.getSingleAccess().getRequiredRequiredKeyword_1_4_0());
+        newLeafNode(lv_required_14_0, grammarAccess.getSingleWithOptionsAccess().getRequiredRequiredKeyword_1_4_0());
     }
  
 	    {
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getSingleRule());
+	            $current = createModelElement(grammarAccess.getSingleWithOptionsRule());
 	        }
        		setWithLastConsumed($current, "required", true, "required");
 	    }
@@ -2539,39 +2579,39 @@ ruleSingle returns [EObject current=null]
 )
 ))
 					{ 
-	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getSingleAccess().getUnorderedGroup_1());
+	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getSingleWithOptionsAccess().getUnorderedGroup_1());
 	 				}
  				)
 			)  |
 
 			( 
-				{getUnorderedGroupHelper().canSelect(grammarAccess.getSingleAccess().getUnorderedGroup_1(), 5)}?=>(
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getSingleWithOptionsAccess().getUnorderedGroup_1(), 5)}?=>(
 					{ 
-	 				  getUnorderedGroupHelper().select(grammarAccess.getSingleAccess().getUnorderedGroup_1(), 5);
+	 				  getUnorderedGroupHelper().select(grammarAccess.getSingleWithOptionsAccess().getUnorderedGroup_1(), 5);
 	 				}
 					({true}?=>((
 (
 (
 		lv_other_15_1=	'other' 
     {
-        newLeafNode(lv_other_15_1, grammarAccess.getSingleAccess().getOtherOtherKeyword_1_5_0_0_0());
+        newLeafNode(lv_other_15_1, grammarAccess.getSingleWithOptionsAccess().getOtherOtherKeyword_1_5_0_0_0());
     }
  
 	    {
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getSingleRule());
+	            $current = createModelElement(grammarAccess.getSingleWithOptionsRule());
 	        }
        		setWithLastConsumed($current, "other", true, null);
 	    }
 
     |		lv_other_15_2=	'other=""' 
     {
-        newLeafNode(lv_other_15_2, grammarAccess.getSingleAccess().getOtherOtherKeyword_1_5_0_0_1());
+        newLeafNode(lv_other_15_2, grammarAccess.getSingleWithOptionsAccess().getOtherOtherKeyword_1_5_0_0_1());
     }
  
 	    {
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getSingleRule());
+	            $current = createModelElement(grammarAccess.getSingleWithOptionsRule());
 	        }
        		setWithLastConsumed($current, "other", true, null);
 	    }
@@ -2582,16 +2622,16 @@ ruleSingle returns [EObject current=null]
 )
     |(	otherlv_16='other="' 
     {
-    	newLeafNode(otherlv_16, grammarAccess.getSingleAccess().getOtherKeyword_1_5_1_0());
+    	newLeafNode(otherlv_16, grammarAccess.getSingleWithOptionsAccess().getOtherKeyword_1_5_1_0());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getSingleAccess().getOtherLabelEStringParserRuleCall_1_5_1_1_0()); 
+	        newCompositeNode(grammarAccess.getSingleWithOptionsAccess().getOtherLabelEStringParserRuleCall_1_5_1_1_0()); 
 	    }
 		lv_otherLabel_17_0=ruleEString		{
 	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getSingleRule());
+	            $current = createModelElementForParent(grammarAccess.getSingleWithOptionsRule());
 	        }
        		set(
        			$current, 
@@ -2604,35 +2644,35 @@ ruleSingle returns [EObject current=null]
 )
 )	otherlv_18='"' 
     {
-    	newLeafNode(otherlv_18, grammarAccess.getSingleAccess().getQuotationMarkKeyword_1_5_1_2());
+    	newLeafNode(otherlv_18, grammarAccess.getSingleWithOptionsAccess().getQuotationMarkKeyword_1_5_1_2());
     }
 )))
 					{ 
-	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getSingleAccess().getUnorderedGroup_1());
+	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getSingleWithOptionsAccess().getUnorderedGroup_1());
 	 				}
  				)
 			)  
 
 		)+
-	  	{getUnorderedGroupHelper().canLeave(grammarAccess.getSingleAccess().getUnorderedGroup_1())}?	
+	  	{getUnorderedGroupHelper().canLeave(grammarAccess.getSingleWithOptionsAccess().getUnorderedGroup_1())}?	
 	)
 )
 	{ 
-	  getUnorderedGroupHelper().leave(grammarAccess.getSingleAccess().getUnorderedGroup_1());
+	  getUnorderedGroupHelper().leave(grammarAccess.getSingleWithOptionsAccess().getUnorderedGroup_1());
 	}
 
 )	otherlv_19='>' 
     {
-    	newLeafNode(otherlv_19, grammarAccess.getSingleAccess().getGreaterThanSignKeyword_2());
+    	newLeafNode(otherlv_19, grammarAccess.getSingleWithOptionsAccess().getGreaterThanSignKeyword_2());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getSingleAccess().getOptionsOptionParserRuleCall_3_0()); 
+	        newCompositeNode(grammarAccess.getSingleWithOptionsAccess().getOptionsOptionParserRuleCall_3_0()); 
 	    }
 		lv_options_20_0=ruleOption		{
 	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getSingleRule());
+	            $current = createModelElementForParent(grammarAccess.getSingleWithOptionsRule());
 	        }
        		add(
        			$current, 
@@ -2645,7 +2685,331 @@ ruleSingle returns [EObject current=null]
 )
 )+	otherlv_21='</single>' 
     {
-    	newLeafNode(otherlv_21, grammarAccess.getSingleAccess().getSingleKeyword_4());
+    	newLeafNode(otherlv_21, grammarAccess.getSingleWithOptionsAccess().getSingleKeyword_4());
+    }
+)
+;
+
+
+
+
+
+// Entry rule entryRuleSingleRef
+entryRuleSingleRef returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getSingleRefRule()); }
+	 iv_ruleSingleRef=ruleSingleRef 
+	 { $current=$iv_ruleSingleRef.current; } 
+	 EOF 
+;
+
+// Rule SingleRef
+ruleSingleRef returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(	otherlv_0='<single' 
+    {
+    	newLeafNode(otherlv_0, grammarAccess.getSingleRefAccess().getSingleKeyword_0());
+    }
+(
+
+(
+	{ 
+	  getUnorderedGroupHelper().enter(grammarAccess.getSingleRefAccess().getUnorderedGroup_1());
+	}
+	(
+		(
+
+			( 
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getSingleRefAccess().getUnorderedGroup_1(), 0)}?=>(
+					{ 
+	 				  getUnorderedGroupHelper().select(grammarAccess.getSingleRefAccess().getUnorderedGroup_1(), 0);
+	 				}
+					({true}?=>(	otherlv_2='title="' 
+    {
+    	newLeafNode(otherlv_2, grammarAccess.getSingleRefAccess().getTitleKeyword_1_0_0());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getSingleRefAccess().getTitleEStringParserRuleCall_1_0_1_0()); 
+	    }
+		lv_title_3_0=ruleEString		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getSingleRefRule());
+	        }
+       		set(
+       			$current, 
+       			"title",
+        		lv_title_3_0, 
+        		"EString");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)	otherlv_4='"' 
+    {
+    	newLeafNode(otherlv_4, grammarAccess.getSingleRefAccess().getQuotationMarkKeyword_1_0_2());
+    }
+))
+					{ 
+	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getSingleRefAccess().getUnorderedGroup_1());
+	 				}
+ 				)
+			)  |
+
+			( 
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getSingleRefAccess().getUnorderedGroup_1(), 1)}?=>(
+					{ 
+	 				  getUnorderedGroupHelper().select(grammarAccess.getSingleRefAccess().getUnorderedGroup_1(), 1);
+	 				}
+					({true}?=>(	otherlv_5='description="' 
+    {
+    	newLeafNode(otherlv_5, grammarAccess.getSingleRefAccess().getDescriptionKeyword_1_1_0());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getSingleRefAccess().getDescriptionEStringParserRuleCall_1_1_1_0()); 
+	    }
+		lv_description_6_0=ruleEString		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getSingleRefRule());
+	        }
+       		set(
+       			$current, 
+       			"description",
+        		lv_description_6_0, 
+        		"EString");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)?	otherlv_7='"' 
+    {
+    	newLeafNode(otherlv_7, grammarAccess.getSingleRefAccess().getQuotationMarkKeyword_1_1_2());
+    }
+))
+					{ 
+	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getSingleRefAccess().getUnorderedGroup_1());
+	 				}
+ 				)
+			)  |
+
+			( 
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getSingleRefAccess().getUnorderedGroup_1(), 2)}?=>(
+					{ 
+	 				  getUnorderedGroupHelper().select(grammarAccess.getSingleRefAccess().getUnorderedGroup_1(), 2);
+	 				}
+					({true}?=>(	otherlv_8='id="' 
+    {
+    	newLeafNode(otherlv_8, grammarAccess.getSingleRefAccess().getIdKeyword_1_2_0());
+    }
+(
+(
+		lv_name_9_0=RULE_ID
+		{
+			newLeafNode(lv_name_9_0, grammarAccess.getSingleRefAccess().getNameIDTerminalRuleCall_1_2_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getSingleRefRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"name",
+        		lv_name_9_0, 
+        		"ID");
+	    }
+
+)
+)?	otherlv_10='"' 
+    {
+    	newLeafNode(otherlv_10, grammarAccess.getSingleRefAccess().getQuotationMarkKeyword_1_2_2());
+    }
+))
+					{ 
+	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getSingleRefAccess().getUnorderedGroup_1());
+	 				}
+ 				)
+			)  |
+
+			( 
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getSingleRefAccess().getUnorderedGroup_1(), 3)}?=>(
+					{ 
+	 				  getUnorderedGroupHelper().select(grammarAccess.getSingleRefAccess().getUnorderedGroup_1(), 3);
+	 				}
+					({true}?=>(	otherlv_11='depends-on="' 
+    {
+    	newLeafNode(otherlv_11, grammarAccess.getSingleRefAccess().getDependsOnKeyword_1_3_0());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getSingleRefAccess().getDependsOnDEP_IDParserRuleCall_1_3_1_0()); 
+	    }
+		lv_dependsOn_12_0=ruleDEP_ID		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getSingleRefRule());
+	        }
+       		set(
+       			$current, 
+       			"dependsOn",
+        		lv_dependsOn_12_0, 
+        		"DEP_ID");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)?	otherlv_13='"' 
+    {
+    	newLeafNode(otherlv_13, grammarAccess.getSingleRefAccess().getQuotationMarkKeyword_1_3_2());
+    }
+))
+					{ 
+	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getSingleRefAccess().getUnorderedGroup_1());
+	 				}
+ 				)
+			)  |
+
+			( 
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getSingleRefAccess().getUnorderedGroup_1(), 4)}?=>(
+					{ 
+	 				  getUnorderedGroupHelper().select(grammarAccess.getSingleRefAccess().getUnorderedGroup_1(), 4);
+	 				}
+					({true}?=>(
+(
+		lv_required_14_0=	'required' 
+    {
+        newLeafNode(lv_required_14_0, grammarAccess.getSingleRefAccess().getRequiredRequiredKeyword_1_4_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getSingleRefRule());
+	        }
+       		setWithLastConsumed($current, "required", true, "required");
+	    }
+
+)
+))
+					{ 
+	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getSingleRefAccess().getUnorderedGroup_1());
+	 				}
+ 				)
+			)  |
+
+			( 
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getSingleRefAccess().getUnorderedGroup_1(), 5)}?=>(
+					{ 
+	 				  getUnorderedGroupHelper().select(grammarAccess.getSingleRefAccess().getUnorderedGroup_1(), 5);
+	 				}
+					({true}?=>((
+(
+(
+		lv_other_15_1=	'other' 
+    {
+        newLeafNode(lv_other_15_1, grammarAccess.getSingleRefAccess().getOtherOtherKeyword_1_5_0_0_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getSingleRefRule());
+	        }
+       		setWithLastConsumed($current, "other", true, null);
+	    }
+
+    |		lv_other_15_2=	'other=""' 
+    {
+        newLeafNode(lv_other_15_2, grammarAccess.getSingleRefAccess().getOtherOtherKeyword_1_5_0_0_1());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getSingleRefRule());
+	        }
+       		setWithLastConsumed($current, "other", true, null);
+	    }
+
+)
+
+)
+)
+    |(	otherlv_16='other="' 
+    {
+    	newLeafNode(otherlv_16, grammarAccess.getSingleRefAccess().getOtherKeyword_1_5_1_0());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getSingleRefAccess().getOtherLabelEStringParserRuleCall_1_5_1_1_0()); 
+	    }
+		lv_otherLabel_17_0=ruleEString		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getSingleRefRule());
+	        }
+       		set(
+       			$current, 
+       			"otherLabel",
+        		lv_otherLabel_17_0, 
+        		"EString");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)	otherlv_18='"' 
+    {
+    	newLeafNode(otherlv_18, grammarAccess.getSingleRefAccess().getQuotationMarkKeyword_1_5_1_2());
+    }
+)))
+					{ 
+	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getSingleRefAccess().getUnorderedGroup_1());
+	 				}
+ 				)
+			)  |
+
+			( 
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getSingleRefAccess().getUnorderedGroup_1(), 6)}?=>(
+					{ 
+	 				  getUnorderedGroupHelper().select(grammarAccess.getSingleRefAccess().getUnorderedGroup_1(), 6);
+	 				}
+					({true}?=>(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getSingleRefAccess().getOptionsAnswerTemplateRefAttrParserRuleCall_1_6_0()); 
+	    }
+		lv_options_19_0=ruleAnswerTemplateRefAttr		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getSingleRefRule());
+	        }
+       		add(
+       			$current, 
+       			"options",
+        		lv_options_19_0, 
+        		"AnswerTemplateRefAttr");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))
+					{ 
+	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getSingleRefAccess().getUnorderedGroup_1());
+	 				}
+ 				)
+			)  
+
+		)+
+	  	{getUnorderedGroupHelper().canLeave(grammarAccess.getSingleRefAccess().getUnorderedGroup_1())}?	
+	)
+)
+	{ 
+	  getUnorderedGroupHelper().leave(grammarAccess.getSingleRefAccess().getUnorderedGroup_1());
+	}
+
+)	otherlv_20='/>' 
+    {
+    	newLeafNode(otherlv_20, grammarAccess.getSingleRefAccess().getSolidusGreaterThanSignKeyword_2());
     }
 )
 ;
@@ -2668,36 +3032,76 @@ ruleMultiple returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
+(
+    { 
+        newCompositeNode(grammarAccess.getMultipleAccess().getMultipleWithOptionsParserRuleCall_0()); 
+    }
+    this_MultipleWithOptions_0=ruleMultipleWithOptions
+    { 
+        $current = $this_MultipleWithOptions_0.current; 
+        afterParserOrEnumRuleCall();
+    }
+
+    |
+    { 
+        newCompositeNode(grammarAccess.getMultipleAccess().getMultipleRefParserRuleCall_1()); 
+    }
+    this_MultipleRef_1=ruleMultipleRef
+    { 
+        $current = $this_MultipleRef_1.current; 
+        afterParserOrEnumRuleCall();
+    }
+)
+;
+
+
+
+
+
+// Entry rule entryRuleMultipleWithOptions
+entryRuleMultipleWithOptions returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getMultipleWithOptionsRule()); }
+	 iv_ruleMultipleWithOptions=ruleMultipleWithOptions 
+	 { $current=$iv_ruleMultipleWithOptions.current; } 
+	 EOF 
+;
+
+// Rule MultipleWithOptions
+ruleMultipleWithOptions returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
 (	otherlv_0='<multiple' 
     {
-    	newLeafNode(otherlv_0, grammarAccess.getMultipleAccess().getMultipleKeyword_0());
+    	newLeafNode(otherlv_0, grammarAccess.getMultipleWithOptionsAccess().getMultipleKeyword_0());
     }
 (
 
 (
 	{ 
-	  getUnorderedGroupHelper().enter(grammarAccess.getMultipleAccess().getUnorderedGroup_1());
+	  getUnorderedGroupHelper().enter(grammarAccess.getMultipleWithOptionsAccess().getUnorderedGroup_1());
 	}
 	(
 		(
 
 			( 
-				{getUnorderedGroupHelper().canSelect(grammarAccess.getMultipleAccess().getUnorderedGroup_1(), 0)}?=>(
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getMultipleWithOptionsAccess().getUnorderedGroup_1(), 0)}?=>(
 					{ 
-	 				  getUnorderedGroupHelper().select(grammarAccess.getMultipleAccess().getUnorderedGroup_1(), 0);
+	 				  getUnorderedGroupHelper().select(grammarAccess.getMultipleWithOptionsAccess().getUnorderedGroup_1(), 0);
 	 				}
 					({true}?=>(	otherlv_2='title="' 
     {
-    	newLeafNode(otherlv_2, grammarAccess.getMultipleAccess().getTitleKeyword_1_0_0());
+    	newLeafNode(otherlv_2, grammarAccess.getMultipleWithOptionsAccess().getTitleKeyword_1_0_0());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getMultipleAccess().getTitleEStringParserRuleCall_1_0_1_0()); 
+	        newCompositeNode(grammarAccess.getMultipleWithOptionsAccess().getTitleEStringParserRuleCall_1_0_1_0()); 
 	    }
 		lv_title_3_0=ruleEString		{
 	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getMultipleRule());
+	            $current = createModelElementForParent(grammarAccess.getMultipleWithOptionsRule());
 	        }
        		set(
        			$current, 
@@ -2710,32 +3114,32 @@ ruleMultiple returns [EObject current=null]
 )
 )	otherlv_4='"' 
     {
-    	newLeafNode(otherlv_4, grammarAccess.getMultipleAccess().getQuotationMarkKeyword_1_0_2());
+    	newLeafNode(otherlv_4, grammarAccess.getMultipleWithOptionsAccess().getQuotationMarkKeyword_1_0_2());
     }
 ))
 					{ 
-	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getMultipleAccess().getUnorderedGroup_1());
+	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getMultipleWithOptionsAccess().getUnorderedGroup_1());
 	 				}
  				)
 			)  |
 
 			( 
-				{getUnorderedGroupHelper().canSelect(grammarAccess.getMultipleAccess().getUnorderedGroup_1(), 1)}?=>(
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getMultipleWithOptionsAccess().getUnorderedGroup_1(), 1)}?=>(
 					{ 
-	 				  getUnorderedGroupHelper().select(grammarAccess.getMultipleAccess().getUnorderedGroup_1(), 1);
+	 				  getUnorderedGroupHelper().select(grammarAccess.getMultipleWithOptionsAccess().getUnorderedGroup_1(), 1);
 	 				}
 					({true}?=>(	otherlv_5='description="' 
     {
-    	newLeafNode(otherlv_5, grammarAccess.getMultipleAccess().getDescriptionKeyword_1_1_0());
+    	newLeafNode(otherlv_5, grammarAccess.getMultipleWithOptionsAccess().getDescriptionKeyword_1_1_0());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getMultipleAccess().getDescriptionEStringParserRuleCall_1_1_1_0()); 
+	        newCompositeNode(grammarAccess.getMultipleWithOptionsAccess().getDescriptionEStringParserRuleCall_1_1_1_0()); 
 	    }
 		lv_description_6_0=ruleEString		{
 	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getMultipleRule());
+	            $current = createModelElementForParent(grammarAccess.getMultipleWithOptionsRule());
 	        }
        		set(
        			$current, 
@@ -2748,33 +3152,33 @@ ruleMultiple returns [EObject current=null]
 )
 )?	otherlv_7='"' 
     {
-    	newLeafNode(otherlv_7, grammarAccess.getMultipleAccess().getQuotationMarkKeyword_1_1_2());
+    	newLeafNode(otherlv_7, grammarAccess.getMultipleWithOptionsAccess().getQuotationMarkKeyword_1_1_2());
     }
 ))
 					{ 
-	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getMultipleAccess().getUnorderedGroup_1());
+	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getMultipleWithOptionsAccess().getUnorderedGroup_1());
 	 				}
  				)
 			)  |
 
 			( 
-				{getUnorderedGroupHelper().canSelect(grammarAccess.getMultipleAccess().getUnorderedGroup_1(), 2)}?=>(
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getMultipleWithOptionsAccess().getUnorderedGroup_1(), 2)}?=>(
 					{ 
-	 				  getUnorderedGroupHelper().select(grammarAccess.getMultipleAccess().getUnorderedGroup_1(), 2);
+	 				  getUnorderedGroupHelper().select(grammarAccess.getMultipleWithOptionsAccess().getUnorderedGroup_1(), 2);
 	 				}
 					({true}?=>(	otherlv_8='id="' 
     {
-    	newLeafNode(otherlv_8, grammarAccess.getMultipleAccess().getIdKeyword_1_2_0());
+    	newLeafNode(otherlv_8, grammarAccess.getMultipleWithOptionsAccess().getIdKeyword_1_2_0());
     }
 (
 (
 		lv_name_9_0=RULE_ID
 		{
-			newLeafNode(lv_name_9_0, grammarAccess.getMultipleAccess().getNameIDTerminalRuleCall_1_2_1_0()); 
+			newLeafNode(lv_name_9_0, grammarAccess.getMultipleWithOptionsAccess().getNameIDTerminalRuleCall_1_2_1_0()); 
 		}
 		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getMultipleRule());
+	            $current = createModelElement(grammarAccess.getMultipleWithOptionsRule());
 	        }
        		setWithLastConsumed(
        			$current, 
@@ -2786,33 +3190,33 @@ ruleMultiple returns [EObject current=null]
 )
 )?	otherlv_10='"' 
     {
-    	newLeafNode(otherlv_10, grammarAccess.getMultipleAccess().getQuotationMarkKeyword_1_2_2());
+    	newLeafNode(otherlv_10, grammarAccess.getMultipleWithOptionsAccess().getQuotationMarkKeyword_1_2_2());
     }
 ))
 					{ 
-	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getMultipleAccess().getUnorderedGroup_1());
+	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getMultipleWithOptionsAccess().getUnorderedGroup_1());
 	 				}
  				)
 			)  |
 
 			( 
-				{getUnorderedGroupHelper().canSelect(grammarAccess.getMultipleAccess().getUnorderedGroup_1(), 3)}?=>(
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getMultipleWithOptionsAccess().getUnorderedGroup_1(), 3)}?=>(
 					{ 
-	 				  getUnorderedGroupHelper().select(grammarAccess.getMultipleAccess().getUnorderedGroup_1(), 3);
+	 				  getUnorderedGroupHelper().select(grammarAccess.getMultipleWithOptionsAccess().getUnorderedGroup_1(), 3);
 	 				}
 					({true}?=>(	otherlv_11='min="' 
     {
-    	newLeafNode(otherlv_11, grammarAccess.getMultipleAccess().getMinKeyword_1_3_0());
+    	newLeafNode(otherlv_11, grammarAccess.getMultipleWithOptionsAccess().getMinKeyword_1_3_0());
     }
 (
 (
 		lv_min_12_0=RULE_INT
 		{
-			newLeafNode(lv_min_12_0, grammarAccess.getMultipleAccess().getMinINTTerminalRuleCall_1_3_1_0()); 
+			newLeafNode(lv_min_12_0, grammarAccess.getMultipleWithOptionsAccess().getMinINTTerminalRuleCall_1_3_1_0()); 
 		}
 		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getMultipleRule());
+	            $current = createModelElement(grammarAccess.getMultipleWithOptionsRule());
 	        }
        		setWithLastConsumed(
        			$current, 
@@ -2824,33 +3228,33 @@ ruleMultiple returns [EObject current=null]
 )
 )	otherlv_13='"' 
     {
-    	newLeafNode(otherlv_13, grammarAccess.getMultipleAccess().getQuotationMarkKeyword_1_3_2());
+    	newLeafNode(otherlv_13, grammarAccess.getMultipleWithOptionsAccess().getQuotationMarkKeyword_1_3_2());
     }
 ))
 					{ 
-	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getMultipleAccess().getUnorderedGroup_1());
+	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getMultipleWithOptionsAccess().getUnorderedGroup_1());
 	 				}
  				)
 			)  |
 
 			( 
-				{getUnorderedGroupHelper().canSelect(grammarAccess.getMultipleAccess().getUnorderedGroup_1(), 4)}?=>(
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getMultipleWithOptionsAccess().getUnorderedGroup_1(), 4)}?=>(
 					{ 
-	 				  getUnorderedGroupHelper().select(grammarAccess.getMultipleAccess().getUnorderedGroup_1(), 4);
+	 				  getUnorderedGroupHelper().select(grammarAccess.getMultipleWithOptionsAccess().getUnorderedGroup_1(), 4);
 	 				}
 					({true}?=>(	otherlv_14='max="' 
     {
-    	newLeafNode(otherlv_14, grammarAccess.getMultipleAccess().getMaxKeyword_1_4_0());
+    	newLeafNode(otherlv_14, grammarAccess.getMultipleWithOptionsAccess().getMaxKeyword_1_4_0());
     }
 (
 (
 		lv_max_15_0=RULE_INT
 		{
-			newLeafNode(lv_max_15_0, grammarAccess.getMultipleAccess().getMaxINTTerminalRuleCall_1_4_1_0()); 
+			newLeafNode(lv_max_15_0, grammarAccess.getMultipleWithOptionsAccess().getMaxINTTerminalRuleCall_1_4_1_0()); 
 		}
 		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getMultipleRule());
+	            $current = createModelElement(grammarAccess.getMultipleWithOptionsRule());
 	        }
        		setWithLastConsumed(
        			$current, 
@@ -2862,32 +3266,32 @@ ruleMultiple returns [EObject current=null]
 )
 )	otherlv_16='"' 
     {
-    	newLeafNode(otherlv_16, grammarAccess.getMultipleAccess().getQuotationMarkKeyword_1_4_2());
+    	newLeafNode(otherlv_16, grammarAccess.getMultipleWithOptionsAccess().getQuotationMarkKeyword_1_4_2());
     }
 ))
 					{ 
-	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getMultipleAccess().getUnorderedGroup_1());
+	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getMultipleWithOptionsAccess().getUnorderedGroup_1());
 	 				}
  				)
 			)  |
 
 			( 
-				{getUnorderedGroupHelper().canSelect(grammarAccess.getMultipleAccess().getUnorderedGroup_1(), 5)}?=>(
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getMultipleWithOptionsAccess().getUnorderedGroup_1(), 5)}?=>(
 					{ 
-	 				  getUnorderedGroupHelper().select(grammarAccess.getMultipleAccess().getUnorderedGroup_1(), 5);
+	 				  getUnorderedGroupHelper().select(grammarAccess.getMultipleWithOptionsAccess().getUnorderedGroup_1(), 5);
 	 				}
 					({true}?=>(	otherlv_17='depends-on="' 
     {
-    	newLeafNode(otherlv_17, grammarAccess.getMultipleAccess().getDependsOnKeyword_1_5_0());
+    	newLeafNode(otherlv_17, grammarAccess.getMultipleWithOptionsAccess().getDependsOnKeyword_1_5_0());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getMultipleAccess().getDependsOnDEP_IDParserRuleCall_1_5_1_0()); 
+	        newCompositeNode(grammarAccess.getMultipleWithOptionsAccess().getDependsOnDEP_IDParserRuleCall_1_5_1_0()); 
 	    }
 		lv_dependsOn_18_0=ruleDEP_ID		{
 	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getMultipleRule());
+	            $current = createModelElementForParent(grammarAccess.getMultipleWithOptionsRule());
 	        }
        		set(
        			$current, 
@@ -2900,30 +3304,30 @@ ruleMultiple returns [EObject current=null]
 )
 )?	otherlv_19='"' 
     {
-    	newLeafNode(otherlv_19, grammarAccess.getMultipleAccess().getQuotationMarkKeyword_1_5_2());
+    	newLeafNode(otherlv_19, grammarAccess.getMultipleWithOptionsAccess().getQuotationMarkKeyword_1_5_2());
     }
 ))
 					{ 
-	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getMultipleAccess().getUnorderedGroup_1());
+	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getMultipleWithOptionsAccess().getUnorderedGroup_1());
 	 				}
  				)
 			)  |
 
 			( 
-				{getUnorderedGroupHelper().canSelect(grammarAccess.getMultipleAccess().getUnorderedGroup_1(), 6)}?=>(
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getMultipleWithOptionsAccess().getUnorderedGroup_1(), 6)}?=>(
 					{ 
-	 				  getUnorderedGroupHelper().select(grammarAccess.getMultipleAccess().getUnorderedGroup_1(), 6);
+	 				  getUnorderedGroupHelper().select(grammarAccess.getMultipleWithOptionsAccess().getUnorderedGroup_1(), 6);
 	 				}
 					({true}?=>(
 (
 		lv_required_20_0=	'required' 
     {
-        newLeafNode(lv_required_20_0, grammarAccess.getMultipleAccess().getRequiredRequiredKeyword_1_6_0());
+        newLeafNode(lv_required_20_0, grammarAccess.getMultipleWithOptionsAccess().getRequiredRequiredKeyword_1_6_0());
     }
  
 	    {
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getMultipleRule());
+	            $current = createModelElement(grammarAccess.getMultipleWithOptionsRule());
 	        }
        		setWithLastConsumed($current, "required", true, "required");
 	    }
@@ -2931,26 +3335,26 @@ ruleMultiple returns [EObject current=null]
 )
 ))
 					{ 
-	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getMultipleAccess().getUnorderedGroup_1());
+	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getMultipleWithOptionsAccess().getUnorderedGroup_1());
 	 				}
  				)
 			)  |
 
 			( 
-				{getUnorderedGroupHelper().canSelect(grammarAccess.getMultipleAccess().getUnorderedGroup_1(), 7)}?=>(
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getMultipleWithOptionsAccess().getUnorderedGroup_1(), 7)}?=>(
 					{ 
-	 				  getUnorderedGroupHelper().select(grammarAccess.getMultipleAccess().getUnorderedGroup_1(), 7);
+	 				  getUnorderedGroupHelper().select(grammarAccess.getMultipleWithOptionsAccess().getUnorderedGroup_1(), 7);
 	 				}
 					({true}?=>(
 (
 		lv_other_21_0=	'other' 
     {
-        newLeafNode(lv_other_21_0, grammarAccess.getMultipleAccess().getOtherOtherKeyword_1_7_0());
+        newLeafNode(lv_other_21_0, grammarAccess.getMultipleWithOptionsAccess().getOtherOtherKeyword_1_7_0());
     }
  
 	    {
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getMultipleRule());
+	            $current = createModelElement(grammarAccess.getMultipleWithOptionsRule());
 	        }
        		setWithLastConsumed($current, "other", true, "other");
 	    }
@@ -2958,51 +3362,51 @@ ruleMultiple returns [EObject current=null]
 )
 ))
 					{ 
-	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getMultipleAccess().getUnorderedGroup_1());
+	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getMultipleWithOptionsAccess().getUnorderedGroup_1());
 	 				}
  				)
 			)  |
 
 			( 
-				{getUnorderedGroupHelper().canSelect(grammarAccess.getMultipleAccess().getUnorderedGroup_1(), 8)}?=>(
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getMultipleWithOptionsAccess().getUnorderedGroup_1(), 8)}?=>(
 					{ 
-	 				  getUnorderedGroupHelper().select(grammarAccess.getMultipleAccess().getUnorderedGroup_1(), 8);
+	 				  getUnorderedGroupHelper().select(grammarAccess.getMultipleWithOptionsAccess().getUnorderedGroup_1(), 8);
 	 				}
 					({true}?=>(
 (
 (
 		lv_showLimits_22_1=	'show-limits' 
     {
-        newLeafNode(lv_showLimits_22_1, grammarAccess.getMultipleAccess().getShowLimitsShowLimitsKeyword_1_8_0_0());
+        newLeafNode(lv_showLimits_22_1, grammarAccess.getMultipleWithOptionsAccess().getShowLimitsShowLimitsKeyword_1_8_0_0());
     }
  
 	    {
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getMultipleRule());
+	            $current = createModelElement(grammarAccess.getMultipleWithOptionsRule());
 	        }
        		setWithLastConsumed($current, "showLimits", true, null);
 	    }
 
     |		lv_showLimits_22_2=	'show' 
     {
-        newLeafNode(lv_showLimits_22_2, grammarAccess.getMultipleAccess().getShowLimitsShowKeyword_1_8_0_1());
+        newLeafNode(lv_showLimits_22_2, grammarAccess.getMultipleWithOptionsAccess().getShowLimitsShowKeyword_1_8_0_1());
     }
  
 	    {
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getMultipleRule());
+	            $current = createModelElement(grammarAccess.getMultipleWithOptionsRule());
 	        }
        		setWithLastConsumed($current, "showLimits", true, null);
 	    }
 
     |		lv_showLimits_22_3=	'limits' 
     {
-        newLeafNode(lv_showLimits_22_3, grammarAccess.getMultipleAccess().getShowLimitsLimitsKeyword_1_8_0_2());
+        newLeafNode(lv_showLimits_22_3, grammarAccess.getMultipleWithOptionsAccess().getShowLimitsLimitsKeyword_1_8_0_2());
     }
  
 	    {
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getMultipleRule());
+	            $current = createModelElement(grammarAccess.getMultipleWithOptionsRule());
 	        }
        		setWithLastConsumed($current, "showLimits", true, null);
 	    }
@@ -3012,31 +3416,31 @@ ruleMultiple returns [EObject current=null]
 )
 ))
 					{ 
-	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getMultipleAccess().getUnorderedGroup_1());
+	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getMultipleWithOptionsAccess().getUnorderedGroup_1());
 	 				}
  				)
 			)  
 
 		)+
-	  	{getUnorderedGroupHelper().canLeave(grammarAccess.getMultipleAccess().getUnorderedGroup_1())}?	
+	  	{getUnorderedGroupHelper().canLeave(grammarAccess.getMultipleWithOptionsAccess().getUnorderedGroup_1())}?	
 	)
 )
 	{ 
-	  getUnorderedGroupHelper().leave(grammarAccess.getMultipleAccess().getUnorderedGroup_1());
+	  getUnorderedGroupHelper().leave(grammarAccess.getMultipleWithOptionsAccess().getUnorderedGroup_1());
 	}
 
 )	otherlv_23='>' 
     {
-    	newLeafNode(otherlv_23, grammarAccess.getMultipleAccess().getGreaterThanSignKeyword_2());
+    	newLeafNode(otherlv_23, grammarAccess.getMultipleWithOptionsAccess().getGreaterThanSignKeyword_2());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getMultipleAccess().getOptionsOptionParserRuleCall_3_0()); 
+	        newCompositeNode(grammarAccess.getMultipleWithOptionsAccess().getOptionsOptionParserRuleCall_3_0()); 
 	    }
 		lv_options_24_0=ruleOption		{
 	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getMultipleRule());
+	            $current = createModelElementForParent(grammarAccess.getMultipleWithOptionsRule());
 	        }
        		add(
        			$current, 
@@ -3049,7 +3453,419 @@ ruleMultiple returns [EObject current=null]
 )
 )+	otherlv_25='</multiple>' 
     {
-    	newLeafNode(otherlv_25, grammarAccess.getMultipleAccess().getMultipleKeyword_4());
+    	newLeafNode(otherlv_25, grammarAccess.getMultipleWithOptionsAccess().getMultipleKeyword_4());
+    }
+)
+;
+
+
+
+
+
+// Entry rule entryRuleMultipleRef
+entryRuleMultipleRef returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getMultipleRefRule()); }
+	 iv_ruleMultipleRef=ruleMultipleRef 
+	 { $current=$iv_ruleMultipleRef.current; } 
+	 EOF 
+;
+
+// Rule MultipleRef
+ruleMultipleRef returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(	otherlv_0='<multiple' 
+    {
+    	newLeafNode(otherlv_0, grammarAccess.getMultipleRefAccess().getMultipleKeyword_0());
+    }
+(
+
+(
+	{ 
+	  getUnorderedGroupHelper().enter(grammarAccess.getMultipleRefAccess().getUnorderedGroup_1());
+	}
+	(
+		(
+
+			( 
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getMultipleRefAccess().getUnorderedGroup_1(), 0)}?=>(
+					{ 
+	 				  getUnorderedGroupHelper().select(grammarAccess.getMultipleRefAccess().getUnorderedGroup_1(), 0);
+	 				}
+					({true}?=>(	otherlv_2='title="' 
+    {
+    	newLeafNode(otherlv_2, grammarAccess.getMultipleRefAccess().getTitleKeyword_1_0_0());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getMultipleRefAccess().getTitleEStringParserRuleCall_1_0_1_0()); 
+	    }
+		lv_title_3_0=ruleEString		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getMultipleRefRule());
+	        }
+       		set(
+       			$current, 
+       			"title",
+        		lv_title_3_0, 
+        		"EString");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)	otherlv_4='"' 
+    {
+    	newLeafNode(otherlv_4, grammarAccess.getMultipleRefAccess().getQuotationMarkKeyword_1_0_2());
+    }
+))
+					{ 
+	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getMultipleRefAccess().getUnorderedGroup_1());
+	 				}
+ 				)
+			)  |
+
+			( 
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getMultipleRefAccess().getUnorderedGroup_1(), 1)}?=>(
+					{ 
+	 				  getUnorderedGroupHelper().select(grammarAccess.getMultipleRefAccess().getUnorderedGroup_1(), 1);
+	 				}
+					({true}?=>(	otherlv_5='description="' 
+    {
+    	newLeafNode(otherlv_5, grammarAccess.getMultipleRefAccess().getDescriptionKeyword_1_1_0());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getMultipleRefAccess().getDescriptionEStringParserRuleCall_1_1_1_0()); 
+	    }
+		lv_description_6_0=ruleEString		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getMultipleRefRule());
+	        }
+       		set(
+       			$current, 
+       			"description",
+        		lv_description_6_0, 
+        		"EString");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)?	otherlv_7='"' 
+    {
+    	newLeafNode(otherlv_7, grammarAccess.getMultipleRefAccess().getQuotationMarkKeyword_1_1_2());
+    }
+))
+					{ 
+	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getMultipleRefAccess().getUnorderedGroup_1());
+	 				}
+ 				)
+			)  |
+
+			( 
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getMultipleRefAccess().getUnorderedGroup_1(), 2)}?=>(
+					{ 
+	 				  getUnorderedGroupHelper().select(grammarAccess.getMultipleRefAccess().getUnorderedGroup_1(), 2);
+	 				}
+					({true}?=>(	otherlv_8='id="' 
+    {
+    	newLeafNode(otherlv_8, grammarAccess.getMultipleRefAccess().getIdKeyword_1_2_0());
+    }
+(
+(
+		lv_name_9_0=RULE_ID
+		{
+			newLeafNode(lv_name_9_0, grammarAccess.getMultipleRefAccess().getNameIDTerminalRuleCall_1_2_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getMultipleRefRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"name",
+        		lv_name_9_0, 
+        		"ID");
+	    }
+
+)
+)?	otherlv_10='"' 
+    {
+    	newLeafNode(otherlv_10, grammarAccess.getMultipleRefAccess().getQuotationMarkKeyword_1_2_2());
+    }
+))
+					{ 
+	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getMultipleRefAccess().getUnorderedGroup_1());
+	 				}
+ 				)
+			)  |
+
+			( 
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getMultipleRefAccess().getUnorderedGroup_1(), 3)}?=>(
+					{ 
+	 				  getUnorderedGroupHelper().select(grammarAccess.getMultipleRefAccess().getUnorderedGroup_1(), 3);
+	 				}
+					({true}?=>(	otherlv_11='min="' 
+    {
+    	newLeafNode(otherlv_11, grammarAccess.getMultipleRefAccess().getMinKeyword_1_3_0());
+    }
+(
+(
+		lv_min_12_0=RULE_INT
+		{
+			newLeafNode(lv_min_12_0, grammarAccess.getMultipleRefAccess().getMinINTTerminalRuleCall_1_3_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getMultipleRefRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"min",
+        		lv_min_12_0, 
+        		"INT");
+	    }
+
+)
+)	otherlv_13='"' 
+    {
+    	newLeafNode(otherlv_13, grammarAccess.getMultipleRefAccess().getQuotationMarkKeyword_1_3_2());
+    }
+))
+					{ 
+	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getMultipleRefAccess().getUnorderedGroup_1());
+	 				}
+ 				)
+			)  |
+
+			( 
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getMultipleRefAccess().getUnorderedGroup_1(), 4)}?=>(
+					{ 
+	 				  getUnorderedGroupHelper().select(grammarAccess.getMultipleRefAccess().getUnorderedGroup_1(), 4);
+	 				}
+					({true}?=>(	otherlv_14='max="' 
+    {
+    	newLeafNode(otherlv_14, grammarAccess.getMultipleRefAccess().getMaxKeyword_1_4_0());
+    }
+(
+(
+		lv_max_15_0=RULE_INT
+		{
+			newLeafNode(lv_max_15_0, grammarAccess.getMultipleRefAccess().getMaxINTTerminalRuleCall_1_4_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getMultipleRefRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"max",
+        		lv_max_15_0, 
+        		"INT");
+	    }
+
+)
+)	otherlv_16='"' 
+    {
+    	newLeafNode(otherlv_16, grammarAccess.getMultipleRefAccess().getQuotationMarkKeyword_1_4_2());
+    }
+))
+					{ 
+	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getMultipleRefAccess().getUnorderedGroup_1());
+	 				}
+ 				)
+			)  |
+
+			( 
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getMultipleRefAccess().getUnorderedGroup_1(), 5)}?=>(
+					{ 
+	 				  getUnorderedGroupHelper().select(grammarAccess.getMultipleRefAccess().getUnorderedGroup_1(), 5);
+	 				}
+					({true}?=>(	otherlv_17='depends-on="' 
+    {
+    	newLeafNode(otherlv_17, grammarAccess.getMultipleRefAccess().getDependsOnKeyword_1_5_0());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getMultipleRefAccess().getDependsOnDEP_IDParserRuleCall_1_5_1_0()); 
+	    }
+		lv_dependsOn_18_0=ruleDEP_ID		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getMultipleRefRule());
+	        }
+       		set(
+       			$current, 
+       			"dependsOn",
+        		lv_dependsOn_18_0, 
+        		"DEP_ID");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)?	otherlv_19='"' 
+    {
+    	newLeafNode(otherlv_19, grammarAccess.getMultipleRefAccess().getQuotationMarkKeyword_1_5_2());
+    }
+))
+					{ 
+	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getMultipleRefAccess().getUnorderedGroup_1());
+	 				}
+ 				)
+			)  |
+
+			( 
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getMultipleRefAccess().getUnorderedGroup_1(), 6)}?=>(
+					{ 
+	 				  getUnorderedGroupHelper().select(grammarAccess.getMultipleRefAccess().getUnorderedGroup_1(), 6);
+	 				}
+					({true}?=>(
+(
+		lv_required_20_0=	'required' 
+    {
+        newLeafNode(lv_required_20_0, grammarAccess.getMultipleRefAccess().getRequiredRequiredKeyword_1_6_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getMultipleRefRule());
+	        }
+       		setWithLastConsumed($current, "required", true, "required");
+	    }
+
+)
+))
+					{ 
+	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getMultipleRefAccess().getUnorderedGroup_1());
+	 				}
+ 				)
+			)  |
+
+			( 
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getMultipleRefAccess().getUnorderedGroup_1(), 7)}?=>(
+					{ 
+	 				  getUnorderedGroupHelper().select(grammarAccess.getMultipleRefAccess().getUnorderedGroup_1(), 7);
+	 				}
+					({true}?=>(
+(
+		lv_other_21_0=	'other' 
+    {
+        newLeafNode(lv_other_21_0, grammarAccess.getMultipleRefAccess().getOtherOtherKeyword_1_7_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getMultipleRefRule());
+	        }
+       		setWithLastConsumed($current, "other", true, "other");
+	    }
+
+)
+))
+					{ 
+	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getMultipleRefAccess().getUnorderedGroup_1());
+	 				}
+ 				)
+			)  |
+
+			( 
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getMultipleRefAccess().getUnorderedGroup_1(), 8)}?=>(
+					{ 
+	 				  getUnorderedGroupHelper().select(grammarAccess.getMultipleRefAccess().getUnorderedGroup_1(), 8);
+	 				}
+					({true}?=>(
+(
+(
+		lv_showLimits_22_1=	'show-limits' 
+    {
+        newLeafNode(lv_showLimits_22_1, grammarAccess.getMultipleRefAccess().getShowLimitsShowLimitsKeyword_1_8_0_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getMultipleRefRule());
+	        }
+       		setWithLastConsumed($current, "showLimits", true, null);
+	    }
+
+    |		lv_showLimits_22_2=	'show' 
+    {
+        newLeafNode(lv_showLimits_22_2, grammarAccess.getMultipleRefAccess().getShowLimitsShowKeyword_1_8_0_1());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getMultipleRefRule());
+	        }
+       		setWithLastConsumed($current, "showLimits", true, null);
+	    }
+
+    |		lv_showLimits_22_3=	'limits' 
+    {
+        newLeafNode(lv_showLimits_22_3, grammarAccess.getMultipleRefAccess().getShowLimitsLimitsKeyword_1_8_0_2());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getMultipleRefRule());
+	        }
+       		setWithLastConsumed($current, "showLimits", true, null);
+	    }
+
+)
+
+)
+))
+					{ 
+	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getMultipleRefAccess().getUnorderedGroup_1());
+	 				}
+ 				)
+			)  |
+
+			( 
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getMultipleRefAccess().getUnorderedGroup_1(), 9)}?=>(
+					{ 
+	 				  getUnorderedGroupHelper().select(grammarAccess.getMultipleRefAccess().getUnorderedGroup_1(), 9);
+	 				}
+					({true}?=>(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getMultipleRefAccess().getOptionsAnswerTemplateRefAttrParserRuleCall_1_9_0()); 
+	    }
+		lv_options_23_0=ruleAnswerTemplateRefAttr		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getMultipleRefRule());
+	        }
+       		add(
+       			$current, 
+       			"options",
+        		lv_options_23_0, 
+        		"AnswerTemplateRefAttr");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))
+					{ 
+	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getMultipleRefAccess().getUnorderedGroup_1());
+	 				}
+ 				)
+			)  
+
+		)+
+	  	{getUnorderedGroupHelper().canLeave(grammarAccess.getMultipleRefAccess().getUnorderedGroup_1())}?	
+	)
+)
+	{ 
+	  getUnorderedGroupHelper().leave(grammarAccess.getMultipleRefAccess().getUnorderedGroup_1());
+	}
+
+)	otherlv_24='/>' 
+    {
+    	newLeafNode(otherlv_24, grammarAccess.getMultipleRefAccess().getSolidusGreaterThanSignKeyword_2());
     }
 )
 ;
@@ -3535,6 +4351,48 @@ ruleAnswerTemplateRef returns [EObject current=null]
 	otherlv_4='/>' 
     {
     	newLeafNode(otherlv_4, grammarAccess.getAnswerTemplateRefAccess().getSolidusGreaterThanSignKeyword_4());
+    }
+)
+;
+
+
+
+
+
+// Entry rule entryRuleAnswerTemplateRefAttr
+entryRuleAnswerTemplateRefAttr returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getAnswerTemplateRefAttrRule()); }
+	 iv_ruleAnswerTemplateRefAttr=ruleAnswerTemplateRefAttr 
+	 { $current=$iv_ruleAnswerTemplateRefAttr.current; } 
+	 EOF 
+;
+
+// Rule AnswerTemplateRefAttr
+ruleAnswerTemplateRefAttr returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(	otherlv_0='template="' 
+    {
+    	newLeafNode(otherlv_0, grammarAccess.getAnswerTemplateRefAttrAccess().getTemplateKeyword_0());
+    }
+(
+(
+		{
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getAnswerTemplateRefAttrRule());
+	        }
+        }
+	otherlv_1=RULE_ID
+	{
+		newLeafNode(otherlv_1, grammarAccess.getAnswerTemplateRefAttrAccess().getTemplateAnswerTemplateCrossReference_1_0()); 
+	}
+
+)
+)	otherlv_2='"' 
+    {
+    	newLeafNode(otherlv_2, grammarAccess.getAnswerTemplateRefAttrAccess().getQuotationMarkKeyword_2());
     }
 )
 ;
