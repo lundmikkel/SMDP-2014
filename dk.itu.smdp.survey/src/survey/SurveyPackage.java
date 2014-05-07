@@ -1414,13 +1414,22 @@ public interface SurveyPackage extends EPackage {
 	int TABLE_QUESTION__DESCRIPTION = META__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Required</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE_QUESTION__REQUIRED = META_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Table Question</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE_QUESTION_FEATURE_COUNT = META_FEATURE_COUNT + 0;
+	int TABLE_QUESTION_FEATURE_COUNT = META_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Table Question</em>' class.
@@ -2061,6 +2070,17 @@ public interface SurveyPackage extends EPackage {
 	EClass getTableQuestion();
 
 	/**
+	 * Returns the meta object for the attribute '{@link survey.TableQuestion#isRequired <em>Required</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Required</em>'.
+	 * @see survey.TableQuestion#isRequired()
+	 * @see #getTableQuestion()
+	 * @generated
+	 */
+	EAttribute getTableQuestion_Required();
+
+	/**
 	 * Returns the meta object for class '{@link survey.AnswerTemplateRef <em>Answer Template Ref</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2545,6 +2565,14 @@ public interface SurveyPackage extends EPackage {
 		 * @generated
 		 */
 		EClass TABLE_QUESTION = eINSTANCE.getTableQuestion();
+
+		/**
+		 * The meta object literal for the '<em><b>Required</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TABLE_QUESTION__REQUIRED = eINSTANCE.getTableQuestion_Required();
 
 		/**
 		 * The meta object literal for the '{@link survey.impl.AnswerTemplateRefImpl <em>Answer Template Ref</em>}' class.

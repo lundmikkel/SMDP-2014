@@ -132,7 +132,7 @@ public class DslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getAnswerTemplateRefAccess().getGroup(), "rule__AnswerTemplateRef__Group__0");
 					put(grammarAccess.getAnswerTemplateRefAttrAccess().getGroup(), "rule__AnswerTemplateRefAttr__Group__0");
 					put(grammarAccess.getTableQuestionAccess().getGroup(), "rule__TableQuestion__Group__0");
-					put(grammarAccess.getTableQuestionAccess().getGroup_1(), "rule__TableQuestion__Group_1__0");
+					put(grammarAccess.getTableQuestionAccess().getGroup_1_0(), "rule__TableQuestion__Group_1_0__0");
 					put(grammarAccess.getSurveyAccess().getTitleAssignment_1_1_0_1(), "rule__Survey__TitleAssignment_1_1_0_1");
 					put(grammarAccess.getSurveyAccess().getDescriptionAssignment_1_1_1_1(), "rule__Survey__DescriptionAssignment_1_1_1_1");
 					put(grammarAccess.getSurveyAccess().getNameAssignment_1_1_2_1(), "rule__Survey__NameAssignment_1_1_2_1");
@@ -230,7 +230,8 @@ public class DslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getTableAccess().getQuestionsAssignment_4_1(), "rule__Table__QuestionsAssignment_4_1");
 					put(grammarAccess.getAnswerTemplateRefAccess().getTemplateAssignment_2(), "rule__AnswerTemplateRef__TemplateAssignment_2");
 					put(grammarAccess.getAnswerTemplateRefAttrAccess().getTemplateAssignment_1(), "rule__AnswerTemplateRefAttr__TemplateAssignment_1");
-					put(grammarAccess.getTableQuestionAccess().getNameAssignment_1_1(), "rule__TableQuestion__NameAssignment_1_1");
+					put(grammarAccess.getTableQuestionAccess().getNameAssignment_1_0_1(), "rule__TableQuestion__NameAssignment_1_0_1");
+					put(grammarAccess.getTableQuestionAccess().getRequiredAssignment_1_1(), "rule__TableQuestion__RequiredAssignment_1_1");
 					put(grammarAccess.getTableQuestionAccess().getTitleAssignment_3(), "rule__TableQuestion__TitleAssignment_3");
 					put(grammarAccess.getSurveyAccess().getUnorderedGroup_1_1(), "rule__Survey__UnorderedGroup_1_1");
 					put(grammarAccess.getGroupAccess().getUnorderedGroup_1(), "rule__Group__UnorderedGroup_1");
@@ -244,6 +245,7 @@ public class DslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getMultipleRefAccess().getUnorderedGroup_1(), "rule__MultipleRef__UnorderedGroup_1");
 					put(grammarAccess.getTableAccess().getUnorderedGroup_1(), "rule__Table__UnorderedGroup_1");
 					put(grammarAccess.getTableAccess().getUnorderedGroup_3(), "rule__Table__UnorderedGroup_3");
+					put(grammarAccess.getTableQuestionAccess().getUnorderedGroup_1(), "rule__TableQuestion__UnorderedGroup_1");
 				}
 			};
 		}

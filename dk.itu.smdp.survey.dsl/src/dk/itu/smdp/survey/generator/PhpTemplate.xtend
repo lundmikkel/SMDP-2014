@@ -35,6 +35,10 @@ class PhpTemplate {
 							</div>
 			    		<?php
 			    		
+			    		/*echo '<pre>';
+						print_r($_POST);
+						echo '</pre>';*/
+			    		
 						echo '<dl>';
 						foreach ($_POST as $array) {
 							// No answer
@@ -73,7 +77,7 @@ class PhpTemplate {
 		                	«IF !title.nullOrEmpty»<h1>«title»</h1>«ENDIF»
 		                	«IF !description.nullOrEmpty»<p class="lead">«description»</p>«ENDIF»
 						</div>
-		                <form role="form" method="post">
+		                <form id="form" role="form" method="post">
 							«formContent»
 		                    <hr/>
 		                    <div class="form-group">
@@ -90,6 +94,7 @@ class PhpTemplate {
 		        <!-- Include all compiled plugins (below), or include individual files as needed -->
 		        <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 				<script src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
+				<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.12.0/jquery.validate.min.js"></script>
 				
 		        <script type="text/javascript">
 		            $( document ).ready(function() {«js()»});
@@ -178,7 +183,7 @@ class PhpTemplate {
 		    switch (dependsOn.attr("type")) {
 		        case "radio":
 		            {
-		                $("input[name=" + dependsOn.attr("name") + "]:radio").change(function () {
+		                $("input[name='" + dependsOn.attr("name") + "']:radio").change(function () {
 		                    if ($(this).attr("id") == dependsOnId)
 		                        _this.show();
 		                    else
@@ -187,6 +192,18 @@ class PhpTemplate {
 		            }
 		            break;
 		    }
+		});
+		
+		var $form = $("form");
+		$form.validate();
+		
+		$form.submit(function (event) {
+			var validate = $form.validate(); 
+			
+				
+			if (!validate.valid()) {
+				event.preventDefault();
+			}
 		});
 	'''
 }

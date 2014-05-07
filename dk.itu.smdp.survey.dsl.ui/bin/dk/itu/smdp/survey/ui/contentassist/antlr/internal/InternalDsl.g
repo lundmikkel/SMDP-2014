@@ -9098,9 +9098,9 @@ rule__TableQuestion__Group__1__Impl
     }
 :
 (
-{ before(grammarAccess.getTableQuestionAccess().getGroup_1()); }
-(rule__TableQuestion__Group_1__0)?
-{ after(grammarAccess.getTableQuestionAccess().getGroup_1()); }
+{ before(grammarAccess.getTableQuestionAccess().getUnorderedGroup_1()); }
+(rule__TableQuestion__UnorderedGroup_1)
+{ after(grammarAccess.getTableQuestionAccess().getUnorderedGroup_1()); }
 )
 
 ;
@@ -9209,29 +9209,29 @@ finally {
 
 
 
-rule__TableQuestion__Group_1__0
+rule__TableQuestion__Group_1_0__0
     @init {
 		int stackSize = keepStackSize();
     }
 :
-	rule__TableQuestion__Group_1__0__Impl
-	rule__TableQuestion__Group_1__1
+	rule__TableQuestion__Group_1_0__0__Impl
+	rule__TableQuestion__Group_1_0__1
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__TableQuestion__Group_1__0__Impl
+rule__TableQuestion__Group_1_0__0__Impl
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getTableQuestionAccess().getIdKeyword_1_0()); }
+{ before(grammarAccess.getTableQuestionAccess().getIdKeyword_1_0_0()); }
 
 	'id="' 
 
-{ after(grammarAccess.getTableQuestionAccess().getIdKeyword_1_0()); }
+{ after(grammarAccess.getTableQuestionAccess().getIdKeyword_1_0_0()); }
 )
 
 ;
@@ -9240,27 +9240,27 @@ finally {
 }
 
 
-rule__TableQuestion__Group_1__1
+rule__TableQuestion__Group_1_0__1
     @init {
 		int stackSize = keepStackSize();
     }
 :
-	rule__TableQuestion__Group_1__1__Impl
-	rule__TableQuestion__Group_1__2
+	rule__TableQuestion__Group_1_0__1__Impl
+	rule__TableQuestion__Group_1_0__2
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__TableQuestion__Group_1__1__Impl
+rule__TableQuestion__Group_1_0__1__Impl
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getTableQuestionAccess().getNameAssignment_1_1()); }
-(rule__TableQuestion__NameAssignment_1_1)?
-{ after(grammarAccess.getTableQuestionAccess().getNameAssignment_1_1()); }
+{ before(grammarAccess.getTableQuestionAccess().getNameAssignment_1_0_1()); }
+(rule__TableQuestion__NameAssignment_1_0_1)?
+{ after(grammarAccess.getTableQuestionAccess().getNameAssignment_1_0_1()); }
 )
 
 ;
@@ -9269,28 +9269,28 @@ finally {
 }
 
 
-rule__TableQuestion__Group_1__2
+rule__TableQuestion__Group_1_0__2
     @init {
 		int stackSize = keepStackSize();
     }
 :
-	rule__TableQuestion__Group_1__2__Impl
+	rule__TableQuestion__Group_1_0__2__Impl
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__TableQuestion__Group_1__2__Impl
+rule__TableQuestion__Group_1_0__2__Impl
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getTableQuestionAccess().getQuotationMarkKeyword_1_2()); }
+{ before(grammarAccess.getTableQuestionAccess().getQuotationMarkKeyword_1_0_2()); }
 
 	'"' 
 
-{ after(grammarAccess.getTableQuestionAccess().getQuotationMarkKeyword_1_2()); }
+{ after(grammarAccess.getTableQuestionAccess().getQuotationMarkKeyword_1_0_2()); }
 )
 
 ;
@@ -12333,6 +12333,102 @@ finally {
 
 
 
+rule__TableQuestion__UnorderedGroup_1
+    @init {
+    	int stackSize = keepStackSize();
+		getUnorderedGroupHelper().enter(grammarAccess.getTableQuestionAccess().getUnorderedGroup_1());
+    }
+:
+	rule__TableQuestion__UnorderedGroup_1__0
+	?
+	
+;
+finally {
+	getUnorderedGroupHelper().leave(grammarAccess.getTableQuestionAccess().getUnorderedGroup_1());
+	restoreStackSize(stackSize);
+}
+
+
+rule__TableQuestion__UnorderedGroup_1__Impl
+	@init {
+		int stackSize = keepStackSize();
+		boolean selected = false;
+    }
+:
+		(
+
+			( 
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getTableQuestionAccess().getUnorderedGroup_1(), 0)}?=>(
+					{ 
+	 				  getUnorderedGroupHelper().select(grammarAccess.getTableQuestionAccess().getUnorderedGroup_1(), 0);
+	 				}
+	 				{
+	 				  selected = true;
+	 				}
+					(
+					
+						{ before(grammarAccess.getTableQuestionAccess().getGroup_1_0()); }
+						(rule__TableQuestion__Group_1_0__0)
+						{ after(grammarAccess.getTableQuestionAccess().getGroup_1_0()); }
+					)
+ 				)
+			)  |
+
+			( 
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getTableQuestionAccess().getUnorderedGroup_1(), 1)}?=>(
+					{ 
+	 				  getUnorderedGroupHelper().select(grammarAccess.getTableQuestionAccess().getUnorderedGroup_1(), 1);
+	 				}
+	 				{
+	 				  selected = true;
+	 				}
+					(
+					
+						{ before(grammarAccess.getTableQuestionAccess().getRequiredAssignment_1_1()); }
+						(rule__TableQuestion__RequiredAssignment_1_1)
+						{ after(grammarAccess.getTableQuestionAccess().getRequiredAssignment_1_1()); }
+					)
+ 				)
+			)  
+
+		)
+;
+finally {
+	if (selected)
+		getUnorderedGroupHelper().returnFromSelection(grammarAccess.getTableQuestionAccess().getUnorderedGroup_1());
+	restoreStackSize(stackSize);
+}
+
+
+rule__TableQuestion__UnorderedGroup_1__0
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__TableQuestion__UnorderedGroup_1__Impl
+	rule__TableQuestion__UnorderedGroup_1__1?
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__TableQuestion__UnorderedGroup_1__1
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__TableQuestion__UnorderedGroup_1__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+
+
+
+
 rule__Survey__TitleAssignment_1_1_0_1
     @init {
 		int stackSize = keepStackSize();
@@ -13939,14 +14035,37 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__TableQuestion__NameAssignment_1_1
+rule__TableQuestion__NameAssignment_1_0_1
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getTableQuestionAccess().getNameIDTerminalRuleCall_1_1_0()); }
-	RULE_ID{ after(grammarAccess.getTableQuestionAccess().getNameIDTerminalRuleCall_1_1_0()); }
+{ before(grammarAccess.getTableQuestionAccess().getNameIDTerminalRuleCall_1_0_1_0()); }
+	RULE_ID{ after(grammarAccess.getTableQuestionAccess().getNameIDTerminalRuleCall_1_0_1_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__TableQuestion__RequiredAssignment_1_1
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getTableQuestionAccess().getRequiredRequiredKeyword_1_1_0()); }
+(
+{ before(grammarAccess.getTableQuestionAccess().getRequiredRequiredKeyword_1_1_0()); }
+
+	'required' 
+
+{ after(grammarAccess.getTableQuestionAccess().getRequiredRequiredKeyword_1_1_0()); }
+)
+
+{ after(grammarAccess.getTableQuestionAccess().getRequiredRequiredKeyword_1_1_0()); }
 )
 
 ;

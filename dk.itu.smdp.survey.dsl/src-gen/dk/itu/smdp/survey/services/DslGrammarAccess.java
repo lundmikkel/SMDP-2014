@@ -2237,40 +2237,52 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "TableQuestion");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cQKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Keyword cIdKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final Assignment cNameAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_1_0 = (RuleCall)cNameAssignment_1_1.eContents().get(0);
-		private final Keyword cQuotationMarkKeyword_1_2 = (Keyword)cGroup_1.eContents().get(2);
+		private final UnorderedGroup cUnorderedGroup_1 = (UnorderedGroup)cGroup.eContents().get(1);
+		private final Group cGroup_1_0 = (Group)cUnorderedGroup_1.eContents().get(0);
+		private final Keyword cIdKeyword_1_0_0 = (Keyword)cGroup_1_0.eContents().get(0);
+		private final Assignment cNameAssignment_1_0_1 = (Assignment)cGroup_1_0.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0_1_0 = (RuleCall)cNameAssignment_1_0_1.eContents().get(0);
+		private final Keyword cQuotationMarkKeyword_1_0_2 = (Keyword)cGroup_1_0.eContents().get(2);
+		private final Assignment cRequiredAssignment_1_1 = (Assignment)cUnorderedGroup_1.eContents().get(1);
+		private final Keyword cRequiredRequiredKeyword_1_1_0 = (Keyword)cRequiredAssignment_1_1.eContents().get(0);
 		private final Keyword cGreaterThanSignKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cTitleAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cTitleEStringParserRuleCall_3_0 = (RuleCall)cTitleAssignment_3.eContents().get(0);
 		private final Keyword cQKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//TableQuestion:
-		//	"<q" ("id=\"" name=ID? "\"")? ">" title=EString "</q>";
+		//	"<q" (("id=\"" name=ID? "\"")? & required?="required"?) ">" title=EString "</q>";
 		public ParserRule getRule() { return rule; }
 
-		//"<q" ("id=\"" name=ID? "\"")? ">" title=EString "</q>"
+		//"<q" (("id=\"" name=ID? "\"")? & required?="required"?) ">" title=EString "</q>"
 		public Group getGroup() { return cGroup; }
 
 		//"<q"
 		public Keyword getQKeyword_0() { return cQKeyword_0; }
 
+		//("id=\"" name=ID? "\"")? & required?="required"?
+		public UnorderedGroup getUnorderedGroup_1() { return cUnorderedGroup_1; }
+
 		//("id=\"" name=ID? "\"")?
-		public Group getGroup_1() { return cGroup_1; }
+		public Group getGroup_1_0() { return cGroup_1_0; }
 
 		//"id=\""
-		public Keyword getIdKeyword_1_0() { return cIdKeyword_1_0; }
+		public Keyword getIdKeyword_1_0_0() { return cIdKeyword_1_0_0; }
 
 		//name=ID?
-		public Assignment getNameAssignment_1_1() { return cNameAssignment_1_1; }
+		public Assignment getNameAssignment_1_0_1() { return cNameAssignment_1_0_1; }
 
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_1_0() { return cNameIDTerminalRuleCall_1_1_0; }
+		public RuleCall getNameIDTerminalRuleCall_1_0_1_0() { return cNameIDTerminalRuleCall_1_0_1_0; }
 
 		//"\""
-		public Keyword getQuotationMarkKeyword_1_2() { return cQuotationMarkKeyword_1_2; }
+		public Keyword getQuotationMarkKeyword_1_0_2() { return cQuotationMarkKeyword_1_0_2; }
+
+		//required?="required"?
+		public Assignment getRequiredAssignment_1_1() { return cRequiredAssignment_1_1; }
+
+		//"required"
+		public Keyword getRequiredRequiredKeyword_1_1_0() { return cRequiredRequiredKeyword_1_1_0; }
 
 		//">"
 		public Keyword getGreaterThanSignKeyword_2() { return cGreaterThanSignKeyword_2; }
@@ -2618,7 +2630,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//TableQuestion:
-	//	"<q" ("id=\"" name=ID? "\"")? ">" title=EString "</q>";
+	//	"<q" (("id=\"" name=ID? "\"")? & required?="required"?) ">" title=EString "</q>";
 	public TableQuestionElements getTableQuestionAccess() {
 		return (pTableQuestion != null) ? pTableQuestion : (pTableQuestion = new TableQuestionElements());
 	}

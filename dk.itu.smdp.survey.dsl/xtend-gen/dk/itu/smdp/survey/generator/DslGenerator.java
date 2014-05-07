@@ -168,6 +168,12 @@ public class DslGenerator implements IGenerator {
         _builder.append(_replace, "");
         _builder.append("\"");
         _builder.newLineIfNotEmpty();
+        _builder.append("data-rule-required=\"#");
+        String _dependsOn_2 = item.getDependsOn();
+        String _replace_1 = _dependsOn_2.replace(".", "___");
+        _builder.append(_replace_1, "");
+        _builder.append(":checked\"");
+        _builder.newLineIfNotEmpty();
       }
     }
     return _builder;
@@ -206,10 +212,15 @@ public class DslGenerator implements IGenerator {
     _builder.newLineIfNotEmpty();
     _builder.append("</label>");
     _builder.newLine();
-    String _get = this.idMap.get(question);
-    CharSequence _genHiddenInput = this.genHiddenInput(question, _get);
-    _builder.append(_genHiddenInput, "");
-    _builder.newLineIfNotEmpty();
+    {
+      boolean _not_1 = (!(question instanceof Table));
+      if (_not_1) {
+        String _get = this.idMap.get(question);
+        CharSequence _genHiddenInput = this.genHiddenInput(question, _get);
+        _builder.append(_genHiddenInput, "");
+        _builder.newLineIfNotEmpty();
+      }
+    }
     return _builder;
   }
   
@@ -750,6 +761,9 @@ public class DslGenerator implements IGenerator {
           _builder.append("min=\"");
           Integer _min_1 = question.getMin();
           _builder.append(_min_1, "            ");
+          _builder.append("\" data-rule-min=\"");
+          Integer _min_2 = question.getMin();
+          _builder.append(_min_2, "            ");
           _builder.append("\"");
           _builder.newLineIfNotEmpty();
         }
@@ -762,6 +776,9 @@ public class DslGenerator implements IGenerator {
           _builder.append("max=\"");
           Integer _max_1 = question.getMax();
           _builder.append(_max_1, "            ");
+          _builder.append("\" data-rule-max=\"");
+          Integer _max_2 = question.getMax();
+          _builder.append(_max_2, "            ");
           _builder.append("\"");
           _builder.newLineIfNotEmpty();
         }
@@ -831,19 +848,38 @@ public class DslGenerator implements IGenerator {
             _builder.appendImmediate("</label></div><div class=\"radio\"><label>", "		");
           }
           _builder.append("\t\t");
-          _builder.append("<input type=\"radio\" name=\"");
-          _builder.append(id, "		");
-          _builder.append("[answer][]\"  ");
-          CharSequence _genRefIdAttr = this.genRefIdAttr(refId, a);
-          _builder.append(_genRefIdAttr, "		");
-          _builder.append(" value=\"");
-          String _title = a.getTitle();
-          _builder.append(_title, "		");
-          _builder.append("\" ");
-          CharSequence _genRequiredAttr = this.genRequiredAttr(question, required);
-          _builder.append(_genRequiredAttr, "		");
-          _builder.append("/>");
+          _builder.append("<input");
+          _builder.newLine();
+          _builder.append("\t\t");
+          _builder.append("\t");
+          _builder.append("type=\"radio\"");
+          _builder.newLine();
+          _builder.append("\t\t");
+          _builder.append("\t");
+          _builder.append("name=\"");
+          _builder.append(id, "			");
+          _builder.append("[answer][]\"");
           _builder.newLineIfNotEmpty();
+          _builder.append("\t\t");
+          _builder.append("\t");
+          CharSequence _genRefIdAttr = this.genRefIdAttr(refId, a);
+          _builder.append(_genRefIdAttr, "			");
+          _builder.newLineIfNotEmpty();
+          _builder.append("\t\t");
+          _builder.append("\t");
+          _builder.append("value=\"");
+          String _title = a.getTitle();
+          _builder.append(_title, "			");
+          _builder.append("\"");
+          _builder.newLineIfNotEmpty();
+          _builder.append("\t\t");
+          _builder.append("\t");
+          CharSequence _genRequiredAttr = this.genRequiredAttr(question, required);
+          _builder.append(_genRequiredAttr, "			");
+          _builder.newLineIfNotEmpty();
+          _builder.append("\t\t");
+          _builder.append("/>");
+          _builder.newLine();
           _builder.append("\t\t");
           String _title_1 = a.getTitle();
           _builder.append(_title_1, "		");
@@ -932,35 +968,21 @@ public class DslGenerator implements IGenerator {
       final String refId = _xifexpression;
       final ArrayList<Answer> answers = this.getAnswers(question);
       StringConcatenation _builder = new StringConcatenation();
-      _builder.append("<div class=\"form-group\"");
+      _builder.append("<div class=\"form-group\">");
       _builder.newLine();
       _builder.append("\t");
       CharSequence _genDependsOn = this.genDependsOn(question);
       _builder.append(_genDependsOn, "	");
       _builder.newLineIfNotEmpty();
-      _builder.append("\t");
-      {
-        boolean _greaterThan = ((min).intValue() > 0);
-        if (_greaterThan) {
-          _builder.append(" data-min-selections=\"");
-          _builder.append(min, "	");
-          _builder.append("\" ");
-        }
-      }
-      _builder.newLineIfNotEmpty();
-      _builder.append("\t");
-      {
-        boolean _notEquals = (!Objects.equal(max, null));
-        if (_notEquals) {
-          _builder.append(" data-max-selections=\"");
-          _builder.append(max, "	");
-          _builder.append("\" ");
-        }
-      }
-      _builder.append(">");
-      _builder.newLineIfNotEmpty();
       _builder.append("\t    \t");
-      CharSequence _genHeader = this.genHeader(question, required);
+      boolean _or = false;
+      if (required) {
+        _or = true;
+      } else {
+        boolean _greaterThan = ((min).intValue() > 0);
+        _or = (required || _greaterThan);
+      }
+      CharSequence _genHeader = this.genHeader(question, _or);
       _builder.append(_genHeader, "	    	");
       _builder.newLineIfNotEmpty();
       {
@@ -968,22 +990,67 @@ public class DslGenerator implements IGenerator {
         for(final Answer a : answers) {
           if (!_hasElements) {
             _hasElements = true;
-            _builder.append("<div class=\"checkbox\"><label>", "    ");
+            _builder.append("<div class=\"checkbox\"><label>", "");
           } else {
-            _builder.appendImmediate("</label></div><div class=\"checkbox\"><label>", "    ");
+            _builder.appendImmediate("</label></div><div class=\"checkbox\"><label>", "");
           }
-          _builder.append("    ");
-          _builder.append("<input type=\"checkbox\" name=\"");
-          _builder.append(id, "    ");
-          _builder.append("[answer][]\" ");
+          _builder.append("<input");
+          _builder.newLine();
+          _builder.append("\t");
+          _builder.append("type=\"checkbox\"");
+          _builder.newLine();
+          _builder.append("\t");
+          _builder.append("name=\"");
+          _builder.append(id, "	");
+          _builder.append("[answer][]\"");
+          _builder.newLineIfNotEmpty();
+          _builder.append("\t\t    \t");
           CharSequence _genRefIdAttr = this.genRefIdAttr(refId, a);
-          _builder.append(_genRefIdAttr, "    ");
-          _builder.append(" value=\"");
+          _builder.append(_genRefIdAttr, "		    	");
+          _builder.newLineIfNotEmpty();
+          _builder.append("\t");
+          _builder.append("value=\"");
           String _title = a.getTitle();
-          _builder.append(_title, "    ");
-          _builder.append("\"> ");
+          _builder.append(_title, "	");
+          _builder.append("\"");
+          _builder.newLineIfNotEmpty();
+          _builder.append("\t\t    \t ");
+          boolean _or_1 = false;
+          if (required) {
+            _or_1 = true;
+          } else {
+            boolean _greaterThan_1 = ((min).intValue() > 0);
+            _or_1 = (required || _greaterThan_1);
+          }
+          CharSequence _genRequiredAttr = this.genRequiredAttr(question, _or_1);
+          _builder.append(_genRequiredAttr, "		    	 ");
+          _builder.newLineIfNotEmpty();
+          _builder.append("\t");
+          {
+            boolean _greaterThan_2 = ((min).intValue() > 0);
+            if (_greaterThan_2) {
+              _builder.append(" data-rule-minlength=\"");
+              _builder.append(min, "	");
+              _builder.append("\" ");
+            }
+          }
+          _builder.newLineIfNotEmpty();
+          _builder.append("\t");
+          {
+            boolean _notEquals = (!Objects.equal(max, null));
+            if (_notEquals) {
+              _builder.append(" data-rule-maxlength=\"");
+              _builder.append(max, "	");
+              _builder.append("\" ");
+            }
+          }
+          _builder.newLineIfNotEmpty();
+          _builder.append("\t");
+          _builder.append(">");
+          _builder.newLine();
+          _builder.append("\t    \t");
           String _title_1 = a.getTitle();
-          _builder.append(_title_1, "    ");
+          _builder.append(_title_1, "	    	");
           _builder.newLineIfNotEmpty();
         }
         if (_hasElements) {
@@ -991,17 +1058,17 @@ public class DslGenerator implements IGenerator {
         }
       }
       {
-        boolean _or = false;
+        boolean _or_2 = false;
         boolean _isOther = question.isOther();
         if (_isOther) {
-          _or = true;
+          _or_2 = true;
         } else {
           String _otherLabel = question.getOtherLabel();
           boolean _isNullOrEmpty_1 = StringExtensions.isNullOrEmpty(_otherLabel);
           boolean _not = (!_isNullOrEmpty_1);
-          _or = (_isOther || _not);
+          _or_2 = (_isOther || _not);
         }
-        if (_or) {
+        if (_or_2) {
           _builder.append("\t");
           _builder.append("<div class=\"checkbox\">");
           _builder.newLine();
@@ -1009,8 +1076,15 @@ public class DslGenerator implements IGenerator {
           _builder.append("<input type=\"checkbox\" name=\"");
           _builder.append(id, "	");
           _builder.append("[answer][]\" value=\"\" ");
-          CharSequence _genRequiredAttr = this.genRequiredAttr(question, required);
-          _builder.append(_genRequiredAttr, "	");
+          boolean _or_3 = false;
+          if (required) {
+            _or_3 = true;
+          } else {
+            boolean _greaterThan_3 = ((min).intValue() > 0);
+            _or_3 = (required || _greaterThan_3);
+          }
+          CharSequence _genRequiredAttr_1 = this.genRequiredAttr(question, _or_3);
+          _builder.append(_genRequiredAttr_1, "	");
           _builder.append("/>");
           _builder.newLineIfNotEmpty();
           {
@@ -1037,6 +1111,15 @@ public class DslGenerator implements IGenerator {
           _builder.append("\t");
           _builder.append("</div>");
           _builder.newLine();
+        }
+      }
+      {
+        boolean _isShowLimits = question.isShowLimits();
+        if (_isShowLimits) {
+          _builder.append("\t");
+          CharSequence _genLimitsDesc = this.genLimitsDesc(question);
+          _builder.append(_genLimitsDesc, "	");
+          _builder.newLineIfNotEmpty();
         }
       }
       _builder.append("</div>");
@@ -1104,13 +1187,38 @@ public class DslGenerator implements IGenerator {
           _builder.append("\">");
           String _title_1 = q.getTitle();
           _builder.append(_title_1, "			    ");
+          _builder.append(" ");
+          boolean _or = false;
+          if (required) {
+            _or = true;
+          } else {
+            boolean _isRequired = q.isRequired();
+            _or = (required || _isRequired);
+          }
+          CharSequence _genRequiredLabel = this.genRequiredLabel(question, _or);
+          _builder.append(_genRequiredLabel, "			    ");
           _builder.append("</label></td>");
+          _builder.newLineIfNotEmpty();
+          _builder.append("\t\t\t");
+          _builder.append("    ");
+          String _title_2 = q.getTitle();
+          CharSequence _genHiddenInputWithString = this.genHiddenInputWithString(_title_2, qid);
+          _builder.append(_genHiddenInputWithString, "			    ");
           _builder.newLineIfNotEmpty();
           {
             for(final Answer a_1 : answers) {
               _builder.append("\t\t\t");
               _builder.append("    ");
-              _builder.append("<td><input type=\"");
+              _builder.append("<td>");
+              _builder.newLine();
+              _builder.append("\t\t\t");
+              _builder.append("    ");
+              _builder.append("<input");
+              _builder.newLine();
+              _builder.append("\t\t\t");
+              _builder.append("    ");
+              _builder.append("\t");
+              _builder.append("type=\"");
               {
                 boolean _isMultiple = question.isMultiple();
                 if (_isMultiple) {
@@ -1119,12 +1227,26 @@ public class DslGenerator implements IGenerator {
                   _builder.append("radio");
                 }
               }
-              _builder.append("\" name=\"");
-              _builder.append(qid, "			    ");
+              _builder.append("\"");
+              _builder.newLineIfNotEmpty();
+              _builder.append("\t\t\t");
+              _builder.append("    ");
+              _builder.append("\t");
+              _builder.append("name=\"");
+              _builder.append(qid, "			    	");
               _builder.append("[answer]\"");
               _builder.newLineIfNotEmpty();
               _builder.append("\t\t\t");
               _builder.append("    ");
+              _builder.append("\t");
+              _builder.append("value=\"");
+              String _title_3 = a_1.getTitle();
+              _builder.append(_title_3, "			    	");
+              _builder.append("\"");
+              _builder.newLineIfNotEmpty();
+              _builder.append("\t\t\t");
+              _builder.append("    ");
+              _builder.append("\t");
               String _xifexpression = null;
               String _name = q.getName();
               boolean _isNullOrEmpty = StringExtensions.isNullOrEmpty(_name);
@@ -1137,11 +1259,24 @@ public class DslGenerator implements IGenerator {
                 _xifexpression = _plus_1;
               }
               CharSequence _genRefIdAttr = this.genRefIdAttr(_xifexpression, a_1);
-              _builder.append(_genRefIdAttr, "			    ");
+              _builder.append(_genRefIdAttr, "			    	");
               _builder.newLineIfNotEmpty();
               _builder.append("\t\t\t");
               _builder.append("    ");
-              _builder.append("\"/></td>");
+              _builder.append("\t");
+              boolean _or_1 = false;
+              if (required) {
+                _or_1 = true;
+              } else {
+                boolean _isRequired_1 = q.isRequired();
+                _or_1 = (required || _isRequired_1);
+              }
+              CharSequence _genRequiredAttr = this.genRequiredAttr(question, _or_1);
+              _builder.append(_genRequiredAttr, "			    	");
+              _builder.newLineIfNotEmpty();
+              _builder.append("\t\t\t");
+              _builder.append("    ");
+              _builder.append("/></td>");
               _builder.newLine();
             }
           }
@@ -1232,7 +1367,7 @@ public class DslGenerator implements IGenerator {
         _or = (requiredParent || _isRequired);
       }
       if (_or) {
-        _builder.append(" * ");
+        _builder.append("* ");
       }
     }
     return _builder;
@@ -1397,6 +1532,73 @@ public class DslGenerator implements IGenerator {
     return _xblockexpression;
   }
   
+  public CharSequence genLimitsDesc(final Multiple question) {
+    CharSequence _xblockexpression = null;
+    {
+      final Integer min = question.getMin();
+      final Integer max = question.getMax();
+      String s = "";
+      boolean _and = false;
+      boolean _notEquals = (!Objects.equal(min, null));
+      if (!_notEquals) {
+        _and = false;
+      } else {
+        boolean _notEquals_1 = (!Objects.equal(max, null));
+        _and = (_notEquals && _notEquals_1);
+      }
+      if (_and) {
+        int _intValue = min.intValue();
+        int _intValue_1 = max.intValue();
+        boolean _equals = (_intValue == _intValue_1);
+        if (_equals) {
+          StringConcatenation _builder = new StringConcatenation();
+          _builder.append("Select ");
+          _builder.append(min, "");
+          _builder.append(" options");
+          s = _builder.toString();
+        } else {
+          StringConcatenation _builder_1 = new StringConcatenation();
+          _builder_1.append("Select between ");
+          _builder_1.append(min, "");
+          _builder_1.append(" and ");
+          _builder_1.append(max, "");
+          _builder_1.append(" options");
+          s = _builder_1.toString();
+        }
+      } else {
+        boolean _notEquals_2 = (!Objects.equal(min, null));
+        if (_notEquals_2) {
+          StringConcatenation _builder_2 = new StringConcatenation();
+          _builder_2.append("Select at least ");
+          _builder_2.append(min, "");
+          _builder_2.append(" options");
+          s = _builder_2.toString();
+        } else {
+          boolean _notEquals_3 = (!Objects.equal(max, null));
+          if (_notEquals_3) {
+            StringConcatenation _builder_3 = new StringConcatenation();
+            _builder_3.append("Select at most ");
+            _builder_3.append(min, "");
+            _builder_3.append(" options");
+            s = _builder_3.toString();
+          }
+        }
+      }
+      CharSequence _xifexpression = null;
+      boolean _isNullOrEmpty = StringExtensions.isNullOrEmpty(s);
+      boolean _not = (!_isNullOrEmpty);
+      if (_not) {
+        StringConcatenation _builder_4 = new StringConcatenation();
+        _builder_4.append("<p class=\"help-block\">");
+        _builder_4.append(s, "");
+        _builder_4.append("</p>");
+        _xifexpression = _builder_4;
+      }
+      _xblockexpression = (_xifexpression);
+    }
+    return _xblockexpression;
+  }
+  
   public ArrayList<Answer> getAnswers(final HasOptions hasOptions) {
     ArrayList<Answer> _arrayList = new ArrayList<Answer>();
     ArrayList<Answer> answers = _arrayList;
@@ -1439,12 +1641,17 @@ public class DslGenerator implements IGenerator {
   }
   
   public CharSequence genHiddenInput(final Question question, final String id) {
+    String _title = question.getTitle();
+    CharSequence _genHiddenInputWithString = this.genHiddenInputWithString(_title, id);
+    return _genHiddenInputWithString;
+  }
+  
+  public CharSequence genHiddenInputWithString(final String text, final String id) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("<input type=\"hidden\" name=\"");
     _builder.append(id, "");
     _builder.append("[question]\" value=\"");
-    String _title = question.getTitle();
-    _builder.append(_title, "");
+    _builder.append(text, "");
     _builder.append("\" />");
     _builder.newLineIfNotEmpty();
     return _builder;

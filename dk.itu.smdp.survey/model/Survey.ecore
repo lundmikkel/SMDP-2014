@@ -63,7 +63,9 @@
         upperBound="-1" eType="#//TableQuestion" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="multiple" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TableQuestion" eSuperTypes="#//Meta"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TableQuestion" eSuperTypes="#//Meta">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="required" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AnswerTemplateRef" eSuperTypes="#//Option">
     <eStructuralFeatures xsi:type="ecore:EReference" name="template" lowerBound="1"
         eType="#//AnswerTemplate"/>

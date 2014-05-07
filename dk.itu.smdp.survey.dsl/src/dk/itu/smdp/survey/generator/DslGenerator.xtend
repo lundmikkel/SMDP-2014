@@ -79,9 +79,11 @@ class DslGenerator implements IGenerator {
 		'''
 	}
 	
+	//data-depends-on="«item.dependsOn.replace('.', "___")»"
 	def genDependsOn(Item item) '''
 		«IF !item.dependsOn.nullOrEmpty»
 		data-depends-on="«item.dependsOn.replace('.', "___")»"
+		data-rule-required="#«item.dependsOn.replace('.', "___")»:checked"
 		«ENDIF»
 	'''
 	
@@ -94,7 +96,9 @@ class DslGenerator implements IGenerator {
 	        «question.title» «question.genRequiredLabel(required)»
 	        «IF !question.description.nullOrEmpty»<p class="help-block">«question.description»</p>«ENDIF»
 		</label>
+		«IF !(question instanceof Table)»
 		«question.genHiddenInput(idMap.get(question))»
+		«ENDIF»
 	'''
 	
 	def genRefIdAttr(String id, int i) '''
@@ -240,10 +244,10 @@ class DslGenerator implements IGenerator {
 		        <div class="col-xs-2">
 		            <input type="number" class="form-control"  «genRefIdAttr(refId)» name="«id»[answer]" «question.genRequiredAttr(required)» step="1"
 		            «IF question.min != null»
-		            min="«question.min»"
+		            min="«question.min»" data-rule-min="«question.min»"
 		            «ENDIF»
 		            «IF question.max != null»
-		            max="«question.max»"
+		            max="«question.max»" data-rule-max="«question.max»"
 		            «ENDIF»
 		            >
 		        </div>
@@ -266,7 +270,13 @@ class DslGenerator implements IGenerator {
 				«FOR a : question.getAnswers BEFORE '<div class="radio"><label>'
 											 SEPARATOR '</label></div><div class="radio"><label>'
 											 AFTER '</label></div>' »
-				<input type="radio" name="«id»[answer][]"  «genRefIdAttr(refId, a)» value="«a.title»" «question.genRequiredAttr(required)»/>
+				<input
+					type="radio"
+					name="«id»[answer][]"
+					«genRefIdAttr(refId, a)»
+					value="«a.title»"
+					«question.genRequiredAttr(required)»
+				/>
 				«a.title»
 				«ENDFOR»
 				«IF question.other || !question.otherLabel.nullOrEmpty»
@@ -293,27 +303,37 @@ class DslGenerator implements IGenerator {
 		val answers = question.getAnswers
 		
 		'''
-		<div class="form-group"
+		<div class="form-group">
 			«question.genDependsOn»
-			«IF min > 0» data-min-selections="«min»" «ENDIF»
-			«IF max != null» data-max-selections="«max»" «ENDIF»>
-	    	«question.genHeader(required)»
+	    	«question.genHeader(required || min > 0)»
 		    «FOR a : answers BEFORE '<div class="checkbox"><label>'
 		    							 SEPARATOR '</label></div><div class="checkbox"><label>'
 		    							 AFTER '</label></div>' »
-		    <input type="checkbox" name="«id»[answer][]" «genRefIdAttr(refId, a)» value="«a.title»"> «a.title»
+			<input
+				type="checkbox"
+				name="«id»[answer][]"
+		    	«genRefIdAttr(refId, a)»
+				value="«a.title»"
+		    	 «question.genRequiredAttr(required || min > 0)»
+				«IF min > 0» data-rule-minlength="«min»" «ENDIF»
+				«IF max != null» data-rule-maxlength="«max»" «ENDIF»
+				>
+	    	«a.title»
 			«ENDFOR»
 			«IF question.other || !question.otherLabel.nullOrEmpty»
-				<div class="checkbox">
-				<input type="checkbox" name="«id»[answer][]" value="" «question.genRequiredAttr(required)»/>
-				«IF !question.otherLabel.nullOrEmpty»
-				«question.otherLabel»:
-				«ELSE»
-				Other:
-				«ENDIF»
-				<input class="other-option" type="text" name="«id»[answer][]"/>
-				</div>
-				«ENDIF»
+			<div class="checkbox">
+			<input type="checkbox" name="«id»[answer][]" value="" «question.genRequiredAttr(required || min > 0)»/>
+			«IF !question.otherLabel.nullOrEmpty»
+			«question.otherLabel»:
+			«ELSE»
+			Other:
+			«ENDIF»
+			<input class="other-option" type="text" name="«id»[answer][]"/>
+			</div>
+			«ENDIF»
+			«IF question.showLimits»
+			«question.genLimitsDesc»
+			«ENDIF»
 		</div>
 		'''
 	}
@@ -335,11 +355,17 @@ class DslGenerator implements IGenerator {
 				<tbody>
 					«FOR q : question.questions»
 					<tr>
-					    <td><label for="«var qid = getUniqueId(question)»">«q.title»</label></td>
+					    <td><label for="«var qid = getUniqueId(question)»">«q.title» «question.genRequiredLabel(required || q.required)»</label></td>
+					    «genHiddenInputWithString(q.title, qid)»
 					    «FOR a : answers»
-					    <td><input type="«IF question.multiple»checkbox«ELSE»radio«ENDIF»" name="«qid»[answer]"
-					    «genRefIdAttr(if (q.name.nullOrEmpty) pid else pid + "." + q.name, a)»
-					    "/></td>
+					    <td>
+					    <input
+					    	type="«IF question.multiple»checkbox«ELSE»radio«ENDIF»"
+					    	name="«qid»[answer]"
+					    	value="«a.title»"
+					    	«genRefIdAttr(if (q.name.nullOrEmpty) pid else pid + "." + q.name, a)»
+					    	«question.genRequiredAttr(required || q.required)»
+					    /></td>
 					    «ENDFOR»
 					</tr>
 				    «ENDFOR»
@@ -366,7 +392,7 @@ class DslGenerator implements IGenerator {
 	}
 	
 	def genRequiredLabel(Question question, boolean requiredParent)
-		'''«IF requiredParent || question.required» * «ENDIF»'''
+		'''«IF requiredParent || question.required»* «ENDIF»'''
 				
 	def genRequiredAttr(Question question, boolean requiredParent)
 		'''«IF requiredParent || question.required» required «ENDIF»'''
@@ -422,6 +448,30 @@ class DslGenerator implements IGenerator {
 		}
 	}
 	
+	def genLimitsDesc(Multiple question) {
+		val min = question.min
+		val max = question.max
+		var s = ''
+		if (min != null && max != null) {
+			if (min.intValue == max.intValue){
+				s = '''Select «min» options'''
+			}
+			else {
+				s = '''Select between «min» and «max» options'''
+			}
+		}
+		else if (min != null) {
+			s = '''Select at least «min» options'''
+		}
+		else if (max != null) {
+			s = '''Select at most «min» options'''
+		}
+		
+		if (!s.nullOrEmpty) {
+			'''<p class="help-block">«s»</p>'''
+		}
+	}
+	
 	def getAnswers(HasOptions hasOptions) {
 		var answers = new ArrayList<Answer>()
 		
@@ -443,8 +493,12 @@ class DslGenerator implements IGenerator {
 		return answers
 	}
 	
-	def genHiddenInput(Question question, String id) '''
-		<input type="hidden" name="«id»[question]" value="«question.title»" />
+	def genHiddenInput(Question question, String id) {
+		genHiddenInputWithString(question.title, id)
+	}
+	
+	def genHiddenInputWithString(String text, String id) '''
+		<input type="hidden" name="«id»[question]" value="«text»" />
 	'''
 	
 	def genLatex(Survey survey, IFileSystemAccess fsa) {

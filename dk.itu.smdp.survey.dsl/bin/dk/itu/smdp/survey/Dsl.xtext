@@ -182,7 +182,10 @@ AnswerTemplateRefAttr returns AnswerTemplateRef:
 	'template="' template=[AnswerTemplate|ID] '"';
 
 TableQuestion returns TableQuestion:
-	'<q' ('id="' name=ID? '"')? '>'
+	'<q'
+		( ('id="' name=ID? '"')?
+		& (required?='required')?)
+	'>'
 		title=EString
 	'</q>';
 

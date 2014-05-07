@@ -426,7 +426,7 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	
 	/**
 	 * Constraint:
-	 *     (name=ID? title=EString)
+	 *     (name=ID? required?='required'? title=EString)
 	 */
 	protected void sequence_TableQuestion(EObject context, TableQuestion semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

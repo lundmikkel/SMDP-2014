@@ -37,7 +37,9 @@ class DslValidator extends AbstractDslValidator {
 	
 	
 	private static val noThreeUnderscores = 'The string may not contain three underscores'
-	private static val minIsLessThanMaxString = 'Max value must be larger than min value' 
+	private static val minIsLessThanMaxString = 'Max value must be larger than min value'
+	private static val minIsLessThanOrEqualMaxString = 'Max value must be larger than or equal to min value'
+	private static val positiveNumberString = 'An answer is required, so the min value must be positive'
 	private static val uniqueIdsAtSameLevelString = 'Ids at the same level must be unique'
 	private static val invalidRefIdString = 'There is no answer with this id'
 	private static val ambiguousIdString = 'The id %s is ambiguous'
@@ -148,15 +150,23 @@ class DslValidator extends AbstractDslValidator {
 	def checkMinIsLessThanMax(Multiple multiple) {
 		val min = multiple.min
 		val max = multiple.max
-		if (min != null && max != null && min.intValue >= max.intValue) {
+		if (multiple.required && min != null && min.intValue <1) {
 			error(
-				minIsLessThanMaxString,
+				positiveNumberString,
+				multiple,
+				SurveyPackage.Literals.MULTIPLE__MIN,
+				INVALID_VALUE
+			)
+		}
+		if (min != null && max != null && min.intValue > max.intValue) {
+			error(
+				minIsLessThanOrEqualMaxString,
 				multiple,
 				SurveyPackage.Literals.MULTIPLE__MIN,
 				INVALID_VALUE
 			)
 			error(
-				minIsLessThanMaxString,
+				minIsLessThanOrEqualMaxString,
 				multiple,
 				SurveyPackage.Literals.MULTIPLE__MAX,
 				INVALID_VALUE

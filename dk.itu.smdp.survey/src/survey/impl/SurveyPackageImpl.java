@@ -650,6 +650,15 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getTableQuestion_Required() {
+		return (EAttribute)tableQuestionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getAnswerTemplateRef() {
 		return answerTemplateRefEClass;
 	}
@@ -788,6 +797,7 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 		createEAttribute(tableEClass, TABLE__MULTIPLE);
 
 		tableQuestionEClass = createEClass(TABLE_QUESTION);
+		createEAttribute(tableQuestionEClass, TABLE_QUESTION__REQUIRED);
 
 		answerTemplateRefEClass = createEClass(ANSWER_TEMPLATE_REF);
 		createEReference(answerTemplateRefEClass, ANSWER_TEMPLATE_REF__TEMPLATE);
@@ -913,6 +923,7 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 		initEAttribute(getTable_Multiple(), ecorePackage.getEBoolean(), "multiple", null, 0, 1, Table.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(tableQuestionEClass, TableQuestion.class, "TableQuestion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTableQuestion_Required(), ecorePackage.getEBoolean(), "required", null, 0, 1, TableQuestion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(answerTemplateRefEClass, AnswerTemplateRef.class, "AnswerTemplateRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAnswerTemplateRef_Template(), this.getAnswerTemplate(), null, "template", null, 1, 1, AnswerTemplateRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

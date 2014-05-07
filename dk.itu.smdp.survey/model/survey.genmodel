@@ -63,7 +63,9 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Survey.ecore#//Table/questions"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Table/multiple"/>
     </genClasses>
-    <genClasses ecoreClass="Survey.ecore#//TableQuestion"/>
+    <genClasses ecoreClass="Survey.ecore#//TableQuestion">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//TableQuestion/required"/>
+    </genClasses>
     <genClasses ecoreClass="Survey.ecore#//AnswerTemplateRef">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Survey.ecore#//AnswerTemplateRef/template"/>
     </genClasses>

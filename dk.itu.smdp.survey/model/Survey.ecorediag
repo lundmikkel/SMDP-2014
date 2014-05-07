@@ -351,6 +351,10 @@
   <children xmi:type="notation:Node" xmi:id="_wM7K8LTyEeOUudlMY6Mo_A" type="1001">
     <children xmi:type="notation:Node" xmi:id="_wM7K87TyEeOUudlMY6Mo_A" type="4001"/>
     <children xmi:type="notation:Node" xmi:id="_wM7yALTyEeOUudlMY6Mo_A" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_OBlp4NXqEeOGD69M9Flagg" type="2001">
+        <element xmi:type="ecore:EAttribute" href="Survey.ecore#//TableQuestion/required"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_OBlp4dXqEeOGD69M9Flagg"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_wM7yAbTyEeOUudlMY6Mo_A"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_wM7yArTyEeOUudlMY6Mo_A"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_wM7yA7TyEeOUudlMY6Mo_A"/>
@@ -569,7 +573,7 @@
     <element xmi:type="ecore:EReference" href="Survey.ecore#//Table/questions"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_xSRCY7TyEeOUudlMY6Mo_A" points="[4, 0, 0, 64]$[4, -61, 0, 3]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_GzhX0LUIEeOUudlMY6Mo_A" id="(0.6451612903225806,0.0)"/>
-    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_xSTeoLTyEeOUudlMY6Mo_A" id="(0.5882352941176471,0.8979591836734694)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_xSTeoLTyEeOUudlMY6Mo_A" id="(0.48412698412698413,0.9591836734693877)"/>
   </edges>
   <edges xmi:type="notation:Edge" xmi:id="_ldJZELTzEeOUudlMY6Mo_A" type="3002" source="_3zd9gL_SEeOzQcVK6pBQyQ" target="_7KdqALUHEeOUudlMY6Mo_A">
     <children xmi:type="notation:Node" xmi:id="_ldJZFLTzEeOUudlMY6Mo_A" type="4011">

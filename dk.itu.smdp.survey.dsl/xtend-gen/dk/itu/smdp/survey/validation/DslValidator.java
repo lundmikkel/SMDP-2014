@@ -51,6 +51,10 @@ public class DslValidator extends AbstractDslValidator {
   
   private final static String minIsLessThanMaxString = "Max value must be larger than min value";
   
+  private final static String minIsLessThanOrEqualMaxString = "Max value must be larger than or equal to min value";
+  
+  private final static String positiveNumberString = "An answer is required, so the min value must be positive";
+  
   private final static String uniqueIdsAtSameLevelString = "Ids at the same level must be unique";
   
   private final static String invalidRefIdString = "There is no answer with this id";
@@ -179,71 +183,93 @@ public class DslValidator extends AbstractDslValidator {
     final Integer max = multiple.getMax();
     boolean _and = false;
     boolean _and_1 = false;
-    boolean _notEquals = (!Objects.equal(min, null));
-    if (!_notEquals) {
+    boolean _isRequired = multiple.isRequired();
+    if (!_isRequired) {
       _and_1 = false;
     } else {
-      boolean _notEquals_1 = (!Objects.equal(max, null));
-      _and_1 = (_notEquals && _notEquals_1);
+      boolean _notEquals = (!Objects.equal(min, null));
+      _and_1 = (_isRequired && _notEquals);
     }
     if (!_and_1) {
       _and = false;
     } else {
       int _intValue = min.intValue();
-      int _intValue_1 = max.intValue();
-      boolean _greaterEqualsThan = (_intValue >= _intValue_1);
-      _and = (_and_1 && _greaterEqualsThan);
+      boolean _lessThan = (_intValue < 1);
+      _and = (_and_1 && _lessThan);
     }
     if (_and) {
       this.error(
-        DslValidator.minIsLessThanMaxString, multiple, 
+        DslValidator.positiveNumberString, multiple, 
         Literals.MULTIPLE__MIN, 
-        DslValidator.INVALID_VALUE);
-      this.error(
-        DslValidator.minIsLessThanMaxString, multiple, 
-        Literals.MULTIPLE__MAX, 
         DslValidator.INVALID_VALUE);
     }
     boolean _and_2 = false;
-    boolean _notEquals_2 = (!Objects.equal(min, null));
-    if (!_notEquals_2) {
+    boolean _and_3 = false;
+    boolean _notEquals_1 = (!Objects.equal(min, null));
+    if (!_notEquals_1) {
+      _and_3 = false;
+    } else {
+      boolean _notEquals_2 = (!Objects.equal(max, null));
+      _and_3 = (_notEquals_1 && _notEquals_2);
+    }
+    if (!_and_3) {
       _and_2 = false;
     } else {
-      int _intValue_2 = min.intValue();
-      boolean _lessThan = (_intValue_2 < 0);
-      _and_2 = (_notEquals_2 && _lessThan);
+      int _intValue_1 = min.intValue();
+      int _intValue_2 = max.intValue();
+      boolean _greaterThan = (_intValue_1 > _intValue_2);
+      _and_2 = (_and_3 && _greaterThan);
     }
     if (_and_2) {
+      this.error(
+        DslValidator.minIsLessThanOrEqualMaxString, multiple, 
+        Literals.MULTIPLE__MIN, 
+        DslValidator.INVALID_VALUE);
+      this.error(
+        DslValidator.minIsLessThanOrEqualMaxString, multiple, 
+        Literals.MULTIPLE__MAX, 
+        DslValidator.INVALID_VALUE);
+    }
+    boolean _and_4 = false;
+    boolean _notEquals_3 = (!Objects.equal(min, null));
+    if (!_notEquals_3) {
+      _and_4 = false;
+    } else {
+      int _intValue_3 = min.intValue();
+      boolean _lessThan_1 = (_intValue_3 < 0);
+      _and_4 = (_notEquals_3 && _lessThan_1);
+    }
+    if (_and_4) {
       this.error(
         DslValidator.noNegativeValueString, multiple, 
         Literals.MULTIPLE__MIN, 
         DslValidator.INVALID_VALUE);
     }
-    boolean _and_3 = false;
-    boolean _notEquals_3 = (!Objects.equal(max, null));
-    if (!_notEquals_3) {
-      _and_3 = false;
+    boolean _and_5 = false;
+    boolean _notEquals_4 = (!Objects.equal(max, null));
+    if (!_notEquals_4) {
+      _and_5 = false;
     } else {
-      int _intValue_3 = max.intValue();
-      boolean _equals = (_intValue_3 == 1);
-      _and_3 = (_notEquals_3 && _equals);
+      int _intValue_4 = max.intValue();
+      boolean _equals = (_intValue_4 == 1);
+      _and_5 = (_notEquals_4 && _equals);
     }
-    if (_and_3) {
+    if (_and_5) {
       this.warning(
         DslValidator.betterUseSingleString, multiple, 
         Literals.MULTIPLE__MAX, 
         DslValidator.INVALID_VALUE);
     } else {
-      boolean _and_4 = false;
-      boolean _notEquals_4 = (!Objects.equal(max, null));
-      if (!_notEquals_4) {
-        _and_4 = false;
+      boolean _and_6 = false;
+      boolean _notEquals_5 = (!Objects.equal(max, null));
+      if (!_notEquals_5) {
+        _and_6 = false;
       } else {
-        int _intValue_4 = max.intValue();
-        boolean _lessThan_1 = (_intValue_4 < 1);
-        _and_4 = (_notEquals_4 && _lessThan_1);
+        int _intValue_5 = max.intValue();
+        boolean _lessThan_2 = (_intValue_5 < 1);
+        _and_6 = (_notEquals_5 && _lessThan_2);
       }
-      if (_and_4) {
+      if (_and_6) {
         this.error(
           DslValidator.noNegativeValueString, multiple, 
           Literals.MULTIPLE__MAX, 
