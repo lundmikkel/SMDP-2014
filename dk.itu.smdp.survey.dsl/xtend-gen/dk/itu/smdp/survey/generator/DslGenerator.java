@@ -235,24 +235,32 @@ public class DslGenerator implements IGenerator {
   public CharSequence genRefIdAttr(final String id, final Answer a) {
     StringConcatenation _builder = new StringConcatenation();
     {
-      boolean _and = false;
+      boolean _or = false;
       boolean _isNullOrEmpty = StringExtensions.isNullOrEmpty(id);
       boolean _not = (!_isNullOrEmpty);
-      if (!_not) {
-        _and = false;
+      if (_not) {
+        _or = true;
       } else {
         String _name = a.getName();
         boolean _isNullOrEmpty_1 = StringExtensions.isNullOrEmpty(_name);
         boolean _not_1 = (!_isNullOrEmpty_1);
-        _and = (_not && _not_1);
+        _or = (_not || _not_1);
       }
-      if (_and) {
+      if (_or) {
         _builder.append("id=\"");
-        String _substring = id.substring(1);
-        String _replace = _substring.replace(".", "___");
-        String _plus = (_replace + "___");
+        String _xifexpression = null;
+        boolean _isNullOrEmpty_2 = StringExtensions.isNullOrEmpty(id);
+        boolean _not_2 = (!_isNullOrEmpty_2);
+        if (_not_2) {
+          String _substring = id.substring(1);
+          String _replace = _substring.replace(".", "___");
+          String _plus = (_replace + "___");
+          _xifexpression = _plus;
+        } else {
+          _xifexpression = "";
+        }
         String _name_1 = a.getName();
-        String _plus_1 = (_plus + _name_1);
+        String _plus_1 = (_xifexpression + _name_1);
         _builder.append(_plus_1, "");
         _builder.append("\"");
         _builder.newLineIfNotEmpty();
@@ -293,7 +301,12 @@ public class DslGenerator implements IGenerator {
         String _plus_1 = (_plus + _name_1);
         _xifexpression = _plus_1;
       }
-      final String refId = _xifexpression;
+      String refId = _xifexpression;
+      boolean _isNullOrEmpty_1 = StringExtensions.isNullOrEmpty(refId);
+      if (_isNullOrEmpty_1) {
+        String _plus_2 = ("." + id);
+        refId = _plus_2;
+      }
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("<div class=\"form-group\" ");
       CharSequence _genDependsOn = this.genDependsOn(question);
@@ -324,7 +337,7 @@ public class DslGenerator implements IGenerator {
           _builder.append(_genRefIdAttr, "			");
           _builder.append(" name=\"");
           _builder.append(id, "			");
-          _builder.append("\" ");
+          _builder.append("[answer]\" ");
           CharSequence _genRequiredAttr = this.genRequiredAttr(question, required);
           _builder.append(_genRequiredAttr, "			");
           _builder.append(">");
@@ -336,7 +349,7 @@ public class DslGenerator implements IGenerator {
           _builder.append(_genRefIdAttr_1, "			");
           _builder.append(" name=\"");
           _builder.append(id, "			");
-          _builder.append("\" rows=\"3\" ");
+          _builder.append("[answer]\" rows=\"3\" ");
           CharSequence _genRequiredAttr_1 = this.genRequiredAttr(question, required);
           _builder.append(_genRequiredAttr_1, "			");
           _builder.append("></textarea>");
@@ -471,7 +484,7 @@ public class DslGenerator implements IGenerator {
           _builder.append("            ");
           _builder.append("<input type=\"radio\" name=\"");
           _builder.append(id, "            ");
-          _builder.append("\" ");
+          _builder.append("[answer]\" ");
           CharSequence _genRefIdAttr = this.genRefIdAttr(refId, (i_1).intValue());
           _builder.append(_genRefIdAttr, "            ");
           _builder.append(" value=\"");
@@ -643,7 +656,7 @@ public class DslGenerator implements IGenerator {
       _builder.append(_genRefIdAttr, "				");
       _builder.append(" name=\"");
       _builder.append(id, "				");
-      _builder.append("\" type=\"text\" class=\"form-control\" ");
+      _builder.append("[answer]\" type=\"text\" class=\"form-control\" ");
       CharSequence _genRequiredAttr = this.genRequiredAttr(question, required);
       _builder.append(_genRequiredAttr, "				");
       _builder.append(">");
@@ -724,7 +737,7 @@ public class DslGenerator implements IGenerator {
       _builder.append(_genRefIdAttr, "            ");
       _builder.append(" name=\"");
       _builder.append(id, "            ");
-      _builder.append("\" ");
+      _builder.append("[answer]\" ");
       CharSequence _genRequiredAttr = this.genRequiredAttr(question, required);
       _builder.append(_genRequiredAttr, "            ");
       _builder.append(" step=\"1\"");
@@ -782,7 +795,6 @@ public class DslGenerator implements IGenerator {
     String _xblockexpression = null;
     {
       String id = this.getUniqueId(question);
-      int i = 0;
       String _xifexpression = null;
       String _name = question.getName();
       boolean _isNullOrEmpty = StringExtensions.isNullOrEmpty(_name);
@@ -821,7 +833,7 @@ public class DslGenerator implements IGenerator {
           _builder.append("\t\t");
           _builder.append("<input type=\"radio\" name=\"");
           _builder.append(id, "		");
-          _builder.append("\"  ");
+          _builder.append("[answer][]\"  ");
           CharSequence _genRefIdAttr = this.genRefIdAttr(refId, a);
           _builder.append(_genRefIdAttr, "		");
           _builder.append(" value=\"");
@@ -859,13 +871,7 @@ public class DslGenerator implements IGenerator {
           _builder.append("\t\t");
           _builder.append("<input type=\"radio\" name=\"");
           _builder.append(id, "		");
-          _builder.append("\" value=\"");
-          _builder.append(id, "		");
-          _builder.append("_");
-          int _plus_2 = (i + 1);
-          int _i = i = _plus_2;
-          _builder.append(_i, "		");
-          _builder.append("_other\" ");
+          _builder.append("[answer][]\" value=\"\" ");
           CharSequence _genRequiredAttr_1 = this.genRequiredAttr(question, required);
           _builder.append(_genRequiredAttr_1, "		");
           _builder.append("/>");
@@ -889,9 +895,7 @@ public class DslGenerator implements IGenerator {
           _builder.append("\t\t");
           _builder.append("<input class=\"other-option\" type=\"text\" name=\"");
           _builder.append(id, "		");
-          _builder.append("_");
-          _builder.append(i, "		");
-          _builder.append("_other\"/>");
+          _builder.append("[answer][]\"/>");
           _builder.newLineIfNotEmpty();
           _builder.append("\t\t");
           _builder.append("</div>");
@@ -918,7 +922,7 @@ public class DslGenerator implements IGenerator {
       String _name = question.getName();
       boolean _isNullOrEmpty = StringExtensions.isNullOrEmpty(_name);
       if (_isNullOrEmpty) {
-        _xifexpression = "";
+        _xifexpression = pid;
       } else {
         String _plus = (pid + ".");
         String _name_1 = question.getName();
@@ -971,7 +975,7 @@ public class DslGenerator implements IGenerator {
           _builder.append("    ");
           _builder.append("<input type=\"checkbox\" name=\"");
           _builder.append(id, "    ");
-          _builder.append("[]\" ");
+          _builder.append("[answer][]\" ");
           CharSequence _genRefIdAttr = this.genRefIdAttr(refId, a);
           _builder.append(_genRefIdAttr, "    ");
           _builder.append(" value=\"");
@@ -1004,12 +1008,7 @@ public class DslGenerator implements IGenerator {
           _builder.append("\t");
           _builder.append("<input type=\"checkbox\" name=\"");
           _builder.append(id, "	");
-          _builder.append("[]\" value=\"");
-          _builder.append(id, "	");
-          _builder.append("_");
-          int _size = answers.size();
-          _builder.append(_size, "	");
-          _builder.append("_other\" ");
+          _builder.append("[answer][]\" value=\"\" ");
           CharSequence _genRequiredAttr = this.genRequiredAttr(question, required);
           _builder.append(_genRequiredAttr, "	");
           _builder.append("/>");
@@ -1033,10 +1032,7 @@ public class DslGenerator implements IGenerator {
           _builder.append("\t");
           _builder.append("<input class=\"other-option\" type=\"text\" name=\"");
           _builder.append(id, "	");
-          _builder.append("_");
-          int _size_1 = answers.size();
-          _builder.append(_size_1, "	");
-          _builder.append("_other\"/>");
+          _builder.append("[answer][]\"/>");
           _builder.newLineIfNotEmpty();
           _builder.append("\t");
           _builder.append("</div>");
@@ -1125,7 +1121,7 @@ public class DslGenerator implements IGenerator {
               }
               _builder.append("\" name=\"");
               _builder.append(qid, "			    ");
-              _builder.append("\"");
+              _builder.append("[answer]\"");
               _builder.newLineIfNotEmpty();
               _builder.append("\t\t\t");
               _builder.append("    ");
@@ -1446,7 +1442,7 @@ public class DslGenerator implements IGenerator {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("<input type=\"hidden\" name=\"");
     _builder.append(id, "");
-    _builder.append("_question\" value=\"");
+    _builder.append("[question]\" value=\"");
     String _title = question.getTitle();
     _builder.append(_title, "");
     _builder.append("\" />");

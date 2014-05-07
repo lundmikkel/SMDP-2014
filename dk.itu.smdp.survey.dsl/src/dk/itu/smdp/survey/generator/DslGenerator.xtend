@@ -104,8 +104,8 @@ class DslGenerator implements IGenerator {
 	'''
 	
 	def genRefIdAttr(String id, Answer a) '''
-		«IF !id.nullOrEmpty && !a.name.nullOrEmpty»
-		id="«id.substring(1).replace('.', "___") + "___" + a.name»"
+		«IF !id.nullOrEmpty || !a.name.nullOrEmpty»
+		id="«(if (!id.nullOrEmpty) (id.substring(1)).replace('.', "___") + "___" else "") + a.name»"
 		«ENDIF»
 	'''
 	
@@ -117,7 +117,9 @@ class DslGenerator implements IGenerator {
 	
 	def dispatch String genHtml(Text question, boolean required, String pid) {
 		var id = getUniqueId(question)
-		val refId = if (question.name.nullOrEmpty) "" else pid + "." + question.name
+		var refId = if (question.name.nullOrEmpty) "" else pid + "." + question.name
+		if (refId.nullOrEmpty)
+			refId = '.' + id
 		
 		'''
 		<div class="form-group" «question.genDependsOn»>
@@ -125,9 +127,9 @@ class DslGenerator implements IGenerator {
 		    <div class="row">
 		        <div class="col-xs-4">
 					«IF !question.multiline»
-					<input class="form-control" «genRefIdAttr(refId)» name="«id»" «question.genRequiredAttr(required)»>
+					<input class="form-control" «genRefIdAttr(refId)» name="«id»[answer]" «question.genRequiredAttr(required)»>
 					«ELSE»
-					<textarea class="form-control" «genRefIdAttr(refId)» name="«id»" rows="3" «question.genRequiredAttr(required)»></textarea>
+					<textarea class="form-control" «genRefIdAttr(refId)» name="«id»[answer]" rows="3" «question.genRequiredAttr(required)»></textarea>
 					«ENDIF»
 		        </div>
 		    </div>
@@ -162,7 +164,7 @@ class DslGenerator implements IGenerator {
 	            	<td><label for="«refId.substring(1)»____«question.min»">«question.minLabel»</label></td>
 	                «ENDIF»
 	                «FOR i : question.min..question.max BEFORE '<td>' SEPARATOR '</td><td>' AFTER '</td>' »
-	                <input type="radio" name="«id»" «genRefIdAttr(refId, i)» value="«i»" «question.genRequiredAttr(required)»/>
+	                <input type="radio" name="«id»[answer]" «genRefIdAttr(refId, i)» value="«i»" «question.genRequiredAttr(required)»/>
 	                «ENDFOR»
 	            	«IF !question.minLabel.nullOrEmpty »
 	            	<td><label for="«refId.substring(1)»____«question.max»">«question.maxLabel»</label></td>
@@ -213,7 +215,7 @@ class DslGenerator implements IGenerator {
 				    	«IF !question.start.nullOrEmpty»data-date-start-date="«question.start»"«ENDIF»
 				    	«IF !question.end.nullOrEmpty»data-date-end-date="«question.end»"«ENDIF»
 				    	>
-						<input «genRefIdAttr(refId)» name="«id»" type="text" class="form-control" «question.genRequiredAttr(required)»>
+						<input «genRefIdAttr(refId)» name="«id»[answer]" type="text" class="form-control" «question.genRequiredAttr(required)»>
 						<span class="input-group-addon">
 							<i class="glyphicon glyphicon-calendar"></i>
 						</span>
@@ -236,7 +238,7 @@ class DslGenerator implements IGenerator {
 	    	«question.genHeader(required, '''for="«id»"''')»
 		    <div class="row">
 		        <div class="col-xs-2">
-		            <input type="number" class="form-control"  «genRefIdAttr(refId)» name="«id»" «question.genRequiredAttr(required)» step="1"
+		            <input type="number" class="form-control"  «genRefIdAttr(refId)» name="«id»[answer]" «question.genRequiredAttr(required)» step="1"
 		            «IF question.min != null»
 		            min="«question.min»"
 		            «ENDIF»
@@ -255,7 +257,6 @@ class DslGenerator implements IGenerator {
 	
 	def dispatch String genHtml(Single question, boolean required, String pid) {
 		var id = getUniqueId(question);
-		var i = 0
 		val refId = if (question.name.nullOrEmpty) "" else pid + "." + question.name
 		
 		'''
@@ -265,18 +266,18 @@ class DslGenerator implements IGenerator {
 				«FOR a : question.getAnswers BEFORE '<div class="radio"><label>'
 											 SEPARATOR '</label></div><div class="radio"><label>'
 											 AFTER '</label></div>' »
-				<input type="radio" name="«id»"  «genRefIdAttr(refId, a)» value="«a.title»" «question.genRequiredAttr(required)»/>
+				<input type="radio" name="«id»[answer][]"  «genRefIdAttr(refId, a)» value="«a.title»" «question.genRequiredAttr(required)»/>
 				«a.title»
 				«ENDFOR»
 				«IF question.other || !question.otherLabel.nullOrEmpty»
 				<div class="radio">
-				<input type="radio" name="«id»" value="«id»_«(i = i + 1)»_other" «question.genRequiredAttr(required)»/>
+				<input type="radio" name="«id»[answer][]" value="" «question.genRequiredAttr(required)»/>
 				«IF !question.otherLabel.nullOrEmpty»
 				«question.otherLabel»:
 				«ELSE»
 				Other:
 				«ENDIF»
-				<input class="other-option" type="text" name="«id»_«i»_other"/>
+				<input class="other-option" type="text" name="«id»[answer][]"/>
 				</div>
 				«ENDIF»
 			</div>
@@ -288,9 +289,8 @@ class DslGenerator implements IGenerator {
 		val id = getUniqueId(question);
 		val min = question.getMin(required)
 		val max = question.getMax(required)
-		val refId = if (question.name.nullOrEmpty) "" else pid + "." + question.name
+		val refId = if (question.name.nullOrEmpty) pid else pid + "." + question.name
 		val answers = question.getAnswers
-		
 		
 		'''
 		<div class="form-group"
@@ -301,17 +301,17 @@ class DslGenerator implements IGenerator {
 		    «FOR a : answers BEFORE '<div class="checkbox"><label>'
 		    							 SEPARATOR '</label></div><div class="checkbox"><label>'
 		    							 AFTER '</label></div>' »
-		    <input type="checkbox" name="«id»[]" «genRefIdAttr(refId, a)» value="«a.title»"> «a.title»
+		    <input type="checkbox" name="«id»[answer][]" «genRefIdAttr(refId, a)» value="«a.title»"> «a.title»
 			«ENDFOR»
 			«IF question.other || !question.otherLabel.nullOrEmpty»
 				<div class="checkbox">
-				<input type="checkbox" name="«id»[]" value="«id»_«answers.size»_other" «question.genRequiredAttr(required)»/>
+				<input type="checkbox" name="«id»[answer][]" value="" «question.genRequiredAttr(required)»/>
 				«IF !question.otherLabel.nullOrEmpty»
 				«question.otherLabel»:
 				«ELSE»
 				Other:
 				«ENDIF»
-				<input class="other-option" type="text" name="«id»_«answers.size»_other"/>
+				<input class="other-option" type="text" name="«id»[answer][]"/>
 				</div>
 				«ENDIF»
 		</div>
@@ -337,7 +337,7 @@ class DslGenerator implements IGenerator {
 					<tr>
 					    <td><label for="«var qid = getUniqueId(question)»">«q.title»</label></td>
 					    «FOR a : answers»
-					    <td><input type="«IF question.multiple»checkbox«ELSE»radio«ENDIF»" name="«qid»"
+					    <td><input type="«IF question.multiple»checkbox«ELSE»radio«ENDIF»" name="«qid»[answer]"
 					    «genRefIdAttr(if (q.name.nullOrEmpty) pid else pid + "." + q.name, a)»
 					    "/></td>
 					    «ENDFOR»
@@ -444,7 +444,7 @@ class DslGenerator implements IGenerator {
 	}
 	
 	def genHiddenInput(Question question, String id) '''
-		<input type="hidden" name="«id»_question" value="«question.title»" />
+		<input type="hidden" name="«id»[question]" value="«question.title»" />
 	'''
 	
 	def genLatex(Survey survey, IFileSystemAccess fsa) {

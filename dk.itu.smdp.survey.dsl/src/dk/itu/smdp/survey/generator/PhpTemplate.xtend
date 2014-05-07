@@ -34,42 +34,38 @@ class PhpTemplate {
 		                		<p class="lead">Thanks for submitting your answer</p>
 							</div>
 			    		<?php
-						
+			    		
 						echo '<dl>';
-						foreach ($_POST as $key => $value) {
-							// Question
-							if (strpos($key,'_question') !== false) {
-								echo '<dt>', $value, '</dt>';
+						foreach ($_POST as $array) {
+							// No answer
+							if (!isset($array['answer']) || empty($array['answer'])) {
+								continue;
 							}
-							// Other
-							else if (strpos($key, '_other') !== false) {
-								// skip
-							}
-							// Answer
-							else {
-								if (is_array($value)) {
-									foreach ($value as $answer) {
-										if (strpos($answer, '_other') !== false) {
-											echo '<dd>', $_POST[$answer], '</dd>';
-										}
-										else {
-											echo '<dd>', $answer, '</dd>';
-										}
+							
+							/*echo '<pre>';
+							print_r($array);
+							echo '</pre>';*/
+							
+							// Print question text
+							echo '<dt>', $array['question'], '</dt>';
+							
+							// Print answer(s)
+							$answers = $array['answer'];
+							if (is_array($answers)) {
+								foreach ($answers as $answer) {
+									// Skip empty answers
+									if (empty($answer)) {
+										continue;
 									}
+									
+									echo '<dd>', $answer, '</dd>';
 								}
-								else if (strpos($value, '_other') !== false) {
-									echo '<dd>', $_POST[$value], '</dd>';
-								}
-								else {
-									echo '<dd>', $value, '</dd>';
-								}
+							}
+							else {
+								echo '<dd>', $answers, '</dd>';
 							}
 						}
 						echo '</dl>';
-						
-						/*echo '<pre>';
-						print_r($_POST);
-						echo '</pre>';*/
 						
 						else:
 						?>
@@ -161,9 +157,15 @@ class PhpTemplate {
 			todayBtn: true
 		});
 		
-		$('.other-option').focus(function() {
-			$(this).siblings(':radio, :checkbox').attr('checked', 'checked');
-		});
+		$('.other-option')
+			.focus(function() {
+				$(this).siblings(':radio, :checkbox').prop('checked', true);
+			})
+			.blur(function() {
+				if(!$(this).val()) {
+					$(this).siblings(':radio, :checkbox').prop('checked', false);
+				}
+			});
 		
 		$("[data-depends-on]").each(function() {
 		    var _this = $(this);
