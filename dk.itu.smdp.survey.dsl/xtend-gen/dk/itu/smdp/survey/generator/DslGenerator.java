@@ -100,7 +100,7 @@ public class DslGenerator implements IGenerator {
       if (_isNullOrEmpty) {
         _xifexpression = pid;
       } else {
-        String _plus = (pid + ".");
+        String _plus = (pid + "-");
         String _name_1 = group.getName();
         String _plus_1 = (_plus + _name_1);
         _xifexpression = _plus_1;
@@ -164,8 +164,7 @@ public class DslGenerator implements IGenerator {
       if (_not) {
         _builder.append("data-rule-required=\"#");
         String _dependsOn_1 = item.getDependsOn();
-        String _replace = _dependsOn_1.replace(".", "___");
-        _builder.append(_replace, "");
+        _builder.append(_dependsOn_1, "");
         _builder.append(":checked\"");
         _builder.newLineIfNotEmpty();
       }
@@ -226,9 +225,8 @@ public class DslGenerator implements IGenerator {
       if (_not) {
         _builder.append("id=\"");
         String _substring = id.substring(1);
-        String _replace = _substring.replace(".", "___");
-        _builder.append(_replace, "");
-        _builder.append("____");
+        _builder.append(_substring, "");
+        _builder.append("-");
         _builder.append(i, "");
         _builder.append("\"");
         _builder.newLineIfNotEmpty();
@@ -258,8 +256,7 @@ public class DslGenerator implements IGenerator {
         boolean _not_2 = (!_isNullOrEmpty_2);
         if (_not_2) {
           String _substring = id.substring(1);
-          String _replace = _substring.replace(".", "___");
-          String _plus = (_replace + "___");
+          String _plus = (_substring + "-");
           _xifexpression = _plus;
         } else {
           _xifexpression = "";
@@ -282,8 +279,7 @@ public class DslGenerator implements IGenerator {
       if (_not) {
         _builder.append("id=\"");
         String _substring = id.substring(1);
-        String _replace = _substring.replace(".", "___");
-        _builder.append(_replace, "");
+        _builder.append(_substring, "");
         _builder.append("\"");
         _builder.newLineIfNotEmpty();
       }
@@ -301,7 +297,7 @@ public class DslGenerator implements IGenerator {
       if (_isNullOrEmpty) {
         _xifexpression = "";
       } else {
-        String _plus = (pid + ".");
+        String _plus = (pid + "-");
         String _name_1 = question.getName();
         String _plus_1 = (_plus + _name_1);
         _xifexpression = _plus_1;
@@ -309,7 +305,7 @@ public class DslGenerator implements IGenerator {
       String refId = _xifexpression;
       boolean _isNullOrEmpty_1 = StringExtensions.isNullOrEmpty(refId);
       if (_isNullOrEmpty_1) {
-        String _plus_2 = ("." + id);
+        String _plus_2 = ("-" + id);
         refId = _plus_2;
       }
       StringConcatenation _builder = new StringConcatenation();
@@ -383,7 +379,7 @@ public class DslGenerator implements IGenerator {
       if (_isNullOrEmpty) {
         question.setName(id);
       }
-      String _plus = (pid + ".");
+      String _plus = (pid + "-");
       String _name_1 = question.getName();
       final String refId = (_plus + _name_1);
       StringConcatenation _builder = new StringConcatenation();
@@ -428,7 +424,7 @@ public class DslGenerator implements IGenerator {
           _builder.append("<label for=\"");
           String _substring = refId.substring(1);
           _builder.append(_substring, "            ");
-          _builder.append("____");
+          _builder.append("-_");
           _builder.append(i, "            ");
           _builder.append("\">");
           _builder.append(i, "            ");
@@ -464,7 +460,7 @@ public class DslGenerator implements IGenerator {
           _builder.append("<td><label for=\"");
           String _substring_1 = refId.substring(1);
           _builder.append(_substring_1, "        	");
-          _builder.append("____");
+          _builder.append("-_");
           int _min_1 = question.getMin();
           _builder.append(_min_1, "        	");
           _builder.append("\">");
@@ -513,7 +509,7 @@ public class DslGenerator implements IGenerator {
           _builder.append("<td><label for=\"");
           String _substring_2 = refId.substring(1);
           _builder.append(_substring_2, "        	");
-          _builder.append("____");
+          _builder.append("-_");
           int _max_2 = question.getMax();
           _builder.append(_max_2, "        	");
           _builder.append("\">");
@@ -585,7 +581,7 @@ public class DslGenerator implements IGenerator {
       if (_isNullOrEmpty) {
         _xifexpression = "";
       } else {
-        String _plus = (pid + ".");
+        String _plus = (pid + "-");
         String _name_1 = question.getName();
         String _plus_1 = (_plus + _name_1);
         _xifexpression = _plus_1;
@@ -710,7 +706,7 @@ public class DslGenerator implements IGenerator {
       if (_isNullOrEmpty) {
         _xifexpression = "";
       } else {
-        String _plus = (pid + ".");
+        String _plus = (pid + "-");
         String _name_1 = question.getName();
         String _plus_1 = (_plus + _name_1);
         _xifexpression = _plus_1;
@@ -812,7 +808,7 @@ public class DslGenerator implements IGenerator {
       if (_isNullOrEmpty) {
         _xifexpression = "";
       } else {
-        String _plus = (pid + ".");
+        String _plus = (pid + "-");
         String _name_1 = question.getName();
         String _plus_1 = (_plus + _name_1);
         _xifexpression = _plus_1;
@@ -954,7 +950,7 @@ public class DslGenerator implements IGenerator {
       if (_isNullOrEmpty) {
         _xifexpression = pid;
       } else {
-        String _plus = (pid + ".");
+        String _plus = (pid + "-");
         String _name_1 = question.getName();
         String _plus_1 = (_plus + _name_1);
         _xifexpression = _plus_1;
@@ -1247,7 +1243,7 @@ public class DslGenerator implements IGenerator {
               if (_isNullOrEmpty) {
                 _xifexpression = pid;
               } else {
-                String _plus = (pid + ".");
+                String _plus = (pid + "-");
                 String _name_1 = q.getName();
                 String _plus_1 = (_plus + _name_1);
                 _xifexpression = _plus_1;
@@ -1614,13 +1610,13 @@ public class DslGenerator implements IGenerator {
                 _and = false;
               } else {
                 String _name_1 = answer.getName();
-                boolean _contains = _name_1.contains("___");
+                boolean _contains = _name_1.contains("-");
                 boolean _not_1 = (!_contains);
                 _and = (_not && _not_1);
               }
               if (_and) {
                 String _name_2 = template.getName();
-                String _plus = (_name_2 + "___");
+                String _plus = (_name_2 + "-");
                 String _name_3 = answer.getName();
                 String _plus_1 = (_plus + _name_3);
                 answer.setName(_plus_1);

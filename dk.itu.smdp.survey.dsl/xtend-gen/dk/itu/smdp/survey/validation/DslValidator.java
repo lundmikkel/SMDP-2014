@@ -68,26 +68,6 @@ public class DslValidator extends AbstractDslValidator {
   private final static String setDateGranularityString = "You must specify the date\'s granularity";
   
   /**
-   * Check that no name contains three underscores
-   */
-  @Check
-  public void checkForTooManyUnderscores(final Meta meta) {
-    String _name = meta.getName();
-    boolean _isNullOrEmpty = StringExtensions.isNullOrEmpty(_name);
-    boolean _not = (!_isNullOrEmpty);
-    if (_not) {
-      String _name_1 = meta.getName();
-      boolean _contains = _name_1.contains("___");
-      if (_contains) {
-        this.error(
-          DslValidator.minIsLessThanMaxString, meta, 
-          Literals.META__NAME, 
-          DslValidator.INVALID_VALUE);
-      }
-    }
-  }
-  
-  /**
    * Check that the min is less than max value in a scale
    */
   @Check
@@ -536,7 +516,7 @@ public class DslValidator extends AbstractDslValidator {
         if (_isNullOrEmpty) {
           _xifexpression = pid;
         } else {
-          String _plus = (pid + ".");
+          String _plus = (pid + "-");
           String _name_1 = group.getName();
           String _plus_1 = (_plus + _name_1);
           _xifexpression = _plus_1;
@@ -552,7 +532,7 @@ public class DslValidator extends AbstractDslValidator {
     boolean _isNullOrEmpty = StringExtensions.isNullOrEmpty(_name);
     boolean _not = (!_isNullOrEmpty);
     if (_not) {
-      String _plus = (pid + ".");
+      String _plus = (pid + "-");
       String _name_1 = question.getName();
       String _plus_1 = (_plus + _name_1);
       final String id = _plus_1.substring(1);
@@ -573,7 +553,7 @@ public class DslValidator extends AbstractDslValidator {
           int _max = scale.getMax();
           IntegerRange _upTo = new IntegerRange(_min, _max);
           for (final int i : _upTo) {
-            String _plus_2 = (id + "._");
+            String _plus_2 = (id + "-");
             String _plus_3 = (_plus_2 + Integer.valueOf(i));
             map.put(_plus_3, question);
           }
@@ -597,7 +577,7 @@ public class DslValidator extends AbstractDslValidator {
     Iterable<TableQuestion> _filter = IterableExtensions.<TableQuestion>filter(_questions, _function);
     for (final TableQuestion q : _filter) {
       {
-        String _plus = (pid + ".");
+        String _plus = (pid + "-");
         String _name = q.getName();
         String id = (_plus + _name);
         EList<Option> _options = question.getOptions();
@@ -609,7 +589,7 @@ public class DslValidator extends AbstractDslValidator {
             if (_isNullOrEmpty) {
               _xifexpression = id;
             } else {
-              String _plus_1 = (id + ".");
+              String _plus_1 = (id + "-");
               String _name_2 = question.getName();
               String _plus_2 = (_plus_1 + _name_2);
               _xifexpression = _plus_2;
@@ -632,7 +612,7 @@ public class DslValidator extends AbstractDslValidator {
         if (_isNullOrEmpty) {
           _xifexpression = pid;
         } else {
-          String _plus = (pid + ".");
+          String _plus = (pid + "-");
           String _name_1 = question.getName();
           String _plus_1 = (_plus + _name_1);
           _xifexpression = _plus_1;
@@ -651,7 +631,7 @@ public class DslValidator extends AbstractDslValidator {
       EList<Answer> _answers = _template.getAnswers();
       for (final Answer answer : _answers) {
         {
-          String _plus = (pid + ".");
+          String _plus = (pid + "-");
           AnswerTemplate _template_1 = templateRef.getTemplate();
           String _name = _template_1.getName();
           final String id = (_plus + _name);
@@ -666,7 +646,7 @@ public class DslValidator extends AbstractDslValidator {
     boolean _isNullOrEmpty = StringExtensions.isNullOrEmpty(_name);
     boolean _not = (!_isNullOrEmpty);
     if (_not) {
-      String _plus = (pid + ".");
+      String _plus = (pid + "-");
       String _name_1 = answer.getName();
       String _plus_1 = (_plus + _name_1);
       final String id = _plus_1.substring(1);

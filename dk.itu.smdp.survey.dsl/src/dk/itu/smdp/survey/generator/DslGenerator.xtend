@@ -63,7 +63,7 @@ class DslGenerator implements IGenerator {
 	}
 	
 	def dispatch String genHtml(Group group, boolean required, String pid) {
-		val refId = if (group.name.nullOrEmpty) pid else pid + "." + group.name
+		val refId = if (group.name.nullOrEmpty) pid else pid + "-" + group.name
 		'''
 		<div class="group" «group.genDependsOn»>
 		    «IF !group.title.nullOrEmpty»
@@ -79,10 +79,10 @@ class DslGenerator implements IGenerator {
 		'''
 	}
 	
-	//data-depends-on="«item.dependsOn.replace('.', "___")»"
+	//data-depends-on="«item.dependsOn.replace("-", "-")»"
 	def genDependsOn(Item item) '''
 		«IF !item.dependsOn.nullOrEmpty»
-		data-rule-required="#«item.dependsOn.replace('.', "___")»:checked"
+		data-rule-required="#«item.dependsOn»:checked"
 		«ENDIF»
 	'''
 	
@@ -102,27 +102,27 @@ class DslGenerator implements IGenerator {
 	
 	def genRefIdAttr(String id, int i) '''
 		«IF !id.nullOrEmpty»
-		id="«id.substring(1).replace('.', "___")»____«i»"
+		id="«id.substring(1)»-«i»"
 		«ENDIF»
 	'''
 	
 	def genRefIdAttr(String id, Answer a) '''
 		«IF !id.nullOrEmpty || !a.name.nullOrEmpty»
-		id="«(if (!id.nullOrEmpty) (id.substring(1)).replace('.', "___") + "___" else "") + a.name»"
+		id="«(if (!id.nullOrEmpty) (id.substring(1)) + "-" else "") + a.name»"
 		«ENDIF»
 	'''
 	
 	def genRefIdAttr(String id) '''
 		«IF !id.nullOrEmpty»
-		id="«id.substring(1).replace('.', "___")»"
+		id="«id.substring(1)»"
 		«ENDIF»
 	'''
 	
 	def dispatch String genHtml(Text question, boolean required, String pid) {
 		var id = getUniqueId(question)
-		var refId = if (question.name.nullOrEmpty) "" else pid + "." + question.name
+		var refId = if (question.name.nullOrEmpty) "" else pid + "-" + question.name
 		if (refId.nullOrEmpty)
-			refId = '.' + id
+			refId = "-" + id
 		
 		'''
 		<div class="form-group" «question.genDependsOn»>
@@ -145,7 +145,7 @@ class DslGenerator implements IGenerator {
 		// For label references
 		if (question.name.nullOrEmpty)
 			question.name = id
-		val refId = pid + "." + question.name
+		val refId = pid + "-" + question.name
 		
 		'''
 	    <div class="form-group" «question.genDependsOn»>
@@ -156,7 +156,7 @@ class DslGenerator implements IGenerator {
 	            	<td></td>
 	                «ENDIF»
 	                «FOR i : question.min..question.max BEFORE '<td>' SEPARATOR '</td><td>' AFTER '</td>' »
-	                <label for="«refId.substring(1)»____«i»">«i»</label>
+	                <label for="«refId.substring(1)»-_«i»">«i»</label>
 	                «ENDFOR»
 	            	«IF !question.minLabel.nullOrEmpty »
 	            	<td></td>
@@ -164,13 +164,13 @@ class DslGenerator implements IGenerator {
 	            </tr>
 	            <tr class="bottom">
 	            	«IF !question.minLabel.nullOrEmpty »
-	            	<td><label for="«refId.substring(1)»____«question.min»">«question.minLabel»</label></td>
+	            	<td><label for="«refId.substring(1)»-_«question.min»">«question.minLabel»</label></td>
 	                «ENDIF»
 	                «FOR i : question.min..question.max BEFORE '<td>' SEPARATOR '</td><td>' AFTER '</td>' »
 	                <input type="radio" name="«id»[answer]" «genRefIdAttr(refId, i)» value="«i»" «question.genRequiredAttr(required)»/>
 	                «ENDFOR»
 	            	«IF !question.minLabel.nullOrEmpty »
-	            	<td><label for="«refId.substring(1)»____«question.max»">«question.maxLabel»</label></td>
+	            	<td><label for="«refId.substring(1)»-_«question.max»">«question.maxLabel»</label></td>
 	                «ENDIF»
 	            </tr>
 	        </table>
@@ -205,7 +205,7 @@ class DslGenerator implements IGenerator {
 	
 	def dispatch String genHtml(Date question, boolean required, String pid) {
 		val id = getUniqueId(question)
-		val refId = if (question.name.nullOrEmpty) "" else pid + "." + question.name
+		val refId = if (question.name.nullOrEmpty) "" else pid + "-" + question.name
 		
 		'''
 		<div class="form-group" «question.genDependsOn»>
@@ -234,7 +234,7 @@ class DslGenerator implements IGenerator {
 	
 	def dispatch String genHtml(Number question, boolean required, String pid) {
 		var id = getUniqueId(question);
-		val refId = if (question.name.nullOrEmpty) "" else pid + "." + question.name
+		val refId = if (question.name.nullOrEmpty) "" else pid + "-" + question.name
 		
 		'''
 		<div class="form-group" «question.genDependsOn»>
@@ -260,7 +260,7 @@ class DslGenerator implements IGenerator {
 	
 	def dispatch String genHtml(Single question, boolean required, String pid) {
 		var id = getUniqueId(question);
-		val refId = if (question.name.nullOrEmpty) "" else pid + "." + question.name
+		val refId = if (question.name.nullOrEmpty) "" else pid + "-" + question.name
 		
 		'''
 		<div class="form-group" «question.genDependsOn»>
@@ -298,7 +298,7 @@ class DslGenerator implements IGenerator {
 		val id = getUniqueId(question);
 		val min = question.getMin(required)
 		val max = question.getMax(required)
-		val refId = if (question.name.nullOrEmpty) pid else pid + "." + question.name
+		val refId = if (question.name.nullOrEmpty) pid else pid + "-" + question.name
 		val answers = question.getAnswers
 		
 		'''
@@ -362,7 +362,7 @@ class DslGenerator implements IGenerator {
 					    	type="«IF question.multiple»checkbox«ELSE»radio«ENDIF»"
 					    	name="«qid»[answer]"
 					    	value="«a.title»"
-					    	«genRefIdAttr(if (q.name.nullOrEmpty) pid else pid + "." + q.name, a)»
+					    	«genRefIdAttr(if (q.name.nullOrEmpty) pid else pid + "-" + q.name, a)»
 					    	«question.genRequiredAttr(required || q.required)»
 					    /></td>
 					    «ENDFOR»
@@ -481,8 +481,8 @@ class DslGenerator implements IGenerator {
 			else if (option instanceof AnswerTemplateRef) {
 				val template = (option as AnswerTemplateRef).template
 				for (Answer answer : template.answers) {
-					if (!answer.name.nullOrEmpty && !answer.name.contains('___')) {
-						answer.name = template.name + '___' + answer.name
+					if (!answer.name.nullOrEmpty && !answer.name.contains('-')) {
+						answer.name = template.name + '-' + answer.name
 					}
 					answers.add(answer)
 				}

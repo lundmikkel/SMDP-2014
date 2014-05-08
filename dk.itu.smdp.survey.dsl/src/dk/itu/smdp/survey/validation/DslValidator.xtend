@@ -47,24 +47,6 @@ class DslValidator extends AbstractDslValidator {
 	private static val betterUseSingleString = 'If your maximum is one, you should rather use a single question instead of a multiple for usability reasons'
 	private static val setDateGranularityString = "You must specify the date's granularity"
 
-
-	/**
-	 * Check that no name contains three underscores
-	 */
-	 @Check
-	 def checkForTooManyUnderscores(Meta meta) {
-	 	if (!meta.name.nullOrEmpty) {
-	 		if (meta.name.contains('___')) {
-	 			error(
-					minIsLessThanMaxString,
-					meta,
-					SurveyPackage.Literals.META__NAME,
-					INVALID_VALUE
-				)
-	 		}
-	 	}
-	 }
-
 	/**
 	 * Check that the min is less than max value in a scale 
 	 */
@@ -376,14 +358,14 @@ class DslValidator extends AbstractDslValidator {
 	
 	def dispatch void getFullIds(Group group, String pid, HashMap<String, Meta> map) {
 		for (Question question : group.questions) {	
-			val id = if (group.name.nullOrEmpty) pid else pid + "." + group.name
+			val id = if (group.name.nullOrEmpty) pid else pid + "-" + group.name
 			question.getFullIds(id, map)
 		}
 	}
 	
 	def dispatch void getFullIds(Question question, String pid, HashMap<String, Meta> map) {
 		if (!question.name.nullOrEmpty) {
-			val id = (pid + "." + question.name).substring(1)
+			val id = (pid + "-" + question.name).substring(1)
 			val s = String::format(ambiguousIdString, id) 
 			
 			if (map.containsKey(id)) {
@@ -404,7 +386,7 @@ class DslValidator extends AbstractDslValidator {
 				if (question instanceof Scale) {
 					val scale = question as Scale
 					for (int i : scale.min..scale.max) {
-						map.put(id + "._" + i, question)
+						map.put(id + "-" + i, question)
 					}
 				}	
 				else			
@@ -416,9 +398,9 @@ class DslValidator extends AbstractDslValidator {
 	// TODO: Add table questions!
 	def dispatch void getFullIds(Table question, String pid, HashMap<String, Meta> map) {
 		for (TableQuestion q : question.questions.filter[!name.nullOrEmpty]) {
-			var id = pid + "." + q.name
+			var id = pid + "-" + q.name
 			for (Option option : question.options) {
-				id = if (question.name.nullOrEmpty) id else id + "." + question.name
+				id = if (question.name.nullOrEmpty) id else id + "-" + question.name
 				option.getFullIds(id, map)
 			}
 		}
@@ -426,7 +408,7 @@ class DslValidator extends AbstractDslValidator {
 	
 	def dispatch void getFullIds(HasOptions question, String pid, HashMap<String, Meta> map) {
 		for (Option option : question.options) {
-			val id = if (question.name.nullOrEmpty) pid else pid + "." + question.name
+			val id = if (question.name.nullOrEmpty) pid else pid + "-" + question.name
 			option.getFullIds(id, map)
 		}
 	}
@@ -435,14 +417,14 @@ class DslValidator extends AbstractDslValidator {
 		// Skip if the question has no id
 		if (!pid.nullOrEmpty)
 			for (Answer answer : templateRef.template.answers) {
-				val id = pid + "." + templateRef.template.name
+				val id = pid + "-" + templateRef.template.name
 				answer.getFullIds(id, map)
 			}
 	}
 	
 	def dispatch void getFullIds(Answer answer, String pid, HashMap<String, Meta> map) {
 		if (!answer.name.nullOrEmpty) {
-			val id = (pid + "." + answer.name).substring(1)
+			val id = (pid + "-" + answer.name).substring(1)
 			val s = String::format(ambiguousIdString, id) 
 			
 			if (map.containsKey(id)) {
