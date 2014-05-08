@@ -79,7 +79,7 @@ class DslGenerator implements IGenerator {
 		'''
 	}
 	
-	//data-depends-on="«item.dependsOn.replace("-", "-")»"
+	//data-depends-on="«item.dependsOn»"
 	def genDependsOn(Item item) '''
 		«IF !item.dependsOn.nullOrEmpty»
 		data-rule-required="#«item.dependsOn»:checked"
@@ -305,19 +305,21 @@ class DslGenerator implements IGenerator {
 		<div class="form-group">
 			«question.genDependsOn»
 	    	«question.genHeader(required || min > 0)»
-		    «FOR a : answers BEFORE '<div class="checkbox"><label>'
-		    							 SEPARATOR '</label></div><div class="checkbox"><label>'
-		    							 AFTER '</label></div>' »
-			<input
-				type="checkbox"
-				name="«id»[answer][]"
-		    	«genRefIdAttr(refId, a)»
-				value="«a.title»"
-		    	 «question.genRequiredAttr(required || min > 0)»
-				«IF min > 0» data-rule-minlength="«min»" «ENDIF»
-				«IF max != null» data-rule-maxlength="«max»" «ENDIF»
-				>
-	    	«a.title»
+		    «FOR a : answers»
+		    <div class="checkbox">
+			    <label>
+				    <input
+				    	type="checkbox"
+				    	name="«id»[answer][]"
+				    	«genRefIdAttr(refId, a)»
+				    	value="«a.title»"
+						«question.genRequiredAttr(required || min > 0)»
+						«IF min > 0» data-rule-minlength="«min»" «ENDIF»
+						«IF max != null» data-rule-maxlength="«max»" «ENDIF»
+					/>
+			    	«a.title»
+			    </label>
+		    </div>
 			«ENDFOR»
 			«IF question.other || !question.otherLabel.nullOrEmpty»
 			<div class="checkbox">

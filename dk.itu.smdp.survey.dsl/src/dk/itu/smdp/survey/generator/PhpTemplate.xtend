@@ -109,6 +109,12 @@ class PhpTemplate {
 			margin-bottom: 20px;
 		}
 		
+		input[type=checkbox]~label.error,
+		input[type=radio]~label.error
+		{
+			display: none !important;
+		}
+		
 		.form-group {
 			margin-bottom: 50px;
 		}

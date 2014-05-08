@@ -330,6 +330,18 @@ public class PhpTemplate {
     _builder.append("}");
     _builder.newLine();
     _builder.newLine();
+    _builder.append("input[type=checkbox]~label.error,");
+    _builder.newLine();
+    _builder.append("input[type=radio]~label.error");
+    _builder.newLine();
+    _builder.append("{");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("display: none !important;");
+    _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
+    _builder.newLine();
     _builder.append(".form-group {");
     _builder.newLine();
     _builder.append("\t");
