@@ -39,7 +39,7 @@ class PhpTemplate {
 						print_r($_POST);
 						echo '</pre>';*/
 			    		
-						echo '<dl>';
+			    		echo '<div class="well"><dl>';
 						foreach ($_POST as $array) {
 							// No answer
 							if (!isset($array['answer']) || empty($array['answer'])) {
@@ -69,7 +69,7 @@ class PhpTemplate {
 								echo '<dd>', $answers, '</dd>';
 							}
 						}
-						echo '</dl>';
+						echo '</dl></div>';
 						
 						else:
 						?>

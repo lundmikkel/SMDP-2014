@@ -46,7 +46,7 @@ class DslGenerator implements IGenerator {
 	def genPhp(Survey survey, IFileSystemAccess fsa) {
 		var body = '''
 			«FOR item : survey.items»
-				«item.genHtml(false, "")»
+				«item.genHtml("", false, "")»
 			«ENDFOR»
 		'''
 		
@@ -62,10 +62,10 @@ class DslGenerator implements IGenerator {
 		return id;
 	}
 	
-	def dispatch String genHtml(Group group, boolean required, String pid) {
+	def dispatch String genHtml(Group group, String dependsOn, boolean required, String pid) {
 		val refId = if (group.name.nullOrEmpty) pid else pid + "-" + group.name
 		'''
-		<div class="group" «group.genDependsOn»>
+		<div class="group" «group.genHtmlDependsOn»>
 		    «IF !group.title.nullOrEmpty»
 		    <h2>«group.title»</h2>
 		    «ENDIF»
@@ -73,24 +73,24 @@ class DslGenerator implements IGenerator {
 		    <p class="lead">«group.description»</p>
 		    «ENDIF»
 			«FOR question : group.questions»
-				«question.genHtml(group.required, refId)»
+				«question.genHtml("", group.required, refId)»
 			«ENDFOR»
 		</div>
 		'''
 	}
 	
 	//data-rule-required="#«item.dependsOn»:checked"
-	def genDependsOn(Item item) '''
+	def genHtmlDependsOn(Item item) '''
 		«IF !item.dependsOn.nullOrEmpty»
 		data-depends-on="«item.dependsOn»"
 		«ENDIF»
 	'''
 	
-	def genHeader(Question question, boolean required) {
-		question.genHeader(required, "")
+	def genHtmlHeader(Question question, boolean required) {
+		question.genHtmlHeader(required, "")
 	}
 	
-	def genHeader(Question question, boolean required, String extraAttributes) '''
+	def genHtmlHeader(Question question, boolean required, String extraAttributes) '''
 		<label class="control-label" «extraAttributes»>
 	        «question.title» «question.genRequiredLabel(required)»
 	        «IF !question.description.nullOrEmpty»<p class="help-block">«question.description»</p>«ENDIF»
@@ -118,15 +118,15 @@ class DslGenerator implements IGenerator {
 		«ENDIF»
 	'''
 	
-	def dispatch String genHtml(Text question, boolean required, String pid) {
+	def dispatch String genHtml(Text question, String dependsOn, boolean required, String pid) {
 		var id = getUniqueId(question)
 		var refId = if (question.name.nullOrEmpty) "" else pid + "-" + question.name
 		if (refId.nullOrEmpty)
 			refId = "-" + id
 		
 		'''
-		<div class="form-group" «question.genDependsOn»>
-			«question.genHeader(required, '''for="«id»"''')»
+		<div class="form-group" «question.genHtmlDependsOn»>
+			«question.genHtmlHeader(required, '''for="«id»"''')»
 		    <div class="row">
 		        <div class="col-xs-4">
 					«IF !question.multiline»
@@ -140,7 +140,7 @@ class DslGenerator implements IGenerator {
 		'''
 	}
 	
-	def dispatch String genHtml(Scale question, boolean required, String pid) {
+	def dispatch String genHtml(Scale question, String dependsOn, boolean required, String pid) {
 		val id = getUniqueId(question)
 		// For label references
 		if (question.name.nullOrEmpty)
@@ -148,8 +148,8 @@ class DslGenerator implements IGenerator {
 		val refId = pid + "-" + question.name
 		
 		'''
-	    <div class="form-group" «question.genDependsOn»>
-	    	«question.genHeader(required)»
+	    <div class="form-group" «question.genHtmlDependsOn»>
+	    	«question.genHtmlHeader(required)»
 	        <table class="scale">
 	            <tr class="top">
 	            	«IF !question.minLabel.nullOrEmpty »
@@ -203,13 +203,13 @@ class DslGenerator implements IGenerator {
 			return 2
 	}
 	
-	def dispatch String genHtml(Date question, boolean required, String pid) {
+	def dispatch String genHtml(Date question, String dependsOn, boolean required, String pid) {
 		val id = getUniqueId(question)
 		val refId = if (question.name.nullOrEmpty) "" else pid + "-" + question.name
 		
 		'''
-		<div class="form-group" «question.genDependsOn»>
-			«question.genHeader(required, '''for="«id»"''')»
+		<div class="form-group" «question.genHtmlDependsOn»>
+			«question.genHtmlHeader(required, '''for="«id»"''')»
 		    <div class="row">
 		        <div class="col-xs-4">
 				    <div class="input-group date"
@@ -225,20 +225,20 @@ class DslGenerator implements IGenerator {
 					</div>
 				</div>
 				«IF question.showLimits»
-				«question.genLimitsDesc»
+				«question.genHtmlLimitsDesc»
 				«ENDIF»
 		    </div>
 		</div>
 		'''
 	}
 	
-	def dispatch String genHtml(Number question, boolean required, String pid) {
+	def dispatch String genHtml(Number question, String dependsOn, boolean required, String pid) {
 		var id = getUniqueId(question);
 		val refId = if (question.name.nullOrEmpty) "" else pid + "-" + question.name
 		
 		'''
-		<div class="form-group" «question.genDependsOn»>
-	    	«question.genHeader(required, '''for="«id»"''')»
+		<div class="form-group" «question.genHtmlDependsOn»>
+	    	«question.genHtmlHeader(required, '''for="«id»"''')»
 		    <div class="row">
 		        <div class="col-xs-2">
 		            <input type="number" class="form-control"  «genRefIdAttr(refId)» name="«id»[answer]" «question.genRequiredAttr(required)» step="1"
@@ -252,19 +252,19 @@ class DslGenerator implements IGenerator {
 		        </div>
 		    </div>
             «IF question.showLimits»
-            «question.genLimitsDesc»
+            «question.genHtmlLimitsDesc»
             «ENDIF»
 		</div>
 		'''
 	}
 	
-	def dispatch String genHtml(Single question, boolean required, String pid) {
+	def dispatch String genHtml(Single question, String dependsOn, boolean required, String pid) {
 		var id = getUniqueId(question);
 		val refId = if (question.name.nullOrEmpty) "" else pid + "-" + question.name
 		
 		'''
-		<div class="form-group" «question.genDependsOn»>
-	    	«question.genHeader(required)»
+		<div class="form-group" «question.genHtmlDependsOn»>
+	    	«question.genHtmlHeader(required)»
 			<div>
 				«FOR a : question.getAnswers BEFORE '<div class="radio"><label>'
 											 SEPARATOR '</label></div><div class="radio"><label>'
@@ -294,7 +294,7 @@ class DslGenerator implements IGenerator {
 		'''
 	}
 		
-	def dispatch String genHtml(Multiple question, boolean required, String pid) {
+	def dispatch String genHtml(Multiple question, String dependsOn, boolean required, String pid) {
 		val id = getUniqueId(question);
 		val min = question.getMin(required)
 		val max = question.getMax(required)
@@ -303,8 +303,8 @@ class DslGenerator implements IGenerator {
 		
 		'''
 		<div class="form-group">
-			«question.genDependsOn»
-	    	«question.genHeader(required || min > 0)»
+			«question.genHtmlDependsOn»
+	    	«question.genHtmlHeader(required || min > 0)»
 		    «FOR a : answers»
 		    <div class="checkbox">
 			    <label>
@@ -333,17 +333,17 @@ class DslGenerator implements IGenerator {
 			</div>
 			«ENDIF»
 			«IF question.showLimits»
-			«question.genLimitsDesc»
+			«question.genHtmlLimitsDesc»
 			«ENDIF»
 		</div>
 		'''
 	}
 	
-	def dispatch String genHtml(Table question, boolean required, String pid) {
+	def dispatch String genHtml(Table question, String dependsOn, boolean required, String pid) {
 		val answers = question.getAnswers
 		'''
-		<div class="form-group" «question.genDependsOn»>
-	    	«question.genHeader(required)»
+		<div class="form-group" «question.genHtmlDependsOn»>
+	    	«question.genHtmlHeader(required)»
 		    <table class="table table-striped">
 		    	<thead>
 					<tr>
@@ -376,7 +376,7 @@ class DslGenerator implements IGenerator {
 		'''
 	}
 	
-	def dispatch String genHtml(Question question, boolean required, String pid) '''
+	def dispatch String genHtml(Question question, String dependsOn, boolean required, String pid) '''
 		MISSING: «question.title» («question.class»)
 	'''
 	
@@ -398,79 +398,81 @@ class DslGenerator implements IGenerator {
 	def genRequiredAttr(Question question, boolean requiredParent)
 		'''«IF requiredParent || question.required» required «ENDIF»'''
 	
-	def genLimitsDesc(Date question) {
-		val start = question.start
-		val end = question.end
-		var s = ""
-		
-		if (!start.nullOrEmpty && !end.nullOrEmpty) {
-			s = '''The date must be between «start» and «end»'''
-		}
-		else if (!start.nullOrEmpty) {
-			s = '''The date must be before «end»'''
-		}
-		else if (!end.nullOrEmpty) {
-			s = '''The date must be after «start»'''
-		}
+	def genHtmlLimitsDesc(Date question) {
+		val s = question.genLimitsDesc
 		
 		if (!s.nullOrEmpty) {
 			'''<p class="help-block">«s»</p>'''
 		}
 	}
 	
-	def genLimitsDesc(Number question) {
+	def String genLimitsDesc(Date question) {
+		val start = question.start
+		val end = question.end
+		
+		if (!start.nullOrEmpty && !end.nullOrEmpty)
+			'''The date must be between «start» and «end»'''
+		else if (!end.nullOrEmpty)
+			'''The date must be before «end»'''
+		else if (!start.nullOrEmpty)
+			'''The date must be after «start»'''
+	}
+	
+	def genHtmlLimitsDesc(Number question) {
+		val s = question.genLimitsDesc
+		
+		if (!s.nullOrEmpty)
+			'''<p class="help-block">«s»</p>'''
+	}
+	
+	def String genLimitsDesc(Number question) {
 		val min = question.min
 		val max = question.max
-		var s = ''
+		
 		if (min != null && max != null) {
-			s = '''The value must be between «min» and «max» (both included)'''
+			'''The value must be between «min» and «max» (both included)'''
 		}
 		else if (min != null) {
 			switch(min) {
 				case 0:
-					s = '''The value must be non-negative'''
+					'''The value must be non-negative'''
 				case 1:
-					s = '''The value must be positive'''
+					'''The value must be positive'''
 				default:
-					s = '''The value must be larger than or equal to «min»'''
+					'''The value must be larger than or equal to «min»'''
 			}
 		}
 		else if (max != null) {
 			switch(max) {
 				case -1:
-					s = '''The value must be negative'''
+					'''The value must be negative'''
 				default:
-					s = '''The value must be less than or equal to «max»'''
+					'''The value must be less than or equal to «max»'''
 			}
-		}
-		
-		if (!s.nullOrEmpty) {
-			'''<p class="help-block">«s»</p>'''
 		}
 	}
 	
-	def genLimitsDesc(Multiple question) {
+	def String genLimitsDesc(Multiple question) {
 		val min = question.min
 		val max = question.max
-		var s = ''
+
 		if (min != null && max != null) {
-			if (min.intValue == max.intValue){
-				s = '''Select «min» options'''
-			}
-			else {
-				s = '''Select between «min» and «max» options'''
-			}
+			if (min.intValue == max.intValue)
+				'''Select «min» options'''
+			else
+				'''Select between «min» and «max» options'''
 		}
-		else if (min != null) {
-			s = '''Select at least «min» options'''
-		}
-		else if (max != null) {
-			s = '''Select at most «min» options'''
-		}
+		else if (min != null)
+			'''Select at least «min» options'''
+		else if (max != null)
+			'''Select at most «min» options'''
+	}
+	
+	def genHtmlLimitsDesc(Multiple question) {
+		val s = question.genLimitsDesc
 		
-		if (!s.nullOrEmpty) {
+		if (!s.nullOrEmpty)
 			'''<p class="help-block">«s»</p>'''
-		}
 	}
 	
 	def getAnswers(HasOptions hasOptions) {
@@ -502,7 +504,157 @@ class DslGenerator implements IGenerator {
 		<input type="hidden" name="«id»[question]" value="«text»" />
 	'''
 	
+	
 	def genLatex(Survey survey, IFileSystemAccess fsa) {
-		fsa.generateFile("survey.tex", "Something something")
+		var body = '''
+			«FOR item : survey.items»
+				«item.genLatex("", false, "")»
+			«ENDFOR»
+		'''
+		
+		var template = LatexTemplate.template(survey.title, survey.description, body)
+		val filename = (if (survey.name.nullOrEmpty) "index" else survey.name) + ".tex"
+		fsa.generateFile(filename, template)
+	}
+	
+	def dispatch genLatex(Group group, String dependsOn, boolean required, String pid) {
+		val refId = if (group.name.nullOrEmpty) pid else pid + "-" + group.name
+		
+		'''
+		«IF !group.title.nullOrEmpty»
+		\section*{\underline{«group.title»}}
+	    «ENDIF»
+	    «group.genLatexLabel»
+	    «IF !group.description.nullOrEmpty »
+	    «group.description»
+	    «ENDIF»
+		
+		«FOR question : group.questions»
+			«question.genLatex(group.dependsOn, group.required, refId)»
+		«ENDFOR»
+		'''
+	}
+	
+	def dispatch genLatex(Text text, String dependsOn, boolean required, String pid) {
+		val count = if (text.multiline) 3 else 1
+		
+		'''
+		«text.genLatexHeader(dependsOn, required)»
+		«FOR i : 1..count»
+		\noindent\makebox[\linewidth]{\rule{\textwidth}{.1pt}}
+		«ENDFOR»
+		'''
+	}
+	
+	def dispatch genLatex(Scale scale, String dependsOn, boolean required, String pid) {
+		'''
+		«scale.genLatexHeader(dependsOn, required)»
+		\noindent
+		\begin{tabular}{ «IF !scale.minLabel.nullOrEmpty» r«ENDIF» «FOR i : scale.min..scale.max»c «ENDFOR»«IF !scale.maxLabel.nullOrEmpty»l «ENDIF» }
+		    «FOR i : scale.min..scale.max»& «i» «ENDFOR»& \\ \hline
+		    «scale.minLabel» «FOR i : scale.min..scale.max»& $\square$ «ENDFOR»& «scale.maxLabel»\\ \hline
+		\end{tabular}
+		'''
+	}
+	
+	def dispatch genLatex(Date date, String dependsOn, boolean required, String pid) {
+		'''
+		«date.genLatexHeader(dependsOn, required)»
+		\noindent\makebox[\linewidth]{\rule{\textwidth}{.1pt}}
+		Using this format: «date.genDateFormat». \emph{«date.genLimitsDesc»}
+		'''
+	}
+	
+	def dispatch genLatex(Number number, String dependsOn, boolean required, String pid) {
+		'''
+		«number.genLatexHeader(dependsOn, required)»
+		\noindent\makebox[\linewidth]{\rule{\textwidth}{.1pt}}
+		\emph{«number.genLimitsDesc»}
+		'''
+	}
+	
+	def dispatch genLatex(Single question, String dependsOn, boolean required, String pid) {
+		'''
+		«question.genLatexHeader(dependsOn, required)»
+		\emph{Please choose one only}
+		\begin{description}
+		«FOR a : question.getAnswers»
+		\item[$\square$] «a.title»
+		«ENDFOR»
+		«IF question.other || !question.otherLabel.nullOrEmpty»
+		\item[$\square$] 
+		«IF !question.otherLabel.nullOrEmpty»
+		«question.otherLabel»:
+		«ELSE»
+		Other:
+		«ENDIF»
+		\rule{332pt}{.1pt}
+		«ENDIF»
+		\end{description}
+		'''
+	}
+	
+	def dispatch genLatex(Multiple question, String dependsOn, boolean required, String pid) {
+		'''
+		«question.genLatexHeader(dependsOn, required)»
+		\emph{«question.genLimitsDesc»}
+		\begin{description}
+		«FOR a : question.getAnswers»
+		\item[$\square$] «a.title»
+		«ENDFOR»
+		«IF question.other || !question.otherLabel.nullOrEmpty»
+		\item[$\square$] 
+		«IF !question.otherLabel.nullOrEmpty»
+		«question.otherLabel»:
+		«ELSE»
+		Other:
+		«ENDIF»
+		\rule{332pt}{.1pt}
+		«ENDIF»
+		\end{description}
+		'''
+	}
+	
+	def dispatch genLatex(Table question, String dependsOn, boolean required, String pid) {
+		val answers = question.getAnswers
+		'''
+		«question.genLatexHeader(dependsOn, required)»
+		\noindent
+		\begin{tabular}{ l «FOR a : answers»c «ENDFOR» }
+		«FOR a : answers»& \begin{sideways}«a.title»\end{sideways} «ENDFOR» \\ \hline
+		«FOR q : question.questions»
+		«q.title» «question.genLatexRequired(required || q.required)» «FOR a : answers»& $\square$«ENDFOR» \\ \hline
+		«ENDFOR»
+		\end{tabular}
+		'''
+	}
+	
+	def genLatexHeader(Question question, String parentDependsOn, boolean required) '''
+		\section{«question.title» «question.genLatexRequired(required)»}
+		«question.genLatexLabel»
+		«question.genLatexDependsOn(parentDependsOn)»
+		«IF !question.description.nullOrEmpty»«question.description»\\«ENDIF»
+	'''
+	
+	def genLatexRequired(Question question, boolean requiredParent)
+		'''«IF requiredParent || question.required»* «ENDIF»'''
+	
+	def genLatexLabel(Item item)'''
+		«IF !item.name.nullOrEmpty»
+		\label{«item.name»}
+		«ENDIF»
+	'''
+	
+	def genLatexDependsOn(Item item, String parentDependsOn) {
+		// TODO: Write nice description	
+		
+		'''
+		«IF !parentDependsOn.nullOrEmpty»
+		Please only answer this question if you replied «» to question \#\ref{«parentDependsOn»} (group).\\
+		«ENDIF»
+		«IF !item.dependsOn.nullOrEmpty»
+		Please only answer this question if you replied «» to question \#\ref{«item.dependsOn»}.\\
+		«ENDIF»
+		'''
 	}
 }

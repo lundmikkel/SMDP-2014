@@ -121,8 +121,8 @@ public class PhpTemplate {
     _builder.newLine();
     _builder.append("\t    \t\t");
     _builder.newLine();
-    _builder.append("\t\t\t\t");
-    _builder.append("echo \'<dl>\';");
+    _builder.append("\t    \t\t");
+    _builder.append("echo \'<div class=\"well\"><dl>\';");
     _builder.newLine();
     _builder.append("\t\t\t\t");
     _builder.append("foreach ($_POST as $array) {");
@@ -208,7 +208,7 @@ public class PhpTemplate {
     _builder.append("}");
     _builder.newLine();
     _builder.append("\t\t\t\t");
-    _builder.append("echo \'</dl>\';");
+    _builder.append("echo \'</dl></div>\';");
     _builder.newLine();
     _builder.append("\t\t\t\t");
     _builder.newLine();

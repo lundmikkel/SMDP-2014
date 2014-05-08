@@ -4,6 +4,7 @@
 package dk.itu.smdp.survey.generator;
 
 import com.google.common.base.Objects;
+import dk.itu.smdp.survey.generator.LatexTemplate;
 import dk.itu.smdp.survey.generator.PhpTemplate;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -61,7 +62,7 @@ public class DslGenerator implements IGenerator {
     {
       EList<Item> _items = survey.getItems();
       for(final Item item : _items) {
-        String _genHtml = this.genHtml(item, false, "");
+        String _genHtml = this.genHtml(item, "", false, "");
         _builder.append(_genHtml, "");
         _builder.newLineIfNotEmpty();
       }
@@ -91,7 +92,7 @@ public class DslGenerator implements IGenerator {
     return id;
   }
   
-  protected String _genHtml(final Group group, final boolean required, final String pid) {
+  protected String _genHtml(final Group group, final String dependsOn, final boolean required, final String pid) {
     String _xblockexpression = null;
     {
       String _xifexpression = null;
@@ -108,8 +109,8 @@ public class DslGenerator implements IGenerator {
       final String refId = _xifexpression;
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("<div class=\"group\" ");
-      CharSequence _genDependsOn = this.genDependsOn(group);
-      _builder.append(_genDependsOn, "");
+      CharSequence _genHtmlDependsOn = this.genHtmlDependsOn(group);
+      _builder.append(_genHtmlDependsOn, "");
       _builder.append(">");
       _builder.newLineIfNotEmpty();
       {
@@ -143,7 +144,7 @@ public class DslGenerator implements IGenerator {
         for(final Question question : _questions) {
           _builder.append("\t");
           boolean _isRequired = group.isRequired();
-          String _genHtml = this.genHtml(question, _isRequired, refId);
+          String _genHtml = this.genHtml(question, "", _isRequired, refId);
           _builder.append(_genHtml, "	");
           _builder.newLineIfNotEmpty();
         }
@@ -155,7 +156,7 @@ public class DslGenerator implements IGenerator {
     return _xblockexpression;
   }
   
-  public CharSequence genDependsOn(final Item item) {
+  public CharSequence genHtmlDependsOn(final Item item) {
     StringConcatenation _builder = new StringConcatenation();
     {
       String _dependsOn = item.getDependsOn();
@@ -172,12 +173,12 @@ public class DslGenerator implements IGenerator {
     return _builder;
   }
   
-  public CharSequence genHeader(final Question question, final boolean required) {
-    CharSequence _genHeader = this.genHeader(question, required, "");
-    return _genHeader;
+  public CharSequence genHtmlHeader(final Question question, final boolean required) {
+    CharSequence _genHtmlHeader = this.genHtmlHeader(question, required, "");
+    return _genHtmlHeader;
   }
   
-  public CharSequence genHeader(final Question question, final boolean required, final String extraAttributes) {
+  public CharSequence genHtmlHeader(final Question question, final boolean required, final String extraAttributes) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("<label class=\"control-label\" ");
     _builder.append(extraAttributes, "");
@@ -287,7 +288,7 @@ public class DslGenerator implements IGenerator {
     return _builder;
   }
   
-  protected String _genHtml(final Text question, final boolean required, final String pid) {
+  protected String _genHtml(final Text question, final String dependsOn, final boolean required, final String pid) {
     String _xblockexpression = null;
     {
       String id = this.getUniqueId(question);
@@ -310,8 +311,8 @@ public class DslGenerator implements IGenerator {
       }
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("<div class=\"form-group\" ");
-      CharSequence _genDependsOn = this.genDependsOn(question);
-      _builder.append(_genDependsOn, "");
+      CharSequence _genHtmlDependsOn = this.genHtmlDependsOn(question);
+      _builder.append(_genHtmlDependsOn, "");
       _builder.append(">");
       _builder.newLineIfNotEmpty();
       _builder.append("\t");
@@ -319,8 +320,8 @@ public class DslGenerator implements IGenerator {
       _builder_1.append("for=\"");
       _builder_1.append(id, "");
       _builder_1.append("\"");
-      CharSequence _genHeader = this.genHeader(question, required, _builder_1.toString());
-      _builder.append(_genHeader, "	");
+      CharSequence _genHtmlHeader = this.genHtmlHeader(question, required, _builder_1.toString());
+      _builder.append(_genHtmlHeader, "	");
       _builder.newLineIfNotEmpty();
       _builder.append("    ");
       _builder.append("<div class=\"row\">");
@@ -370,7 +371,7 @@ public class DslGenerator implements IGenerator {
     return _xblockexpression;
   }
   
-  protected String _genHtml(final Scale question, final boolean required, final String pid) {
+  protected String _genHtml(final Scale question, final String dependsOn, final boolean required, final String pid) {
     String _xblockexpression = null;
     {
       final String id = this.getUniqueId(question);
@@ -384,13 +385,13 @@ public class DslGenerator implements IGenerator {
       final String refId = (_plus + _name_1);
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("<div class=\"form-group\" ");
-      CharSequence _genDependsOn = this.genDependsOn(question);
-      _builder.append(_genDependsOn, "");
+      CharSequence _genHtmlDependsOn = this.genHtmlDependsOn(question);
+      _builder.append(_genHtmlDependsOn, "");
       _builder.append(">");
       _builder.newLineIfNotEmpty();
       _builder.append("\t");
-      CharSequence _genHeader = this.genHeader(question, required);
-      _builder.append(_genHeader, "	");
+      CharSequence _genHtmlHeader = this.genHtmlHeader(question, required);
+      _builder.append(_genHtmlHeader, "	");
       _builder.newLineIfNotEmpty();
       _builder.append("    ");
       _builder.append("<table class=\"scale\">");
@@ -571,7 +572,7 @@ public class DslGenerator implements IGenerator {
     return _xblockexpression;
   }
   
-  protected String _genHtml(final Date question, final boolean required, final String pid) {
+  protected String _genHtml(final Date question, final String dependsOn, final boolean required, final String pid) {
     String _xblockexpression = null;
     {
       final String id = this.getUniqueId(question);
@@ -589,8 +590,8 @@ public class DslGenerator implements IGenerator {
       final String refId = _xifexpression;
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("<div class=\"form-group\" ");
-      CharSequence _genDependsOn = this.genDependsOn(question);
-      _builder.append(_genDependsOn, "");
+      CharSequence _genHtmlDependsOn = this.genHtmlDependsOn(question);
+      _builder.append(_genHtmlDependsOn, "");
       _builder.append(">");
       _builder.newLineIfNotEmpty();
       _builder.append("\t");
@@ -598,8 +599,8 @@ public class DslGenerator implements IGenerator {
       _builder_1.append("for=\"");
       _builder_1.append(id, "");
       _builder_1.append("\"");
-      CharSequence _genHeader = this.genHeader(question, required, _builder_1.toString());
-      _builder.append(_genHeader, "	");
+      CharSequence _genHtmlHeader = this.genHtmlHeader(question, required, _builder_1.toString());
+      _builder.append(_genHtmlHeader, "	");
       _builder.newLineIfNotEmpty();
       _builder.append("    ");
       _builder.append("<div class=\"row\">");
@@ -681,8 +682,8 @@ public class DslGenerator implements IGenerator {
         boolean _isShowLimits = question.isShowLimits();
         if (_isShowLimits) {
           _builder.append("\t\t");
-          CharSequence _genLimitsDesc = this.genLimitsDesc(question);
-          _builder.append(_genLimitsDesc, "		");
+          CharSequence _genHtmlLimitsDesc = this.genHtmlLimitsDesc(question);
+          _builder.append(_genHtmlLimitsDesc, "		");
           _builder.newLineIfNotEmpty();
         }
       }
@@ -696,7 +697,7 @@ public class DslGenerator implements IGenerator {
     return _xblockexpression;
   }
   
-  protected String _genHtml(final survey.Number question, final boolean required, final String pid) {
+  protected String _genHtml(final survey.Number question, final String dependsOn, final boolean required, final String pid) {
     String _xblockexpression = null;
     {
       String id = this.getUniqueId(question);
@@ -714,8 +715,8 @@ public class DslGenerator implements IGenerator {
       final String refId = _xifexpression;
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("<div class=\"form-group\" ");
-      CharSequence _genDependsOn = this.genDependsOn(question);
-      _builder.append(_genDependsOn, "");
+      CharSequence _genHtmlDependsOn = this.genHtmlDependsOn(question);
+      _builder.append(_genHtmlDependsOn, "");
       _builder.append(">");
       _builder.newLineIfNotEmpty();
       _builder.append("\t    \t");
@@ -723,8 +724,8 @@ public class DslGenerator implements IGenerator {
       _builder_1.append("for=\"");
       _builder_1.append(id, "");
       _builder_1.append("\"");
-      CharSequence _genHeader = this.genHeader(question, required, _builder_1.toString());
-      _builder.append(_genHeader, "	    	");
+      CharSequence _genHtmlHeader = this.genHtmlHeader(question, required, _builder_1.toString());
+      _builder.append(_genHtmlHeader, "	    	");
       _builder.newLineIfNotEmpty();
       _builder.append("    ");
       _builder.append("<div class=\"row\">");
@@ -786,8 +787,8 @@ public class DslGenerator implements IGenerator {
         boolean _isShowLimits = question.isShowLimits();
         if (_isShowLimits) {
           _builder.append("            ");
-          CharSequence _genLimitsDesc = this.genLimitsDesc(question);
-          _builder.append(_genLimitsDesc, "            ");
+          CharSequence _genHtmlLimitsDesc = this.genHtmlLimitsDesc(question);
+          _builder.append(_genHtmlLimitsDesc, "            ");
           _builder.newLineIfNotEmpty();
         }
       }
@@ -798,7 +799,7 @@ public class DslGenerator implements IGenerator {
     return _xblockexpression;
   }
   
-  protected String _genHtml(final Single question, final boolean required, final String pid) {
+  protected String _genHtml(final Single question, final String dependsOn, final boolean required, final String pid) {
     String _xblockexpression = null;
     {
       String id = this.getUniqueId(question);
@@ -816,13 +817,13 @@ public class DslGenerator implements IGenerator {
       final String refId = _xifexpression;
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("<div class=\"form-group\" ");
-      CharSequence _genDependsOn = this.genDependsOn(question);
-      _builder.append(_genDependsOn, "");
+      CharSequence _genHtmlDependsOn = this.genHtmlDependsOn(question);
+      _builder.append(_genHtmlDependsOn, "");
       _builder.append(">");
       _builder.newLineIfNotEmpty();
       _builder.append("\t    \t");
-      CharSequence _genHeader = this.genHeader(question, required);
-      _builder.append(_genHeader, "	    	");
+      CharSequence _genHtmlHeader = this.genHtmlHeader(question, required);
+      _builder.append(_genHtmlHeader, "	    	");
       _builder.newLineIfNotEmpty();
       _builder.append("\t");
       _builder.append("<div>");
@@ -938,7 +939,7 @@ public class DslGenerator implements IGenerator {
     return _xblockexpression;
   }
   
-  protected String _genHtml(final Multiple question, final boolean required, final String pid) {
+  protected String _genHtml(final Multiple question, final String dependsOn, final boolean required, final String pid) {
     String _xblockexpression = null;
     {
       final String id = this.getUniqueId(question);
@@ -961,8 +962,8 @@ public class DslGenerator implements IGenerator {
       _builder.append("<div class=\"form-group\">");
       _builder.newLine();
       _builder.append("\t");
-      CharSequence _genDependsOn = this.genDependsOn(question);
-      _builder.append(_genDependsOn, "	");
+      CharSequence _genHtmlDependsOn = this.genHtmlDependsOn(question);
+      _builder.append(_genHtmlDependsOn, "	");
       _builder.newLineIfNotEmpty();
       _builder.append("\t    \t");
       boolean _or = false;
@@ -972,8 +973,8 @@ public class DslGenerator implements IGenerator {
         boolean _greaterThan = ((min).intValue() > 0);
         _or = (required || _greaterThan);
       }
-      CharSequence _genHeader = this.genHeader(question, _or);
-      _builder.append(_genHeader, "	    	");
+      CharSequence _genHtmlHeader = this.genHtmlHeader(question, _or);
+      _builder.append(_genHtmlHeader, "	    	");
       _builder.newLineIfNotEmpty();
       {
         for(final Answer a : answers) {
@@ -1109,8 +1110,8 @@ public class DslGenerator implements IGenerator {
         boolean _isShowLimits = question.isShowLimits();
         if (_isShowLimits) {
           _builder.append("\t");
-          CharSequence _genLimitsDesc = this.genLimitsDesc(question);
-          _builder.append(_genLimitsDesc, "	");
+          CharSequence _genHtmlLimitsDesc = this.genHtmlLimitsDesc(question);
+          _builder.append(_genHtmlLimitsDesc, "	");
           _builder.newLineIfNotEmpty();
         }
       }
@@ -1121,19 +1122,19 @@ public class DslGenerator implements IGenerator {
     return _xblockexpression;
   }
   
-  protected String _genHtml(final Table question, final boolean required, final String pid) {
+  protected String _genHtml(final Table question, final String dependsOn, final boolean required, final String pid) {
     String _xblockexpression = null;
     {
       final ArrayList<Answer> answers = this.getAnswers(question);
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("<div class=\"form-group\" ");
-      CharSequence _genDependsOn = this.genDependsOn(question);
-      _builder.append(_genDependsOn, "");
+      CharSequence _genHtmlDependsOn = this.genHtmlDependsOn(question);
+      _builder.append(_genHtmlDependsOn, "");
       _builder.append(">");
       _builder.newLineIfNotEmpty();
       _builder.append("\t    \t");
-      CharSequence _genHeader = this.genHeader(question, required);
-      _builder.append(_genHeader, "	    	");
+      CharSequence _genHtmlHeader = this.genHtmlHeader(question, required);
+      _builder.append(_genHtmlHeader, "	    	");
       _builder.newLineIfNotEmpty();
       _builder.append("    ");
       _builder.append("<table class=\"table table-striped\">");
@@ -1290,7 +1291,7 @@ public class DslGenerator implements IGenerator {
     return _xblockexpression;
   }
   
-  protected String _genHtml(final Question question, final boolean required, final String pid) {
+  protected String _genHtml(final Question question, final String dependsOn, final boolean required, final String pid) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("MISSING: ");
     String _title = question.getTitle();
@@ -1382,12 +1383,31 @@ public class DslGenerator implements IGenerator {
     return _builder;
   }
   
-  public CharSequence genLimitsDesc(final Date question) {
+  public CharSequence genHtmlLimitsDesc(final Date question) {
     CharSequence _xblockexpression = null;
+    {
+      final String s = this.genLimitsDesc(question);
+      CharSequence _xifexpression = null;
+      boolean _isNullOrEmpty = StringExtensions.isNullOrEmpty(s);
+      boolean _not = (!_isNullOrEmpty);
+      if (_not) {
+        StringConcatenation _builder = new StringConcatenation();
+        _builder.append("<p class=\"help-block\">");
+        _builder.append(s, "");
+        _builder.append("</p>");
+        _xifexpression = _builder;
+      }
+      _xblockexpression = (_xifexpression);
+    }
+    return _xblockexpression;
+  }
+  
+  public String genLimitsDesc(final Date question) {
+    String _xblockexpression = null;
     {
       final String start = question.getStart();
       final String end = question.getEnd();
-      String s = "";
+      String _xifexpression = null;
       boolean _and = false;
       boolean _isNullOrEmpty = StringExtensions.isNullOrEmpty(start);
       boolean _not = (!_isNullOrEmpty);
@@ -1404,47 +1424,60 @@ public class DslGenerator implements IGenerator {
         _builder.append(start, "");
         _builder.append(" and ");
         _builder.append(end, "");
-        s = _builder.toString();
+        _xifexpression = _builder.toString();
       } else {
-        boolean _isNullOrEmpty_2 = StringExtensions.isNullOrEmpty(start);
+        String _xifexpression_1 = null;
+        boolean _isNullOrEmpty_2 = StringExtensions.isNullOrEmpty(end);
         boolean _not_2 = (!_isNullOrEmpty_2);
         if (_not_2) {
           StringConcatenation _builder_1 = new StringConcatenation();
           _builder_1.append("The date must be before ");
           _builder_1.append(end, "");
-          s = _builder_1.toString();
+          _xifexpression_1 = _builder_1.toString();
         } else {
-          boolean _isNullOrEmpty_3 = StringExtensions.isNullOrEmpty(end);
+          String _xifexpression_2 = null;
+          boolean _isNullOrEmpty_3 = StringExtensions.isNullOrEmpty(start);
           boolean _not_3 = (!_isNullOrEmpty_3);
           if (_not_3) {
             StringConcatenation _builder_2 = new StringConcatenation();
             _builder_2.append("The date must be after ");
             _builder_2.append(start, "");
-            s = _builder_2.toString();
+            _xifexpression_2 = _builder_2.toString();
           }
+          _xifexpression_1 = _xifexpression_2;
         }
-      }
-      CharSequence _xifexpression = null;
-      boolean _isNullOrEmpty_4 = StringExtensions.isNullOrEmpty(s);
-      boolean _not_4 = (!_isNullOrEmpty_4);
-      if (_not_4) {
-        StringConcatenation _builder_3 = new StringConcatenation();
-        _builder_3.append("<p class=\"help-block\">");
-        _builder_3.append(s, "");
-        _builder_3.append("</p>");
-        _xifexpression = _builder_3;
+        _xifexpression = _xifexpression_1;
       }
       _xblockexpression = (_xifexpression);
     }
     return _xblockexpression;
   }
   
-  public CharSequence genLimitsDesc(final survey.Number question) {
+  public CharSequence genHtmlLimitsDesc(final survey.Number question) {
     CharSequence _xblockexpression = null;
+    {
+      final String s = this.genLimitsDesc(question);
+      CharSequence _xifexpression = null;
+      boolean _isNullOrEmpty = StringExtensions.isNullOrEmpty(s);
+      boolean _not = (!_isNullOrEmpty);
+      if (_not) {
+        StringConcatenation _builder = new StringConcatenation();
+        _builder.append("<p class=\"help-block\">");
+        _builder.append(s, "");
+        _builder.append("</p>");
+        _xifexpression = _builder;
+      }
+      _xblockexpression = (_xifexpression);
+    }
+    return _xblockexpression;
+  }
+  
+  public String genLimitsDesc(final survey.Number question) {
+    String _xblockexpression = null;
     {
       final Integer min = question.getMin();
       final Integer max = question.getMax();
-      String s = "";
+      String _xifexpression = null;
       boolean _and = false;
       boolean _notEquals = (!Objects.equal(min, null));
       if (!_notEquals) {
@@ -1460,17 +1493,19 @@ public class DslGenerator implements IGenerator {
         _builder.append(" and ");
         _builder.append(max, "");
         _builder.append(" (both included)");
-        s = _builder.toString();
+        _xifexpression = _builder.toString();
       } else {
+        String _xifexpression_1 = null;
         boolean _notEquals_2 = (!Objects.equal(min, null));
         if (_notEquals_2) {
+          String _switchResult = null;
           boolean _matched = false;
           if (!_matched) {
             if (Objects.equal(min,0)) {
               _matched=true;
               StringConcatenation _builder_1 = new StringConcatenation();
               _builder_1.append("The value must be non-negative");
-              s = _builder_1.toString();
+              _switchResult = _builder_1.toString();
             }
           }
           if (!_matched) {
@@ -1478,18 +1513,21 @@ public class DslGenerator implements IGenerator {
               _matched=true;
               StringConcatenation _builder_2 = new StringConcatenation();
               _builder_2.append("The value must be positive");
-              s = _builder_2.toString();
+              _switchResult = _builder_2.toString();
             }
           }
           if (!_matched) {
             StringConcatenation _builder_3 = new StringConcatenation();
             _builder_3.append("The value must be larger than or equal to ");
             _builder_3.append(min, "");
-            s = _builder_3.toString();
+            _switchResult = _builder_3.toString();
           }
+          _xifexpression_1 = _switchResult;
         } else {
+          String _xifexpression_2 = null;
           boolean _notEquals_3 = (!Objects.equal(max, null));
           if (_notEquals_3) {
+            String _switchResult_1 = null;
             boolean _matched_1 = false;
             if (!_matched_1) {
               int _minus = (-1);
@@ -1497,39 +1535,32 @@ public class DslGenerator implements IGenerator {
                 _matched_1=true;
                 StringConcatenation _builder_4 = new StringConcatenation();
                 _builder_4.append("The value must be negative");
-                s = _builder_4.toString();
+                _switchResult_1 = _builder_4.toString();
               }
             }
             if (!_matched_1) {
               StringConcatenation _builder_5 = new StringConcatenation();
               _builder_5.append("The value must be less than or equal to ");
               _builder_5.append(max, "");
-              s = _builder_5.toString();
+              _switchResult_1 = _builder_5.toString();
             }
+            _xifexpression_2 = _switchResult_1;
           }
+          _xifexpression_1 = _xifexpression_2;
         }
-      }
-      CharSequence _xifexpression = null;
-      boolean _isNullOrEmpty = StringExtensions.isNullOrEmpty(s);
-      boolean _not = (!_isNullOrEmpty);
-      if (_not) {
-        StringConcatenation _builder_6 = new StringConcatenation();
-        _builder_6.append("<p class=\"help-block\">");
-        _builder_6.append(s, "");
-        _builder_6.append("</p>");
-        _xifexpression = _builder_6;
+        _xifexpression = _xifexpression_1;
       }
       _xblockexpression = (_xifexpression);
     }
     return _xblockexpression;
   }
   
-  public CharSequence genLimitsDesc(final Multiple question) {
-    CharSequence _xblockexpression = null;
+  public String genLimitsDesc(final Multiple question) {
+    String _xblockexpression = null;
     {
       final Integer min = question.getMin();
       final Integer max = question.getMax();
-      String s = "";
+      String _xifexpression = null;
       boolean _and = false;
       boolean _notEquals = (!Objects.equal(min, null));
       if (!_notEquals) {
@@ -1539,6 +1570,7 @@ public class DslGenerator implements IGenerator {
         _and = (_notEquals && _notEquals_1);
       }
       if (_and) {
+        String _xifexpression_1 = null;
         int _intValue = min.intValue();
         int _intValue_1 = max.intValue();
         boolean _equals = (_intValue == _intValue_1);
@@ -1547,7 +1579,7 @@ public class DslGenerator implements IGenerator {
           _builder.append("Select ");
           _builder.append(min, "");
           _builder.append(" options");
-          s = _builder.toString();
+          _xifexpression_1 = _builder.toString();
         } else {
           StringConcatenation _builder_1 = new StringConcatenation();
           _builder_1.append("Select between ");
@@ -1555,36 +1587,50 @@ public class DslGenerator implements IGenerator {
           _builder_1.append(" and ");
           _builder_1.append(max, "");
           _builder_1.append(" options");
-          s = _builder_1.toString();
+          _xifexpression_1 = _builder_1.toString();
         }
+        _xifexpression = _xifexpression_1;
       } else {
+        String _xifexpression_2 = null;
         boolean _notEquals_2 = (!Objects.equal(min, null));
         if (_notEquals_2) {
           StringConcatenation _builder_2 = new StringConcatenation();
           _builder_2.append("Select at least ");
           _builder_2.append(min, "");
           _builder_2.append(" options");
-          s = _builder_2.toString();
+          _xifexpression_2 = _builder_2.toString();
         } else {
+          String _xifexpression_3 = null;
           boolean _notEquals_3 = (!Objects.equal(max, null));
           if (_notEquals_3) {
             StringConcatenation _builder_3 = new StringConcatenation();
             _builder_3.append("Select at most ");
             _builder_3.append(min, "");
             _builder_3.append(" options");
-            s = _builder_3.toString();
+            _xifexpression_3 = _builder_3.toString();
           }
+          _xifexpression_2 = _xifexpression_3;
         }
+        _xifexpression = _xifexpression_2;
       }
+      _xblockexpression = (_xifexpression);
+    }
+    return _xblockexpression;
+  }
+  
+  public CharSequence genHtmlLimitsDesc(final Multiple question) {
+    CharSequence _xblockexpression = null;
+    {
+      final String s = this.genLimitsDesc(question);
       CharSequence _xifexpression = null;
       boolean _isNullOrEmpty = StringExtensions.isNullOrEmpty(s);
       boolean _not = (!_isNullOrEmpty);
       if (_not) {
-        StringConcatenation _builder_4 = new StringConcatenation();
-        _builder_4.append("<p class=\"help-block\">");
-        _builder_4.append(s, "");
-        _builder_4.append("</p>");
-        _xifexpression = _builder_4;
+        StringConcatenation _builder = new StringConcatenation();
+        _builder.append("<p class=\"help-block\">");
+        _builder.append(s, "");
+        _builder.append("</p>");
+        _xifexpression = _builder;
       }
       _xblockexpression = (_xifexpression);
     }
@@ -1650,31 +1696,532 @@ public class DslGenerator implements IGenerator {
   }
   
   public void genLatex(final Survey survey, final IFileSystemAccess fsa) {
-    fsa.generateFile("survey.tex", "Something something");
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      EList<Item> _items = survey.getItems();
+      for(final Item item : _items) {
+        CharSequence _genLatex = this.genLatex(item, "", false, "");
+        _builder.append(_genLatex, "");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    String body = _builder.toString();
+    String _title = survey.getTitle();
+    String _description = survey.getDescription();
+    String template = LatexTemplate.template(_title, _description, body);
+    String _xifexpression = null;
+    String _name = survey.getName();
+    boolean _isNullOrEmpty = StringExtensions.isNullOrEmpty(_name);
+    if (_isNullOrEmpty) {
+      _xifexpression = "index";
+    } else {
+      String _name_1 = survey.getName();
+      _xifexpression = _name_1;
+    }
+    final String filename = (_xifexpression + ".tex");
+    fsa.generateFile(filename, template);
   }
   
-  public String genHtml(final Item question, final boolean required, final String pid) {
+  protected CharSequence _genLatex(final Group group, final String dependsOn, final boolean required, final String pid) {
+    CharSequence _xblockexpression = null;
+    {
+      String _xifexpression = null;
+      String _name = group.getName();
+      boolean _isNullOrEmpty = StringExtensions.isNullOrEmpty(_name);
+      if (_isNullOrEmpty) {
+        _xifexpression = pid;
+      } else {
+        String _plus = (pid + "-");
+        String _name_1 = group.getName();
+        String _plus_1 = (_plus + _name_1);
+        _xifexpression = _plus_1;
+      }
+      final String refId = _xifexpression;
+      StringConcatenation _builder = new StringConcatenation();
+      {
+        String _title = group.getTitle();
+        boolean _isNullOrEmpty_1 = StringExtensions.isNullOrEmpty(_title);
+        boolean _not = (!_isNullOrEmpty_1);
+        if (_not) {
+          _builder.append("\\section*{\\underline{");
+          String _title_1 = group.getTitle();
+          _builder.append(_title_1, "");
+          _builder.append("}}");
+          _builder.newLineIfNotEmpty();
+        }
+      }
+      _builder.append("\t    ");
+      CharSequence _genLatexLabel = this.genLatexLabel(group);
+      _builder.append(_genLatexLabel, "	    ");
+      _builder.newLineIfNotEmpty();
+      {
+        String _description = group.getDescription();
+        boolean _isNullOrEmpty_2 = StringExtensions.isNullOrEmpty(_description);
+        boolean _not_1 = (!_isNullOrEmpty_2);
+        if (_not_1) {
+          _builder.append("\t    ");
+          String _description_1 = group.getDescription();
+          _builder.append(_description_1, "	    ");
+          _builder.newLineIfNotEmpty();
+        }
+      }
+      _builder.newLine();
+      {
+        EList<Question> _questions = group.getQuestions();
+        for(final Question question : _questions) {
+          String _dependsOn = group.getDependsOn();
+          boolean _isRequired = group.isRequired();
+          Object _genLatex = this.genLatex(question, _dependsOn, _isRequired, refId);
+          _builder.append(_genLatex, "");
+          _builder.newLineIfNotEmpty();
+        }
+      }
+      _xblockexpression = (_builder);
+    }
+    return _xblockexpression;
+  }
+  
+  protected CharSequence _genLatex(final Text text, final String dependsOn, final boolean required, final String pid) {
+    CharSequence _xblockexpression = null;
+    {
+      int _xifexpression = (int) 0;
+      boolean _isMultiline = text.isMultiline();
+      if (_isMultiline) {
+        _xifexpression = 3;
+      } else {
+        _xifexpression = 1;
+      }
+      final int count = _xifexpression;
+      StringConcatenation _builder = new StringConcatenation();
+      CharSequence _genLatexHeader = this.genLatexHeader(text, dependsOn, required);
+      _builder.append(_genLatexHeader, "");
+      _builder.newLineIfNotEmpty();
+      {
+        IntegerRange _upTo = new IntegerRange(1, count);
+        for(final Integer i : _upTo) {
+          _builder.append("\\noindent\\makebox[\\linewidth]{\\rule{\\textwidth}{.1pt}}");
+          _builder.newLine();
+        }
+      }
+      _xblockexpression = (_builder);
+    }
+    return _xblockexpression;
+  }
+  
+  protected CharSequence _genLatex(final Scale scale, final String dependsOn, final boolean required, final String pid) {
+    StringConcatenation _builder = new StringConcatenation();
+    CharSequence _genLatexHeader = this.genLatexHeader(scale, dependsOn, required);
+    _builder.append(_genLatexHeader, "");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\\noindent");
+    _builder.newLine();
+    _builder.append("\\begin{tabular}{ ");
+    {
+      String _minLabel = scale.getMinLabel();
+      boolean _isNullOrEmpty = StringExtensions.isNullOrEmpty(_minLabel);
+      boolean _not = (!_isNullOrEmpty);
+      if (_not) {
+        _builder.append(" r");
+      }
+    }
+    _builder.append(" ");
+    {
+      int _min = scale.getMin();
+      int _max = scale.getMax();
+      IntegerRange _upTo = new IntegerRange(_min, _max);
+      for(final Integer i : _upTo) {
+        _builder.append("c ");
+      }
+    }
+    {
+      String _maxLabel = scale.getMaxLabel();
+      boolean _isNullOrEmpty_1 = StringExtensions.isNullOrEmpty(_maxLabel);
+      boolean _not_1 = (!_isNullOrEmpty_1);
+      if (_not_1) {
+        _builder.append("l ");
+      }
+    }
+    _builder.append(" }");
+    _builder.newLineIfNotEmpty();
+    _builder.append("    ");
+    {
+      int _min_1 = scale.getMin();
+      int _max_1 = scale.getMax();
+      IntegerRange _upTo_1 = new IntegerRange(_min_1, _max_1);
+      for(final Integer i_1 : _upTo_1) {
+        _builder.append("& ");
+        _builder.append(i_1, "    ");
+        _builder.append(" ");
+      }
+    }
+    _builder.append("& \\\\ \\hline");
+    _builder.newLineIfNotEmpty();
+    _builder.append("    ");
+    String _minLabel_1 = scale.getMinLabel();
+    _builder.append(_minLabel_1, "    ");
+    _builder.append(" ");
+    {
+      int _min_2 = scale.getMin();
+      int _max_2 = scale.getMax();
+      IntegerRange _upTo_2 = new IntegerRange(_min_2, _max_2);
+      for(final Integer i_2 : _upTo_2) {
+        _builder.append("& $\\square$ ");
+      }
+    }
+    _builder.append("& ");
+    String _maxLabel_1 = scale.getMaxLabel();
+    _builder.append(_maxLabel_1, "    ");
+    _builder.append("\\\\ \\hline");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\\end{tabular}");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  protected CharSequence _genLatex(final Date date, final String dependsOn, final boolean required, final String pid) {
+    StringConcatenation _builder = new StringConcatenation();
+    CharSequence _genLatexHeader = this.genLatexHeader(date, dependsOn, required);
+    _builder.append(_genLatexHeader, "");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\\noindent\\makebox[\\linewidth]{\\rule{\\textwidth}{.1pt}}");
+    _builder.newLine();
+    _builder.append("Using this format: ");
+    String _genDateFormat = this.genDateFormat(date);
+    _builder.append(_genDateFormat, "");
+    _builder.append(". \\emph{");
+    String _genLimitsDesc = this.genLimitsDesc(date);
+    _builder.append(_genLimitsDesc, "");
+    _builder.append("}");
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  protected CharSequence _genLatex(final survey.Number number, final String dependsOn, final boolean required, final String pid) {
+    StringConcatenation _builder = new StringConcatenation();
+    CharSequence _genLatexHeader = this.genLatexHeader(number, dependsOn, required);
+    _builder.append(_genLatexHeader, "");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\\noindent\\makebox[\\linewidth]{\\rule{\\textwidth}{.1pt}}");
+    _builder.newLine();
+    _builder.append("\\emph{");
+    String _genLimitsDesc = this.genLimitsDesc(number);
+    _builder.append(_genLimitsDesc, "");
+    _builder.append("}");
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  protected CharSequence _genLatex(final Single question, final String dependsOn, final boolean required, final String pid) {
+    StringConcatenation _builder = new StringConcatenation();
+    CharSequence _genLatexHeader = this.genLatexHeader(question, dependsOn, required);
+    _builder.append(_genLatexHeader, "");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\\emph{Please choose one only}");
+    _builder.newLine();
+    _builder.append("\\begin{description}");
+    _builder.newLine();
+    {
+      ArrayList<Answer> _answers = this.getAnswers(question);
+      for(final Answer a : _answers) {
+        _builder.append("\\item[$\\square$] ");
+        String _title = a.getTitle();
+        _builder.append(_title, "");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    {
+      boolean _or = false;
+      boolean _isOther = question.isOther();
+      if (_isOther) {
+        _or = true;
+      } else {
+        String _otherLabel = question.getOtherLabel();
+        boolean _isNullOrEmpty = StringExtensions.isNullOrEmpty(_otherLabel);
+        boolean _not = (!_isNullOrEmpty);
+        _or = (_isOther || _not);
+      }
+      if (_or) {
+        _builder.append("\\item[$\\square$] ");
+        _builder.newLine();
+        {
+          String _otherLabel_1 = question.getOtherLabel();
+          boolean _isNullOrEmpty_1 = StringExtensions.isNullOrEmpty(_otherLabel_1);
+          boolean _not_1 = (!_isNullOrEmpty_1);
+          if (_not_1) {
+            String _otherLabel_2 = question.getOtherLabel();
+            _builder.append(_otherLabel_2, "");
+            _builder.append(":");
+            _builder.newLineIfNotEmpty();
+          } else {
+            _builder.append("Other:");
+            _builder.newLine();
+          }
+        }
+        _builder.append("\\rule{332pt}{.1pt}");
+        _builder.newLine();
+      }
+    }
+    _builder.append("\\end{description}");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  protected CharSequence _genLatex(final Multiple question, final String dependsOn, final boolean required, final String pid) {
+    StringConcatenation _builder = new StringConcatenation();
+    CharSequence _genLatexHeader = this.genLatexHeader(question, dependsOn, required);
+    _builder.append(_genLatexHeader, "");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\\emph{");
+    String _genLimitsDesc = this.genLimitsDesc(question);
+    _builder.append(_genLimitsDesc, "");
+    _builder.append("}");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\\begin{description}");
+    _builder.newLine();
+    {
+      ArrayList<Answer> _answers = this.getAnswers(question);
+      for(final Answer a : _answers) {
+        _builder.append("\\item[$\\square$] ");
+        String _title = a.getTitle();
+        _builder.append(_title, "");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    {
+      boolean _or = false;
+      boolean _isOther = question.isOther();
+      if (_isOther) {
+        _or = true;
+      } else {
+        String _otherLabel = question.getOtherLabel();
+        boolean _isNullOrEmpty = StringExtensions.isNullOrEmpty(_otherLabel);
+        boolean _not = (!_isNullOrEmpty);
+        _or = (_isOther || _not);
+      }
+      if (_or) {
+        _builder.append("\\item[$\\square$] ");
+        _builder.newLine();
+        {
+          String _otherLabel_1 = question.getOtherLabel();
+          boolean _isNullOrEmpty_1 = StringExtensions.isNullOrEmpty(_otherLabel_1);
+          boolean _not_1 = (!_isNullOrEmpty_1);
+          if (_not_1) {
+            String _otherLabel_2 = question.getOtherLabel();
+            _builder.append(_otherLabel_2, "");
+            _builder.append(":");
+            _builder.newLineIfNotEmpty();
+          } else {
+            _builder.append("Other:");
+            _builder.newLine();
+          }
+        }
+        _builder.append("\\rule{332pt}{.1pt}");
+        _builder.newLine();
+      }
+    }
+    _builder.append("\\end{description}");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  protected CharSequence _genLatex(final Table question, final String dependsOn, final boolean required, final String pid) {
+    CharSequence _xblockexpression = null;
+    {
+      final ArrayList<Answer> answers = this.getAnswers(question);
+      StringConcatenation _builder = new StringConcatenation();
+      CharSequence _genLatexHeader = this.genLatexHeader(question, dependsOn, required);
+      _builder.append(_genLatexHeader, "");
+      _builder.newLineIfNotEmpty();
+      _builder.append("\\noindent");
+      _builder.newLine();
+      _builder.append("\\begin{tabular}{ l ");
+      {
+        for(final Answer a : answers) {
+          _builder.append("c ");
+        }
+      }
+      _builder.append(" }");
+      _builder.newLineIfNotEmpty();
+      {
+        for(final Answer a_1 : answers) {
+          _builder.append("& \\begin{sideways}");
+          String _title = a_1.getTitle();
+          _builder.append(_title, "");
+          _builder.append("\\end{sideways} ");
+        }
+      }
+      _builder.append(" \\\\ \\hline");
+      _builder.newLineIfNotEmpty();
+      {
+        EList<TableQuestion> _questions = question.getQuestions();
+        for(final TableQuestion q : _questions) {
+          String _title_1 = q.getTitle();
+          _builder.append(_title_1, "");
+          _builder.append(" ");
+          boolean _or = false;
+          if (required) {
+            _or = true;
+          } else {
+            boolean _isRequired = q.isRequired();
+            _or = (required || _isRequired);
+          }
+          CharSequence _genLatexRequired = this.genLatexRequired(question, _or);
+          _builder.append(_genLatexRequired, "");
+          _builder.append(" ");
+          {
+            for(final Answer a_2 : answers) {
+              _builder.append("& $\\square$");
+            }
+          }
+          _builder.append(" \\\\ \\hline");
+          _builder.newLineIfNotEmpty();
+        }
+      }
+      _builder.append("\\end{tabular}");
+      _builder.newLine();
+      _xblockexpression = (_builder);
+    }
+    return _xblockexpression;
+  }
+  
+  public CharSequence genLatexHeader(final Question question, final String parentDependsOn, final boolean required) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("\\section{");
+    String _title = question.getTitle();
+    _builder.append(_title, "");
+    _builder.append(" ");
+    CharSequence _genLatexRequired = this.genLatexRequired(question, required);
+    _builder.append(_genLatexRequired, "");
+    _builder.append("}");
+    _builder.newLineIfNotEmpty();
+    CharSequence _genLatexLabel = this.genLatexLabel(question);
+    _builder.append(_genLatexLabel, "");
+    _builder.newLineIfNotEmpty();
+    CharSequence _genLatexDependsOn = this.genLatexDependsOn(question, parentDependsOn);
+    _builder.append(_genLatexDependsOn, "");
+    _builder.newLineIfNotEmpty();
+    {
+      String _description = question.getDescription();
+      boolean _isNullOrEmpty = StringExtensions.isNullOrEmpty(_description);
+      boolean _not = (!_isNullOrEmpty);
+      if (_not) {
+        String _description_1 = question.getDescription();
+        _builder.append(_description_1, "");
+        _builder.append("\\\\");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  public CharSequence genLatexRequired(final Question question, final boolean requiredParent) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      boolean _or = false;
+      if (requiredParent) {
+        _or = true;
+      } else {
+        boolean _isRequired = question.isRequired();
+        _or = (requiredParent || _isRequired);
+      }
+      if (_or) {
+        _builder.append("* ");
+      }
+    }
+    return _builder;
+  }
+  
+  public CharSequence genLatexLabel(final Item item) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      String _name = item.getName();
+      boolean _isNullOrEmpty = StringExtensions.isNullOrEmpty(_name);
+      boolean _not = (!_isNullOrEmpty);
+      if (_not) {
+        _builder.append("\\label{");
+        String _name_1 = item.getName();
+        _builder.append(_name_1, "");
+        _builder.append("}");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    return _builder;
+  }
+  
+  public CharSequence genLatexDependsOn(final Item item, final String parentDependsOn) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      boolean _isNullOrEmpty = StringExtensions.isNullOrEmpty(parentDependsOn);
+      boolean _not = (!_isNullOrEmpty);
+      if (_not) {
+        _builder.append("Please only answer this question if you replied ");
+        _builder.append(" to question \\#\\ref{");
+        _builder.append(parentDependsOn, "");
+        _builder.append("} (group).\\\\");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    {
+      String _dependsOn = item.getDependsOn();
+      boolean _isNullOrEmpty_1 = StringExtensions.isNullOrEmpty(_dependsOn);
+      boolean _not_1 = (!_isNullOrEmpty_1);
+      if (_not_1) {
+        _builder.append("Please only answer this question if you replied ");
+        _builder.append(" to question \\#\\ref{");
+        String _dependsOn_1 = item.getDependsOn();
+        _builder.append(_dependsOn_1, "");
+        _builder.append("}.\\\\");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    return _builder;
+  }
+  
+  public String genHtml(final Item question, final String dependsOn, final boolean required, final String pid) {
     if (question instanceof Date) {
-      return _genHtml((Date)question, required, pid);
+      return _genHtml((Date)question, dependsOn, required, pid);
     } else if (question instanceof Multiple) {
-      return _genHtml((Multiple)question, required, pid);
+      return _genHtml((Multiple)question, dependsOn, required, pid);
     } else if (question instanceof survey.Number) {
-      return _genHtml((survey.Number)question, required, pid);
+      return _genHtml((survey.Number)question, dependsOn, required, pid);
     } else if (question instanceof Scale) {
-      return _genHtml((Scale)question, required, pid);
+      return _genHtml((Scale)question, dependsOn, required, pid);
     } else if (question instanceof Single) {
-      return _genHtml((Single)question, required, pid);
+      return _genHtml((Single)question, dependsOn, required, pid);
     } else if (question instanceof Table) {
-      return _genHtml((Table)question, required, pid);
+      return _genHtml((Table)question, dependsOn, required, pid);
     } else if (question instanceof Text) {
-      return _genHtml((Text)question, required, pid);
+      return _genHtml((Text)question, dependsOn, required, pid);
     } else if (question instanceof Group) {
-      return _genHtml((Group)question, required, pid);
+      return _genHtml((Group)question, dependsOn, required, pid);
     } else if (question instanceof Question) {
-      return _genHtml((Question)question, required, pid);
+      return _genHtml((Question)question, dependsOn, required, pid);
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
-        Arrays.<Object>asList(question, required, pid).toString());
+        Arrays.<Object>asList(question, dependsOn, required, pid).toString());
+    }
+  }
+  
+  public CharSequence genLatex(final Item date, final String dependsOn, final boolean required, final String pid) {
+    if (date instanceof Date) {
+      return _genLatex((Date)date, dependsOn, required, pid);
+    } else if (date instanceof Multiple) {
+      return _genLatex((Multiple)date, dependsOn, required, pid);
+    } else if (date instanceof survey.Number) {
+      return _genLatex((survey.Number)date, dependsOn, required, pid);
+    } else if (date instanceof Scale) {
+      return _genLatex((Scale)date, dependsOn, required, pid);
+    } else if (date instanceof Single) {
+      return _genLatex((Single)date, dependsOn, required, pid);
+    } else if (date instanceof Table) {
+      return _genLatex((Table)date, dependsOn, required, pid);
+    } else if (date instanceof Text) {
+      return _genLatex((Text)date, dependsOn, required, pid);
+    } else if (date instanceof Group) {
+      return _genLatex((Group)date, dependsOn, required, pid);
+    } else {
+      throw new IllegalArgumentException("Unhandled parameter types: " +
+        Arrays.<Object>asList(date, dependsOn, required, pid).toString());
     }
   }
 }
