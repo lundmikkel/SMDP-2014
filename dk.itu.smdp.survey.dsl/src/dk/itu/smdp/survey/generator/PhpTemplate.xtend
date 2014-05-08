@@ -110,8 +110,7 @@ class PhpTemplate {
 		}
 		
 		input[type=checkbox]~label.error,
-		input[type=radio]~label.error
-		{
+		input[type=radio]~label.error {
 			display: none !important;
 		}
 		
@@ -207,16 +206,27 @@ class PhpTemplate {
 		                        _this.hide();
 		                });
 		            }
+		            
 		        case "checkbox":
 		            {
-		                $("input[name='" + dependsOn.attr("name") + "']:checkbox").change(function () {
-		                    if ($(this).attr("id") == dependsOnId)
-		                        _this.show();
-		                    else
-		                        _this.hide();
-		                });
+		                dependsOn.change(function() {
+		                	if ($(this).prop('checked'))
+		                		_this.show();
+	                		else
+	                			_this.hide();
+	                	});
 		            }
 		            break;
+	            
+	            default:
+	            	{
+	            		dependsOn.bind("propertychange keyup input paste", function() {
+		                	if ($(this).val())
+		                		_this.show();
+	                		else
+	                			_this.hide();
+	                	});
+            		}
 		    }
 		});
 		

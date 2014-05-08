@@ -162,10 +162,10 @@ public class DslGenerator implements IGenerator {
       boolean _isNullOrEmpty = StringExtensions.isNullOrEmpty(_dependsOn);
       boolean _not = (!_isNullOrEmpty);
       if (_not) {
-        _builder.append("data-rule-required=\"#");
+        _builder.append("data-depends-on=\"");
         String _dependsOn_1 = item.getDependsOn();
         _builder.append(_dependsOn_1, "");
-        _builder.append(":checked\"");
+        _builder.append("\"");
         _builder.newLineIfNotEmpty();
       }
     }

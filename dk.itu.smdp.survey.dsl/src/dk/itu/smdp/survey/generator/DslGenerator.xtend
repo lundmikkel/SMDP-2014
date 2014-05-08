@@ -79,10 +79,10 @@ class DslGenerator implements IGenerator {
 		'''
 	}
 	
-	//data-depends-on="«item.dependsOn»"
+	//data-rule-required="#«item.dependsOn»:checked"
 	def genDependsOn(Item item) '''
 		«IF !item.dependsOn.nullOrEmpty»
-		data-rule-required="#«item.dependsOn»:checked"
+		data-depends-on="«item.dependsOn»"
 		«ENDIF»
 	'''
 	
