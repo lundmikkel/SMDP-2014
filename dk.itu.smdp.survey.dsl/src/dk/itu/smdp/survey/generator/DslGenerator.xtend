@@ -67,7 +67,7 @@ class DslGenerator implements IGenerator {
 		'''
 		<div class="group" «group.genDependsOn»>
 		    «IF !group.title.nullOrEmpty»
-		    <h2 class="page-header">«group.title»</h2>
+		    <h2>«group.title»</h2>
 		    «ENDIF»
 		    « IF !group.description.nullOrEmpty »
 		    <p class="lead">«group.description»</p>
@@ -82,7 +82,6 @@ class DslGenerator implements IGenerator {
 	//data-depends-on="«item.dependsOn.replace('.', "___")»"
 	def genDependsOn(Item item) '''
 		«IF !item.dependsOn.nullOrEmpty»
-		data-depends-on="«item.dependsOn.replace('.', "___")»"
 		data-rule-required="#«item.dependsOn.replace('.', "___")»:checked"
 		«ENDIF»
 	'''

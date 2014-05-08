@@ -29,8 +29,8 @@ class PhpTemplate {
 						<?php
 						if ($_POST):
 						?>
-			                <div>
-		                		«IF !title.nullOrEmpty»<h1>«title»</h1>«ENDIF»
+			                <div id="header">
+		                		«IF !title.nullOrEmpty»<h1 class="page-header">«title»</h1>«ENDIF»
 		                		<p class="lead">Thanks for submitting your answer</p>
 							</div>
 			    		<?php
@@ -73,8 +73,8 @@ class PhpTemplate {
 						
 						else:
 						?>
-		                <div>
-		                	«IF !title.nullOrEmpty»<h1>«title»</h1>«ENDIF»
+		                <div id="header">
+		                	«IF !title.nullOrEmpty»<h1 class="page-header">«title»</h1>«ENDIF»
 		                	«IF !description.nullOrEmpty»<p class="lead">«description»</p>«ENDIF»
 						</div>
 		                <form id="form" role="form" method="post">
@@ -107,17 +107,32 @@ class PhpTemplate {
 	def static css() '''
 		.group {
 			margin-bottom: 20px;
-			margin-top: 50px;
+		}
+		
+		.form-group {
+			margin-bottom: 50px;
 		}
 		
 		input[type=number] {
 			text-align: right;
 		}
 		
-		h2 + p.lead {
-			font-size: 21px;
+		#header {
 			margin-bottom: 30px;
-			margin-top: -15px;
+		}
+		
+		#header .page-header {
+			margin-bottom: 10px;
+		}
+		
+		#header h1 {
+			font-size: 60px;
+		}
+		
+		h2 + p.lead {
+			/*font-size: 21px;*/
+			margin-bottom: 30px;
+			margin-top: -5px;
 		}
 		
 		label.control-label {
@@ -144,10 +159,6 @@ class PhpTemplate {
 		table.scale .bottom {
 			border-top: 1px solid #DDD;
 			border-bottom: 1px solid #DDD;
-		}
-		
-		form .form-group + .form-group {
-			padding-top: 15px;
 		}
 		
 		form hr {
@@ -184,6 +195,15 @@ class PhpTemplate {
 		        case "radio":
 		            {
 		                $("input[name='" + dependsOn.attr("name") + "']:radio").change(function () {
+		                    if ($(this).attr("id") == dependsOnId)
+		                        _this.show();
+		                    else
+		                        _this.hide();
+		                });
+		            }
+		        case "checkbox":
+		            {
+		                $("input[name='" + dependsOn.attr("name") + "']:checkbox").change(function () {
 		                    if ($(this).attr("id") == dependsOnId)
 		                        _this.show();
 		                    else

@@ -118,7 +118,7 @@ public class DslGenerator implements IGenerator {
         boolean _not = (!_isNullOrEmpty_1);
         if (_not) {
           _builder.append("    ");
-          _builder.append("<h2 class=\"page-header\">");
+          _builder.append("<h2>");
           String _title_1 = group.getTitle();
           _builder.append(_title_1, "    ");
           _builder.append("</h2>");
@@ -162,16 +162,10 @@ public class DslGenerator implements IGenerator {
       boolean _isNullOrEmpty = StringExtensions.isNullOrEmpty(_dependsOn);
       boolean _not = (!_isNullOrEmpty);
       if (_not) {
-        _builder.append("data-depends-on=\"");
+        _builder.append("data-rule-required=\"#");
         String _dependsOn_1 = item.getDependsOn();
         String _replace = _dependsOn_1.replace(".", "___");
         _builder.append(_replace, "");
-        _builder.append("\"");
-        _builder.newLineIfNotEmpty();
-        _builder.append("data-rule-required=\"#");
-        String _dependsOn_2 = item.getDependsOn();
-        String _replace_1 = _dependsOn_2.replace(".", "___");
-        _builder.append(_replace_1, "");
         _builder.append(":checked\"");
         _builder.newLineIfNotEmpty();
       }
