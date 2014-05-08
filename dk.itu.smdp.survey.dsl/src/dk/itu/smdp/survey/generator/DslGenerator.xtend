@@ -509,6 +509,9 @@ class DslGenerator implements IGenerator {
 		var body = '''
 			«FOR item : survey.items»
 				«item.genLatex("", false, "")»
+				«IF item instanceof Question»
+				\vspace{10mm}
+				«ENDIF»
 			«ENDFOR»
 		'''
 		
@@ -531,6 +534,7 @@ class DslGenerator implements IGenerator {
 		
 		«FOR question : group.questions»
 			«question.genLatex(group.dependsOn, group.required, refId)»
+			\vspace{10mm}
 		«ENDFOR»
 		'''
 	}
@@ -541,7 +545,7 @@ class DslGenerator implements IGenerator {
 		'''
 		«text.genLatexHeader(dependsOn, required)»
 		«FOR i : 1..count»
-		\noindent\makebox[\linewidth]{\rule{\textwidth}{.1pt}}
+		«genWritingLine()»
 		«ENDFOR»
 		'''
 	}
@@ -552,7 +556,7 @@ class DslGenerator implements IGenerator {
 		\noindent
 		\begin{tabular}{ «IF !scale.minLabel.nullOrEmpty» r«ENDIF» «FOR i : scale.min..scale.max»c «ENDFOR»«IF !scale.maxLabel.nullOrEmpty»l «ENDIF» }
 		    «FOR i : scale.min..scale.max»& «i» «ENDFOR»& \\ \hline
-		    «scale.minLabel» «FOR i : scale.min..scale.max»& $\square$ «ENDFOR»& «scale.maxLabel»\\ \hline
+		    «scale.minLabel» «FOR i : scale.min..scale.max»& \Square «ENDFOR»& «scale.maxLabel»\\ \hline
 		\end{tabular}
 		'''
 	}
@@ -560,7 +564,7 @@ class DslGenerator implements IGenerator {
 	def dispatch genLatex(Date date, String dependsOn, boolean required, String pid) {
 		'''
 		«date.genLatexHeader(dependsOn, required)»
-		\noindent\makebox[\linewidth]{\rule{\textwidth}{.1pt}}
+		«genWritingLine()»
 		Using this format: «date.genDateFormat». \emph{«date.genLimitsDesc»}
 		'''
 	}
@@ -568,10 +572,16 @@ class DslGenerator implements IGenerator {
 	def dispatch genLatex(Number number, String dependsOn, boolean required, String pid) {
 		'''
 		«number.genLatexHeader(dependsOn, required)»
-		\noindent\makebox[\linewidth]{\rule{\textwidth}{.1pt}}
+		«genWritingLine()»
 		\emph{«number.genLimitsDesc»}
 		'''
 	}
+	
+	def genWritingLine() '''
+		~\newline
+		\smallpencil
+		\noindent \hrulefill \\
+	'''
 	
 	def dispatch genLatex(Single question, String dependsOn, boolean required, String pid) {
 		'''
@@ -579,16 +589,16 @@ class DslGenerator implements IGenerator {
 		\emph{Please choose one only}
 		\begin{description}
 		«FOR a : question.getAnswers»
-		\item[$\square$] «a.title»
+		\item[\Square] «a.title»
 		«ENDFOR»
 		«IF question.other || !question.otherLabel.nullOrEmpty»
-		\item[$\square$] 
+		\item[\Square] 
 		«IF !question.otherLabel.nullOrEmpty»
 		«question.otherLabel»:
 		«ELSE»
 		Other:
 		«ENDIF»
-		\rule{332pt}{.1pt}
+		\smallpencil \hrulefill
 		«ENDIF»
 		\end{description}
 		'''
@@ -600,16 +610,16 @@ class DslGenerator implements IGenerator {
 		\emph{«question.genLimitsDesc»}
 		\begin{description}
 		«FOR a : question.getAnswers»
-		\item[$\square$] «a.title»
+		\item[\Square] «a.title»
 		«ENDFOR»
 		«IF question.other || !question.otherLabel.nullOrEmpty»
-		\item[$\square$] 
+		\item[\Square] 
 		«IF !question.otherLabel.nullOrEmpty»
 		«question.otherLabel»:
 		«ELSE»
 		Other:
 		«ENDIF»
-		\rule{332pt}{.1pt}
+		\smallpencil \hrulefill
 		«ENDIF»
 		\end{description}
 		'''
@@ -623,7 +633,7 @@ class DslGenerator implements IGenerator {
 		\begin{tabular}{ l «FOR a : answers»c «ENDFOR» }
 		«FOR a : answers»& \begin{sideways}«a.title»\end{sideways} «ENDFOR» \\ \hline
 		«FOR q : question.questions»
-		«q.title» «question.genLatexRequired(required || q.required)» «FOR a : answers»& $\square$«ENDFOR» \\ \hline
+		«q.title» «question.genLatexRequired(required || q.required)» «FOR a : answers»& \Square«ENDFOR» \\ \hline
 		«ENDFOR»
 		\end{tabular}
 		'''

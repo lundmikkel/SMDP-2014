@@ -1703,6 +1703,12 @@ public class DslGenerator implements IGenerator {
         CharSequence _genLatex = this.genLatex(item, "", false, "");
         _builder.append(_genLatex, "");
         _builder.newLineIfNotEmpty();
+        {
+          if ((item instanceof Question)) {
+            _builder.append("\\vspace{10mm}");
+            _builder.newLine();
+          }
+        }
       }
     }
     String body = _builder.toString();
@@ -1774,6 +1780,8 @@ public class DslGenerator implements IGenerator {
           Object _genLatex = this.genLatex(question, _dependsOn, _isRequired, refId);
           _builder.append(_genLatex, "");
           _builder.newLineIfNotEmpty();
+          _builder.append("\\vspace{10mm}");
+          _builder.newLine();
         }
       }
       _xblockexpression = (_builder);
@@ -1799,8 +1807,9 @@ public class DslGenerator implements IGenerator {
       {
         IntegerRange _upTo = new IntegerRange(1, count);
         for(final Integer i : _upTo) {
-          _builder.append("\\noindent\\makebox[\\linewidth]{\\rule{\\textwidth}{.1pt}}");
-          _builder.newLine();
+          CharSequence _genWritingLine = this.genWritingLine();
+          _builder.append(_genWritingLine, "");
+          _builder.newLineIfNotEmpty();
         }
       }
       _xblockexpression = (_builder);
@@ -1865,7 +1874,7 @@ public class DslGenerator implements IGenerator {
       int _max_2 = scale.getMax();
       IntegerRange _upTo_2 = new IntegerRange(_min_2, _max_2);
       for(final Integer i_2 : _upTo_2) {
-        _builder.append("& $\\square$ ");
+        _builder.append("& \\Square ");
       }
     }
     _builder.append("& ");
@@ -1883,8 +1892,9 @@ public class DslGenerator implements IGenerator {
     CharSequence _genLatexHeader = this.genLatexHeader(date, dependsOn, required);
     _builder.append(_genLatexHeader, "");
     _builder.newLineIfNotEmpty();
-    _builder.append("\\noindent\\makebox[\\linewidth]{\\rule{\\textwidth}{.1pt}}");
-    _builder.newLine();
+    CharSequence _genWritingLine = this.genWritingLine();
+    _builder.append(_genWritingLine, "");
+    _builder.newLineIfNotEmpty();
     _builder.append("Using this format: ");
     String _genDateFormat = this.genDateFormat(date);
     _builder.append(_genDateFormat, "");
@@ -1901,13 +1911,25 @@ public class DslGenerator implements IGenerator {
     CharSequence _genLatexHeader = this.genLatexHeader(number, dependsOn, required);
     _builder.append(_genLatexHeader, "");
     _builder.newLineIfNotEmpty();
-    _builder.append("\\noindent\\makebox[\\linewidth]{\\rule{\\textwidth}{.1pt}}");
-    _builder.newLine();
+    CharSequence _genWritingLine = this.genWritingLine();
+    _builder.append(_genWritingLine, "");
+    _builder.newLineIfNotEmpty();
     _builder.append("\\emph{");
     String _genLimitsDesc = this.genLimitsDesc(number);
     _builder.append(_genLimitsDesc, "");
     _builder.append("}");
     _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  public CharSequence genWritingLine() {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("~\\newline");
+    _builder.newLine();
+    _builder.append("\\smallpencil");
+    _builder.newLine();
+    _builder.append("\\noindent \\hrulefill \\\\");
+    _builder.newLine();
     return _builder;
   }
   
@@ -1923,7 +1945,7 @@ public class DslGenerator implements IGenerator {
     {
       ArrayList<Answer> _answers = this.getAnswers(question);
       for(final Answer a : _answers) {
-        _builder.append("\\item[$\\square$] ");
+        _builder.append("\\item[\\Square] ");
         String _title = a.getTitle();
         _builder.append(_title, "");
         _builder.newLineIfNotEmpty();
@@ -1941,7 +1963,7 @@ public class DslGenerator implements IGenerator {
         _or = (_isOther || _not);
       }
       if (_or) {
-        _builder.append("\\item[$\\square$] ");
+        _builder.append("\\item[\\Square] ");
         _builder.newLine();
         {
           String _otherLabel_1 = question.getOtherLabel();
@@ -1957,7 +1979,7 @@ public class DslGenerator implements IGenerator {
             _builder.newLine();
           }
         }
-        _builder.append("\\rule{332pt}{.1pt}");
+        _builder.append("\\smallpencil \\hrulefill");
         _builder.newLine();
       }
     }
@@ -1981,7 +2003,7 @@ public class DslGenerator implements IGenerator {
     {
       ArrayList<Answer> _answers = this.getAnswers(question);
       for(final Answer a : _answers) {
-        _builder.append("\\item[$\\square$] ");
+        _builder.append("\\item[\\Square] ");
         String _title = a.getTitle();
         _builder.append(_title, "");
         _builder.newLineIfNotEmpty();
@@ -1999,7 +2021,7 @@ public class DslGenerator implements IGenerator {
         _or = (_isOther || _not);
       }
       if (_or) {
-        _builder.append("\\item[$\\square$] ");
+        _builder.append("\\item[\\Square] ");
         _builder.newLine();
         {
           String _otherLabel_1 = question.getOtherLabel();
@@ -2015,7 +2037,7 @@ public class DslGenerator implements IGenerator {
             _builder.newLine();
           }
         }
-        _builder.append("\\rule{332pt}{.1pt}");
+        _builder.append("\\smallpencil \\hrulefill");
         _builder.newLine();
       }
     }
@@ -2070,7 +2092,7 @@ public class DslGenerator implements IGenerator {
           _builder.append(" ");
           {
             for(final Answer a_2 : answers) {
-              _builder.append("& $\\square$");
+              _builder.append("& \\Square");
             }
           }
           _builder.append(" \\\\ \\hline");

@@ -5,9 +5,10 @@ class LatexTemplate {
 		'''
 		\documentclass{article}
 
-		\usepackage{amssymb}
 		\usepackage{rotating}
 		\usepackage{fullpage}
+		\usepackage{dingbat}
+		\usepackage{wasysym}
 		
 		\begin{document}
 		

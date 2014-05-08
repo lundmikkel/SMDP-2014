@@ -10,11 +10,13 @@ public class LatexTemplate {
     _builder.append("\\documentclass{article}");
     _builder.newLine();
     _builder.newLine();
-    _builder.append("\\usepackage{amssymb}");
-    _builder.newLine();
     _builder.append("\\usepackage{rotating}");
     _builder.newLine();
     _builder.append("\\usepackage{fullpage}");
+    _builder.newLine();
+    _builder.append("\\usepackage{dingbat}");
+    _builder.newLine();
+    _builder.append("\\usepackage{wasysym}");
     _builder.newLine();
     _builder.newLine();
     _builder.append("\\begin{document}");
