@@ -40,6 +40,11 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cNameAssignment_1_1_2_1 = (Assignment)cGroup_1_1_2.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_1_2_1_0 = (RuleCall)cNameAssignment_1_1_2_1.eContents().get(0);
 		private final Keyword cQuotationMarkKeyword_1_1_2_2 = (Keyword)cGroup_1_1_2.eContents().get(2);
+		private final Group cGroup_1_1_3 = (Group)cUnorderedGroup_1_1.eContents().get(3);
+		private final Keyword cEmailKeyword_1_1_3_0 = (Keyword)cGroup_1_1_3.eContents().get(0);
+		private final Assignment cMailAssignment_1_1_3_1 = (Assignment)cGroup_1_1_3.eContents().get(1);
+		private final RuleCall cMailSTRINGTerminalRuleCall_1_1_3_1_0 = (RuleCall)cMailAssignment_1_1_3_1.eContents().get(0);
+		private final Keyword cQuotationMarkKeyword_1_1_3_2 = (Keyword)cGroup_1_1_3.eContents().get(2);
 		private final Keyword cGreaterThanSignKeyword_1_2 = (Keyword)cGroup_1.eContents().get(2);
 		private final Alternatives cAlternatives_1_3 = (Alternatives)cGroup_1.eContents().get(3);
 		private final Assignment cItemsAssignment_1_3_0 = (Assignment)cAlternatives_1_3.eContents().get(0);
@@ -49,28 +54,29 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cSurveyKeyword_1_4 = (Keyword)cGroup_1.eContents().get(4);
 		
 		//Survey:
-		//	{Survey} ("<survey" (("title=\"" title=EString? "\"")? & ("description=\"" description=EString? "\"")? &
-		//	("filename=\"" name=ID? "\"")?) ">" (items+=Item | templates+=AnswerTemplate)* "</survey>")?;
+		//	{Survey} ("<survey" ("title=\"" title=EString? "\"" & ("description=\"" description=EString? "\"")? & ("filename=\""
+		//	name=ID? "\"")? & "email=\"" mail=STRING "\"") ">" (items+=Item | templates+=AnswerTemplate)* "</survey>")?;
 		public ParserRule getRule() { return rule; }
 
-		//{Survey} ("<survey" (("title=\"" title=EString? "\"")? & ("description=\"" description=EString? "\"")? & ("filename=\""
-		//name=ID? "\"")?) ">" (items+=Item | templates+=AnswerTemplate)* "</survey>")?
+		//{Survey} ("<survey" ("title=\"" title=EString? "\"" & ("description=\"" description=EString? "\"")? & ("filename=\""
+		//name=ID? "\"")? & "email=\"" mail=STRING "\"") ">" (items+=Item | templates+=AnswerTemplate)* "</survey>")?
 		public Group getGroup() { return cGroup; }
 
 		//{Survey}
 		public Action getSurveyAction_0() { return cSurveyAction_0; }
 
-		//("<survey" (("title=\"" title=EString? "\"")? & ("description=\"" description=EString? "\"")? & ("filename=\"" name=ID?
-		//"\"")?) ">" (items+=Item | templates+=AnswerTemplate)* "</survey>")?
+		//("<survey" ("title=\"" title=EString? "\"" & ("description=\"" description=EString? "\"")? & ("filename=\"" name=ID?
+		//"\"")? & "email=\"" mail=STRING "\"") ">" (items+=Item | templates+=AnswerTemplate)* "</survey>")?
 		public Group getGroup_1() { return cGroup_1; }
 
 		//"<survey"
 		public Keyword getSurveyKeyword_1_0() { return cSurveyKeyword_1_0; }
 
-		//("title=\"" title=EString? "\"")? & ("description=\"" description=EString? "\"")? & ("filename=\"" name=ID? "\"")?
+		//"title=\"" title=EString? "\"" & ("description=\"" description=EString? "\"")? & ("filename=\"" name=ID? "\"")? &
+		//"email=\"" mail=STRING "\""
 		public UnorderedGroup getUnorderedGroup_1_1() { return cUnorderedGroup_1_1; }
 
-		//("title=\"" title=EString? "\"")?
+		//"title=\"" title=EString? "\""
 		public Group getGroup_1_1_0() { return cGroup_1_1_0; }
 
 		//"title=\""
@@ -114,6 +120,21 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 
 		//"\""
 		public Keyword getQuotationMarkKeyword_1_1_2_2() { return cQuotationMarkKeyword_1_1_2_2; }
+
+		//"email=\"" mail=STRING "\""
+		public Group getGroup_1_1_3() { return cGroup_1_1_3; }
+
+		//"email=\""
+		public Keyword getEmailKeyword_1_1_3_0() { return cEmailKeyword_1_1_3_0; }
+
+		//mail=STRING
+		public Assignment getMailAssignment_1_1_3_1() { return cMailAssignment_1_1_3_1; }
+
+		//STRING
+		public RuleCall getMailSTRINGTerminalRuleCall_1_1_3_1_0() { return cMailSTRINGTerminalRuleCall_1_1_3_1_0; }
+
+		//"\""
+		public Keyword getQuotationMarkKeyword_1_1_3_2() { return cQuotationMarkKeyword_1_1_3_2; }
 
 		//">"
 		public Keyword getGreaterThanSignKeyword_1_2() { return cGreaterThanSignKeyword_1_2; }
@@ -2386,8 +2407,8 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//Survey:
-	//	{Survey} ("<survey" (("title=\"" title=EString? "\"")? & ("description=\"" description=EString? "\"")? &
-	//	("filename=\"" name=ID? "\"")?) ">" (items+=Item | templates+=AnswerTemplate)* "</survey>")?;
+	//	{Survey} ("<survey" ("title=\"" title=EString? "\"" & ("description=\"" description=EString? "\"")? & ("filename=\""
+	//	name=ID? "\"")? & "email=\"" mail=STRING "\"") ">" (items+=Item | templates+=AnswerTemplate)* "</survey>")?;
 	public SurveyElements getSurveyAccess() {
 		return (pSurvey != null) ? pSurvey : (pSurvey = new SurveyElements());
 	}

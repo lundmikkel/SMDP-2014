@@ -299,6 +299,15 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getSurvey_Mail() {
+		return (EAttribute)surveyEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getItem() {
 		return itemEClass;
 	}
@@ -744,6 +753,7 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 		surveyEClass = createEClass(SURVEY);
 		createEReference(surveyEClass, SURVEY__ITEMS);
 		createEReference(surveyEClass, SURVEY__TEMPLATES);
+		createEAttribute(surveyEClass, SURVEY__MAIL);
 
 		itemEClass = createEClass(ITEM);
 		createEAttribute(itemEClass, ITEM__REQUIRED);
@@ -870,6 +880,7 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 		initEClass(surveyEClass, Survey.class, "Survey", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSurvey_Items(), this.getItem(), null, "items", null, 0, -1, Survey.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSurvey_Templates(), this.getAnswerTemplate(), null, "templates", null, 0, -1, Survey.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSurvey_Mail(), ecorePackage.getEString(), "mail", null, 0, 1, Survey.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(itemEClass, Item.class, "Item", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getItem_Required(), ecorePackage.getEBoolean(), "required", null, 0, 1, Item.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

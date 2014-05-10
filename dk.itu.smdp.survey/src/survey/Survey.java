@@ -14,6 +14,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link survey.Survey#getItems <em>Items</em>}</li>
  *   <li>{@link survey.Survey#getTemplates <em>Templates</em>}</li>
+ *   <li>{@link survey.Survey#getMail <em>Mail</em>}</li>
  * </ul>
  * </p>
  *
@@ -53,5 +54,31 @@ public interface Survey extends Meta {
 	 * @generated
 	 */
 	EList<AnswerTemplate> getTemplates();
+
+	/**
+	 * Returns the value of the '<em><b>Mail</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Mail</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Mail</em>' attribute.
+	 * @see #setMail(String)
+	 * @see survey.SurveyPackage#getSurvey_Mail()
+	 * @model
+	 * @generated
+	 */
+	String getMail();
+
+	/**
+	 * Sets the value of the '{@link survey.Survey#getMail <em>Mail</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Mail</em>' attribute.
+	 * @see #getMail()
+	 * @generated
+	 */
+	void setMail(String value);
 
 } // Survey

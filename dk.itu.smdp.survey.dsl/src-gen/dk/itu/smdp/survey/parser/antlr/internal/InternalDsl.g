@@ -208,32 +208,71 @@ ruleSurvey returns [EObject current=null]
 	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getSurveyAccess().getUnorderedGroup_1_1());
 	 				}
  				)
+			)  |
+
+			( 
+				{getUnorderedGroupHelper().canSelect(grammarAccess.getSurveyAccess().getUnorderedGroup_1_1(), 3)}?=>(
+					{ 
+	 				  getUnorderedGroupHelper().select(grammarAccess.getSurveyAccess().getUnorderedGroup_1_1(), 3);
+	 				}
+					({true}?=>(	otherlv_12='email="' 
+    {
+    	newLeafNode(otherlv_12, grammarAccess.getSurveyAccess().getEmailKeyword_1_1_3_0());
+    }
+(
+(
+		lv_mail_13_0=RULE_STRING
+		{
+			newLeafNode(lv_mail_13_0, grammarAccess.getSurveyAccess().getMailSTRINGTerminalRuleCall_1_1_3_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getSurveyRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"mail",
+        		lv_mail_13_0, 
+        		"STRING");
+	    }
+
+)
+)	otherlv_14='"' 
+    {
+    	newLeafNode(otherlv_14, grammarAccess.getSurveyAccess().getQuotationMarkKeyword_1_1_3_2());
+    }
+))
+					{ 
+	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getSurveyAccess().getUnorderedGroup_1_1());
+	 				}
+ 				)
 			)  
 
-		)*	
+		)+
+	  	{getUnorderedGroupHelper().canLeave(grammarAccess.getSurveyAccess().getUnorderedGroup_1_1())}?	
 	)
 )
 	{ 
 	  getUnorderedGroupHelper().leave(grammarAccess.getSurveyAccess().getUnorderedGroup_1_1());
 	}
 
-)	otherlv_12='>' 
+)	otherlv_15='>' 
     {
-    	newLeafNode(otherlv_12, grammarAccess.getSurveyAccess().getGreaterThanSignKeyword_1_2());
+    	newLeafNode(otherlv_15, grammarAccess.getSurveyAccess().getGreaterThanSignKeyword_1_2());
     }
 ((
 (
 		{ 
 	        newCompositeNode(grammarAccess.getSurveyAccess().getItemsItemParserRuleCall_1_3_0_0()); 
 	    }
-		lv_items_13_0=ruleItem		{
+		lv_items_16_0=ruleItem		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getSurveyRule());
 	        }
        		add(
        			$current, 
        			"items",
-        		lv_items_13_0, 
+        		lv_items_16_0, 
         		"Item");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -245,22 +284,22 @@ ruleSurvey returns [EObject current=null]
 		{ 
 	        newCompositeNode(grammarAccess.getSurveyAccess().getTemplatesAnswerTemplateParserRuleCall_1_3_1_0()); 
 	    }
-		lv_templates_14_0=ruleAnswerTemplate		{
+		lv_templates_17_0=ruleAnswerTemplate		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getSurveyRule());
 	        }
        		add(
        			$current, 
        			"templates",
-        		lv_templates_14_0, 
+        		lv_templates_17_0, 
         		"AnswerTemplate");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-))*	otherlv_15='</survey>' 
+))*	otherlv_18='</survey>' 
     {
-    	newLeafNode(otherlv_15, grammarAccess.getSurveyAccess().getSurveyKeyword_1_4());
+    	newLeafNode(otherlv_18, grammarAccess.getSurveyAccess().getSurveyKeyword_1_4());
     }
 )?)
 ;

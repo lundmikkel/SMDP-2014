@@ -11,6 +11,7 @@ import java.util.HashMap;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.validation.Check;
+import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IntegerRange;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
@@ -47,7 +48,7 @@ public class DslValidator extends AbstractDslValidator {
   
   public final static String MISSING_ATTRIBUTE = "missingAttribute";
   
-  private final static String noThreeUnderscores = "The string may not contain three underscores";
+  private final static String invalidEmailAddressString = "The email address must be valid";
   
   private final static String minIsLessThanMaxString = "Max value must be larger than min value";
   
@@ -66,6 +67,31 @@ public class DslValidator extends AbstractDslValidator {
   private final static String betterUseSingleString = "If your maximum is one, you should rather use a single question instead of a multiple for usability reasons";
   
   private final static String setDateGranularityString = "You must specify the date\'s granularity";
+  
+  @Check
+  public void checkValidEmailAddress(final Survey survey) {
+    boolean valid = false;
+    final String emailreg = "^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$";
+    try {
+      String _mail = survey.getMail();
+      boolean _matches = _mail.matches(emailreg);
+      valid = _matches;
+    } catch (final Throwable _t) {
+      if (_t instanceof Exception) {
+        final Exception e = (Exception)_t;
+        valid = false;
+      } else {
+        throw Exceptions.sneakyThrow(_t);
+      }
+    }
+    boolean _not = (!valid);
+    if (_not) {
+      this.error(
+        DslValidator.invalidEmailAddressString, survey, 
+        Literals.SURVEY__MAIL, 
+        DslValidator.INVALID_VALUE);
+    }
+  }
   
   /**
    * Check that the min is less than max value in a scale

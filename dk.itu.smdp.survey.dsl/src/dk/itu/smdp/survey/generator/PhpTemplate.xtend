@@ -1,7 +1,377 @@
 package dk.itu.smdp.survey.generator
 
-class PhpTemplate {
-	def static String template(String title, String description, String formContent) {
+import java.util.HashMap
+import org.eclipse.xtext.generator.IFileSystemAccess
+import survey.Answer
+import survey.Date
+import survey.Group
+import survey.Item
+import survey.Multiple
+import survey.Number
+import survey.Question
+import survey.Scale
+import survey.Single
+import survey.Survey
+import survey.Table
+import survey.Text
+
+class PhpTemplate extends SurveyTemplate {
+	int nextId = 0
+	HashMap<Question, String> idMap = new HashMap<Question, String>()
+	Survey survey
+	IFileSystemAccess fsa
+	
+	new(Survey survey, IFileSystemAccess fsa) {
+		this.survey = survey
+		this.fsa = fsa
+	}
+	
+	def Generate() {
+		var body = '''
+			«FOR item : survey.items»
+				«item.genHtml("", false, "")»
+			«ENDFOR»
+		'''
+		
+		var template = template(survey.title, survey.description, body)
+		val filename = (if (survey.name.nullOrEmpty) "index" else survey.name) + ".php"
+		fsa.generateFile(filename, template)
+	}
+	
+	def getUniqueId(Question question) {
+		nextId = nextId + 1;
+		var id = 'input' + nextId;
+		idMap.put(question, id);
+		return id;
+	}
+	def genRefIdAttr(String id, int i) '''
+		«IF !id.nullOrEmpty»
+		id="«id.substring(1)»-«i»"
+		«ENDIF»
+	'''
+	
+	def genRefIdAttr(String id, Answer a) '''
+		«IF !id.nullOrEmpty || !a.name.nullOrEmpty»
+		id="«(if (!id.nullOrEmpty) (id.substring(1)) + "-" else "") + a.name»"
+		«ENDIF»
+	'''
+	
+	def genRefIdAttr(String id) '''
+		«IF !id.nullOrEmpty»
+		id="«id.substring(1)»"
+		«ENDIF»
+	'''
+	
+	def genDateMinViewMode(Date question) {
+		if (question.day)
+			return 0
+		if (question.month)
+			return 1
+		if (question.year)
+			return 2
+	}
+	
+	def genHiddenInput(Question question, String id) {
+		genHiddenInputWithString(question.title, id)
+	}
+	
+	def genHiddenInputWithString(String text, String id) '''
+		<input type="hidden" name="«id»[question]" value="«text»" />
+	'''
+				
+	def genRequiredAttr(Question question, boolean requiredParent)
+		'''«IF requiredParent || question.required» required «ENDIF»'''
+	
+	def getMin(Multiple question, boolean required) {
+		var min = if (question.min != null) question.min else 0
+		if ((required || question.required) && min == 0)
+			min = 1
+		return min
+	}
+	
+	def getMax(Multiple question, boolean required) {
+		if (question.max != null) question.max.intValue else null
+	}
+	
+	//data-rule-required="#«item.dependsOn»:checked"
+	def genDependsOnAttr(Item item) '''
+		«IF !item.dependsOn.nullOrEmpty»
+		data-depends-on="«item.dependsOn»"
+		«ENDIF»
+	'''
+	
+	def genDependsOn(Question question) {
+		val s = question.genLimitsDesc
+		
+		if (!s.nullOrEmpty) {
+			'''<p class="help-block">«s»</p>'''
+		}
+	}
+	
+	def dispatch String genHtml(Group group, String dependsOn, boolean required, String pid) {
+		val refId = if (group.name.nullOrEmpty) pid else pid + "-" + group.name
+		'''
+		<div class="group" «group.genDependsOnAttr»>
+		    «IF !group.title.nullOrEmpty»
+		    <h2>«group.title»</h2>
+		    «ENDIF»
+		    « IF !group.description.nullOrEmpty »
+		    <p class="lead">«group.description»</p>
+		    «ENDIF»
+			«FOR question : group.questions»
+				«question.genHtml("", group.required, refId)»
+			«ENDFOR»
+		</div>
+		'''
+	}
+	
+	def genHeader(Question question, boolean required) {
+		question.genHeader(required, "")
+	}
+	
+	def genHeader(Question question, boolean required, String extraAttributes) '''
+		<label class="control-label" «extraAttributes»>
+	        «question.title» «question.genRequiredLabel(required)»
+	        «IF !question.description.nullOrEmpty»<p class="help-block">«question.description»</p>«ENDIF»
+		</label>
+		«IF !(question instanceof Table)»
+		«question.genHiddenInput(idMap.get(question))»
+		«ENDIF»
+	'''
+	
+	def dispatch String genHtml(Text question, String dependsOn, boolean required, String pid) {
+		var id = getUniqueId(question)
+		var refId = if (question.name.nullOrEmpty) "" else pid + "-" + question.name
+		if (refId.nullOrEmpty)
+			refId = "-" + id
+		
+		'''
+		<div class="form-group" «question.genDependsOnAttr»>
+			«question.genHeader(required, '''for="«id»"''')»
+		    <div class="row">
+		        <div class="col-xs-4">
+					«IF !question.multiline»
+					<input class="form-control" «genRefIdAttr(refId)» name="«id»[answer]" «question.genRequiredAttr(required)»>
+					«ELSE»
+					<textarea class="form-control" «genRefIdAttr(refId)» name="«id»[answer]" rows="3" «question.genRequiredAttr(required)»></textarea>
+					«ENDIF»
+		        </div>
+		    </div>
+		</div>
+		'''
+	}
+	
+	def dispatch String genHtml(Scale question, String dependsOn, boolean required, String pid) {
+		val id = getUniqueId(question)
+		// For label references
+		if (question.name.nullOrEmpty)
+			question.name = id
+		val refId = pid + "-" + question.name
+		
+		'''
+	    <div class="form-group" «question.genDependsOnAttr»>
+	    	«question.genHeader(required)»
+	        <table class="scale">
+	            <tr class="top">
+	            	«IF !question.minLabel.nullOrEmpty »
+	            	<td></td>
+	                «ENDIF»
+	                «FOR i : question.min..question.max BEFORE '<td>' SEPARATOR '</td><td>' AFTER '</td>' »
+	                <label for="«refId.substring(1)»-_«i»">«i»</label>
+	                «ENDFOR»
+	            	«IF !question.minLabel.nullOrEmpty »
+	            	<td></td>
+	                «ENDIF»
+	            </tr>
+	            <tr class="bottom">
+	            	«IF !question.minLabel.nullOrEmpty »
+	            	<td><label for="«refId.substring(1)»-_«question.min»">«question.minLabel»</label></td>
+	                «ENDIF»
+	                «FOR i : question.min..question.max BEFORE '<td>' SEPARATOR '</td><td>' AFTER '</td>' »
+	                <input type="radio" name="«id»[answer]" «genRefIdAttr(refId, i)» value="«i»" «question.genRequiredAttr(required)»/>
+	                «ENDFOR»
+	            	«IF !question.minLabel.nullOrEmpty »
+	            	<td><label for="«refId.substring(1)»-_«question.max»">«question.maxLabel»</label></td>
+	                «ENDIF»
+	            </tr>
+	        </table>
+	    </div>
+		'''
+	}
+	def dispatch String genHtml(Date question, String dependsOn, boolean required, String pid) {
+		val id = getUniqueId(question)
+		val refId = if (question.name.nullOrEmpty) "" else pid + "-" + question.name
+		
+		'''
+		<div class="form-group" «question.genDependsOnAttr»>
+			«question.genHeader(required, '''for="«id»"''')»
+		    <div class="row">
+		        <div class="col-xs-4">
+				    <div class="input-group date"
+				    	data-date-format="«question.genDateFormat»"
+				    	data-date-min-view-mode="«question.genDateMinViewMode»"
+				    	«IF !question.start.nullOrEmpty»data-date-start-date="«question.start»"«ENDIF»
+				    	«IF !question.end.nullOrEmpty»data-date-end-date="«question.end»"«ENDIF»
+				    	>
+						<input «genRefIdAttr(refId)» name="«id»[answer]" type="text" class="form-control" «question.genRequiredAttr(required)»>
+						<span class="input-group-addon">
+							<i class="glyphicon glyphicon-calendar"></i>
+						</span>
+					</div>
+				</div>
+				«IF question.showLimits»
+				«question.genDependsOn»
+				«ENDIF»
+		    </div>
+		</div>
+		'''
+	}
+	
+	def dispatch String genHtml(Number question, String dependsOn, boolean required, String pid) {
+		var id = getUniqueId(question);
+		val refId = if (question.name.nullOrEmpty) "" else pid + "-" + question.name
+		
+		'''
+		<div class="form-group" «question.genDependsOnAttr»>
+	    	«question.genHeader(required, '''for="«id»"''')»
+		    <div class="row">
+		        <div class="col-xs-2">
+		            <input type="number" class="form-control"  «genRefIdAttr(refId)» name="«id»[answer]" «question.genRequiredAttr(required)» step="1"
+		            «IF question.min != null»
+		            min="«question.min»" data-rule-min="«question.min»"
+		            «ENDIF»
+		            «IF question.max != null»
+		            max="«question.max»" data-rule-max="«question.max»"
+		            «ENDIF»
+		            >
+		        </div>
+		    </div>
+            «IF question.showLimits»
+            «question.genDependsOn»
+            «ENDIF»
+		</div>
+		'''
+	}
+	
+	def dispatch String genHtml(Single question, String dependsOn, boolean required, String pid) {
+		var id = getUniqueId(question);
+		val refId = if (question.name.nullOrEmpty) "" else pid + "-" + question.name
+		
+		'''
+		<div class="form-group" «question.genDependsOnAttr»>
+	    	«question.genHeader(required)»
+			<div>
+				«FOR a : question.getAnswers BEFORE '<div class="radio"><label>'
+											 SEPARATOR '</label></div><div class="radio"><label>'
+											 AFTER '</label></div>' »
+				<input
+					type="radio"
+					name="«id»[answer][]"
+					«genRefIdAttr(refId, a)»
+					value="«a.title»"
+					«question.genRequiredAttr(required)»
+				/>
+				«a.title»
+				«ENDFOR»
+				«IF question.other || !question.otherLabel.nullOrEmpty»
+				<div class="radio">
+				<input type="radio" name="«id»[answer][]" value="" «question.genRequiredAttr(required)»/>
+				«IF !question.otherLabel.nullOrEmpty»
+				«question.otherLabel»:
+				«ELSE»
+				Other:
+				«ENDIF»
+				<input class="other-option" type="text" name="«id»[answer][]"/>
+				</div>
+				«ENDIF»
+			</div>
+		</div>
+		'''
+	}
+		
+	def dispatch String genHtml(Multiple question, String dependsOn, boolean required, String pid) {
+		val id = getUniqueId(question);
+		val min = question.getMin(required)
+		val max = question.getMax(required)
+		val refId = if (question.name.nullOrEmpty) pid else pid + "-" + question.name
+		val answers = question.getAnswers
+		
+		'''
+		<div class="form-group">
+			«question.genDependsOnAttr»
+	    	«question.genHeader(required || min > 0)»
+		    «FOR a : answers»
+		    <div class="checkbox">
+			    <label>
+				    <input
+				    	type="checkbox"
+				    	name="«id»[answer][]"
+				    	«genRefIdAttr(refId, a)»
+				    	value="«a.title»"
+						«question.genRequiredAttr(required || min > 0)»
+						«IF min > 0» data-rule-minlength="«min»" «ENDIF»
+						«IF max != null» data-rule-maxlength="«max»" «ENDIF»
+					/>
+			    	«a.title»
+			    </label>
+		    </div>
+			«ENDFOR»
+			«IF question.other || !question.otherLabel.nullOrEmpty»
+			<div class="checkbox">
+			<input type="checkbox" name="«id»[answer][]" value="" «question.genRequiredAttr(required || min > 0)»/>
+			«IF !question.otherLabel.nullOrEmpty»
+			«question.otherLabel»:
+			«ELSE»
+			Other:
+			«ENDIF»
+			<input class="other-option" type="text" name="«id»[answer][]"/>
+			</div>
+			«ENDIF»
+			«IF question.showLimits»
+			«question.genDependsOn»
+			«ENDIF»
+		</div>
+		'''
+	}
+	
+	def dispatch String genHtml(Table question, String dependsOn, boolean required, String pid) {
+		val answers = question.getAnswers
+		'''
+		<div class="form-group" «question.genDependsOnAttr»>
+	    	«question.genHeader(required)»
+		    <table class="table table-striped">
+		    	<thead>
+					<tr>
+						<th></th>
+						«FOR a : answers»
+						<th>«a.title»</th>
+						«ENDFOR»
+					</tr>
+				</thead>
+				<tbody>
+					«FOR q : question.questions»
+					<tr>
+					    <td><label for="«var qid = getUniqueId(question)»">«q.title» «question.genRequiredLabel(required || q.required)»</label></td>
+					    «genHiddenInputWithString(q.title, qid)»
+					    «FOR a : answers»
+					    <td>
+					    <input
+					    	type="«IF question.multiple»checkbox«ELSE»radio«ENDIF»"
+					    	name="«qid»[answer]"
+					    	value="«a.title»"
+					    	«genRefIdAttr(if (q.name.nullOrEmpty) pid else pid + "-" + q.name, a)»
+					    	«question.genRequiredAttr(required || q.required)»
+					    /></td>
+					    «ENDFOR»
+					</tr>
+				    «ENDFOR»
+				</tbody>
+			</table>
+		</div>
+		'''
+	}
+	
+	def String template(String title, String description, String formContent) {
 		'''
 		<!DOCTYPE html>
 		<html lang="en">
@@ -35,23 +405,16 @@ class PhpTemplate {
 							</div>
 			    		<?php
 			    		
-			    		/*echo '<pre>';
-						print_r($_POST);
-						echo '</pre>';*/
+			    		$s = '<dl>';
 			    		
-			    		echo '<div class="well"><dl>';
 						foreach ($_POST as $array) {
 							// No answer
 							if (!isset($array['answer']) || empty($array['answer'])) {
 								continue;
 							}
 							
-							/*echo '<pre>';
-							print_r($array);
-							echo '</pre>';*/
-							
 							// Print question text
-							echo '<dt>', $array['question'], '</dt>';
+							$s .= '<dt>' . $array['question'] . '</dt>';
 							
 							// Print answer(s)
 							$answers = $array['answer'];
@@ -62,14 +425,16 @@ class PhpTemplate {
 										continue;
 									}
 									
-									echo '<dd>', $answer, '</dd>';
+									$s .= '<dd>' . $answer . '</dd>';
 								}
 							}
 							else {
-								echo '<dd>', $answers, '</dd>';
+								$s .= '<dd>' . $answers . '</dd>';
 							}
 						}
-						echo '</dl></div>';
+						$s .= '</dl>';
+						
+			    		echo '<div class="well">' . $s . '</div>';
 						
 						else:
 						?>
@@ -104,7 +469,7 @@ class PhpTemplate {
 		'''
 	}
 	
-	def static css() '''
+	def css() '''
 		.group {
 			margin-bottom: 20px;
 		}
@@ -171,7 +536,7 @@ class PhpTemplate {
 		}
     '''
     
-    def static js() '''
+    def js() '''
 		$('.input-group.date').datepicker({
 			autoclose: true,
 			todayHighlight: true,

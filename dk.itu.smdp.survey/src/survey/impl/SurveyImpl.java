@@ -4,6 +4,7 @@ package survey.impl;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -11,6 +12,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -28,6 +30,7 @@ import survey.SurveyPackage;
  * <ul>
  *   <li>{@link survey.impl.SurveyImpl#getItems <em>Items</em>}</li>
  *   <li>{@link survey.impl.SurveyImpl#getTemplates <em>Templates</em>}</li>
+ *   <li>{@link survey.impl.SurveyImpl#getMail <em>Mail</em>}</li>
  * </ul>
  * </p>
  *
@@ -53,6 +56,26 @@ public class SurveyImpl extends MetaImpl implements Survey {
 	 * @ordered
 	 */
 	protected EList<AnswerTemplate> templates;
+
+	/**
+	 * The default value of the '{@link #getMail() <em>Mail</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMail()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String MAIL_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getMail() <em>Mail</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMail()
+	 * @generated
+	 * @ordered
+	 */
+	protected String mail = MAIL_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -102,6 +125,27 @@ public class SurveyImpl extends MetaImpl implements Survey {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getMail() {
+		return mail;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMail(String newMail) {
+		String oldMail = mail;
+		mail = newMail;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SurveyPackage.SURVEY__MAIL, oldMail, mail));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -125,6 +169,8 @@ public class SurveyImpl extends MetaImpl implements Survey {
 				return getItems();
 			case SurveyPackage.SURVEY__TEMPLATES:
 				return getTemplates();
+			case SurveyPackage.SURVEY__MAIL:
+				return getMail();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -146,6 +192,9 @@ public class SurveyImpl extends MetaImpl implements Survey {
 				getTemplates().clear();
 				getTemplates().addAll((Collection<? extends AnswerTemplate>)newValue);
 				return;
+			case SurveyPackage.SURVEY__MAIL:
+				setMail((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -164,6 +213,9 @@ public class SurveyImpl extends MetaImpl implements Survey {
 			case SurveyPackage.SURVEY__TEMPLATES:
 				getTemplates().clear();
 				return;
+			case SurveyPackage.SURVEY__MAIL:
+				setMail(MAIL_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -180,8 +232,26 @@ public class SurveyImpl extends MetaImpl implements Survey {
 				return items != null && !items.isEmpty();
 			case SurveyPackage.SURVEY__TEMPLATES:
 				return templates != null && !templates.isEmpty();
+			case SurveyPackage.SURVEY__MAIL:
+				return MAIL_EDEFAULT == null ? mail != null : !MAIL_EDEFAULT.equals(mail);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (mail: ");
+		result.append(mail);
+		result.append(')');
+		return result.toString();
 	}
 
 } //SurveyImpl

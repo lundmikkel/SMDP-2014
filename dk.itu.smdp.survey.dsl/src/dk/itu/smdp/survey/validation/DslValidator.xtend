@@ -35,8 +35,7 @@ class DslValidator extends AbstractDslValidator {
 	public static val INVALID_DATE = 'invalidDate'
 	public static val MISSING_ATTRIBUTE = 'missingAttribute'
 	
-	
-	private static val noThreeUnderscores = 'The string may not contain three underscores'
+	private static val invalidEmailAddressString = 'The email address must be valid'
 	private static val minIsLessThanMaxString = 'Max value must be larger than min value'
 	private static val minIsLessThanOrEqualMaxString = 'Max value must be larger than or equal to min value'
 	private static val positiveNumberString = 'An answer is required, so the min value must be positive'
@@ -46,6 +45,27 @@ class DslValidator extends AbstractDslValidator {
 	private static val noNegativeValueString = 'The value must be non-negative'
 	private static val betterUseSingleString = 'If your maximum is one, you should rather use a single question instead of a multiple for usability reasons'
 	private static val setDateGranularityString = "You must specify the date's granularity"
+
+	@Check
+	def checkValidEmailAddress(Survey survey) {
+		var boolean valid
+		val emailreg = "^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$"
+		try {
+			valid = survey.mail.matches(emailreg);
+		} catch (Exception e) {
+			valid = false;
+		}
+		
+		if (!valid) {
+			error(
+				invalidEmailAddressString,
+				survey,
+				SurveyPackage.Literals.SURVEY__MAIL,
+				INVALID_VALUE
+			)
+		}
+	}
+
 
 	/**
 	 * Check that the min is less than max value in a scale 

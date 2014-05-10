@@ -167,13 +167,22 @@ public interface SurveyPackage extends EPackage {
 	int SURVEY__TEMPLATES = META_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Mail</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SURVEY__MAIL = META_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Survey</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SURVEY_FEATURE_COUNT = META_FEATURE_COUNT + 2;
+	int SURVEY_FEATURE_COUNT = META_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Survey</em>' class.
@@ -1655,6 +1664,17 @@ public interface SurveyPackage extends EPackage {
 	EReference getSurvey_Templates();
 
 	/**
+	 * Returns the meta object for the attribute '{@link survey.Survey#getMail <em>Mail</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Mail</em>'.
+	 * @see survey.Survey#getMail()
+	 * @see #getSurvey()
+	 * @generated
+	 */
+	EAttribute getSurvey_Mail();
+
+	/**
 	 * Returns the meta object for class '{@link survey.Item <em>Item</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2225,6 +2245,14 @@ public interface SurveyPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SURVEY__TEMPLATES = eINSTANCE.getSurvey_Templates();
+
+		/**
+		 * The meta object literal for the '<em><b>Mail</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SURVEY__MAIL = eINSTANCE.getSurvey_Mail();
 
 		/**
 		 * The meta object literal for the '{@link survey.impl.ItemImpl <em>Item</em>}' class.

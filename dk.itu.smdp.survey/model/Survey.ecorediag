@@ -3,6 +3,10 @@
   <children xmi:type="notation:Node" xmi:id="_vDSsEKn_EeOq5bg1AprPlQ" type="1001">
     <children xmi:type="notation:Node" xmi:id="_vDT6MKn_EeOq5bg1AprPlQ" type="4001"/>
     <children xmi:type="notation:Node" xmi:id="_vDUhQKn_EeOq5bg1AprPlQ" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_I36KMNgiEeOIlpHhLdH7VQ" type="2001">
+        <element xmi:type="ecore:EAttribute" href="Survey.ecore#//Survey/mail"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_I36KMdgiEeOIlpHhLdH7VQ"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_vDUhQan_EeOq5bg1AprPlQ"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_vDUhQqn_EeOq5bg1AprPlQ"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_vDUhQ6n_EeOq5bg1AprPlQ"/>
@@ -551,7 +555,7 @@
     <styles xmi:type="notation:FontStyle" xmi:id="_dYKagrTpEeOUudlMY6Mo_A" fontColor="4210752" fontName="Lucida Grande" fontHeight="10"/>
     <element xmi:type="ecore:EReference" href="Survey.ecore#//Survey/templates"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_dYKag7TpEeOUudlMY6Mo_A" points="[3, 5, -604, 0]$[549, 5, -58, 0]"/>
-    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_gHoRcLTpEeOUudlMY6Mo_A" id="(0.9705882352941176,0.6190476190476191)"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_gHoRcLTpEeOUudlMY6Mo_A" id="(0.8529411764705882,0.24489795918367346)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_oORqgNPMEeOqdIQkW-D17w" id="(0.008403361344537815,0.2653061224489796)"/>
   </edges>
   <edges xmi:type="notation:Edge" xmi:id="_je2V0LTyEeOUudlMY6Mo_A" type="3003" source="_iXgTQLTyEeOUudlMY6Mo_A" target="_zGO9EKn_EeOq5bg1AprPlQ">
