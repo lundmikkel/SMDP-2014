@@ -1706,6 +1706,14 @@ public class PhpTemplate extends SurveyTemplate {
     _builder.append("}");
     _builder.newLine();
     _builder.newLine();
+    _builder.append("dd + dt {");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("margin-top: 10px;");
+    _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
+    _builder.newLine();
     _builder.append("input[type=checkbox]~label.error,");
     _builder.newLine();
     _builder.append("input[type=radio]~label.error {");

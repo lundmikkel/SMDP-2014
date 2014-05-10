@@ -197,7 +197,6 @@ DEP_ID returns ecore::EString:
 // Custom terminals
 
 terminal STRING:
-	// TODO: Remove '
 	"'" ( '\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\') | !('\\'|"'") )* "'";
 
 terminal FQN:

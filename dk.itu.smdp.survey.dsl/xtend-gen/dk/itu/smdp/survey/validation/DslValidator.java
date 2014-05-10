@@ -434,6 +434,44 @@ public class DslValidator extends AbstractDslValidator {
   }
   
   /**
+   * Check that the table questions have unique IDs
+   */
+  @Check
+  public void checkUniqueAnswerNames(final Table table) {
+    HashMap<String,TableQuestion> _hashMap = new HashMap<String, TableQuestion>();
+    HashMap<String,TableQuestion> map = _hashMap;
+    EList<TableQuestion> _questions = table.getQuestions();
+    final Function1<TableQuestion,Boolean> _function = new Function1<TableQuestion,Boolean>() {
+      public Boolean apply(final TableQuestion it) {
+        String _name = it.getName();
+        boolean _isNullOrEmpty = StringExtensions.isNullOrEmpty(_name);
+        boolean _not = (!_isNullOrEmpty);
+        return Boolean.valueOf(_not);
+      }
+    };
+    Iterable<TableQuestion> _filter = IterableExtensions.<TableQuestion>filter(_questions, _function);
+    for (final TableQuestion question : _filter) {
+      String _name = question.getName();
+      boolean _containsKey = map.containsKey(_name);
+      if (_containsKey) {
+        this.error(
+          DslValidator.uniqueIdsAtSameLevelString, question, 
+          Literals.META__NAME, 
+          DslValidator.DUPLICATE_NAME);
+        String _name_1 = question.getName();
+        TableQuestion _get = map.get(_name_1);
+        this.error(
+          DslValidator.uniqueIdsAtSameLevelString, _get, 
+          Literals.META__NAME, 
+          DslValidator.DUPLICATE_NAME);
+      } else {
+        String _name_2 = question.getName();
+        map.put(_name_2, question);
+      }
+    }
+  }
+  
+  /**
    * Check that the answers in a Question have unique IDs
    */
   @Check
@@ -656,13 +694,7 @@ public class DslValidator extends AbstractDslValidator {
       AnswerTemplate _template = templateRef.getTemplate();
       EList<Answer> _answers = _template.getAnswers();
       for (final Answer answer : _answers) {
-        {
-          String _plus = (pid + "-");
-          AnswerTemplate _template_1 = templateRef.getTemplate();
-          String _name = _template_1.getName();
-          final String id = (_plus + _name);
-          this.getFullIds(answer, id, map);
-        }
+        this.getFullIds(answer, pid, map);
       }
     }
   }

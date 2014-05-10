@@ -1,21 +1,35 @@
 package dk.itu.smdp.survey.generator
 
+import java.util.HashMap
 import org.eclipse.xtext.generator.IFileSystemAccess
+import survey.Answer
+import survey.AnswerTemplateRef
 import survey.Date
 import survey.Group
+import survey.HasOptions
 import survey.Item
+import survey.Meta
 import survey.Multiple
 import survey.Number
+import survey.Option
+import survey.Other
 import survey.Question
 import survey.Scale
 import survey.Single
 import survey.Survey
 import survey.Table
+import survey.TableQuestion
 import survey.Text
+import java.util.Map
 
 class LatexTemplate extends SurveyTemplate {
 	Survey survey
 	IFileSystemAccess fsa
+	HashMap<String, String> userToUnique
+	HashMap<String, Meta> uniqueToMeta
+	HashMap<Meta, String> metaToUnique
+	
+	val static abc = "abcdefghijklmnopqrstuvwxyz"
 	
 	new(Survey survey, IFileSystemAccess fsa) {
 		this.survey = survey
@@ -23,6 +37,26 @@ class LatexTemplate extends SurveyTemplate {
 	}
 	
 	def Generate() {
+		userToUnique = new HashMap<String, String>()
+		uniqueToMeta = new HashMap<String, Meta>()
+		metaToUnique = new HashMap<Meta, String>()
+		
+		survey.genUniqueIds
+		
+		/*val iter = userToUnique.entrySet().iterator();
+	    while (iter.hasNext()) {
+	        val pairs = iter.next() as Map.Entry<String, String>;
+	        println(pairs.getKey() + " => " + pairs.getValue());
+	    }
+	    
+	    println()
+		
+		val iter2 = uniqueToMeta.entrySet().iterator();
+	    while (iter2.hasNext()) {
+	        val pairs = iter2.next() as Map.Entry<String, Meta>;
+	        println(pairs.getKey() + " => " + pairs.getValue());
+	    }*/
+		
 		var body = '''
 			«FOR item : survey.items»
 				«item.genLatex("", false, "")»
@@ -44,7 +78,6 @@ class LatexTemplate extends SurveyTemplate {
 		«IF !group.title.nullOrEmpty»
 		\section*{\underline{«group.title»}}
 	    «ENDIF»
-	    «group.genLabel»
 	    «IF !group.description.nullOrEmpty »
 	    «group.description»
 	    «ENDIF»
@@ -101,23 +134,19 @@ class LatexTemplate extends SurveyTemplate {
 	'''
 	
 	def dispatch genLatex(Single question, String dependsOn, boolean required, String pid) {
+		
 		'''
 		«question.genHeader(dependsOn, required)»
 		\emph{Please choose one only}
-		\begin{description}
+		\begin{enumerate}[label=\alph*:]
 		«FOR a : question.getAnswers»
-		\item[\Square] «a.title»
+		\item \Square~ «a.title»
 		«ENDFOR»
 		«IF question.other || !question.otherLabel.nullOrEmpty»
-		\item[\Square] 
-		«IF !question.otherLabel.nullOrEmpty»
-		«question.otherLabel»:
-		«ELSE»
-		Other:
-		«ENDIF»
+		\item \Square~ «IF !question.otherLabel.nullOrEmpty»«question.otherLabel»:«ELSE»Other:«ENDIF»
 		\smallpencil \hrulefill
 		«ENDIF»
-		\end{description}
+		\end{enumerate}
 		'''
 	}
 	
@@ -125,20 +154,15 @@ class LatexTemplate extends SurveyTemplate {
 		'''
 		«question.genHeader(dependsOn, required)»
 		\emph{«question.genLimitsDesc»}
-		\begin{description}
+		\begin{enumerate}[label=\alph*:]
 		«FOR a : question.getAnswers»
-		\item[\Square] «a.title»
+		\item \Square~ «a.title»
 		«ENDFOR»
 		«IF question.other || !question.otherLabel.nullOrEmpty»
-		\item[\Square] 
-		«IF !question.otherLabel.nullOrEmpty»
-		«question.otherLabel»:
-		«ELSE»
-		Other:
-		«ENDIF»
+		\item \Square~ «IF !question.otherLabel.nullOrEmpty»«question.otherLabel»:«ELSE»Other:«ENDIF»
 		\smallpencil \hrulefill
 		«ENDIF»
-		\end{description}
+		\end{enumerate}
 		'''
 	}
 	
@@ -147,10 +171,10 @@ class LatexTemplate extends SurveyTemplate {
 		'''
 		«question.genHeader(dependsOn, required)»
 		\noindent
-		\begin{tabular}{ l «FOR a : answers»c «ENDFOR» }
-		«FOR a : answers»& \begin{sideways}«a.title»\end{sideways} «ENDFOR» \\ \hline
-		«FOR q : question.questions»
-		«q.title» «question.genRequired(required || q.required)» «FOR a : answers»& \Square«ENDFOR» \\ \hline
+		\begin{tabular}{ r l «FOR a : answers»c «ENDFOR» }
+		& «FOR i : 0..answers.length - 1»& \begin{sideways}«abc.charAt(i)»: «answers.get(i).title»\end{sideways} «ENDFOR» \\ \hline
+		«FOR i : 0..question.questions.length - 1»
+		«i + 1»: & «question.questions.get(i).title» «question.genRequired(required || question.questions.get(i).required)» «FOR a : answers»& \Square«ENDFOR» \\ \hline
 		«ENDFOR»
 		\end{tabular}
 		'''
@@ -163,27 +187,70 @@ class LatexTemplate extends SurveyTemplate {
 		«IF !question.description.nullOrEmpty»«question.description»\\«ENDIF»
 	'''
 	
+	def genLabel(Meta meta) {
+		if (metaToUnique.containsKey(meta)) {
+			val unique = metaToUnique.get(meta)
+			'''\label{sec«unique»}'''
+		}
+	}
+	
 	def genRequired(Question question, boolean requiredParent)
 		'''«IF requiredParent || question.required»* «ENDIF»'''
 	
-	def genLabel(Item item)'''
-		«IF !item.name.nullOrEmpty»
-		\label{«item.name»}
-		«ENDIF»
-	'''
+	def genDependsOn(Item item, String parentDependsOn)
+		'''«item.genDependsOnString(parentDependsOn)»«item.genDependsOnString(item.dependsOn)»'''
 	
-	def genDependsOn(Item item, String parentDependsOn) {
-		// TODO: Write nice description	
-		
-		'''
-		«IF !parentDependsOn.nullOrEmpty»
-		Please only answer this question if you replied «» to question \#\ref{«parentDependsOn»} (group).\\
-		«ENDIF»
-		«IF !item.dependsOn.nullOrEmpty»
-		Please only answer this question if you replied «» to question \#\ref{«item.dependsOn»}.\\
-		«ENDIF»
-		'''
+	def genDependsOnString(Item item, String dependsOn) {
+		if (!dependsOn.nullOrEmpty) {
+			val unique = userToUnique.get(dependsOn)
+			var qid = unique
+			var Meta meta = uniqueToMeta.get(unique)
+			
+			while (!(meta instanceof Question)) {
+				qid = qid.substring(0, qid.lastIndexOf(":"))
+				meta = uniqueToMeta.get(qid)
+			}
+			
+			val question = meta as Question
+			question.genDependsOnString(qid, unique)
+		}
 	}
+	
+	def dispatch genDependsOnString(Scale question, String qid, String uid) {
+		val option = uid.substring(qid.length + 2, uid.length)
+		("\\emph{" + option + "} in question \\emph{" + qid.ref + "}").genDependsOnString
+	}
+	
+	def dispatch genDependsOnString(Table question, String qid, String uid) {
+		val answer = uniqueToMeta.get(uid)
+		val i = question.getAnswers.indexOf(answer)
+		val letter = abc.charAt(i)
+		
+		val tbid = uid.substring(0, uid.lastIndexOf(":"))
+		val tableQuestion = uniqueToMeta.get(tbid)
+		val number = question.questions.indexOf(tableQuestion) + 1
+		
+		("\\emph{" + letter + "} in question \\emph{" + qid.ref + "." + number + "}").genDependsOnString
+	}
+	
+	def dispatch genDependsOnString(HasOptions question, String qid, String uid) {
+		val answer = uniqueToMeta.get(uid)
+		val i = question.getAnswers.indexOf(answer)
+		val letter = "abcdefghijklmnopqrstuvwxyz".charAt(i)
+		
+		("\\emph{" + letter + "} in question \\emph{" + qid.ref + "}").genDependsOnString
+	}
+	
+	def dispatch genDependsOnString(Question question, String qid, String uid) {
+		("\\emph{" + qid.ref + "}").genDependsOnString
+	}
+	
+	def genDependsOnString(String string)
+		'''\textbf{Please only answer if you answered «string»}\\'''
+		
+	def String ref(String s)
+		'''\ref{sec«s»}'''
+	
 	
 	def static String template(String title, String description, String body) {
 		'''
@@ -193,6 +260,7 @@ class LatexTemplate extends SurveyTemplate {
 		\usepackage{fullpage}
 		\usepackage{dingbat}
 		\usepackage{wasysym}
+		\usepackage{enumitem}
 		
 		\begin{document}
 		
@@ -211,5 +279,104 @@ class LatexTemplate extends SurveyTemplate {
 		
 		\end{document}
 		'''
+	}
+	
+	int idCounter = 0
+	
+	def int getNextId() {
+		idCounter = idCounter + 1
+	}
+	
+	def getUserId(Meta meta, String pid) {
+		if (!meta.name.nullOrEmpty) pid + "-" + meta.name else pid
+	}
+	
+	def addUniqueMeta(String unique, Meta meta) {
+		uniqueToMeta.put(unique, meta)
+		metaToUnique.put(meta, unique)
+	}
+	
+	def void genUniqueIds(Survey survey) {
+		for (Item item : survey.items) {
+			item.genUniqueIds("", "")
+		}
+	}
+	
+	def dispatch void genUniqueIds(Group group, String userPid, String uniquePid) {
+		val userId = group.getUserId(userPid)
+		val uniqueId = uniquePid + ":" + getNextId
+		
+		for (Question question : group.questions) {
+			question.genUniqueIds(userId, uniqueId)
+		}
+	}
+	
+	def dispatch void genUniqueIds(Question question, String userPid, String uniquePid) {
+		if (!question.name.nullOrEmpty) {
+			val userId = question.getUserId(userPid).substring(1)
+			val uniqueId = uniquePid + ":" + getNextId
+			
+			userToUnique.put(userId, uniqueId)
+			addUniqueMeta(uniqueId, question)
+		}
+	}
+	
+	def dispatch void genUniqueIds(Scale scale, String userPid, String uniquePid) {
+		if (!scale.name.nullOrEmpty) {	
+			val userId = scale.getUserId(userPid)
+			val uniqueId = uniquePid + ":" + getNextId
+			addUniqueMeta(uniqueId, scale)
+			
+			for (int i : scale.min..scale.max) {
+				val userAid = (userId + "-" + i).substring(1)
+				val uniqueAid = uniqueId + ":_" + i
+				
+				userToUnique.put(userAid, uniqueAid)
+			}
+		}
+	}
+	
+	def dispatch void genUniqueIds(Table table, String userPid, String uniquePid) {
+		val userTid = table.getUserId(userPid)
+		val uniqueTid = uniquePid + ":" + getNextId
+		addUniqueMeta(uniqueTid, table)
+		
+		for (TableQuestion tableQuestion : table.questions.filter[!name.nullOrEmpty]) {
+			val userTqid = tableQuestion.getUserId(userTid)
+			val uniqueTqid = uniqueTid + ":" + getNextId
+			addUniqueMeta(uniqueTqid, tableQuestion)
+			
+			for (Option option : table.options) {
+				option.genUniqueIds(userTqid, uniqueTqid)
+			}
+		}
+	}
+	
+	def dispatch void genUniqueIds(HasOptions question, String userPid, String uniquePid) {
+		val userId = question.getUserId(userPid)
+		val uniqueId = uniquePid + ":" + getNextId
+		addUniqueMeta(uniqueId, question)
+		
+		for (Option option : question.options) {
+			option.genUniqueIds(userId, uniqueId)
+		}
+	}
+	
+	def dispatch void genUniqueIds(AnswerTemplateRef templateRef, String userPid, String uniquePid) {
+		// Skip if the question has no id
+		if (!userPid.nullOrEmpty)
+			for (Answer answer : templateRef.template.answers) {
+				answer.genUniqueIds(userPid, uniquePid)
+			}
+	}
+	
+	def dispatch void genUniqueIds(Answer answer, String userPid, String uniquePid) {
+		if (!answer.name.nullOrEmpty) {
+			val userId = answer.getUserId(userPid).substring(1)
+			val uniqueId = uniquePid + ":" + getNextId
+			
+			userToUnique.put(userId, uniqueId)
+			addUniqueMeta(uniqueId, answer)
+		}
 	}
 }

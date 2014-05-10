@@ -11,10 +11,13 @@ import survey.Answer;
 import survey.AnswerTemplate;
 import survey.AnswerTemplateRef;
 import survey.Date;
+import survey.Group;
 import survey.HasOptions;
+import survey.Item;
 import survey.Multiple;
 import survey.Option;
 import survey.Question;
+import survey.Survey;
 
 @SuppressWarnings("all")
 public abstract class SurveyTemplate {
@@ -242,36 +245,34 @@ public abstract class SurveyTemplate {
         answers.add(((Answer) option));
       } else {
         if ((option instanceof AnswerTemplateRef)) {
-          final AnswerTemplate template = ((AnswerTemplateRef) option).getTemplate();
-          EList<Answer> _answers = template.getAnswers();
+          AnswerTemplate _template = ((AnswerTemplateRef) option).getTemplate();
+          EList<Answer> _answers = _template.getAnswers();
           for (final Answer answer : _answers) {
-            {
-              boolean _and = false;
-              String _name = answer.getName();
-              boolean _isNullOrEmpty = StringExtensions.isNullOrEmpty(_name);
-              boolean _not = (!_isNullOrEmpty);
-              if (!_not) {
-                _and = false;
-              } else {
-                String _name_1 = answer.getName();
-                boolean _contains = _name_1.contains("-");
-                boolean _not_1 = (!_contains);
-                _and = (_not && _not_1);
-              }
-              if (_and) {
-                String _name_2 = template.getName();
-                String _plus = (_name_2 + "-");
-                String _name_3 = answer.getName();
-                String _plus_1 = (_plus + _name_3);
-                answer.setName(_plus_1);
-              }
-              answers.add(answer);
-            }
+            answers.add(answer);
           }
         }
       }
     }
     return answers;
+  }
+  
+  public ArrayList<Question> getQuestions(final Survey survey) {
+    ArrayList<Question> _arrayList = new ArrayList<Question>();
+    ArrayList<Question> questions = _arrayList;
+    EList<Item> _items = survey.getItems();
+    for (final Item item : _items) {
+      if ((item instanceof Question)) {
+        questions.add(((Question) item));
+      } else {
+        if ((item instanceof Group)) {
+          EList<Question> _questions = ((Group) item).getQuestions();
+          for (final Question question : _questions) {
+            questions.add(question);
+          }
+        }
+      }
+    }
+    return questions;
   }
   
   public CharSequence genRequiredLabel(final Question question, final boolean requiredParent) {

@@ -312,6 +312,34 @@ class DslValidator extends AbstractDslValidator {
 	}
 	
 	/**
+	 * Check that the table questions have unique IDs
+	 */
+	@Check
+	def checkUniqueAnswerNames(Table table) {
+		var map = new HashMap<String, TableQuestion>
+
+		for (TableQuestion question : table.questions.filter[!name.nullOrEmpty]) {
+			if (map.containsKey(question.name)) {
+				error(
+					uniqueIdsAtSameLevelString,
+					question,
+					SurveyPackage.Literals.META__NAME,
+					DUPLICATE_NAME
+				)
+				error(
+					uniqueIdsAtSameLevelString,
+					map.get(question.name),
+					SurveyPackage.Literals.META__NAME,
+					DUPLICATE_NAME
+				)
+			}
+			else {
+				map.put(question.name, question)
+			}
+		}
+	}
+	
+	/**
 	 * Check that the answers in a Question have unique IDs
 	 */
 	@Check
@@ -415,7 +443,6 @@ class DslValidator extends AbstractDslValidator {
 		}
 	}
 	
-	// TODO: Add table questions!
 	def dispatch void getFullIds(Table question, String pid, HashMap<String, Meta> map) {
 		for (TableQuestion q : question.questions.filter[!name.nullOrEmpty]) {
 			var id = pid + "-" + q.name
@@ -437,8 +464,7 @@ class DslValidator extends AbstractDslValidator {
 		// Skip if the question has no id
 		if (!pid.nullOrEmpty)
 			for (Answer answer : templateRef.template.answers) {
-				val id = pid + "-" + templateRef.template.name
-				answer.getFullIds(id, map)
+				answer.getFullIds(pid, map)
 			}
 	}
 	

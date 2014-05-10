@@ -488,6 +488,10 @@ class PhpTemplate extends SurveyTemplate {
 			margin-bottom: 20px;
 		}
 		
+		dd + dt {
+		    margin-top: 10px;
+		}
+		
 		input[type=checkbox]~label.error,
 		input[type=radio]~label.error {
 			display: none !important;

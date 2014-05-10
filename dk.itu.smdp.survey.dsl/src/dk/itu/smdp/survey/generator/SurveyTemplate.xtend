@@ -9,6 +9,9 @@ import survey.Multiple
 import survey.Number
 import survey.Option
 import survey.Question
+import survey.Item
+import survey.Group
+import survey.Survey
 
 abstract class SurveyTemplate {
 	def genDateFormat(Date question) {
@@ -90,17 +93,30 @@ abstract class SurveyTemplate {
 				answers.add(option as Answer)
 			}
 			else if (option instanceof AnswerTemplateRef) {
-				val template = (option as AnswerTemplateRef).template
-				for (Answer answer : template.answers) {
-					if (!answer.name.nullOrEmpty && !answer.name.contains('-')) {
-						answer.name = template.name + '-' + answer.name
-					}
+				for (Answer answer : (option as AnswerTemplateRef).template.answers) {
 					answers.add(answer)
 				}
 			}
 		}
 		
 		return answers
+	}
+	
+	def getQuestions(Survey survey) {
+		var questions = new ArrayList<Question>()
+		
+		for (Item item : survey.items) {
+			if (item instanceof Question) {
+				questions.add(item as Question)
+			}
+			else if (item instanceof Group) {
+				for (Question question : (item as Group).questions) {
+					questions.add(question)
+				}
+			}
+		}
+		
+		return questions
 	}
 	
 	def genRequiredLabel(Question question, boolean requiredParent)
