@@ -55,9 +55,7 @@ public class PhpTemplate extends SurveyTemplate {
       }
     }
     String body = _builder.toString();
-    String _title = this.survey.getTitle();
-    String _description = this.survey.getDescription();
-    String template = this.template(_title, _description, body);
+    String template = this.template(this.survey, body);
     String _xifexpression = null;
     String _name = this.survey.getName();
     boolean _isNullOrEmpty = StringExtensions.isNullOrEmpty(_name);
@@ -531,7 +529,7 @@ public class PhpTemplate extends SurveyTemplate {
           _builder.append("<label for=\"");
           String _substring = refId.substring(1);
           _builder.append(_substring, "            ");
-          _builder.append("-_");
+          _builder.append("-");
           _builder.append(i, "            ");
           _builder.append("\">");
           _builder.append(i, "            ");
@@ -567,7 +565,7 @@ public class PhpTemplate extends SurveyTemplate {
           _builder.append("<td><label for=\"");
           String _substring_1 = refId.substring(1);
           _builder.append(_substring_1, "        	");
-          _builder.append("-_");
+          _builder.append("-");
           int _min_1 = question.getMin();
           _builder.append(_min_1, "        	");
           _builder.append("\">");
@@ -616,7 +614,7 @@ public class PhpTemplate extends SurveyTemplate {
           _builder.append("<td><label for=\"");
           String _substring_2 = refId.substring(1);
           _builder.append(_substring_2, "        	");
-          _builder.append("-_");
+          _builder.append("-");
           int _max_2 = question.getMax();
           _builder.append(_max_2, "        	");
           _builder.append("\">");
@@ -1358,7 +1356,7 @@ public class PhpTemplate extends SurveyTemplate {
     return _xblockexpression;
   }
   
-  public String template(final String title, final String description, final String formContent) {
+  public String template(final Survey survey, final String formContent) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("<!DOCTYPE html>");
     _builder.newLine();
@@ -1378,7 +1376,8 @@ public class PhpTemplate extends SurveyTemplate {
     _builder.newLine();
     _builder.append("        ");
     _builder.append("<title>");
-    _builder.append(title, "        ");
+    String _title = survey.getTitle();
+    _builder.append(_title, "        ");
     _builder.append("</title>");
     _builder.newLineIfNotEmpty();
     _builder.append("        ");
@@ -1442,18 +1441,16 @@ public class PhpTemplate extends SurveyTemplate {
     _builder.append("<div id=\"header\">");
     _builder.newLine();
     _builder.append("                \t\t");
-    {
-      boolean _isNullOrEmpty = StringExtensions.isNullOrEmpty(title);
-      boolean _not = (!_isNullOrEmpty);
-      if (_not) {
-        _builder.append("<h1 class=\"page-header\">");
-        _builder.append(title, "                		");
-        _builder.append("</h1>");
-      }
-    }
+    _builder.append("<h1 class=\"page-header\">");
+    String _title_1 = survey.getTitle();
+    _builder.append(_title_1, "                		");
+    _builder.append("</h1>");
     _builder.newLineIfNotEmpty();
     _builder.append("                \t\t");
     _builder.append("<p class=\"lead\">Thanks for submitting your answer</p>");
+    _builder.newLine();
+    _builder.append("                \t\t");
+    _builder.append("<p>A mail with your reply will be send to <?php echo $_POST[\'survey\'][\'to\']; ?>.</p>");
     _builder.newLine();
     _builder.append("\t\t\t\t\t");
     _builder.append("</div>");
@@ -1469,7 +1466,15 @@ public class PhpTemplate extends SurveyTemplate {
     _builder.append("\t    \t\t");
     _builder.newLine();
     _builder.append("\t\t\t\t");
-    _builder.append("foreach ($_POST as $array) {");
+    _builder.append("foreach ($_POST as $key => $array) {");
+    _builder.newLine();
+    _builder.append("\t\t\t\t\t");
+    _builder.append("if ($key == \"survey\")");
+    _builder.newLine();
+    _builder.append("\t\t\t\t\t\t");
+    _builder.append("continue;");
+    _builder.newLine();
+    _builder.append("\t\t\t\t\t");
     _builder.newLine();
     _builder.append("\t\t\t\t\t");
     _builder.append("// No answer");
@@ -1548,6 +1553,30 @@ public class PhpTemplate extends SurveyTemplate {
     _builder.append("\t    \t\t");
     _builder.append("echo \'<div class=\"well\">\' . $s . \'</div>\';");
     _builder.newLine();
+    _builder.append("\t    \t\t");
+    _builder.newLine();
+    _builder.append("\t    \t\t");
+    _builder.append("$message = \'<html><body>\' . $s . \'</body></html>\';");
+    _builder.newLine();
+    _builder.append("\t    \t\t");
+    _builder.newLine();
+    _builder.append("\t    \t\t");
+    _builder.append("$headers = \"From: Surveys @ ITU\\r\\n\";");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.append("$headers .= \"MIME-Version: 1.0\\r\\n\";");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.append("$headers .= \"Content-Type: text/html; charset=ISO-8859-1\\r\\n\";");
+    _builder.newLine();
+    _builder.append("\t    \t\t");
+    _builder.newLine();
+    _builder.append("\t    \t\t");
+    _builder.append("// Send mail");
+    _builder.newLine();
+    _builder.append("\t    \t\t");
+    _builder.append("mail($_POST[\'survey\'][\'to\'], $_POST[\'survey\'][\'subject\'], $message, $headers);");
+    _builder.newLine();
     _builder.append("\t\t\t\t");
     _builder.newLine();
     _builder.append("\t\t\t\t");
@@ -1560,23 +1589,20 @@ public class PhpTemplate extends SurveyTemplate {
     _builder.append("<div id=\"header\">");
     _builder.newLine();
     _builder.append("                \t");
-    {
-      boolean _isNullOrEmpty_1 = StringExtensions.isNullOrEmpty(title);
-      boolean _not_1 = (!_isNullOrEmpty_1);
-      if (_not_1) {
-        _builder.append("<h1 class=\"page-header\">");
-        _builder.append(title, "                	");
-        _builder.append("</h1>");
-      }
-    }
+    _builder.append("<h1 class=\"page-header\">");
+    String _title_2 = survey.getTitle();
+    _builder.append(_title_2, "                	");
+    _builder.append("</h1>");
     _builder.newLineIfNotEmpty();
     _builder.append("                \t");
     {
-      boolean _isNullOrEmpty_2 = StringExtensions.isNullOrEmpty(description);
-      boolean _not_2 = (!_isNullOrEmpty_2);
-      if (_not_2) {
+      String _description = survey.getDescription();
+      boolean _isNullOrEmpty = StringExtensions.isNullOrEmpty(_description);
+      boolean _not = (!_isNullOrEmpty);
+      if (_not) {
         _builder.append("<p class=\"lead\">");
-        _builder.append(description, "                	");
+        String _description_1 = survey.getDescription();
+        _builder.append(_description_1, "                	");
         _builder.append("</p>");
       }
     }
@@ -1587,6 +1613,18 @@ public class PhpTemplate extends SurveyTemplate {
     _builder.append("                ");
     _builder.append("<form id=\"form\" role=\"form\" method=\"post\">");
     _builder.newLine();
+    _builder.append("                \t");
+    _builder.append("<input type=\"hidden\" name=\"survey[subject]\" value=\"");
+    String _title_3 = survey.getTitle();
+    _builder.append(_title_3, "                	");
+    _builder.append("\"/>");
+    _builder.newLineIfNotEmpty();
+    _builder.append("                \t");
+    _builder.append("<input type=\"hidden\" name=\"survey[to]\" value=\"");
+    String _mail = survey.getMail();
+    _builder.append(_mail, "                	");
+    _builder.append("\"/>");
+    _builder.newLineIfNotEmpty();
     _builder.append("\t\t\t\t\t");
     _builder.append(formContent, "					");
     _builder.newLineIfNotEmpty();

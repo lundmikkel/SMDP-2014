@@ -33,7 +33,7 @@ class PhpTemplate extends SurveyTemplate {
 			«ENDFOR»
 		'''
 		
-		var template = template(survey.title, survey.description, body)
+		var template = template(survey, body)
 		val filename = (if (survey.name.nullOrEmpty) "index" else survey.name) + ".php"
 		fsa.generateFile(filename, template)
 	}
@@ -103,9 +103,8 @@ class PhpTemplate extends SurveyTemplate {
 	def genDependsOn(Question question) {
 		val s = question.genLimitsDesc
 		
-		if (!s.nullOrEmpty) {
+		if (!s.nullOrEmpty)
 			'''<p class="help-block">«s»</p>'''
-		}
 	}
 	
 	def dispatch String genHtml(Group group, String dependsOn, boolean required, String pid) {
@@ -177,7 +176,7 @@ class PhpTemplate extends SurveyTemplate {
 	            	<td></td>
 	                «ENDIF»
 	                «FOR i : question.min..question.max BEFORE '<td>' SEPARATOR '</td><td>' AFTER '</td>' »
-	                <label for="«refId.substring(1)»-_«i»">«i»</label>
+	                <label for="«refId.substring(1)»-«i»">«i»</label>
 	                «ENDFOR»
 	            	«IF !question.minLabel.nullOrEmpty »
 	            	<td></td>
@@ -185,13 +184,13 @@ class PhpTemplate extends SurveyTemplate {
 	            </tr>
 	            <tr class="bottom">
 	            	«IF !question.minLabel.nullOrEmpty »
-	            	<td><label for="«refId.substring(1)»-_«question.min»">«question.minLabel»</label></td>
+	            	<td><label for="«refId.substring(1)»-«question.min»">«question.minLabel»</label></td>
 	                «ENDIF»
 	                «FOR i : question.min..question.max BEFORE '<td>' SEPARATOR '</td><td>' AFTER '</td>' »
 	                <input type="radio" name="«id»[answer]" «genRefIdAttr(refId, i)» value="«i»" «question.genRequiredAttr(required)»/>
 	                «ENDFOR»
 	            	«IF !question.minLabel.nullOrEmpty »
-	            	<td><label for="«refId.substring(1)»-_«question.max»">«question.maxLabel»</label></td>
+	            	<td><label for="«refId.substring(1)»-«question.max»">«question.maxLabel»</label></td>
 	                «ENDIF»
 	            </tr>
 	        </table>
@@ -371,7 +370,7 @@ class PhpTemplate extends SurveyTemplate {
 		'''
 	}
 	
-	def String template(String title, String description, String formContent) {
+	def String template(Survey survey, String formContent) {
 		'''
 		<!DOCTYPE html>
 		<html lang="en">
@@ -379,7 +378,7 @@ class PhpTemplate extends SurveyTemplate {
 		        <meta charset="utf-8">
 		        <meta http-equiv="X-UA-Compatible" content="IE=edge">
 		        <meta name="viewport" content="width=device-width, initial-scale=1">
-		        <title>«title»</title>
+		        <title>«survey.title»</title>
 		        <!-- Bootstrap -->
 		        <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
 		        <link href="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker3.min.css" rel="stylesheet">
@@ -400,14 +399,18 @@ class PhpTemplate extends SurveyTemplate {
 						if ($_POST):
 						?>
 			                <div id="header">
-		                		«IF !title.nullOrEmpty»<h1 class="page-header">«title»</h1>«ENDIF»
+		                		<h1 class="page-header">«survey.title»</h1>
 		                		<p class="lead">Thanks for submitting your answer</p>
+		                		<p>A mail with your reply will be send to <?php echo $_POST['survey']['to']; ?>.</p>
 							</div>
 			    		<?php
 			    		
 			    		$s = '<dl>';
 			    		
-						foreach ($_POST as $array) {
+						foreach ($_POST as $key => $array) {
+							if ($key == "survey")
+								continue;
+							
 							// No answer
 							if (!isset($array['answer']) || empty($array['answer'])) {
 								continue;
@@ -435,14 +438,25 @@ class PhpTemplate extends SurveyTemplate {
 						$s .= '</dl>';
 						
 			    		echo '<div class="well">' . $s . '</div>';
+			    		
+			    		$message = '<html><body>' . $s . '</body></html>';
+			    		
+			    		$headers = "From: Surveys @ ITU\r\n";
+						$headers .= "MIME-Version: 1.0\r\n";
+						$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+			    		
+			    		// Send mail
+			    		mail($_POST['survey']['to'], $_POST['survey']['subject'], $message, $headers);
 						
 						else:
 						?>
 		                <div id="header">
-		                	«IF !title.nullOrEmpty»<h1 class="page-header">«title»</h1>«ENDIF»
-		                	«IF !description.nullOrEmpty»<p class="lead">«description»</p>«ENDIF»
+		                	<h1 class="page-header">«survey.title»</h1>
+		                	«IF !survey.description.nullOrEmpty»<p class="lead">«survey.description»</p>«ENDIF»
 						</div>
 		                <form id="form" role="form" method="post">
+		                	<input type="hidden" name="survey[subject]" value="«survey.title»"/>
+		                	<input type="hidden" name="survey[to]" value="«survey.mail»"/>
 							«formContent»
 		                    <hr/>
 		                    <div class="form-group">
