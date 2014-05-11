@@ -70,26 +70,31 @@ public class DslValidator extends AbstractDslValidator {
   
   @Check
   public void checkValidEmailAddress(final Survey survey) {
-    boolean valid = false;
-    final String emailreg = "^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$";
-    try {
-      String _mail = survey.getMail();
-      boolean _matches = _mail.matches(emailreg);
-      valid = _matches;
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception e = (Exception)_t;
-        valid = false;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    boolean _not = (!valid);
+    String _mail = survey.getMail();
+    boolean _isNullOrEmpty = StringExtensions.isNullOrEmpty(_mail);
+    boolean _not = (!_isNullOrEmpty);
     if (_not) {
-      this.error(
-        DslValidator.invalidEmailAddressString, survey, 
-        Literals.SURVEY__MAIL, 
-        DslValidator.INVALID_VALUE);
+      boolean valid = false;
+      final String emailreg = "^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$";
+      try {
+        String _mail_1 = survey.getMail();
+        boolean _matches = _mail_1.matches(emailreg);
+        valid = _matches;
+      } catch (final Throwable _t) {
+        if (_t instanceof Exception) {
+          final Exception e = (Exception)_t;
+          valid = false;
+        } else {
+          throw Exceptions.sneakyThrow(_t);
+        }
+      }
+      boolean _not_1 = (!valid);
+      if (_not_1) {
+        this.error(
+          DslValidator.invalidEmailAddressString, survey, 
+          Literals.SURVEY__MAIL, 
+          DslValidator.INVALID_VALUE);
+      }
     }
   }
   

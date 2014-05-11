@@ -48,21 +48,24 @@ class DslValidator extends AbstractDslValidator {
 
 	@Check
 	def checkValidEmailAddress(Survey survey) {
-		var boolean valid
-		val emailreg = "^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$"
-		try {
-			valid = survey.mail.matches(emailreg);
-		} catch (Exception e) {
-			valid = false;
-		}
-		
-		if (!valid) {
-			error(
-				invalidEmailAddressString,
-				survey,
-				SurveyPackage.Literals.SURVEY__MAIL,
-				INVALID_VALUE
-			)
+		if (!survey.mail.nullOrEmpty) {
+			var boolean valid
+			val emailreg = "^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$"
+			
+			try {
+				valid = survey.mail.matches(emailreg);
+			} catch (Exception e) {
+				valid = false;
+			}
+			
+			if (!valid) {
+				error(
+					invalidEmailAddressString,
+					survey,
+					SurveyPackage.Literals.SURVEY__MAIL,
+					INVALID_VALUE
+				)
+			}
 		}
 	}
 
