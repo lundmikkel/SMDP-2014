@@ -252,7 +252,7 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	 *         max=INT? 
 	 *         dependsOn=DEP_ID? 
 	 *         required?='required'? 
-	 *         other?='other'? 
+	 *         (other?='other' | other?='other=""' | otherLabel=EString)? 
 	 *         (showLimits?='show-limits' | showLimits?='show' | showLimits?='limits')? 
 	 *         options+=AnswerTemplateRefAttr
 	 *     )
@@ -272,7 +272,7 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	 *         max=INT? 
 	 *         dependsOn=DEP_ID? 
 	 *         required?='required'? 
-	 *         other?='other'? 
+	 *         (other?='other' | other?='other=""' | otherLabel=EString)? 
 	 *         (showLimits?='show-limits' | showLimits?='show' | showLimits?='limits')? 
 	 *         options+=Option+
 	 *     )
@@ -293,7 +293,7 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	 *             max=INT? 
 	 *             dependsOn=DEP_ID? 
 	 *             required?='required'? 
-	 *             other?='other'? 
+	 *             (other?='other' | other?='other=""' | otherLabel=EString)? 
 	 *             (showLimits?='show-limits' | showLimits?='show' | showLimits?='limits')? 
 	 *             options+=Option+
 	 *         ) | 
@@ -305,7 +305,7 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	 *             max=INT? 
 	 *             dependsOn=DEP_ID? 
 	 *             required?='required'? 
-	 *             other?='other'? 
+	 *             (other?='other' | other?='other=""' | otherLabel=EString)? 
 	 *             (showLimits?='show-limits' | showLimits?='show' | showLimits?='limits')? 
 	 *             options+=AnswerTemplateRefAttr
 	 *         )
@@ -440,7 +440,7 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	 *         description=EString? 
 	 *         dependsOn=DEP_ID? 
 	 *         required?='required'? 
-	 *         other?='other'? 
+	 *         (other?='other' | other?='other=""' | otherLabel=EString)? 
 	 *         multiple?='multiple'? 
 	 *         options+=Option+ 
 	 *         questions+=TableQuestion+ 

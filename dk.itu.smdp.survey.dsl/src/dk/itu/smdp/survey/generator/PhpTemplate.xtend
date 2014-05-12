@@ -218,10 +218,10 @@ class PhpTemplate extends SurveyTemplate {
 						</span>
 					</div>
 				</div>
-				«IF question.showLimits»
-				«question.genDependsOn»
-				«ENDIF»
 		    </div>
+			«IF question.showLimits»
+			«question.genDependsOn»
+			«ENDIF»
 		</div>
 		'''
 	}
@@ -382,7 +382,7 @@ class PhpTemplate extends SurveyTemplate {
 		        <!-- Bootstrap -->
 		        <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
 		        <link href="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker3.min.css" rel="stylesheet">
-		        <style media="screen" type="text/css">«css()»</style>
+		        <style type="text/css">«css()»</style>
 		        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 		        <!--[if lt IE 9]>
@@ -574,10 +574,17 @@ class PhpTemplate extends SurveyTemplate {
 		$("[data-depends-on]").each(function() {
 		    var _this = $(this);
 		
-		    _this.hide();
-		
 		    var dependsOnId = $(this).attr("data-depends-on");
 		    var dependsOn = $("#" + dependsOnId);
+		
+			if (dependsOn.attr('type') == 'checkbox' || dependsOn.attr('type') == 'radio') {
+				if (!dependsOn.prop('checked'))
+			    	_this.hide();
+	    	}
+	    	else {
+				if (!dependsOn.val())
+			    	_this.hide();
+    		}
 		
 		    switch (dependsOn.attr("type")) {
 		        case "radio":

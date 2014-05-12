@@ -111,7 +111,7 @@ SingleWithOptions returns Single:
 		& ('id="' name=ID? '"')?
 		& ('depends-on="' dependsOn=DEP_ID? '"')?
 		& (required?='required')?
-		& (other?=('other'|'other=""') | 'other="' otherLabel=EString '"')?)
+		& ((other?=('other'|'other=""')) | ('other="' otherLabel=EString '"'))?)
 	'>'
 		(options+=Option)+
 	'</single>';
@@ -123,7 +123,7 @@ SingleRef returns Single:
 		& ('id="' name=ID? '"')?
 		& ('depends-on="' dependsOn=DEP_ID? '"')?
 		& (required?='required')?
-		& (other?=('other'|'other=""') | 'other="' otherLabel=EString '"')?
+		& ((other?=('other'|'other=""')) | ('other="' otherLabel=EString '"'))?
 		& (options+=AnswerTemplateRefAttr))
 	'/>';
 
@@ -139,7 +139,7 @@ MultipleWithOptions returns Multiple:
 		& ('max="' max=INT '"')?
 		& ('depends-on="' dependsOn=DEP_ID? '"')?
 		& (required?='required')?
-		& (other?='other')?
+		& ((other?=('other'|'other=""')) | ('other="' otherLabel=EString '"'))?
 		& (showLimits?=('show-limits' | 'show' | 'limits'))?)
 	'>'	
 		(options+=Option)+ 
@@ -154,7 +154,7 @@ MultipleRef returns Multiple:
 		& ('max="' max=INT '"')?
 		& ('depends-on="' dependsOn=DEP_ID? '"')?
 		& (required?='required')?
-		& (other?='other')?
+		& ((other?=('other'|'other=""')) | ('other="' otherLabel=EString '"'))?
 		& (showLimits?=('show-limits' | 'show' | 'limits'))?
 		& (options+=AnswerTemplateRefAttr))
 	'/>';
@@ -166,7 +166,7 @@ Table returns Table:
 		//& ('id="' name=ID? '"')?
 		& ('depends-on="' dependsOn=DEP_ID? '"')?
 		& (required?='required')?
-		& (other?='other')?
+		& ((other?=('other'|'other=""')) | ('other="' otherLabel=EString '"'))?
 		& ('single' | multiple?='multiple')?)
 	'>'
 		((options+=Option)+ & (questions+=TableQuestion)+)

@@ -743,18 +743,18 @@ public class PhpTemplate extends SurveyTemplate {
       _builder.append("\t\t");
       _builder.append("</div>");
       _builder.newLine();
-      {
-        boolean _isShowLimits = question.isShowLimits();
-        if (_isShowLimits) {
-          _builder.append("\t\t");
-          CharSequence _genDependsOn = this.genDependsOn(question);
-          _builder.append(_genDependsOn, "		");
-          _builder.newLineIfNotEmpty();
-        }
-      }
       _builder.append("    ");
       _builder.append("</div>");
       _builder.newLine();
+      {
+        boolean _isShowLimits = question.isShowLimits();
+        if (_isShowLimits) {
+          _builder.append("\t");
+          CharSequence _genDependsOn = this.genDependsOn(question);
+          _builder.append(_genDependsOn, "	");
+          _builder.newLineIfNotEmpty();
+        }
+      }
       _builder.append("</div>");
       _builder.newLine();
       _xblockexpression = (_builder.toString());
@@ -1390,7 +1390,7 @@ public class PhpTemplate extends SurveyTemplate {
     _builder.append("<link href=\"http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker3.min.css\" rel=\"stylesheet\">");
     _builder.newLine();
     _builder.append("        ");
-    _builder.append("<style media=\"screen\" type=\"text/css\">");
+    _builder.append("<style type=\"text/css\">");
     CharSequence _css = this.css();
     _builder.append(_css, "        ");
     _builder.append("</style>");
@@ -1892,14 +1892,35 @@ public class PhpTemplate extends SurveyTemplate {
     _builder.newLine();
     _builder.newLine();
     _builder.append("    ");
-    _builder.append("_this.hide();");
-    _builder.newLine();
-    _builder.newLine();
-    _builder.append("    ");
     _builder.append("var dependsOnId = $(this).attr(\"data-depends-on\");");
     _builder.newLine();
     _builder.append("    ");
     _builder.append("var dependsOn = $(\"#\" + dependsOnId);");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("if (dependsOn.attr(\'type\') == \'checkbox\' || dependsOn.attr(\'type\') == \'radio\') {");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("if (!dependsOn.prop(\'checked\'))");
+    _builder.newLine();
+    _builder.append("\t    \t");
+    _builder.append("_this.hide();");
+    _builder.newLine();
+    _builder.append("\t    \t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t    \t");
+    _builder.append("else {");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("if (!dependsOn.val())");
+    _builder.newLine();
+    _builder.append("\t    \t");
+    _builder.append("_this.hide();");
+    _builder.newLine();
+    _builder.append("    \t\t");
+    _builder.append("}");
     _builder.newLine();
     _builder.newLine();
     _builder.append("    ");

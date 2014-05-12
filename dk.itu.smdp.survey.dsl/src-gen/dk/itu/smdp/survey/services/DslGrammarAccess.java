@@ -1637,8 +1637,16 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cQuotationMarkKeyword_1_5_2 = (Keyword)cGroup_1_5.eContents().get(2);
 		private final Assignment cRequiredAssignment_1_6 = (Assignment)cUnorderedGroup_1.eContents().get(6);
 		private final Keyword cRequiredRequiredKeyword_1_6_0 = (Keyword)cRequiredAssignment_1_6.eContents().get(0);
-		private final Assignment cOtherAssignment_1_7 = (Assignment)cUnorderedGroup_1.eContents().get(7);
-		private final Keyword cOtherOtherKeyword_1_7_0 = (Keyword)cOtherAssignment_1_7.eContents().get(0);
+		private final Alternatives cAlternatives_1_7 = (Alternatives)cUnorderedGroup_1.eContents().get(7);
+		private final Assignment cOtherAssignment_1_7_0 = (Assignment)cAlternatives_1_7.eContents().get(0);
+		private final Alternatives cOtherAlternatives_1_7_0_0 = (Alternatives)cOtherAssignment_1_7_0.eContents().get(0);
+		private final Keyword cOtherOtherKeyword_1_7_0_0_0 = (Keyword)cOtherAlternatives_1_7_0_0.eContents().get(0);
+		private final Keyword cOtherOtherKeyword_1_7_0_0_1 = (Keyword)cOtherAlternatives_1_7_0_0.eContents().get(1);
+		private final Group cGroup_1_7_1 = (Group)cAlternatives_1_7.eContents().get(1);
+		private final Keyword cOtherKeyword_1_7_1_0 = (Keyword)cGroup_1_7_1.eContents().get(0);
+		private final Assignment cOtherLabelAssignment_1_7_1_1 = (Assignment)cGroup_1_7_1.eContents().get(1);
+		private final RuleCall cOtherLabelEStringParserRuleCall_1_7_1_1_0 = (RuleCall)cOtherLabelAssignment_1_7_1_1.eContents().get(0);
+		private final Keyword cQuotationMarkKeyword_1_7_1_2 = (Keyword)cGroup_1_7_1.eContents().get(2);
 		private final Assignment cShowLimitsAssignment_1_8 = (Assignment)cUnorderedGroup_1.eContents().get(8);
 		private final Alternatives cShowLimitsAlternatives_1_8_0 = (Alternatives)cShowLimitsAssignment_1_8.eContents().get(0);
 		private final Keyword cShowLimitsShowLimitsKeyword_1_8_0_0 = (Keyword)cShowLimitsAlternatives_1_8_0.eContents().get(0);
@@ -1652,13 +1660,14 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//MultipleWithOptions returns Multiple:
 		//	"<multiple" ("title=\"" title=EString "\"" & ("description=\"" description=EString? "\"")? & ("id=\"" name=ID? "\"")?
 		//	& ("min=\"" min=INT "\"")? & ("max=\"" max=INT "\"")? & ("depends-on=\"" dependsOn=DEP_ID? "\"")? &
-		//	required?="required"? & other?="other"? & showLimits?=("show-limits" | "show" | "limits")?) ">" options+=Option+
-		//	"</multiple>";
+		//	required?="required"? & (other?=("other" | "other=\"\"") | "other=\"" otherLabel=EString "\"")? &
+		//	showLimits?=("show-limits" | "show" | "limits")?) ">" options+=Option+ "</multiple>";
 		public ParserRule getRule() { return rule; }
 
 		//"<multiple" ("title=\"" title=EString "\"" & ("description=\"" description=EString? "\"")? & ("id=\"" name=ID? "\"")? &
 		//("min=\"" min=INT "\"")? & ("max=\"" max=INT "\"")? & ("depends-on=\"" dependsOn=DEP_ID? "\"")? & required?="required"?
-		//& other?="other"? & showLimits?=("show-limits" | "show" | "limits")?) ">" options+=Option+ "</multiple>"
+		//& (other?=("other" | "other=\"\"") | "other=\"" otherLabel=EString "\"")? & showLimits?=("show-limits" | "show" |
+		//"limits")?) ">" options+=Option+ "</multiple>"
 		public Group getGroup() { return cGroup; }
 
 		//"<multiple"
@@ -1666,7 +1675,8 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 
 		//"title=\"" title=EString "\"" & ("description=\"" description=EString? "\"")? & ("id=\"" name=ID? "\"")? & ("min=\""
 		//min=INT "\"")? & ("max=\"" max=INT "\"")? & ("depends-on=\"" dependsOn=DEP_ID? "\"")? & required?="required"? &
-		//other?="other"? & showLimits?=("show-limits" | "show" | "limits")?
+		//(other?=("other" | "other=\"\"") | "other=\"" otherLabel=EString "\"")? & showLimits?=("show-limits" | "show" |
+		//"limits")?
 		public UnorderedGroup getUnorderedGroup_1() { return cUnorderedGroup_1; }
 
 		//"title=\"" title=EString "\""
@@ -1765,11 +1775,35 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//"required"
 		public Keyword getRequiredRequiredKeyword_1_6_0() { return cRequiredRequiredKeyword_1_6_0; }
 
-		//other?="other"?
-		public Assignment getOtherAssignment_1_7() { return cOtherAssignment_1_7; }
+		//(other?=("other" | "other=\"\"") | "other=\"" otherLabel=EString "\"")?
+		public Alternatives getAlternatives_1_7() { return cAlternatives_1_7; }
+
+		//other?=("other" | "other=\"\"")
+		public Assignment getOtherAssignment_1_7_0() { return cOtherAssignment_1_7_0; }
+
+		//"other" | "other=\"\""
+		public Alternatives getOtherAlternatives_1_7_0_0() { return cOtherAlternatives_1_7_0_0; }
 
 		//"other"
-		public Keyword getOtherOtherKeyword_1_7_0() { return cOtherOtherKeyword_1_7_0; }
+		public Keyword getOtherOtherKeyword_1_7_0_0_0() { return cOtherOtherKeyword_1_7_0_0_0; }
+
+		//"other=\"\""
+		public Keyword getOtherOtherKeyword_1_7_0_0_1() { return cOtherOtherKeyword_1_7_0_0_1; }
+
+		//"other=\"" otherLabel=EString "\""
+		public Group getGroup_1_7_1() { return cGroup_1_7_1; }
+
+		//"other=\""
+		public Keyword getOtherKeyword_1_7_1_0() { return cOtherKeyword_1_7_1_0; }
+
+		//otherLabel=EString
+		public Assignment getOtherLabelAssignment_1_7_1_1() { return cOtherLabelAssignment_1_7_1_1; }
+
+		//EString
+		public RuleCall getOtherLabelEStringParserRuleCall_1_7_1_1_0() { return cOtherLabelEStringParserRuleCall_1_7_1_1_0; }
+
+		//"\""
+		public Keyword getQuotationMarkKeyword_1_7_1_2() { return cQuotationMarkKeyword_1_7_1_2; }
 
 		//showLimits?=("show-limits" | "show" | "limits")?
 		public Assignment getShowLimitsAssignment_1_8() { return cShowLimitsAssignment_1_8; }
@@ -1836,8 +1870,16 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cQuotationMarkKeyword_1_5_2 = (Keyword)cGroup_1_5.eContents().get(2);
 		private final Assignment cRequiredAssignment_1_6 = (Assignment)cUnorderedGroup_1.eContents().get(6);
 		private final Keyword cRequiredRequiredKeyword_1_6_0 = (Keyword)cRequiredAssignment_1_6.eContents().get(0);
-		private final Assignment cOtherAssignment_1_7 = (Assignment)cUnorderedGroup_1.eContents().get(7);
-		private final Keyword cOtherOtherKeyword_1_7_0 = (Keyword)cOtherAssignment_1_7.eContents().get(0);
+		private final Alternatives cAlternatives_1_7 = (Alternatives)cUnorderedGroup_1.eContents().get(7);
+		private final Assignment cOtherAssignment_1_7_0 = (Assignment)cAlternatives_1_7.eContents().get(0);
+		private final Alternatives cOtherAlternatives_1_7_0_0 = (Alternatives)cOtherAssignment_1_7_0.eContents().get(0);
+		private final Keyword cOtherOtherKeyword_1_7_0_0_0 = (Keyword)cOtherAlternatives_1_7_0_0.eContents().get(0);
+		private final Keyword cOtherOtherKeyword_1_7_0_0_1 = (Keyword)cOtherAlternatives_1_7_0_0.eContents().get(1);
+		private final Group cGroup_1_7_1 = (Group)cAlternatives_1_7.eContents().get(1);
+		private final Keyword cOtherKeyword_1_7_1_0 = (Keyword)cGroup_1_7_1.eContents().get(0);
+		private final Assignment cOtherLabelAssignment_1_7_1_1 = (Assignment)cGroup_1_7_1.eContents().get(1);
+		private final RuleCall cOtherLabelEStringParserRuleCall_1_7_1_1_0 = (RuleCall)cOtherLabelAssignment_1_7_1_1.eContents().get(0);
+		private final Keyword cQuotationMarkKeyword_1_7_1_2 = (Keyword)cGroup_1_7_1.eContents().get(2);
 		private final Assignment cShowLimitsAssignment_1_8 = (Assignment)cUnorderedGroup_1.eContents().get(8);
 		private final Alternatives cShowLimitsAlternatives_1_8_0 = (Alternatives)cShowLimitsAssignment_1_8.eContents().get(0);
 		private final Keyword cShowLimitsShowLimitsKeyword_1_8_0_0 = (Keyword)cShowLimitsAlternatives_1_8_0.eContents().get(0);
@@ -1850,13 +1892,14 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//MultipleRef returns Multiple:
 		//	"<multiple" ("title=\"" title=EString "\"" & ("description=\"" description=EString? "\"")? & ("id=\"" name=ID? "\"")?
 		//	& ("min=\"" min=INT "\"")? & ("max=\"" max=INT "\"")? & ("depends-on=\"" dependsOn=DEP_ID? "\"")? &
-		//	required?="required"? & other?="other"? & showLimits?=("show-limits" | "show" | "limits")? &
-		//	options+=AnswerTemplateRefAttr) "/>";
+		//	required?="required"? & (other?=("other" | "other=\"\"") | "other=\"" otherLabel=EString "\"")? &
+		//	showLimits?=("show-limits" | "show" | "limits")? & options+=AnswerTemplateRefAttr) "/>";
 		public ParserRule getRule() { return rule; }
 
 		//"<multiple" ("title=\"" title=EString "\"" & ("description=\"" description=EString? "\"")? & ("id=\"" name=ID? "\"")? &
 		//("min=\"" min=INT "\"")? & ("max=\"" max=INT "\"")? & ("depends-on=\"" dependsOn=DEP_ID? "\"")? & required?="required"?
-		//& other?="other"? & showLimits?=("show-limits" | "show" | "limits")? & options+=AnswerTemplateRefAttr) "/>"
+		//& (other?=("other" | "other=\"\"") | "other=\"" otherLabel=EString "\"")? & showLimits?=("show-limits" | "show" |
+		//"limits")? & options+=AnswerTemplateRefAttr) "/>"
 		public Group getGroup() { return cGroup; }
 
 		//"<multiple"
@@ -1864,7 +1907,8 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 
 		//"title=\"" title=EString "\"" & ("description=\"" description=EString? "\"")? & ("id=\"" name=ID? "\"")? & ("min=\""
 		//min=INT "\"")? & ("max=\"" max=INT "\"")? & ("depends-on=\"" dependsOn=DEP_ID? "\"")? & required?="required"? &
-		//other?="other"? & showLimits?=("show-limits" | "show" | "limits")? & options+=AnswerTemplateRefAttr
+		//(other?=("other" | "other=\"\"") | "other=\"" otherLabel=EString "\"")? & showLimits?=("show-limits" | "show" |
+		//"limits")? & options+=AnswerTemplateRefAttr
 		public UnorderedGroup getUnorderedGroup_1() { return cUnorderedGroup_1; }
 
 		//"title=\"" title=EString "\""
@@ -1963,11 +2007,35 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//"required"
 		public Keyword getRequiredRequiredKeyword_1_6_0() { return cRequiredRequiredKeyword_1_6_0; }
 
-		//other?="other"?
-		public Assignment getOtherAssignment_1_7() { return cOtherAssignment_1_7; }
+		//(other?=("other" | "other=\"\"") | "other=\"" otherLabel=EString "\"")?
+		public Alternatives getAlternatives_1_7() { return cAlternatives_1_7; }
+
+		//other?=("other" | "other=\"\"")
+		public Assignment getOtherAssignment_1_7_0() { return cOtherAssignment_1_7_0; }
+
+		//"other" | "other=\"\""
+		public Alternatives getOtherAlternatives_1_7_0_0() { return cOtherAlternatives_1_7_0_0; }
 
 		//"other"
-		public Keyword getOtherOtherKeyword_1_7_0() { return cOtherOtherKeyword_1_7_0; }
+		public Keyword getOtherOtherKeyword_1_7_0_0_0() { return cOtherOtherKeyword_1_7_0_0_0; }
+
+		//"other=\"\""
+		public Keyword getOtherOtherKeyword_1_7_0_0_1() { return cOtherOtherKeyword_1_7_0_0_1; }
+
+		//"other=\"" otherLabel=EString "\""
+		public Group getGroup_1_7_1() { return cGroup_1_7_1; }
+
+		//"other=\""
+		public Keyword getOtherKeyword_1_7_1_0() { return cOtherKeyword_1_7_1_0; }
+
+		//otherLabel=EString
+		public Assignment getOtherLabelAssignment_1_7_1_1() { return cOtherLabelAssignment_1_7_1_1; }
+
+		//EString
+		public RuleCall getOtherLabelEStringParserRuleCall_1_7_1_1_0() { return cOtherLabelEStringParserRuleCall_1_7_1_1_0; }
+
+		//"\""
+		public Keyword getQuotationMarkKeyword_1_7_1_2() { return cQuotationMarkKeyword_1_7_1_2; }
 
 		//showLimits?=("show-limits" | "show" | "limits")?
 		public Assignment getShowLimitsAssignment_1_8() { return cShowLimitsAssignment_1_8; }
@@ -2016,8 +2084,16 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cQuotationMarkKeyword_1_2_2 = (Keyword)cGroup_1_2.eContents().get(2);
 		private final Assignment cRequiredAssignment_1_3 = (Assignment)cUnorderedGroup_1.eContents().get(3);
 		private final Keyword cRequiredRequiredKeyword_1_3_0 = (Keyword)cRequiredAssignment_1_3.eContents().get(0);
-		private final Assignment cOtherAssignment_1_4 = (Assignment)cUnorderedGroup_1.eContents().get(4);
-		private final Keyword cOtherOtherKeyword_1_4_0 = (Keyword)cOtherAssignment_1_4.eContents().get(0);
+		private final Alternatives cAlternatives_1_4 = (Alternatives)cUnorderedGroup_1.eContents().get(4);
+		private final Assignment cOtherAssignment_1_4_0 = (Assignment)cAlternatives_1_4.eContents().get(0);
+		private final Alternatives cOtherAlternatives_1_4_0_0 = (Alternatives)cOtherAssignment_1_4_0.eContents().get(0);
+		private final Keyword cOtherOtherKeyword_1_4_0_0_0 = (Keyword)cOtherAlternatives_1_4_0_0.eContents().get(0);
+		private final Keyword cOtherOtherKeyword_1_4_0_0_1 = (Keyword)cOtherAlternatives_1_4_0_0.eContents().get(1);
+		private final Group cGroup_1_4_1 = (Group)cAlternatives_1_4.eContents().get(1);
+		private final Keyword cOtherKeyword_1_4_1_0 = (Keyword)cGroup_1_4_1.eContents().get(0);
+		private final Assignment cOtherLabelAssignment_1_4_1_1 = (Assignment)cGroup_1_4_1.eContents().get(1);
+		private final RuleCall cOtherLabelEStringParserRuleCall_1_4_1_1_0 = (RuleCall)cOtherLabelAssignment_1_4_1_1.eContents().get(0);
+		private final Keyword cQuotationMarkKeyword_1_4_1_2 = (Keyword)cGroup_1_4_1.eContents().get(2);
 		private final Alternatives cAlternatives_1_5 = (Alternatives)cUnorderedGroup_1.eContents().get(5);
 		private final Keyword cSingleKeyword_1_5_0 = (Keyword)cAlternatives_1_5.eContents().get(0);
 		private final Assignment cMultipleAssignment_1_5_1 = (Assignment)cAlternatives_1_5.eContents().get(1);
@@ -2038,14 +2114,14 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//Table:
 		//	"<table" (("title=\"" title=EString? "\"")? //& ('id="' name=ID? '"')?
 		//	& ("description=\"" description=EString? "\"")? & ("depends-on=\"" dependsOn=DEP_ID? "\"")? & required?="required"? &
-		//	other?="other"? & ("single" | multiple?="multiple")?) ">" (options+=Option+ & questions+=TableQuestion+)
-		//	(options+=Option | questions+=TableQuestion)* "</table>";
+		//	(other?=("other" | "other=\"\"") | "other=\"" otherLabel=EString "\"")? & ("single" | multiple?="multiple")?) ">"
+		//	(options+=Option+ & questions+=TableQuestion+) (options+=Option | questions+=TableQuestion)* "</table>";
 		public ParserRule getRule() { return rule; }
 
 		//"<table" (("title=\"" title=EString? "\"")? //& ('id="' name=ID? '"')?
 		//& ("description=\"" description=EString? "\"")? & ("depends-on=\"" dependsOn=DEP_ID? "\"")? & required?="required"? &
-		//other?="other"? & ("single" | multiple?="multiple")?) ">" (options+=Option+ & questions+=TableQuestion+)
-		//(options+=Option | questions+=TableQuestion)* "</table>"
+		//(other?=("other" | "other=\"\"") | "other=\"" otherLabel=EString "\"")? & ("single" | multiple?="multiple")?) ">"
+		//(options+=Option+ & questions+=TableQuestion+) (options+=Option | questions+=TableQuestion)* "</table>"
 		public Group getGroup() { return cGroup; }
 
 		//"<table"
@@ -2053,7 +2129,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 
 		//("title=\"" title=EString? "\"")? //& ('id="' name=ID? '"')?
 		//& ("description=\"" description=EString? "\"")? & ("depends-on=\"" dependsOn=DEP_ID? "\"")? & required?="required"? &
-		//other?="other"? & ("single" | multiple?="multiple")?
+		//(other?=("other" | "other=\"\"") | "other=\"" otherLabel=EString "\"")? & ("single" | multiple?="multiple")?
 		public UnorderedGroup getUnorderedGroup_1() { return cUnorderedGroup_1; }
 
 		//("title=\"" title=EString? "\"")?
@@ -2107,11 +2183,35 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//"required"
 		public Keyword getRequiredRequiredKeyword_1_3_0() { return cRequiredRequiredKeyword_1_3_0; }
 
-		//other?="other"?
-		public Assignment getOtherAssignment_1_4() { return cOtherAssignment_1_4; }
+		//(other?=("other" | "other=\"\"") | "other=\"" otherLabel=EString "\"")?
+		public Alternatives getAlternatives_1_4() { return cAlternatives_1_4; }
+
+		//other?=("other" | "other=\"\"")
+		public Assignment getOtherAssignment_1_4_0() { return cOtherAssignment_1_4_0; }
+
+		//"other" | "other=\"\""
+		public Alternatives getOtherAlternatives_1_4_0_0() { return cOtherAlternatives_1_4_0_0; }
 
 		//"other"
-		public Keyword getOtherOtherKeyword_1_4_0() { return cOtherOtherKeyword_1_4_0; }
+		public Keyword getOtherOtherKeyword_1_4_0_0_0() { return cOtherOtherKeyword_1_4_0_0_0; }
+
+		//"other=\"\""
+		public Keyword getOtherOtherKeyword_1_4_0_0_1() { return cOtherOtherKeyword_1_4_0_0_1; }
+
+		//"other=\"" otherLabel=EString "\""
+		public Group getGroup_1_4_1() { return cGroup_1_4_1; }
+
+		//"other=\""
+		public Keyword getOtherKeyword_1_4_1_0() { return cOtherKeyword_1_4_1_0; }
+
+		//otherLabel=EString
+		public Assignment getOtherLabelAssignment_1_4_1_1() { return cOtherLabelAssignment_1_4_1_1; }
+
+		//EString
+		public RuleCall getOtherLabelEStringParserRuleCall_1_4_1_1_0() { return cOtherLabelEStringParserRuleCall_1_4_1_1_0; }
+
+		//"\""
+		public Keyword getQuotationMarkKeyword_1_4_1_2() { return cQuotationMarkKeyword_1_4_1_2; }
 
 		//("single" | multiple?="multiple")?
 		public Alternatives getAlternatives_1_5() { return cAlternatives_1_5; }
@@ -2584,8 +2684,8 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	//MultipleWithOptions returns Multiple:
 	//	"<multiple" ("title=\"" title=EString "\"" & ("description=\"" description=EString? "\"")? & ("id=\"" name=ID? "\"")?
 	//	& ("min=\"" min=INT "\"")? & ("max=\"" max=INT "\"")? & ("depends-on=\"" dependsOn=DEP_ID? "\"")? &
-	//	required?="required"? & other?="other"? & showLimits?=("show-limits" | "show" | "limits")?) ">" options+=Option+
-	//	"</multiple>";
+	//	required?="required"? & (other?=("other" | "other=\"\"") | "other=\"" otherLabel=EString "\"")? &
+	//	showLimits?=("show-limits" | "show" | "limits")?) ">" options+=Option+ "</multiple>";
 	public MultipleWithOptionsElements getMultipleWithOptionsAccess() {
 		return (pMultipleWithOptions != null) ? pMultipleWithOptions : (pMultipleWithOptions = new MultipleWithOptionsElements());
 	}
@@ -2597,8 +2697,8 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	//MultipleRef returns Multiple:
 	//	"<multiple" ("title=\"" title=EString "\"" & ("description=\"" description=EString? "\"")? & ("id=\"" name=ID? "\"")?
 	//	& ("min=\"" min=INT "\"")? & ("max=\"" max=INT "\"")? & ("depends-on=\"" dependsOn=DEP_ID? "\"")? &
-	//	required?="required"? & other?="other"? & showLimits?=("show-limits" | "show" | "limits")? &
-	//	options+=AnswerTemplateRefAttr) "/>";
+	//	required?="required"? & (other?=("other" | "other=\"\"") | "other=\"" otherLabel=EString "\"")? &
+	//	showLimits?=("show-limits" | "show" | "limits")? & options+=AnswerTemplateRefAttr) "/>";
 	public MultipleRefElements getMultipleRefAccess() {
 		return (pMultipleRef != null) ? pMultipleRef : (pMultipleRef = new MultipleRefElements());
 	}
@@ -2610,8 +2710,8 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	//Table:
 	//	"<table" (("title=\"" title=EString? "\"")? //& ('id="' name=ID? '"')?
 	//	& ("description=\"" description=EString? "\"")? & ("depends-on=\"" dependsOn=DEP_ID? "\"")? & required?="required"? &
-	//	other?="other"? & ("single" | multiple?="multiple")?) ">" (options+=Option+ & questions+=TableQuestion+)
-	//	(options+=Option | questions+=TableQuestion)* "</table>";
+	//	(other?=("other" | "other=\"\"") | "other=\"" otherLabel=EString "\"")? & ("single" | multiple?="multiple")?) ">"
+	//	(options+=Option+ & questions+=TableQuestion+) (options+=Option | questions+=TableQuestion)* "</table>";
 	public TableElements getTableAccess() {
 		return (pTable != null) ? pTable : (pTable = new TableElements());
 	}
@@ -2671,7 +2771,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//// Custom terminals
-	//terminal STRING: // TODO: Remove '
+	//terminal STRING:
 	//	"\'" ("\\" ("b" | "t" | "n" | "f" | "r" | "u" | "\"" | "\'" | "\\") | !("\\" | "\'"))* "\'";
 	public TerminalRule getSTRINGRule() {
 		return (tSTRING != null) ? tSTRING : (tSTRING = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "STRING"));
