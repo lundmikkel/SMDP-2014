@@ -216,9 +216,7 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	 *         dependsOn=DEP_ID? 
 	 *         (showLimits?='show-limits' | showLimits?='show' | showLimits?='limits')? 
 	 *         required?='required'? 
-	 *         day?='day'? 
-	 *         month?='month'? 
-	 *         year?='year'?
+	 *         mode=DateMode?
 	 *     )
 	 */
 	protected void sequence_Date(EObject context, Date semanticObject) {

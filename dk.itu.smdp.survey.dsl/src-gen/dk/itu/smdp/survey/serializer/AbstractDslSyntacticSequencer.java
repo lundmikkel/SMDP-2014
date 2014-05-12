@@ -975,7 +975,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ('depends-on="' '"' (('start="' '"') | ('description="' '"') | ('end="' '"') | ('id="' '"'))*)*
+	 *     ('depends-on="' '"' (('end="' '"') | ('start="' '"') | ('description="' '"') | ('id="' '"'))*)*
 	 */
 	protected void emit_Date___DependsOnKeyword_2_5_0_QuotationMarkKeyword_2_5_2_____DescriptionKeyword_2_1_0_QuotationMarkKeyword_2_1_2___or___EndKeyword_2_4_0_QuotationMarkKeyword_2_4_2___or___IdKeyword_2_2_0_QuotationMarkKeyword_2_2_2___or___StartKeyword_2_3_0_QuotationMarkKeyword_2_3_2____a__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -983,7 +983,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ('description="' '"' (('start="' '"') | ('end="' '"') | ('id="' '"') | ('depends-on="' '"'))*)*
+	 *     ('description="' '"' (('end="' '"') | ('start="' '"') | ('depends-on="' '"') | ('id="' '"'))*)*
 	 */
 	protected void emit_Date___DescriptionKeyword_2_1_0_QuotationMarkKeyword_2_1_2_____DependsOnKeyword_2_5_0_QuotationMarkKeyword_2_5_2___or___EndKeyword_2_4_0_QuotationMarkKeyword_2_4_2___or___IdKeyword_2_2_0_QuotationMarkKeyword_2_2_2___or___StartKeyword_2_3_0_QuotationMarkKeyword_2_3_2____a__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -991,7 +991,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ('end="' '"' (('description="' '"') | ('start="' '"') | ('id="' '"') | ('depends-on="' '"'))*)*
+	 *     ('end="' '"' (('start="' '"') | ('description="' '"') | ('depends-on="' '"') | ('id="' '"'))*)*
 	 */
 	protected void emit_Date___EndKeyword_2_4_0_QuotationMarkKeyword_2_4_2_____DependsOnKeyword_2_5_0_QuotationMarkKeyword_2_5_2___or___DescriptionKeyword_2_1_0_QuotationMarkKeyword_2_1_2___or___IdKeyword_2_2_0_QuotationMarkKeyword_2_2_2___or___StartKeyword_2_3_0_QuotationMarkKeyword_2_3_2____a__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -999,7 +999,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ('id="' '"' (('description="' '"') | ('start="' '"') | ('end="' '"') | ('depends-on="' '"'))*)*
+	 *     ('id="' '"' (('end="' '"') | ('start="' '"') | ('description="' '"') | ('depends-on="' '"'))*)*
 	 */
 	protected void emit_Date___IdKeyword_2_2_0_QuotationMarkKeyword_2_2_2_____DependsOnKeyword_2_5_0_QuotationMarkKeyword_2_5_2___or___DescriptionKeyword_2_1_0_QuotationMarkKeyword_2_1_2___or___EndKeyword_2_4_0_QuotationMarkKeyword_2_4_2___or___StartKeyword_2_3_0_QuotationMarkKeyword_2_3_2____a__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1007,7 +1007,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ('"' (('start="' '"') | ('end="' '"') | ('id="' '"') | ('depends-on="' '"'))* 'description="')*
+	 *     ('"' (('end="' '"') | ('start="' '"') | ('depends-on="' '"') | ('id="' '"'))* 'description="')*
 	 */
 	protected void emit_Date___QuotationMarkKeyword_2_1_2_____DependsOnKeyword_2_5_0_QuotationMarkKeyword_2_5_2___or___EndKeyword_2_4_0_QuotationMarkKeyword_2_4_2___or___IdKeyword_2_2_0_QuotationMarkKeyword_2_2_2___or___StartKeyword_2_3_0_QuotationMarkKeyword_2_3_2____a_DescriptionKeyword_2_1_0__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1015,7 +1015,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ('"' (('start="' '"') | ('end="' '"') | ('id="' '"') | ('depends-on="' '"'))* 'description="')+
+	 *     ('"' (('end="' '"') | ('start="' '"') | ('depends-on="' '"') | ('id="' '"'))* 'description="')+
 	 */
 	protected void emit_Date___QuotationMarkKeyword_2_1_2_____DependsOnKeyword_2_5_0_QuotationMarkKeyword_2_5_2___or___EndKeyword_2_4_0_QuotationMarkKeyword_2_4_2___or___IdKeyword_2_2_0_QuotationMarkKeyword_2_2_2___or___StartKeyword_2_3_0_QuotationMarkKeyword_2_3_2____a_DescriptionKeyword_2_1_0__p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1023,7 +1023,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ('"' (('start="' '"') | ('description="' '"') | ('end="' '"') | ('depends-on="' '"'))* 'id="')*
+	 *     ('"' (('end="' '"') | ('start="' '"') | ('description="' '"') | ('depends-on="' '"'))* 'id="')*
 	 */
 	protected void emit_Date___QuotationMarkKeyword_2_2_2_____DependsOnKeyword_2_5_0_QuotationMarkKeyword_2_5_2___or___DescriptionKeyword_2_1_0_QuotationMarkKeyword_2_1_2___or___EndKeyword_2_4_0_QuotationMarkKeyword_2_4_2___or___StartKeyword_2_3_0_QuotationMarkKeyword_2_3_2____a_IdKeyword_2_2_0__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1031,7 +1031,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ('"' (('start="' '"') | ('description="' '"') | ('end="' '"') | ('depends-on="' '"'))* 'id="')+
+	 *     ('"' (('end="' '"') | ('start="' '"') | ('description="' '"') | ('depends-on="' '"'))* 'id="')+
 	 */
 	protected void emit_Date___QuotationMarkKeyword_2_2_2_____DependsOnKeyword_2_5_0_QuotationMarkKeyword_2_5_2___or___DescriptionKeyword_2_1_0_QuotationMarkKeyword_2_1_2___or___EndKeyword_2_4_0_QuotationMarkKeyword_2_4_2___or___StartKeyword_2_3_0_QuotationMarkKeyword_2_3_2____a_IdKeyword_2_2_0__p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1039,7 +1039,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ('"' (('description="' '"') | ('end="' '"') | ('id="' '"') | ('depends-on="' '"'))* 'start="')*
+	 *     ('"' (('end="' '"') | ('description="' '"') | ('depends-on="' '"') | ('id="' '"'))* 'start="')*
 	 */
 	protected void emit_Date___QuotationMarkKeyword_2_3_2_____DependsOnKeyword_2_5_0_QuotationMarkKeyword_2_5_2___or___DescriptionKeyword_2_1_0_QuotationMarkKeyword_2_1_2___or___EndKeyword_2_4_0_QuotationMarkKeyword_2_4_2___or___IdKeyword_2_2_0_QuotationMarkKeyword_2_2_2____a_StartKeyword_2_3_0__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1047,7 +1047,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ('"' (('description="' '"') | ('end="' '"') | ('id="' '"') | ('depends-on="' '"'))* 'start="')+
+	 *     ('"' (('end="' '"') | ('description="' '"') | ('depends-on="' '"') | ('id="' '"'))* 'start="')+
 	 */
 	protected void emit_Date___QuotationMarkKeyword_2_3_2_____DependsOnKeyword_2_5_0_QuotationMarkKeyword_2_5_2___or___DescriptionKeyword_2_1_0_QuotationMarkKeyword_2_1_2___or___EndKeyword_2_4_0_QuotationMarkKeyword_2_4_2___or___IdKeyword_2_2_0_QuotationMarkKeyword_2_2_2____a_StartKeyword_2_3_0__p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1055,7 +1055,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ('"' (('description="' '"') | ('start="' '"') | ('id="' '"') | ('depends-on="' '"'))* 'end="')*
+	 *     ('"' (('start="' '"') | ('description="' '"') | ('depends-on="' '"') | ('id="' '"'))* 'end="')*
 	 */
 	protected void emit_Date___QuotationMarkKeyword_2_4_2_____DependsOnKeyword_2_5_0_QuotationMarkKeyword_2_5_2___or___DescriptionKeyword_2_1_0_QuotationMarkKeyword_2_1_2___or___IdKeyword_2_2_0_QuotationMarkKeyword_2_2_2___or___StartKeyword_2_3_0_QuotationMarkKeyword_2_3_2____a_EndKeyword_2_4_0__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1063,7 +1063,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ('"' (('start="' '"') | ('description="' '"') | ('id="' '"') | ('depends-on="' '"'))* 'end="')+
+	 *     ('"' (('start="' '"') | ('description="' '"') | ('depends-on="' '"') | ('id="' '"'))* 'end="')+
 	 */
 	protected void emit_Date___QuotationMarkKeyword_2_4_2_____DependsOnKeyword_2_5_0_QuotationMarkKeyword_2_5_2___or___DescriptionKeyword_2_1_0_QuotationMarkKeyword_2_1_2___or___IdKeyword_2_2_0_QuotationMarkKeyword_2_2_2___or___StartKeyword_2_3_0_QuotationMarkKeyword_2_3_2____a_EndKeyword_2_4_0__p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1071,7 +1071,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ('"' (('description="' '"') | ('start="' '"') | ('end="' '"') | ('id="' '"'))* 'depends-on="')*
+	 *     ('"' (('end="' '"') | ('start="' '"') | ('description="' '"') | ('id="' '"'))* 'depends-on="')*
 	 */
 	protected void emit_Date___QuotationMarkKeyword_2_5_2_____DescriptionKeyword_2_1_0_QuotationMarkKeyword_2_1_2___or___EndKeyword_2_4_0_QuotationMarkKeyword_2_4_2___or___IdKeyword_2_2_0_QuotationMarkKeyword_2_2_2___or___StartKeyword_2_3_0_QuotationMarkKeyword_2_3_2____a_DependsOnKeyword_2_5_0__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1079,7 +1079,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ('"' (('start="' '"') | ('description="' '"') | ('end="' '"') | ('id="' '"'))* 'depends-on="')+
+	 *     ('"' (('end="' '"') | ('start="' '"') | ('description="' '"') | ('id="' '"'))* 'depends-on="')+
 	 */
 	protected void emit_Date___QuotationMarkKeyword_2_5_2_____DescriptionKeyword_2_1_0_QuotationMarkKeyword_2_1_2___or___EndKeyword_2_4_0_QuotationMarkKeyword_2_4_2___or___IdKeyword_2_2_0_QuotationMarkKeyword_2_2_2___or___StartKeyword_2_3_0_QuotationMarkKeyword_2_3_2____a_DependsOnKeyword_2_5_0__p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1087,7 +1087,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ('start="' '"' (('description="' '"') | ('end="' '"') | ('id="' '"') | ('depends-on="' '"'))*)*
+	 *     ('start="' '"' (('end="' '"') | ('description="' '"') | ('depends-on="' '"') | ('id="' '"'))*)*
 	 */
 	protected void emit_Date___StartKeyword_2_3_0_QuotationMarkKeyword_2_3_2_____DependsOnKeyword_2_5_0_QuotationMarkKeyword_2_5_2___or___DescriptionKeyword_2_1_0_QuotationMarkKeyword_2_1_2___or___EndKeyword_2_4_0_QuotationMarkKeyword_2_4_2___or___IdKeyword_2_2_0_QuotationMarkKeyword_2_2_2____a__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1095,7 +1095,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     (('description="' '"') | ('end="' '"') | ('depends-on="' '"'))*
+	 *     (('end="' '"') | ('description="' '"') | ('depends-on="' '"'))*
 	 */
 	protected void emit_Date_____DependsOnKeyword_2_5_0_QuotationMarkKeyword_2_5_2___or___DescriptionKeyword_2_1_0_QuotationMarkKeyword_2_1_2___or___EndKeyword_2_4_0_QuotationMarkKeyword_2_4_2____a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1103,7 +1103,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     (('description="' '"') | ('end="' '"') | ('id="' '"') | ('depends-on="' '"'))*
+	 *     (('end="' '"') | ('description="' '"') | ('depends-on="' '"') | ('id="' '"'))*
 	 */
 	protected void emit_Date_____DependsOnKeyword_2_5_0_QuotationMarkKeyword_2_5_2___or___DescriptionKeyword_2_1_0_QuotationMarkKeyword_2_1_2___or___EndKeyword_2_4_0_QuotationMarkKeyword_2_4_2___or___IdKeyword_2_2_0_QuotationMarkKeyword_2_2_2____a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1111,7 +1111,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     (('description="' '"') | ('start="' '"') | ('end="' '"') | ('id="' '"') | ('depends-on="' '"'))*
+	 *     (('end="' '"') | ('start="' '"') | ('description="' '"') | ('depends-on="' '"') | ('id="' '"'))*
 	 */
 	protected void emit_Date_____DependsOnKeyword_2_5_0_QuotationMarkKeyword_2_5_2___or___DescriptionKeyword_2_1_0_QuotationMarkKeyword_2_1_2___or___EndKeyword_2_4_0_QuotationMarkKeyword_2_4_2___or___IdKeyword_2_2_0_QuotationMarkKeyword_2_2_2___or___StartKeyword_2_3_0_QuotationMarkKeyword_2_3_2____a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1119,7 +1119,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     (('start="' '"') | ('description="' '"') | ('end="' '"') | ('depends-on="' '"'))*
+	 *     (('end="' '"') | ('start="' '"') | ('description="' '"') | ('depends-on="' '"'))*
 	 */
 	protected void emit_Date_____DependsOnKeyword_2_5_0_QuotationMarkKeyword_2_5_2___or___DescriptionKeyword_2_1_0_QuotationMarkKeyword_2_1_2___or___EndKeyword_2_4_0_QuotationMarkKeyword_2_4_2___or___StartKeyword_2_3_0_QuotationMarkKeyword_2_3_2____a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1127,7 +1127,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     (('description="' '"') | ('id="' '"') | ('depends-on="' '"'))*
+	 *     (('description="' '"') | ('depends-on="' '"') | ('id="' '"'))*
 	 */
 	protected void emit_Date_____DependsOnKeyword_2_5_0_QuotationMarkKeyword_2_5_2___or___DescriptionKeyword_2_1_0_QuotationMarkKeyword_2_1_2___or___IdKeyword_2_2_0_QuotationMarkKeyword_2_2_2____a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1135,7 +1135,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     (('description="' '"') | ('start="' '"') | ('id="' '"') | ('depends-on="' '"'))*
+	 *     (('start="' '"') | ('description="' '"') | ('depends-on="' '"') | ('id="' '"'))*
 	 */
 	protected void emit_Date_____DependsOnKeyword_2_5_0_QuotationMarkKeyword_2_5_2___or___DescriptionKeyword_2_1_0_QuotationMarkKeyword_2_1_2___or___IdKeyword_2_2_0_QuotationMarkKeyword_2_2_2___or___StartKeyword_2_3_0_QuotationMarkKeyword_2_3_2____a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1151,7 +1151,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     (('end="' '"') | ('id="' '"') | ('depends-on="' '"'))*
+	 *     (('end="' '"') | ('depends-on="' '"') | ('id="' '"'))*
 	 */
 	protected void emit_Date_____DependsOnKeyword_2_5_0_QuotationMarkKeyword_2_5_2___or___EndKeyword_2_4_0_QuotationMarkKeyword_2_4_2___or___IdKeyword_2_2_0_QuotationMarkKeyword_2_2_2____a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1159,7 +1159,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     (('start="' '"') | ('end="' '"') | ('id="' '"') | ('depends-on="' '"'))*
+	 *     (('end="' '"') | ('start="' '"') | ('depends-on="' '"') | ('id="' '"'))*
 	 */
 	protected void emit_Date_____DependsOnKeyword_2_5_0_QuotationMarkKeyword_2_5_2___or___EndKeyword_2_4_0_QuotationMarkKeyword_2_4_2___or___IdKeyword_2_2_0_QuotationMarkKeyword_2_2_2___or___StartKeyword_2_3_0_QuotationMarkKeyword_2_3_2____a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1167,7 +1167,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     (('start="' '"') | ('end="' '"') | ('depends-on="' '"'))*
+	 *     (('end="' '"') | ('start="' '"') | ('depends-on="' '"'))*
 	 */
 	protected void emit_Date_____DependsOnKeyword_2_5_0_QuotationMarkKeyword_2_5_2___or___EndKeyword_2_4_0_QuotationMarkKeyword_2_4_2___or___StartKeyword_2_3_0_QuotationMarkKeyword_2_3_2____a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1175,7 +1175,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     (('start="' '"') | ('id="' '"') | ('depends-on="' '"'))*
+	 *     (('start="' '"') | ('depends-on="' '"') | ('id="' '"'))*
 	 */
 	protected void emit_Date_____DependsOnKeyword_2_5_0_QuotationMarkKeyword_2_5_2___or___IdKeyword_2_2_0_QuotationMarkKeyword_2_2_2___or___StartKeyword_2_3_0_QuotationMarkKeyword_2_3_2____a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1183,7 +1183,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     (('description="' '"') | ('end="' '"') | ('id="' '"'))*
+	 *     (('end="' '"') | ('description="' '"') | ('id="' '"'))*
 	 */
 	protected void emit_Date_____DescriptionKeyword_2_1_0_QuotationMarkKeyword_2_1_2___or___EndKeyword_2_4_0_QuotationMarkKeyword_2_4_2___or___IdKeyword_2_2_0_QuotationMarkKeyword_2_2_2____a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1191,7 +1191,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     (('start="' '"') | ('description="' '"') | ('end="' '"') | ('id="' '"'))*
+	 *     (('end="' '"') | ('start="' '"') | ('description="' '"') | ('id="' '"'))*
 	 */
 	protected void emit_Date_____DescriptionKeyword_2_1_0_QuotationMarkKeyword_2_1_2___or___EndKeyword_2_4_0_QuotationMarkKeyword_2_4_2___or___IdKeyword_2_2_0_QuotationMarkKeyword_2_2_2___or___StartKeyword_2_3_0_QuotationMarkKeyword_2_3_2____a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1199,7 +1199,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     (('start="' '"') | ('description="' '"') | ('end="' '"'))*
+	 *     (('end="' '"') | ('start="' '"') | ('description="' '"'))*
 	 */
 	protected void emit_Date_____DescriptionKeyword_2_1_0_QuotationMarkKeyword_2_1_2___or___EndKeyword_2_4_0_QuotationMarkKeyword_2_4_2___or___StartKeyword_2_3_0_QuotationMarkKeyword_2_3_2____a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1207,7 +1207,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     (('description="' '"') | ('start="' '"') | ('id="' '"'))*
+	 *     (('start="' '"') | ('description="' '"') | ('id="' '"'))*
 	 */
 	protected void emit_Date_____DescriptionKeyword_2_1_0_QuotationMarkKeyword_2_1_2___or___IdKeyword_2_2_0_QuotationMarkKeyword_2_2_2___or___StartKeyword_2_3_0_QuotationMarkKeyword_2_3_2____a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1215,7 +1215,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     (('start="' '"') | ('end="' '"') | ('id="' '"'))*
+	 *     (('end="' '"') | ('start="' '"') | ('id="' '"'))*
 	 */
 	protected void emit_Date_____EndKeyword_2_4_0_QuotationMarkKeyword_2_4_2___or___IdKeyword_2_2_0_QuotationMarkKeyword_2_2_2___or___StartKeyword_2_3_0_QuotationMarkKeyword_2_3_2____a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1223,7 +1223,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ((('description="' '"') | ('depends-on="' '"')) (('start="' '"') | ('end="' '"') | ('id="' '"'))*)*
+	 *     ((('description="' '"') | ('depends-on="' '"')) (('end="' '"') | ('start="' '"') | ('id="' '"'))*)*
 	 */
 	protected void emit_Date_______DependsOnKeyword_2_5_0_QuotationMarkKeyword_2_5_2___or___DescriptionKeyword_2_1_0_QuotationMarkKeyword_2_1_2_________EndKeyword_2_4_0_QuotationMarkKeyword_2_4_2___or___IdKeyword_2_2_0_QuotationMarkKeyword_2_2_2___or___StartKeyword_2_3_0_QuotationMarkKeyword_2_3_2____a__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1231,7 +1231,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ((('end="' '"') | ('depends-on="' '"')) (('description="' '"') | ('start="' '"') | ('id="' '"'))*)*
+	 *     ((('end="' '"') | ('depends-on="' '"')) (('start="' '"') | ('description="' '"') | ('id="' '"'))*)*
 	 */
 	protected void emit_Date_______DependsOnKeyword_2_5_0_QuotationMarkKeyword_2_5_2___or___EndKeyword_2_4_0_QuotationMarkKeyword_2_4_2_________DescriptionKeyword_2_1_0_QuotationMarkKeyword_2_1_2___or___IdKeyword_2_2_0_QuotationMarkKeyword_2_2_2___or___StartKeyword_2_3_0_QuotationMarkKeyword_2_3_2____a__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1239,7 +1239,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ((('id="' '"') | ('depends-on="' '"')) (('start="' '"') | ('description="' '"') | ('end="' '"'))*)*
+	 *     ((('depends-on="' '"') | ('id="' '"')) (('end="' '"') | ('start="' '"') | ('description="' '"'))*)*
 	 */
 	protected void emit_Date_______DependsOnKeyword_2_5_0_QuotationMarkKeyword_2_5_2___or___IdKeyword_2_2_0_QuotationMarkKeyword_2_2_2_________DescriptionKeyword_2_1_0_QuotationMarkKeyword_2_1_2___or___EndKeyword_2_4_0_QuotationMarkKeyword_2_4_2___or___StartKeyword_2_3_0_QuotationMarkKeyword_2_3_2____a__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1247,7 +1247,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ((('start="' '"') | ('depends-on="' '"')) (('description="' '"') | ('end="' '"') | ('id="' '"'))*)*
+	 *     ((('start="' '"') | ('depends-on="' '"')) (('end="' '"') | ('description="' '"') | ('id="' '"'))*)*
 	 */
 	protected void emit_Date_______DependsOnKeyword_2_5_0_QuotationMarkKeyword_2_5_2___or___StartKeyword_2_3_0_QuotationMarkKeyword_2_3_2_________DescriptionKeyword_2_1_0_QuotationMarkKeyword_2_1_2___or___EndKeyword_2_4_0_QuotationMarkKeyword_2_4_2___or___IdKeyword_2_2_0_QuotationMarkKeyword_2_2_2____a__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1255,7 +1255,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ((('description="' '"') | ('end="' '"')) (('start="' '"') | ('id="' '"') | ('depends-on="' '"'))*)*
+	 *     ((('end="' '"') | ('description="' '"')) (('start="' '"') | ('depends-on="' '"') | ('id="' '"'))*)*
 	 */
 	protected void emit_Date_______DescriptionKeyword_2_1_0_QuotationMarkKeyword_2_1_2___or___EndKeyword_2_4_0_QuotationMarkKeyword_2_4_2_________DependsOnKeyword_2_5_0_QuotationMarkKeyword_2_5_2___or___IdKeyword_2_2_0_QuotationMarkKeyword_2_2_2___or___StartKeyword_2_3_0_QuotationMarkKeyword_2_3_2____a__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1263,7 +1263,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ((('description="' '"') | ('id="' '"')) (('start="' '"') | ('end="' '"') | ('depends-on="' '"'))*)*
+	 *     ((('description="' '"') | ('id="' '"')) (('end="' '"') | ('start="' '"') | ('depends-on="' '"'))*)*
 	 */
 	protected void emit_Date_______DescriptionKeyword_2_1_0_QuotationMarkKeyword_2_1_2___or___IdKeyword_2_2_0_QuotationMarkKeyword_2_2_2_________DependsOnKeyword_2_5_0_QuotationMarkKeyword_2_5_2___or___EndKeyword_2_4_0_QuotationMarkKeyword_2_4_2___or___StartKeyword_2_3_0_QuotationMarkKeyword_2_3_2____a__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1271,7 +1271,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ((('description="' '"') | ('start="' '"')) (('end="' '"') | ('id="' '"') | ('depends-on="' '"'))*)*
+	 *     ((('start="' '"') | ('description="' '"')) (('end="' '"') | ('depends-on="' '"') | ('id="' '"'))*)*
 	 */
 	protected void emit_Date_______DescriptionKeyword_2_1_0_QuotationMarkKeyword_2_1_2___or___StartKeyword_2_3_0_QuotationMarkKeyword_2_3_2_________DependsOnKeyword_2_5_0_QuotationMarkKeyword_2_5_2___or___EndKeyword_2_4_0_QuotationMarkKeyword_2_4_2___or___IdKeyword_2_2_0_QuotationMarkKeyword_2_2_2____a__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1287,7 +1287,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ((('start="' '"') | ('end="' '"')) (('description="' '"') | ('id="' '"') | ('depends-on="' '"'))*)*
+	 *     ((('end="' '"') | ('start="' '"')) (('description="' '"') | ('depends-on="' '"') | ('id="' '"'))*)*
 	 */
 	protected void emit_Date_______EndKeyword_2_4_0_QuotationMarkKeyword_2_4_2___or___StartKeyword_2_3_0_QuotationMarkKeyword_2_3_2_________DependsOnKeyword_2_5_0_QuotationMarkKeyword_2_5_2___or___DescriptionKeyword_2_1_0_QuotationMarkKeyword_2_1_2___or___IdKeyword_2_2_0_QuotationMarkKeyword_2_2_2____a__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1295,7 +1295,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ((('start="' '"') | ('id="' '"')) (('description="' '"') | ('end="' '"') | ('depends-on="' '"'))*)*
+	 *     ((('start="' '"') | ('id="' '"')) (('end="' '"') | ('description="' '"') | ('depends-on="' '"'))*)*
 	 */
 	protected void emit_Date_______IdKeyword_2_2_0_QuotationMarkKeyword_2_2_2___or___StartKeyword_2_3_0_QuotationMarkKeyword_2_3_2_________DependsOnKeyword_2_5_0_QuotationMarkKeyword_2_5_2___or___DescriptionKeyword_2_1_0_QuotationMarkKeyword_2_1_2___or___EndKeyword_2_4_0_QuotationMarkKeyword_2_4_2____a__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1303,7 +1303,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ('depends-on="' '"' (('description="' '"') | ('title="' '"') | ('id="' '"'))*)*
+	 *     ('depends-on="' '"' (('id="' '"') | ('description="' '"') | ('title="' '"'))*)*
 	 */
 	protected void emit_Group___DependsOnKeyword_1_3_0_QuotationMarkKeyword_1_3_2_____DescriptionKeyword_1_2_0_QuotationMarkKeyword_1_2_2___or___IdKeyword_1_1_0_QuotationMarkKeyword_1_1_2___or___TitleKeyword_1_0_0_QuotationMarkKeyword_1_0_2____a__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1311,7 +1311,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ('description="' '"' (('title="' '"') | ('id="' '"') | ('depends-on="' '"'))*)*
+	 *     ('description="' '"' (('id="' '"') | ('depends-on="' '"') | ('title="' '"'))*)*
 	 */
 	protected void emit_Group___DescriptionKeyword_1_2_0_QuotationMarkKeyword_1_2_2_____DependsOnKeyword_1_3_0_QuotationMarkKeyword_1_3_2___or___IdKeyword_1_1_0_QuotationMarkKeyword_1_1_2___or___TitleKeyword_1_0_0_QuotationMarkKeyword_1_0_2____a__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1319,7 +1319,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ('id="' '"' (('description="' '"') | ('title="' '"') | ('depends-on="' '"'))*)*
+	 *     ('id="' '"' (('depends-on="' '"') | ('description="' '"') | ('title="' '"'))*)*
 	 */
 	protected void emit_Group___IdKeyword_1_1_0_QuotationMarkKeyword_1_1_2_____DependsOnKeyword_1_3_0_QuotationMarkKeyword_1_3_2___or___DescriptionKeyword_1_2_0_QuotationMarkKeyword_1_2_2___or___TitleKeyword_1_0_0_QuotationMarkKeyword_1_0_2____a__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1327,7 +1327,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ('"' (('description="' '"') | ('id="' '"') | ('depends-on="' '"'))* 'title="')*
+	 *     ('"' (('id="' '"') | ('depends-on="' '"') | ('description="' '"'))* 'title="')*
 	 */
 	protected void emit_Group___QuotationMarkKeyword_1_0_2_____DependsOnKeyword_1_3_0_QuotationMarkKeyword_1_3_2___or___DescriptionKeyword_1_2_0_QuotationMarkKeyword_1_2_2___or___IdKeyword_1_1_0_QuotationMarkKeyword_1_1_2____a_TitleKeyword_1_0_0__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1335,7 +1335,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ('"' (('description="' '"') | ('id="' '"') | ('depends-on="' '"'))* 'title="')+
+	 *     ('"' (('id="' '"') | ('depends-on="' '"') | ('description="' '"'))* 'title="')+
 	 */
 	protected void emit_Group___QuotationMarkKeyword_1_0_2_____DependsOnKeyword_1_3_0_QuotationMarkKeyword_1_3_2___or___DescriptionKeyword_1_2_0_QuotationMarkKeyword_1_2_2___or___IdKeyword_1_1_0_QuotationMarkKeyword_1_1_2____a_TitleKeyword_1_0_0__p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1343,7 +1343,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ('"' (('description="' '"') | ('title="' '"') | ('depends-on="' '"'))* 'id="')*
+	 *     ('"' (('description="' '"') | ('depends-on="' '"') | ('title="' '"'))* 'id="')*
 	 */
 	protected void emit_Group___QuotationMarkKeyword_1_1_2_____DependsOnKeyword_1_3_0_QuotationMarkKeyword_1_3_2___or___DescriptionKeyword_1_2_0_QuotationMarkKeyword_1_2_2___or___TitleKeyword_1_0_0_QuotationMarkKeyword_1_0_2____a_IdKeyword_1_1_0__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1351,7 +1351,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ('"' (('description="' '"') | ('title="' '"') | ('depends-on="' '"'))* 'id="')+
+	 *     ('"' (('depends-on="' '"') | ('description="' '"') | ('title="' '"'))* 'id="')+
 	 */
 	protected void emit_Group___QuotationMarkKeyword_1_1_2_____DependsOnKeyword_1_3_0_QuotationMarkKeyword_1_3_2___or___DescriptionKeyword_1_2_0_QuotationMarkKeyword_1_2_2___or___TitleKeyword_1_0_0_QuotationMarkKeyword_1_0_2____a_IdKeyword_1_1_0__p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1359,7 +1359,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ('"' (('title="' '"') | ('id="' '"') | ('depends-on="' '"'))* 'description="')*
+	 *     ('"' (('id="' '"') | ('depends-on="' '"') | ('title="' '"'))* 'description="')*
 	 */
 	protected void emit_Group___QuotationMarkKeyword_1_2_2_____DependsOnKeyword_1_3_0_QuotationMarkKeyword_1_3_2___or___IdKeyword_1_1_0_QuotationMarkKeyword_1_1_2___or___TitleKeyword_1_0_0_QuotationMarkKeyword_1_0_2____a_DescriptionKeyword_1_2_0__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1367,7 +1367,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ('"' (('title="' '"') | ('id="' '"') | ('depends-on="' '"'))* 'description="')+
+	 *     ('"' (('id="' '"') | ('depends-on="' '"') | ('title="' '"'))* 'description="')+
 	 */
 	protected void emit_Group___QuotationMarkKeyword_1_2_2_____DependsOnKeyword_1_3_0_QuotationMarkKeyword_1_3_2___or___IdKeyword_1_1_0_QuotationMarkKeyword_1_1_2___or___TitleKeyword_1_0_0_QuotationMarkKeyword_1_0_2____a_DescriptionKeyword_1_2_0__p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1375,7 +1375,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ('"' (('description="' '"') | ('title="' '"') | ('id="' '"'))* 'depends-on="')*
+	 *     ('"' (('id="' '"') | ('description="' '"') | ('title="' '"'))* 'depends-on="')*
 	 */
 	protected void emit_Group___QuotationMarkKeyword_1_3_2_____DescriptionKeyword_1_2_0_QuotationMarkKeyword_1_2_2___or___IdKeyword_1_1_0_QuotationMarkKeyword_1_1_2___or___TitleKeyword_1_0_0_QuotationMarkKeyword_1_0_2____a_DependsOnKeyword_1_3_0__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1383,7 +1383,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ('"' (('description="' '"') | ('title="' '"') | ('id="' '"'))* 'depends-on="')+
+	 *     ('"' (('id="' '"') | ('description="' '"') | ('title="' '"'))* 'depends-on="')+
 	 */
 	protected void emit_Group___QuotationMarkKeyword_1_3_2_____DescriptionKeyword_1_2_0_QuotationMarkKeyword_1_2_2___or___IdKeyword_1_1_0_QuotationMarkKeyword_1_1_2___or___TitleKeyword_1_0_0_QuotationMarkKeyword_1_0_2____a_DependsOnKeyword_1_3_0__p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1391,7 +1391,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ('title="' '"' (('description="' '"') | ('id="' '"') | ('depends-on="' '"'))*)*
+	 *     ('title="' '"' (('id="' '"') | ('description="' '"') | ('depends-on="' '"'))*)*
 	 */
 	protected void emit_Group___TitleKeyword_1_0_0_QuotationMarkKeyword_1_0_2_____DependsOnKeyword_1_3_0_QuotationMarkKeyword_1_3_2___or___DescriptionKeyword_1_2_0_QuotationMarkKeyword_1_2_2___or___IdKeyword_1_1_0_QuotationMarkKeyword_1_1_2____a__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1399,7 +1399,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     (('description="' '"') | ('depends-on="' '"'))*
+	 *     (('depends-on="' '"') | ('description="' '"'))*
 	 */
 	protected void emit_Group_____DependsOnKeyword_1_3_0_QuotationMarkKeyword_1_3_2___or___DescriptionKeyword_1_2_0_QuotationMarkKeyword_1_2_2____a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1407,7 +1407,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     (('description="' '"') | ('id="' '"') | ('depends-on="' '"'))*
+	 *     (('id="' '"') | ('depends-on="' '"') | ('description="' '"'))*
 	 */
 	protected void emit_Group_____DependsOnKeyword_1_3_0_QuotationMarkKeyword_1_3_2___or___DescriptionKeyword_1_2_0_QuotationMarkKeyword_1_2_2___or___IdKeyword_1_1_0_QuotationMarkKeyword_1_1_2____a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1415,7 +1415,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     (('description="' '"') | ('title="' '"') | ('id="' '"') | ('depends-on="' '"'))*
+	 *     (('id="' '"') | ('depends-on="' '"') | ('description="' '"') | ('title="' '"'))*
 	 */
 	protected void emit_Group_____DependsOnKeyword_1_3_0_QuotationMarkKeyword_1_3_2___or___DescriptionKeyword_1_2_0_QuotationMarkKeyword_1_2_2___or___IdKeyword_1_1_0_QuotationMarkKeyword_1_1_2___or___TitleKeyword_1_0_0_QuotationMarkKeyword_1_0_2____a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1423,7 +1423,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     (('description="' '"') | ('title="' '"') | ('depends-on="' '"'))*
+	 *     (('depends-on="' '"') | ('description="' '"') | ('title="' '"'))*
 	 */
 	protected void emit_Group_____DependsOnKeyword_1_3_0_QuotationMarkKeyword_1_3_2___or___DescriptionKeyword_1_2_0_QuotationMarkKeyword_1_2_2___or___TitleKeyword_1_0_0_QuotationMarkKeyword_1_0_2____a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1439,7 +1439,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     (('title="' '"') | ('id="' '"') | ('depends-on="' '"'))*
+	 *     (('id="' '"') | ('depends-on="' '"') | ('title="' '"'))*
 	 */
 	protected void emit_Group_____DependsOnKeyword_1_3_0_QuotationMarkKeyword_1_3_2___or___IdKeyword_1_1_0_QuotationMarkKeyword_1_1_2___or___TitleKeyword_1_0_0_QuotationMarkKeyword_1_0_2____a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1447,7 +1447,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     (('title="' '"') | ('depends-on="' '"'))*
+	 *     (('depends-on="' '"') | ('title="' '"'))*
 	 */
 	protected void emit_Group_____DependsOnKeyword_1_3_0_QuotationMarkKeyword_1_3_2___or___TitleKeyword_1_0_0_QuotationMarkKeyword_1_0_2____a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1455,7 +1455,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     (('description="' '"') | ('id="' '"'))*
+	 *     (('id="' '"') | ('description="' '"'))*
 	 */
 	protected void emit_Group_____DescriptionKeyword_1_2_0_QuotationMarkKeyword_1_2_2___or___IdKeyword_1_1_0_QuotationMarkKeyword_1_1_2____a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1463,7 +1463,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     (('description="' '"') | ('title="' '"') | ('id="' '"'))*
+	 *     (('id="' '"') | ('description="' '"') | ('title="' '"'))*
 	 */
 	protected void emit_Group_____DescriptionKeyword_1_2_0_QuotationMarkKeyword_1_2_2___or___IdKeyword_1_1_0_QuotationMarkKeyword_1_1_2___or___TitleKeyword_1_0_0_QuotationMarkKeyword_1_0_2____a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1479,7 +1479,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     (('title="' '"') | ('id="' '"'))*
+	 *     (('id="' '"') | ('title="' '"'))*
 	 */
 	protected void emit_Group_____IdKeyword_1_1_0_QuotationMarkKeyword_1_1_2___or___TitleKeyword_1_0_0_QuotationMarkKeyword_1_0_2____a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1487,7 +1487,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ((('description="' '"') | ('depends-on="' '"')) (('title="' '"') | ('id="' '"'))*)*
+	 *     ((('depends-on="' '"') | ('description="' '"')) (('id="' '"') | ('title="' '"'))*)*
 	 */
 	protected void emit_Group_______DependsOnKeyword_1_3_0_QuotationMarkKeyword_1_3_2___or___DescriptionKeyword_1_2_0_QuotationMarkKeyword_1_2_2_________IdKeyword_1_1_0_QuotationMarkKeyword_1_1_2___or___TitleKeyword_1_0_0_QuotationMarkKeyword_1_0_2____a__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1503,7 +1503,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ((('title="' '"') | ('depends-on="' '"')) (('description="' '"') | ('id="' '"'))*)*
+	 *     ((('depends-on="' '"') | ('title="' '"')) (('id="' '"') | ('description="' '"'))*)*
 	 */
 	protected void emit_Group_______DependsOnKeyword_1_3_0_QuotationMarkKeyword_1_3_2___or___TitleKeyword_1_0_0_QuotationMarkKeyword_1_0_2_________DescriptionKeyword_1_2_0_QuotationMarkKeyword_1_2_2___or___IdKeyword_1_1_0_QuotationMarkKeyword_1_1_2____a__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1511,7 +1511,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ((('description="' '"') | ('id="' '"')) (('title="' '"') | ('depends-on="' '"'))*)*
+	 *     ((('id="' '"') | ('description="' '"')) (('depends-on="' '"') | ('title="' '"'))*)*
 	 */
 	protected void emit_Group_______DescriptionKeyword_1_2_0_QuotationMarkKeyword_1_2_2___or___IdKeyword_1_1_0_QuotationMarkKeyword_1_1_2_________DependsOnKeyword_1_3_0_QuotationMarkKeyword_1_3_2___or___TitleKeyword_1_0_0_QuotationMarkKeyword_1_0_2____a__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1527,7 +1527,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ((('title="' '"') | ('id="' '"')) (('description="' '"') | ('depends-on="' '"'))*)*
+	 *     ((('id="' '"') | ('title="' '"')) (('depends-on="' '"') | ('description="' '"'))*)*
 	 */
 	protected void emit_Group_______IdKeyword_1_1_0_QuotationMarkKeyword_1_1_2___or___TitleKeyword_1_0_0_QuotationMarkKeyword_1_0_2_________DependsOnKeyword_1_3_0_QuotationMarkKeyword_1_3_2___or___DescriptionKeyword_1_2_0_QuotationMarkKeyword_1_2_2____a__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1535,7 +1535,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ('depends-on="' '"' (('id="' '"') | ('description="' '"'))*)*
+	 *     ('depends-on="' '"' (('description="' '"') | ('id="' '"'))*)*
 	 */
 	protected void emit_MultipleRef___DependsOnKeyword_1_5_0_QuotationMarkKeyword_1_5_2_____DescriptionKeyword_1_1_0_QuotationMarkKeyword_1_1_2___or___IdKeyword_1_2_0_QuotationMarkKeyword_1_2_2____a__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1567,7 +1567,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ('id="' '"' (('depends-on="' '"') | ('description="' '"'))*)*
+	 *     ('id="' '"' (('description="' '"') | ('depends-on="' '"'))*)*
 	 */
 	protected void emit_MultipleRef___IdKeyword_1_2_0_QuotationMarkKeyword_1_2_2_____DependsOnKeyword_1_5_0_QuotationMarkKeyword_1_5_2___or___DescriptionKeyword_1_1_0_QuotationMarkKeyword_1_1_2____a__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1599,7 +1599,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ('"' (('depends-on="' '"') | ('description="' '"'))* 'id="')*
+	 *     ('"' (('description="' '"') | ('depends-on="' '"'))* 'id="')*
 	 */
 	protected void emit_MultipleRef___QuotationMarkKeyword_1_2_2_____DependsOnKeyword_1_5_0_QuotationMarkKeyword_1_5_2___or___DescriptionKeyword_1_1_0_QuotationMarkKeyword_1_1_2____a_IdKeyword_1_2_0__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1607,7 +1607,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ('"' (('depends-on="' '"') | ('description="' '"'))* 'id="')+
+	 *     ('"' (('description="' '"') | ('depends-on="' '"'))* 'id="')+
 	 */
 	protected void emit_MultipleRef___QuotationMarkKeyword_1_2_2_____DependsOnKeyword_1_5_0_QuotationMarkKeyword_1_5_2___or___DescriptionKeyword_1_1_0_QuotationMarkKeyword_1_1_2____a_IdKeyword_1_2_0__p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1615,7 +1615,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ('"' (('id="' '"') | ('description="' '"'))* 'depends-on="')*
+	 *     ('"' (('description="' '"') | ('id="' '"'))* 'depends-on="')*
 	 */
 	protected void emit_MultipleRef___QuotationMarkKeyword_1_5_2_____DescriptionKeyword_1_1_0_QuotationMarkKeyword_1_1_2___or___IdKeyword_1_2_0_QuotationMarkKeyword_1_2_2____a_DependsOnKeyword_1_5_0__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1623,7 +1623,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ('"' (('id="' '"') | ('description="' '"'))* 'depends-on="')+
+	 *     ('"' (('description="' '"') | ('id="' '"'))* 'depends-on="')+
 	 */
 	protected void emit_MultipleRef___QuotationMarkKeyword_1_5_2_____DescriptionKeyword_1_1_0_QuotationMarkKeyword_1_1_2___or___IdKeyword_1_2_0_QuotationMarkKeyword_1_2_2____a_DependsOnKeyword_1_5_0__p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1631,7 +1631,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     (('depends-on="' '"') | ('description="' '"'))*
+	 *     (('description="' '"') | ('depends-on="' '"'))*
 	 */
 	protected void emit_MultipleRef_____DependsOnKeyword_1_5_0_QuotationMarkKeyword_1_5_2___or___DescriptionKeyword_1_1_0_QuotationMarkKeyword_1_1_2____a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1639,7 +1639,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     (('depends-on="' '"') | ('id="' '"') | ('description="' '"'))*
+	 *     (('description="' '"') | ('depends-on="' '"') | ('id="' '"'))*
 	 */
 	protected void emit_MultipleRef_____DependsOnKeyword_1_5_0_QuotationMarkKeyword_1_5_2___or___DescriptionKeyword_1_1_0_QuotationMarkKeyword_1_1_2___or___IdKeyword_1_2_0_QuotationMarkKeyword_1_2_2____a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1647,7 +1647,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     (('depends-on="' '"') | ('id="' '"') | ('description="' '"'))+
+	 *     (('description="' '"') | ('depends-on="' '"') | ('id="' '"'))+
 	 */
 	protected void emit_MultipleRef_____DependsOnKeyword_1_5_0_QuotationMarkKeyword_1_5_2___or___DescriptionKeyword_1_1_0_QuotationMarkKeyword_1_1_2___or___IdKeyword_1_2_0_QuotationMarkKeyword_1_2_2____p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1663,7 +1663,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     (('id="' '"') | ('description="' '"'))*
+	 *     (('description="' '"') | ('id="' '"'))*
 	 */
 	protected void emit_MultipleRef_____DescriptionKeyword_1_1_0_QuotationMarkKeyword_1_1_2___or___IdKeyword_1_2_0_QuotationMarkKeyword_1_2_2____a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1671,7 +1671,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ((('depends-on="' '"') | ('description="' '"')) ('id="' '"')*)*
+	 *     ((('description="' '"') | ('depends-on="' '"')) ('id="' '"')*)*
 	 */
 	protected void emit_MultipleRef_______DependsOnKeyword_1_5_0_QuotationMarkKeyword_1_5_2___or___DescriptionKeyword_1_1_0_QuotationMarkKeyword_1_1_2_______IdKeyword_1_2_0_QuotationMarkKeyword_1_2_2__a__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1687,7 +1687,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ((('id="' '"') | ('description="' '"')) ('depends-on="' '"')*)*
+	 *     ((('description="' '"') | ('id="' '"')) ('depends-on="' '"')*)*
 	 */
 	protected void emit_MultipleRef_______DescriptionKeyword_1_1_0_QuotationMarkKeyword_1_1_2___or___IdKeyword_1_2_0_QuotationMarkKeyword_1_2_2_______DependsOnKeyword_1_5_0_QuotationMarkKeyword_1_5_2__a__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1695,7 +1695,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ('depends-on="' '"' (('description="' '"') | ('id="' '"'))*)*
+	 *     ('depends-on="' '"' (('id="' '"') | ('description="' '"'))*)*
 	 */
 	protected void emit_MultipleWithOptions___DependsOnKeyword_1_5_0_QuotationMarkKeyword_1_5_2_____DescriptionKeyword_1_1_0_QuotationMarkKeyword_1_1_2___or___IdKeyword_1_2_0_QuotationMarkKeyword_1_2_2____a__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1775,7 +1775,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ('"' (('description="' '"') | ('id="' '"'))* 'depends-on="')*
+	 *     ('"' (('id="' '"') | ('description="' '"'))* 'depends-on="')*
 	 */
 	protected void emit_MultipleWithOptions___QuotationMarkKeyword_1_5_2_____DescriptionKeyword_1_1_0_QuotationMarkKeyword_1_1_2___or___IdKeyword_1_2_0_QuotationMarkKeyword_1_2_2____a_DependsOnKeyword_1_5_0__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1783,7 +1783,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ('"' (('description="' '"') | ('id="' '"'))* 'depends-on="')+
+	 *     ('"' (('id="' '"') | ('description="' '"'))* 'depends-on="')+
 	 */
 	protected void emit_MultipleWithOptions___QuotationMarkKeyword_1_5_2_____DescriptionKeyword_1_1_0_QuotationMarkKeyword_1_1_2___or___IdKeyword_1_2_0_QuotationMarkKeyword_1_2_2____a_DependsOnKeyword_1_5_0__p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1799,7 +1799,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     (('description="' '"') | ('id="' '"') | ('depends-on="' '"'))*
+	 *     (('id="' '"') | ('description="' '"') | ('depends-on="' '"'))*
 	 */
 	protected void emit_MultipleWithOptions_____DependsOnKeyword_1_5_0_QuotationMarkKeyword_1_5_2___or___DescriptionKeyword_1_1_0_QuotationMarkKeyword_1_1_2___or___IdKeyword_1_2_0_QuotationMarkKeyword_1_2_2____a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1815,7 +1815,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     (('description="' '"') | ('id="' '"'))*
+	 *     (('id="' '"') | ('description="' '"'))*
 	 */
 	protected void emit_MultipleWithOptions_____DescriptionKeyword_1_1_0_QuotationMarkKeyword_1_1_2___or___IdKeyword_1_2_0_QuotationMarkKeyword_1_2_2____a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1839,7 +1839,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ((('description="' '"') | ('id="' '"')) ('depends-on="' '"')*)*
+	 *     ((('id="' '"') | ('description="' '"')) ('depends-on="' '"')*)*
 	 */
 	protected void emit_MultipleWithOptions_______DescriptionKeyword_1_1_0_QuotationMarkKeyword_1_1_2___or___IdKeyword_1_2_0_QuotationMarkKeyword_1_2_2_______DependsOnKeyword_1_5_0_QuotationMarkKeyword_1_5_2__a__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -1999,7 +1999,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ('depends-on="' '"' (('description="' '"') | ('max-label="' '"') | ('min-label="' '"'))*)*
+	 *     ('depends-on="' '"' (('description="' '"') | ('min-label="' '"') | ('max-label="' '"'))*)*
 	 */
 	protected void emit_Scale___DependsOnKeyword_1_7_0_QuotationMarkKeyword_1_7_2_____DescriptionKeyword_1_1_0_QuotationMarkKeyword_1_1_2___or___MaxLabelKeyword_1_6_0_QuotationMarkKeyword_1_6_2___or___MinLabelKeyword_1_5_0_QuotationMarkKeyword_1_5_2____a__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -2007,7 +2007,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ('description="' '"' (('max-label="' '"') | ('depends-on="' '"') | ('min-label="' '"'))*)*
+	 *     ('description="' '"' (('min-label="' '"') | ('depends-on="' '"') | ('max-label="' '"'))*)*
 	 */
 	protected void emit_Scale___DescriptionKeyword_1_1_0_QuotationMarkKeyword_1_1_2_____DependsOnKeyword_1_7_0_QuotationMarkKeyword_1_7_2___or___MaxLabelKeyword_1_6_0_QuotationMarkKeyword_1_6_2___or___MinLabelKeyword_1_5_0_QuotationMarkKeyword_1_5_2____a__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -2015,7 +2015,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ('max-label="' '"' (('description="' '"') | ('depends-on="' '"') | ('min-label="' '"'))*)*
+	 *     ('max-label="' '"' (('description="' '"') | ('min-label="' '"') | ('depends-on="' '"'))*)*
 	 */
 	protected void emit_Scale___MaxLabelKeyword_1_6_0_QuotationMarkKeyword_1_6_2_____DependsOnKeyword_1_7_0_QuotationMarkKeyword_1_7_2___or___DescriptionKeyword_1_1_0_QuotationMarkKeyword_1_1_2___or___MinLabelKeyword_1_5_0_QuotationMarkKeyword_1_5_2____a__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -2023,7 +2023,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ('min-label="' '"' (('description="' '"') | ('max-label="' '"') | ('depends-on="' '"'))*)*
+	 *     ('min-label="' '"' (('description="' '"') | ('depends-on="' '"') | ('max-label="' '"'))*)*
 	 */
 	protected void emit_Scale___MinLabelKeyword_1_5_0_QuotationMarkKeyword_1_5_2_____DependsOnKeyword_1_7_0_QuotationMarkKeyword_1_7_2___or___DescriptionKeyword_1_1_0_QuotationMarkKeyword_1_1_2___or___MaxLabelKeyword_1_6_0_QuotationMarkKeyword_1_6_2____a__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -2031,7 +2031,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ('"' (('max-label="' '"') | ('depends-on="' '"') | ('min-label="' '"'))* 'description="')*
+	 *     ('"' (('min-label="' '"') | ('depends-on="' '"') | ('max-label="' '"'))* 'description="')*
 	 */
 	protected void emit_Scale___QuotationMarkKeyword_1_1_2_____DependsOnKeyword_1_7_0_QuotationMarkKeyword_1_7_2___or___MaxLabelKeyword_1_6_0_QuotationMarkKeyword_1_6_2___or___MinLabelKeyword_1_5_0_QuotationMarkKeyword_1_5_2____a_DescriptionKeyword_1_1_0__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -2039,7 +2039,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ('"' (('max-label="' '"') | ('depends-on="' '"') | ('min-label="' '"'))* 'description="')+
+	 *     ('"' (('min-label="' '"') | ('depends-on="' '"') | ('max-label="' '"'))* 'description="')+
 	 */
 	protected void emit_Scale___QuotationMarkKeyword_1_1_2_____DependsOnKeyword_1_7_0_QuotationMarkKeyword_1_7_2___or___MaxLabelKeyword_1_6_0_QuotationMarkKeyword_1_6_2___or___MinLabelKeyword_1_5_0_QuotationMarkKeyword_1_5_2____a_DescriptionKeyword_1_1_0__p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -2047,7 +2047,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ('"' (('description="' '"') | ('max-label="' '"') | ('depends-on="' '"'))* 'min-label="')*
+	 *     ('"' (('description="' '"') | ('depends-on="' '"') | ('max-label="' '"'))* 'min-label="')*
 	 */
 	protected void emit_Scale___QuotationMarkKeyword_1_5_2_____DependsOnKeyword_1_7_0_QuotationMarkKeyword_1_7_2___or___DescriptionKeyword_1_1_0_QuotationMarkKeyword_1_1_2___or___MaxLabelKeyword_1_6_0_QuotationMarkKeyword_1_6_2____a_MinLabelKeyword_1_5_0__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -2055,7 +2055,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ('"' (('description="' '"') | ('max-label="' '"') | ('depends-on="' '"'))* 'min-label="')+
+	 *     ('"' (('description="' '"') | ('depends-on="' '"') | ('max-label="' '"'))* 'min-label="')+
 	 */
 	protected void emit_Scale___QuotationMarkKeyword_1_5_2_____DependsOnKeyword_1_7_0_QuotationMarkKeyword_1_7_2___or___DescriptionKeyword_1_1_0_QuotationMarkKeyword_1_1_2___or___MaxLabelKeyword_1_6_0_QuotationMarkKeyword_1_6_2____a_MinLabelKeyword_1_5_0__p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -2063,7 +2063,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ('"' (('description="' '"') | ('depends-on="' '"') | ('min-label="' '"'))* 'max-label="')*
+	 *     ('"' (('description="' '"') | ('min-label="' '"') | ('depends-on="' '"'))* 'max-label="')*
 	 */
 	protected void emit_Scale___QuotationMarkKeyword_1_6_2_____DependsOnKeyword_1_7_0_QuotationMarkKeyword_1_7_2___or___DescriptionKeyword_1_1_0_QuotationMarkKeyword_1_1_2___or___MinLabelKeyword_1_5_0_QuotationMarkKeyword_1_5_2____a_MaxLabelKeyword_1_6_0__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -2071,7 +2071,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ('"' (('description="' '"') | ('depends-on="' '"') | ('min-label="' '"'))* 'max-label="')+
+	 *     ('"' (('description="' '"') | ('min-label="' '"') | ('depends-on="' '"'))* 'max-label="')+
 	 */
 	protected void emit_Scale___QuotationMarkKeyword_1_6_2_____DependsOnKeyword_1_7_0_QuotationMarkKeyword_1_7_2___or___DescriptionKeyword_1_1_0_QuotationMarkKeyword_1_1_2___or___MinLabelKeyword_1_5_0_QuotationMarkKeyword_1_5_2____a_MaxLabelKeyword_1_6_0__p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -2079,7 +2079,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ('"' (('description="' '"') | ('max-label="' '"') | ('min-label="' '"'))* 'depends-on="')*
+	 *     ('"' (('description="' '"') | ('min-label="' '"') | ('max-label="' '"'))* 'depends-on="')*
 	 */
 	protected void emit_Scale___QuotationMarkKeyword_1_7_2_____DescriptionKeyword_1_1_0_QuotationMarkKeyword_1_1_2___or___MaxLabelKeyword_1_6_0_QuotationMarkKeyword_1_6_2___or___MinLabelKeyword_1_5_0_QuotationMarkKeyword_1_5_2____a_DependsOnKeyword_1_7_0__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -2087,7 +2087,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ('"' (('description="' '"') | ('max-label="' '"') | ('min-label="' '"'))* 'depends-on="')+
+	 *     ('"' (('description="' '"') | ('min-label="' '"') | ('max-label="' '"'))* 'depends-on="')+
 	 */
 	protected void emit_Scale___QuotationMarkKeyword_1_7_2_____DescriptionKeyword_1_1_0_QuotationMarkKeyword_1_1_2___or___MaxLabelKeyword_1_6_0_QuotationMarkKeyword_1_6_2___or___MinLabelKeyword_1_5_0_QuotationMarkKeyword_1_5_2____a_DependsOnKeyword_1_7_0__p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -2103,7 +2103,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     (('description="' '"') | ('max-label="' '"') | ('depends-on="' '"'))*
+	 *     (('description="' '"') | ('depends-on="' '"') | ('max-label="' '"'))*
 	 */
 	protected void emit_Scale_____DependsOnKeyword_1_7_0_QuotationMarkKeyword_1_7_2___or___DescriptionKeyword_1_1_0_QuotationMarkKeyword_1_1_2___or___MaxLabelKeyword_1_6_0_QuotationMarkKeyword_1_6_2____a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -2111,7 +2111,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     (('description="' '"') | ('max-label="' '"') | ('depends-on="' '"') | ('min-label="' '"'))*
+	 *     (('description="' '"') | ('min-label="' '"') | ('depends-on="' '"') | ('max-label="' '"'))*
 	 */
 	protected void emit_Scale_____DependsOnKeyword_1_7_0_QuotationMarkKeyword_1_7_2___or___DescriptionKeyword_1_1_0_QuotationMarkKeyword_1_1_2___or___MaxLabelKeyword_1_6_0_QuotationMarkKeyword_1_6_2___or___MinLabelKeyword_1_5_0_QuotationMarkKeyword_1_5_2____a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -2119,7 +2119,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     (('description="' '"') | ('max-label="' '"') | ('depends-on="' '"') | ('min-label="' '"'))+
+	 *     (('description="' '"') | ('min-label="' '"') | ('depends-on="' '"') | ('max-label="' '"'))+
 	 */
 	protected void emit_Scale_____DependsOnKeyword_1_7_0_QuotationMarkKeyword_1_7_2___or___DescriptionKeyword_1_1_0_QuotationMarkKeyword_1_1_2___or___MaxLabelKeyword_1_6_0_QuotationMarkKeyword_1_6_2___or___MinLabelKeyword_1_5_0_QuotationMarkKeyword_1_5_2____p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -2127,7 +2127,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     (('description="' '"') | ('depends-on="' '"') | ('min-label="' '"'))*
+	 *     (('description="' '"') | ('min-label="' '"') | ('depends-on="' '"'))*
 	 */
 	protected void emit_Scale_____DependsOnKeyword_1_7_0_QuotationMarkKeyword_1_7_2___or___DescriptionKeyword_1_1_0_QuotationMarkKeyword_1_1_2___or___MinLabelKeyword_1_5_0_QuotationMarkKeyword_1_5_2____a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -2135,7 +2135,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     (('max-label="' '"') | ('depends-on="' '"'))*
+	 *     (('depends-on="' '"') | ('max-label="' '"'))*
 	 */
 	protected void emit_Scale_____DependsOnKeyword_1_7_0_QuotationMarkKeyword_1_7_2___or___MaxLabelKeyword_1_6_0_QuotationMarkKeyword_1_6_2____a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -2143,7 +2143,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     (('max-label="' '"') | ('depends-on="' '"') | ('min-label="' '"'))*
+	 *     (('min-label="' '"') | ('depends-on="' '"') | ('max-label="' '"'))*
 	 */
 	protected void emit_Scale_____DependsOnKeyword_1_7_0_QuotationMarkKeyword_1_7_2___or___MaxLabelKeyword_1_6_0_QuotationMarkKeyword_1_6_2___or___MinLabelKeyword_1_5_0_QuotationMarkKeyword_1_5_2____a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -2151,7 +2151,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     (('depends-on="' '"') | ('min-label="' '"'))*
+	 *     (('min-label="' '"') | ('depends-on="' '"'))*
 	 */
 	protected void emit_Scale_____DependsOnKeyword_1_7_0_QuotationMarkKeyword_1_7_2___or___MinLabelKeyword_1_5_0_QuotationMarkKeyword_1_5_2____a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -2167,7 +2167,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     (('description="' '"') | ('max-label="' '"') | ('min-label="' '"'))*
+	 *     (('description="' '"') | ('min-label="' '"') | ('max-label="' '"'))*
 	 */
 	protected void emit_Scale_____DescriptionKeyword_1_1_0_QuotationMarkKeyword_1_1_2___or___MaxLabelKeyword_1_6_0_QuotationMarkKeyword_1_6_2___or___MinLabelKeyword_1_5_0_QuotationMarkKeyword_1_5_2____a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -2183,7 +2183,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     (('max-label="' '"') | ('min-label="' '"'))*
+	 *     (('min-label="' '"') | ('max-label="' '"'))*
 	 */
 	protected void emit_Scale_____MaxLabelKeyword_1_6_0_QuotationMarkKeyword_1_6_2___or___MinLabelKeyword_1_5_0_QuotationMarkKeyword_1_5_2____a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -2191,7 +2191,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ((('description="' '"') | ('depends-on="' '"')) (('max-label="' '"') | ('min-label="' '"'))*)*
+	 *     ((('description="' '"') | ('depends-on="' '"')) (('min-label="' '"') | ('max-label="' '"'))*)*
 	 */
 	protected void emit_Scale_______DependsOnKeyword_1_7_0_QuotationMarkKeyword_1_7_2___or___DescriptionKeyword_1_1_0_QuotationMarkKeyword_1_1_2_________MaxLabelKeyword_1_6_0_QuotationMarkKeyword_1_6_2___or___MinLabelKeyword_1_5_0_QuotationMarkKeyword_1_5_2____a__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -2199,7 +2199,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ((('max-label="' '"') | ('depends-on="' '"')) (('description="' '"') | ('min-label="' '"'))*)*
+	 *     ((('depends-on="' '"') | ('max-label="' '"')) (('description="' '"') | ('min-label="' '"'))*)*
 	 */
 	protected void emit_Scale_______DependsOnKeyword_1_7_0_QuotationMarkKeyword_1_7_2___or___MaxLabelKeyword_1_6_0_QuotationMarkKeyword_1_6_2_________DescriptionKeyword_1_1_0_QuotationMarkKeyword_1_1_2___or___MinLabelKeyword_1_5_0_QuotationMarkKeyword_1_5_2____a__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -2207,7 +2207,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ((('depends-on="' '"') | ('min-label="' '"')) (('description="' '"') | ('max-label="' '"'))*)*
+	 *     ((('min-label="' '"') | ('depends-on="' '"')) (('description="' '"') | ('max-label="' '"'))*)*
 	 */
 	protected void emit_Scale_______DependsOnKeyword_1_7_0_QuotationMarkKeyword_1_7_2___or___MinLabelKeyword_1_5_0_QuotationMarkKeyword_1_5_2_________DescriptionKeyword_1_1_0_QuotationMarkKeyword_1_1_2___or___MaxLabelKeyword_1_6_0_QuotationMarkKeyword_1_6_2____a__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -2215,7 +2215,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ((('description="' '"') | ('max-label="' '"')) (('depends-on="' '"') | ('min-label="' '"'))*)*
+	 *     ((('description="' '"') | ('max-label="' '"')) (('min-label="' '"') | ('depends-on="' '"'))*)*
 	 */
 	protected void emit_Scale_______DescriptionKeyword_1_1_0_QuotationMarkKeyword_1_1_2___or___MaxLabelKeyword_1_6_0_QuotationMarkKeyword_1_6_2_________DependsOnKeyword_1_7_0_QuotationMarkKeyword_1_7_2___or___MinLabelKeyword_1_5_0_QuotationMarkKeyword_1_5_2____a__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -2223,7 +2223,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ((('description="' '"') | ('min-label="' '"')) (('max-label="' '"') | ('depends-on="' '"'))*)*
+	 *     ((('description="' '"') | ('min-label="' '"')) (('depends-on="' '"') | ('max-label="' '"'))*)*
 	 */
 	protected void emit_Scale_______DescriptionKeyword_1_1_0_QuotationMarkKeyword_1_1_2___or___MinLabelKeyword_1_5_0_QuotationMarkKeyword_1_5_2_________DependsOnKeyword_1_7_0_QuotationMarkKeyword_1_7_2___or___MaxLabelKeyword_1_6_0_QuotationMarkKeyword_1_6_2____a__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -2231,7 +2231,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ((('max-label="' '"') | ('min-label="' '"')) (('description="' '"') | ('depends-on="' '"'))*)*
+	 *     ((('min-label="' '"') | ('max-label="' '"')) (('description="' '"') | ('depends-on="' '"'))*)*
 	 */
 	protected void emit_Scale_______MaxLabelKeyword_1_6_0_QuotationMarkKeyword_1_6_2___or___MinLabelKeyword_1_5_0_QuotationMarkKeyword_1_5_2_________DependsOnKeyword_1_7_0_QuotationMarkKeyword_1_7_2___or___DescriptionKeyword_1_1_0_QuotationMarkKeyword_1_1_2____a__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -2239,7 +2239,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ('depends-on="' '"' (('id="' '"') | ('description="' '"'))*)*
+	 *     ('depends-on="' '"' (('description="' '"') | ('id="' '"'))*)*
 	 */
 	protected void emit_SingleRef___DependsOnKeyword_1_3_0_QuotationMarkKeyword_1_3_2_____DescriptionKeyword_1_1_0_QuotationMarkKeyword_1_1_2___or___IdKeyword_1_2_0_QuotationMarkKeyword_1_2_2____a__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -2319,7 +2319,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ('"' (('id="' '"') | ('description="' '"'))* 'depends-on="')*
+	 *     ('"' (('description="' '"') | ('id="' '"'))* 'depends-on="')*
 	 */
 	protected void emit_SingleRef___QuotationMarkKeyword_1_3_2_____DescriptionKeyword_1_1_0_QuotationMarkKeyword_1_1_2___or___IdKeyword_1_2_0_QuotationMarkKeyword_1_2_2____a_DependsOnKeyword_1_3_0__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -2327,7 +2327,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ('"' (('id="' '"') | ('description="' '"'))* 'depends-on="')+
+	 *     ('"' (('description="' '"') | ('id="' '"'))* 'depends-on="')+
 	 */
 	protected void emit_SingleRef___QuotationMarkKeyword_1_3_2_____DescriptionKeyword_1_1_0_QuotationMarkKeyword_1_1_2___or___IdKeyword_1_2_0_QuotationMarkKeyword_1_2_2____a_DependsOnKeyword_1_3_0__p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -2343,7 +2343,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     (('depends-on="' '"') | ('id="' '"') | ('description="' '"'))*
+	 *     (('depends-on="' '"') | ('description="' '"') | ('id="' '"'))*
 	 */
 	protected void emit_SingleRef_____DependsOnKeyword_1_3_0_QuotationMarkKeyword_1_3_2___or___DescriptionKeyword_1_1_0_QuotationMarkKeyword_1_1_2___or___IdKeyword_1_2_0_QuotationMarkKeyword_1_2_2____a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -2351,7 +2351,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     (('depends-on="' '"') | ('id="' '"') | ('description="' '"'))+
+	 *     (('depends-on="' '"') | ('description="' '"') | ('id="' '"'))+
 	 */
 	protected void emit_SingleRef_____DependsOnKeyword_1_3_0_QuotationMarkKeyword_1_3_2___or___DescriptionKeyword_1_1_0_QuotationMarkKeyword_1_1_2___or___IdKeyword_1_2_0_QuotationMarkKeyword_1_2_2____p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -2367,7 +2367,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     (('id="' '"') | ('description="' '"'))*
+	 *     (('description="' '"') | ('id="' '"'))*
 	 */
 	protected void emit_SingleRef_____DescriptionKeyword_1_1_0_QuotationMarkKeyword_1_1_2___or___IdKeyword_1_2_0_QuotationMarkKeyword_1_2_2____a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -2391,7 +2391,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ((('id="' '"') | ('description="' '"')) ('depends-on="' '"')*)*
+	 *     ((('description="' '"') | ('id="' '"')) ('depends-on="' '"')*)*
 	 */
 	protected void emit_SingleRef_______DescriptionKeyword_1_1_0_QuotationMarkKeyword_1_1_2___or___IdKeyword_1_2_0_QuotationMarkKeyword_1_2_2_______DependsOnKeyword_1_3_0_QuotationMarkKeyword_1_3_2__a__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -2399,7 +2399,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ('depends-on="' '"' (('id="' '"') | ('description="' '"'))*)*
+	 *     ('depends-on="' '"' (('description="' '"') | ('id="' '"'))*)*
 	 */
 	protected void emit_SingleWithOptions___DependsOnKeyword_1_3_0_QuotationMarkKeyword_1_3_2_____DescriptionKeyword_1_1_0_QuotationMarkKeyword_1_1_2___or___IdKeyword_1_2_0_QuotationMarkKeyword_1_2_2____a__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -2479,7 +2479,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ('"' (('id="' '"') | ('description="' '"'))* 'depends-on="')*
+	 *     ('"' (('description="' '"') | ('id="' '"'))* 'depends-on="')*
 	 */
 	protected void emit_SingleWithOptions___QuotationMarkKeyword_1_3_2_____DescriptionKeyword_1_1_0_QuotationMarkKeyword_1_1_2___or___IdKeyword_1_2_0_QuotationMarkKeyword_1_2_2____a_DependsOnKeyword_1_3_0__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -2487,7 +2487,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ('"' (('id="' '"') | ('description="' '"'))* 'depends-on="')+
+	 *     ('"' (('description="' '"') | ('id="' '"'))* 'depends-on="')+
 	 */
 	protected void emit_SingleWithOptions___QuotationMarkKeyword_1_3_2_____DescriptionKeyword_1_1_0_QuotationMarkKeyword_1_1_2___or___IdKeyword_1_2_0_QuotationMarkKeyword_1_2_2____a_DependsOnKeyword_1_3_0__p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -2503,7 +2503,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     (('depends-on="' '"') | ('id="' '"') | ('description="' '"'))*
+	 *     (('depends-on="' '"') | ('description="' '"') | ('id="' '"'))*
 	 */
 	protected void emit_SingleWithOptions_____DependsOnKeyword_1_3_0_QuotationMarkKeyword_1_3_2___or___DescriptionKeyword_1_1_0_QuotationMarkKeyword_1_1_2___or___IdKeyword_1_2_0_QuotationMarkKeyword_1_2_2____a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -2519,7 +2519,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     (('id="' '"') | ('description="' '"'))*
+	 *     (('description="' '"') | ('id="' '"'))*
 	 */
 	protected void emit_SingleWithOptions_____DescriptionKeyword_1_1_0_QuotationMarkKeyword_1_1_2___or___IdKeyword_1_2_0_QuotationMarkKeyword_1_2_2____a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -2543,7 +2543,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ((('id="' '"') | ('description="' '"')) ('depends-on="' '"')*)*
+	 *     ((('description="' '"') | ('id="' '"')) ('depends-on="' '"')*)*
 	 */
 	protected void emit_SingleWithOptions_______DescriptionKeyword_1_1_0_QuotationMarkKeyword_1_1_2___or___IdKeyword_1_2_0_QuotationMarkKeyword_1_2_2_______DependsOnKeyword_1_3_0_QuotationMarkKeyword_1_3_2__a__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -2567,7 +2567,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ('filename="' '"' (('description="' '"') | ('title="' '"'))*)*
+	 *     ('filename="' '"' (('title="' '"') | ('description="' '"'))*)*
 	 */
 	protected void emit_Survey___FilenameKeyword_1_1_2_0_QuotationMarkKeyword_1_1_2_2_____DescriptionKeyword_1_1_1_0_QuotationMarkKeyword_1_1_1_2___or___TitleKeyword_1_1_0_0_QuotationMarkKeyword_1_1_0_2____a__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -2583,7 +2583,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ('"' (('description="' '"') | ('filename="' '"'))* 'title="')*
+	 *     ('"' (('filename="' '"') | ('description="' '"'))* 'title="')*
 	 */
 	protected void emit_Survey___QuotationMarkKeyword_1_1_0_2_____DescriptionKeyword_1_1_1_0_QuotationMarkKeyword_1_1_1_2___or___FilenameKeyword_1_1_2_0_QuotationMarkKeyword_1_1_2_2____a_TitleKeyword_1_1_0_0__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -2591,7 +2591,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ('"' (('description="' '"') | ('filename="' '"'))* 'title="')+
+	 *     ('"' (('filename="' '"') | ('description="' '"'))* 'title="')+
 	 */
 	protected void emit_Survey___QuotationMarkKeyword_1_1_0_2_____DescriptionKeyword_1_1_1_0_QuotationMarkKeyword_1_1_1_2___or___FilenameKeyword_1_1_2_0_QuotationMarkKeyword_1_1_2_2____a_TitleKeyword_1_1_0_0__p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -2623,7 +2623,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ('"' (('description="' '"') | ('title="' '"'))* 'filename="')+
+	 *     ('"' (('title="' '"') | ('description="' '"'))* 'filename="')+
 	 */
 	protected void emit_Survey___QuotationMarkKeyword_1_1_2_2_____DescriptionKeyword_1_1_1_0_QuotationMarkKeyword_1_1_1_2___or___TitleKeyword_1_1_0_0_QuotationMarkKeyword_1_1_0_2____a_FilenameKeyword_1_1_2_0__p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -2631,7 +2631,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ('<survey' (('title="' '"') | ('description="' '"') | ('filename="' '"'))* '>' '</survey>')?
+	 *     ('<survey' (('title="' '"') | ('filename="' '"') | ('description="' '"'))* '>' '</survey>')?
 	 */
 	protected void emit_Survey___SurveyKeyword_1_0_____DescriptionKeyword_1_1_1_0_QuotationMarkKeyword_1_1_1_2___or___FilenameKeyword_1_1_2_0_QuotationMarkKeyword_1_1_2_2___or___TitleKeyword_1_1_0_0_QuotationMarkKeyword_1_1_0_2____a_GreaterThanSignKeyword_1_2_SurveyKeyword_1_4__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -2639,7 +2639,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ('title="' '"' (('description="' '"') | ('filename="' '"'))*)*
+	 *     ('title="' '"' (('filename="' '"') | ('description="' '"'))*)*
 	 */
 	protected void emit_Survey___TitleKeyword_1_1_0_0_QuotationMarkKeyword_1_1_0_2_____DescriptionKeyword_1_1_1_0_QuotationMarkKeyword_1_1_1_2___or___FilenameKeyword_1_1_2_0_QuotationMarkKeyword_1_1_2_2____a__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -2655,7 +2655,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     (('description="' '"') | ('filename="' '"'))*
+	 *     (('filename="' '"') | ('description="' '"'))*
 	 */
 	protected void emit_Survey_____DescriptionKeyword_1_1_1_0_QuotationMarkKeyword_1_1_1_2___or___FilenameKeyword_1_1_2_0_QuotationMarkKeyword_1_1_2_2____a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -2663,7 +2663,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     (('description="' '"') | ('title="' '"') | ('filename="' '"'))*
+	 *     (('title="' '"') | ('filename="' '"') | ('description="' '"'))*
 	 */
 	protected void emit_Survey_____DescriptionKeyword_1_1_1_0_QuotationMarkKeyword_1_1_1_2___or___FilenameKeyword_1_1_2_0_QuotationMarkKeyword_1_1_2_2___or___TitleKeyword_1_1_0_0_QuotationMarkKeyword_1_1_0_2____a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -2687,7 +2687,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ((('description="' '"') | ('filename="' '"')) ('title="' '"')*)*
+	 *     ((('filename="' '"') | ('description="' '"')) ('title="' '"')*)*
 	 */
 	protected void emit_Survey_______DescriptionKeyword_1_1_1_0_QuotationMarkKeyword_1_1_1_2___or___FilenameKeyword_1_1_2_0_QuotationMarkKeyword_1_1_2_2_______TitleKeyword_1_1_0_0_QuotationMarkKeyword_1_1_0_2__a__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -2695,7 +2695,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ((('description="' '"') | ('title="' '"')) ('filename="' '"')*)*
+	 *     ((('title="' '"') | ('description="' '"')) ('filename="' '"')*)*
 	 */
 	protected void emit_Survey_______DescriptionKeyword_1_1_1_0_QuotationMarkKeyword_1_1_1_2___or___TitleKeyword_1_1_0_0_QuotationMarkKeyword_1_1_0_2_______FilenameKeyword_1_1_2_0_QuotationMarkKeyword_1_1_2_2__a__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -2743,7 +2743,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ((('title="' '"') | ('description="' '"') | ('depends-on="' '"')) 'single'*)*
+	 *     ((('title="' '"') | ('depends-on="' '"') | ('description="' '"')) 'single'*)*
 	 */
 	protected void emit_Table_______DependsOnKeyword_1_2_0_QuotationMarkKeyword_1_2_2___or___DescriptionKeyword_1_1_0_QuotationMarkKeyword_1_1_2___or___TitleKeyword_1_0_0_QuotationMarkKeyword_1_0_2_____SingleKeyword_1_5_0_a__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -2751,7 +2751,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     (((('title="' '"') | ('description="' '"')) | ('depends-on="' '"')) 'single'*)*
+	 *     ((('depends-on="' '"') | (('title="' '"') | ('description="' '"'))) 'single'*)*
 	 */
 	protected void emit_Table_______DependsOnKeyword_1_2_0_QuotationMarkKeyword_1_2_2___or_____DescriptionKeyword_1_1_0_QuotationMarkKeyword_1_1_2___or___TitleKeyword_1_0_0_QuotationMarkKeyword_1_0_2_______SingleKeyword_1_5_0_a__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -2767,7 +2767,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ((('title="' '"') | (('description="' '"') | ('depends-on="' '"'))) 'single'*)*
+	 *     ((('title="' '"') | (('depends-on="' '"') | ('description="' '"'))) 'single'*)*
 	 */
 	protected void emit_Table_______TitleKeyword_1_0_0_QuotationMarkKeyword_1_0_2___or_____DependsOnKeyword_1_2_0_QuotationMarkKeyword_1_2_2___or___DescriptionKeyword_1_1_0_QuotationMarkKeyword_1_1_2_______SingleKeyword_1_5_0_a__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -2775,7 +2775,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ('singleline' | 'single')*
+	 *     ('single' | 'singleline')*
 	 */
 	protected void emit_Text___SingleKeyword_2_5_1_or_SinglelineKeyword_2_5_0__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -2783,7 +2783,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     ((('depends-on="' '"') | ('description="' '"') | ('id="' '"')) ('singleline' | 'single')*)*
+	 *     ((('depends-on="' '"') | ('description="' '"') | ('id="' '"')) ('single' | 'singleline')*)*
 	 */
 	protected void emit_Text_______DependsOnKeyword_2_3_0_QuotationMarkKeyword_2_3_2___or___DescriptionKeyword_2_1_0_QuotationMarkKeyword_2_1_2___or___IdKeyword_2_2_0_QuotationMarkKeyword_2_2_2_______SingleKeyword_2_5_1_or_SinglelineKeyword_2_5_0__a__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -2807,7 +2807,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     (((('depends-on="' '"') | ('description="' '"')) | ('id="' '"')) ('singleline' | 'single')*)*
+	 *     ((('id="' '"') | (('depends-on="' '"') | ('description="' '"'))) ('single' | 'singleline')*)*
 	 */
 	protected void emit_Text_______IdKeyword_2_2_0_QuotationMarkKeyword_2_2_2___or_____DependsOnKeyword_2_3_0_QuotationMarkKeyword_2_3_2___or___DescriptionKeyword_2_1_0_QuotationMarkKeyword_2_1_2_________SingleKeyword_2_5_1_or_SinglelineKeyword_2_5_0__a__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);

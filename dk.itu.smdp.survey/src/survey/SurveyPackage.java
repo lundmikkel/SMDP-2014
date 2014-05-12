@@ -4,6 +4,7 @@ package survey;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -668,31 +669,13 @@ public interface SurveyPackage extends EPackage {
 	int DATE__DEPENDS_ON = QUESTION__DEPENDS_ON;
 
 	/**
-	 * The feature id for the '<em><b>Day</b></em>' attribute.
+	 * The feature id for the '<em><b>Mode</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATE__DAY = QUESTION_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Month</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATE__MONTH = QUESTION_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Year</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATE__YEAR = QUESTION_FEATURE_COUNT + 2;
+	int DATE__MODE = QUESTION_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Start</b></em>' attribute.
@@ -701,7 +684,7 @@ public interface SurveyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATE__START = QUESTION_FEATURE_COUNT + 3;
+	int DATE__START = QUESTION_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>End</b></em>' attribute.
@@ -710,7 +693,7 @@ public interface SurveyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATE__END = QUESTION_FEATURE_COUNT + 4;
+	int DATE__END = QUESTION_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Show Limits</b></em>' attribute.
@@ -719,7 +702,7 @@ public interface SurveyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATE__SHOW_LIMITS = QUESTION_FEATURE_COUNT + 5;
+	int DATE__SHOW_LIMITS = QUESTION_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Date</em>' class.
@@ -728,7 +711,7 @@ public interface SurveyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATE_FEATURE_COUNT = QUESTION_FEATURE_COUNT + 6;
+	int DATE_FEATURE_COUNT = QUESTION_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Date</em>' class.
@@ -1589,6 +1572,17 @@ public interface SurveyPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link survey.DateMode <em>Date Mode</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see survey.DateMode
+	 * @see survey.impl.SurveyPackageImpl#getDateMode()
+	 * @generated
+	 */
+	int DATE_MODE = 19;
+
+
+	/**
 	 * Returns the meta object for class '{@link survey.Meta <em>Meta</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1823,37 +1817,15 @@ public interface SurveyPackage extends EPackage {
 	EClass getDate();
 
 	/**
-	 * Returns the meta object for the attribute '{@link survey.Date#isDay <em>Day</em>}'.
+	 * Returns the meta object for the attribute '{@link survey.Date#getMode <em>Mode</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Day</em>'.
-	 * @see survey.Date#isDay()
+	 * @return the meta object for the attribute '<em>Mode</em>'.
+	 * @see survey.Date#getMode()
 	 * @see #getDate()
 	 * @generated
 	 */
-	EAttribute getDate_Day();
-
-	/**
-	 * Returns the meta object for the attribute '{@link survey.Date#isMonth <em>Month</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Month</em>'.
-	 * @see survey.Date#isMonth()
-	 * @see #getDate()
-	 * @generated
-	 */
-	EAttribute getDate_Month();
-
-	/**
-	 * Returns the meta object for the attribute '{@link survey.Date#isYear <em>Year</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Year</em>'.
-	 * @see survey.Date#isYear()
-	 * @see #getDate()
-	 * @generated
-	 */
-	EAttribute getDate_Year();
+	EAttribute getDate_Mode();
 
 	/**
 	 * Returns the meta object for the attribute '{@link survey.Date#getStart <em>Start</em>}'.
@@ -2164,6 +2136,16 @@ public interface SurveyPackage extends EPackage {
 	EAttribute getAnswerTemplate_Name();
 
 	/**
+	 * Returns the meta object for enum '{@link survey.DateMode <em>Date Mode</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Date Mode</em>'.
+	 * @see survey.DateMode
+	 * @generated
+	 */
+	EEnum getDateMode();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2379,28 +2361,12 @@ public interface SurveyPackage extends EPackage {
 		EClass DATE = eINSTANCE.getDate();
 
 		/**
-		 * The meta object literal for the '<em><b>Day</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Mode</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute DATE__DAY = eINSTANCE.getDate_Day();
-
-		/**
-		 * The meta object literal for the '<em><b>Month</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DATE__MONTH = eINSTANCE.getDate_Month();
-
-		/**
-		 * The meta object literal for the '<em><b>Year</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DATE__YEAR = eINSTANCE.getDate_Year();
+		EAttribute DATE__MODE = eINSTANCE.getDate_Mode();
 
 		/**
 		 * The meta object literal for the '<em><b>Start</b></em>' attribute feature.
@@ -2655,6 +2621,16 @@ public interface SurveyPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ANSWER_TEMPLATE__NAME = eINSTANCE.getAnswerTemplate_Name();
+
+		/**
+		 * The meta object literal for the '{@link survey.DateMode <em>Date Mode</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see survey.DateMode
+		 * @see survey.impl.SurveyPackageImpl#getDateMode()
+		 * @generated
+		 */
+		EEnum DATE_MODE = eINSTANCE.getDateMode();
 
 	}
 

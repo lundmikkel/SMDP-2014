@@ -19,7 +19,6 @@ import org.eclipse.xtext.xbase.lib.StringExtensions;
 import survey.Answer;
 import survey.AnswerTemplate;
 import survey.AnswerTemplateRef;
-import survey.Date;
 import survey.Group;
 import survey.HasOptions;
 import survey.Item;
@@ -286,39 +285,6 @@ public class DslValidator extends AbstractDslValidator {
           Literals.MULTIPLE__MAX, 
           DslValidator.INVALID_VALUE);
       }
-    }
-  }
-  
-  /**
-   * Check that the min is less than max value in a scale
-   */
-  @Check
-  public void checkDateGranularity(final Date date) {
-    boolean _and = false;
-    boolean _and_1 = false;
-    boolean _isDay = date.isDay();
-    if (!_isDay) {
-      _and_1 = false;
-    } else {
-      boolean _isMonth = date.isMonth();
-      boolean _not = (!_isMonth);
-      _and_1 = (_isDay && _not);
-    }
-    if (!_and_1) {
-      _and = false;
-    } else {
-      boolean _isYear = date.isYear();
-      _and = (_and_1 && _isYear);
-    }
-    if (_and) {
-      this.error(
-        DslValidator.setDateGranularityString, date, 
-        Literals.DATE__DAY, 
-        DslValidator.INVALID_VALUE);
-      this.error(
-        DslValidator.setDateGranularityString, date, 
-        Literals.DATE__YEAR, 
-        DslValidator.INVALID_VALUE);
     }
   }
   

@@ -202,28 +202,6 @@ class DslValidator extends AbstractDslValidator {
 			)
 		}
 	}
-	
-	/**
-	 * Check that the min is less than max value in a scale 
-	 */
-	@Check
-	def checkDateGranularity(Date date) {
-		if (date.day && !date.month && date.year) {
-			error(
-				setDateGranularityString,
-				date,
-				SurveyPackage.Literals.DATE__DAY,
-				INVALID_VALUE
-			)
-			error(
-				setDateGranularityString,
-				date,
-				SurveyPackage.Literals.DATE__YEAR,
-				INVALID_VALUE
-			)
-		}
-	}
-
 
 	/**
 	 * Check that groups and questions in root have unique names

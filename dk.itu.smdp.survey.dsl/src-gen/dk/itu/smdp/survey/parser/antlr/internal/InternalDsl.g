@@ -24,6 +24,7 @@ import org.eclipse.xtext.parser.*;
 import org.eclipse.xtext.parser.impl.*;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.common.util.Enumerator;
 import org.eclipse.xtext.parser.antlr.AbstractInternalAntlrParser;
 import org.eclipse.xtext.parser.antlr.XtextTokenStream;
 import org.eclipse.xtext.parser.antlr.XtextTokenStream.HiddenTokens;
@@ -1923,70 +1924,19 @@ ruleDate returns [EObject current=null]
 	 				}
 					({true}?=>(
 (
-		lv_day_23_0=	'day' 
-    {
-        newLeafNode(lv_day_23_0, grammarAccess.getDateAccess().getDayDayKeyword_2_8_0());
-    }
- 
-	    {
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getDateRule());
-	        }
-       		setWithLastConsumed($current, "day", true, "day");
+		{ 
+	        newCompositeNode(grammarAccess.getDateAccess().getModeDateModeEnumRuleCall_2_8_0()); 
 	    }
-
-)
-))
-					{ 
-	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getDateAccess().getUnorderedGroup_2());
-	 				}
- 				)
-			)  |
-
-			( 
-				{getUnorderedGroupHelper().canSelect(grammarAccess.getDateAccess().getUnorderedGroup_2(), 9)}?=>(
-					{ 
-	 				  getUnorderedGroupHelper().select(grammarAccess.getDateAccess().getUnorderedGroup_2(), 9);
-	 				}
-					({true}?=>(
-(
-		lv_month_24_0=	'month' 
-    {
-        newLeafNode(lv_month_24_0, grammarAccess.getDateAccess().getMonthMonthKeyword_2_9_0());
-    }
- 
-	    {
+		lv_mode_23_0=ruleDateMode		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getDateRule());
+	            $current = createModelElementForParent(grammarAccess.getDateRule());
 	        }
-       		setWithLastConsumed($current, "month", true, "month");
-	    }
-
-)
-))
-					{ 
-	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getDateAccess().getUnorderedGroup_2());
-	 				}
- 				)
-			)  |
-
-			( 
-				{getUnorderedGroupHelper().canSelect(grammarAccess.getDateAccess().getUnorderedGroup_2(), 10)}?=>(
-					{ 
-	 				  getUnorderedGroupHelper().select(grammarAccess.getDateAccess().getUnorderedGroup_2(), 10);
-	 				}
-					({true}?=>(
-(
-		lv_year_25_0=	'year' 
-    {
-        newLeafNode(lv_year_25_0, grammarAccess.getDateAccess().getYearYearKeyword_2_10_0());
-    }
- 
-	    {
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getDateRule());
-	        }
-       		setWithLastConsumed($current, "year", true, "year");
+       		set(
+       			$current, 
+       			"mode",
+        		lv_mode_23_0, 
+        		"DateMode");
+	        afterParserOrEnumRuleCall();
 	    }
 
 )
@@ -2005,9 +1955,9 @@ ruleDate returns [EObject current=null]
 	  getUnorderedGroupHelper().leave(grammarAccess.getDateAccess().getUnorderedGroup_2());
 	}
 
-)	otherlv_26='/>' 
+)	otherlv_24='/>' 
     {
-    	newLeafNode(otherlv_26, grammarAccess.getDateAccess().getSolidusGreaterThanSignKeyword_3());
+    	newLeafNode(otherlv_24, grammarAccess.getDateAccess().getSolidusGreaterThanSignKeyword_3());
     }
 )
 ;
@@ -4693,6 +4643,31 @@ ruleDEP_ID returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
     ;
 
 
+
+
+
+// Rule DateMode
+ruleDateMode returns [Enumerator current=null] 
+    @init { enterRule(); }
+    @after { leaveRule(); }:
+((	enumLiteral_0='day' 
+	{
+        $current = grammarAccess.getDateModeAccess().getDAYEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_0, grammarAccess.getDateModeAccess().getDAYEnumLiteralDeclaration_0()); 
+    }
+)
+    |(	enumLiteral_1='month' 
+	{
+        $current = grammarAccess.getDateModeAccess().getMONTHEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_1, grammarAccess.getDateModeAccess().getMONTHEnumLiteralDeclaration_1()); 
+    }
+)
+    |(	enumLiteral_2='year' 
+	{
+        $current = grammarAccess.getDateModeAccess().getYEAREnumLiteralDeclaration_2().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_2, grammarAccess.getDateModeAccess().getYEAREnumLiteralDeclaration_2()); 
+    }
+));
 
 
 

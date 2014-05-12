@@ -4,6 +4,7 @@ package survey.impl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -13,6 +14,7 @@ import survey.Answer;
 import survey.AnswerTemplate;
 import survey.AnswerTemplateRef;
 import survey.Date;
+import survey.DateMode;
 import survey.Group;
 import survey.HasOptions;
 import survey.Item;
@@ -169,6 +171,13 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 	 * @generated
 	 */
 	private EClass answerTemplateEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum dateModeEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -434,7 +443,7 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDate_Day() {
+	public EAttribute getDate_Mode() {
 		return (EAttribute)dateEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -443,7 +452,7 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDate_Month() {
+	public EAttribute getDate_Start() {
 		return (EAttribute)dateEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -452,7 +461,7 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDate_Year() {
+	public EAttribute getDate_End() {
 		return (EAttribute)dateEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -461,26 +470,8 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDate_Start() {
-		return (EAttribute)dateEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDate_End() {
-		return (EAttribute)dateEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getDate_ShowLimits() {
-		return (EAttribute)dateEClass.getEStructuralFeatures().get(5);
+		return (EAttribute)dateEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -722,6 +713,15 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getDateMode() {
+		return dateModeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public SurveyFactory getSurveyFactory() {
 		return (SurveyFactory)getEFactoryInstance();
 	}
@@ -774,9 +774,7 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 		createEAttribute(scaleEClass, SCALE__MAX_LABEL);
 
 		dateEClass = createEClass(DATE);
-		createEAttribute(dateEClass, DATE__DAY);
-		createEAttribute(dateEClass, DATE__MONTH);
-		createEAttribute(dateEClass, DATE__YEAR);
+		createEAttribute(dateEClass, DATE__MODE);
 		createEAttribute(dateEClass, DATE__START);
 		createEAttribute(dateEClass, DATE__END);
 		createEAttribute(dateEClass, DATE__SHOW_LIMITS);
@@ -817,6 +815,9 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 		answerTemplateEClass = createEClass(ANSWER_TEMPLATE);
 		createEReference(answerTemplateEClass, ANSWER_TEMPLATE__ANSWERS);
 		createEAttribute(answerTemplateEClass, ANSWER_TEMPLATE__NAME);
+
+		// Create enums
+		dateModeEEnum = createEEnum(DATE_MODE);
 	}
 
 	/**
@@ -901,9 +902,7 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 		initEAttribute(getScale_MaxLabel(), ecorePackage.getEString(), "maxLabel", null, 0, 1, Scale.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dateEClass, Date.class, "Date", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDate_Day(), ecorePackage.getEBoolean(), "day", null, 0, 1, Date.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDate_Month(), ecorePackage.getEBoolean(), "month", null, 0, 1, Date.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDate_Year(), ecorePackage.getEBoolean(), "year", null, 0, 1, Date.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDate_Mode(), this.getDateMode(), "mode", null, 0, 1, Date.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDate_Start(), ecorePackage.getEString(), "start", null, 0, 1, Date.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDate_End(), ecorePackage.getEString(), "end", null, 0, 1, Date.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDate_ShowLimits(), ecorePackage.getEBoolean(), "showLimits", null, 0, 1, Date.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -944,6 +943,12 @@ public class SurveyPackageImpl extends EPackageImpl implements SurveyPackage {
 		initEClass(answerTemplateEClass, AnswerTemplate.class, "AnswerTemplate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAnswerTemplate_Answers(), this.getAnswer(), null, "answers", null, 1, -1, AnswerTemplate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAnswerTemplate_Name(), ecorePackage.getEString(), "name", null, 1, 1, AnswerTemplate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		// Initialize enums and add enum literals
+		initEEnum(dateModeEEnum, DateMode.class, "DateMode");
+		addEEnumLiteral(dateModeEEnum, DateMode.DAY);
+		addEEnumLiteral(dateModeEEnum, DateMode.MONTH);
+		addEEnumLiteral(dateModeEEnum, DateMode.YEAR);
 
 		// Create resource
 		createResource(eNS_URI);

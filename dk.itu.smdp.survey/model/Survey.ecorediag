@@ -143,16 +143,8 @@
   <children xmi:type="notation:Node" xmi:id="_ChWKwKoBEeOq5bg1AprPlQ" type="1001">
     <children xmi:type="notation:Node" xmi:id="_ChWx0KoBEeOq5bg1AprPlQ" type="4001"/>
     <children xmi:type="notation:Node" xmi:id="_ChWx0aoBEeOq5bg1AprPlQ" type="5001">
-      <children xmi:type="notation:Node" xmi:id="_ITfvELUDEeOUudlMY6Mo_A" type="2001">
-        <element xmi:type="ecore:EAttribute" href="Survey.ecore#//Date/day"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_ITfvEbUDEeOUudlMY6Mo_A"/>
-      </children>
-      <children xmi:type="notation:Node" xmi:id="_J5dnULUDEeOUudlMY6Mo_A" type="2001">
-        <element xmi:type="ecore:EAttribute" href="Survey.ecore#//Date/month"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_J5dnUbUDEeOUudlMY6Mo_A"/>
-      </children>
       <children xmi:type="notation:Node" xmi:id="_KTWG8LUDEeOUudlMY6Mo_A" type="2001">
-        <element xmi:type="ecore:EAttribute" href="Survey.ecore#//Date/year"/>
+        <element xmi:type="ecore:EAttribute" href="Survey.ecore#//Date/mode"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_KTWG8bUDEeOUudlMY6Mo_A"/>
       </children>
       <children xmi:type="notation:Node" xmi:id="_0tNPgLUDEeOUudlMY6Mo_A" type="2001">
@@ -421,6 +413,29 @@
     <styles xmi:type="notation:ShapeStyle" xmi:id="_3zd9gb_SEeOzQcVK6pBQyQ" fontColor="4210752" fontName="Lucida Grande" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
     <element xmi:type="ecore:EClass" href="Survey.ecore#//HasOptions"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3zd9gr_SEeOzQcVK6pBQyQ" x="696" y="468"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_22fkgNnUEeOG_I1tLjr57A" type="1005">
+    <children xmi:type="notation:Node" xmi:id="_22hZsNnUEeOG_I1tLjr57A" type="4010"/>
+    <children xmi:type="notation:Node" xmi:id="_22iAwNnUEeOG_I1tLjr57A" type="5008">
+      <children xmi:type="notation:Node" xmi:id="_6vNigNnUEeOG_I1tLjr57A" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="Survey.ecore#//DateMode/DAY"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_6vNigdnUEeOG_I1tLjr57A"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_7M_qsNnUEeOG_I1tLjr57A" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="Survey.ecore#//DateMode/MONTH"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_7M_qsdnUEeOG_I1tLjr57A"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_7l_ZgNnUEeOG_I1tLjr57A" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="Survey.ecore#//DateMode/YEAR"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_7l_ZgdnUEeOG_I1tLjr57A"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_22iAwdnUEeOG_I1tLjr57A"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_22iAwtnUEeOG_I1tLjr57A"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_22iAw9nUEeOG_I1tLjr57A"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_22fkgdnUEeOG_I1tLjr57A" fontColor="4210752" fontName="Lucida Grande" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EEnum" href="Survey.ecore#//DateMode"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_22fkgtnUEeOG_I1tLjr57A" x="300" y="440"/>
   </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_tuI3Aan_EeOq5bg1AprPlQ"/>
   <element xmi:type="ecore:EPackage" href="Survey.ecore#/"/>

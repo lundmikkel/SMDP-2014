@@ -876,25 +876,19 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cShowLimitsLimitsKeyword_2_6_0_2 = (Keyword)cShowLimitsAlternatives_2_6_0.eContents().get(2);
 		private final Assignment cRequiredAssignment_2_7 = (Assignment)cUnorderedGroup_2.eContents().get(7);
 		private final Keyword cRequiredRequiredKeyword_2_7_0 = (Keyword)cRequiredAssignment_2_7.eContents().get(0);
-		private final Assignment cDayAssignment_2_8 = (Assignment)cUnorderedGroup_2.eContents().get(8);
-		private final Keyword cDayDayKeyword_2_8_0 = (Keyword)cDayAssignment_2_8.eContents().get(0);
-		private final Assignment cMonthAssignment_2_9 = (Assignment)cUnorderedGroup_2.eContents().get(9);
-		private final Keyword cMonthMonthKeyword_2_9_0 = (Keyword)cMonthAssignment_2_9.eContents().get(0);
-		private final Assignment cYearAssignment_2_10 = (Assignment)cUnorderedGroup_2.eContents().get(10);
-		private final Keyword cYearYearKeyword_2_10_0 = (Keyword)cYearAssignment_2_10.eContents().get(0);
+		private final Assignment cModeAssignment_2_8 = (Assignment)cUnorderedGroup_2.eContents().get(8);
+		private final RuleCall cModeDateModeEnumRuleCall_2_8_0 = (RuleCall)cModeAssignment_2_8.eContents().get(0);
 		private final Keyword cSolidusGreaterThanSignKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//Date:
 		//	{Date} "<date" ("title=\"" title=EString "\"" & ("description=\"" description=EString? "\"")? & ("id=\"" name=ID?
 		//	"\"")? & ("start=\"" start=EString? "\"")? & ("end=\"" end=EString? "\"")? & ("depends-on=\"" dependsOn=DEP_ID? "\"")?
-		//	& showLimits?=("show-limits" | "show" | "limits")? & required?="required"? & day?="day"? & month?="month"? &
-		//	year?="year"?) "/>";
+		//	& showLimits?=("show-limits" | "show" | "limits")? & required?="required"? & mode=DateMode?) "/>";
 		public ParserRule getRule() { return rule; }
 
 		//{Date} "<date" ("title=\"" title=EString "\"" & ("description=\"" description=EString? "\"")? & ("id=\"" name=ID? "\"")?
 		//& ("start=\"" start=EString? "\"")? & ("end=\"" end=EString? "\"")? & ("depends-on=\"" dependsOn=DEP_ID? "\"")? &
-		//showLimits?=("show-limits" | "show" | "limits")? & required?="required"? & day?="day"? & month?="month"? &
-		//year?="year"?) "/>"
+		//showLimits?=("show-limits" | "show" | "limits")? & required?="required"? & mode=DateMode?) "/>"
 		public Group getGroup() { return cGroup; }
 
 		//{Date}
@@ -905,8 +899,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 
 		//"title=\"" title=EString "\"" & ("description=\"" description=EString? "\"")? & ("id=\"" name=ID? "\"")? & ("start=\""
 		//start=EString? "\"")? & ("end=\"" end=EString? "\"")? & ("depends-on=\"" dependsOn=DEP_ID? "\"")? &
-		//showLimits?=("show-limits" | "show" | "limits")? & required?="required"? & day?="day"? & month?="month"? &
-		//year?="year"?
+		//showLimits?=("show-limits" | "show" | "limits")? & required?="required"? & mode=DateMode?
 		public UnorderedGroup getUnorderedGroup_2() { return cUnorderedGroup_2; }
 
 		//"title=\"" title=EString "\""
@@ -1020,23 +1013,11 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//"required"
 		public Keyword getRequiredRequiredKeyword_2_7_0() { return cRequiredRequiredKeyword_2_7_0; }
 
-		//day?="day"?
-		public Assignment getDayAssignment_2_8() { return cDayAssignment_2_8; }
+		//mode=DateMode?
+		public Assignment getModeAssignment_2_8() { return cModeAssignment_2_8; }
 
-		//"day"
-		public Keyword getDayDayKeyword_2_8_0() { return cDayDayKeyword_2_8_0; }
-
-		//month?="month"?
-		public Assignment getMonthAssignment_2_9() { return cMonthAssignment_2_9; }
-
-		//"month"
-		public Keyword getMonthMonthKeyword_2_9_0() { return cMonthMonthKeyword_2_9_0; }
-
-		//year?="year"?
-		public Assignment getYearAssignment_2_10() { return cYearAssignment_2_10; }
-
-		//"year"
-		public Keyword getYearYearKeyword_2_10_0() { return cYearYearKeyword_2_10_0; }
+		//DateMode
+		public RuleCall getModeDateModeEnumRuleCall_2_8_0() { return cModeDateModeEnumRuleCall_2_8_0; }
 
 		//"/>"
 		public Keyword getSolidusGreaterThanSignKeyword_3() { return cSolidusGreaterThanSignKeyword_3; }
@@ -2439,6 +2420,42 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	
+	public class DateModeElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "DateMode");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final EnumLiteralDeclaration cDAYEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cDAYDayKeyword_0_0 = (Keyword)cDAYEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cMONTHEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cMONTHMonthKeyword_1_0 = (Keyword)cMONTHEnumLiteralDeclaration_1.eContents().get(0);
+		private final EnumLiteralDeclaration cYEAREnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
+		private final Keyword cYEARYearKeyword_2_0 = (Keyword)cYEAREnumLiteralDeclaration_2.eContents().get(0);
+		
+		//enum DateMode:
+		//	DAY="day" | MONTH="month" | YEAR="year";
+		public EnumRule getRule() { return rule; }
+
+		//DAY="day" | MONTH="month" | YEAR="year"
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//DAY="day"
+		public EnumLiteralDeclaration getDAYEnumLiteralDeclaration_0() { return cDAYEnumLiteralDeclaration_0; }
+
+		//"day"
+		public Keyword getDAYDayKeyword_0_0() { return cDAYDayKeyword_0_0; }
+
+		//MONTH="month"
+		public EnumLiteralDeclaration getMONTHEnumLiteralDeclaration_1() { return cMONTHEnumLiteralDeclaration_1; }
+
+		//"month"
+		public Keyword getMONTHMonthKeyword_1_0() { return cMONTHMonthKeyword_1_0; }
+
+		//YEAR="year"
+		public EnumLiteralDeclaration getYEAREnumLiteralDeclaration_2() { return cYEAREnumLiteralDeclaration_2; }
+
+		//"year"
+		public Keyword getYEARYearKeyword_2_0() { return cYEARYearKeyword_2_0; }
+	}
+	
 	private SurveyElements pSurvey;
 	private EStringElements pEString;
 	private ItemElements pItem;
@@ -2450,6 +2467,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	private TextElements pText;
 	private ScaleElements pScale;
 	private DateElements pDate;
+	private DateModeElements unknownRuleDateMode;
 	private NumberElements pNumber;
 	private SingleElements pSingle;
 	private SingleWithOptionsElements pSingleWithOptions;
@@ -2615,14 +2633,23 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	//Date:
 	//	{Date} "<date" ("title=\"" title=EString "\"" & ("description=\"" description=EString? "\"")? & ("id=\"" name=ID?
 	//	"\"")? & ("start=\"" start=EString? "\"")? & ("end=\"" end=EString? "\"")? & ("depends-on=\"" dependsOn=DEP_ID? "\"")?
-	//	& showLimits?=("show-limits" | "show" | "limits")? & required?="required"? & day?="day"? & month?="month"? &
-	//	year?="year"?) "/>";
+	//	& showLimits?=("show-limits" | "show" | "limits")? & required?="required"? & mode=DateMode?) "/>";
 	public DateElements getDateAccess() {
 		return (pDate != null) ? pDate : (pDate = new DateElements());
 	}
 	
 	public ParserRule getDateRule() {
 		return getDateAccess().getRule();
+	}
+
+	//enum DateMode:
+	//	DAY="day" | MONTH="month" | YEAR="year";
+	public DateModeElements getDateModeAccess() {
+		return (unknownRuleDateMode != null) ? unknownRuleDateMode : (unknownRuleDateMode = new DateModeElements());
+	}
+	
+	public EnumRule getDateModeRule() {
+		return getDateModeAccess().getRule();
 	}
 
 	//Number:

@@ -11,9 +11,7 @@ package survey;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link survey.Date#isDay <em>Day</em>}</li>
- *   <li>{@link survey.Date#isMonth <em>Month</em>}</li>
- *   <li>{@link survey.Date#isYear <em>Year</em>}</li>
+ *   <li>{@link survey.Date#getMode <em>Mode</em>}</li>
  *   <li>{@link survey.Date#getStart <em>Start</em>}</li>
  *   <li>{@link survey.Date#getEnd <em>End</em>}</li>
  *   <li>{@link survey.Date#isShowLimits <em>Show Limits</em>}</li>
@@ -26,82 +24,33 @@ package survey;
  */
 public interface Date extends Question {
 	/**
-	 * Returns the value of the '<em><b>Day</b></em>' attribute.
+	 * Returns the value of the '<em><b>Mode</b></em>' attribute.
+	 * The literals are from the enumeration {@link survey.DateMode}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Day</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Mode</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Day</em>' attribute.
-	 * @see #setDay(boolean)
-	 * @see survey.SurveyPackage#getDate_Day()
+	 * @return the value of the '<em>Mode</em>' attribute.
+	 * @see survey.DateMode
+	 * @see #setMode(DateMode)
+	 * @see survey.SurveyPackage#getDate_Mode()
 	 * @model
 	 * @generated
 	 */
-	boolean isDay();
+	DateMode getMode();
 
 	/**
-	 * Sets the value of the '{@link survey.Date#isDay <em>Day</em>}' attribute.
+	 * Sets the value of the '{@link survey.Date#getMode <em>Mode</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Day</em>' attribute.
-	 * @see #isDay()
+	 * @param value the new value of the '<em>Mode</em>' attribute.
+	 * @see survey.DateMode
+	 * @see #getMode()
 	 * @generated
 	 */
-	void setDay(boolean value);
-
-	/**
-	 * Returns the value of the '<em><b>Month</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Month</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Month</em>' attribute.
-	 * @see #setMonth(boolean)
-	 * @see survey.SurveyPackage#getDate_Month()
-	 * @model
-	 * @generated
-	 */
-	boolean isMonth();
-
-	/**
-	 * Sets the value of the '{@link survey.Date#isMonth <em>Month</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Month</em>' attribute.
-	 * @see #isMonth()
-	 * @generated
-	 */
-	void setMonth(boolean value);
-
-	/**
-	 * Returns the value of the '<em><b>Year</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Year</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Year</em>' attribute.
-	 * @see #setYear(boolean)
-	 * @see survey.SurveyPackage#getDate_Year()
-	 * @model
-	 * @generated
-	 */
-	boolean isYear();
-
-	/**
-	 * Sets the value of the '{@link survey.Date#isYear <em>Year</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Year</em>' attribute.
-	 * @see #isYear()
-	 * @generated
-	 */
-	void setYear(boolean value);
+	void setMode(DateMode value);
 
 	/**
 	 * Returns the value of the '<em><b>Start</b></em>' attribute.

@@ -12,22 +12,20 @@ import survey.Question
 import survey.Item
 import survey.Group
 import survey.Survey
+import survey.DateMode
 
 abstract class SurveyTemplate {
 	def genDateFormat(Date question) {
-		var list = new ArrayList<String>()
-		
-		if (question.day) {
-			list.add('dd')
+		switch (question.mode) {
+			case DateMode.DAY:
+				'''dd/mm/yyyy'''
+			
+			case DateMode.MONTH:
+				'''mm/yyyy'''
+				
+			case DateMode.YEAR:
+				'''yyyy'''
 		}
-		if (question.month) {
-			list.add('mm')
-		}
-		if (question.year) {
-			list.add('yyyy')
-		}
-		
-		return list.join("/")
 	}
 	
 	def dispatch String genLimitsDesc(Date question) {

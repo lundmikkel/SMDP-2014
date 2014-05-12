@@ -63,6 +63,7 @@ public class DslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getTableAccess().getAlternatives_1_5(), "rule__Table__Alternatives_1_5");
 					put(grammarAccess.getTableAccess().getAlternatives_4(), "rule__Table__Alternatives_4");
 					put(grammarAccess.getDEP_IDAccess().getAlternatives(), "rule__DEP_ID__Alternatives");
+					put(grammarAccess.getDateModeAccess().getAlternatives(), "rule__DateMode__Alternatives");
 					put(grammarAccess.getSurveyAccess().getGroup(), "rule__Survey__Group__0");
 					put(grammarAccess.getSurveyAccess().getGroup_1(), "rule__Survey__Group_1__0");
 					put(grammarAccess.getSurveyAccess().getGroup_1_1_0(), "rule__Survey__Group_1_1_0__0");
@@ -182,9 +183,7 @@ public class DslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getDateAccess().getDependsOnAssignment_2_5_1(), "rule__Date__DependsOnAssignment_2_5_1");
 					put(grammarAccess.getDateAccess().getShowLimitsAssignment_2_6(), "rule__Date__ShowLimitsAssignment_2_6");
 					put(grammarAccess.getDateAccess().getRequiredAssignment_2_7(), "rule__Date__RequiredAssignment_2_7");
-					put(grammarAccess.getDateAccess().getDayAssignment_2_8(), "rule__Date__DayAssignment_2_8");
-					put(grammarAccess.getDateAccess().getMonthAssignment_2_9(), "rule__Date__MonthAssignment_2_9");
-					put(grammarAccess.getDateAccess().getYearAssignment_2_10(), "rule__Date__YearAssignment_2_10");
+					put(grammarAccess.getDateAccess().getModeAssignment_2_8(), "rule__Date__ModeAssignment_2_8");
 					put(grammarAccess.getNumberAccess().getTitleAssignment_2_0_1(), "rule__Number__TitleAssignment_2_0_1");
 					put(grammarAccess.getNumberAccess().getDescriptionAssignment_2_1_1(), "rule__Number__DescriptionAssignment_2_1_1");
 					put(grammarAccess.getNumberAccess().getNameAssignment_2_2_1(), "rule__Number__NameAssignment_2_2_1");

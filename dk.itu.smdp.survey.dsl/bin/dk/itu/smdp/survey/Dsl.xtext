@@ -83,10 +83,13 @@ Date returns Date:
 		& ('depends-on="' dependsOn=DEP_ID? '"')?
 		& (showLimits?=('show-limits' | 'show' | 'limits'))?
 		& (required?='required')?
-		& (day?='day')?
-		& (month?='month')?
-		& (year?='year')?)
+		& (mode=DateMode)?)
 	'/>';
+	
+enum DateMode:
+	DAY='day' |
+	MONTH='month' |
+	YEAR='year';
 
 Number returns Number:
 	{Number}

@@ -6,6 +6,11 @@
     operationReflection="true" importOrganizing="true">
   <foreignModel>Survey.ecore</foreignModel>
   <genPackages prefix="Survey" disposableProviderFactory="true" ecorePackage="Survey.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Survey.ecore#//DateMode">
+      <genEnumLiterals ecoreEnumLiteral="Survey.ecore#//DateMode/DAY"/>
+      <genEnumLiterals ecoreEnumLiteral="Survey.ecore#//DateMode/MONTH"/>
+      <genEnumLiterals ecoreEnumLiteral="Survey.ecore#//DateMode/YEAR"/>
+    </genEnums>
     <genClasses image="false" ecoreClass="Survey.ecore#//Meta">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Meta/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Meta/title"/>
@@ -34,9 +39,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Scale/maxLabel"/>
     </genClasses>
     <genClasses ecoreClass="Survey.ecore#//Date">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Date/day"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Date/month"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Date/year"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Date/mode"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Date/start"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Date/end"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Date/showLimits"/>

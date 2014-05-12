@@ -5,12 +5,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtend2.lib.StringConcatenation;
-import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.StringExtensions;
 import survey.Answer;
 import survey.AnswerTemplate;
 import survey.AnswerTemplateRef;
 import survey.Date;
+import survey.DateMode;
 import survey.Group;
 import survey.HasOptions;
 import survey.Item;
@@ -21,22 +21,36 @@ import survey.Survey;
 
 @SuppressWarnings("all")
 public abstract class SurveyTemplate {
-  public String genDateFormat(final Date question) {
-    ArrayList<String> _arrayList = new ArrayList<String>();
-    ArrayList<String> list = _arrayList;
-    boolean _isDay = question.isDay();
-    if (_isDay) {
-      list.add("dd");
+  public CharSequence genDateFormat(final Date question) {
+    CharSequence _switchResult = null;
+    DateMode _mode = question.getMode();
+    final DateMode _switchValue = _mode;
+    boolean _matched = false;
+    if (!_matched) {
+      if (Objects.equal(_switchValue,DateMode.DAY)) {
+        _matched=true;
+        StringConcatenation _builder = new StringConcatenation();
+        _builder.append("dd/mm/yyyy");
+        _switchResult = _builder;
+      }
     }
-    boolean _isMonth = question.isMonth();
-    if (_isMonth) {
-      list.add("mm");
+    if (!_matched) {
+      if (Objects.equal(_switchValue,DateMode.MONTH)) {
+        _matched=true;
+        StringConcatenation _builder_1 = new StringConcatenation();
+        _builder_1.append("mm/yyyy");
+        _switchResult = _builder_1;
+      }
     }
-    boolean _isYear = question.isYear();
-    if (_isYear) {
-      list.add("yyyy");
+    if (!_matched) {
+      if (Objects.equal(_switchValue,DateMode.YEAR)) {
+        _matched=true;
+        StringConcatenation _builder_2 = new StringConcatenation();
+        _builder_2.append("yyyy");
+        _switchResult = _builder_2;
+      }
     }
-    return IterableExtensions.join(list, "/");
+    return _switchResult;
   }
   
   protected String _genLimitsDesc(final Date question) {

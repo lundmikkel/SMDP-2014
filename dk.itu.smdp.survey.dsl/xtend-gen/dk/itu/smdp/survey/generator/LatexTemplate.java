@@ -254,7 +254,7 @@ public class LatexTemplate extends SurveyTemplate {
     _builder.append(_genWritingLine, "");
     _builder.newLineIfNotEmpty();
     _builder.append("Using this format: ");
-    String _genDateFormat = this.genDateFormat(date);
+    CharSequence _genDateFormat = this.genDateFormat(date);
     _builder.append(_genDateFormat, "");
     _builder.append(". \\emph{");
     String _genLimitsDesc = this.genLimitsDesc(date);

@@ -13,6 +13,7 @@ import org.eclipse.xtext.xbase.lib.IntegerRange;
 import org.eclipse.xtext.xbase.lib.StringExtensions;
 import survey.Answer;
 import survey.Date;
+import survey.DateMode;
 import survey.Group;
 import survey.Item;
 import survey.Multiple;
@@ -145,27 +146,6 @@ public class PhpTemplate extends SurveyTemplate {
       }
     }
     return _builder;
-  }
-  
-  public Integer genDateMinViewMode(final Date question) {
-    Integer _xblockexpression = null;
-    {
-      boolean _isDay = question.isDay();
-      if (_isDay) {
-        return 0;
-      }
-      boolean _isMonth = question.isMonth();
-      if (_isMonth) {
-        return 1;
-      }
-      Integer _xifexpression = null;
-      boolean _isYear = question.isYear();
-      if (_isYear) {
-        return 2;
-      }
-      _xblockexpression = (_xifexpression);
-    }
-    return _xblockexpression;
   }
   
   public CharSequence genHiddenInput(final Question question, final String id) {
@@ -653,29 +633,6 @@ public class PhpTemplate extends SurveyTemplate {
         _xifexpression = _plus_1;
       }
       final String refId = _xifexpression;
-      boolean _and = false;
-      boolean _and_1 = false;
-      boolean _isDay = question.isDay();
-      boolean _not = (!_isDay);
-      if (!_not) {
-        _and_1 = false;
-      } else {
-        boolean _isMonth = question.isMonth();
-        boolean _not_1 = (!_isMonth);
-        _and_1 = (_not && _not_1);
-      }
-      if (!_and_1) {
-        _and = false;
-      } else {
-        boolean _isYear = question.isYear();
-        boolean _not_2 = (!_isYear);
-        _and = (_and_1 && _not_2);
-      }
-      if (_and) {
-        question.setDay(true);
-        question.setMonth(true);
-        question.setYear(true);
-      }
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("<div class=\"form-group\" ");
       CharSequence _genDependsOnAttr = this.genDependsOnAttr(question);
@@ -701,22 +658,22 @@ public class PhpTemplate extends SurveyTemplate {
       _builder.newLine();
       _builder.append("\t\t    \t");
       _builder.append("data-date-format=\"");
-      String _genDateFormat = this.genDateFormat(question);
+      CharSequence _genDateFormat = this.genDateFormat(question);
       _builder.append(_genDateFormat, "		    	");
       _builder.append("\"");
       _builder.newLineIfNotEmpty();
       _builder.append("\t\t    \t");
       _builder.append("data-date-min-view-mode=\"");
-      Integer _genDateMinViewMode = this.genDateMinViewMode(question);
-      _builder.append(_genDateMinViewMode, "		    	");
+      DateMode _mode = question.getMode();
+      _builder.append(_mode, "		    	");
       _builder.append("\"");
       _builder.newLineIfNotEmpty();
       _builder.append("\t\t    \t");
       {
         String _start = question.getStart();
         boolean _isNullOrEmpty_1 = StringExtensions.isNullOrEmpty(_start);
-        boolean _not_3 = (!_isNullOrEmpty_1);
-        if (_not_3) {
+        boolean _not = (!_isNullOrEmpty_1);
+        if (_not) {
           _builder.append("data-date-start-date=\"");
           String _start_1 = question.getStart();
           _builder.append(_start_1, "		    	");
@@ -728,8 +685,8 @@ public class PhpTemplate extends SurveyTemplate {
       {
         String _end = question.getEnd();
         boolean _isNullOrEmpty_2 = StringExtensions.isNullOrEmpty(_end);
-        boolean _not_4 = (!_isNullOrEmpty_2);
-        if (_not_4) {
+        boolean _not_1 = (!_isNullOrEmpty_2);
+        if (_not_1) {
           _builder.append("data-date-end-date=\"");
           String _end_1 = question.getEnd();
           _builder.append(_end_1, "		    	");

@@ -729,6 +729,25 @@ finally {
 
 
 
+// Rule DateMode
+ruleDateMode
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getDateModeAccess().getAlternatives()); }
+(rule__DateMode__Alternatives)
+{ after(grammarAccess.getDateModeAccess().getAlternatives()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+
 rule__Survey__Alternatives_1_3
     @init {
 		int stackSize = keepStackSize();
@@ -1408,6 +1427,37 @@ rule__DEP_ID__Alternatives
 { before(grammarAccess.getDEP_IDAccess().getFQNTerminalRuleCall_1()); }
 	RULE_FQN
 { after(grammarAccess.getDEP_IDAccess().getFQNTerminalRuleCall_1()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__DateMode__Alternatives
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getDateModeAccess().getDAYEnumLiteralDeclaration_0()); }
+(	'day' 
+)
+{ after(grammarAccess.getDateModeAccess().getDAYEnumLiteralDeclaration_0()); }
+)
+
+    |(
+{ before(grammarAccess.getDateModeAccess().getMONTHEnumLiteralDeclaration_1()); }
+(	'month' 
+)
+{ after(grammarAccess.getDateModeAccess().getMONTHEnumLiteralDeclaration_1()); }
+)
+
+    |(
+{ before(grammarAccess.getDateModeAccess().getYEAREnumLiteralDeclaration_2()); }
+(	'year' 
+)
+{ after(grammarAccess.getDateModeAccess().getYEAREnumLiteralDeclaration_2()); }
 )
 
 ;
@@ -10904,43 +10954,9 @@ rule__Date__UnorderedGroup_2__Impl
 	 				}
 					(
 					
-						{ before(grammarAccess.getDateAccess().getDayAssignment_2_8()); }
-						(rule__Date__DayAssignment_2_8)
-						{ after(grammarAccess.getDateAccess().getDayAssignment_2_8()); }
-					)
- 				)
-			)  |
-
-			( 
-				{getUnorderedGroupHelper().canSelect(grammarAccess.getDateAccess().getUnorderedGroup_2(), 9)}?=>(
-					{ 
-	 				  getUnorderedGroupHelper().select(grammarAccess.getDateAccess().getUnorderedGroup_2(), 9);
-	 				}
-	 				{
-	 				  selected = true;
-	 				}
-					(
-					
-						{ before(grammarAccess.getDateAccess().getMonthAssignment_2_9()); }
-						(rule__Date__MonthAssignment_2_9)
-						{ after(grammarAccess.getDateAccess().getMonthAssignment_2_9()); }
-					)
- 				)
-			)  |
-
-			( 
-				{getUnorderedGroupHelper().canSelect(grammarAccess.getDateAccess().getUnorderedGroup_2(), 10)}?=>(
-					{ 
-	 				  getUnorderedGroupHelper().select(grammarAccess.getDateAccess().getUnorderedGroup_2(), 10);
-	 				}
-	 				{
-	 				  selected = true;
-	 				}
-					(
-					
-						{ before(grammarAccess.getDateAccess().getYearAssignment_2_10()); }
-						(rule__Date__YearAssignment_2_10)
-						{ after(grammarAccess.getDateAccess().getYearAssignment_2_10()); }
+						{ before(grammarAccess.getDateAccess().getModeAssignment_2_8()); }
+						(rule__Date__ModeAssignment_2_8)
+						{ after(grammarAccess.getDateAccess().getModeAssignment_2_8()); }
 					)
  				)
 			)  
@@ -11064,40 +11080,10 @@ rule__Date__UnorderedGroup_2__8
     }
 :
 	rule__Date__UnorderedGroup_2__Impl
-	rule__Date__UnorderedGroup_2__9?
 ;
 finally {
 	restoreStackSize(stackSize);
 }
-
-
-rule__Date__UnorderedGroup_2__9
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-	rule__Date__UnorderedGroup_2__Impl
-	rule__Date__UnorderedGroup_2__10?
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-
-rule__Date__UnorderedGroup_2__10
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-	rule__Date__UnorderedGroup_2__Impl
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-
-
-
 
 
 
@@ -13609,68 +13595,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Date__DayAssignment_2_8
+rule__Date__ModeAssignment_2_8
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getDateAccess().getDayDayKeyword_2_8_0()); }
-(
-{ before(grammarAccess.getDateAccess().getDayDayKeyword_2_8_0()); }
-
-	'day' 
-
-{ after(grammarAccess.getDateAccess().getDayDayKeyword_2_8_0()); }
-)
-
-{ after(grammarAccess.getDateAccess().getDayDayKeyword_2_8_0()); }
-)
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__Date__MonthAssignment_2_9
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-(
-{ before(grammarAccess.getDateAccess().getMonthMonthKeyword_2_9_0()); }
-(
-{ before(grammarAccess.getDateAccess().getMonthMonthKeyword_2_9_0()); }
-
-	'month' 
-
-{ after(grammarAccess.getDateAccess().getMonthMonthKeyword_2_9_0()); }
-)
-
-{ after(grammarAccess.getDateAccess().getMonthMonthKeyword_2_9_0()); }
-)
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__Date__YearAssignment_2_10
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-(
-{ before(grammarAccess.getDateAccess().getYearYearKeyword_2_10_0()); }
-(
-{ before(grammarAccess.getDateAccess().getYearYearKeyword_2_10_0()); }
-
-	'year' 
-
-{ after(grammarAccess.getDateAccess().getYearYearKeyword_2_10_0()); }
-)
-
-{ after(grammarAccess.getDateAccess().getYearYearKeyword_2_10_0()); }
+{ before(grammarAccess.getDateAccess().getModeDateModeEnumRuleCall_2_8_0()); }
+	ruleDateMode{ after(grammarAccess.getDateAccess().getModeDateModeEnumRuleCall_2_8_0()); }
 )
 
 ;

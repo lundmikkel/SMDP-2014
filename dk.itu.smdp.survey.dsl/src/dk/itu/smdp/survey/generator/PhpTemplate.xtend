@@ -62,15 +62,6 @@ class PhpTemplate extends SurveyTemplate {
 		«ENDIF»
 	'''
 	
-	def genDateMinViewMode(Date question) {
-		if (question.day)
-			return 0
-		if (question.month)
-			return 1
-		if (question.year)
-			return 2
-	}
-	
 	def genHiddenInput(Question question, String id) {
 		genHiddenInputWithString(question.title, id)
 	}
@@ -201,13 +192,6 @@ class PhpTemplate extends SurveyTemplate {
 		val id = getUniqueId(question)
 		val refId = if (question.name.nullOrEmpty) "" else pid + "-" + question.name
 		
-		// Default to all set
-		if (!question.day && !question.month && !question.year) {
-			question.day = true
-			question.month = true
-			question.year = true
-		}
-		
 		'''
 		<div class="form-group" «question.genDependsOnAttr»>
 			«question.genHeader(required, '''for="«id»"''')»
@@ -215,7 +199,7 @@ class PhpTemplate extends SurveyTemplate {
 		        <div class="col-xs-4">
 				    <div class="input-group date"
 				    	data-date-format="«question.genDateFormat»"
-				    	data-date-min-view-mode="«question.genDateMinViewMode»"
+				    	data-date-min-view-mode="«question.mode»"
 				    	«IF !question.start.nullOrEmpty»data-date-start-date="«question.start»"«ENDIF»
 				    	«IF !question.end.nullOrEmpty»data-date-end-date="«question.end»"«ENDIF»
 				    	>

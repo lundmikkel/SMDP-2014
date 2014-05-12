@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import survey.Date;
+import survey.DateMode;
 import survey.SurveyPackage;
 
 /**
@@ -18,9 +19,7 @@ import survey.SurveyPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link survey.impl.DateImpl#isDay <em>Day</em>}</li>
- *   <li>{@link survey.impl.DateImpl#isMonth <em>Month</em>}</li>
- *   <li>{@link survey.impl.DateImpl#isYear <em>Year</em>}</li>
+ *   <li>{@link survey.impl.DateImpl#getMode <em>Mode</em>}</li>
  *   <li>{@link survey.impl.DateImpl#getStart <em>Start</em>}</li>
  *   <li>{@link survey.impl.DateImpl#getEnd <em>End</em>}</li>
  *   <li>{@link survey.impl.DateImpl#isShowLimits <em>Show Limits</em>}</li>
@@ -31,64 +30,24 @@ import survey.SurveyPackage;
  */
 public class DateImpl extends QuestionImpl implements Date {
 	/**
-	 * The default value of the '{@link #isDay() <em>Day</em>}' attribute.
+	 * The default value of the '{@link #getMode() <em>Mode</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isDay()
+	 * @see #getMode()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean DAY_EDEFAULT = false;
+	protected static final DateMode MODE_EDEFAULT = DateMode.DAY;
 
 	/**
-	 * The cached value of the '{@link #isDay() <em>Day</em>}' attribute.
+	 * The cached value of the '{@link #getMode() <em>Mode</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isDay()
+	 * @see #getMode()
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean day = DAY_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #isMonth() <em>Month</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isMonth()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean MONTH_EDEFAULT = false;
-
-	/**
-	 * The cached value of the '{@link #isMonth() <em>Month</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isMonth()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean month = MONTH_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #isYear() <em>Year</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isYear()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean YEAR_EDEFAULT = false;
-
-	/**
-	 * The cached value of the '{@link #isYear() <em>Year</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isYear()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean year = YEAR_EDEFAULT;
+	protected DateMode mode = MODE_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getStart() <em>Start</em>}' attribute.
@@ -174,8 +133,8 @@ public class DateImpl extends QuestionImpl implements Date {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isDay() {
-		return day;
+	public DateMode getMode() {
+		return mode;
 	}
 
 	/**
@@ -183,53 +142,11 @@ public class DateImpl extends QuestionImpl implements Date {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDay(boolean newDay) {
-		boolean oldDay = day;
-		day = newDay;
+	public void setMode(DateMode newMode) {
+		DateMode oldMode = mode;
+		mode = newMode == null ? MODE_EDEFAULT : newMode;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SurveyPackage.DATE__DAY, oldDay, day));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean isMonth() {
-		return month;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setMonth(boolean newMonth) {
-		boolean oldMonth = month;
-		month = newMonth;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SurveyPackage.DATE__MONTH, oldMonth, month));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean isYear() {
-		return year;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setYear(boolean newYear) {
-		boolean oldYear = year;
-		year = newYear;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SurveyPackage.DATE__YEAR, oldYear, year));
+			eNotify(new ENotificationImpl(this, Notification.SET, SurveyPackage.DATE__MODE, oldMode, mode));
 	}
 
 	/**
@@ -303,12 +220,8 @@ public class DateImpl extends QuestionImpl implements Date {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case SurveyPackage.DATE__DAY:
-				return isDay();
-			case SurveyPackage.DATE__MONTH:
-				return isMonth();
-			case SurveyPackage.DATE__YEAR:
-				return isYear();
+			case SurveyPackage.DATE__MODE:
+				return getMode();
 			case SurveyPackage.DATE__START:
 				return getStart();
 			case SurveyPackage.DATE__END:
@@ -327,14 +240,8 @@ public class DateImpl extends QuestionImpl implements Date {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case SurveyPackage.DATE__DAY:
-				setDay((Boolean)newValue);
-				return;
-			case SurveyPackage.DATE__MONTH:
-				setMonth((Boolean)newValue);
-				return;
-			case SurveyPackage.DATE__YEAR:
-				setYear((Boolean)newValue);
+			case SurveyPackage.DATE__MODE:
+				setMode((DateMode)newValue);
 				return;
 			case SurveyPackage.DATE__START:
 				setStart((String)newValue);
@@ -357,14 +264,8 @@ public class DateImpl extends QuestionImpl implements Date {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case SurveyPackage.DATE__DAY:
-				setDay(DAY_EDEFAULT);
-				return;
-			case SurveyPackage.DATE__MONTH:
-				setMonth(MONTH_EDEFAULT);
-				return;
-			case SurveyPackage.DATE__YEAR:
-				setYear(YEAR_EDEFAULT);
+			case SurveyPackage.DATE__MODE:
+				setMode(MODE_EDEFAULT);
 				return;
 			case SurveyPackage.DATE__START:
 				setStart(START_EDEFAULT);
@@ -387,12 +288,8 @@ public class DateImpl extends QuestionImpl implements Date {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case SurveyPackage.DATE__DAY:
-				return day != DAY_EDEFAULT;
-			case SurveyPackage.DATE__MONTH:
-				return month != MONTH_EDEFAULT;
-			case SurveyPackage.DATE__YEAR:
-				return year != YEAR_EDEFAULT;
+			case SurveyPackage.DATE__MODE:
+				return mode != MODE_EDEFAULT;
 			case SurveyPackage.DATE__START:
 				return START_EDEFAULT == null ? start != null : !START_EDEFAULT.equals(start);
 			case SurveyPackage.DATE__END:
@@ -413,12 +310,8 @@ public class DateImpl extends QuestionImpl implements Date {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (day: ");
-		result.append(day);
-		result.append(", month: ");
-		result.append(month);
-		result.append(", year: ");
-		result.append(year);
+		result.append(" (mode: ");
+		result.append(mode);
 		result.append(", start: ");
 		result.append(start);
 		result.append(", end: ");
