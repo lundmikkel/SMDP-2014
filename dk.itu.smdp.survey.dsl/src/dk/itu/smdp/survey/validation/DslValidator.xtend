@@ -44,7 +44,7 @@ class DslValidator extends AbstractDslValidator {
 	private static val ambiguousIdString = 'The id %s is ambiguous'
 	private static val noNegativeValueString = 'The value must be non-negative'
 	private static val betterUseSingleString = 'If your maximum is one, you should rather use a single question instead of a multiple for usability reasons'
-	private static val setDateGranularityString = "You must specify the date's granularity"
+	private static val setDateGranularityString = "You cannot specify date and year without having month"
 
 	@Check
 	def checkValidEmailAddress(Survey survey) {
@@ -208,12 +208,17 @@ class DslValidator extends AbstractDslValidator {
 	 */
 	@Check
 	def checkDateGranularity(Date date) {
-		// TODO: Default to dd/mm/yyyy
-		if (!date.day && !date.month && !date.year) {
+		if (date.day && !date.month && date.year) {
 			error(
 				setDateGranularityString,
 				date,
 				SurveyPackage.Literals.DATE__DAY,
+				INVALID_VALUE
+			)
+			error(
+				setDateGranularityString,
+				date,
+				SurveyPackage.Literals.DATE__YEAR,
 				INVALID_VALUE
 			)
 		}

@@ -653,6 +653,29 @@ public class PhpTemplate extends SurveyTemplate {
         _xifexpression = _plus_1;
       }
       final String refId = _xifexpression;
+      boolean _and = false;
+      boolean _and_1 = false;
+      boolean _isDay = question.isDay();
+      boolean _not = (!_isDay);
+      if (!_not) {
+        _and_1 = false;
+      } else {
+        boolean _isMonth = question.isMonth();
+        boolean _not_1 = (!_isMonth);
+        _and_1 = (_not && _not_1);
+      }
+      if (!_and_1) {
+        _and = false;
+      } else {
+        boolean _isYear = question.isYear();
+        boolean _not_2 = (!_isYear);
+        _and = (_and_1 && _not_2);
+      }
+      if (_and) {
+        question.setDay(true);
+        question.setMonth(true);
+        question.setYear(true);
+      }
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("<div class=\"form-group\" ");
       CharSequence _genDependsOnAttr = this.genDependsOnAttr(question);
@@ -692,8 +715,8 @@ public class PhpTemplate extends SurveyTemplate {
       {
         String _start = question.getStart();
         boolean _isNullOrEmpty_1 = StringExtensions.isNullOrEmpty(_start);
-        boolean _not = (!_isNullOrEmpty_1);
-        if (_not) {
+        boolean _not_3 = (!_isNullOrEmpty_1);
+        if (_not_3) {
           _builder.append("data-date-start-date=\"");
           String _start_1 = question.getStart();
           _builder.append(_start_1, "		    	");
@@ -705,8 +728,8 @@ public class PhpTemplate extends SurveyTemplate {
       {
         String _end = question.getEnd();
         boolean _isNullOrEmpty_2 = StringExtensions.isNullOrEmpty(_end);
-        boolean _not_1 = (!_isNullOrEmpty_2);
-        if (_not_1) {
+        boolean _not_4 = (!_isNullOrEmpty_2);
+        if (_not_4) {
           _builder.append("data-date-end-date=\"");
           String _end_1 = question.getEnd();
           _builder.append(_end_1, "		    	");

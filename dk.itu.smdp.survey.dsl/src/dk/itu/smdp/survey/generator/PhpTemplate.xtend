@@ -201,6 +201,13 @@ class PhpTemplate extends SurveyTemplate {
 		val id = getUniqueId(question)
 		val refId = if (question.name.nullOrEmpty) "" else pid + "-" + question.name
 		
+		// Default to all set
+		if (!question.day && !question.month && !question.year) {
+			question.day = true
+			question.month = true
+			question.year = true
+		}
+		
 		'''
 		<div class="form-group" «question.genDependsOnAttr»>
 			«question.genHeader(required, '''for="«id»"''')»

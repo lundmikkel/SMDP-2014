@@ -66,7 +66,7 @@ public class DslValidator extends AbstractDslValidator {
   
   private final static String betterUseSingleString = "If your maximum is one, you should rather use a single question instead of a multiple for usability reasons";
   
-  private final static String setDateGranularityString = "You must specify the date\'s granularity";
+  private final static String setDateGranularityString = "You cannot specify date and year without having month";
   
   @Check
   public void checkValidEmailAddress(final Survey survey) {
@@ -297,25 +297,27 @@ public class DslValidator extends AbstractDslValidator {
     boolean _and = false;
     boolean _and_1 = false;
     boolean _isDay = date.isDay();
-    boolean _not = (!_isDay);
-    if (!_not) {
+    if (!_isDay) {
       _and_1 = false;
     } else {
       boolean _isMonth = date.isMonth();
-      boolean _not_1 = (!_isMonth);
-      _and_1 = (_not && _not_1);
+      boolean _not = (!_isMonth);
+      _and_1 = (_isDay && _not);
     }
     if (!_and_1) {
       _and = false;
     } else {
       boolean _isYear = date.isYear();
-      boolean _not_2 = (!_isYear);
-      _and = (_and_1 && _not_2);
+      _and = (_and_1 && _isYear);
     }
     if (_and) {
       this.error(
         DslValidator.setDateGranularityString, date, 
         Literals.DATE__DAY, 
+        DslValidator.INVALID_VALUE);
+      this.error(
+        DslValidator.setDateGranularityString, date, 
+        Literals.DATE__YEAR, 
         DslValidator.INVALID_VALUE);
     }
   }
