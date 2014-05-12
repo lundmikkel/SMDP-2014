@@ -21,6 +21,7 @@ import survey.Table
 import survey.TableQuestion
 import survey.Text
 import java.util.Map
+import survey.DateMode
 
 class LatexTemplate extends SurveyTemplate {
 	Survey survey
@@ -61,7 +62,7 @@ class LatexTemplate extends SurveyTemplate {
 			«FOR item : survey.items»
 				«item.genLatex("", false, "")»
 				«IF item instanceof Question»
-				\vspace{10mm}
+				\vspace*{10mm}\\
 				«ENDIF»
 			«ENDFOR»
 		'''
@@ -114,9 +115,37 @@ class LatexTemplate extends SurveyTemplate {
 	def dispatch genLatex(Date date, String dependsOn, boolean required, String pid) {
 		'''
 		«date.genHeader(dependsOn, required)»
-		«genWritingLine()»
-		Using this format: «date.genDateFormat». \emph{«date.genLimitsDesc»}
+		\emph{«date.genLimitsDesc»}\\
+		~\\
+		~\\
+		«date.genLatexDateFormat»
 		'''
+	}
+	
+	def genLatexDateFormat(Date date) {
+		switch (date.mode) {
+			case DateMode.DAY:
+				'''
+				\begin{tabular}{ c c c c c c }
+					\smallpencil & \rule{60pt}{.3pt} & \Big / & \rule{60pt}{.3pt} & \Big / & \rule{80pt}{.3pt} \\
+					& day & & month & & year \\
+				\end{tabular}\\
+				'''
+			case DateMode.MONTH:
+				'''
+				\begin{tabular}{ c c c c }
+					\smallpencil & \rule{60pt}{.3pt} & \Big / & \rule{80pt}{.3pt} \\
+					& month & & year \\
+				\end{tabular}\\
+				'''
+			case DateMode.YEAR:
+				'''
+				\begin{tabular}{ c c }
+					\smallpencil & \rule{80pt}{.3pt} \\
+					& year \\
+				\end{tabular}\\
+				'''
+		} 
 	}
 	
 	def dispatch genLatex(Number number, String dependsOn, boolean required, String pid) {
@@ -261,19 +290,27 @@ class LatexTemplate extends SurveyTemplate {
 		\usepackage{dingbat}
 		\usepackage{wasysym}
 		\usepackage{enumitem}
+		\usepackage{titling}
+		
+		\newcommand{\subtitle}[1]{%
+		  \posttitle{%
+		    \par\end{center}
+		    \begin{center}\large#1\end{center}
+		    \vskip0.5em}%
+		}
 		
 		\begin{document}
 		
 		«IF !title.nullOrEmpty»
 		\title{«title»}
 		«ENDIF»
+		«IF !description.nullOrEmpty»
+		\subtitle{«description»}
+		«ENDIF»
 		
 		\date{}
 		\maketitle
 		
-		«IF !description.nullOrEmpty»
-		\noindent «description»
-		«ENDIF»
 		
 		«body»
 		

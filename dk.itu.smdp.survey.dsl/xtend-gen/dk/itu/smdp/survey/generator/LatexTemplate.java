@@ -1,5 +1,6 @@
 package dk.itu.smdp.survey.generator;
 
+import com.google.common.base.Objects;
 import dk.itu.smdp.survey.generator.SurveyTemplate;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -17,6 +18,7 @@ import survey.Answer;
 import survey.AnswerTemplate;
 import survey.AnswerTemplateRef;
 import survey.Date;
+import survey.DateMode;
 import survey.Group;
 import survey.HasOptions;
 import survey.Item;
@@ -67,7 +69,7 @@ public class LatexTemplate extends SurveyTemplate {
         _builder.newLineIfNotEmpty();
         {
           if ((item instanceof Question)) {
-            _builder.append("\\vspace{10mm}");
+            _builder.append("\\vspace*{10mm}\\\\");
             _builder.newLine();
           }
         }
@@ -250,18 +252,78 @@ public class LatexTemplate extends SurveyTemplate {
     CharSequence _genHeader = this.genHeader(date, dependsOn, required);
     _builder.append(_genHeader, "");
     _builder.newLineIfNotEmpty();
-    CharSequence _genWritingLine = this.genWritingLine();
-    _builder.append(_genWritingLine, "");
-    _builder.newLineIfNotEmpty();
-    _builder.append("Using this format: ");
-    CharSequence _genDateFormat = this.genDateFormat(date);
-    _builder.append(_genDateFormat, "");
-    _builder.append(". \\emph{");
+    _builder.append("\\emph{");
     String _genLimitsDesc = this.genLimitsDesc(date);
     _builder.append(_genLimitsDesc, "");
-    _builder.append("}");
+    _builder.append("}\\\\");
+    _builder.newLineIfNotEmpty();
+    _builder.append("~\\\\");
+    _builder.newLine();
+    _builder.append("~\\\\");
+    _builder.newLine();
+    CharSequence _genLatexDateFormat = this.genLatexDateFormat(date);
+    _builder.append(_genLatexDateFormat, "");
     _builder.newLineIfNotEmpty();
     return _builder;
+  }
+  
+  public CharSequence genLatexDateFormat(final Date date) {
+    CharSequence _switchResult = null;
+    DateMode _mode = date.getMode();
+    final DateMode _switchValue = _mode;
+    boolean _matched = false;
+    if (!_matched) {
+      if (Objects.equal(_switchValue,DateMode.DAY)) {
+        _matched=true;
+        StringConcatenation _builder = new StringConcatenation();
+        _builder.append("\\begin{tabular}{ c c c c c c }");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("\\smallpencil & \\rule{60pt}{.3pt} & \\Big / & \\rule{60pt}{.3pt} & \\Big / & \\rule{80pt}{.3pt} \\\\");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("& day & & month & & year \\\\");
+        _builder.newLine();
+        _builder.append("\\end{tabular}\\\\");
+        _builder.newLine();
+        _switchResult = _builder;
+      }
+    }
+    if (!_matched) {
+      if (Objects.equal(_switchValue,DateMode.MONTH)) {
+        _matched=true;
+        StringConcatenation _builder_1 = new StringConcatenation();
+        _builder_1.append("\\begin{tabular}{ c c c c }");
+        _builder_1.newLine();
+        _builder_1.append("\t");
+        _builder_1.append("\\smallpencil & \\rule{60pt}{.3pt} & \\Big / & \\rule{80pt}{.3pt} \\\\");
+        _builder_1.newLine();
+        _builder_1.append("\t");
+        _builder_1.append("& month & & year \\\\");
+        _builder_1.newLine();
+        _builder_1.append("\\end{tabular}\\\\");
+        _builder_1.newLine();
+        _switchResult = _builder_1;
+      }
+    }
+    if (!_matched) {
+      if (Objects.equal(_switchValue,DateMode.YEAR)) {
+        _matched=true;
+        StringConcatenation _builder_2 = new StringConcatenation();
+        _builder_2.append("\\begin{tabular}{ c c }");
+        _builder_2.newLine();
+        _builder_2.append("\t");
+        _builder_2.append("\\smallpencil & \\rule{80pt}{.3pt} \\\\");
+        _builder_2.newLine();
+        _builder_2.append("\t");
+        _builder_2.append("& year \\\\");
+        _builder_2.newLine();
+        _builder_2.append("\\end{tabular}\\\\");
+        _builder_2.newLine();
+        _switchResult = _builder_2;
+      }
+    }
+    return _switchResult;
   }
   
   protected CharSequence _genLatex(final survey.Number number, final String dependsOn, final boolean required, final String pid) {
@@ -686,6 +748,25 @@ public class LatexTemplate extends SurveyTemplate {
     _builder.newLine();
     _builder.append("\\usepackage{enumitem}");
     _builder.newLine();
+    _builder.append("\\usepackage{titling}");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("\\newcommand{\\subtitle}[1]{%");
+    _builder.newLine();
+    _builder.append("  ");
+    _builder.append("\\posttitle{%");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("\\par\\end{center}");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("\\begin{center}\\large#1\\end{center}");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("\\vskip0.5em}%");
+    _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
     _builder.newLine();
     _builder.append("\\begin{document}");
     _builder.newLine();
@@ -700,21 +781,22 @@ public class LatexTemplate extends SurveyTemplate {
         _builder.newLineIfNotEmpty();
       }
     }
+    {
+      boolean _isNullOrEmpty_1 = StringExtensions.isNullOrEmpty(description);
+      boolean _not_1 = (!_isNullOrEmpty_1);
+      if (_not_1) {
+        _builder.append("\\subtitle{");
+        _builder.append(description, "");
+        _builder.append("}");
+        _builder.newLineIfNotEmpty();
+      }
+    }
     _builder.newLine();
     _builder.append("\\date{}");
     _builder.newLine();
     _builder.append("\\maketitle");
     _builder.newLine();
     _builder.newLine();
-    {
-      boolean _isNullOrEmpty_1 = StringExtensions.isNullOrEmpty(description);
-      boolean _not_1 = (!_isNullOrEmpty_1);
-      if (_not_1) {
-        _builder.append("\\noindent ");
-        _builder.append(description, "");
-        _builder.newLineIfNotEmpty();
-      }
-    }
     _builder.newLine();
     _builder.append(body, "");
     _builder.newLineIfNotEmpty();
