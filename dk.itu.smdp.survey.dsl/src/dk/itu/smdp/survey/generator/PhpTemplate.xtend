@@ -437,7 +437,13 @@ class PhpTemplate extends SurveyTemplate {
 						$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
 			    		
 			    		// Send mail
-			    		mail($_POST['survey']['to'], $_POST['survey']['subject'], $message, $headers);
+			    		if (mail($_POST['survey']['to'], $_POST['survey']['subject'], $message, $headers)) {
+			    			echo '<div class="alert alert-success">Mail successfully send :)</div>';
+			    		}
+			    		else {
+			    			echo '<div class="alert alert-danger">Mail was not send!</div>';
+			    		}
+						
 						
 						else:
 						?>
