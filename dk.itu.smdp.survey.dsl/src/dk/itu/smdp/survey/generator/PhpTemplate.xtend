@@ -140,7 +140,7 @@ class PhpTemplate extends SurveyTemplate {
 			«question.genHeader(required, '''for="«id»"''')»
 		    <div class="row">
 		        <div class="col-xs-4">
-					«IF !question.multiline»
+					«IF !question.multi»
 					<input class="form-control" «genRefIdAttr(refId)» name="«id»[answer]" «question.genRequiredAttr(required)»>
 					«ELSE»
 					<textarea class="form-control" «genRefIdAttr(refId)» name="«id»[answer]" rows="3" «question.genRequiredAttr(required)»></textarea>

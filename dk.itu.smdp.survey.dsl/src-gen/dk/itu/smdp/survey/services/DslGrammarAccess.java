@@ -516,20 +516,20 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cAlternatives_2_5 = (Alternatives)cUnorderedGroup_2.eContents().get(5);
 		private final Keyword cSinglelineKeyword_2_5_0 = (Keyword)cAlternatives_2_5.eContents().get(0);
 		private final Keyword cSingleKeyword_2_5_1 = (Keyword)cAlternatives_2_5.eContents().get(1);
-		private final Assignment cMultilineAssignment_2_5_2 = (Assignment)cAlternatives_2_5.eContents().get(2);
-		private final Alternatives cMultilineAlternatives_2_5_2_0 = (Alternatives)cMultilineAssignment_2_5_2.eContents().get(0);
-		private final Keyword cMultilineMultiKeyword_2_5_2_0_0 = (Keyword)cMultilineAlternatives_2_5_2_0.eContents().get(0);
-		private final Keyword cMultilineMultilineKeyword_2_5_2_0_1 = (Keyword)cMultilineAlternatives_2_5_2_0.eContents().get(1);
+		private final Assignment cMultiAssignment_2_5_2 = (Assignment)cAlternatives_2_5.eContents().get(2);
+		private final Alternatives cMultiAlternatives_2_5_2_0 = (Alternatives)cMultiAssignment_2_5_2.eContents().get(0);
+		private final Keyword cMultiMultiKeyword_2_5_2_0_0 = (Keyword)cMultiAlternatives_2_5_2_0.eContents().get(0);
+		private final Keyword cMultiMultilineKeyword_2_5_2_0_1 = (Keyword)cMultiAlternatives_2_5_2_0.eContents().get(1);
 		private final Keyword cSolidusGreaterThanSignKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//Text:
 		//	{Text} "<text" ("title=\"" title=EString "\"" & ("description=\"" description=EString? "\"")? & ("id=\"" name=ID?
 		//	"\"")? & ("depends-on=\"" dependsOn=DEP_ID? "\"")? & required?="required"? & ("singleline" | "single" |
-		//	multiline?=("multi" | "multiline"))?) "/>";
+		//	multi?=("multi" | "multiline"))?) "/>";
 		public ParserRule getRule() { return rule; }
 
 		//{Text} "<text" ("title=\"" title=EString "\"" & ("description=\"" description=EString? "\"")? & ("id=\"" name=ID? "\"")?
-		//& ("depends-on=\"" dependsOn=DEP_ID? "\"")? & required?="required"? & ("singleline" | "single" | multiline?=("multi" |
+		//& ("depends-on=\"" dependsOn=DEP_ID? "\"")? & required?="required"? & ("singleline" | "single" | multi?=("multi" |
 		//"multiline"))?) "/>"
 		public Group getGroup() { return cGroup; }
 
@@ -540,7 +540,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getTextKeyword_1() { return cTextKeyword_1; }
 
 		//"title=\"" title=EString "\"" & ("description=\"" description=EString? "\"")? & ("id=\"" name=ID? "\"")? &
-		//("depends-on=\"" dependsOn=DEP_ID? "\"")? & required?="required"? & ("singleline" | "single" | multiline?=("multi" |
+		//("depends-on=\"" dependsOn=DEP_ID? "\"")? & required?="required"? & ("singleline" | "single" | multi?=("multi" |
 		//"multiline"))?
 		public UnorderedGroup getUnorderedGroup_2() { return cUnorderedGroup_2; }
 
@@ -610,7 +610,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//"required"
 		public Keyword getRequiredRequiredKeyword_2_4_0() { return cRequiredRequiredKeyword_2_4_0; }
 
-		//("singleline" | "single" | multiline?=("multi" | "multiline"))?
+		//("singleline" | "single" | multi?=("multi" | "multiline"))?
 		public Alternatives getAlternatives_2_5() { return cAlternatives_2_5; }
 
 		//"singleline"
@@ -619,17 +619,17 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//"single"
 		public Keyword getSingleKeyword_2_5_1() { return cSingleKeyword_2_5_1; }
 
-		//multiline?=("multi" | "multiline")
-		public Assignment getMultilineAssignment_2_5_2() { return cMultilineAssignment_2_5_2; }
+		//multi?=("multi" | "multiline")
+		public Assignment getMultiAssignment_2_5_2() { return cMultiAssignment_2_5_2; }
 
 		//"multi" | "multiline"
-		public Alternatives getMultilineAlternatives_2_5_2_0() { return cMultilineAlternatives_2_5_2_0; }
+		public Alternatives getMultiAlternatives_2_5_2_0() { return cMultiAlternatives_2_5_2_0; }
 
 		//"multi"
-		public Keyword getMultilineMultiKeyword_2_5_2_0_0() { return cMultilineMultiKeyword_2_5_2_0_0; }
+		public Keyword getMultiMultiKeyword_2_5_2_0_0() { return cMultiMultiKeyword_2_5_2_0_0; }
 
 		//"multiline"
-		public Keyword getMultilineMultilineKeyword_2_5_2_0_1() { return cMultilineMultilineKeyword_2_5_2_0_1; }
+		public Keyword getMultiMultilineKeyword_2_5_2_0_1() { return cMultiMultilineKeyword_2_5_2_0_1; }
 
 		//"/>"
 		public Keyword getSolidusGreaterThanSignKeyword_3() { return cSolidusGreaterThanSignKeyword_3; }
@@ -1422,37 +1422,27 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cQuotationMarkKeyword_1_3_2 = (Keyword)cGroup_1_3.eContents().get(2);
 		private final Assignment cRequiredAssignment_1_4 = (Assignment)cUnorderedGroup_1.eContents().get(4);
 		private final Keyword cRequiredRequiredKeyword_1_4_0 = (Keyword)cRequiredAssignment_1_4.eContents().get(0);
-		private final Alternatives cAlternatives_1_5 = (Alternatives)cUnorderedGroup_1.eContents().get(5);
-		private final Assignment cOtherAssignment_1_5_0 = (Assignment)cAlternatives_1_5.eContents().get(0);
-		private final Alternatives cOtherAlternatives_1_5_0_0 = (Alternatives)cOtherAssignment_1_5_0.eContents().get(0);
-		private final Keyword cOtherOtherKeyword_1_5_0_0_0 = (Keyword)cOtherAlternatives_1_5_0_0.eContents().get(0);
-		private final Keyword cOtherOtherKeyword_1_5_0_0_1 = (Keyword)cOtherAlternatives_1_5_0_0.eContents().get(1);
-		private final Group cGroup_1_5_1 = (Group)cAlternatives_1_5.eContents().get(1);
-		private final Keyword cOtherKeyword_1_5_1_0 = (Keyword)cGroup_1_5_1.eContents().get(0);
-		private final Assignment cOtherLabelAssignment_1_5_1_1 = (Assignment)cGroup_1_5_1.eContents().get(1);
-		private final RuleCall cOtherLabelEStringParserRuleCall_1_5_1_1_0 = (RuleCall)cOtherLabelAssignment_1_5_1_1.eContents().get(0);
-		private final Keyword cQuotationMarkKeyword_1_5_1_2 = (Keyword)cGroup_1_5_1.eContents().get(2);
-		private final Assignment cOptionsAssignment_1_6 = (Assignment)cUnorderedGroup_1.eContents().get(6);
-		private final RuleCall cOptionsAnswerTemplateRefAttrParserRuleCall_1_6_0 = (RuleCall)cOptionsAssignment_1_6.eContents().get(0);
+		private final Assignment cOptionsAssignment_1_5 = (Assignment)cUnorderedGroup_1.eContents().get(5);
+		private final RuleCall cOptionsAnswerTemplateRefAttrParserRuleCall_1_5_0 = (RuleCall)cOptionsAssignment_1_5.eContents().get(0);
 		private final Keyword cSolidusGreaterThanSignKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		
 		//SingleRef returns Single:
-		//	"<single" ("title=\"" title=EString "\"" & ("description=\"" description=EString? "\"")? & ("id=\"" name=ID? "\"")? &
-		//	("depends-on=\"" dependsOn=DEP_ID? "\"")? & required?="required"? & (other?=("other" | "other=\"\"") | "other=\""
-		//	otherLabel=EString "\"")? & options+=AnswerTemplateRefAttr) "/>";
+		//	"<single" ("title=\"" title=EString "\"" //& ((other?=('other'|'other=""')) | ('other="' otherLabel=EString '"'))?
+		//	& ("description=\"" description=EString? "\"")? & ("id=\"" name=ID? "\"")? & ("depends-on=\"" dependsOn=DEP_ID? "\"")?
+		//	& required?="required"? & options+=AnswerTemplateRefAttr) "/>";
 		public ParserRule getRule() { return rule; }
 
-		//"<single" ("title=\"" title=EString "\"" & ("description=\"" description=EString? "\"")? & ("id=\"" name=ID? "\"")? &
-		//("depends-on=\"" dependsOn=DEP_ID? "\"")? & required?="required"? & (other?=("other" | "other=\"\"") | "other=\""
-		//otherLabel=EString "\"")? & options+=AnswerTemplateRefAttr) "/>"
+		//"<single" ("title=\"" title=EString "\"" //& ((other?=('other'|'other=""')) | ('other="' otherLabel=EString '"'))?
+		//& ("description=\"" description=EString? "\"")? & ("id=\"" name=ID? "\"")? & ("depends-on=\"" dependsOn=DEP_ID? "\"")? &
+		//required?="required"? & options+=AnswerTemplateRefAttr) "/>"
 		public Group getGroup() { return cGroup; }
 
 		//"<single"
 		public Keyword getSingleKeyword_0() { return cSingleKeyword_0; }
 
-		//"title=\"" title=EString "\"" & ("description=\"" description=EString? "\"")? & ("id=\"" name=ID? "\"")? &
-		//("depends-on=\"" dependsOn=DEP_ID? "\"")? & required?="required"? & (other?=("other" | "other=\"\"") | "other=\""
-		//otherLabel=EString "\"")? & options+=AnswerTemplateRefAttr
+		//"title=\"" title=EString "\"" //& ((other?=('other'|'other=""')) | ('other="' otherLabel=EString '"'))?
+		//& ("description=\"" description=EString? "\"")? & ("id=\"" name=ID? "\"")? & ("depends-on=\"" dependsOn=DEP_ID? "\"")? &
+		//required?="required"? & options+=AnswerTemplateRefAttr
 		public UnorderedGroup getUnorderedGroup_1() { return cUnorderedGroup_1; }
 
 		//"title=\"" title=EString "\""
@@ -1521,41 +1511,11 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//"required"
 		public Keyword getRequiredRequiredKeyword_1_4_0() { return cRequiredRequiredKeyword_1_4_0; }
 
-		//(other?=("other" | "other=\"\"") | "other=\"" otherLabel=EString "\"")?
-		public Alternatives getAlternatives_1_5() { return cAlternatives_1_5; }
-
-		//other?=("other" | "other=\"\"")
-		public Assignment getOtherAssignment_1_5_0() { return cOtherAssignment_1_5_0; }
-
-		//"other" | "other=\"\""
-		public Alternatives getOtherAlternatives_1_5_0_0() { return cOtherAlternatives_1_5_0_0; }
-
-		//"other"
-		public Keyword getOtherOtherKeyword_1_5_0_0_0() { return cOtherOtherKeyword_1_5_0_0_0; }
-
-		//"other=\"\""
-		public Keyword getOtherOtherKeyword_1_5_0_0_1() { return cOtherOtherKeyword_1_5_0_0_1; }
-
-		//"other=\"" otherLabel=EString "\""
-		public Group getGroup_1_5_1() { return cGroup_1_5_1; }
-
-		//"other=\""
-		public Keyword getOtherKeyword_1_5_1_0() { return cOtherKeyword_1_5_1_0; }
-
-		//otherLabel=EString
-		public Assignment getOtherLabelAssignment_1_5_1_1() { return cOtherLabelAssignment_1_5_1_1; }
-
-		//EString
-		public RuleCall getOtherLabelEStringParserRuleCall_1_5_1_1_0() { return cOtherLabelEStringParserRuleCall_1_5_1_1_0; }
-
-		//"\""
-		public Keyword getQuotationMarkKeyword_1_5_1_2() { return cQuotationMarkKeyword_1_5_1_2; }
-
 		//options+=AnswerTemplateRefAttr
-		public Assignment getOptionsAssignment_1_6() { return cOptionsAssignment_1_6; }
+		public Assignment getOptionsAssignment_1_5() { return cOptionsAssignment_1_5; }
 
 		//AnswerTemplateRefAttr
-		public RuleCall getOptionsAnswerTemplateRefAttrParserRuleCall_1_6_0() { return cOptionsAnswerTemplateRefAttrParserRuleCall_1_6_0; }
+		public RuleCall getOptionsAnswerTemplateRefAttrParserRuleCall_1_5_0() { return cOptionsAnswerTemplateRefAttrParserRuleCall_1_5_0; }
 
 		//"/>"
 		public Keyword getSolidusGreaterThanSignKeyword_2() { return cSolidusGreaterThanSignKeyword_2; }
@@ -2609,7 +2569,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	//Text:
 	//	{Text} "<text" ("title=\"" title=EString "\"" & ("description=\"" description=EString? "\"")? & ("id=\"" name=ID?
 	//	"\"")? & ("depends-on=\"" dependsOn=DEP_ID? "\"")? & required?="required"? & ("singleline" | "single" |
-	//	multiline?=("multi" | "multiline"))?) "/>";
+	//	multi?=("multi" | "multiline"))?) "/>";
 	public TextElements getTextAccess() {
 		return (pText != null) ? pText : (pText = new TextElements());
 	}
@@ -2687,9 +2647,9 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//SingleRef returns Single:
-	//	"<single" ("title=\"" title=EString "\"" & ("description=\"" description=EString? "\"")? & ("id=\"" name=ID? "\"")? &
-	//	("depends-on=\"" dependsOn=DEP_ID? "\"")? & required?="required"? & (other?=("other" | "other=\"\"") | "other=\""
-	//	otherLabel=EString "\"")? & options+=AnswerTemplateRefAttr) "/>";
+	//	"<single" ("title=\"" title=EString "\"" //& ((other?=('other'|'other=""')) | ('other="' otherLabel=EString '"'))?
+	//	& ("description=\"" description=EString? "\"")? & ("id=\"" name=ID? "\"")? & ("depends-on=\"" dependsOn=DEP_ID? "\"")?
+	//	& required?="required"? & options+=AnswerTemplateRefAttr) "/>";
 	public SingleRefElements getSingleRefAccess() {
 		return (pSingleRef != null) ? pSingleRef : (pSingleRef = new SingleRefElements());
 	}

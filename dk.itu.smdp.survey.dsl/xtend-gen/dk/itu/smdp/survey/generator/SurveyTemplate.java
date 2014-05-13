@@ -307,10 +307,10 @@ public abstract class SurveyTemplate {
   }
   
   public String genLimitsDesc(final Question question) {
-    if (question instanceof Date) {
-      return _genLimitsDesc((Date)question);
-    } else if (question instanceof Multiple) {
+    if (question instanceof Multiple) {
       return _genLimitsDesc((Multiple)question);
+    } else if (question instanceof Date) {
+      return _genLimitsDesc((Date)question);
     } else if (question instanceof survey.Number) {
       return _genLimitsDesc((survey.Number)question);
     } else {

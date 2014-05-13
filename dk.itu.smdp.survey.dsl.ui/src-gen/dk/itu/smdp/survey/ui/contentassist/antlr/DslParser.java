@@ -43,14 +43,12 @@ public class DslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getQuestionAccess().getAlternatives(), "rule__Question__Alternatives");
 					put(grammarAccess.getOptionAccess().getAlternatives(), "rule__Option__Alternatives");
 					put(grammarAccess.getTextAccess().getAlternatives_2_5(), "rule__Text__Alternatives_2_5");
-					put(grammarAccess.getTextAccess().getMultilineAlternatives_2_5_2_0(), "rule__Text__MultilineAlternatives_2_5_2_0");
+					put(grammarAccess.getTextAccess().getMultiAlternatives_2_5_2_0(), "rule__Text__MultiAlternatives_2_5_2_0");
 					put(grammarAccess.getDateAccess().getShowLimitsAlternatives_2_6_0(), "rule__Date__ShowLimitsAlternatives_2_6_0");
 					put(grammarAccess.getNumberAccess().getShowLimitsAlternatives_2_7_0(), "rule__Number__ShowLimitsAlternatives_2_7_0");
 					put(grammarAccess.getSingleAccess().getAlternatives(), "rule__Single__Alternatives");
 					put(grammarAccess.getSingleWithOptionsAccess().getAlternatives_1_5(), "rule__SingleWithOptions__Alternatives_1_5");
 					put(grammarAccess.getSingleWithOptionsAccess().getOtherAlternatives_1_5_0_0(), "rule__SingleWithOptions__OtherAlternatives_1_5_0_0");
-					put(grammarAccess.getSingleRefAccess().getAlternatives_1_5(), "rule__SingleRef__Alternatives_1_5");
-					put(grammarAccess.getSingleRefAccess().getOtherAlternatives_1_5_0_0(), "rule__SingleRef__OtherAlternatives_1_5_0_0");
 					put(grammarAccess.getMultipleAccess().getAlternatives(), "rule__Multiple__Alternatives");
 					put(grammarAccess.getMultipleWithOptionsAccess().getAlternatives_1_7(), "rule__MultipleWithOptions__Alternatives_1_7");
 					put(grammarAccess.getMultipleWithOptionsAccess().getOtherAlternatives_1_7_0_0(), "rule__MultipleWithOptions__OtherAlternatives_1_7_0_0");
@@ -117,7 +115,6 @@ public class DslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getSingleRefAccess().getGroup_1_1(), "rule__SingleRef__Group_1_1__0");
 					put(grammarAccess.getSingleRefAccess().getGroup_1_2(), "rule__SingleRef__Group_1_2__0");
 					put(grammarAccess.getSingleRefAccess().getGroup_1_3(), "rule__SingleRef__Group_1_3__0");
-					put(grammarAccess.getSingleRefAccess().getGroup_1_5_1(), "rule__SingleRef__Group_1_5_1__0");
 					put(grammarAccess.getMultipleWithOptionsAccess().getGroup(), "rule__MultipleWithOptions__Group__0");
 					put(grammarAccess.getMultipleWithOptionsAccess().getGroup_1_0(), "rule__MultipleWithOptions__Group_1_0__0");
 					put(grammarAccess.getMultipleWithOptionsAccess().getGroup_1_1(), "rule__MultipleWithOptions__Group_1_1__0");
@@ -165,7 +162,7 @@ public class DslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getTextAccess().getNameAssignment_2_2_1(), "rule__Text__NameAssignment_2_2_1");
 					put(grammarAccess.getTextAccess().getDependsOnAssignment_2_3_1(), "rule__Text__DependsOnAssignment_2_3_1");
 					put(grammarAccess.getTextAccess().getRequiredAssignment_2_4(), "rule__Text__RequiredAssignment_2_4");
-					put(grammarAccess.getTextAccess().getMultilineAssignment_2_5_2(), "rule__Text__MultilineAssignment_2_5_2");
+					put(grammarAccess.getTextAccess().getMultiAssignment_2_5_2(), "rule__Text__MultiAssignment_2_5_2");
 					put(grammarAccess.getScaleAccess().getTitleAssignment_1_0_1(), "rule__Scale__TitleAssignment_1_0_1");
 					put(grammarAccess.getScaleAccess().getDescriptionAssignment_1_1_1(), "rule__Scale__DescriptionAssignment_1_1_1");
 					put(grammarAccess.getScaleAccess().getNameAssignment_1_2_1(), "rule__Scale__NameAssignment_1_2_1");
@@ -205,9 +202,7 @@ public class DslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getSingleRefAccess().getNameAssignment_1_2_1(), "rule__SingleRef__NameAssignment_1_2_1");
 					put(grammarAccess.getSingleRefAccess().getDependsOnAssignment_1_3_1(), "rule__SingleRef__DependsOnAssignment_1_3_1");
 					put(grammarAccess.getSingleRefAccess().getRequiredAssignment_1_4(), "rule__SingleRef__RequiredAssignment_1_4");
-					put(grammarAccess.getSingleRefAccess().getOtherAssignment_1_5_0(), "rule__SingleRef__OtherAssignment_1_5_0");
-					put(grammarAccess.getSingleRefAccess().getOtherLabelAssignment_1_5_1_1(), "rule__SingleRef__OtherLabelAssignment_1_5_1_1");
-					put(grammarAccess.getSingleRefAccess().getOptionsAssignment_1_6(), "rule__SingleRef__OptionsAssignment_1_6");
+					put(grammarAccess.getSingleRefAccess().getOptionsAssignment_1_5(), "rule__SingleRef__OptionsAssignment_1_5");
 					put(grammarAccess.getMultipleWithOptionsAccess().getTitleAssignment_1_0_1(), "rule__MultipleWithOptions__TitleAssignment_1_0_1");
 					put(grammarAccess.getMultipleWithOptionsAccess().getDescriptionAssignment_1_1_1(), "rule__MultipleWithOptions__DescriptionAssignment_1_1_1");
 					put(grammarAccess.getMultipleWithOptionsAccess().getNameAssignment_1_2_1(), "rule__MultipleWithOptions__NameAssignment_1_2_1");

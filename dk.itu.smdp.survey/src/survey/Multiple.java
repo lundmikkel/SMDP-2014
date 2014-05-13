@@ -21,7 +21,7 @@ package survey;
  * @model
  * @generated
  */
-public interface Multiple extends Question, Other, HasOptions {
+public interface Multiple extends Question, HasOther, HasOptions {
 	/**
 	 * Returns the value of the '<em><b>Min</b></em>' attribute.
 	 * <!-- begin-user-doc -->

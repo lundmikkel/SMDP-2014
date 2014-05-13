@@ -11,11 +11,11 @@ import survey.AnswerTemplateRef;
 import survey.Date;
 import survey.Group;
 import survey.HasOptions;
+import survey.HasOther;
 import survey.Item;
 import survey.Meta;
 import survey.Multiple;
 import survey.Option;
-import survey.Other;
 import survey.Question;
 import survey.Scale;
 import survey.Single;
@@ -154,11 +154,12 @@ public class SurveySwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case SurveyPackage.OTHER: {
-				Other other = (Other)theEObject;
-				T result = caseOther(other);
-				if (result == null) result = caseItem(other);
-				if (result == null) result = caseMeta(other);
+			case SurveyPackage.HAS_OTHER: {
+				HasOther hasOther = (HasOther)theEObject;
+				T result = caseHasOther(hasOther);
+				if (result == null) result = caseHasOptions(hasOther);
+				if (result == null) result = caseItem(hasOther);
+				if (result == null) result = caseMeta(hasOther);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -180,7 +181,7 @@ public class SurveySwitch<T> extends Switch<T> {
 				Single single = (Single)theEObject;
 				T result = caseSingle(single);
 				if (result == null) result = caseQuestion(single);
-				if (result == null) result = caseOther(single);
+				if (result == null) result = caseHasOther(single);
 				if (result == null) result = caseHasOptions(single);
 				if (result == null) result = caseItem(single);
 				if (result == null) result = caseMeta(single);
@@ -191,7 +192,7 @@ public class SurveySwitch<T> extends Switch<T> {
 				Multiple multiple = (Multiple)theEObject;
 				T result = caseMultiple(multiple);
 				if (result == null) result = caseQuestion(multiple);
-				if (result == null) result = caseOther(multiple);
+				if (result == null) result = caseHasOther(multiple);
 				if (result == null) result = caseHasOptions(multiple);
 				if (result == null) result = caseItem(multiple);
 				if (result == null) result = caseMeta(multiple);
@@ -202,7 +203,7 @@ public class SurveySwitch<T> extends Switch<T> {
 				Table table = (Table)theEObject;
 				T result = caseTable(table);
 				if (result == null) result = caseQuestion(table);
-				if (result == null) result = caseOther(table);
+				if (result == null) result = caseHasOther(table);
 				if (result == null) result = caseHasOptions(table);
 				if (result == null) result = caseItem(table);
 				if (result == null) result = caseMeta(table);
@@ -392,6 +393,21 @@ public class SurveySwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Has Other</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Has Other</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseHasOther(HasOther object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Scale</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -418,21 +434,6 @@ public class SurveySwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseAnswer(Answer object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Other</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Other</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseOther(Other object) {
 		return null;
 	}
 

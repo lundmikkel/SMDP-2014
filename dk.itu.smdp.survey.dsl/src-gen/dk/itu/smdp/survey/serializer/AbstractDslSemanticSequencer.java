@@ -359,7 +359,6 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	 *         name=ID? 
 	 *         dependsOn=DEP_ID? 
 	 *         required?='required'? 
-	 *         (other?='other' | other?='other=""' | otherLabel=EString)? 
 	 *         options+=AnswerTemplateRefAttr
 	 *     )
 	 */
@@ -403,7 +402,6 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	 *             name=ID? 
 	 *             dependsOn=DEP_ID? 
 	 *             required?='required'? 
-	 *             (other?='other' | other?='other=""' | otherLabel=EString)? 
 	 *             options+=AnswerTemplateRefAttr
 	 *         )
 	 *     )
@@ -458,7 +456,7 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	 *         name=ID? 
 	 *         dependsOn=DEP_ID? 
 	 *         required?='required'? 
-	 *         (multiline?='multi' | multiline?='multiline')?
+	 *         (multi?='multi' | multi?='multiline')?
 	 *     )
 	 */
 	protected void sequence_Text(EObject context, Text semanticObject) {

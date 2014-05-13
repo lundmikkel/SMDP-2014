@@ -11,7 +11,7 @@ package survey;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link survey.Text#isMultiline <em>Multiline</em>}</li>
+ *   <li>{@link survey.Text#isMulti <em>Multi</em>}</li>
  * </ul>
  * </p>
  *
@@ -21,29 +21,29 @@ package survey;
  */
 public interface Text extends Question {
 	/**
-	 * Returns the value of the '<em><b>Multiline</b></em>' attribute.
+	 * Returns the value of the '<em><b>Multi</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Multiline</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Multi</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Multiline</em>' attribute.
-	 * @see #setMultiline(boolean)
-	 * @see survey.SurveyPackage#getText_Multiline()
+	 * @return the value of the '<em>Multi</em>' attribute.
+	 * @see #setMulti(boolean)
+	 * @see survey.SurveyPackage#getText_Multi()
 	 * @model
 	 * @generated
 	 */
-	boolean isMultiline();
+	boolean isMulti();
 
 	/**
-	 * Sets the value of the '{@link survey.Text#isMultiline <em>Multiline</em>}' attribute.
+	 * Sets the value of the '{@link survey.Text#isMulti <em>Multi</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Multiline</em>' attribute.
-	 * @see #isMultiline()
+	 * @param value the new value of the '<em>Multi</em>' attribute.
+	 * @see #isMulti()
 	 * @generated
 	 */
-	void setMultiline(boolean value);
+	void setMulti(boolean value);
 
 } // Text

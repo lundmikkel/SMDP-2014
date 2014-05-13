@@ -79,7 +79,7 @@ public class AbstractDslProposalProvider extends org.eclipse.xtext.common.ui.con
 	public void completeText_Required(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		// subclasses may override
 	}
-	public void completeText_Multiline(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+	public void completeText_Multi(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		// subclasses may override
 		// subclasses may override
 	}
@@ -204,13 +204,6 @@ public class AbstractDslProposalProvider extends org.eclipse.xtext.common.ui.con
 	}
 	public void completeSingleRef_Required(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		// subclasses may override
-	}
-	public void completeSingleRef_Other(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
-		// subclasses may override
-		// subclasses may override
-	}
-	public void completeSingleRef_OtherLabel(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
-		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
 	}
 	public void completeSingleRef_Options(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);

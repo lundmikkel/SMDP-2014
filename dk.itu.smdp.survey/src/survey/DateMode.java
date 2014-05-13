@@ -52,7 +52,7 @@ public enum DateMode implements Enumerator {
 	 * The '<em><b>DAY</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Day</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>DAY</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
@@ -67,7 +67,7 @@ public enum DateMode implements Enumerator {
 	 * The '<em><b>MONTH</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Month</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>MONTH</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
@@ -82,7 +82,7 @@ public enum DateMode implements Enumerator {
 	 * The '<em><b>YEAR</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Year</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>YEAR</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->

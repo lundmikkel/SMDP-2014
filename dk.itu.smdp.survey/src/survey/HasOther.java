@@ -5,22 +5,22 @@ package survey;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Other</b></em>'.
+ * A representation of the model object '<em><b>Has Other</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link survey.Other#isOther <em>Other</em>}</li>
- *   <li>{@link survey.Other#getOtherLabel <em>Other Label</em>}</li>
+ *   <li>{@link survey.HasOther#isOther <em>Other</em>}</li>
+ *   <li>{@link survey.HasOther#getOtherLabel <em>Other Label</em>}</li>
  * </ul>
  * </p>
  *
- * @see survey.SurveyPackage#getOther()
+ * @see survey.SurveyPackage#getHasOther()
  * @model abstract="true"
  * @generated
  */
-public interface Other extends Item {
+public interface HasOther extends HasOptions {
 	/**
 	 * Returns the value of the '<em><b>Other</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -31,14 +31,14 @@ public interface Other extends Item {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Other</em>' attribute.
 	 * @see #setOther(boolean)
-	 * @see survey.SurveyPackage#getOther_Other()
+	 * @see survey.SurveyPackage#getHasOther_Other()
 	 * @model
 	 * @generated
 	 */
 	boolean isOther();
 
 	/**
-	 * Sets the value of the '{@link survey.Other#isOther <em>Other</em>}' attribute.
+	 * Sets the value of the '{@link survey.HasOther#isOther <em>Other</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Other</em>' attribute.
@@ -57,14 +57,14 @@ public interface Other extends Item {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Other Label</em>' attribute.
 	 * @see #setOtherLabel(String)
-	 * @see survey.SurveyPackage#getOther_OtherLabel()
+	 * @see survey.SurveyPackage#getHasOther_OtherLabel()
 	 * @model
 	 * @generated
 	 */
 	String getOtherLabel();
 
 	/**
-	 * Sets the value of the '{@link survey.Other#getOtherLabel <em>Other Label</em>}' attribute.
+	 * Sets the value of the '{@link survey.HasOther#getOtherLabel <em>Other Label</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Other Label</em>' attribute.
@@ -73,4 +73,4 @@ public interface Other extends Item {
 	 */
 	void setOtherLabel(String value);
 
-} // Other
+} // HasOther

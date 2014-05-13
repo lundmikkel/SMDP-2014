@@ -65,8 +65,6 @@ public class DslValidator extends AbstractDslValidator {
   
   private final static String betterUseSingleString = "If your maximum is one, you should rather use a single question instead of a multiple for usability reasons";
   
-  private final static String setDateGranularityString = "You cannot specify date and year without having month";
-  
   @Check
   public void checkValidEmailAddress(final Survey survey) {
     String _mail = survey.getMail();

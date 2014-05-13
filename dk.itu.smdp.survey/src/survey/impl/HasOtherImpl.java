@@ -8,24 +8,24 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import survey.Other;
+import survey.HasOther;
 import survey.SurveyPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Other</b></em>'.
+ * An implementation of the model object '<em><b>Has Other</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link survey.impl.OtherImpl#isOther <em>Other</em>}</li>
- *   <li>{@link survey.impl.OtherImpl#getOtherLabel <em>Other Label</em>}</li>
+ *   <li>{@link survey.impl.HasOtherImpl#isOther <em>Other</em>}</li>
+ *   <li>{@link survey.impl.HasOtherImpl#getOtherLabel <em>Other Label</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public abstract class OtherImpl extends ItemImpl implements Other {
+public abstract class HasOtherImpl extends HasOptionsImpl implements HasOther {
 	/**
 	 * The default value of the '{@link #isOther() <em>Other</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -71,7 +71,7 @@ public abstract class OtherImpl extends ItemImpl implements Other {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected OtherImpl() {
+	protected HasOtherImpl() {
 		super();
 	}
 
@@ -82,7 +82,7 @@ public abstract class OtherImpl extends ItemImpl implements Other {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return SurveyPackage.Literals.OTHER;
+		return SurveyPackage.Literals.HAS_OTHER;
 	}
 
 	/**
@@ -103,7 +103,7 @@ public abstract class OtherImpl extends ItemImpl implements Other {
 		boolean oldOther = other;
 		other = newOther;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SurveyPackage.OTHER__OTHER, oldOther, other));
+			eNotify(new ENotificationImpl(this, Notification.SET, SurveyPackage.HAS_OTHER__OTHER, oldOther, other));
 	}
 
 	/**
@@ -124,7 +124,7 @@ public abstract class OtherImpl extends ItemImpl implements Other {
 		String oldOtherLabel = otherLabel;
 		otherLabel = newOtherLabel;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SurveyPackage.OTHER__OTHER_LABEL, oldOtherLabel, otherLabel));
+			eNotify(new ENotificationImpl(this, Notification.SET, SurveyPackage.HAS_OTHER__OTHER_LABEL, oldOtherLabel, otherLabel));
 	}
 
 	/**
@@ -135,9 +135,9 @@ public abstract class OtherImpl extends ItemImpl implements Other {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case SurveyPackage.OTHER__OTHER:
+			case SurveyPackage.HAS_OTHER__OTHER:
 				return isOther();
-			case SurveyPackage.OTHER__OTHER_LABEL:
+			case SurveyPackage.HAS_OTHER__OTHER_LABEL:
 				return getOtherLabel();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -151,10 +151,10 @@ public abstract class OtherImpl extends ItemImpl implements Other {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case SurveyPackage.OTHER__OTHER:
+			case SurveyPackage.HAS_OTHER__OTHER:
 				setOther((Boolean)newValue);
 				return;
-			case SurveyPackage.OTHER__OTHER_LABEL:
+			case SurveyPackage.HAS_OTHER__OTHER_LABEL:
 				setOtherLabel((String)newValue);
 				return;
 		}
@@ -169,10 +169,10 @@ public abstract class OtherImpl extends ItemImpl implements Other {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case SurveyPackage.OTHER__OTHER:
+			case SurveyPackage.HAS_OTHER__OTHER:
 				setOther(OTHER_EDEFAULT);
 				return;
-			case SurveyPackage.OTHER__OTHER_LABEL:
+			case SurveyPackage.HAS_OTHER__OTHER_LABEL:
 				setOtherLabel(OTHER_LABEL_EDEFAULT);
 				return;
 		}
@@ -187,9 +187,9 @@ public abstract class OtherImpl extends ItemImpl implements Other {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case SurveyPackage.OTHER__OTHER:
+			case SurveyPackage.HAS_OTHER__OTHER:
 				return other != OTHER_EDEFAULT;
-			case SurveyPackage.OTHER__OTHER_LABEL:
+			case SurveyPackage.HAS_OTHER__OTHER_LABEL:
 				return OTHER_LABEL_EDEFAULT == null ? otherLabel != null : !OTHER_LABEL_EDEFAULT.equals(otherLabel);
 		}
 		return super.eIsSet(featureID);
@@ -213,4 +213,4 @@ public abstract class OtherImpl extends ItemImpl implements Other {
 		return result.toString();
 	}
 
-} //OtherImpl
+} //HasOtherImpl

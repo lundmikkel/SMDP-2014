@@ -13,5 +13,5 @@ package survey;
  * @model
  * @generated
  */
-public interface Single extends Question, Other, HasOptions {
+public interface Single extends Question, HasOther, HasOptions {
 } // Single

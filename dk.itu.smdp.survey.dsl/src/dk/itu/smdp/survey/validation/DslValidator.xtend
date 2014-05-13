@@ -11,6 +11,7 @@ import survey.AnswerTemplateRef
 import survey.Group
 import survey.HasOptions
 import survey.Item
+import survey.Meta
 import survey.Multiple
 import survey.Number
 import survey.Option
@@ -19,9 +20,7 @@ import survey.Scale
 import survey.Survey
 import survey.SurveyPackage
 import survey.Table
-import survey.Date
 import survey.TableQuestion
-import survey.Meta
 
 /**
  * Custom validation rules. 
@@ -44,7 +43,6 @@ class DslValidator extends AbstractDslValidator {
 	private static val ambiguousIdString = 'The id %s is ambiguous'
 	private static val noNegativeValueString = 'The value must be non-negative'
 	private static val betterUseSingleString = 'If your maximum is one, you should rather use a single question instead of a multiple for usability reasons'
-	private static val setDateGranularityString = "You cannot specify date and year without having month"
 
 	@Check
 	def checkValidEmailAddress(Survey survey) {

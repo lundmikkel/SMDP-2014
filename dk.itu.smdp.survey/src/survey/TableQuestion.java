@@ -20,7 +20,6 @@ package survey;
  * @generated
  */
 public interface TableQuestion extends Meta {
-
 	/**
 	 * Returns the value of the '<em><b>Required</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -46,4 +45,5 @@ public interface TableQuestion extends Meta {
 	 * @generated
 	 */
 	void setRequired(boolean value);
+
 } // TableQuestion

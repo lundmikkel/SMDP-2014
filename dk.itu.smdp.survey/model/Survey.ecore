@@ -23,7 +23,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Question" abstract="true" eSuperTypes="#//Item"/>
   <eClassifiers xsi:type="ecore:EClass" name="Text" eSuperTypes="#//Question">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="multiline" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="multi" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Scale" eSuperTypes="#//Question">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="min" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
@@ -42,7 +42,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="max" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="showLimits" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Other" abstract="true" eSuperTypes="#//Item">
+  <eClassifiers xsi:type="ecore:EClass" name="HasOther" abstract="true" eSuperTypes="#//HasOptions">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="other" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="otherLabel" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
@@ -51,13 +51,13 @@
         upperBound="-1" eType="#//Option" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Option" abstract="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Single" eSuperTypes="#//Question #//Other #//HasOptions"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Multiple" eSuperTypes="#//Question #//Other #//HasOptions">
+  <eClassifiers xsi:type="ecore:EClass" name="Single" eSuperTypes="#//Question #//HasOther #//HasOptions"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Multiple" eSuperTypes="#//Question #//HasOther #//HasOptions">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="min" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="max" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="showLimits" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Table" eSuperTypes="#//Question #//Other #//HasOptions">
+  <eClassifiers xsi:type="ecore:EClass" name="Table" eSuperTypes="#//Question #//HasOther #//HasOptions">
     <eStructuralFeatures xsi:type="ecore:EReference" name="questions" lowerBound="1"
         upperBound="-1" eType="#//TableQuestion" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="multiple" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>

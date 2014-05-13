@@ -1145,28 +1145,28 @@ ruleText returns [EObject current=null]
     |(
 (
 (
-		lv_multiline_18_1=	'multi' 
+		lv_multi_18_1=	'multi' 
     {
-        newLeafNode(lv_multiline_18_1, grammarAccess.getTextAccess().getMultilineMultiKeyword_2_5_2_0_0());
+        newLeafNode(lv_multi_18_1, grammarAccess.getTextAccess().getMultiMultiKeyword_2_5_2_0_0());
     }
  
 	    {
 	        if ($current==null) {
 	            $current = createModelElement(grammarAccess.getTextRule());
 	        }
-       		setWithLastConsumed($current, "multiline", true, null);
+       		setWithLastConsumed($current, "multi", true, null);
 	    }
 
-    |		lv_multiline_18_2=	'multiline' 
+    |		lv_multi_18_2=	'multiline' 
     {
-        newLeafNode(lv_multiline_18_2, grammarAccess.getTextAccess().getMultilineMultilineKeyword_2_5_2_0_1());
+        newLeafNode(lv_multi_18_2, grammarAccess.getTextAccess().getMultiMultilineKeyword_2_5_2_0_1());
     }
  
 	    {
 	        if ($current==null) {
 	            $current = createModelElement(grammarAccess.getTextRule());
 	        }
-       		setWithLastConsumed($current, "multiline", true, null);
+       		setWithLastConsumed($current, "multi", true, null);
 	    }
 
 )
@@ -2894,88 +2894,19 @@ ruleSingleRef returns [EObject current=null]
 					{ 
 	 				  getUnorderedGroupHelper().select(grammarAccess.getSingleRefAccess().getUnorderedGroup_1(), 5);
 	 				}
-					({true}?=>((
-(
-(
-		lv_other_15_1=	'other' 
-    {
-        newLeafNode(lv_other_15_1, grammarAccess.getSingleRefAccess().getOtherOtherKeyword_1_5_0_0_0());
-    }
- 
-	    {
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getSingleRefRule());
-	        }
-       		setWithLastConsumed($current, "other", true, null);
-	    }
-
-    |		lv_other_15_2=	'other=""' 
-    {
-        newLeafNode(lv_other_15_2, grammarAccess.getSingleRefAccess().getOtherOtherKeyword_1_5_0_0_1());
-    }
- 
-	    {
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getSingleRefRule());
-	        }
-       		setWithLastConsumed($current, "other", true, null);
-	    }
-
-)
-
-)
-)
-    |(	otherlv_16='other="' 
-    {
-    	newLeafNode(otherlv_16, grammarAccess.getSingleRefAccess().getOtherKeyword_1_5_1_0());
-    }
-(
-(
-		{ 
-	        newCompositeNode(grammarAccess.getSingleRefAccess().getOtherLabelEStringParserRuleCall_1_5_1_1_0()); 
-	    }
-		lv_otherLabel_17_0=ruleEString		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getSingleRefRule());
-	        }
-       		set(
-       			$current, 
-       			"otherLabel",
-        		lv_otherLabel_17_0, 
-        		"EString");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-)	otherlv_18='"' 
-    {
-    	newLeafNode(otherlv_18, grammarAccess.getSingleRefAccess().getQuotationMarkKeyword_1_5_1_2());
-    }
-)))
-					{ 
-	 				  getUnorderedGroupHelper().returnFromSelection(grammarAccess.getSingleRefAccess().getUnorderedGroup_1());
-	 				}
- 				)
-			)  |
-
-			( 
-				{getUnorderedGroupHelper().canSelect(grammarAccess.getSingleRefAccess().getUnorderedGroup_1(), 6)}?=>(
-					{ 
-	 				  getUnorderedGroupHelper().select(grammarAccess.getSingleRefAccess().getUnorderedGroup_1(), 6);
-	 				}
 					({true}?=>(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getSingleRefAccess().getOptionsAnswerTemplateRefAttrParserRuleCall_1_6_0()); 
+	        newCompositeNode(grammarAccess.getSingleRefAccess().getOptionsAnswerTemplateRefAttrParserRuleCall_1_5_0()); 
 	    }
-		lv_options_19_0=ruleAnswerTemplateRefAttr		{
+		lv_options_15_0=ruleAnswerTemplateRefAttr		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getSingleRefRule());
 	        }
        		add(
        			$current, 
        			"options",
-        		lv_options_19_0, 
+        		lv_options_15_0, 
         		"AnswerTemplateRefAttr");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -2996,9 +2927,9 @@ ruleSingleRef returns [EObject current=null]
 	  getUnorderedGroupHelper().leave(grammarAccess.getSingleRefAccess().getUnorderedGroup_1());
 	}
 
-)	otherlv_20='/>' 
+)	otherlv_16='/>' 
     {
-    	newLeafNode(otherlv_20, grammarAccess.getSingleRefAccess().getSolidusGreaterThanSignKeyword_2());
+    	newLeafNode(otherlv_16, grammarAccess.getSingleRefAccess().getSolidusGreaterThanSignKeyword_2());
     }
 )
 ;

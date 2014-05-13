@@ -414,8 +414,8 @@ public class PhpTemplate extends SurveyTemplate {
       _builder.append("<div class=\"col-xs-4\">");
       _builder.newLine();
       {
-        boolean _isMultiline = question.isMultiline();
-        boolean _not = (!_isMultiline);
+        boolean _isMulti = question.isMulti();
+        boolean _not = (!_isMulti);
         if (_not) {
           _builder.append("\t\t\t");
           _builder.append("<input class=\"form-control\" ");
@@ -2029,18 +2029,18 @@ public class PhpTemplate extends SurveyTemplate {
   }
   
   public String genHtml(final Item question, final String dependsOn, final boolean required, final String pid) {
-    if (question instanceof Date) {
-      return _genHtml((Date)question, dependsOn, required, pid);
-    } else if (question instanceof Multiple) {
+    if (question instanceof Multiple) {
       return _genHtml((Multiple)question, dependsOn, required, pid);
-    } else if (question instanceof survey.Number) {
-      return _genHtml((survey.Number)question, dependsOn, required, pid);
-    } else if (question instanceof Scale) {
-      return _genHtml((Scale)question, dependsOn, required, pid);
     } else if (question instanceof Single) {
       return _genHtml((Single)question, dependsOn, required, pid);
     } else if (question instanceof Table) {
       return _genHtml((Table)question, dependsOn, required, pid);
+    } else if (question instanceof Date) {
+      return _genHtml((Date)question, dependsOn, required, pid);
+    } else if (question instanceof survey.Number) {
+      return _genHtml((survey.Number)question, dependsOn, required, pid);
+    } else if (question instanceof Scale) {
+      return _genHtml((Scale)question, dependsOn, required, pid);
     } else if (question instanceof Text) {
       return _genHtml((Text)question, dependsOn, required, pid);
     } else if (question instanceof Group) {

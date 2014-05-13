@@ -56,7 +56,7 @@ Text returns Text:
 		& ('id="' name=ID? '"')?
 		& ('depends-on="' dependsOn=DEP_ID? '"')?
 		& (required?='required')?
-		& ('singleline' | 'single' | (multiline?=('multi' | 'multiline')))?)
+		& ('singleline' | 'single' | (multi?=('multi' | 'multiline')))?)
 	'/>';
 
 Scale returns Scale:
@@ -126,7 +126,7 @@ SingleRef returns Single:
 		& ('id="' name=ID? '"')?
 		& ('depends-on="' dependsOn=DEP_ID? '"')?
 		& (required?='required')?
-		& ((other?=('other'|'other=""')) | ('other="' otherLabel=EString '"'))?
+		//& ((other?=('other'|'other=""')) | ('other="' otherLabel=EString '"'))?
 		& (options+=AnswerTemplateRefAttr))
 	'/>';
 

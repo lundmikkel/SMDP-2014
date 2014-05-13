@@ -18,8 +18,8 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import survey.HasOptions;
+import survey.HasOther;
 import survey.Option;
-import survey.Other;
 import survey.Single;
 import survey.SurveyPackage;
 
@@ -30,15 +30,25 @@ import survey.SurveyPackage;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link survey.impl.SingleImpl#getOptions <em>Options</em>}</li>
  *   <li>{@link survey.impl.SingleImpl#isOther <em>Other</em>}</li>
  *   <li>{@link survey.impl.SingleImpl#getOtherLabel <em>Other Label</em>}</li>
- *   <li>{@link survey.impl.SingleImpl#getOptions <em>Options</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
 public class SingleImpl extends QuestionImpl implements Single {
+	/**
+	 * The cached value of the '{@link #getOptions() <em>Options</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOptions()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Option> options;
+
 	/**
 	 * The default value of the '{@link #isOther() <em>Other</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -80,16 +90,6 @@ public class SingleImpl extends QuestionImpl implements Single {
 	protected String otherLabel = OTHER_LABEL_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getOptions() <em>Options</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOptions()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Option> options;
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -106,6 +106,18 @@ public class SingleImpl extends QuestionImpl implements Single {
 	@Override
 	protected EClass eStaticClass() {
 		return SurveyPackage.Literals.SINGLE;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Option> getOptions() {
+		if (options == null) {
+			options = new EObjectContainmentEList<Option>(Option.class, this, SurveyPackage.SINGLE__OPTIONS);
+		}
+		return options;
 	}
 
 	/**
@@ -155,18 +167,6 @@ public class SingleImpl extends QuestionImpl implements Single {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Option> getOptions() {
-		if (options == null) {
-			options = new EObjectContainmentEList<Option>(Option.class, this, SurveyPackage.SINGLE__OPTIONS);
-		}
-		return options;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -184,12 +184,12 @@ public class SingleImpl extends QuestionImpl implements Single {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case SurveyPackage.SINGLE__OPTIONS:
+				return getOptions();
 			case SurveyPackage.SINGLE__OTHER:
 				return isOther();
 			case SurveyPackage.SINGLE__OTHER_LABEL:
 				return getOtherLabel();
-			case SurveyPackage.SINGLE__OPTIONS:
-				return getOptions();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -203,15 +203,15 @@ public class SingleImpl extends QuestionImpl implements Single {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case SurveyPackage.SINGLE__OPTIONS:
+				getOptions().clear();
+				getOptions().addAll((Collection<? extends Option>)newValue);
+				return;
 			case SurveyPackage.SINGLE__OTHER:
 				setOther((Boolean)newValue);
 				return;
 			case SurveyPackage.SINGLE__OTHER_LABEL:
 				setOtherLabel((String)newValue);
-				return;
-			case SurveyPackage.SINGLE__OPTIONS:
-				getOptions().clear();
-				getOptions().addAll((Collection<? extends Option>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -225,14 +225,14 @@ public class SingleImpl extends QuestionImpl implements Single {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case SurveyPackage.SINGLE__OPTIONS:
+				getOptions().clear();
+				return;
 			case SurveyPackage.SINGLE__OTHER:
 				setOther(OTHER_EDEFAULT);
 				return;
 			case SurveyPackage.SINGLE__OTHER_LABEL:
 				setOtherLabel(OTHER_LABEL_EDEFAULT);
-				return;
-			case SurveyPackage.SINGLE__OPTIONS:
-				getOptions().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -246,12 +246,12 @@ public class SingleImpl extends QuestionImpl implements Single {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case SurveyPackage.SINGLE__OPTIONS:
+				return options != null && !options.isEmpty();
 			case SurveyPackage.SINGLE__OTHER:
 				return other != OTHER_EDEFAULT;
 			case SurveyPackage.SINGLE__OTHER_LABEL:
 				return OTHER_LABEL_EDEFAULT == null ? otherLabel != null : !OTHER_LABEL_EDEFAULT.equals(otherLabel);
-			case SurveyPackage.SINGLE__OPTIONS:
-				return options != null && !options.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -263,16 +263,16 @@ public class SingleImpl extends QuestionImpl implements Single {
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == Other.class) {
-			switch (derivedFeatureID) {
-				case SurveyPackage.SINGLE__OTHER: return SurveyPackage.OTHER__OTHER;
-				case SurveyPackage.SINGLE__OTHER_LABEL: return SurveyPackage.OTHER__OTHER_LABEL;
-				default: return -1;
-			}
-		}
 		if (baseClass == HasOptions.class) {
 			switch (derivedFeatureID) {
 				case SurveyPackage.SINGLE__OPTIONS: return SurveyPackage.HAS_OPTIONS__OPTIONS;
+				default: return -1;
+			}
+		}
+		if (baseClass == HasOther.class) {
+			switch (derivedFeatureID) {
+				case SurveyPackage.SINGLE__OTHER: return SurveyPackage.HAS_OTHER__OTHER;
+				case SurveyPackage.SINGLE__OTHER_LABEL: return SurveyPackage.HAS_OTHER__OTHER_LABEL;
 				default: return -1;
 			}
 		}
@@ -286,16 +286,16 @@ public class SingleImpl extends QuestionImpl implements Single {
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == Other.class) {
-			switch (baseFeatureID) {
-				case SurveyPackage.OTHER__OTHER: return SurveyPackage.SINGLE__OTHER;
-				case SurveyPackage.OTHER__OTHER_LABEL: return SurveyPackage.SINGLE__OTHER_LABEL;
-				default: return -1;
-			}
-		}
 		if (baseClass == HasOptions.class) {
 			switch (baseFeatureID) {
 				case SurveyPackage.HAS_OPTIONS__OPTIONS: return SurveyPackage.SINGLE__OPTIONS;
+				default: return -1;
+			}
+		}
+		if (baseClass == HasOther.class) {
+			switch (baseFeatureID) {
+				case SurveyPackage.HAS_OTHER__OTHER: return SurveyPackage.SINGLE__OTHER;
+				case SurveyPackage.HAS_OTHER__OTHER_LABEL: return SurveyPackage.SINGLE__OTHER_LABEL;
 				default: return -1;
 			}
 		}

@@ -30,7 +30,7 @@
     </genClasses>
     <genClasses image="false" ecoreClass="Survey.ecore#//Question"/>
     <genClasses ecoreClass="Survey.ecore#//Text">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Text/multiline"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Text/multi"/>
     </genClasses>
     <genClasses ecoreClass="Survey.ecore#//Scale">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Scale/min"/>
@@ -49,9 +49,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Number/max"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Number/showLimits"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="Survey.ecore#//Other">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Other/other"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//Other/otherLabel"/>
+    <genClasses image="false" ecoreClass="Survey.ecore#//HasOther">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//HasOther/other"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Survey.ecore#//HasOther/otherLabel"/>
     </genClasses>
     <genClasses ecoreClass="Survey.ecore#//HasOptions">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Survey.ecore#//HasOptions/options"/>

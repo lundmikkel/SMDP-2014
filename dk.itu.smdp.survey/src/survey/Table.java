@@ -21,7 +21,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Table extends Question, Other, HasOptions {
+public interface Table extends Question, HasOther, HasOptions {
 	/**
 	 * Returns the value of the '<em><b>Questions</b></em>' containment reference list.
 	 * The list contents are of type {@link survey.TableQuestion}.

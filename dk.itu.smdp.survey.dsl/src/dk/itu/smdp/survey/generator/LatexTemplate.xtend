@@ -5,6 +5,7 @@ import org.eclipse.xtext.generator.IFileSystemAccess
 import survey.Answer
 import survey.AnswerTemplateRef
 import survey.Date
+import survey.DateMode
 import survey.Group
 import survey.HasOptions
 import survey.Item
@@ -12,7 +13,6 @@ import survey.Meta
 import survey.Multiple
 import survey.Number
 import survey.Option
-import survey.Other
 import survey.Question
 import survey.Scale
 import survey.Single
@@ -20,8 +20,6 @@ import survey.Survey
 import survey.Table
 import survey.TableQuestion
 import survey.Text
-import java.util.Map
-import survey.DateMode
 
 class LatexTemplate extends SurveyTemplate {
 	Survey survey
@@ -91,7 +89,7 @@ class LatexTemplate extends SurveyTemplate {
 	}
 	
 	def dispatch genLatex(Text text, String dependsOn, boolean required, String pid) {
-		val count = if (text.multiline) 3 else 1
+		val count = if (text.multi) 3 else 1
 		
 		'''
 		«text.genHeader(dependsOn, required)»

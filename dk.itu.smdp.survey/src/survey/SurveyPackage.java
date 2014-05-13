@@ -478,13 +478,13 @@ public interface SurveyPackage extends EPackage {
 	int TEXT__DEPENDS_ON = QUESTION__DEPENDS_ON;
 
 	/**
-	 * The feature id for the '<em><b>Multiline</b></em>' attribute.
+	 * The feature id for the '<em><b>Multi</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT__MULTILINE = QUESTION_FEATURE_COUNT + 0;
+	int TEXT__MULTI = QUESTION_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Text</em>' class.
@@ -823,97 +823,6 @@ public interface SurveyPackage extends EPackage {
 	int NUMBER_OPERATION_COUNT = QUESTION_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link survey.impl.OtherImpl <em>Other</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see survey.impl.OtherImpl
-	 * @see survey.impl.SurveyPackageImpl#getOther()
-	 * @generated
-	 */
-	int OTHER = 9;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OTHER__NAME = ITEM__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Title</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OTHER__TITLE = ITEM__TITLE;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OTHER__DESCRIPTION = ITEM__DESCRIPTION;
-
-	/**
-	 * The feature id for the '<em><b>Required</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OTHER__REQUIRED = ITEM__REQUIRED;
-
-	/**
-	 * The feature id for the '<em><b>Depends On</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OTHER__DEPENDS_ON = ITEM__DEPENDS_ON;
-
-	/**
-	 * The feature id for the '<em><b>Other</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OTHER__OTHER = ITEM_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Other Label</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OTHER__OTHER_LABEL = ITEM_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Other</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OTHER_FEATURE_COUNT = ITEM_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of operations of the '<em>Other</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OTHER_OPERATION_COUNT = ITEM_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link survey.impl.HasOptionsImpl <em>Has Options</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -994,6 +903,106 @@ public interface SurveyPackage extends EPackage {
 	 * @ordered
 	 */
 	int HAS_OPTIONS_OPERATION_COUNT = ITEM_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link survey.impl.HasOtherImpl <em>Has Other</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see survey.impl.HasOtherImpl
+	 * @see survey.impl.SurveyPackageImpl#getHasOther()
+	 * @generated
+	 */
+	int HAS_OTHER = 9;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HAS_OTHER__NAME = HAS_OPTIONS__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HAS_OTHER__TITLE = HAS_OPTIONS__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HAS_OTHER__DESCRIPTION = HAS_OPTIONS__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Required</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HAS_OTHER__REQUIRED = HAS_OPTIONS__REQUIRED;
+
+	/**
+	 * The feature id for the '<em><b>Depends On</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HAS_OTHER__DEPENDS_ON = HAS_OPTIONS__DEPENDS_ON;
+
+	/**
+	 * The feature id for the '<em><b>Options</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HAS_OTHER__OPTIONS = HAS_OPTIONS__OPTIONS;
+
+	/**
+	 * The feature id for the '<em><b>Other</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HAS_OTHER__OTHER = HAS_OPTIONS_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Other Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HAS_OTHER__OTHER_LABEL = HAS_OPTIONS_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Has Other</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HAS_OTHER_FEATURE_COUNT = HAS_OPTIONS_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Has Other</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HAS_OTHER_OPERATION_COUNT = HAS_OPTIONS_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link survey.impl.OptionImpl <em>Option</em>}' class.
@@ -1079,13 +1088,22 @@ public interface SurveyPackage extends EPackage {
 	int SINGLE__DEPENDS_ON = QUESTION__DEPENDS_ON;
 
 	/**
+	 * The feature id for the '<em><b>Options</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINGLE__OPTIONS = QUESTION_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Other</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SINGLE__OTHER = QUESTION_FEATURE_COUNT + 0;
+	int SINGLE__OTHER = QUESTION_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Other Label</b></em>' attribute.
@@ -1094,16 +1112,7 @@ public interface SurveyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SINGLE__OTHER_LABEL = QUESTION_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Options</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SINGLE__OPTIONS = QUESTION_FEATURE_COUNT + 2;
+	int SINGLE__OTHER_LABEL = QUESTION_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Single</em>' class.
@@ -1179,13 +1188,22 @@ public interface SurveyPackage extends EPackage {
 	int MULTIPLE__DEPENDS_ON = QUESTION__DEPENDS_ON;
 
 	/**
+	 * The feature id for the '<em><b>Options</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTIPLE__OPTIONS = QUESTION_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Other</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MULTIPLE__OTHER = QUESTION_FEATURE_COUNT + 0;
+	int MULTIPLE__OTHER = QUESTION_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Other Label</b></em>' attribute.
@@ -1194,16 +1212,7 @@ public interface SurveyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULTIPLE__OTHER_LABEL = QUESTION_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Options</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MULTIPLE__OPTIONS = QUESTION_FEATURE_COUNT + 2;
+	int MULTIPLE__OTHER_LABEL = QUESTION_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Min</b></em>' attribute.
@@ -1306,13 +1315,22 @@ public interface SurveyPackage extends EPackage {
 	int TABLE__DEPENDS_ON = QUESTION__DEPENDS_ON;
 
 	/**
+	 * The feature id for the '<em><b>Options</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TABLE__OPTIONS = QUESTION_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Other</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE__OTHER = QUESTION_FEATURE_COUNT + 0;
+	int TABLE__OTHER = QUESTION_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Other Label</b></em>' attribute.
@@ -1321,16 +1339,7 @@ public interface SurveyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TABLE__OTHER_LABEL = QUESTION_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Options</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TABLE__OPTIONS = QUESTION_FEATURE_COUNT + 2;
+	int TABLE__OTHER_LABEL = QUESTION_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Questions</b></em>' containment reference list.
@@ -1570,7 +1579,6 @@ public interface SurveyPackage extends EPackage {
 	 */
 	int ANSWER_TEMPLATE_OPERATION_COUNT = 0;
 
-
 	/**
 	 * The meta object id for the '{@link survey.DateMode <em>Date Mode</em>}' enum.
 	 * <!-- begin-user-doc -->
@@ -1742,15 +1750,15 @@ public interface SurveyPackage extends EPackage {
 	EClass getText();
 
 	/**
-	 * Returns the meta object for the attribute '{@link survey.Text#isMultiline <em>Multiline</em>}'.
+	 * Returns the meta object for the attribute '{@link survey.Text#isMulti <em>Multi</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Multiline</em>'.
-	 * @see survey.Text#isMultiline()
+	 * @return the meta object for the attribute '<em>Multi</em>'.
+	 * @see survey.Text#isMulti()
 	 * @see #getText()
 	 * @generated
 	 */
-	EAttribute getText_Multiline();
+	EAttribute getText_Multi();
 
 	/**
 	 * Returns the meta object for class '{@link survey.Scale <em>Scale</em>}'.
@@ -1904,36 +1912,36 @@ public interface SurveyPackage extends EPackage {
 	EAttribute getNumber_ShowLimits();
 
 	/**
-	 * Returns the meta object for class '{@link survey.Other <em>Other</em>}'.
+	 * Returns the meta object for class '{@link survey.HasOther <em>Has Other</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Other</em>'.
-	 * @see survey.Other
+	 * @return the meta object for class '<em>Has Other</em>'.
+	 * @see survey.HasOther
 	 * @generated
 	 */
-	EClass getOther();
+	EClass getHasOther();
 
 	/**
-	 * Returns the meta object for the attribute '{@link survey.Other#isOther <em>Other</em>}'.
+	 * Returns the meta object for the attribute '{@link survey.HasOther#isOther <em>Other</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Other</em>'.
-	 * @see survey.Other#isOther()
-	 * @see #getOther()
+	 * @see survey.HasOther#isOther()
+	 * @see #getHasOther()
 	 * @generated
 	 */
-	EAttribute getOther_Other();
+	EAttribute getHasOther_Other();
 
 	/**
-	 * Returns the meta object for the attribute '{@link survey.Other#getOtherLabel <em>Other Label</em>}'.
+	 * Returns the meta object for the attribute '{@link survey.HasOther#getOtherLabel <em>Other Label</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Other Label</em>'.
-	 * @see survey.Other#getOtherLabel()
-	 * @see #getOther()
+	 * @see survey.HasOther#getOtherLabel()
+	 * @see #getHasOther()
 	 * @generated
 	 */
-	EAttribute getOther_OtherLabel();
+	EAttribute getHasOther_OtherLabel();
 
 	/**
 	 * Returns the meta object for class '{@link survey.HasOptions <em>Has Options</em>}'.
@@ -2301,12 +2309,12 @@ public interface SurveyPackage extends EPackage {
 		EClass TEXT = eINSTANCE.getText();
 
 		/**
-		 * The meta object literal for the '<em><b>Multiline</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Multi</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute TEXT__MULTILINE = eINSTANCE.getText_Multiline();
+		EAttribute TEXT__MULTI = eINSTANCE.getText_Multi();
 
 		/**
 		 * The meta object literal for the '{@link survey.impl.ScaleImpl <em>Scale</em>}' class.
@@ -2427,14 +2435,14 @@ public interface SurveyPackage extends EPackage {
 		EAttribute NUMBER__SHOW_LIMITS = eINSTANCE.getNumber_ShowLimits();
 
 		/**
-		 * The meta object literal for the '{@link survey.impl.OtherImpl <em>Other</em>}' class.
+		 * The meta object literal for the '{@link survey.impl.HasOtherImpl <em>Has Other</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see survey.impl.OtherImpl
-		 * @see survey.impl.SurveyPackageImpl#getOther()
+		 * @see survey.impl.HasOtherImpl
+		 * @see survey.impl.SurveyPackageImpl#getHasOther()
 		 * @generated
 		 */
-		EClass OTHER = eINSTANCE.getOther();
+		EClass HAS_OTHER = eINSTANCE.getHasOther();
 
 		/**
 		 * The meta object literal for the '<em><b>Other</b></em>' attribute feature.
@@ -2442,7 +2450,7 @@ public interface SurveyPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute OTHER__OTHER = eINSTANCE.getOther_Other();
+		EAttribute HAS_OTHER__OTHER = eINSTANCE.getHasOther_Other();
 
 		/**
 		 * The meta object literal for the '<em><b>Other Label</b></em>' attribute feature.
@@ -2450,7 +2458,7 @@ public interface SurveyPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute OTHER__OTHER_LABEL = eINSTANCE.getOther_OtherLabel();
+		EAttribute HAS_OTHER__OTHER_LABEL = eINSTANCE.getHasOther_OtherLabel();
 
 		/**
 		 * The meta object literal for the '{@link survey.impl.HasOptionsImpl <em>Has Options</em>}' class.

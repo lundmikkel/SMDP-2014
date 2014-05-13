@@ -18,9 +18,9 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import survey.HasOptions;
+import survey.HasOther;
 import survey.Multiple;
 import survey.Option;
-import survey.Other;
 import survey.SurveyPackage;
 
 /**
@@ -30,9 +30,9 @@ import survey.SurveyPackage;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link survey.impl.MultipleImpl#getOptions <em>Options</em>}</li>
  *   <li>{@link survey.impl.MultipleImpl#isOther <em>Other</em>}</li>
  *   <li>{@link survey.impl.MultipleImpl#getOtherLabel <em>Other Label</em>}</li>
- *   <li>{@link survey.impl.MultipleImpl#getOptions <em>Options</em>}</li>
  *   <li>{@link survey.impl.MultipleImpl#getMin <em>Min</em>}</li>
  *   <li>{@link survey.impl.MultipleImpl#getMax <em>Max</em>}</li>
  *   <li>{@link survey.impl.MultipleImpl#isShowLimits <em>Show Limits</em>}</li>
@@ -42,6 +42,16 @@ import survey.SurveyPackage;
  * @generated
  */
 public class MultipleImpl extends QuestionImpl implements Multiple {
+	/**
+	 * The cached value of the '{@link #getOptions() <em>Options</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOptions()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Option> options;
+
 	/**
 	 * The default value of the '{@link #isOther() <em>Other</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -81,16 +91,6 @@ public class MultipleImpl extends QuestionImpl implements Multiple {
 	 * @ordered
 	 */
 	protected String otherLabel = OTHER_LABEL_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getOptions() <em>Options</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOptions()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Option> options;
 
 	/**
 	 * The default value of the '{@link #getMin() <em>Min</em>}' attribute.
@@ -176,6 +176,18 @@ public class MultipleImpl extends QuestionImpl implements Multiple {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Option> getOptions() {
+		if (options == null) {
+			options = new EObjectContainmentEList<Option>(Option.class, this, SurveyPackage.MULTIPLE__OPTIONS);
+		}
+		return options;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean isOther() {
 		return other;
 	}
@@ -211,18 +223,6 @@ public class MultipleImpl extends QuestionImpl implements Multiple {
 		otherLabel = newOtherLabel;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SurveyPackage.MULTIPLE__OTHER_LABEL, oldOtherLabel, otherLabel));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Option> getOptions() {
-		if (options == null) {
-			options = new EObjectContainmentEList<Option>(Option.class, this, SurveyPackage.MULTIPLE__OPTIONS);
-		}
-		return options;
 	}
 
 	/**
@@ -310,12 +310,12 @@ public class MultipleImpl extends QuestionImpl implements Multiple {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case SurveyPackage.MULTIPLE__OPTIONS:
+				return getOptions();
 			case SurveyPackage.MULTIPLE__OTHER:
 				return isOther();
 			case SurveyPackage.MULTIPLE__OTHER_LABEL:
 				return getOtherLabel();
-			case SurveyPackage.MULTIPLE__OPTIONS:
-				return getOptions();
 			case SurveyPackage.MULTIPLE__MIN:
 				return getMin();
 			case SurveyPackage.MULTIPLE__MAX:
@@ -335,15 +335,15 @@ public class MultipleImpl extends QuestionImpl implements Multiple {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case SurveyPackage.MULTIPLE__OPTIONS:
+				getOptions().clear();
+				getOptions().addAll((Collection<? extends Option>)newValue);
+				return;
 			case SurveyPackage.MULTIPLE__OTHER:
 				setOther((Boolean)newValue);
 				return;
 			case SurveyPackage.MULTIPLE__OTHER_LABEL:
 				setOtherLabel((String)newValue);
-				return;
-			case SurveyPackage.MULTIPLE__OPTIONS:
-				getOptions().clear();
-				getOptions().addAll((Collection<? extends Option>)newValue);
 				return;
 			case SurveyPackage.MULTIPLE__MIN:
 				setMin((Integer)newValue);
@@ -366,14 +366,14 @@ public class MultipleImpl extends QuestionImpl implements Multiple {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case SurveyPackage.MULTIPLE__OPTIONS:
+				getOptions().clear();
+				return;
 			case SurveyPackage.MULTIPLE__OTHER:
 				setOther(OTHER_EDEFAULT);
 				return;
 			case SurveyPackage.MULTIPLE__OTHER_LABEL:
 				setOtherLabel(OTHER_LABEL_EDEFAULT);
-				return;
-			case SurveyPackage.MULTIPLE__OPTIONS:
-				getOptions().clear();
 				return;
 			case SurveyPackage.MULTIPLE__MIN:
 				setMin(MIN_EDEFAULT);
@@ -396,12 +396,12 @@ public class MultipleImpl extends QuestionImpl implements Multiple {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case SurveyPackage.MULTIPLE__OPTIONS:
+				return options != null && !options.isEmpty();
 			case SurveyPackage.MULTIPLE__OTHER:
 				return other != OTHER_EDEFAULT;
 			case SurveyPackage.MULTIPLE__OTHER_LABEL:
 				return OTHER_LABEL_EDEFAULT == null ? otherLabel != null : !OTHER_LABEL_EDEFAULT.equals(otherLabel);
-			case SurveyPackage.MULTIPLE__OPTIONS:
-				return options != null && !options.isEmpty();
 			case SurveyPackage.MULTIPLE__MIN:
 				return MIN_EDEFAULT == null ? min != null : !MIN_EDEFAULT.equals(min);
 			case SurveyPackage.MULTIPLE__MAX:
@@ -419,16 +419,16 @@ public class MultipleImpl extends QuestionImpl implements Multiple {
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == Other.class) {
-			switch (derivedFeatureID) {
-				case SurveyPackage.MULTIPLE__OTHER: return SurveyPackage.OTHER__OTHER;
-				case SurveyPackage.MULTIPLE__OTHER_LABEL: return SurveyPackage.OTHER__OTHER_LABEL;
-				default: return -1;
-			}
-		}
 		if (baseClass == HasOptions.class) {
 			switch (derivedFeatureID) {
 				case SurveyPackage.MULTIPLE__OPTIONS: return SurveyPackage.HAS_OPTIONS__OPTIONS;
+				default: return -1;
+			}
+		}
+		if (baseClass == HasOther.class) {
+			switch (derivedFeatureID) {
+				case SurveyPackage.MULTIPLE__OTHER: return SurveyPackage.HAS_OTHER__OTHER;
+				case SurveyPackage.MULTIPLE__OTHER_LABEL: return SurveyPackage.HAS_OTHER__OTHER_LABEL;
 				default: return -1;
 			}
 		}
@@ -442,16 +442,16 @@ public class MultipleImpl extends QuestionImpl implements Multiple {
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == Other.class) {
-			switch (baseFeatureID) {
-				case SurveyPackage.OTHER__OTHER: return SurveyPackage.MULTIPLE__OTHER;
-				case SurveyPackage.OTHER__OTHER_LABEL: return SurveyPackage.MULTIPLE__OTHER_LABEL;
-				default: return -1;
-			}
-		}
 		if (baseClass == HasOptions.class) {
 			switch (baseFeatureID) {
 				case SurveyPackage.HAS_OPTIONS__OPTIONS: return SurveyPackage.MULTIPLE__OPTIONS;
+				default: return -1;
+			}
+		}
+		if (baseClass == HasOther.class) {
+			switch (baseFeatureID) {
+				case SurveyPackage.HAS_OTHER__OTHER: return SurveyPackage.MULTIPLE__OTHER;
+				case SurveyPackage.HAS_OTHER__OTHER_LABEL: return SurveyPackage.MULTIPLE__OTHER_LABEL;
 				default: return -1;
 			}
 		}

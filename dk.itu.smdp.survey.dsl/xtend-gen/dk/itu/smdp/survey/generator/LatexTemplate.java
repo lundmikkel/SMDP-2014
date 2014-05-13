@@ -153,8 +153,8 @@ public class LatexTemplate extends SurveyTemplate {
     CharSequence _xblockexpression = null;
     {
       int _xifexpression = (int) 0;
-      boolean _isMultiline = text.isMultiline();
-      if (_isMultiline) {
+      boolean _isMulti = text.isMulti();
+      if (_isMulti) {
         _xifexpression = 3;
       } else {
         _xifexpression = 1;
@@ -969,34 +969,34 @@ public class LatexTemplate extends SurveyTemplate {
     }
   }
   
-  public CharSequence genLatex(final Item date, final String dependsOn, final boolean required, final String pid) {
-    if (date instanceof Date) {
-      return _genLatex((Date)date, dependsOn, required, pid);
-    } else if (date instanceof Multiple) {
-      return _genLatex((Multiple)date, dependsOn, required, pid);
-    } else if (date instanceof survey.Number) {
-      return _genLatex((survey.Number)date, dependsOn, required, pid);
-    } else if (date instanceof Scale) {
-      return _genLatex((Scale)date, dependsOn, required, pid);
-    } else if (date instanceof Single) {
-      return _genLatex((Single)date, dependsOn, required, pid);
-    } else if (date instanceof Table) {
-      return _genLatex((Table)date, dependsOn, required, pid);
-    } else if (date instanceof Text) {
-      return _genLatex((Text)date, dependsOn, required, pid);
-    } else if (date instanceof Group) {
-      return _genLatex((Group)date, dependsOn, required, pid);
+  public CharSequence genLatex(final Item question, final String dependsOn, final boolean required, final String pid) {
+    if (question instanceof Multiple) {
+      return _genLatex((Multiple)question, dependsOn, required, pid);
+    } else if (question instanceof Single) {
+      return _genLatex((Single)question, dependsOn, required, pid);
+    } else if (question instanceof Table) {
+      return _genLatex((Table)question, dependsOn, required, pid);
+    } else if (question instanceof Date) {
+      return _genLatex((Date)question, dependsOn, required, pid);
+    } else if (question instanceof survey.Number) {
+      return _genLatex((survey.Number)question, dependsOn, required, pid);
+    } else if (question instanceof Scale) {
+      return _genLatex((Scale)question, dependsOn, required, pid);
+    } else if (question instanceof Text) {
+      return _genLatex((Text)question, dependsOn, required, pid);
+    } else if (question instanceof Group) {
+      return _genLatex((Group)question, dependsOn, required, pid);
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
-        Arrays.<Object>asList(date, dependsOn, required, pid).toString());
+        Arrays.<Object>asList(question, dependsOn, required, pid).toString());
     }
   }
   
   public CharSequence genDependsOnString(final Item question, final String qid, final String uid) {
-    if (question instanceof Scale) {
-      return _genDependsOnString((Scale)question, qid, uid);
-    } else if (question instanceof Table) {
+    if (question instanceof Table) {
       return _genDependsOnString((Table)question, qid, uid);
+    } else if (question instanceof Scale) {
+      return _genDependsOnString((Scale)question, qid, uid);
     } else if (question instanceof HasOptions) {
       return _genDependsOnString((HasOptions)question, qid, uid);
     } else if (question instanceof Question) {
@@ -1007,31 +1007,31 @@ public class LatexTemplate extends SurveyTemplate {
     }
   }
   
-  public void genUniqueIds(final EObject scale, final String userPid, final String uniquePid) {
-    if (scale instanceof Scale) {
-      _genUniqueIds((Scale)scale, userPid, uniquePid);
+  public void genUniqueIds(final EObject table, final String userPid, final String uniquePid) {
+    if (table instanceof Table) {
+      _genUniqueIds((Table)table, userPid, uniquePid);
       return;
-    } else if (scale instanceof Table) {
-      _genUniqueIds((Table)scale, userPid, uniquePid);
+    } else if (table instanceof Scale) {
+      _genUniqueIds((Scale)table, userPid, uniquePid);
       return;
-    } else if (scale instanceof Group) {
-      _genUniqueIds((Group)scale, userPid, uniquePid);
+    } else if (table instanceof Group) {
+      _genUniqueIds((Group)table, userPid, uniquePid);
       return;
-    } else if (scale instanceof HasOptions) {
-      _genUniqueIds((HasOptions)scale, userPid, uniquePid);
+    } else if (table instanceof HasOptions) {
+      _genUniqueIds((HasOptions)table, userPid, uniquePid);
       return;
-    } else if (scale instanceof Question) {
-      _genUniqueIds((Question)scale, userPid, uniquePid);
+    } else if (table instanceof Question) {
+      _genUniqueIds((Question)table, userPid, uniquePid);
       return;
-    } else if (scale instanceof Answer) {
-      _genUniqueIds((Answer)scale, userPid, uniquePid);
+    } else if (table instanceof Answer) {
+      _genUniqueIds((Answer)table, userPid, uniquePid);
       return;
-    } else if (scale instanceof AnswerTemplateRef) {
-      _genUniqueIds((AnswerTemplateRef)scale, userPid, uniquePid);
+    } else if (table instanceof AnswerTemplateRef) {
+      _genUniqueIds((AnswerTemplateRef)table, userPid, uniquePid);
       return;
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
-        Arrays.<Object>asList(scale, userPid, uniquePid).toString());
+        Arrays.<Object>asList(table, userPid, uniquePid).toString());
     }
   }
 }

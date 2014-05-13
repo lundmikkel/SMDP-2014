@@ -12,11 +12,11 @@ import survey.AnswerTemplateRef;
 import survey.Date;
 import survey.Group;
 import survey.HasOptions;
+import survey.HasOther;
 import survey.Item;
 import survey.Meta;
 import survey.Multiple;
 import survey.Option;
-import survey.Other;
 import survey.Question;
 import survey.Scale;
 import survey.Single;
@@ -119,8 +119,8 @@ public class SurveyAdapterFactory extends AdapterFactoryImpl {
 				return createNumberAdapter();
 			}
 			@Override
-			public Adapter caseOther(Other object) {
-				return createOtherAdapter();
+			public Adapter caseHasOther(HasOther object) {
+				return createHasOtherAdapter();
 			}
 			@Override
 			public Adapter caseHasOptions(HasOptions object) {
@@ -319,6 +319,20 @@ public class SurveyAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link survey.HasOther <em>Has Other</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see survey.HasOther
+	 * @generated
+	 */
+	public Adapter createHasOtherAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link survey.Scale <em>Scale</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -343,20 +357,6 @@ public class SurveyAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createAnswerAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link survey.Other <em>Other</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see survey.Other
-	 * @generated
-	 */
-	public Adapter createOtherAdapter() {
 		return null;
 	}
 
